@@ -6,8 +6,8 @@ import re
 import os
 
 # ---------- Environment variables ----------
-BOT_TOKEN = os.environ.get("7765680763:AAHHHyBUV0Y6juvisrsIwWkJdSyM8ofmUMw")
-CHANNEL_ID = os.environ.get("@budgetdeals_india")  # e.g., @budgetdeals_india
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
+CHANNEL_ID = os.environ.get("CHANNEL_ID")  # e.g., @budgetdeals_india
 
 # ---------- Helper function ----------
 def escape_md2(text):
