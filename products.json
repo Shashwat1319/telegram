@@ -1,0 +1,19 @@
+{
+  "products": [
+    {
+      "name": "Boat Airdopes 141",
+      "price": "₹899",
+      "link": "https://www.amazon.in/dp/B09FG1QVP9"
+    },
+    {
+      "name": "Noise ColorFit Pulse 3",
+      "price": "₹1299",
+      "link": "https://www.amazon.in/dp/B0B7C6LJ7Z"
+    },
+    {
+      "name": "HP Wired Keyboard",
+      "price": "₹249",
+      "link": "https://www.amazon.in/dp/B07X4RL4K9"
+    }
+  ]
+}
