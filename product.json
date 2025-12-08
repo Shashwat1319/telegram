@@ -1,0 +1,324 @@
+{
+    "products": [
+        {
+            "name": "boAt Airdopes 141",
+            "price": "₹899",
+            "link": "https://amzn.to/4pYjwMT"
+        },
+        {
+            "name": "Noise ColorFit Pulse 3",
+            "price": "₹1,099",
+            "link": "https://amzn.to/4rJJGo9"
+        },
+        {
+            "name": "HP Wired Keyboard",
+            "price": "₹599",
+            "link": "https://amzn.to/4oKdGxA"
+        },
+        {
+            "name": "OnePlus Nord CE5",
+            "price": "₹24,998",
+            "link": "https://amzn.to/4j2rvq1"
+        },
+        {
+            "name": "iQOO 15 Alpha",
+            "price": "₹72,999",
+            "link": "https://amzn.to/49YwFAI"
+        },
+        {
+            "name": "LOOM & NEEDLES Orthopedic Mattress",
+            "price": "₹7,698",
+            "link": ""
+        },
+        {
+            "name": "LG 55\" 4K Smart LED TV",
+            "price": "₹39,990",
+            "link": ""
+        },
+        {
+            "name": "Noise Twist Smartwatch",
+            "price": "₹1,299",
+            "link": ""
+        },
+        {
+            "name": "ECOVACS DEEBOT N30 Plus Robot Vacuum",
+            "price": "₹29,999",
+            "link": ""
+        },
+        {
+            "name": "OnePlus 13R",
+            "price": "₹39,999",
+            "link": ""
+        },
+        {
+            "name": "Noise Pulse 2 Max Smartwatch",
+            "price": "₹1,199",
+            "link": ""
+        },
+        {
+            "name": "Samsung Galaxy M14",
+            "price": "₹12,999",
+            "link": ""
+        },
+        {
+            "name": "Redmi Note 12",
+            "price": "₹11,999",
+            "link": ""
+        },
+        {
+            "name": "boAt Rockerz 450 Headphones",
+            "price": "₹1,499",
+            "link": ""
+        },
+        {
+            "name": "Mi Band 7",
+            "price": "₹2,299",
+            "link": ""
+        },
+        {
+            "name": "Realme Narzo 60x",
+            "price": "₹10,999",
+            "link": ""
+        },
+        {
+            "name": "Sony Bravia 43\" LED TV",
+            "price": "₹32,999",
+            "link": ""
+        },
+        {
+            "name": "Philips 2-in-1 Hand Blender",
+            "price": "₹1,299",
+            "link": ""
+        },
+        {
+            "name": "Syska LED Tube Light",
+            "price": "₹199",
+            "link": ""
+        },
+        {
+            "name": "Havit Mechanical Keyboard",
+            "price": "₹999",
+            "link": ""
+        },
+        {
+            "name": "Logitech M221 Silent Mouse",
+            "price": "₹699",
+            "link": ""
+        },
+        {
+            "name": "Canon PIXMA MG2577S Printer",
+            "price": "₹4,999",
+            "link": ""
+        },
+        {
+            "name": "HP 1010 Laser Printer",
+            "price": "₹5,999",
+            "link": ""
+        },
+        {
+            "name": "Dell Inspiron 15 Laptop",
+            "price": "₹45,999",
+            "link": ""
+        },
+        {
+            "name": "Lenovo IdeaPad 3 Laptop",
+            "price": "₹38,999",
+            "link": ""
+        },
+        {
+            "name": "boAt BassHeads 225 Headphones",
+            "price": "₹499",
+            "link": ""
+        },
+        {
+            "name": "Noise ColorFit Pro 3",
+            "price": "₹1,499",
+            "link": ""
+        },
+        {
+            "name": "Redmi Smart Band 2",
+            "price": "₹1,199",
+            "link": ""
+        },
+        {
+            "name": "Samsung Galaxy Watch 5",
+            "price": "₹21,999",
+            "link": ""
+        },
+        {
+            "name": "Apple AirPods Pro",
+            "price": "₹23,999",
+            "link": ""
+        },
+        {
+            "name": "boAt Airdopes 141 Pro",
+            "price": "₹1,099",
+            "link": ""
+        },
+        {
+            "name": "Realme Buds 3 Neo",
+            "price": "₹899",
+            "link": ""
+        },
+        {
+            "name": "Mi True Wireless Earphones 2",
+            "price": "₹1,499",
+            "link": ""
+        },
+        {
+            "name": "JBL C100TWS Earbuds",
+            "price": "₹1,299",
+            "link": ""
+        },
+        {
+            "name": "boAt Rockerz 510 Wireless Headphones",
+            "price": "₹1,699",
+            "link": ""
+        },
+        {
+            "name": "Sony WH-CH510 Headphones",
+            "price": "₹1,499",
+            "link": ""
+        },
+        {
+            "name": "Logitech K120 Keyboard",
+            "price": "₹599",
+            "link": "https://amzn.to/4oIJIKl"
+        },
+        {
+            "name": "Zebronics Zeb-KM2100 Keyboard Mouse Combo",
+            "price": "₹899",
+            "link": ""
+        },
+        {
+            "name": "Canon EOS 1500D DSLR Camera",
+            "price": "₹27,999",
+            "link": ""
+        },
+        {
+            "name": "Nikon D3500 DSLR Camera",
+            "price": "₹29,999",
+            "link": ""
+        },
+        {
+            "name": "Samsung Galaxy F23",
+            "price": "₹13,999",
+            "link": ""
+        },
+        {
+            "name": "OnePlus 11R",
+            "price": "₹39,999",
+            "link": ""
+        },
+        {
+            "name": "iQOO Z10x 5G",
+            "price": "₹16,999",
+            "link": ""
+        },
+        {
+            "name": "Noise ColorFit Pulse Grand Smartwatch",
+            "price": "₹1,399",
+            "link": ""
+        },
+        {
+            "name": "boAt Xtend Smartwatch",
+            "price": "₹2,499",
+            "link": ""
+        },
+        {
+            "name": "Fossil Gen 6 Smartwatch",
+            "price": "₹18,999",
+            "link": ""
+        },
+        {
+            "name": "Philips HL7570/00 Juicer",
+            "price": "₹2,499",
+            "link": ""
+        },
+        {
+            "name": "Prestige Pressure Cooker",
+            "price": "₹1,299",
+            "link": ""
+        },
+        {
+            "name": "Bajaj Mixer Grinder",
+            "price": "₹2,199",
+            "link": ""
+        },
+        {
+            "name": "Havells Copper 15L Water Heater",
+            "price": "₹5,999",
+            "link": ""
+        },
+        {
+            "name": "Usha Sewing Machine",
+            "price": "₹4,499",
+            "link": ""
+        },
+        {
+            "name": "Inalsa Table Top Induction Cooktop",
+            "price": "₹1,999",
+            "link": ""
+        },
+        {
+            "name": "Kent RO Water Purifier",
+            "price": "₹12,999",
+            "link": ""
+        },
+        {
+            "name": "Mi Robot Vacuum-Mop Essential",
+            "price": "₹14,999",
+            "link": ""
+        },
+        {
+            "name": "Eureka Forbes Quick Clean Vacuum",
+            "price": "₹11,999",
+            "link": ""
+        },
+        {
+            "name": "Syska Smart WiFi LED Bulb",
+            "price": "₹299",
+            "link": ""
+        },
+        {
+            "name": "TP-Link TL-WR840N Router",
+            "price": "₹899",
+            "link": ""
+        },
+        {
+            "name": "D-Link DIR-615 Router",
+            "price": "₹999",
+            "link": ""
+        },
+        {
+            "name": "Philips Daily Collection Toaster",
+            "price": "₹1,299",
+            "link": ""
+        },
+        {
+            "name": "Morphy Richards Kettle",
+            "price": "₹1,099",
+            "link": ""
+        },
+        {
+            "name": "Panasonic Hair Dryer",
+            "price": "₹1,499",
+            "link": ""
+        },
+        {
+            "name": "Philips Trimmer MG3720",
+            "price": "₹999",
+            "link": ""
+        },
+        {
+            "name": "Mi Electric Scooter 1S",
+            "price": "₹59,999",
+            "link": ""
+        },
+        {
+            "name": "Segway Ninebot KickScooter",
+            "price": "₹64,999",
+            "link": ""
+        }
+    ]
+}
