@@ -13,20 +13,57 @@ def load_products():
     with open("products.json", "r") as f:
         return json.load(f)["products"]
 
-# ---------- Generate message ----------
+# ---------- Templates ----------
+def template_1(name, price, link):
+    return (
+        f"🔥 **TODAY'S BEST DEAL** 🔥\n\n"
+        f"💰 *Price Drop Alert!*\n"
+        f"👉 **{name}** अब सिर्फ **{price}**\n\n"
+        f"⭐ Highlights:\n"
+        f"• High demand item\n"
+        f"• Budget-friendly\n"
+        f"• Limited-time discount\n\n"
+        f"🔗 Deal Link: {link}\n\n"
+        f"⚠️ Price कभी भी बढ़ सकता है — अभी ले लो।"
+    )
+
+def template_2(name, price, link):
+    return (
+        f"⚡ **LIMITED TIME OFFER** ⚡\n\n"
+        f"🛍️ Product: **{name}**\n"
+        f"💵 Offer Price: **{price}**\n\n"
+        f"🔥 Why grab it now?\n"
+        f"• Massive price drop\n"
+        f"• Trusted Amazon delivery\n"
+        f"• Stock selling fast\n\n"
+        f"👉 Buy Now: {link}\n\n"
+        f"⏳ Hurry! Deal live for a short time only."
+    )
+
+def template_3(name, price, link):
+    return (
+        f"💥 **STEAL DEAL ALERT!** 💥\n\n"
+        f"🎯 {name}\n"
+        f"💸 Current Price: **{price}**\n\n"
+        f"✨ Benefits:\n"
+        f"• Value for money\n"
+        f"• Best seller item\n"
+        f"• Fast shipping available\n\n"
+        f"🔗 Direct Purchase Link: {link}\n\n"
+        f"🚨 Do not miss it — deals like this do not stay long!"
+    )
+
+# List of templates
+TEMPLATES = [template_1, template_2, template_3]
+
+# ---------- Generate message (random template) ----------
 def generate_message(product):
     name = product['name']
     price = product['price']
     link = product['link']
 
-    return (
-        f"🔥 LIMITED TIME DEAL! 🔥\n\n"
-        f"💎 {name} अभी सिर्फ {price} में\n"
-        f"⏰ Hurry up! Stock सीमित है – खत्म होने से पहले खरीदें\n"
-        f"💸 Best price guaranteed – सिर्फ आज\n\n"
-        f"👉 Click Here to Grab it Now: {link}\n\n"
-        f"✅ जल्दी लें, इस शानदार deal को मिस मत करें"
-    )
+    chosen_template = random.choice(TEMPLATES)
+    return chosen_template(name, price, link)
 
 # ---------- Post deals ----------
 async def post_deals():
