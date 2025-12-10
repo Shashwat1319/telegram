@@ -1,6 +1,6 @@
 {
   "products": [
-     {
+    {
       "name": "Logitech K120 Keyboard",
       "price": "₹599",
       "link": "https://amzn.to/4oIJIKl"
@@ -16,14 +16,14 @@
       "link": "https://amzn.to/3YaNq4u"
     },
     {
-            "name": "OnePlus Nord CE5",
-            "price": "₹24,998",
-            "link": "https://amzn.to/4j2rvq1"
-        },
-        {
-            "name": "iQOO 15 Alpha",
-            "price": "₹72,999",
-            "link": "https://amzn.to/49YwFAI"
-        }
+      "name": "OnePlus Nord CE5",
+      "price": "₹24,998",
+      "link": "https://amzn.to/4j2rvq1"
+    },
+    {
+      "name": "iQOO 15 Alpha",
+      "price": "₹72,999",
+      "link": "https://amzn.to/49YwFAI"
+    }
   ]
 }
