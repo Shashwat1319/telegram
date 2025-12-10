@@ -16,9 +16,9 @@ def load_products():
 # ---------- Templates ----------
 def template_1(name, price, link):
     return (
-        f"🔥 **TODAY'S BEST DEAL** 🔥\n\n"
-        f"💰 *Price Drop Alert!*\n"
-        f"👉 **{name}** अब सिर्फ **{price}**\n\n"
+        f"🔥 TODAY'S BEST DEAL 🔥\n\n"
+        f"💰 Price Drop Alert!\n"
+        f"👉 {name} अब सिर्फ {price}\n\n"
         f"⭐ Highlights:\n"
         f"• High demand item\n"
         f"• Budget-friendly\n"
@@ -29,9 +29,9 @@ def template_1(name, price, link):
 
 def template_2(name, price, link):
     return (
-        f"⚡ **LIMITED TIME OFFER** ⚡\n\n"
-        f"🛍️ Product: **{name}**\n"
-        f"💵 Offer Price: **{price}**\n\n"
+        f"⚡ LIMITED TIME OFFER ⚡\n\n"
+        f"🛍️ Product: {name}\n"
+        f"💵 Offer Price: {price}\n\n"
         f"🔥 Why grab it now?\n"
         f"• Massive price drop\n"
         f"• Trusted Amazon delivery\n"
@@ -42,9 +42,9 @@ def template_2(name, price, link):
 
 def template_3(name, price, link):
     return (
-        f"💥 **STEAL DEAL ALERT!** 💥\n\n"
+        f"💥 STEAL DEAL ALERT! 💥\n\n"
         f"🎯 {name}\n"
-        f"💸 Current Price: **{price}**\n\n"
+        f"💸 Current Price: {price}\n\n"
         f"✨ Benefits:\n"
         f"• Value for money\n"
         f"• Best seller item\n"
