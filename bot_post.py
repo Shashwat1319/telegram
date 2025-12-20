@@ -10,7 +10,7 @@ CHANNEL_ID = os.environ.get("CHANNEL_ID")  # e.g., @budgetdeals_india
 
 # ---------- Load products ----------
 def load_products():
-    with open("products.json", "r") as f:
+    with open("product.json", "r") as f:
         return json.load(f)["products"]
 
 # ---------- Templates ----------
