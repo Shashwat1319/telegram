@@ -3,10 +3,14 @@ import random
 import asyncio
 from telegram import Bot
 import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # ---------- Environment variables ----------
-BOT_TOKEN = os.environ.get("BOT_TOKEN")
-CHANNEL_ID = os.environ.get("CHANNEL_ID")  # e.g., @budgetdeals_india
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+CHANNEL_ID = os.getenv("CHANNEL_ID")  # e.g., @budgetdeals_india
 
 # ---------- Load products ----------
 def load_products():

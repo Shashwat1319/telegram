@@ -102,22 +102,32 @@ def extract_products_with_ai(html_content, retry_count=0):
         print(f"Error with AI extraction: {e}")
         return []
 
+def clean_amazon_link(link, tag):
+    """Convert any Amazon link to a clean canonical DP link with affiliate tag."""
+    import re
+    # Extract ASIN (10-character alphanumeric starting with B or numeric)
+    asin_match = re.search(r'/(?:dp|gp/product)/([A-Z0-9]{10})', link)
+    if asin_match:
+        asin = asin_match.group(1)
+        domain = "amazon.in" if "amazon.in" in link else "amazon.com"
+        return f"https://www.{domain}/dp/{asin}?tag={tag}"
+    
+    # If ASIN extraction fails, at least ensure it's a full URL
+    if not link.startswith("http"):
+        domain = "www.amazon.in" # Default
+        link = f"https://{domain}{link if link.startswith('/') else '/' + link}"
+    
+    # Add tag if missing
+    if "tag=" not in link:
+        link += ("&" if "?" in link else "?") + f"tag={tag}"
+    return link
+
 def add_affiliate_tags(products):
-    """Append affiliate tags to links."""
+    """Clean links and append affiliate tags."""
     for product in products:
         link = product['link']
-        if "amazon.in" in link:
-            tag = AFFILIATE_ID_IN
-        elif "amazon.com" in link:
-            tag = AFFILIATE_ID_COM
-        else:
-            continue
-        
-        # Simple tag appending logic
-        if "?" in link:
-            product['link'] = f"{link}&tag={tag}"
-        else:
-            product['link'] = f"{link}?tag={tag}"
+        tag = AFFILIATE_ID_IN if "amazon.in" in link or "amazon.in" not in link and "amazon.com" not in link else AFFILIATE_ID_COM
+        product['link'] = clean_amazon_link(link, tag)
     return products
 
 def update_json(new_products):
