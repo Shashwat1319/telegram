@@ -70,8 +70,9 @@ async def post_deals():
     bot = Bot(BOT_TOKEN)
     products = load_products()
     try:
-        for i in range(3):
-            product = random.choice(products)
+        # Post the top 3 (newest) products found
+        for i in range(min(3, len(products))):
+            product = products[i]
             msg = generate_message(product)
             try:
                 await bot.send_message(

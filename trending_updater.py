@@ -163,8 +163,16 @@ def main():
             products = add_affiliate_tags(products)
             updated = update_json(products)
             if updated:
-                print("New products found. Syncing with Git...")
+                print("New products found. Syncing with Git and Telegram...")
                 git_push_changes()
+                
+                # Trigger the Telegram bot
+                print("Triggering Telegram bot...")
+                try:
+                    # We use 'py' because that's our working command
+                    subprocess.run(["py", "bot_post.py"], check=True)
+                except Exception as e:
+                    print(f"Error triggering bot: {e}")
             else:
                 print("No new products to add.")
         else:
