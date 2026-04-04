@@ -22,11 +22,15 @@ def get_amazon_trending(category_url):
         "Accept-Language": "en-US,en;q=0.9",
     }
     try:
-        response = requests.get(category_url, headers=headers)
+        response = requests.get(category_url, headers=headers, timeout=15)
         if response.status_code != 200:
             print(f"Failed to fetch {category_url}: Status {response.status_code}")
             return None
-        return response.text
+        html = response.text
+        print(f"Successfully fetched {category_url}. HTML Length: {len(html)}")
+        if "api-services-support@amazon.com" in html or "captcha" in html.lower():
+            print(f"⚠️ Warning: Amazon might be blocking this request (CAPTCHA/Bot Detection detected).")
+        return html
     except Exception as e:
         print(f"Error scraping {category_url}: {e}")
         return None
@@ -173,7 +177,8 @@ def main():
     
     any_new = False
     for url in categories:
-        print(f"Syncing category: {url.split('/')[-1]}...")
+        cat_name = url.split('/')[-1]
+        print(f"Syncing category: {cat_name}...")
         html = get_amazon_trending(url)
         if html:
             products = extract_products_with_ai(html)
@@ -182,15 +187,20 @@ def main():
                 if update_json(products):
                     any_new = True
             else:
-                print(f"AI failed for {url}")
-        time.sleep(2) # Be nice to Amazon
+                print(f"AI failed for {cat_name}")
+        
+        # Random delay to avoid detection
+        delay = random.randint(5, 12)
+        print(f"Waiting {delay}s before next category...")
+        time.sleep(delay)
 
     if any_new:
         print("New products found. Syncing with Git and Telegram...")
         git_push_changes()
         print("Triggering Telegram bot...")
         try:
-            subprocess.run(["py", "bot_post.py"], check=True)
+            import sys
+            subprocess.run([sys.executable, "bot_post.py"], check=True)
         except Exception as e:
             print(f"Error triggering bot: {e}")
     else:
