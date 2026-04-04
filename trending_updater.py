@@ -58,8 +58,8 @@ def preprocess_html(html_content):
 
 def extract_products_with_ai(html_content, retry_count=0):
     """Use Gemini API via requests to extract product details with retry logic."""
-    # Using stable 2.0-flash and 1.5-flash models
-    models = ["gemini-2.0-flash-exp", "gemini-1.5-flash", "gemini-2.0-flash"]
+    # Using the latest April 2026 stable models
+    models = ["gemini-2.5-flash", "gemini-2.5-flash-lite", "gemini-3.1-flash-lite-preview"]
     model = models[retry_count % len(models)]
     
     # Pre-process HTML on the first try
