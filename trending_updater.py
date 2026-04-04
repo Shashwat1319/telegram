@@ -34,12 +34,21 @@ def get_amazon_trending():
 
 def extract_products_with_ai(html_content, retry_count=0):
     """Use Gemini API via requests to extract product details with retry logic."""
-    # List of models to try in order of preference
-    models = ["gemini-2.0-flash", "gemini-pro", "gemini-1.5-flash", "gemini-1.5-pro"]
+    # Comprehensive list of potential models
+    models = [
+        "gemini-2.0-flash", 
+        "gemini-1.5-flash", 
+        "gemini-1.5-flash-8b", 
+        "gemini-1.5-pro", 
+        "gemini-1.0-pro",
+        "gemini-pro"
+    ]
     model = models[retry_count % len(models)]
     
-    # Try both v1beta and v1 endpoints
-    version = "v1beta" if retry_count < 2 else "v1"
+    # Cycle through API versions
+    versions = ["v1beta", "v1"]
+    version = versions[(retry_count // len(models)) % len(versions)]
+    
     url = f"https://generativelanguage.googleapis.com/{version}/models/{model}:generateContent?key={GEMINI_API_KEY}"
     
     prompt = f"""
