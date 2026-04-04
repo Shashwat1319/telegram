@@ -34,7 +34,7 @@ def get_amazon_trending():
 
 def extract_products_with_ai(html_content):
     """Use Gemini API via requests to extract product details from HTML."""
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}"
+    url = f"https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}"
     
     prompt = f"""
     Analyze the following HTML content from an Amazon Best Sellers/Movers & Shakers page.
