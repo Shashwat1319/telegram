@@ -36,26 +36,51 @@ def get_amazon_trending(category_url):
         print(f"Error scraping {category_url}: {e}")
         return None
 
+def preprocess_html(html_content):
+    """Extract only product boxes to reduce HTML size for AI."""
+    try:
+        soup = BeautifulSoup(html_content, 'html.parser')
+        # Product boxes on Amazon India Movers & Shakers
+        wrappers = soup.select('.p13n-sc-uncentered-wrapper')
+        if not wrappers:
+            # Fallback for different layouts
+            wrappers = soup.select('.a-list-item')
+            
+        cleaned_html = ""
+        for i, wrap in enumerate(wrappers[:10]): # Only top 10 to keep it tiny
+            cleaned_html += str(wrap) + "\n"
+        
+        print(f"Preprocessed HTML. Reduced from {len(html_content)} to {len(cleaned_html)} characters.")
+        return cleaned_html if cleaned_html else html_content[:20000]
+    except Exception as e:
+        print(f"Preprocessing error: {e}")
+        return html_content[:20000]
+
 def extract_products_with_ai(html_content, retry_count=0):
     """Use Gemini API via requests to extract product details with retry logic."""
-    models = ["gemini-2.5-flash", "gemini-1.5-flash", "gemini-2.5-pro"]
+    # Using stable 2.0-flash and 1.5-flash models
+    models = ["gemini-2.0-flash-exp", "gemini-1.5-flash", "gemini-2.0-flash"]
     model = models[retry_count % len(models)]
+    
+    # Pre-process HTML on the first try
+    if retry_count == 0:
+        html_content = preprocess_html(html_content)
+    
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
     
     prompt = f"""
-    Extract the top 5 trending products from this Amazon HTML.
-    Return ONLY a raw JSON array of objects with keys: "name", "price", "link", "image".
+    Extract the top 5 trending products from this Amazon Movers & Shakers snippet.
+    Return ONLY a JSON array of objects with keys: "name", "price", "link", "image".
     "image" should be the product image URL.
-    IMPORTANT: Provide ONLY the JSON. No conversation, no markdown blocks.
     
-    HTML Snippet:
-    {html_content[:40000]}
+    Data:
+    {html_content}
     """
     
     payload = {"contents": [{"parts": [{"text": prompt}]}]}
     
     try:
-        response = requests.post(url, json=payload, timeout=30)
+        response = requests.post(url, json=payload, timeout=60)
         res_json = response.json()
         
         if "error" in res_json:
