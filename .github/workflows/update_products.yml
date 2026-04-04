@@ -1,0 +1,41 @@
+name: AI Trending Products Sync
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'  # Every 4 hours
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  sync_trending:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Trending Updater
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          AFFILIATE_ID_IN: ${{ secrets.AFFILIATE_ID_IN }}
+          AFFILIATE_ID_COM: ${{ secrets.AFFILIATE_ID_COM }}
+        run: |
+          python trending_updater.py
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Push Changes
+        run: |
+          git add product.json
+          git commit -m "Auto-update: Trending products added via GitHub Actions" --allow-empty
+          git push
