@@ -11,6 +11,7 @@ load_dotenv()
 # ---------- Environment variables ----------
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
+CLEAN_ID = CHANNEL_ID.replace('@', '') if CHANNEL_ID else "channel"
 
 # ---------- Load products ----------
 def load_products():
@@ -33,7 +34,7 @@ def generate_message(product):
         f"⚡ <b>Hurry! Price may rise soon!</b>\n"
         f"👉 <a href='{link}'>Grab it now before it's gone!</a>\n\n"
         f"🚀 <i>Deals are flighty, grab 'em while they're hot!</i>\n"
-        f"Join <b>@{CHANNEL_ID}</b> for more Loot! 💸\n"
+        f"Join <b>@{CLEAN_ID}</b> for more Loot! 💸\n"
         f"#AmazonDeals #Loot #BudgetDeals #IndiaShopping",
 
         f"<b>🌟 BUDGET PICK OF THE DAY 🌟</b>\n\n"
@@ -42,7 +43,7 @@ def generate_message(product):
         f"✨ <b>Top rated product at lowest price!</b>\n"
         f"🛒 <a href='{link}'>Add to Cart Now</a>\n\n"
         f"🚀 <i>Don't miss out on daily savings!</i>\n"
-        f"Join <b>@{CHANNEL_ID}</b> for more Loot! 💸\n"
+        f"Join <b>@{CLEAN_ID}</b> for more Loot! 💸\n"
         f"#SmartShopping #DealsIndia #AmazonLoot",
 
         f"<b>🚨 PRICE DROP ALERT! 🚨</b>\n\n"
@@ -51,7 +52,7 @@ def generate_message(product):
         f"📉 <b>Lowest price in the last 24 hours!</b>\n"
         f"🔗 <a href='{link}'>Direct Link to Buy</a>\n\n"
         f"🚀 <i>Deals are flighty, grab 'em while they're hot!</i>\n"
-        f"Join <b>@{CHANNEL_ID}</b> for more Loot! 💸\n"
+        f"Join <b>@{CLEAN_ID}</b> for more Loot! 💸\n"
         f"#PriceDrop #LootDeals #AmazonIndia"
     ]
     return random.choice(templates)
