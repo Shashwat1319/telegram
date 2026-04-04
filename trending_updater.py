@@ -106,16 +106,25 @@ def extract_products_with_ai(html_content, retry_count=0):
         return []
 
 def clean_amazon_link(link, tag):
-    """Convert any Amazon link to a clean canonical DP link with affiliate tag."""
-    asin_match = re.search(r'/(?:dp|gp/product)/([A-Z0-9]{10})', link)
+    """Convert full Amazon links to canonical DP links, but leave short links alone."""
+    # If it's already a short link, don't touch it!
+    if "amzn.to" in link:
+        return link
+        
+    # Improved regex for ASIN (10 characters after /dp/ or /gp/product/ or /asin/)
+    asin_match = re.search(r'/(?:dp|gp/product|asin)/([A-Z0-9]{10})', link, re.IGNORECASE)
     if asin_match:
-        asin = asin_match.group(1)
+        asin = asin_match.group(1).upper()
         domain = "amazon.in" if "amazon.in" in link else "amazon.com"
         return f"https://www.{domain}/dp/{asin}?tag={tag}"
     
+    # Fallback for relative links
     if not link.startswith("http"):
-        link = f"https://www.amazon.in{link if link.startswith('/') else '/' + link}"
-    if "tag=" not in link:
+        domain = "www.amazon.in"
+        link = f"https://{domain}{link if link.startswith('/') else '/' + link}"
+    
+    # Add tag if missing for long links only
+    if "tag=" not in link and "amazon" in link:
         link += ("&" if "?" in link else "?") + f"tag={tag}"
     return link
 
