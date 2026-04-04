@@ -72,18 +72,21 @@ def extract_products_with_ai(html_content, retry_count=0):
         
         if "error" in res_json:
             error = res_json["error"]
-            # 429 = Quota Exceeded, 404 = Model Not Found
-            if (error["code"] == 429 or error["code"] == 404) and retry_count < 3:
+            # 429 = Quota Exceeded, 404 = Model Not Found, 403 = Permission
+            if (error["code"] == 429 or error["code"] == 404 or error["code"] == 400) and retry_count < len(models) * 2:
                 wait_time = 30 if error["code"] == 429 else 1
-                print(f"Issue with {model} ({error['code']}). Retrying in {wait_time}s...")
+                if error["code"] == 429:
+                    print(f"Quota hit for {model}. Waiting {wait_time}s...")
+                else:
+                    print(f"Skipping {model} ({error['code']}). Trying next...")
                 time.sleep(wait_time)
                 return extract_products_with_ai(html_content, retry_count + 1)
             else:
-                print(f"AI Error: {error['message']}")
+                print(f"AI Error ({model}): {error['message']}")
                 return []
             
         if "candidates" not in res_json:
-            print(f"AI Error: No candidates in response.")
+            print(f"AI Error ({model}): Response structure unknown.")
             return []
             
         text = res_json["candidates"][0]["content"]["parts"][0]["text"].strip()
