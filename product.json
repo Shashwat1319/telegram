@@ -1,36 +1,6 @@
 {
     "products": [
         {
-            "name": "Noise Shots Neo SE Bluetooth Earbuds with 45H Playtime, AI ENC for Calls, 13Mm Tremors Drivers, Quad Mic, Full Touch Controls, Voice Assistant & Type-C Charging (Jet Black)",
-            "price": "₹1,199.00",
-            "link": "https://www.amazon.in/dp/B0B1W6R938?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61JpX6X6o5L._AC_UL320_.jpg"
-        },
-        {
-            "name": "boAt Airdopes 161 True Wireless Earbuds with 40Hrs Playtime, Twin Mic, ASAP Charge, 382mAh Battery, Pitch Black",
-            "price": "₹1,299.00",
-            "link": "https://www.amazon.in/dp/B09WJV6RGD?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51U9ySjXwXL._AC_UL320_.jpg"
-        },
-        {
-            "name": "Nivia 5513 Futsal Ball Size 4",
-            "price": "₹549.00",
-            "link": "https://www.amazon.in/dp/B09B1QY18W?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71f-0k-LqUL._AC_UL320_.jpg"
-        },
-        {
-            "name": "KAZIVO Alpha Series ABS Bluetooth 5.1 Earbuds with ENC (Noise Cancellation), 50Hrs Playtime with Charging Case, IPX5 Water Resistant, Deep Bass, 13Mm Drivers, Low Latency Gaming Mode, Voice Assistant, Made in India.",
-            "price": "₹1,499.00",
-            "link": "https://www.amazon.in/dp/B0CGS7NVMN?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/6177E6eR8NL._AC_UL320_.jpg"
-        },
-        {
-            "name": "Philips Juicer Mixer Grinder HL7756/00, 700W, 3 Jars (Wet grinder, Dry grinder, Chutney jar)",
-            "price": "₹4,699.00",
-            "link": "https://www.amazon.in/dp/B07M8LZYQ1?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/81b-8JqE0iL._AC_UL320_.jpg"
-        },
-        {
             "name": "boAt Airdopes 141",
             "price": "₹899",
             "link": "https://amzn.to/4pYjwMT"
