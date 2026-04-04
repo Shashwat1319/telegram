@@ -32,23 +32,24 @@ def get_amazon_trending():
         print(f"Error scraping Amazon: {e}")
         return None
 
-def extract_products_with_ai(html_content):
-    """Use Gemini API via requests to extract product details from HTML."""
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={GEMINI_API_KEY}"
+def extract_products_with_ai(html_content, retry_count=0):
+    """Use Gemini API via requests to extract product details with retry logic."""
+    # List of models to try in order of preference
+    models = ["gemini-2.0-flash", "gemini-pro", "gemini-1.5-flash", "gemini-1.5-pro"]
+    model = models[retry_count % len(models)]
+    
+    # Try both v1beta and v1 endpoints
+    version = "v1beta" if retry_count < 2 else "v1"
+    url = f"https://generativelanguage.googleapis.com/{version}/models/{model}:generateContent?key={GEMINI_API_KEY}"
     
     prompt = f"""
-    Analyze the following HTML content from an Amazon Best Sellers/Movers & Shakers page.
-    Extract the top 5-10 trending products.
-    For each product, I need:
-    1. Product Name (Short and catchy)
-    2. Current Price (with currency symbol like ₹ or $)
-    3. Product Link (The direct Amazon product URL)
-
-    Return the results ONLY as a JSON array of objects with keys: "name", "price", "link".
-    Do not include any other text in your response.
+    Analyze the following HTML content from an Amazon India Electronics page.
+    Extract the top 5 trending products.
+    For each product: "name", "price", "link".
+    Return results ONLY as a JSON array.
     
     HTML Content Snippet:
-    {html_content[:15000]}
+    {html_content[:12000]}
     """
     
     payload = {
@@ -61,17 +62,29 @@ def extract_products_with_ai(html_content):
         response = requests.post(url, json=payload)
         res_json = response.json()
         
+        if "error" in res_json:
+            error = res_json["error"]
+            # 429 = Quota Exceeded, 404 = Model Not Found
+            if (error["code"] == 429 or error["code"] == 404) and retry_count < 3:
+                wait_time = 30 if error["code"] == 429 else 1
+                print(f"Issue with {model} ({error['code']}). Retrying in {wait_time}s...")
+                time.sleep(wait_time)
+                return extract_products_with_ai(html_content, retry_count + 1)
+            else:
+                print(f"AI Error: {error['message']}")
+                return []
+            
         if "candidates" not in res_json:
-            print(f"AI Error: {res_json}")
+            print(f"AI Error: No candidates in response.")
             return []
             
         text = res_json["candidates"][0]["content"]["parts"][0]["text"].strip()
         
-        # Remove markdown code blocks if present
-        if text.startswith("```json"):
-            text = text[7:-3].strip()
-        elif text.startswith("```"):
-            text = text[3:-3].strip()
+        # Robust JSON extraction from markdown
+        if "```json" in text:
+            text = text.split("```json")[1].split("```")[0].strip()
+        elif "```" in text:
+            text = text.split("```")[1].split("```")[0].strip()
             
         return json.loads(text)
     except Exception as e:
