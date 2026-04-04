@@ -1,6 +1,31 @@
 {
     "products": [
         {
+            "name": "REDMI 13C 5G",
+            "price": "₹11,499",
+            "link": "https://www.amazon.in/REDMI-13C-5G-Starlight-Storage/dp/B0CRJ3C59S?tag=shashwat022-21"
+        },
+        {
+            "name": "Samsung Galaxy Buds FE",
+            "price": "₹5,990",
+            "link": "https://www.amazon.in/Samsung-Galaxy-Buds-FE-Graphite/dp/B0CJX37CXY?tag=shashwat022-21"
+        },
+        {
+            "name": "OnePlus Nord CE 3 Lite 5G",
+            "price": "₹22,999",
+            "link": "https://www.amazon.in/OnePlus-Nord-CE-Lite-5G/dp/B0C1H6X677?tag=shashwat022-21"
+        },
+        {
+            "name": "realme narzo 60 5G",
+            "price": "₹17,999",
+            "link": "https://www.amazon.in/realme-narzo-60-5G-Storage/dp/B0BZJ4V28H?tag=shashwat022-21"
+        },
+        {
+            "name": "Samsung Galaxy M04 Light",
+            "price": "₹7,499",
+            "link": "https://www.amazon.in/Samsung-Galaxy-M04-Light-Storage/dp/B0BRL7G82Y?tag=shashwat022-21"
+        },
+        {
             "name": "boAt Airdopes 141",
             "price": "₹899",
             "link": "https://amzn.to/4pYjwMT"
@@ -84,9 +109,8 @@
             "name": "Sony Bravia 43\" LED TV",
             "price": "₹32,999",
             "link": "https://amzn.to/49932uv",
-            "WoW" :"Yaha tak"
+            "WoW": "Yaha tak"
         },
-        
         {
             "name": "Philips 2-in-1 Hand Blender",
             "price": "₹1,299",
