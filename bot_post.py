@@ -10,87 +10,83 @@ load_dotenv()
 
 # ---------- Environment variables ----------
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-CHANNEL_ID = os.getenv("CHANNEL_ID")  # e.g., @budgetdeals_india
+CHANNEL_ID = os.getenv("CHANNEL_ID")
 
 # ---------- Load products ----------
 def load_products():
-    with open("product.json", "r") as f:
+    with open("product.json", "r", encoding="utf-8") as f:
         return json.load(f)["products"]
 
-# ---------- Templates ----------
-def template_1(name, price, link):
-    return (
-        f"🔥 TODAY'S BEST DEAL 🔥\n\n"
-        f"💰 Price Drop Alert!\n"
-        f"👉 {name} अब सिर्फ {price}\n\n"
-        f"⭐ Highlights:\n"
-        f"• High demand item\n"
-        f"• Budget-friendly\n"
-        f"• Limited-time discount\n\n"
-        f"🔗 Deal Link: {link}\n\n"
-        f"⚠️ Price कभी भी बढ़ सकता है — अभी ले लो।"
-    )
-
-def template_2(name, price, link):
-    return (
-        f"⚡ LIMITED TIME OFFER ⚡\n\n"
-        f"🛍️ Product: {name}\n"
-        f"💵 Offer Price: {price}\n\n"
-        f"🔥 Why grab it now?\n"
-        f"• Massive price drop\n"
-        f"• Trusted Amazon delivery\n"
-        f"• Stock selling fast\n\n"
-        f"👉 Buy Now: {link}\n\n"
-        f"⏳ Hurry! Deal live for a short time only."
-    )
-
-def template_3(name, price, link):
-    return (
-        f"💥 STEAL DEAL ALERT! 💥\n\n"
-        f"🎯 {name}\n"
-        f"💸 Current Price: {price}\n\n"
-        f"✨ Benefits:\n"
-        f"• Value for money\n"
-        f"• Best seller item\n"
-        f"• Fast shipping available\n\n"
-        f"🔗 Direct Purchase Link: {link}\n\n"
-        f"🚨 Do not miss it — deals like this do not stay long!"
-    )
-
-# List of templates
-TEMPLATES = [template_1, template_2, template_3]
-
-# ---------- Generate message (random template) ----------
+# ---------- Message Templates ----------
 def generate_message(product):
-    name = product['name']
-    price = product['price']
-    link = product['link']
+    name = product.get('name', 'Great Deal!')
+    price = product.get('price', 'Check Link')
+    link = product.get('link', '#')
+    
+    templates = [
+        f"🔥 *MEGA LOOT DEAL!* 🔥\n\n"
+        f"📦 *Product:* {name}\n"
+        f"💰 *Price:* {price}\n\n"
+        f"⚡ *Hurry! Price may rise soon!*\n"
+        f"👉 [Grab it now before it's gone!]({link})\n\n"
+        f"🚀 *Deals are flighty, grab 'em while they're hot!*\n"
+        f"Join **@budgetdeals_india** for more Loot! 💸\n"
+        f"#AmazonDeals #Loot #BudgetDeals #IndiaShopping",
 
-    chosen_template = random.choice(TEMPLATES)
-    return chosen_template(name, price, link)
+        f"🌟 *BUDGET PICK OF THE DAY* 🌟\n\n"
+        f"✅ *Best Seller:* {name}\n"
+        f"💵 *Deal Price:* {price}\n\n"
+        f"✨ *Top rated product at lowest price!*\n"
+        f"🛒 [Add to Cart Now]({link})\n\n"
+        f"🚀 *Don't miss out on daily savings!*\n"
+        f"Join **@budgetdeals_india** for more Loot! 💸\n"
+        f"#SmartShopping #DealsIndia #AmazonLoot",
+
+        f"🚨 *PRICE DROP ALERT!* 🚨\n\n"
+        f"📍 *Item:* {name}\n"
+        f"💸 *Current Price:* {price}\n\n"
+        f"📉 *Lowest price in the last 24 hours!*\n"
+        f"🔗 [Direct Link to Buy]({link})\n\n"
+        f"🚀 *Deals are flighty, grab 'em while they're hot!*\n"
+        f"Join **@budgetdeals_india** for more Loot! 💸\n"
+        f"#PriceDrop #LootDeals #AmazonIndia"
+    ]
+    return random.choice(templates)
 
 # ---------- Post deals ----------
 async def post_deals():
+    chat_id = f"@{CHANNEL_ID}" if not CHANNEL_ID.startswith("@") else CHANNEL_ID
     bot = Bot(BOT_TOKEN)
     products = load_products()
+    
     try:
         # Post the top 3 (newest) products found
         for i in range(min(3, len(products))):
             product = products[i]
             msg = generate_message(product)
+            image_url = product.get('image')
+            
             try:
-                await bot.send_message(
-                    chat_id=CHANNEL_ID,
-                    text=msg,
-                    disable_web_page_preview=True
-                )
-                print(f"Posted ({i+1}/3): {product['name']} at {product['price']}")
+                if image_url:
+                    await bot.send_photo(
+                        chat_id=chat_id,
+                        photo=image_url,
+                        caption=msg,
+                        parse_mode='Markdown'
+                    )
+                else:
+                    await bot.send_message(
+                        chat_id=chat_id,
+                        text=msg,
+                        parse_mode='Markdown'
+                    )
+                print(f"Posted ({i+1}/3): {product['name']}")
+                await asyncio.sleep(5)
             except Exception as e:
-                print("Error posting:", e)
-            await asyncio.sleep(20)  # 20 sec delay between posts
-    except asyncio.CancelledError:
-        print("Script cancelled manually.")
+                print(f"Failed to post {product['name']}: {e}")
+                
+    except Exception as e:
+        print(f"Error in posting: {e}")
 
-# ---------- Main ----------
 if __name__ == "__main__":
     asyncio.run(post_deals())

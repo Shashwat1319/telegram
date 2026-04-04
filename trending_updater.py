@@ -15,21 +15,20 @@ AFFILIATE_ID_COM = os.getenv("AFFILIATE_ID_COM")
 
 # Gemini Configuration handled via direct requests in extract_products_with_ai
 
-def get_amazon_trending():
-    """Scrape Amazon India Movers & Shakers (Electronics)."""
-    url = "https://www.amazon.in/gp/movers-and-shakers/electronics"
+def get_amazon_trending(category_url):
+    """Scrape Amazon India Movers & Shakers for a specific category."""
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept-Language": "en-US,en;q=0.9",
     }
     try:
-        response = requests.get(url, headers=headers)
+        response = requests.get(category_url, headers=headers)
         if response.status_code != 200:
-            print(f"Failed to fetch Amazon: Status {response.status_code}")
+            print(f"Failed to fetch {category_url}: Status {response.status_code}")
             return None
         return response.text
     except Exception as e:
-        print(f"Error scraping Amazon: {e}")
+        print(f"Error scraping {category_url}: {e}")
         return None
 
 def extract_products_with_ai(html_content, retry_count=0):
@@ -39,7 +38,7 @@ def extract_products_with_ai(html_content, retry_count=0):
         "gemini-2.5-flash", 
         "gemini-2.5-flash-lite", 
         "gemini-2.5-pro", 
-        "gemini-1.5-flash", # Fallback
+        "gemini-1.5-flash",
         "gemini-1.5-pro"
     ]
     model = models[retry_count % len(models)]
@@ -51,13 +50,13 @@ def extract_products_with_ai(html_content, retry_count=0):
     url = f"https://generativelanguage.googleapis.com/{version}/models/{model}:generateContent?key={GEMINI_API_KEY}"
     
     prompt = f"""
-    Analyze the following HTML content from an Amazon India Electronics page.
+    Analyze the following HTML content from an Amazon India Movers & Shakers page.
     Extract the top 5 trending products.
-    For each product: "name", "price", "link".
+    For each product: "name", "price", "link", "image" (The high-res product image URL).
     Return results ONLY as a JSON array.
     
     HTML Content Snippet:
-    {html_content[:12000]}
+    {html_content[:15000]}
     """
     
     payload = {
@@ -72,7 +71,6 @@ def extract_products_with_ai(html_content, retry_count=0):
         
         if "error" in res_json:
             error = res_json["error"]
-            # 429 = Quota Exceeded, 404 = Model Not Found, 403 = Permission
             if (error["code"] == 429 or error["code"] == 404 or error["code"] == 400) and retry_count < len(models) * 2:
                 wait_time = 30 if error["code"] == 429 else 1
                 if error["code"] == 429:
@@ -140,23 +138,22 @@ def update_json(new_products):
             data = json.load(f)
 
     existing_names = {p['name'] for p in data['products']}
-    added_count = 0
+    added_products = []
     for product in new_products:
         if product['name'] not in existing_names:
             data['products'].insert(0, product)  # Add new trending items to the top
-            added_count += 1
+            added_products.append(product)
     
     with open(file_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
     
-    print(f"Added {added_count} new products to product.json.")
-    return added_count > 0
+    print(f"Added {len(added_products)} new products to product.json.")
+    return len(added_products) > 0
 
 def git_push_changes():
     """Automate git add, commit, and push."""
     try:
         subprocess.run(["git", "add", "."], check=True)
-        # Use a generic commit message with timestamp
         commit_msg = f"Auto-update: Trending products added ({time.strftime('%Y-%m-%d %H:%M:%S')})"
         subprocess.run(["git", "commit", "-m", commit_msg], check=True)
         subprocess.run(["git", "push"], check=True)
@@ -166,29 +163,41 @@ def git_push_changes():
 
 def main():
     print("Starting trending product sync...")
-    html = get_amazon_trending()
-    if html:
-        products = extract_products_with_ai(html)
-        if products:
-            products = add_affiliate_tags(products)
-            updated = update_json(products)
-            if updated:
-                print("New products found. Syncing with Git and Telegram...")
-                git_push_changes()
-                
-                # Trigger the Telegram bot
-                print("Triggering Telegram bot...")
-                try:
-                    # We use 'py' because that's our working command
-                    subprocess.run(["py", "bot_post.py"], check=True)
-                except Exception as e:
-                    print(f"Error triggering bot: {e}")
+    
+    categories = [
+        "https://www.amazon.in/gp/movers-and-shakers/electronics",
+        "https://www.amazon.in/gp/movers-and-shakers/kitchen",
+        "https://www.amazon.in/gp/movers-and-shakers/beauty",
+        "https://www.amazon.in/gp/movers-and-shakers/computers"
+    ]
+    
+    any_new = False
+    for url in categories:
+        print(f"Syncing category: {url.split('/')[-1]}...")
+        html = get_amazon_trending(url)
+        if html:
+            products = extract_products_with_ai(html)
+            if products:
+                products = add_affiliate_tags(products)
+                if update_json(products):
+                    any_new = True
             else:
-                print("No new products to add.")
-        else:
-            print("AI failed to extract products.")
+                print(f"AI failed for {url}")
+        time.sleep(2) # Be nice to Amazon
+
+    if any_new:
+        print("New products found. Syncing with Git and Telegram...")
+        git_push_changes()
+        print("Triggering Telegram bot...")
+        try:
+            subprocess.run(["py", "bot_post.py"], check=True)
+        except Exception as e:
+            print(f"Error triggering bot: {e}")
     else:
-        print("Failed to fetch trending data.")
+        print("No new products found across all categories.")
+
+if __name__ == "__main__":
+    main()
 
 if __name__ == "__main__":
     main()
