@@ -1,8 +1,7 @@
-import json
+from bs4 import BeautifulSoup
 import os
 import requests
-from bs4 import BeautifulSoup
-import google.generativeai as genai
+import json
 from dotenv import load_dotenv
 import subprocess
 import time
@@ -14,9 +13,7 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 AFFILIATE_ID_IN = os.getenv("AFFILIATE_ID_IN")
 AFFILIATE_ID_COM = os.getenv("AFFILIATE_ID_COM")
 
-# Configure Gemini
-genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel('models/gemini-1.5-flash')
+# Gemini Configuration handled via direct requests in extract_products_with_ai
 
 def get_amazon_trending():
     """Scrape Amazon India Movers & Shakers (Electronics)."""
@@ -36,7 +33,9 @@ def get_amazon_trending():
         return None
 
 def extract_products_with_ai(html_content):
-    """Use Gemini to extract product details from HTML."""
+    """Use Gemini API via requests to extract product details from HTML."""
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}"
+    
     prompt = f"""
     Analyze the following HTML content from an Amazon Best Sellers/Movers & Shakers page.
     Extract the top 5-10 trending products.
@@ -48,17 +47,32 @@ def extract_products_with_ai(html_content):
     Return the results ONLY as a JSON array of objects with keys: "name", "price", "link".
     Do not include any other text in your response.
     
-    HTML Content Snippet (Focus on product items):
-    {html_content[:10000]}  # Limit to 10k chars to avoid token limits
+    HTML Content Snippet:
+    {html_content[:15000]}
     """
+    
+    payload = {
+        "contents": [{
+            "parts": [{"text": prompt}]
+        }]
+    }
+    
     try:
-        response = model.generate_content(prompt)
-        text = response.text.strip()
+        response = requests.post(url, json=payload)
+        res_json = response.json()
+        
+        if "candidates" not in res_json:
+            print(f"AI Error: {res_json}")
+            return []
+            
+        text = res_json["candidates"][0]["content"]["parts"][0]["text"].strip()
+        
         # Remove markdown code blocks if present
         if text.startswith("```json"):
-            text = text[7:-3]
+            text = text[7:-3].strip()
         elif text.startswith("```"):
-            text = text[3:-3]
+            text = text[3:-3].strip()
+            
         return json.loads(text)
     except Exception as e:
         print(f"Error with AI extraction: {e}")
