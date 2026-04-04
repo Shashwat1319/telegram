@@ -8,7 +8,7 @@ on:
 jobs:
   sync_trending:
     runs-on: ubuntu-latest
-    environment: production
+    environment: telegram
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
