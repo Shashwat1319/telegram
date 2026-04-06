@@ -9,6 +9,8 @@ jobs:
   sync_trending:
     runs-on: ubuntu-latest
     environment: telegram
+    permissions:
+      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -29,6 +31,11 @@ jobs:
         run: |
           python test_bot.py
 
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Run Trending Updater
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -38,8 +45,3 @@ jobs:
           CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
         run: |
           python trending_updater.py
-
-      - name: Configure Git
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
