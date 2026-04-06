@@ -69,11 +69,14 @@ def extract_products_with_ai(html_content, retry_count=0):
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
     
     prompt = f"""
-    Extract the top 5 trending products from this Amazon Movers & Shakers snippet.
-    Return ONLY a JSON array of objects with keys: "name", "price", "link", "image".
-    "image" should be the product image URL.
+    Extract the top 5 trending products from this Amazon Movers & Shakers HTML snippet.
+    Return ONLY a valid JSON array of objects with exact keys: "name", "price", "link", "image".
     
-    Data:
+    CRITICAL RULES:
+    1. "image": Find the high-res product image URL. If not found, return an empty string "".
+    2. "link": You MUST extract the exact raw URL (containing /dp/ or the ASIN). NEVER EVER generate or return "amzn.to" shortlinks.
+    
+    HTML Data:
     {html_content}
     """
     
