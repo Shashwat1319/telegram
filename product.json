@@ -1,3 +1,118 @@
 {
-    "products": []
+    "products": [
+        {
+            "name": "ZEBRONICS TT60+ Type C - Type C Braided Cable, 60 Watts, Rapid Charging, Charge & Sync, 1 Meter, Compatible with iPhone 15 | Samsung | OnePlus | Xiaomi | Realme | Oppo Black",
+            "price": "₹99.00 - ₹299.00",
+            "link": "https://www.amazon.com/dp/B0FJ2L7YF8?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51YrGDmp8XL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "Samsung Original Type C to C Cable - 3.28 Feet (1 Meter), Black",
+            "price": "₹375.00 - ₹799.00",
+            "link": "https://www.amazon.com/dp/B008FWZ5MS?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61g9F6LXKqL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "One94Store High Speed Portable Hand Fan, 4800 RPM, 1200mAh USB Rechargeable Battery, Up to 6H Runtime, 3 Speed Modes for Travel, Office & Outdoor, Black – Mini Fan, Hand Fan, Small Fan, USB Fan",
+            "price": "₹399.00 - ₹449.00",
+            "link": "https://www.amazon.com/dp/B0CXJ97J1T?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51SFIyny8rL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "STRIFF 25 Pieces Highly Flexible Silicone Cable Protectors, Charger Cable Protector, Charger Protector, Wire Protector, Charging Cable Protector (Black & White)",
+            "price": "₹83.00 - ₹99.00",
+            "link": "https://www.amazon.com/dp/B0CTZXNWYP?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71aB1kyk4pL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "Dabur Vatika Ayurvedic Shampoo - 1 L | For Strong &amp; Healthy Hair | No Parabens | For All Hair Types | Power of Dus Poshan for 10 Hair Problems",
+            "price": "₹137.00 - ₹395.00",
+            "link": "https://www.amazon.com/dp/B097C5S5ZJ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71iAMC6U3dL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "NIVEA Aloe Hydration Body Lotion, 400ml | 72H Moisturization | With Deep Moisture Serum &amp; 100% Natural Aloe Vera Extracts | All Skin Types",
+            "price": "₹356.00 - ₹397.00",
+            "link": "https://www.amazon.com/dp/B079KGC4NZ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51ffS7Hy7wL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Parachute Advansed Body Lotion Deep Nourish, With Pure Coconut Milk, 250 ml (Pack of 3)",
+            "price": "₹145.00 - ₹799.00",
+            "link": "https://www.amazon.com/dp/B08N7SCY7H?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71NgvAzxEcL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Biolage Smooth Proof 6-in-1 Hair Serum 100ml | Deep Smoothening With Avocado &amp; Grape Seed Oil | Up to 72HR Frizz Control |For Women &amp; Men | Vegan &amp; Cruelty-Free",
+            "price": "₹315.00 - ₹630.00",
+            "link": "https://www.amazon.com/dp/B01HO9EC94?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51PBDFlTFKL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Rexona for Female Shower Fresh Underarm Roll On Deodorant + Antiperspirant With Glycerine, Removes Odour, Even Skin Tone,Keeps Skin Fresh &amp; Clean, Alcohol Free, 50 Ml (Pack Of 2)",
+            "price": "₹136.00",
+            "link": "https://www.amazon.com/dp/B0CMQM8PBV?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Fa1qeOm3L._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Electric Rechargeable Plasma Gas Lighter for BBQ, Lighter for Gas Stove, Candles, Pooja, 1 Year Warranty, C-Type USB, Multi Purpose - 360° Flexible & Windproof, Black (Pack of 1)",
+            "price": "₹179.00",
+            "link": "https://www.amazon.com/dp/B0G4SPNQ2H?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/6126+uieJiL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "Philips HD4934/00 1300W Induction Cooktop With Triple MOV For 4Kw Surge Protection With Soft Touch Control | 7 Preset Menus | 3 Years Warranty On Coil, Black",
+            "price": "₹2,399.00",
+            "link": "https://www.amazon.com/dp/B0DGKWNGKZ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51CdR8C6hHL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "Philips Viva Collection HD4928/01 2100-Watt Induction Cooktop (Black)",
+            "price": "N/A",
+            "link": "https://www.amazon.com/dp/B00EDJJ7FS?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61TDmpQ6-2L._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "Pigeon By Stovekraft Favourite 1800-Watt Induction Cooktop, Crystal Glass, Black",
+            "price": "₹2,699.00",
+            "link": "https://www.amazon.com/dp/B012VFOQDI?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81MW4K7I5IL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "DDS Dream Decor Shoppee Engineered Wood Foldable Round Shaped Side Table (Black)",
+            "price": "₹399.00 - ₹448.00",
+            "link": "https://www.amazon.com/dp/B08PBL58QS?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81bfpR3lXML._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "One94Store Portable Bladeless Neck Fan – Modern Design, 12 Air Outlets, 2400mAh Rechargeable Battery, USB Powered, 5-Speed Hands-Free Cooling Fan, Up to 6 Hours Use for Indoor&Outdoor (Blue)",
+            "price": "₹299.00 - ₹499.00",
+            "link": "https://www.amazon.com/dp/B0GQV953S4?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/712KedRQnvL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "APFEN® 20W [Apple MFi Certified] Type-C Fast Charger Adapter & Cable Compatible with iPhone 14/14 Pro/14 Pro Max/13/13 Pro/13 Pro Max/12/11/XR/XS/X/8 Series, White",
+            "price": "₹382.00 - ₹899.00",
+            "link": "https://www.amazon.com/dp/B0F62W35NX?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61sa0aOa5ZL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Kratos 25W Charger Adapter Compatible with Samsung Galaxy S/A/M/F/Z Series S25/S24/S23/S22/S21/21 fe/S20/M14 5G/M34/M54/M53 5g/M33/M13/A34/A54 5G,F15,BIS Certified,1 Year Warranty,White",
+            "price": "₹479.00 - ₹899.00",
+            "link": "https://www.amazon.com/dp/B0FH2N3PFX?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51BcZ-rjT3L._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Kratos 28 Inch Selfie Stick Tripod Stand with Light, 3-in-1 Multifunctional Design, Rechargeable LED Light with Two Brightness Levels with Bluetooth Remote for Makeup, Selfie & Photoshoot",
+            "price": "₹178.00 - ₹2,899.00",
+            "link": "https://www.amazon.com/dp/B0FVG14W46?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71C7AH5ebiL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Kratos 41 Inch Magnetic Tripod Stand for iPhone, Aluminum Tripod with Strong Magnetic Holder for MagSafe Design Mobile Phones, 360° Rotation, BT Remote for Selfies, Vlogging & Travel",
+            "price": "₹599.00 - ₹2,999.00",
+            "link": "https://www.amazon.com/dp/B0G1MWVQFR?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61FNxPXIIAL._AC_UL900_SR900,600_.jpg"
+        }
+    ]
 }
