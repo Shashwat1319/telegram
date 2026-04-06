@@ -1,6 +1,54 @@
 {
     "products": [
         {
+            "name": "Derbus Wood Multipurpose Foldable Laptop Table with Cup Holder | Table Home Study Writing Table, Foldable and Portable/Ergonomic Edges Kids & Adults (COTTED-Black)",
+            "price": "₹419.00",
+            "link": "https://www.amazon.com/dp/B0G4LPN2G1?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61R26raJJcL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "OnePlus Pad Lite with Biggest Battery in Segment 9340 mAh, 11\"(27.94 cm) Display with 500 nits Brightness & 11 Hrs of Video Playback, 8GB RAM 128GB Storage, LTE, Aero Blue",
+            "price": "₹15,999.00 - ₹17,999.00",
+            "link": "https://www.amazon.com/dp/B0FHWR3TBX?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61NmETUvDiL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "Dettol Cologne Fresh Bathing Soap Bar with 12hr Freshness 150g Pack of 4, (600gm)",
+            "price": "₹168.00 - ₹488.88",
+            "link": "https://www.amazon.in/dp/B0CQLWCLT2?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61zl0hhQrdL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Dabur Vatika Ayurvedic Shampoo - 1 L | For Strong & Healthy Hair | No Parabens | For All Hair Types | Power of Dus Poshan for 10 Hair Problems",
+            "price": "₹137.00 - ₹395.00",
+            "link": "https://www.amazon.in/dp/B097C5S5ZJ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71iAMC6U3dL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "NIVEA Aloe Hydration Body Lotion, 400ml | 72H Moisturization | With Deep Moisture Serum & 100% Natural Aloe Vera Extracts | All Skin Types",
+            "price": "₹356.00 - ₹397.00",
+            "link": "https://www.amazon.in/dp/B079KGC4NZ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51ffS7Hy7wL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "SAYY Moroccan DeTan Brightening Face Pack for Advance Skin Renewal Radiance Clay Mask (1)",
+            "price": "₹360.00 - ₹949.00",
+            "link": "https://www.amazon.in/dp/B0GLG5JSHK?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/31WYQflajRL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Rexona for Female Shower Fresh Underarm Roll On Deodorant + Antiperspirant With Glycerine, Removes Odour, Even Skin Tone,Keeps Skin Fresh & Clean, Alcohol Free, 50 Ml (Pack Of 2)",
+            "price": "₹269.00",
+            "link": "https://www.amazon.in/dp/B0CMQM8PBV?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Fa1qeOm3L._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Prestige IRIS ECO 1200 W Induction Cooktop with automatic voltage regulator |Indian Menu option|Power Saver|Timer with User Pre-Set|1 year warranty|Black",
+            "price": "₹2,350.00",
+            "link": "https://www.amazon.com/dp/B0C4DMRHYG?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Vu80YcolL._AC_UL300_SR300,200_.jpg"
+        },
+        {
             "name": "ZEBRONICS TT60+ Type C - Type C Braided Cable, 60 Watts, Rapid Charging, Charge & Sync, 1 Meter, Compatible with iPhone 15 | Samsung | OnePlus | Xiaomi | Realme | Oppo Black",
             "price": "₹99.00 - ₹299.00",
             "link": "https://www.amazon.com/dp/B0FJ2L7YF8?tag=shashwat022-21",
