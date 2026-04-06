@@ -17,13 +17,7 @@ async def test_connection():
         chat_id = f"@{channel}" if not channel.startswith("@") else channel
         me = await bot.get_me()
         print(f"✅ Bot Connected: @{me.username}")
-        
-        await bot.send_message(
-            chat_id=chat_id,
-            text=f"🚀 *Test Successful!*\nYour bot is now connected to GitHub Actions and ready to post loot.",
-            parse_mode='Markdown'
-        )
-        print(f"✅ Test Message Sent to {chat_id}!")
+        print(f"✅ Bot is ready for {chat_id}!")
     except Exception as e:
         print(f"❌ Connection Failed: {e}")
 

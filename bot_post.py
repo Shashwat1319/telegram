@@ -28,32 +28,31 @@ def generate_message(product):
     safe_name = name.replace('<', '&lt;').replace('>', '&gt;')
     
     templates = [
-        f"<b>🔥 MEGA LOOT DEAL! 🔥</b>\n\n"
-        f"📦 <b>Product:</b> {safe_name}\n"
-        f"💰 <b>Price:</b> {price}\n\n"
-        f"⚡ <b>Hurry! Price may rise soon!</b>\n"
-        f"👉 <a href='{link}'>Grab it now before it's gone!</a>\n\n"
-        f"🚀 <i>Deals are flighty, grab 'em while they're hot!</i>\n"
-        f"Join <b>@{CLEAN_ID}</b> for more Loot! 💸\n"
-        f"#AmazonDeals #Loot #BudgetDeals #IndiaShopping",
+        f"🚨 <b>ERROR PRICING? SYSTEM GLITCH!</b> 🚨\n\n"
+        f"🎁 <b>{safe_name}</b>\n"
+        f"💥 <b>Current Price:</b> <b>{price}</b> 😱\n\n"
+        f"⚠️ <i>Only active for next 5-10 minutes before Amazon fixes it!</i>\n"
+        f"👇 <b>CLICK HERE & ADD TO CART FAST</b> 👇\n"
+        f"🛒 <a href='{link}'>Claim GLITCH Deal Now</a>\n\n"
+        f"🤫 <b>DO NOT SHARE ON FACEBOOK/INSTA!</b> Forward only to close friends!\n"
+        f"👉 Join <b>@{CLEAN_ID}</b> to get these secret deals first! 🏃‍♂️",
 
-        f"<b>🌟 BUDGET PICK OF THE DAY 🌟</b>\n\n"
-        f"✅ <b>Best Seller:</b> {safe_name}\n"
-        f"💵 <b>Deal Price:</b> {price}\n\n"
-        f"✨ <b>Top rated product at lowest price!</b>\n"
-        f"🛒 <a href='{link}'>Add to Cart Now</a>\n\n"
-        f"🚀 <i>Don't miss out on daily savings!</i>\n"
-        f"Join <b>@{CLEAN_ID}</b> for more Loot! 💸\n"
-        f"#SmartShopping #DealsIndia #AmazonLoot",
+        f"😱 <b>PRICE DROP OF THE MONTH! 99% CLAIMED!</b> 😱\n\n"
+        f"📦 <b>{safe_name}</b>\n"
+        f"🔥 <b>Loot Price:</b> <b>{price}</b> 📉\n\n"
+        f"⏳ <i>Stock will end completely in any second! Just 3 pieces left!</i>\n"
+        f"🛒 <a href='{link}'>Click Here To Buy</a>\n\n"
+        f"💵 Company ka loss aapka profit! Jaldi join kar lo: <b>@{CLEAN_ID}</b>\n"
+        f"📢 <b>Apne dosto ko jaldi share karo, unhe bhi lootne do!</b>",
 
-        f"<b>🚨 PRICE DROP ALERT! 🚨</b>\n\n"
-        f"📍 <b>Item:</b> {safe_name}\n"
-        f"💸 <b>Current Price:</b> {price}\n\n"
-        f"📉 <b>Lowest price in the last 24 hours!</b>\n"
-        f"🔗 <a href='{link}'>Direct Link to Buy</a>\n\n"
-        f"🚀 <i>Deals are flighty, grab 'em while they're hot!</i>\n"
-        f"Join <b>@{CLEAN_ID}</b> for more Loot! 💸\n"
-        f"#PriceDrop #LootDeals #AmazonIndia"
+        f"🛑 <b>SECRET LINK - WILL BE DELETED SOON!</b> 🛑\n\n"
+        f"🌟 <b>{safe_name}</b>\n"
+        f"💎 <b>Get It Only At:</b> <b>{price}</b> ✅\n\n"
+        f"⚡️ <i>Ye price wapas zindagi mein nahi aayega! Guarantee.</i>\n"
+        f"🔗 <a href='{link}'>Direct Hidden Link to Buy</a>\n\n"
+        f"🚀 <i>Hum aise secret Loot daily post karte hain!</i>\n"
+        f"Join <b>@{CLEAN_ID}</b> fast before we make the channel private! 🔒\n"
+        f"💬 <b>Forward kro groups me taaki price badhne se pehle baki bhi le sake!</b>"
     ]
     return random.choice(templates)
 
@@ -62,19 +61,28 @@ async def post_deals():
     chat_id = f"@{CHANNEL_ID}" if not CHANNEL_ID.startswith("@") else CHANNEL_ID
     bot = Bot(BOT_TOKEN)
     products = load_products()
-    
-    # Growth button
-    share_url = f"https://t.me/share/url?url=https://t.me/{CHANNEL_ID.replace('@', '')}&text=Check%20out%20these%20amazing%20deals!"
-    reply_markup = InlineKeyboardMarkup([
-        [InlineKeyboardButton("➕ Share with Friends", url=share_url)]
-    ])
-    
+
     try:
         # Post the top 3 (newest) products found
         for i in range(min(3, len(products))):
             product = products[i]
             msg = generate_message(product)
             image_url = product.get('image')
+            link = product.get('link', '#')
+            
+            # Using extreme Hindi text context designed for viral sharing! "Bhai jaldi dekh, lagta hai Amazon mein koi Glitch aaya hai! Sab ekdam free jaisa mil raha hai. Link band hone se pehle join karke loot le! 😱🚨"
+            share_text = "Bhai%20jaldi%20dekh%2C%20lagta%20hai%20Amazon%20mein%20koi%20Glitch%20aaya%20hai%21%20Sab%20ekdam%20free%20jaisa%20mil%20raha%20hai.%20Link%20band%20hone%20se%20pehle%20join%20karke%20loot%20le%21%20%F0%9F%98%B1%F0%9F%9A%A8"
+            share_url = f"https://t.me/share/url?url=https://t.me/{CHANNEL_ID.replace('@', '')}&text={share_text}"
+            
+            reply_markup = InlineKeyboardMarkup([
+                [
+                    InlineKeyboardButton("🛒 BUY NOW (Amazon)", url=link)
+                ],
+                [
+                    InlineKeyboardButton("🔥 Share with Friends", url=share_url),
+                    InlineKeyboardButton("💰 Join Channel", url=f"https://t.me/{CHANNEL_ID.replace('@', '')}")
+                ]
+            ])
             
             try:
                 if image_url:
