@@ -54,7 +54,16 @@ def generate_message(product):
         f"Join <b>@{CLEAN_ID}</b> fast before we make the channel private! 🔒\n"
         f"💬 <b>Forward kro groups me taaki price badhne se pehle baki bhi le sake!</b>"
     ]
-    return random.choice(templates)
+    msg = random.choice(templates)
+    
+    # Telegram Search SEO Hack: Hiding high-traffic keywords so the post ranks globally without looking ugly
+    seo_block = (
+        "\n\n<tg-spoiler>"
+        "🏷️ Tags: #AmazonDeals #LootDealsIndia #FlipkartSale #BudgetShopping #Offers #LowestPrice #FreeShopping\n"
+        "🔎 Search Keywords: best mobile exchange offer, amazon laptop sale today, cheapest deals under 99, 99 store flipkart, free sample products, secret tricks, price drop alerts india"
+        "</tg-spoiler>"
+    )
+    return msg + seo_block
 
 # ---------- Post deals ----------
 async def post_deals():
