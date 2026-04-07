@@ -1,6 +1,72 @@
 {
     "products": [
         {
+            "name": "Echo Dot (5th Gen, 2022 release) | Smart speaker with Alexa | Deep Sea Blue",
+            "price": null,
+            "link": "https://www.amazon.in/dp/B0C7F8TFTG?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61j0YlTq-XL._AC_UL320_.jpg"
+        },
+        {
+            "name": "Echo (4th Gen, 2020 release) | Smart speaker with Alexa | Charcoal",
+            "price": null,
+            "link": "https://www.amazon.in/dp/B084D4HYQJ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71q6N-QhL1L._AC_UL320_.jpg"
+        },
+        {
+            "name": "Echo Dot (5th Gen, 2022 release) | Smart speaker with Alexa | Glacier White",
+            "price": null,
+            "link": "https://www.amazon.in/dp/B0C7F8W719?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/618232Xq0bL._AC_UL320_.jpg"
+        },
+        {
+            "name": "Kindle Paperwhite (16 GB) – Now with a larger screen, adjustable warm light, and longer battery life",
+            "price": null,
+            "link": "https://www.amazon.in/dp/B09G9S4R3M?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/615Q9mD9rPL._AC_UL320_.jpg"
+        },
+        {
+            "name": "Echo Show 8 (2nd Gen, 2021 release)",
+            "price": null,
+            "link": "https://www.amazon.in/dp/B08WRR3CZH?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Lh0Y20iNL._AC_UL320_.jpg"
+        },
+        {
+            "name": "Echo (4th Gen) | Compact smart speaker with Alexa | Charcoal",
+            "price": "$99.99",
+            "link": "https://www.amazon.in/dp/B07W4M41N6?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71+k1hF5j9L._AC_UL320_.jpg"
+        },
+        {
+            "name": "All-New Echo Show 5 (3rd Gen, 2023 release) | Smart display with Alexa and clearer sound | Glacier White",
+            "price": "$89.99",
+            "link": "https://www.amazon.in/dp/B0BQJ1Y94H?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71x31JzT82L._AC_UL320_.jpg"
+        },
+        {
+            "name": "Echo Dot (5th Gen, 2023 release) | Smart speaker with Alexa | Charcoal",
+            "price": "$49.99",
+            "link": "https://www.amazon.in/dp/B0BQJPB887?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61yq7X63z2L._AC_UL320_.jpg"
+        },
+        {
+            "name": "Echo Pop | Compact smart speaker with Alexa | Glacier White",
+            "price": "$49.99",
+            "link": "https://www.amazon.in/dp/B0BQBQY98W?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Fz9J9KjLL._AC_UL320_.jpg"
+        },
+        {
+            "name": "Echo Show 8 (3rd Gen, 2023 release) | HD smart display with Alexa and spatial audio",
+            "price": "$149.99",
+            "link": "https://www.amazon.in/dp/B0BQJ35D33?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71KzQf7474L._AC_UL320_.jpg"
+        },
+        {
+            "name": "iPhone Charger Adapter 20W Type C for iPhone 17/17 Air/17 Pro/17 Pro Max, 16/16 Plus/16 Pro/16 Pro Max, 15/15 Plus/15Pro/15 Pro Max &amp; Other Devices with 1 Meter USB C to Type C Data Cable",
+            "price": "₹499.00 - ₹958.00",
+            "link": "https://www.amazon.com/dp/B0CNM4V6Q5?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61yynb2fDIL._AC_UL300_SR300,200_.jpg"
+        },
+        {
             "name": "Sounce Hard Disk Drive Pouch case for 2.5\" HDD Cover WD Seagate Slim Sony Dell Toshiba (Black)",
             "price": "₹129.00 - ₹599.00",
             "link": "https://www.amazon.in/dp/B088BGY43C?tag=shashwat022-21",
