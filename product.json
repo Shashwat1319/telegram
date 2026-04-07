@@ -1,6 +1,42 @@
 {
     "products": [
         {
+            "name": "Sounce Hard Disk Drive Pouch case for 2.5\" HDD Cover WD Seagate Slim Sony Dell Toshiba (Black)",
+            "price": "₹129.00 - ₹599.00",
+            "link": "https://www.amazon.in/dp/B088BGY43C?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51xMeTYtRkL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "MY ARMOR Cervical Pillow for Neck Pain and Shoulder Pain, Spondylitis Neck, Orthopedic Memory Foam Pillow for Sleeping, Standard Size - 2 & 4 Inch Dual Height, with Washable Grey Velvet Cover",
+            "price": "₹659.00 - ₹2,199.00",
+            "link": "https://www.amazon.com/dp/B0DS8V8T26?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/711Yi+kOCSL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "iQOO 15 (Alpha, 12GB RAM, 256GB Storage) | Fastest Snapdragon 8 Elite Gen 5 Processor* | Origin OS 6 - Out of The Box* | Samsung 2K M14 Lead OLED Display",
+            "price": "₹72,998.00 - ₹79,998.00",
+            "link": "https://www.amazon.in/dp/B0FYGGJZV4?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61o9FFbUEJL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Fujifilm Instax Mini Picture Format Film (20 Shots)",
+            "price": "₹1,399.00",
+            "link": "https://www.amazon.in/dp/B0000C73CQ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61cpxtAOkFL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "iQOO Z10R 5G (Aquamarine, 8GB RAM, 128GB Storage) | 32MP 4K Selfie Camera | Quad-Curved AMOLED Display | Dimensity 7400 Processor with 750K+ AnTuTu",
+            "price": "₹22,998.00 - ₹26,998.00",
+            "link": "https://www.amazon.in/dp/B0FHB5V36G?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61WM6IDaBPL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Original Samsung 25W Charger USB Type C Adapter for Samsung Galaxy Z Fold 6/5/4,Z Flip6/5/4, S25/S24/S24+/S24 Ultra, S23/S23+/S23 Ultra/S23 FE with PD 3.0 Fast Charging",
+            "price": "₹598.98 - ₹682.00",
+            "link": "https://www.amazon.in/dp/B0DBL6JZKN?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71mOczsYpTL._AC_UL900_SR900,600_.jpg"
+        },
+        {
             "name": "Sounce Hard Drive Disk Portable Carrying Printed Case Cover Pouch Casing for 2.5-Inch EVA Carry Pouch Compatible with Hard Drive,Passport,Toshiba Earphone,Power Bank,USB Cable (Grey Camouflage)",
             "price": "",
             "link": "https://www.amazon.in/dp/B0DRV5MBJP?tag=shashwat022-21",
