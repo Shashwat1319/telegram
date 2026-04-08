@@ -1,6 +1,30 @@
 {
     "products": [
         {
+            "name": "Minimalist Barrier Repair Face Moisturizer with Vitamin B12 Complex 5.5% with Ceramides for All Skin Types | Strengthens Skin Barrier, Boosts Hydration, Soothing, Lightweight Gel Texture | 10 gm",
+            "price": "₹149.00",
+            "link": "https://www.amazon.com/dp/B0FNDLJWK2?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/41X9nq2Yp8L._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "FACES CANADA Strobe Cream Mini- Rose Gold, 18ml | Primer + Highlighter + Moisturizer | Shea Butter & Hyaluronic Acid | Intense Hydration | Flawless Radiant Dewy Skin | Illuminating & Glowing Makeup Base",
+            "price": "₹267.00 - ₹599.00",
+            "link": "https://www.amazon.com/dp/B0FSQB83XJ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51yKs+HlJkL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "L'Oreal Paris Extraordinary Oil Nourishing Conditioner For Dry & Dull Hair, 180ml",
+            "price": "₹175.77 - ₹341.40",
+            "link": "https://www.amazon.com/dp/B00IF3W7S2?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/519v3x3mCiL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "L'Oréal Paris Anti-Hair Fall Shampoo, Reinforcing & Nourishing for Hair Growth, For Thinning & Hair Loss, With Arginine Essence and Salicylic Acid, Fall Resist 3X, 180 ml",
+            "price": "₹176.70 - ₹833.00",
+            "link": "https://www.amazon.com/dp/B008LTUHXW?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51FsphmBJuL._AC_UL300_SR300,200_.jpg"
+        },
+        {
             "name": "OnePlus Nord Buds 3r TWS Earbuds up to 54 Hours Playback, 2-mic Clear Calls, 3D Spatial Audio, AI Translation, 12.4mm Drivers, Dual-Device Connectivity, 47ms Low Latency - Ash Black",
             "price": "₹1,599.00",
             "link": "https://www.amazon.com/dp/B0FMDL81GS?tag=shashwat022-21",
