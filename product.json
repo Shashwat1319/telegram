@@ -1,6 +1,30 @@
 {
     "products": [
         {
+            "name": "OnePlus Nord Buds 3r TWS Earbuds up to 54 Hours Playback, 2-mic Clear Calls, 3D Spatial Audio, AI Translation, 12.4mm Drivers, Dual-Device Connectivity, 47ms Low Latency - Ash Black",
+            "price": "₹1,599.00",
+            "link": "https://www.amazon.com/dp/B0FMDL81GS?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51nBTTG3hNL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Gear Aspire 3 19\"/35L Faux Leather Large Water Resistant 4 Compartment Laptop Backpack/Casual Backpack/Daypack/Travel Backpack/College Bag For Men/Women(Black-Grey)",
+            "price": "₹899.00 - ₹1,399.00",
+            "link": "https://www.amazon.com/dp/B0DD3MTC7X?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71sDmtX456L._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "realme NARZO 80 Lite 4G (Beach Gold, 4GB+64GB) | 6300mAh Segment's Biggest Battery | 7.94mm Slim Design | 300% Ultra Volume | Pulse Light: 9 Colors, 5 Glow Modes | Ai Assist",
+            "price": "₹8,999.00 - ₹10,999.00",
+            "link": "https://www.amazon.com/dp/B0FG2NBVBN?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71O5RK8qS3L._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "ZEBRONICS Charm Rechargeable Wireless Mouse, Dual Mode (2.4GHz + BT), Dual Bluetooth, Upto 1600 DPI, Silent Operation, 6 Buttons, Comfortable & Ergonomic, for Mac | Laptop | Computer (Metallic Black)",
+            "price": "₹429.00 - ₹449.00",
+            "link": "https://www.amazon.com/dp/B0DDTTH4H2?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71j9WxkbJQL._AC_UL900_SR900,600_.jpg"
+        },
+        {
             "name": "OnePlus Pad Go 2, 30.73 cm (12.1 inch) 2.8K Display, Dolby Vision™, 120Hz Refresh Rate, Quad Speakers, AI, 10050 mAh Battery, Wi-Fi Tablet, 8GB RAM 128 GB Storage, Lavender Drift",
             "price": "₹27,499.00 - ₹33,499.00",
             "link": "https://www.amazon.com/dp/B0G4QM3YDM?tag=shashwat022-21",
