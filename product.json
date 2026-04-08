@@ -1,6 +1,18 @@
 {
     "products": [
         {
+            "name": "OnePlus Pad Go 2, 30.73 cm (12.1 inch) 2.8K Display, Dolby Vision™, 120Hz Refresh Rate, Quad Speakers, AI, 10050 mAh Battery, Wi-Fi Tablet, 8GB RAM 128 GB Storage, Lavender Drift",
+            "price": "₹27,499.00 - ₹33,499.00",
+            "link": "https://www.amazon.com/dp/B0G4QM3YDM?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61e+zHRQxeL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "L'Oreal Paris Fresh Hyaluron Moisture 72HR Moisture Sealing Conditioner Powered By Hyaluronic Acid, For Frizz-Free, Hydrated And Bouncy Hair Full Of Life For All Hair Types | 175 Millilitres",
+            "price": "₹194.00 - ₹589.00",
+            "link": "https://www.amazon.com/dp/B0B6Y3FNV7?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/511fPrnY+bL._AC_UL300_SR300,200_.jpg"
+        },
+        {
             "name": "GEONIX SATA 2.5\" 128GB Internal Solid State Drive 6Gb/s | Fast Performance | Read/Write Speed Upto - 570/500 MB/s | Quad Channel Controller Compatible with PC and Laptop | 5 Years Warranty.",
             "price": "₹2,179.00 - ₹4,990.00",
             "link": "https://www.amazon.com/dp/B09ZVHDJG7?tag=shashwat022-21",
