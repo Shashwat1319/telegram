@@ -1,6 +1,24 @@
 {
     "products": [
         {
+            "name": "GEONIX SATA 2.5\" 128GB Internal Solid State Drive 6Gb/s | Fast Performance | Read/Write Speed Upto - 570/500 MB/s | Quad Channel Controller Compatible with PC and Laptop | 5 Years Warranty.",
+            "price": "₹2,179.00 - ₹4,990.00",
+            "link": "https://www.amazon.com/dp/B09ZVHDJG7?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61t1gdnwG-L._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Pigeon by Stovekraft Joy Rice Cooker with Double pot, 1 litres. (White) | Toughened Glass Lid | 400 Watts | 2 Aluminium Cooking Pots | Measuring Cup| Spatula | Energy Efficient Cooking",
+            "price": "₹1,799.00 - ₹1,945.00",
+            "link": "https://www.amazon.com/dp/B00A0ITZBW?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61-xIbAE7SL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "iQOO 15R (Dark Knight, 8GB RAM, 256GB Storage) | Snapdragon® 8 Gen 5 Processor | India’s Slimmest Smartphone in 7600mAh Battery* | Segment's Most Stable 144FPS Gaming*",
+            "price": "₹44,998.00 - ₹52,998.00",
+            "link": "https://www.amazon.com/dp/B0GL83ZTP8?tag=shashwat01-20",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/616mnp2HZ7L._AC_UL900_SR900,600_.jpg"
+        },
+        {
             "name": "atomberg Renesa Enzel 600mm Newly Launched BLDC Ceiling Fan with Remote | BEE 5 star | High Air Delivery | LED Speed Indicator | Low Noise | Sleek Design | Power Saving | 3 Year Warranty | Gloss Black",
             "price": "₹3,299.00 - ₹3,399.00",
             "link": "https://www.amazon.com/dp/B0G8JXGM29?tag=shashwat022-21",
