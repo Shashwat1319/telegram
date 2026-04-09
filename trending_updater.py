@@ -200,7 +200,12 @@ def main():
         try:
             subprocess.run([sys.executable, "bot_post.py"], check=True)
         except Exception as e:
-            print(f"Bot error: {e}")
+            print(f"Telegram Bot error: {e}")
+            
+        try:
+            subprocess.run([sys.executable, "fb_bot_post.py"], check=True)
+        except Exception as e:
+            print(f"Facebook Bot error: {e}")
     else:
         print("No new products.")
 

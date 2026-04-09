@@ -43,5 +43,7 @@ jobs:
           AFFILIATE_ID_COM: ${{ secrets.AFFILIATE_ID_COM }}
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_ACCESS_TOKEN: ${{ secrets.FB_ACCESS_TOKEN }}
         run: |
           python trending_updater.py
