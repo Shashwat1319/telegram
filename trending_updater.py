@@ -202,7 +202,11 @@ def main():
         except Exception as e:
             print(f"Telegram Bot error: {e}")
     else:
-        print("No new products.")
+        print("No new products. Picking random deals for channel activity...")
+        try:
+            subprocess.run([sys.executable, "bot_post.py", "--random"], check=True)
+        except Exception as e:
+            print(f"Telegram Bot fallback error: {e}")
 
 if __name__ == "__main__":
     main()
