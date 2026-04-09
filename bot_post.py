@@ -95,20 +95,30 @@ async def post_deals():
             
             try:
                 if image_url:
-                    await bot.send_photo(
-                        chat_id=chat_id,
-                        photo=image_url,
-                        caption=msg,
-                        parse_mode='HTML',
-                        reply_markup=reply_markup
-                    )
+                    try:
+                        await bot.send_photo(
+                            chat_id=chat_id,
+                            photo=image_url,
+                            caption=msg,
+                            parse_mode='HTML',
+                            reply_markup=reply_markup
+                        )
+                    except Exception as photo_e:
+                        print(f"Photo upload failed ({photo_e}). Falling back to Text-only message...")
+                        await bot.send_message(
+                            chat_id=chat_id,
+                            text=msg,
+                            parse_mode='HTML',
+                            reply_markup=reply_markup,
+                            disable_web_page_preview=False
+                        )
                 else:
                     await bot.send_message(
                         chat_id=chat_id,
                         text=msg,
                         parse_mode='HTML',
                         reply_markup=reply_markup,
-                        disable_web_page_preview=True
+                        disable_web_page_preview=False
                     )
                 print(f"Posted: {product['name']}")
                 await asyncio.sleep(5)
