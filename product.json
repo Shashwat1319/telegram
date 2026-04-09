@@ -1,6 +1,78 @@
 {
     "products": [
         {
+            "name": "RE' EQUIL Ultra Matte Dry Touch Sunscreen | SPF 50 PA++++ | Water & Sweat Resistant | No White Cast, Non-Greasy & Non-Comedogenic | For All Skin Types | 6G (Trial Pack)",
+            "price": "₹150.00 - ₹609.00",
+            "link": "https://www.amazon.com/dp/B0GK18G4V8?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/41ck8CmeVXL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "Parachute Coconut Oil - 600 ml (Easy Jar)",
+            "price": "₹438.00",
+            "link": "https://www.amazon.com/dp/B07KZB82QC?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/610znuVyFXL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "Parachute Advansed Amla Rosemary Hair Oil | 500ml | Amla & Rosemary | For All Hair Types",
+            "price": "₹204.00",
+            "link": "https://www.amazon.com/dp/B0F6D6R1H6?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51xBmqZhrqL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "STAR-SPANGLED Push Tap Light, Mini Night Touch LED Puck Lamp, Portable Under Cabinet Lighting AAA Battery Operated Powered, DIY Stick On Lights for Closet, Kitchen (7cm, Golden, Warm White, 5 Pack)",
+            "price": "₹536.00",
+            "link": "https://www.amazon.in/dp/B08T7NLLSL?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71JsMWg-iyL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "MILTON Helix 1000 Pet Water Bottle 1 Litre Each BPA Free, Leak Proof, Office Bottle Home Kitchen Travel Bottle, Set of 4, Assorted",
+            "price": "₹135.00",
+            "link": "https://www.amazon.in/dp/B098KGQC7M?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/818EOU7f4PS._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Gipibox® 2 L Capacity Straw Transparent Motivational Water Bottles|Time Marker Leak Proof&Break-Proof|Best Usage For Office/School/College/Gym/Travel Bottle|Bpa-Free Sports Bottle (1PCS) Plastic",
+            "price": "₹199.00",
+            "link": "https://www.amazon.in/dp/B0DD478FZR?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61818em94pL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Milton Kool Seal 7 Insulated Plastic Water Jug,6 litres, Blue | BPA Free, Leak Proof, Easy to Carry Jug with Sturdy Handles | Ideal for Home, Offices, Travel, Picnic, Shops",
+            "price": "₹626.00",
+            "link": "https://www.amazon.in/dp/B07RF7QY55?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71o4+yTXpsL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "MILTON Prime Pack of 5 Water Bottles, 1 Litre Each I BPA Free I Food Grade Fridge Bottle Set I Leak Proof Bottles for Travel, Work, Assorted",
+            "price": "₹451.00",
+            "link": "https://www.amazon.in/dp/B096XW67Q1?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/717FFvujMPL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "realme Buds Wireless 3 Neo in Ear Bluetooth Neckband with 13.4 Mm Dynamic Bass Boost Driver,Upto 32 Hours Playback,Fast Charge,Ai Enc,45Ms Low Latency,Ip55 Dust&Water Resistannt&Bluetooth V 5.4 Black",
+            "price": "₹1,099.00",
+            "link": "https://www.amazon.in/dp/B0DVC6MP1D?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61+esOKPDVL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Boat Airdopes 141, Low Latency, ENx Tech, 42HRS Battery, Fast Charge, IWP, IPX4, Bluetooth Earbuds, TWS Ear Buds Wireless Earphones with mic (Cider Cyan)",
+            "price": "₹699.00 - ₹1,686.00",
+            "link": "https://www.amazon.in/dp/B09N3XMZ5F?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71oXzCK43NL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Apple EarPods (USB-C) ​​​​​​​",
+            "price": "₹1,649.00",
+            "link": "https://www.amazon.in/dp/B0DCNWN8NZ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/513OSdW4elL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Fire-Boltt Aero Shadow TWS Earbuds Custom EQ, RGB Lights, Wireless Bluetooth 5.4, Music & App Support, 50H Playtime, Fast Charging Case, 50ms Low Latency for Gaming, Touch Controls- Artic White",
+            "price": "₹799.00",
+            "link": "https://www.amazon.in/dp/B0GHQHJDBD?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51yrvA07qFL._AC_UL900_SR900,600_.jpg"
+        },
+        {
             "name": "STRIFF Mpad Mouse Mat 230X190X3mm Gaming Mouse Pad, Non-Slip Rubber Base, Waterproof Surface, Premium-Textured, Compatible with Laser and Optical Mice(Universe Black)",
             "price": "₹99.00",
             "link": "https://www.amazon.com/dp/B0B9LDCX89?tag=shashwat022-21",
@@ -527,78 +599,6 @@
             "price": "₹137.00 - ₹395.00",
             "link": "https://www.amazon.com/dp/B097C5S5ZJ?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/71iAMC6U3dL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "NIVEA Aloe Hydration Body Lotion, 400ml | 72H Moisturization | With Deep Moisture Serum &amp; 100% Natural Aloe Vera Extracts | All Skin Types",
-            "price": "₹356.00 - ₹397.00",
-            "link": "https://www.amazon.com/dp/B079KGC4NZ?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51ffS7Hy7wL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Parachute Advansed Body Lotion Deep Nourish, With Pure Coconut Milk, 250 ml (Pack of 3)",
-            "price": "₹145.00 - ₹799.00",
-            "link": "https://www.amazon.com/dp/B08N7SCY7H?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71NgvAzxEcL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Biolage Smooth Proof 6-in-1 Hair Serum 100ml | Deep Smoothening With Avocado &amp; Grape Seed Oil | Up to 72HR Frizz Control |For Women &amp; Men | Vegan &amp; Cruelty-Free",
-            "price": "₹315.00 - ₹630.00",
-            "link": "https://www.amazon.com/dp/B01HO9EC94?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51PBDFlTFKL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Rexona for Female Shower Fresh Underarm Roll On Deodorant + Antiperspirant With Glycerine, Removes Odour, Even Skin Tone,Keeps Skin Fresh &amp; Clean, Alcohol Free, 50 Ml (Pack Of 2)",
-            "price": "₹136.00",
-            "link": "https://www.amazon.com/dp/B0CMQM8PBV?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Fa1qeOm3L._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Electric Rechargeable Plasma Gas Lighter for BBQ, Lighter for Gas Stove, Candles, Pooja, 1 Year Warranty, C-Type USB, Multi Purpose - 360° Flexible & Windproof, Black (Pack of 1)",
-            "price": "₹179.00",
-            "link": "https://www.amazon.com/dp/B0G4SPNQ2H?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/6126+uieJiL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Philips HD4934/00 1300W Induction Cooktop With Triple MOV For 4Kw Surge Protection With Soft Touch Control | 7 Preset Menus | 3 Years Warranty On Coil, Black",
-            "price": "₹2,399.00",
-            "link": "https://www.amazon.com/dp/B0DGKWNGKZ?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51CdR8C6hHL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Philips Viva Collection HD4928/01 2100-Watt Induction Cooktop (Black)",
-            "price": "N/A",
-            "link": "https://www.amazon.com/dp/B00EDJJ7FS?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61TDmpQ6-2L._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Pigeon By Stovekraft Favourite 1800-Watt Induction Cooktop, Crystal Glass, Black",
-            "price": "₹2,699.00",
-            "link": "https://www.amazon.com/dp/B012VFOQDI?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81MW4K7I5IL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "DDS Dream Decor Shoppee Engineered Wood Foldable Round Shaped Side Table (Black)",
-            "price": "₹399.00 - ₹448.00",
-            "link": "https://www.amazon.com/dp/B08PBL58QS?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81bfpR3lXML._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "One94Store Portable Bladeless Neck Fan – Modern Design, 12 Air Outlets, 2400mAh Rechargeable Battery, USB Powered, 5-Speed Hands-Free Cooling Fan, Up to 6 Hours Use for Indoor&Outdoor (Blue)",
-            "price": "₹299.00 - ₹499.00",
-            "link": "https://www.amazon.com/dp/B0GQV953S4?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/712KedRQnvL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "APFEN® 20W [Apple MFi Certified] Type-C Fast Charger Adapter & Cable Compatible with iPhone 14/14 Pro/14 Pro Max/13/13 Pro/13 Pro Max/12/11/XR/XS/X/8 Series, White",
-            "price": "₹382.00 - ₹899.00",
-            "link": "https://www.amazon.com/dp/B0F62W35NX?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61sa0aOa5ZL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Kratos 25W Charger Adapter Compatible with Samsung Galaxy S/A/M/F/Z Series S25/S24/S23/S22/S21/21 fe/S20/M14 5G/M34/M54/M53 5g/M33/M13/A34/A54 5G,F15,BIS Certified,1 Year Warranty,White",
-            "price": "₹479.00 - ₹899.00",
-            "link": "https://www.amazon.com/dp/B0FH2N3PFX?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51BcZ-rjT3L._AC_UL900_SR900,600_.jpg"
         }
     ]
 }
