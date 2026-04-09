@@ -1,6 +1,54 @@
 {
     "products": [
         {
+            "name": "Amazon Echo Dot (5th Gen, 2022 release) Smart speaker with Alexa (Charcoal)",
+            "price": "₹4,499.00",
+            "link": "https://www.amazon.in/dp/B0B77K7M8G?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61p0-wRkCPL._SX679_.jpg"
+        },
+        {
+            "name": "Lenovo Tab P11 (2nd Gen) Tablet (11.5 inch 2K Display, 8GB RAM, 256GB Storage, Wi-Fi)",
+            "price": "₹22,999.00",
+            "link": "https://www.amazon.in/dp/B0BNVS76R5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71vVwN-zDGL._SX679_.jpg"
+        },
+        {
+            "name": "OnePlus Nord CE 3 5G (Aqua Surge, 8GB RAM, 128GB Storage)",
+            "price": "₹26,999.00",
+            "link": "https://www.amazon.in/dp/B0BXCKG1V4?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61LnG3v4wXL._SX679_.jpg"
+        },
+        {
+            "name": "Canon EOS R10 Mirrorless Camera (RF-S 18-45mm f/4.5-6.3 IS STM Lens) - Compact, Lightweight, 24.2MP APS-C CMOS Sensor, UHD 4K 60p Video, Dual Pixel CMOS AF II",
+            "price": "₹76,490.00",
+            "link": "https://www.amazon.in/dp/B0B7C6411N?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/714JbFh3n5L._SX679_.jpg"
+        },
+        {
+            "name": "EcoFlow River 2 Max Portable Power Station, 512Wh LiFePO4 Battery, 1000W X-Boost, Fast AC Charging, Solar Generator for Outdoors, RV, Home Backup, Off-Grid",
+            "price": "₹34,990.00",
+            "link": "https://www.amazon.in/dp/B0BF8K8J91?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61tFhY1gQjL._SX679_.jpg"
+        },
+        {
+            "name": "Eveready 12W Emergency Inverter LED Bulb, Cool Day Light (6500K), Rechargeable Bulb with 3 Hours Backup, Ideal for Powercuts, Energy Efficient, B22 Base, Pack of 1",
+            "price": "₹239.00 - ₹4,610.00",
+            "link": "https://www.amazon.com/dp/B09NPVCHXC?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71ISgAd-E0L._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "Cüraa ChopLab Lite Manual Chopper | 650 ml Portable Vegetable Chopper| Mini Chopper for Kitchen with Stainless Steel Blades for Chopping Onion, Ginger, Garlic, Vegetables, Herbs, Nuts | Red",
+            "price": "₹649.00 - ₹899.00",
+            "link": "https://www.amazon.com/dp/B0FCSN3CJZ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71qELmK1QPL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "TP-Link AC750 Wifi Range Extender | Up to 750Mbps | Dual Band WiFi Extender, Repeater, Wifi Signal Booster, Access Point| Easy Set-Up | Extends Wifi to Smart Home & Alexa Devices (RE200)",
+            "price": "₹1,990.00 - ₹3,179.00",
+            "link": "https://www.amazon.com/dp/B00KXULGJQ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61+8YQqHC0L._AC_UL300_SR300,200_.jpg"
+        },
+        {
             "name": "Minimalist Barrier Repair Face Moisturizer with Vitamin B12 Complex 5.5% with Ceramides for All Skin Types | Strengthens Skin Barrier, Boosts Hydration, Soothing, Lightweight Gel Texture | 10 gm",
             "price": "₹149.00",
             "link": "https://www.amazon.com/dp/B0FNDLJWK2?tag=shashwat022-21",
