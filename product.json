@@ -1,6 +1,54 @@
 {
     "products": [
         {
+            "name": "amazon basics Tri-Mode Wireless RGB Gaming Headphones with Detachable Mic,Volume Scroller,Microphone On/Off Button,Type-C Charging Jack, for PC and Laptop. (Black)",
+            "price": "₹2,099.00",
+            "link": "https://www.amazon.com/dp/B0DG2T5XCY?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61tWLVKsRJL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "Sounce Type C Hard Drive Enclosure, External Hard Drive Docking Station for 3.5/2.5 Inch SATA Hard Drives/SSD with 16 TB+, Tool-Free HDD Enclosure 12V/2A Power Supply UASP (Black)",
+            "price": "₹169.00 - ₹999.00",
+            "link": "https://www.amazon.com/dp/B0DKNB49SM?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61OYihLSiJL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "EooCoo Keyboard Cover Skin Protector Compatible for MacBook Air 13.3 inch M1,2021 2020 Release,A2337 A2179 Retina Display&Touch ID,Premium Ultra Thin Soft TPU Waterproof Dust-Proof,US Layout-TPU Clear",
+            "price": "₹320.00 - ₹347.00",
+            "link": "https://www.amazon.com/dp/B0D5QZJDRB?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71P9W9s+u+L._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "ThriveCo Hair Coloring Shampoo, Dark Brown | 5-Minute Instant Hair Dye Color Shampoo | 100% Coverage for Grey Hair | Ammonia-Free, Long Lasting | Glossy Finish with Hyaplex™ | for Men & Women | Pack of 8 x 20ml (80ml)",
+            "price": "₹244.00 - ₹545.14",
+            "link": "https://www.amazon.com/dp/B0GD118SVV?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71fPh70qDaL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "INSIGHT Lip & Cheek Tint - Candy Cane (3 g) | Matte Finish | With Vitamin E | Long-Lasting, Lightweight Multipurpose Tint for Lips & Cheeks | Smooth Application | All Skin Types",
+            "price": "₹56.00 - ₹103.00",
+            "link": "https://www.amazon.com/dp/B0CG6GH7KT?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51l2OgErZKL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "Lakme Perfect Radiance Brightening Facewash with 98% Pure Niacinamide Complex | For Glowing Skin with Glycerin | Known to Reduce Pigmentation | 50gm",
+            "price": "₹160.00",
+            "link": "https://www.amazon.com/dp/B00CS1K0UE?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/41BytXDHTfL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "Cetaphil Gentle Exfoliating SA Cleanser 29ml | Daily Foaming Face Wash with Salicylic Acid, Mandelic Acid & Gluconolactone | Smooth, Even Skin | For Sensitive & Acne-Prone Skin",
+            "price": "₹87.00",
+            "link": "https://www.amazon.com/dp/B0FMR7GHFF?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/615jAbgKimL._AC_UL300_SR300,200_.jpg"
+        },
+        {
+            "name": "Maybelline New York SuperStay Matte Ink Liquid Lipstick - 15 Lover, Highly pigmented, Transfer Proof & Fade Proof. Maybelline New York SuperStay Matte Ink Liquid Lipstick Lasts Up To 16 Hour | 5ml",
+            "price": "₹337.00 - ₹749.00",
+            "link": "https://www.amazon.com/dp/B07FTP49R4?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51YXK1wdDJL._AC_UL300_SR300,200_.jpg"
+        },
+        {
             "name": "STP FEEL® Military Grade Premium Tempered Glass For iPhone XS Max/iPhone 11 Pro Max (6.5 Inch, Pack of 1) 9H Hardness Screen Protector Guard with Easy Installation Kit",
             "price": "₹149.00 - ₹699.00",
             "link": "https://www.amazon.com/dp/B09MJBGS4H?tag=shashwat022-21",
@@ -551,54 +599,6 @@
             "price": "₹598.98 - ₹682.00",
             "link": "https://www.amazon.in/dp/B0DBL6JZKN?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/71mOczsYpTL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Sounce Hard Drive Disk Portable Carrying Printed Case Cover Pouch Casing for 2.5-Inch EVA Carry Pouch Compatible with Hard Drive,Passport,Toshiba Earphone,Power Bank,USB Cable (Grey Camouflage)",
-            "price": "",
-            "link": "https://www.amazon.in/dp/B0DRV5MBJP?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81-6QZLN8cL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Google Original Type C To Type C Mobile Data Charging Cable For Pixel 10/10 Pro/9A/9 Pro Xl/8 Pro/8/8A/7 Pro/7/7A/Chromebook Laptop/Buds & Other USB C Device Support For Nothing 3A Pro | 30 W, White",
-            "price": "₹252.00 - ₹8,362.00",
-            "link": "https://www.amazon.in/dp/B0F917NL75?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61uzuTlqh2L._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "TEX-RO Metal Clothes Drying Stand Foldable with Wheels – 3-Tier Cloth Dryer Stand for Balcony, Bedroom & Indoor Outdoor | Heavy Duty Hanger Stand for Clothes Hanging, Dress Drying Rack - Grey",
-            "price": "₹499.00 - ₹1,099.00",
-            "link": "https://www.amazon.com/dp/B0GQQHX25W?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81xGIaEgHqL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Amazon Basics Premium Cloth Drying Stand - 3 Way Folding, 42 Feet Drying Length, Lightweight, 20 Drying Rails (Black) Alloy Steel Pack of 1",
-            "price": "₹695.00 - ₹1,259.00",
-            "link": "https://www.amazon.com/dp/B0DCKD9ZW9?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71+O0im0plL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "atomberg SilenceAire Hi-Speed | Newly Launched | 400mm BLDC Pedestal Fan | 5-star rated| Home & Office | Silent Stand Fan | 60W | Remote | Height Adjustable | 2 Years Warranty (Midnight Black)",
-            "price": "₹3,499.00 - ₹4,099.00",
-            "link": "https://www.amazon.com/dp/B0GHSH3LG6?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61CrcnnwJ3L._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "iPhone Charger Adapter 20W Type C for iPhone 17/17 Air/17 Pro/17 Pro Max, 16/16 Plus/16 Pro/16 Pro Max, 15/15 Plus/15Pro/15 Pro Max & Other Devices with 1 Meter USB C to Type C Data Cable",
-            "price": "₹499.00 - ₹958.00",
-            "link": "https://www.amazon.com/dp/B0CNM4V6Q5?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61yynb2fDIL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "one plus Type-C to Type-C 65W Short Powerbank Fast Charging Cable 25 cm Compact Cord Compatible with iPhone 17 / Samsung S25 Ultra / S24 / OnePlus/Google Pixel/Nothing Phone PD 3.0 QC 3.0 (Red)",
-            "price": "₹149.00 - ₹299.00",
-            "link": "https://www.amazon.com/dp/B0GF7M4NLK?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/513MaOjMlWL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Safari School Bag For Girls, Backpack For kids and children",
-            "price": "₹899.00",
-            "link": "https://www.amazon.com/dp/B097FZYG82?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81xCadRQP4L._AC_UL300_SR300,200_.jpg"
         }
     ]
 }
