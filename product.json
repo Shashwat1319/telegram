@@ -1,6 +1,12 @@
 {
     "products": [
         {
+            "name": "VAS COLLECTIONS Cloud Cotton Double Bedsheet 180 TC | Soft & Breathable Cotton Bedding Set with 2 Pillow Covers | Elegant Floral Printed Bed Sheet for Bedroom & Home | 90x90 Inches (Aqua Petal)",
+            "price": "₹209.00 - ₹279.00",
+            "link": "https://www.amazon.in/dp/B0FT7R95QG?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/713fhWoDdAL.jpg"
+        },
+        {
             "name": "RE' EQUIL Ultra Matte Dry Touch Sunscreen | SPF 50 PA++++ | Water & Sweat Resistant | No White Cast, Non-Greasy & Non-Comedogenic | For All Skin Types | 6G (Trial Pack)",
             "price": "₹150.00 - ₹609.00",
             "link": "https://www.amazon.com/dp/B0GK18G4V8?tag=shashwat022-21",
@@ -593,12 +599,6 @@
             "price": "₹83.00 - ₹99.00",
             "link": "https://www.amazon.com/dp/B0CTZXNWYP?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/71aB1kyk4pL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Dabur Vatika Ayurvedic Shampoo - 1 L | For Strong &amp; Healthy Hair | No Parabens | For All Hair Types | Power of Dus Poshan for 10 Hair Problems",
-            "price": "₹137.00 - ₹395.00",
-            "link": "https://www.amazon.com/dp/B097C5S5ZJ?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71iAMC6U3dL._AC_UL900_SR900,600_.jpg"
         }
     ]
 }
