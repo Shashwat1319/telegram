@@ -9,17 +9,18 @@ import webbrowser
 import urllib.parse
 import threading
 
-APP_ID = "891489110558398"
+APP_ID = "2157373155060656"
 REDIRECT_URI = "http://localhost:3000"
-SCOPE = "pages_manage_posts"
 
-# OAuth URL
+# Modern scope-based OAuth (manage_pages is deprecated, use new permissions)
+SCOPES = "pages_manage_posts,pages_show_list"
+
 oauth_url = (
     f"https://www.facebook.com/dialog/oauth?"
     f"client_id={APP_ID}"
-    f"&redirect_uri={urllib.parse.quote(REDIRECT_URI)}"
-    f"&scope={SCOPE}"
+    f"&scope={SCOPES}"
     f"&response_type=token"
+    f"&redirect_uri={urllib.parse.quote(REDIRECT_URI)}"
 )
 
 token_received = threading.Event()
@@ -36,7 +37,7 @@ class TokenHandler(http.server.BaseHTTPRequestHandler):
             params = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
             token = params.get("access_token", [""])[0]
             if token:
-                print(f"\n✅ SUCCESS! Your Page Access Token:\n\n{token}\n")
+                print(f"\n[SUCCESS] Your Page Access Token:\n\n{token}\n")
                 print("Copy this token and update your .env file with FB_ACCESS_TOKEN=<token>")
                 self.wfile.write(b"<h1>SUCCESS! Check your terminal for the token!</h1>")
                 token_received.set()
@@ -71,10 +72,10 @@ def start_server():
     server.handle_request()  # Handle the token fetch request
     server.server_close()
 
-print("🚀 Starting local server on http://localhost:3000")
-print("📱 Opening Facebook login in your browser...")
-print("➡️  Login to Facebook and select your 'budgetdealsindia' page")
-print("⏳ Waiting for token...\n")
+print("[*] Starting local server on http://localhost:3000")
+print("[*] Opening Facebook login in your browser...")
+print("[*] Login to Facebook and select your 'budgetdealsindia' page")
+print("[*] Waiting for token...\n")
 
 # Start server in thread
 server_thread = threading.Thread(target=start_server)
@@ -86,4 +87,4 @@ webbrowser.open(oauth_url)
 
 # Wait for token
 server_thread.join(timeout=120)
-print("\nDone! If you see the token above, copy it to your .env file as FB_ACCESS_TOKEN=<token>")
+print("\n[Done] If you see the token above, copy it to your .env file as FB_ACCESS_TOKEN=<token>")

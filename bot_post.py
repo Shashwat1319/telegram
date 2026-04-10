@@ -23,32 +23,43 @@ def generate_message(product):
     name = product.get('name', 'Great Deal!')
     price = product.get('price', 'Check Link')
     link = product.get('link', '#')
+    category = product.get('category', 'Loot')
     
     # Simple clean for HTML special characters
     safe_name = name.replace('<', '&lt;').replace('>', '&gt;')
     
+    # Identify Ladies Categories for special branding
+    ladies_cats = ["Ladies Fashion", "Ladies Shoes", "Ladies Jewelry", "Beauty", "Personal Care"]
+    is_ladies = any(c in category for c in ladies_cats)
+    
+    header_extra = ""
+    footer_extra = ""
+    if is_ladies:
+        header_extra = "💃 <b>LADIES SPECIAL LOOT</b> 💃\n"
+        footer_extra = "\n✨ <i>Special deal for the queens!</i> 👜💄"
+
     templates = [
-        f"🚨 <b>ERROR PRICING? SYSTEM GLITCH!</b> 🚨\n\n"
+        f"{header_extra}🚨 <b>ERROR PRICING? SYSTEM GLITCH!</b> 🚨\n\n"
         f"🎁 <b>{safe_name}</b>\n"
         f"💥 <b>Current Price:</b> <b>{price}</b> 😱\n\n"
-        f"⚠️ <i>Only active for next 5-10 minutes before Amazon fixes it!</i>\n"
+        f"⚠️ <i>Only active for next 5-10 minutes before Amazon fixes it!</i>{footer_extra}\n"
         f"👇 <b>CLICK HERE & ADD TO CART FAST</b> 👇\n"
         f"🛒 <a href='{link}'>Claim GLITCH Deal Now</a>\n\n"
         f"🤫 <b>DO NOT SHARE ON FACEBOOK/INSTA!</b> Forward only to close friends!\n"
         f"👉 Join <b>@{CLEAN_ID}</b> to get these secret deals first! 🏃‍♂️",
 
-        f"😱 <b>PRICE DROP OF THE MONTH! 99% CLAIMED!</b> 😱\n\n"
+        f"{header_extra}😱 <b>PRICE DROP OF THE MONTH! 99% CLAIMED!</b> 😱\n\n"
         f"📦 <b>{safe_name}</b>\n"
         f"🔥 <b>Loot Price:</b> <b>{price}</b> 📉\n\n"
-        f"⏳ <i>Stock will end completely in any second! Just 3 pieces left!</i>\n"
+        f"⏳ <i>Stock will end completely in any second! Just 3 pieces left!</i>{footer_extra}\n"
         f"🛒 <a href='{link}'>Click Here To Buy</a>\n\n"
         f"💵 Company ka loss aapka profit! Jaldi join kar lo: <b>@{CLEAN_ID}</b>\n"
         f"📢 <b>Apne dosto ko jaldi share karo, unhe bhi lootne do!</b>",
 
-        f"🛑 <b>SECRET LINK - WILL BE DELETED SOON!</b> 🛑\n\n"
+        f"{header_extra}🛑 <b>SECRET LINK - WILL BE DELETED SOON!</b> 🛑\n\n"
         f"🌟 <b>{safe_name}</b>\n"
         f"💎 <b>Get It Only At:</b> <b>{price}</b> ✅\n\n"
-        f"⚡️ <i>Ye price wapas zindagi mein nahi aayega! Guarantee.</i>\n"
+        f"⚡️ <i>Ye price wapas zindagi mein nahi aayega! Guarantee.</i>{footer_extra}\n"
         f"🔗 <a href='{link}'>Direct Hidden Link to Buy</a>\n\n"
         f"🚀 <i>Hum aise secret Loot daily post karte hain!</i>\n"
         f"Join <b>@{CLEAN_ID}</b> fast before we make the channel private! 🔒\n"

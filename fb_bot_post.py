@@ -27,10 +27,19 @@ def generate_fb_message(product):
     name = product.get('name', 'Great Deal!')
     price = product.get('price', 'Check Link')
     link = product.get('link', '#')
+    category = product.get('category', 'Loot')
     
+    # Identify Ladies Categories
+    ladies_cats = ["Ladies Fashion", "Ladies Shoes", "Ladies Jewelry", "Beauty", "Personal Care"]
+    is_ladies = any(c in category for c in ladies_cats)
+    
+    header_extra = ""
+    if is_ladies:
+        header_extra = "💃 LADIES SPECIAL LOOT 💃\n✨ Special deal for our lady followers! 👜💄\n\n"
+
     # Facebook me HTML <b>, <i> kaam nahi karte, toh plain text + emojis use karenge
     templates = [
-        f"🚨 ERROR PRICING? SYSTEM GLITCH! 🚨\n\n"
+        f"{header_extra}🚨 ERROR PRICING? SYSTEM GLITCH! 🚨\n\n"
         f"🎁 {name}\n"
         f"💥 Current Price: {price} 😱\n\n"
         f"⚠️ Only active for next 5-10 minutes before Amazon fixes it!\n"
@@ -38,7 +47,7 @@ def generate_fb_message(product):
         f"🛒 Buy Here: {link}\n\n"
         f"🤫 Tag your friends who love shopping! 🏃‍♂️",
 
-        f"😱 PRICE DROP OF THE MONTH! 99% CLAIMED! 😱\n\n"
+        f"{header_extra}😱 PRICE DROP OF THE MONTH! 99% CLAIMED! 😱\n\n"
         f"📦 {name}\n"
         f"🔥 Loot Price: {price} 📉\n\n"
         f"⏳ Stock will end completely in any second! Just 3 pieces left!\n"
@@ -46,7 +55,7 @@ def generate_fb_message(product):
         f"💵 Company ka loss aapka profit!\n"
         f"📢 Apne dosto ko jaldi share karo, unhe bhi lootne do!",
 
-        f"🛑 SECRET LINK - WILL BE DELETED SOON! 🛑\n\n"
+        f"{header_extra}🛑 SECRET LINK - WILL BE DELETED SOON! 🛑\n\n"
         f"🌟 {name}\n"
         f"💎 Get It Only At: {price} ✅\n\n"
         f"⚡️ Ye price wapas zindagi mein nahi aayega! Guarantee.\n"

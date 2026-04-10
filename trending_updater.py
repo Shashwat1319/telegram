@@ -176,20 +176,41 @@ def git_push_changes():
 
 def main():
     print("Starting trending product sync...")
+    category_map = {
+        "electronics": "Electronics",
+        "kitchen": "Kitchen",
+        "beauty": "Beauty",
+        "computers": "Computers",
+        "apparel": "Ladies Fashion",
+        "shoes": "Ladies Shoes",
+        "jewelry": "Ladies Jewelry",
+        "hpc": "Personal Care"
+    }
+    
     categories = [
         "https://www.amazon.in/gp/movers-and-shakers/electronics",
         "https://www.amazon.in/gp/movers-and-shakers/kitchen",
         "https://www.amazon.in/gp/movers-and-shakers/beauty",
-        "https://www.amazon.in/gp/movers-and-shakers/computers"
+        "https://www.amazon.in/gp/movers-and-shakers/computers",
+        "https://www.amazon.in/gp/movers-and-shakers/apparel",
+        "https://www.amazon.in/gp/movers-and-shakers/shoes",
+        "https://www.amazon.in/gp/movers-and-shakers/jewelry",
+        "https://www.amazon.in/gp/movers-and-shakers/hpc"
     ]
     
     any_new = False
     for url in categories:
-        print(f"Syncing: {url.split('/')[-1]}...")
+        slug = url.split('/')[-1]
+        cat_name = category_map.get(slug, "Loot")
+        print(f"Syncing: {cat_name}...")
+        
         html = get_amazon_trending(url)
         if html:
             products = extract_products_with_ai(html)
             if products:
+                # Tag each product with its category
+                for p in products:
+                    p['category'] = cat_name
                 products = add_affiliate_tags(products)
                 if update_json(products):
                     any_new = True

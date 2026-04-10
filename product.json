@@ -1,6 +1,90 @@
 {
     "products": [
         {
+            "name": "Anciently Lakshmi Kubera Coins 9 Nos Brass | Kubera Pooja Coins 9 Nos | Kubera Coins 9 Nos (Brass, 2 cm Diameter X 0.9 mm Thick) (Gold Colour)",
+            "price": "₹185.00",
+            "link": "https://www.amazon.com/dp/B0FNCNRVSB?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/91yBTVDHbFL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "Shining Diva Fashion 5 Pcs Latest Stylish Heart Butterfly Pearl Necklace Jewellery Set for Women Pendant Necklace Gifts for Girls (16476np)",
+            "price": "₹299.00",
+            "link": "https://www.amazon.com/dp/B0DYVPP86H?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/713ZDAwhQuL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "MEENAZ evil eye bracelet for woman Evil Eye Bangles for women Anti Tarnish Stylish Stainless Steel gold Bracelet for girls Hand Kada for Women Magnet lock Aesthetic Accessories Jewellery friendship crystal -625",
+            "price": "₹256.00",
+            "link": "https://www.amazon.com/dp/B0CWXVWMYX?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51LtPehussL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "Tanush Crystal Glass Bangles Jelly Bangles Pack of 8",
+            "price": null,
+            "link": "https://www.amazon.com/dp/B0GWDN3V8S?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Sz7jCs5GL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "Tanishq - Gold Jewellery | | E-Gift Card | Instant delivery | Valid for in-store purchases | Ideal gift for birthday, anniversary &amp; wedding",
+            "price": "₹500.00 - ₹1,99,999.00",
+            "link": "https://www.amazon.com/dp/B07QC7J7PF?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/41SoudZqydL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "HUSB Spring Acupressure and Magnetic Therapy Accu Paduka Slippers Foot Massager for Full Body Blood Circulation Slippers Foot Massager For Men and Women (Unisex) (Size 5, 6, 7, 8, 9, 10), Black",
+            "price": "₹348.00",
+            "link": "https://www.amazon.com/dp/B0D9TDWQNT?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81acoNTmZxL._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Lavie Women's Marma Crossbody Sling Bag | Ladies Purse Handbag | Gift for Women",
+            "price": "₹799.00 - ₹1,249.00",
+            "link": "https://www.amazon.com/dp/B0D7M6P59C?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Rryx-DlOL._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Frido Cloud Comfort Shoes for Men | Zero-Drop Barefoot Design with Wide Toe Box | Lightweight Breathable Comfort Shoes | Natural Foot Movement | Available in Slip-On &amp; Lace-Up Styles",
+            "price": "₹2,199.00",
+            "link": "https://www.amazon.com/dp/B0FSXYJ8C5?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71Tq5HOL+mL._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Lavie Women's Betula Tote Handbag | Ladies Purse Handbag | Bag for Women",
+            "price": "₹849.00 - ₹1,709.00",
+            "link": "https://www.amazon.com/dp/B0D2DN3DPB?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61ohAereaIL._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Lavie Women's Ushawu Satchel Bag | Satchel Handbag for Work | Ladies Purse | Stylish Shoulder Bag | Gift for Women",
+            "price": "₹1,099.00 - ₹1,849.00",
+            "link": "https://www.amazon.com/dp/B0D2DK1MFK?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61zcCdlf0JL._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "STP FEEL® Military Grade Premium Tempered Glass For iPhone XS Max/iPhone 11 Pro Max (6.5 Inch, Pack of 1) 9H Hardness Screen Protector Guard with Easy Installation Kit",
+            "price": "₹149.00 - ₹699.00",
+            "link": "https://www.amazon.in/dp/B09MJBGS4H?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71APwNM1JpL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "OnePlus Nord 6 | 8GB+256GB | Mint Green | Snapdragon 8s Gen 4 | Segment's First Stable 165FPS Gaming | Segment's Largest 9000mAh Battery | Most Complete IP Rating | Personalized AI",
+            "price": "₹38,999.00",
+            "link": "https://www.amazon.in/dp/B0GRBBPBGQ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61F1NWYtCKL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
             "name": "STRIFF Mpad Mouse Mat 230X190X3mm Gaming Mouse Pad, Non-Slip Rubber Base, Waterproof Surface, Premium-Textured, Compatible with Laser and Optical Mice(Universe Black)",
             "price": "₹99.00",
             "link": "https://www.amazon.com/dp/B0B9LDCX89?tag=shashwat022-21",
@@ -527,78 +611,6 @@
             "price": "₹137.00 - ₹395.00",
             "link": "https://www.amazon.com/dp/B097C5S5ZJ?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/71iAMC6U3dL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "NIVEA Aloe Hydration Body Lotion, 400ml | 72H Moisturization | With Deep Moisture Serum &amp; 100% Natural Aloe Vera Extracts | All Skin Types",
-            "price": "₹356.00 - ₹397.00",
-            "link": "https://www.amazon.com/dp/B079KGC4NZ?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51ffS7Hy7wL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Parachute Advansed Body Lotion Deep Nourish, With Pure Coconut Milk, 250 ml (Pack of 3)",
-            "price": "₹145.00 - ₹799.00",
-            "link": "https://www.amazon.com/dp/B08N7SCY7H?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71NgvAzxEcL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Biolage Smooth Proof 6-in-1 Hair Serum 100ml | Deep Smoothening With Avocado &amp; Grape Seed Oil | Up to 72HR Frizz Control |For Women &amp; Men | Vegan &amp; Cruelty-Free",
-            "price": "₹315.00 - ₹630.00",
-            "link": "https://www.amazon.com/dp/B01HO9EC94?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51PBDFlTFKL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Rexona for Female Shower Fresh Underarm Roll On Deodorant + Antiperspirant With Glycerine, Removes Odour, Even Skin Tone,Keeps Skin Fresh &amp; Clean, Alcohol Free, 50 Ml (Pack Of 2)",
-            "price": "₹136.00",
-            "link": "https://www.amazon.com/dp/B0CMQM8PBV?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Fa1qeOm3L._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Electric Rechargeable Plasma Gas Lighter for BBQ, Lighter for Gas Stove, Candles, Pooja, 1 Year Warranty, C-Type USB, Multi Purpose - 360° Flexible & Windproof, Black (Pack of 1)",
-            "price": "₹179.00",
-            "link": "https://www.amazon.com/dp/B0G4SPNQ2H?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/6126+uieJiL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Philips HD4934/00 1300W Induction Cooktop With Triple MOV For 4Kw Surge Protection With Soft Touch Control | 7 Preset Menus | 3 Years Warranty On Coil, Black",
-            "price": "₹2,399.00",
-            "link": "https://www.amazon.com/dp/B0DGKWNGKZ?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51CdR8C6hHL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Philips Viva Collection HD4928/01 2100-Watt Induction Cooktop (Black)",
-            "price": "N/A",
-            "link": "https://www.amazon.com/dp/B00EDJJ7FS?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61TDmpQ6-2L._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Pigeon By Stovekraft Favourite 1800-Watt Induction Cooktop, Crystal Glass, Black",
-            "price": "₹2,699.00",
-            "link": "https://www.amazon.com/dp/B012VFOQDI?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81MW4K7I5IL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "DDS Dream Decor Shoppee Engineered Wood Foldable Round Shaped Side Table (Black)",
-            "price": "₹399.00 - ₹448.00",
-            "link": "https://www.amazon.com/dp/B08PBL58QS?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81bfpR3lXML._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "One94Store Portable Bladeless Neck Fan – Modern Design, 12 Air Outlets, 2400mAh Rechargeable Battery, USB Powered, 5-Speed Hands-Free Cooling Fan, Up to 6 Hours Use for Indoor&Outdoor (Blue)",
-            "price": "₹299.00 - ₹499.00",
-            "link": "https://www.amazon.com/dp/B0GQV953S4?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/712KedRQnvL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "APFEN® 20W [Apple MFi Certified] Type-C Fast Charger Adapter & Cable Compatible with iPhone 14/14 Pro/14 Pro Max/13/13 Pro/13 Pro Max/12/11/XR/XS/X/8 Series, White",
-            "price": "₹382.00 - ₹899.00",
-            "link": "https://www.amazon.com/dp/B0F62W35NX?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61sa0aOa5ZL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Kratos 25W Charger Adapter Compatible with Samsung Galaxy S/A/M/F/Z Series S25/S24/S23/S22/S21/21 fe/S20/M14 5G/M34/M54/M53 5g/M33/M13/A34/A54 5G,F15,BIS Certified,1 Year Warranty,White",
-            "price": "₹479.00 - ₹899.00",
-            "link": "https://www.amazon.com/dp/B0FH2N3PFX?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51BcZ-rjT3L._AC_UL900_SR900,600_.jpg"
         }
     ]
 }
