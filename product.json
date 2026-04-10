@@ -1,6 +1,18 @@
 {
     "products": [
         {
+            "name": "Amazon Basics RGB Wired Gaming On Ear Gaming Headphone, 2 Meter Braided Cable, with mic, Suspension Design, 3.5mm Connector (USB A only for RGB, Black)",
+            "price": "₹637.00 - ₹2,099.00",
+            "link": "https://www.amazon.in/dp/B0DG2ZND2L?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61mQmdZellL._AC_UL900_SR900,600_.jpg"
+        },
+        {
+            "name": "Gear Classic Anti Theft Faux Leather 14 cms Black Laptop Backpack (LBPCLSLTH0101)",
+            "price": "₹899.00 - ₹989.00",
+            "link": "https://www.amazon.in/dp/B07G4D13LB?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71FwYTzECfL._AC_UL900_SR900,600_.jpg"
+        },
+        {
             "name": "OnePlus Pad Lite with Biggest Battery in Segment 9340 mAh, 11\"(27.94 cm) Display with 500 nits Brightness & 11 Hrs of Video Playback, 6GB RAM 128GB Storage, WiFi, Aero Blue",
             "price": "₹15,999.00",
             "link": "https://www.amazon.com/dp/B0FHWWDRRM?tag=shashwat022-21",
@@ -587,18 +599,6 @@
             "price": "₹30,990.00 - ₹31,990.00",
             "link": "https://www.amazon.com/dp/B0D5BN76MK?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/61nv5TqjBoL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Derbus Wood Multipurpose Foldable Laptop Table with Cup Holder | Table Home Study Writing Table, Foldable and Portable/Ergonomic Edges Kids & Adults (COTTED-Black)",
-            "price": "₹419.00",
-            "link": "https://www.amazon.com/dp/B0G4LPN2G1?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61R26raJJcL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "OnePlus Pad Lite with Biggest Battery in Segment 9340 mAh, 11\"(27.94 cm) Display with 500 nits Brightness & 11 Hrs of Video Playback, 8GB RAM 128GB Storage, LTE, Aero Blue",
-            "price": "₹15,999.00 - ₹17,999.00",
-            "link": "https://www.amazon.com/dp/B0FHWR3TBX?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61NmETUvDiL._AC_UL300_SR300,200_.jpg"
         }
     ]
 }
