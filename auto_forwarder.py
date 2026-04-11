@@ -45,71 +45,67 @@ def save_last_id(msg_id):
     with open(STATE_FILE, "w") as f:
         f.write(str(msg_id))
 
-async def forward_loop(client):
-    while True:
-        print(f"\n[{time.strftime('%H:%M:%S')}] Starting sync cycle...")
-        try:
-            # Fetch the latest message from your channel
-            print(f"Checking for new deals in {CHANNEL_ID}...")
-            messages = await client.get_messages(CHANNEL_ID, limit=1)
+async def run_sync(client):
+    print(f"\n[{time.strftime('%H:%M:%S')}] Starting sync cycle...")
+    try:
+        # Fetch the latest message from your channel
+        print(f"Checking for new deals in {CHANNEL_ID}...")
+        messages = await client.get_messages(CHANNEL_ID, limit=1)
+        
+        if not messages:
+            print("[!] No messages found in channel.")
+        else:
+            latest_msg = messages[0]
+            last_id = get_last_id()
             
-            if not messages:
-                print("[!] No messages found in channel.")
+            if latest_msg.id == last_id:
+                print("[~] No new deals since last run. Exiting.")
             else:
-                latest_msg = messages[0]
-                last_id = get_last_id()
+                print(f"[+] Found new deal (ID: {latest_msg.id}). Forwarding...")
                 
-                if latest_msg.id == last_id:
-                    print("[~] No new deals. Skipping loop... (Will check again in 1 hour)")
-                else:
-                    print(f"[+] Found new deal (ID: {latest_msg.id}). Forwarding...")
-                    
-                    # Forward to Public Groups
-                    for group in TARGET_GROUPS:
+                # Forward to Public Groups
+                for group in TARGET_GROUPS:
+                    try:
+                        # Try joining if not already in
                         try:
-                            # Try joining if not already in
-                            try:
-                                await client(JoinChannelRequest(group))
-                            except: pass
-                            
-                            await client.forward_messages(group, latest_msg)
-                            print(f"[OK] Sent to group: {group}")
-                            await asyncio.sleep(10) # Safety delay
-                        except Exception as e:
-                            print(f"[!] Failed to send to {group}: {e}")
+                            await client(JoinChannelRequest(group))
+                        except: pass
+                        
+                        await client.forward_messages(group, latest_msg)
+                        print(f"[OK] Sent to group: {group}")
+                        await asyncio.sleep(10) # Safety delay
+                    except Exception as e:
+                        print(f"[!] Failed to send to {group}: {e}")
 
-                    # Forward to Family/Priority Contacts
-                    for contact in PRIORITY_CONTACTS:
-                        try:
-                            await client.forward_messages(contact, latest_msg)
-                            print(f"[FAMILY] Sent to family: {contact}")
-                            await asyncio.sleep(5)
-                        except Exception as e:
-                            print(f"[!] Failed to send to family {contact}: {e}")
+                # Forward to Family/Priority Contacts
+                for contact in PRIORITY_CONTACTS:
+                    try:
+                        await client.forward_messages(contact, latest_msg)
+                        print(f"[FAMILY] Sent to family: {contact}")
+                        await asyncio.sleep(5)
+                    except Exception as e:
+                        print(f"[!] Failed to send to family {contact}: {e}")
 
-                    save_last_id(latest_msg.id)
-                    print(f"[OK] Cycle complete. Last ID updated to {latest_msg.id}")
-            
-        except Exception as e:
-            print(f"[ERROR] In loop: {e}")
-            
-        print("[*] Sleeping for 1 hour...")
-        await asyncio.sleep(3600)
+                save_last_id(latest_msg.id)
+                print(f"[OK] Sync complete. Last ID updated to {latest_msg.id}")
+        
+    except Exception as e:
+        print(f"[ERROR] Sync failed: {e}")
 
 async def main():
     if not API_ID or not API_HASH:
         print("[ERROR] API_ID and API_HASH not found in .env!")
         return
 
-    print("Logging in to Telegram account...")
+    print("Connecting to Telegram...")
     client = TelegramClient('userbot_session', int(API_ID), API_HASH)
     
     try:
         await client.start(phone=PHONE_NUMBER)
         print("[OK] Login Successful!")
         
-        # Start the persistent hourly loop
-        await forward_loop(client)
+        # Run a single sync cycle and then exit
+        await run_sync(client)
         
     except Exception as e:
         print(f"[ERROR] Connection error: {e}")

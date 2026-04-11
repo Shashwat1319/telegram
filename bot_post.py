@@ -17,10 +17,27 @@ def get_price_value(price_str):
 # Load environment variables
 load_dotenv()
 
-# ---------- Environment variables ----------
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-CHANNEL_ID = os.getenv("CHANNEL_ID")
-CLEAN_ID = CHANNEL_ID.replace('@', '') if CHANNEL_ID else "channel"
+# ---------- Constants & Counter ----------
+COUNTER_FILE = "post_count.txt"
+
+def get_post_count():
+    if os.path.exists(COUNTER_FILE):
+        try:
+            with open(COUNTER_FILE, "r") as f:
+                return int(f.read().strip())
+        except:
+            return 0
+    return 0
+
+def increment_post_count():
+    count = get_post_count() + 1
+    with open(COUNTER_FILE, "w") as f:
+        f.write(str(count))
+    return count
+
+def reset_post_count():
+    with open(COUNTER_FILE, "w") as f:
+        f.write("0")
 
 # ---------- Load products ----------
 def load_products():
@@ -117,11 +134,63 @@ def generate_message(product, is_lightning=False):
     )
     return msg + seo_block
 
+# ---------- Viral Share Challenge ----------
+def generate_viral_message():
+    tg_link = f"https://t.me/{CLEAN_ID}"
+    share_text = "Bhai%20jaldi%20dekh%2C%20lagta%20hai%20Amazon%20mein%20koi%20Glitch%20aaya%20hai%21%20Sab%20ekdam%20free%20jaisa%20mil%20raha%20hai.%20Link%20band%20hone%20se%20pehle%20join%20karke%20loot%20le%21%20%F0%9F%98%B1%F0%9F%9A%A8"
+    share_url = f"https://t.me/share/url?url={tg_link}&text={share_text}"
+
+    templates = [
+        f"🚨 <b>MEMBERS ONLY SECRET GLITCH!</b> 🚨\n\n"
+        f"Bhaiyo, agla <b>₹1 Loot Deal</b> aane wala hai, lekin ye sirf unhe dikhega jo hamare active supportive members hain! 😍\n\n"
+        f"🔥 <b>Challenge:</b> Is link ko apne <b>5 Best Friends</b> ya Shopping Groups mein forward karo!\n\n"
+        f"👇 <b>FORWARD & JOIN NOW</b> 👇\n"
+        f"🚀 <a href='{share_url}'>Click to Forward to Friends</a>\n\n"
+        f"🤫 <i>Sharing starts the luck! 1000 members hote hi Mega Loot live hogi!</i>",
+
+        f"🛑 <b>SYSTEM ERROR DETECTED - WAITING FOR ACCESS</b> 🛑\n\n"
+        f"Amazon price crash hone wala hai! Hum iska link tabhi post karenge jab channel mein <b>1000 Members</b> pure honge! 🏃‍♂️\n\n"
+        f"📢 <b>Aapki help chahiye:</b> Jaldi se 5 dosto ko ye channel share karo taaki hum turant link de sakein!\n\n"
+        f"🔗 <a href='{share_url}'>Share with 5 Friends (Click Here)</a>\n\n"
+        f"✅ <i>Jaldi join karwao, loot miss mat hone dena!</i>"
+    ]
+    return random.choice(templates)
+
+# ---------- Amazon Bounties ----------
+def generate_bounty_message():
+    aff_id = os.getenv("AFFILIATE_ID_IN", "budgetdeals-21")
+    
+    bounties = [
+        {
+            "name": "Amazon Prime FREE Trial",
+            "url": f"https://www.amazon.in/tryprime?tag={aff_id}",
+            "desc": f"🚀 <b>Join Amazon Prime for FREE!</b>\n\nGet FREE 1-Day Delivery, early access to lightning deals, and Prime Video access.\n\n✨ <b>Membership Benefits:</b>\n✅ Free Delivery on All Orders\n✅ Prime Music & Video\n✅ Exclusive Member Deals\n\n👉 <b>Join Now (Free Trial):</b> https://www.amazon.in/tryprime?tag={aff_id}"
+        },
+        {
+            "name": "Amazon Business (GST Invoice)",
+            "url": f"https://www.amazon.in/tryab?tag={aff_id}",
+            "desc": f"💼 <b>Save 28% Extra with GST Invoice!</b>\n\nRegister your Business Account for FREE and get exclusive business pricing and GST claims on every purchase.\n\n✨ <b>Best for Resellers & Shop Owners!</b>\n👉 <b>Register Free Account:</b> https://www.amazon.in/tryab?tag={aff_id}"
+        },
+        {
+            "name": "Audible 90-Days Free",
+            "url": f"https://www.amazon.in/dp/B077S5CVYQ?tag={aff_id}",
+            "desc": f"🎧 <b>Listen to 100,000+ Audiobooks for FREE!</b>\n\nGet 90 days of Audible membership for absolutely zero cost. Perfect for learning and entertainment.\n\n👉 <b>Claim 90-Day Free Trial:</b> https://www.amazon.in/dp/B077S5CVYQ?tag={aff_id}"
+        }
+    ]
+    selected = random.choice(bounties)
+    return selected["desc"]
+
 # ---------- Post deals ----------
 async def post_deals():
     chat_id = f"@{CHANNEL_ID}" if not CHANNEL_ID.startswith("@") else CHANNEL_ID
-    bot = Bot(BOT_TOKEN)
+    bot = Bot(token=BOT_TOKEN)
+
     products = load_products()
+    if not products:
+        print("No products to post. Checking for Bounty...")
+        bounty_msg = generate_bounty_message()
+        await bot.send_message(chat_id=chat_id, text=bounty_msg, parse_mode='HTML')
+        return
 
     try:
         import sys
@@ -137,6 +206,29 @@ async def post_deals():
             num_to_post = min(3, len(products))
             products_to_post = products[:num_to_post]
             print(f"Normal mode: Selected top {num_to_post} newest products.")
+
+        # Check for Viral Hook Interval
+        current_count = increment_post_count()
+        viral_interval = random.randint(5, 10)
+        
+        if current_count >= viral_interval:
+            print(f"Post count: {current_count}. Triggering Viral Growth Cycle!")
+            # 50% chance for Viral Hook, 50% chance for Bounty
+            if random.random() > 0.5:
+                growth_msg = generate_viral_message()
+            else:
+                growth_msg = generate_bounty_message()
+                
+            try:
+                await bot.send_message(
+                    chat_id=chat_id,
+                    text=growth_msg,
+                    parse_mode='HTML',
+                    disable_web_page_preview=True
+                )
+                reset_post_count()
+            except Exception as growth_e:
+                print(f"Failed to post growth hook: {growth_e}")
 
         # Identify the cheapest item in this batch to be the "Lightning Deal"
         cheapest_product = None

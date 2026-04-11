@@ -8,3 +8,9 @@ build/
 .next/
 out/
 .DS_Store
+
+# Telegram session files (CRITICAL: Do not remove)
+*.session
+*.session-journal
+forwarder_log.txt
+last_forwarded_id.txt
