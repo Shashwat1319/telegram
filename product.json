@@ -1,6 +1,13 @@
 {
     "products": [
         {
+            "name": "TEX-RO Metal Clothes Drying Stand Foldable with Wheels – 3-Tier Cloth Dryer Stand for Balcony, Bedroom & Indoor Outdoor | Heavy Duty Hanger Stand for Clothes Hanging, Dress Drying Rack - Grey",
+            "price": "₹499.00 - ₹1,099.00",
+            "link": "https://www.amazon.in/dp/B0GQQHX25W?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81xGIaEgHqL._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
             "name": "KareIn Classic Adult Diaper Pants, Medium 75 - 100 Cm (30\"- 40\"), 10 Count, Unisex, Leakproof, Elastic Waist, Wetness Indicator",
             "price": "₹224.00 - ₹3,599.00",
             "link": "https://www.amazon.com/dp/B08Q4P5Q29?tag=shashwat022-21",
@@ -655,12 +662,6 @@
             "price": "₹298.00 - ₹369.00",
             "link": "https://www.amazon.com/dp/B0GDGHMP35?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/81s+ze-aVlL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Wayona Type C to Type C 65W Short Powerbank fast charging cable compatible for iPhone 15/15 Pro/Max Android Samsung Galaxy S25 Ultra/S24/S23/S22,Flip,iPad,Google, Macbook &amp; Laptops (Black,0.25M)",
-            "price": "₹308.99 - ₹413.99",
-            "link": "https://www.amazon.com/dp/B08WKJN4LF?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51uPYpYa0xL._AC_UL300_SR300,200_.jpg"
         }
     ]
 }
