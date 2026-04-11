@@ -20,7 +20,28 @@ TARGET_GROUPS = [
     "@LootDealsIndia_Official",
     "@Offers_Deals_Loot_India",
     "@Amazon_Flipkart_Loot_Deals",
-    "@ShoppingLootDeals"
+    "@ShoppingLootDeals",
+    "@Loot_Deals_India_Official",
+    "@OffersDealsLoot",
+    "@AmazonFlipkartLoot",
+    "@LootShoppingAtoZ",
+    "@LootAlertsIndia",
+    "@SastaBazar_Loot",
+    "@Deals_Loot_India",
+    "@Loot_offers_india",
+    "@CouponLootDeals",
+    "@IndiaFreeStuff_Loot",
+    "@LootLoDeals",
+    "@DailyLootDealsIndia",
+    "@LootPriceAlerts",
+    "@BestLootDeals",
+    "@LootMastersIndia",
+    "@LootKingIndia",
+    "@LootVandals",
+    "@LootExperts",
+    "@LootMachao",
+    "@LootEmpire",
+    "@LootGurus"
 ]
 
 # Family Network / Close Friends (Phone numbers or Usernames)
@@ -98,7 +119,17 @@ async def main():
         return
 
     print("Connecting to Telegram...")
-    client = TelegramClient('userbot_session', int(API_ID), API_HASH)
+    # Using Obfuscated connection to bypass ISP blocks in India (without needing a proxy)
+    from telethon.network import ConnectionTcpObfuscated
+    
+    client = TelegramClient(
+        'userbot_session', 
+        int(API_ID), 
+        API_HASH,
+        connection=ConnectionTcpObfuscated,
+        connection_retries=15,
+        retry_delay=10
+    )
     
     try:
         await client.start(phone=PHONE_NUMBER)

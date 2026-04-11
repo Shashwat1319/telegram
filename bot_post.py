@@ -133,8 +133,8 @@ def generate_message(product, is_lightning=False):
     # Telegram Search SEO Hack: Hiding high-traffic keywords so the post ranks globally without looking ugly
     seo_block = (
         "\n\n<tg-spoiler>"
-        "🏷️ Tags: #AmazonDeals #LootDealsIndia #FlipkartSale #BudgetShopping #Offers #LowestPrice #FreeShopping\n"
-        "🔎 Search Keywords: best mobile exchange offer, amazon laptop sale today, cheapest deals under 99, 99 store flipkart, free sample products, secret tricks, price drop alerts india"
+        "🏷️ Tags: #AmazonDeals #LootDealsIndia #FlipkartSale #BudgetShopping #Offers #LowestPrice #FreeShopping #SummerSale #99Store\n"
+        "🔎 Search Keywords: sasta shopping app, amazon loot today, cheapest gadgets under 500, flipkart glitch deals, free samples india, audible free trial, prime membership deals, cricket loot offer, kitchen gadgets sale"
         "</tg-spoiler>"
     )
     return msg + seo_block
@@ -212,9 +212,9 @@ async def post_deals():
             products_to_post = products[:num_to_post]
             print(f"Normal mode: Selected top {num_to_post} newest products.")
 
-        # Check for Viral Hook Interval
+        # Check for Viral Hook Interval (Increased frequency for April 20th goal)
         current_count = increment_post_count()
-        viral_interval = random.randint(5, 10)
+        viral_interval = random.randint(3, 7)
         
         if current_count >= viral_interval:
             print(f"Post count: {current_count}. Triggering Viral Growth Cycle!")
