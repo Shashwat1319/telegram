@@ -1,6 +1,237 @@
 {
     "products": [
         {
+            "name": "KareIn Classic Adult Diaper Pants, Medium 75 - 100 Cm (30\"- 40\"), 10 Count, Unisex, Leakproof, Elastic Waist, Wetness Indicator",
+            "price": "₹224.00 - ₹3,599.00",
+            "link": "https://www.amazon.com/dp/B08Q4P5Q29?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/710R+8iEE3L._AC_UL300_SR300,200_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Ariel Power Gel Liquid Detergent for Top Load & Semi Auto – 4kg | Removes 100 Dried Stains in 1 Wash | Faster Dissolving | Long-Lasting Fragrance | Color Protection | At the price of Powders",
+            "price": "₹491.00",
+            "link": "https://www.amazon.com/dp/B0CSPG8D76?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/611TjgxRCSL._AC_UL300_SR300,200_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Dettol 5 in 1 Washing Machine Cleaner & Descaling Liquid for top load and front load| Lemon 250ml | Removes Limescale, Dirt and Bad odour | Kills 99.9%* Bacteria",
+            "price": "₹239.00",
+            "link": "https://www.amazon.com/dp/B0FS1HWH3N?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51lHq5GlfQL._AC_UL300_SR300,200_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Surf Excel Easy Wash Detergent Powder7 kg | Superfine Washing Powder | Dissolves Easily & Removes Tough Stains | Suitable for all Washing Machines",
+            "price": "₹725.00",
+            "link": "https://www.amazon.com/dp/B0D7GQNL6B?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61akecKSiLL._AC_UL300_SR300,200_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Fashion Frill Stylish Silver Bracelet For Men Stainless Steel Silver Chain Bracelets For Men Boys Mens Wristwear Bracelets Jewellery",
+            "price": "₹169.00",
+            "link": "https://www.amazon.com/dp/B0CY2M6KGK?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/41qOmMVi0gL._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "Oxidised Silver Look Jhumka Earrings Box for Women | 16 Pairs Traditional Ethnic Jhumki Combo Gift Hamper with Velvet Box | Festive Wedding Jewellery | Gift For Women",
+            "price": "₹999.00",
+            "link": "https://www.amazon.com/dp/B0GJDSGRGF?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71f8Z-9GTlL._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "Traditional Indian Ear Cuff with Green Stone and Pearl, Non-Piercing Kundan Temple Bugadi Jewellery for Women, South Indian bugadi koppu Maharashtrian Style Kan Phool",
+            "price": "₹299.00",
+            "link": "https://www.amazon.com/dp/B0GJPPC127?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/41dAaoe7+ML._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "AVORA Raw Pyrite Anklet for Women | Natural Stone Jewellery for Wealth, Luck & Protection | Certified Crystal | Spiritual Healing Jewellery Gift for Girls & Women | Adjustable Payal Bracelet",
+            "price": "₹275.00",
+            "link": "https://www.amazon.com/dp/B0FT8NVZSP?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61p4KJh1GJL._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "ZIBUYU® 12PC Ear Cuffs without Piercing, Zinc Alloy Earrings Set for Women & Girls Stylish Western Adjustable Fake Cartilage Earcuffs for Women Fashion & Styling Accessories Jewelry Gift",
+            "price": "₹175.00",
+            "link": "https://www.amazon.com/dp/B0FHVLCR79?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61SdOHKLYqL._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "Hundred HyperTurf Cricket Shoes | TerraSpike Rubber Studs Men | Embedded Support Plate for Stability | Lightweight & Durable | Ideal for Turf, Ground & Hard Surfaces",
+            "price": "₹1,399.00 - ₹1,799.00",
+            "link": "https://www.amazon.in/dp/B0D53L9H1V?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61WGgZSBGfL._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Campus Men's DRIVO Running Shoes",
+            "price": "₹1,298.00",
+            "link": "https://www.amazon.in/dp/B0FWKV1L6T?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/610x0URrXpL._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Nike Mens Revolution 7 Running Shoes",
+            "price": "₹2,217.00 - ₹3,695.00",
+            "link": "https://www.amazon.in/dp/B0DCZRKQ6W?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71x0olWMkdL._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Nike Mens Air Zoom Pegasus 41 Running Shoes",
+            "price": "₹7,137.00",
+            "link": "https://www.amazon.in/dp/B0FMYJG3LG?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/4162gCM8QRL._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "ANNI DESIGNER Women's Cotton Printed Maroon Hand-Print Kurta Set|A-Line Kurta With Palazzo|Co-Ord Set|Ethnic & Stylish Two Piece Dress|Casual & Office Wear Coord Set",
+            "price": "₹529.00 - ₹589.00",
+            "link": "https://www.amazon.com/dp/B0FKZZGN8W?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51fz-fVBi6L._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Vincent Chase By Lenskart | Full Rim Square | Polarized Stylish Sunglasses | 100% UV Protected | For Men & Women",
+            "price": "₹1,000.00 - ₹1,199.00",
+            "link": "https://www.amazon.com/dp/B0999SJPWC?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61LuLR7IR5L._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "GoSriKi Women's Rayon Viscose Embroidered Anarkali Kurta with Pant and Dupatta | Three Piece Ethnic Kurta Set for Women with Elegant Design",
+            "price": "₹899.00 - ₹989.00",
+            "link": "https://www.amazon.com/dp/B0F26VJM89?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61K-Sm1QkAL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Virat Kohli 18 New RCBB Half Jersey 2026 for (Kids&Men,Boys)",
+            "price": "₹389.00",
+            "link": "https://www.amazon.com/dp/B0GRHK1JTC?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/517o0+xKElL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Amayra Women's Pure Cotton Straight Kurta Set with Palazzo Pants & Dupatta|Ethnic wear|Kurta Set for Women",
+            "price": "₹999.00",
+            "link": "https://www.amazon.com/dp/B0GQHGQXF9?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81QrRVPP1ML._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Foldable Wooden Mini Laptop Table for Bed, Smart Study Table with Drawer Kids & Adults (C-Type -.WOOD.)",
+            "price": "₹349.00",
+            "link": "https://www.amazon.com/dp/B0GW33NRLL?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/819x-FUFRfL._AC_UL300_SR300,200_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "amazon basics T664 Refill Ink | Compatible with Epson L130/L360/L380/L361/L565/L210/L220/L310/L350/L355/L365/L385/L405/L455/L485 Printers | Leak-Proof (70ml, Cyan)",
+            "price": "₹34.00 - ₹42.00",
+            "link": "https://www.amazon.com/dp/B0D542M3VS?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51D9mA9BKRL._AC_UL300_SR300,200_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "HP Campus XL Tie Dye Backpack/Tie-Dye Pattern/Backpacks/Lockable zippers; Puncture-proof zippers; Padded laptop pocket/Water resistant",
+            "price": "₹578.00",
+            "link": "https://www.amazon.com/dp/B0C321QBGQ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81NOmhuTxsL._AC_UL300_SR300,200_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "Hair & Care with Almond, Non-Sticky Hair Oil, 500ml",
+            "price": "₹99.00",
+            "link": "https://www.amazon.in/dp/B07S2SKYTH?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61emLBPQHRL._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Garnier Skin Naturals Bright Complete Vitamin C Serum UV Cream, Vitamin C Day Cream for Sun Protection and Skin Brightening - Suitable For all Skin Types, 45g",
+            "price": "₹159.00 - ₹349.00",
+            "link": "https://www.amazon.in/dp/B07DL94CPX?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71nUe95xR1L._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "SET WET Deodorant Spray Perfume Cool, Charm & Swag Avatar for men, 150ml (Pack of 3)",
+            "price": "₹169.00",
+            "link": "https://www.amazon.in/dp/B079Q17WXZ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71Evo57slzL._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "LAKME 9to5 Eyeconic Waterproof Liquid Eyeliner, Intense Black, 4.5 ml, for Precise Eye Definition, with Quick-Dry Formula, Smudgeproof and Waterproof",
+            "price": "₹159.00 - ₹299.00",
+            "link": "https://www.amazon.in/dp/B08N7Y9VYX?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/41FkrmbWMkL._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Bisleri Water bottle with added minerals, 5 L",
+            "price": null,
+            "link": "https://www.amazon.com/dp/B0DGY1PQDP?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51SZnVrmKQL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Bajaj PX 97 Torque New 36L Personal Air Cooler For Room|Honeycomb Cooling Pads|High-Speed |30Ft Powerful Air Throw|3-Speed Control|Portable Cooler-Home|3 Year Comprehensive Product Warranty|White",
+            "price": "₹5,499.00",
+            "link": "https://www.amazon.com/dp/B09R3QNGW5?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Juyv14Y0L._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Lifelong 2 Burner Gas Stove Top for Kitchen - Manual Ignition Cooktop Modern Glass Stove for Modular Kitchen, ISI Certified & Compatible with LPG - 1 Year Manufacturer's (Black, LLGS10)",
+            "price": "₹1,199.00 - ₹2,499.00",
+            "link": "https://www.amazon.com/dp/B08VWZXTWY?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71Q5pFUtYmL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Amazon Basics 1600W Induction Cooktop | 7 Pre-Set Cooking Menus | LED Display | Smart Push Buttons I Energy Efficient, Auto Cut-off, 20A IGBT & 4KV Surge Protection I Black",
+            "price": null,
+            "link": "https://www.amazon.com/dp/B0FC1Z4WDG?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/717xDsbB1fL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Boat Rockerz 411, 40Ms Low Latency, 40Hrs Battery, 40Mm Drivers, ENx Tech, Stream Ad Free Music via App Support, Bluetooth Headphones, Wireless Over Ear Headphone with Mic (Active Black)",
+            "price": "₹1,099.00",
+            "link": "https://www.amazon.com/dp/B0FC2Y8XYF?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71QdB7hDCAL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Fire-Boltt Aero TWS Earbuds Custom EQ, Wireless Bluetooth 5.4, Music & App Support, 50H Playtime, Fast Charging Case, 50ms Low Latency for Gaming, Touch Controls, IPX4 Waterproof, Clear Calls - Lilac",
+            "price": "₹799.00",
+            "link": "https://www.amazon.com/dp/B0FVS636MJ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Im0lL8l-L._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Sounce Helmet Chin Strap Mount with Mobile Clip & Screw Compatible with All Smart Phones Go pro Hero 9/8/7/6,SJCAM, Yi, DJI Osmo Action & Other Action Cameras (Multipurpose Helmet Mount)",
+            "price": "₹249.00 - ₹299.00",
+            "link": "https://www.amazon.com/dp/B09THD1HNB?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51TkYs5Q6LL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Fujifilm Instax Mini Picture Format Film (20 Shots)",
+            "price": "₹2,490.00",
+            "link": "https://www.amazon.com/dp/B0000C73CQ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61cpxtAOkFL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
             "name": "Kratos 28 Inch Selfie Stick Tripod Stand with Light, 3-in-1 Multifunctional Design, Rechargeable LED Light with Two Brightness Levels with Bluetooth Remote for Makeup, Selfie &amp; Photoshoot",
             "price": "₹178.00 - ₹2,899.00",
             "link": "https://www.amazon.com/dp/B0FVG14W46?tag=shashwat022-21",
@@ -430,204 +661,6 @@
             "price": "₹308.99 - ₹413.99",
             "link": "https://www.amazon.com/dp/B08WKJN4LF?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/51uPYpYa0xL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "ZEBRONICS Blanc Slim Wireless Mouse with Rechargeable Battery, BT + 2.4GHz, 4 Buttons, 800/1200/1600 DPI, Silent Operation, Multicolor LED Lights",
-            "price": "₹199.00 - ₹599.00",
-            "link": "https://www.amazon.com/dp/B0CQRNWJM2?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51vMo-pHZ5L._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Fixderma Shadow Sunscreen SPF 30+ PA+++ Cream For Dry Skin | Broad Spectrum For UVA & UVB Protection | Non-Greasy | Water Resistant | No White Cast | Sunscreen For Dry Skin | For Men & Women | 75g",
-            "price": "₹295.00",
-            "link": "https://www.amazon.com/dp/B0C2Q9RLXZ?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61rxF9zxjuL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Fixderma Shadow Sunscreen SPF 30+ Pa+++ Gel For Oily Skin | Lightweight, Water Resistant, No White Cast | Broad Spectrum Sunscreen Gel For UVA & UVB Protection | Women & Men | 40gm",
-            "price": "₹205.00 - ₹720.00",
-            "link": "https://www.amazon.com/dp/B089RJ6Z3K?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71GhlNQw-qL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Philips Steam Iron (Gc1905/21) (Blue_Free Size)",
-            "price": "₹1,698.00 - ₹3,396.00",
-            "link": "https://www.amazon.com/dp/B008QTK47Q?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51Y8qkK8OTL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Wakefit Sleeping Pillow | Height Adjustable | Soft & Fluffy Comfort | White & Grey | 27 x 16 Inch | Set of 1 |Free Extra Filling for Custom Comfort",
-            "price": "₹458.00 - ₹1,527.00",
-            "link": "https://www.amazon.com/dp/B09W2R818W?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51rjbHTArOL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Milton Rapid Electric Kettle 1.8L | 1500 Watts | Stainless Steel Hot Water portable Electric Kettle for Home, Office | Auto Shut-Off with Wide Mouth | Cool-touch Handle and Single-Touch Lid Lock",
-            "price": "₹636.00 - ₹1,399.00",
-            "link": "https://www.amazon.com/dp/B0F54GKQ38?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51lYFOP2mUL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "AERYS AI Voice Assistant Smart Digital Alarm Clock with Wireless Bluetooth 5.4 Speaker & Dynamic RGB Light,HI-FI Stereo Sound,HD Large Touchscreen Display, Hand Free Calling,Weather Forecast (White)",
-            "price": "₹240.00 - ₹2,499.00",
-            "link": "https://www.amazon.com/dp/B0GMWV32MX?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51I-mdZ+M2L._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Etekcity NAIL DRILL MiNi CoOlEr FoR RoOm CoOlInG MiNi CoOlEr AiR CoOlEr PoRtAbLe AiR CoNdItIoNeRs FoR HoMe OfFiCe ArTiC CoOlEr MiNi CoOlEr (Ds1)",
-            "price": "₹499.00 - ₹599.00",
-            "link": "https://www.amazon.com/dp/B0GQBZ12JF?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71UWR0OS-1L._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Dyazo 10 Angle Aluminum Laptop Stand Portable & Fully Foldable Raiser Compatible for Lenovo, Dell, MacBook & All Other Notebooks 10 \"-15 .6 Inch (Silver)",
-            "price": "₹279.00 - ₹649.00",
-            "link": "https://www.amazon.com/dp/B0BVR9RCYW?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61quH1ypfHL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Amazon Echo Dot (5th Gen, 2022 release) Smart speaker with Alexa (Charcoal)",
-            "price": "₹4,499.00",
-            "link": "https://www.amazon.in/dp/B0B77K7M8G?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61p0-wRkCPL._SX679_.jpg"
-        },
-        {
-            "name": "Lenovo Tab P11 (2nd Gen) Tablet (11.5 inch 2K Display, 8GB RAM, 256GB Storage, Wi-Fi)",
-            "price": "₹22,999.00",
-            "link": "https://www.amazon.in/dp/B0BNVS76R5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71vVwN-zDGL._SX679_.jpg"
-        },
-        {
-            "name": "OnePlus Nord CE 3 5G (Aqua Surge, 8GB RAM, 128GB Storage)",
-            "price": "₹26,999.00",
-            "link": "https://www.amazon.in/dp/B0BXCKG1V4?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61LnG3v4wXL._SX679_.jpg"
-        },
-        {
-            "name": "Canon EOS R10 Mirrorless Camera (RF-S 18-45mm f/4.5-6.3 IS STM Lens) - Compact, Lightweight, 24.2MP APS-C CMOS Sensor, UHD 4K 60p Video, Dual Pixel CMOS AF II",
-            "price": "₹76,490.00",
-            "link": "https://www.amazon.in/dp/B0B7C6411N?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/714JbFh3n5L._SX679_.jpg"
-        },
-        {
-            "name": "EcoFlow River 2 Max Portable Power Station, 512Wh LiFePO4 Battery, 1000W X-Boost, Fast AC Charging, Solar Generator for Outdoors, RV, Home Backup, Off-Grid",
-            "price": "₹34,990.00",
-            "link": "https://www.amazon.in/dp/B0BF8K8J91?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61tFhY1gQjL._SX679_.jpg"
-        },
-        {
-            "name": "Eveready 12W Emergency Inverter LED Bulb, Cool Day Light (6500K), Rechargeable Bulb with 3 Hours Backup, Ideal for Powercuts, Energy Efficient, B22 Base, Pack of 1",
-            "price": "₹239.00 - ₹4,610.00",
-            "link": "https://www.amazon.com/dp/B09NPVCHXC?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71ISgAd-E0L._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Cüraa ChopLab Lite Manual Chopper | 650 ml Portable Vegetable Chopper| Mini Chopper for Kitchen with Stainless Steel Blades for Chopping Onion, Ginger, Garlic, Vegetables, Herbs, Nuts | Red",
-            "price": "₹649.00 - ₹899.00",
-            "link": "https://www.amazon.com/dp/B0FCSN3CJZ?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71qELmK1QPL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "TP-Link AC750 Wifi Range Extender | Up to 750Mbps | Dual Band WiFi Extender, Repeater, Wifi Signal Booster, Access Point| Easy Set-Up | Extends Wifi to Smart Home & Alexa Devices (RE200)",
-            "price": "₹1,990.00 - ₹3,179.00",
-            "link": "https://www.amazon.com/dp/B00KXULGJQ?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61+8YQqHC0L._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Minimalist Barrier Repair Face Moisturizer with Vitamin B12 Complex 5.5% with Ceramides for All Skin Types | Strengthens Skin Barrier, Boosts Hydration, Soothing, Lightweight Gel Texture | 10 gm",
-            "price": "₹149.00",
-            "link": "https://www.amazon.com/dp/B0FNDLJWK2?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/41X9nq2Yp8L._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "FACES CANADA Strobe Cream Mini- Rose Gold, 18ml | Primer + Highlighter + Moisturizer | Shea Butter & Hyaluronic Acid | Intense Hydration | Flawless Radiant Dewy Skin | Illuminating & Glowing Makeup Base",
-            "price": "₹267.00 - ₹599.00",
-            "link": "https://www.amazon.com/dp/B0FSQB83XJ?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51yKs+HlJkL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "L'Oreal Paris Extraordinary Oil Nourishing Conditioner For Dry & Dull Hair, 180ml",
-            "price": "₹175.77 - ₹341.40",
-            "link": "https://www.amazon.com/dp/B00IF3W7S2?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/519v3x3mCiL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "L'Oréal Paris Anti-Hair Fall Shampoo, Reinforcing & Nourishing for Hair Growth, For Thinning & Hair Loss, With Arginine Essence and Salicylic Acid, Fall Resist 3X, 180 ml",
-            "price": "₹176.70 - ₹833.00",
-            "link": "https://www.amazon.com/dp/B008LTUHXW?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51FsphmBJuL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "OnePlus Nord Buds 3r TWS Earbuds up to 54 Hours Playback, 2-mic Clear Calls, 3D Spatial Audio, AI Translation, 12.4mm Drivers, Dual-Device Connectivity, 47ms Low Latency - Ash Black",
-            "price": "₹1,599.00",
-            "link": "https://www.amazon.com/dp/B0FMDL81GS?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51nBTTG3hNL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Gear Aspire 3 19\"/35L Faux Leather Large Water Resistant 4 Compartment Laptop Backpack/Casual Backpack/Daypack/Travel Backpack/College Bag For Men/Women(Black-Grey)",
-            "price": "₹899.00 - ₹1,399.00",
-            "link": "https://www.amazon.com/dp/B0DD3MTC7X?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71sDmtX456L._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "realme NARZO 80 Lite 4G (Beach Gold, 4GB+64GB) | 6300mAh Segment's Biggest Battery | 7.94mm Slim Design | 300% Ultra Volume | Pulse Light: 9 Colors, 5 Glow Modes | Ai Assist",
-            "price": "₹8,999.00 - ₹10,999.00",
-            "link": "https://www.amazon.com/dp/B0FG2NBVBN?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71O5RK8qS3L._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "ZEBRONICS Charm Rechargeable Wireless Mouse, Dual Mode (2.4GHz + BT), Dual Bluetooth, Upto 1600 DPI, Silent Operation, 6 Buttons, Comfortable & Ergonomic, for Mac | Laptop | Computer (Metallic Black)",
-            "price": "₹429.00 - ₹449.00",
-            "link": "https://www.amazon.com/dp/B0DDTTH4H2?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71j9WxkbJQL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "OnePlus Pad Go 2, 30.73 cm (12.1 inch) 2.8K Display, Dolby Vision™, 120Hz Refresh Rate, Quad Speakers, AI, 10050 mAh Battery, Wi-Fi Tablet, 8GB RAM 128 GB Storage, Lavender Drift",
-            "price": "₹27,499.00 - ₹33,499.00",
-            "link": "https://www.amazon.com/dp/B0G4QM3YDM?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61e+zHRQxeL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "L'Oreal Paris Fresh Hyaluron Moisture 72HR Moisture Sealing Conditioner Powered By Hyaluronic Acid, For Frizz-Free, Hydrated And Bouncy Hair Full Of Life For All Hair Types | 175 Millilitres",
-            "price": "₹194.00 - ₹589.00",
-            "link": "https://www.amazon.com/dp/B0B6Y3FNV7?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/511fPrnY+bL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "GEONIX SATA 2.5\" 128GB Internal Solid State Drive 6Gb/s | Fast Performance | Read/Write Speed Upto - 570/500 MB/s | Quad Channel Controller Compatible with PC and Laptop | 5 Years Warranty.",
-            "price": "₹2,179.00 - ₹4,990.00",
-            "link": "https://www.amazon.com/dp/B09ZVHDJG7?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61t1gdnwG-L._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Pigeon by Stovekraft Joy Rice Cooker with Double pot, 1 litres. (White) | Toughened Glass Lid | 400 Watts | 2 Aluminium Cooking Pots | Measuring Cup| Spatula | Energy Efficient Cooking",
-            "price": "₹1,799.00 - ₹1,945.00",
-            "link": "https://www.amazon.com/dp/B00A0ITZBW?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61-xIbAE7SL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "iQOO 15R (Dark Knight, 8GB RAM, 256GB Storage) | Snapdragon® 8 Gen 5 Processor | India’s Slimmest Smartphone in 7600mAh Battery* | Segment's Most Stable 144FPS Gaming*",
-            "price": "₹44,998.00 - ₹52,998.00",
-            "link": "https://www.amazon.com/dp/B0GL83ZTP8?tag=shashwat01-20",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/616mnp2HZ7L._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "atomberg Renesa Enzel 600mm Newly Launched BLDC Ceiling Fan with Remote | BEE 5 star | High Air Delivery | LED Speed Indicator | Low Noise | Sleek Design | Power Saving | 3 Year Warranty | Gloss Black",
-            "price": "₹3,299.00 - ₹3,399.00",
-            "link": "https://www.amazon.com/dp/B0G8JXGM29?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/513MgfzD6AL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Amazon Basics Power Bank, 10000mAh, 35W Nano, Built-in Type C Cable, 2 Ports - Metallic Silver",
-            "price": "₹899.00 - ₹2,999.00",
-            "link": "https://www.amazon.in/dp/B0FCXYN4T2?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51FjR4KaCrL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "OnePlus Pad Go 2 Stylo OPN2502 White in",
-            "price": "₹3,999.00",
-            "link": "https://www.amazon.com/dp/B0G4VNYG5N?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/41KvqS8mQxL._AC_UL300_SR300,200_.jpg"
         }
     ]
 }
