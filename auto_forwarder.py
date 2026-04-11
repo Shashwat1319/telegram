@@ -2,6 +2,7 @@ import asyncio
 from telethon import TelegramClient
 from telethon.errors import SessionPasswordNeededError
 from telethon.tl.functions.channels import JoinChannelRequest
+from telethon.tl.types import Message
 from dotenv import load_dotenv
 import os
 import time
@@ -13,56 +14,107 @@ API_HASH = os.getenv("API_HASH")
 PHONE_NUMBER = os.getenv("PHONE_NUMBER")
 CHANNEL_ID = os.getenv("CHANNEL_ID") # e.g. @your_channel (Your Deals Channel)
 
-# List of Public Promo / Free Posting Groups.
-# IMPORTANT: Aap Telegram par 'Sub4Sub', 'Promotion', 'Loot Discussion' 
-# search karke jo groups mile unhe yaha list me add kar dena.
+# List of Public Loot / Deals Groups (High Engagement)
 TARGET_GROUPS = [
-    "@YouTube_Sub4Sub_Subscriber",
-    "@Free_Promotion_Group",
-    "@link_promoting_group",
-    "@sub4sub_indian_youtubers",
-    "@deals_and_loot_discussion",
-    "@amazon_flipkart_discussion"
+    "@Promoteclub_b",
+    "@LootDealsIndia_Official",
+    "@Offers_Deals_Loot_India",
+    "@Amazon_Flipkart_Loot_Deals",
+    "@ShoppingLootDeals"
 ]
+
+# Family Network / Close Friends (Phone numbers or Usernames)
+# Forwarding here looks like a personal message.
+PRIORITY_CONTACTS = [
+    # "919876543210", # Add family phone numbers here
+    # "@friend_username"
+]
+
+STATE_FILE = "last_forwarded_id.txt"
+
+def get_last_id():
+    if os.path.exists(STATE_FILE):
+        try:
+            with open(STATE_FILE, "r") as f:
+                return int(f.read().strip())
+        except:
+            return 0
+    return 0
+
+def save_last_id(msg_id):
+    with open(STATE_FILE, "w") as f:
+        f.write(str(msg_id))
+
+async def forward_loop(client):
+    while True:
+        print(f"\n[{time.strftime('%H:%M:%S')}] Starting sync cycle...")
+        try:
+            # Fetch the latest message from your channel
+            print(f"Checking for new deals in {CHANNEL_ID}...")
+            messages = await client.get_messages(CHANNEL_ID, limit=1)
+            
+            if not messages:
+                print("[!] No messages found in channel.")
+            else:
+                latest_msg = messages[0]
+                last_id = get_last_id()
+                
+                if latest_msg.id == last_id:
+                    print("[~] No new deals. Skipping loop... (Will check again in 1 hour)")
+                else:
+                    print(f"[+] Found new deal (ID: {latest_msg.id}). Forwarding...")
+                    
+                    # Forward to Public Groups
+                    for group in TARGET_GROUPS:
+                        try:
+                            # Try joining if not already in
+                            try:
+                                await client(JoinChannelRequest(group))
+                            except: pass
+                            
+                            await client.forward_messages(group, latest_msg)
+                            print(f"[OK] Sent to group: {group}")
+                            await asyncio.sleep(10) # Safety delay
+                        except Exception as e:
+                            print(f"[!] Failed to send to {group}: {e}")
+
+                    # Forward to Family/Priority Contacts
+                    for contact in PRIORITY_CONTACTS:
+                        try:
+                            await client.forward_messages(contact, latest_msg)
+                            print(f"[FAMILY] Sent to family: {contact}")
+                            await asyncio.sleep(5)
+                        except Exception as e:
+                            print(f"[!] Failed to send to family {contact}: {e}")
+
+                    save_last_id(latest_msg.id)
+                    print(f"[OK] Cycle complete. Last ID updated to {latest_msg.id}")
+            
+        except Exception as e:
+            print(f"[ERROR] In loop: {e}")
+            
+        print("[*] Sleeping for 1 hour...")
+        await asyncio.sleep(3600)
 
 async def main():
     if not API_ID or not API_HASH:
-        print("❌ Error: API_ID aur API_HASH .env file me set karo (get it from https://my.telegram.org)!")
+        print("[ERROR] API_ID and API_HASH not found in .env!")
         return
 
-    print("Logging in to your Telegram account (Userbot mode)...")
+    print("Logging in to Telegram account...")
     client = TelegramClient('userbot_session', int(API_ID), API_HASH)
-    await client.start(phone=PHONE_NUMBER)
-    print("✅ Login Successful!")
-
-    # Fetch the latest message from your channel
-    print(f"Fetching latest deal from {CHANNEL_ID}...")
-    messages = await client.get_messages(CHANNEL_ID, limit=1)
     
-    if not messages:
-        print("❌ Channel par koi message nahi mila!")
-        return
+    try:
+        await client.start(phone=PHONE_NUMBER)
+        print("[OK] Login Successful!")
         
-    latest_msg = messages[0]
-    
-    print(f"Forwarding message to {len(TARGET_GROUPS)} groups...")
-    for group in TARGET_GROUPS:
-        try:
-            # Phele public group join karenge
-            try:
-                await client(JoinChannelRequest(group))
-            except Exception:
-                pass # Already joined hoga ya error
-                
-            # Channel se message utha kar as a human forward karenge
-            await client.forward_messages(group, latest_msg)
-            print(f"✅ Successfully sent to {group}")
-            
-            # Anti-ban strict delay (Bohot zaroori hai ban se bachne ke liye)
-            print("Chilling for 15 seconds to avoid spam ban...")
-            time.sleep(15)
-        except Exception as e:
-            print(f"❌ Failed to send to {group}: {e}")
+        # Start the persistent hourly loop
+        await forward_loop(client)
+        
+    except Exception as e:
+        print(f"[ERROR] Connection error: {e}")
+    finally:
+        await client.disconnect()
 
 if __name__ == "__main__":
     asyncio.run(main())

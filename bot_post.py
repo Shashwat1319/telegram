@@ -2,8 +2,17 @@ import json
 import random
 import asyncio
 import os
+import re
 from dotenv import load_dotenv
 from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
+
+# ---------- Helper for Price Parsing ----------
+def get_price_value(price_str):
+    try:
+        clean = re.sub(r'[^\d.]', '', str(price_str))
+        return float(clean) if clean else 999999.0
+    except:
+        return 999999.0
 
 # Load environment variables
 load_dotenv()
@@ -19,7 +28,7 @@ def load_products():
         return json.load(f)["products"]
 
 # ---------- Message Templates ----------
-def generate_message(product):
+def generate_message(product, is_lightning=False):
     name = product.get('name', 'Great Deal!')
     price = product.get('price', 'Check Link')
     link = product.get('link', '#')
@@ -37,34 +46,66 @@ def generate_message(product):
     if is_ladies:
         header_extra = "💃 <b>LADIES SPECIAL LOOT</b> 💃\n"
         footer_extra = "\n✨ <i>Special deal for the queens!</i> 👜💄"
+        
+    if is_lightning:
+        header_extra = "⚡️ <b>LIGHTNING DEAL OF THE HOUR</b> ⚡️\n"
+        footer_extra = "\n⏳ <i>Highest discount pinned! Buy before it expires!</i> 🏃‍♂️"
 
-    templates = [
-        f"{header_extra}🚨 <b>ERROR PRICING? SYSTEM GLITCH!</b> 🚨\n\n"
-        f"🎁 <b>{safe_name}</b>\n"
-        f"💥 <b>Current Price:</b> <b>{price}</b> 😱\n\n"
-        f"⚠️ <i>Only active for next 5-10 minutes before Amazon fixes it!</i>{footer_extra}\n"
-        f"👇 <b>CLICK HERE & ADD TO CART FAST</b> 👇\n"
-        f"🛒 <a href='{link}'>Claim GLITCH Deal Now</a>\n\n"
-        f"🤫 <b>DO NOT SHARE ON FACEBOOK/INSTA!</b> Forward only to close friends!\n"
-        f"👉 Join <b>@{CLEAN_ID}</b> to get these secret deals first! 🏃‍♂️",
+    if is_ladies:
+        templates = [
+            f"{header_extra}🎀 <b>PREMIUM FASHION LOOT - 80% OFF!</b> 🎀\n\n"
+            f"👜 <b>{safe_name}</b>\n"
+            f"✨ <b>Exclusive Price:</b> <b>{price}</b> 💎\n\n"
+            f"💁‍♀️ <i>Upgrade your style without breaking the bank! Quality guaranteed.</i>{footer_extra}\n"
+            f"👇 <b>CLAIM THIS STYLE NOW</b> 👇\n"
+            f"🛍️ <a href='{link}'>Shop the Collection</a>\n\n"
+            f"🤫 <b>Limited Stock!</b> Share with your besties! 👯‍♀️\n"
+            f"👉 Join <b>@{CLEAN_ID}</b> for more premium drops! 👑",
 
-        f"{header_extra}😱 <b>PRICE DROP OF THE MONTH! 99% CLAIMED!</b> 😱\n\n"
-        f"📦 <b>{safe_name}</b>\n"
-        f"🔥 <b>Loot Price:</b> <b>{price}</b> 📉\n\n"
-        f"⏳ <i>Stock will end completely in any second! Just 3 pieces left!</i>{footer_extra}\n"
-        f"🛒 <a href='{link}'>Click Here To Buy</a>\n\n"
-        f"💵 Company ka loss aapka profit! Jaldi join kar lo: <b>@{CLEAN_ID}</b>\n"
-        f"📢 <b>Apne dosto ko jaldi share karo, unhe bhi lootne do!</b>",
+            f"{header_extra}💄 <b>BEAUTY GLITCH: PRICE SLASHED!</b> 💄\n\n"
+            f"🌟 <b>{safe_name}</b>\n"
+            f"🔥 <b>Special Deal:</b> <b>{price}</b> 😱\n\n"
+            f"✨ <i>Look stunning, spend less! Grab it before the price goes back up.</i>{footer_extra}\n"
+            f"🛒 <a href='{link}'>Add to Cart - Fast!</a>\n\n"
+            f"📢 <b>Forward to your girl gang!</b> Don't let them miss this! 💖\n"
+            f"Join <b>@{CLEAN_ID}</b> for daily beauty steals!",
 
-        f"{header_extra}🛑 <b>SECRET LINK - WILL BE DELETED SOON!</b> 🛑\n\n"
-        f"🌟 <b>{safe_name}</b>\n"
-        f"💎 <b>Get It Only At:</b> <b>{price}</b> ✅\n\n"
-        f"⚡️ <i>Ye price wapas zindagi mein nahi aayega! Guarantee.</i>{footer_extra}\n"
-        f"🔗 <a href='{link}'>Direct Hidden Link to Buy</a>\n\n"
-        f"🚀 <i>Hum aise secret Loot daily post karte hain!</i>\n"
-        f"Join <b>@{CLEAN_ID}</b> fast before we make the channel private! 🔒\n"
-        f"💬 <b>Forward kro groups me taaki price badhne se pehle baki bhi le sake!</b>"
-    ]
+            f"{header_extra}🛑 <b>HIDDEN DEAL - FOR LADIES ONLY!</b> 🛑\n\n"
+            f"👠 <b>{safe_name}</b>\n"
+            f"💎 <b>Grab it for:</b> <b>{price}</b> ✅\n\n"
+            f"⚡️ <i>Ye deal miss nahi honi chahiye! Direct link niche hai.</i>{footer_extra}\n"
+            f"🔗 <a href='{link}'>Direct Link to Loot</a>\n\n"
+            f"🚀 <i>Hum aise secret Ladies Loot daily post karte hain!</i>\n"
+            f"Join <b>@{CLEAN_ID}</b> fast before stock ends! ⏳"
+        ]
+    else:
+        templates = [
+            f"{header_extra}🚨 <b>ERROR PRICING? SYSTEM GLITCH!</b> 🚨\n\n"
+            f"🎁 <b>{safe_name}</b>\n"
+            f"💥 <b>Current Price:</b> <b>{price}</b> 😱\n\n"
+            f"⚠️ <i>Only active for next 5-10 minutes before Amazon fixes it!</i>{footer_extra}\n"
+            f"👇 <b>CLICK HERE & ADD TO CART FAST</b> 👇\n"
+            f"🛒 <a href='{link}'>Claim GLITCH Deal Now</a>\n\n"
+            f"🤫 <b>DO NOT SHARE ON FACEBOOK/INSTA!</b> Forward only to close friends!\n"
+            f"👉 Join <b>@{CLEAN_ID}</b> to get these secret deals first! 🏃‍♂️",
+
+            f"{header_extra}😱 <b>PRICE DROP OF THE MONTH! 99% CLAIMED!</b> 😱\n\n"
+            f"📦 <b>{safe_name}</b>\n"
+            f"🔥 <b>Loot Price:</b> <b>{price}</b> 📉\n\n"
+            f"⏳ <i>Stock will end completely in any second! Just 3 pieces left!</i>{footer_extra}\n"
+            f"🛒 <a href='{link}'>Click Here To Buy</a>\n\n"
+            f"💵 Company ka loss aapka profit! Jaldi join kar lo: <b>@{CLEAN_ID}</b>\n"
+            f"📢 <b>Apne dosto ko jaldi share karo, unhe bhi lootne do!</b>",
+
+            f"{header_extra}🛑 <b>SECRET LINK - WILL BE DELETED SOON!</b> 🛑\n\n"
+            f"🌟 <b>{safe_name}</b>\n"
+            f"💎 <b>Get It Only At:</b> <b>{price}</b> ✅\n\n"
+            f"⚡️ <i>Ye price wapas zindagi mein nahi aayega! Guarantee.</i>{footer_extra}\n"
+            f"🔗 <a href='{link}'>Direct Hidden Link to Buy</a>\n\n"
+            f"🚀 <i>Hum aise secret Loot daily post karte hain!</i>\n"
+            f"Join <b>@{CLEAN_ID}</b> fast before we make the channel private! 🔒\n"
+            f"💬 <b>Forward kro groups me taaki price badhne se pehle baki bhi le sake!</b>"
+        ]
     msg = random.choice(templates)
     
     # Telegram Search SEO Hack: Hiding high-traffic keywords so the post ranks globally without looking ugly
@@ -97,8 +138,14 @@ async def post_deals():
             products_to_post = products[:num_to_post]
             print(f"Normal mode: Selected top {num_to_post} newest products.")
 
+        # Identify the cheapest item in this batch to be the "Lightning Deal"
+        cheapest_product = None
+        if products_to_post:
+            cheapest_product = min(products_to_post, key=lambda p: get_price_value(p.get('price', '999999')))
+
         for product in products_to_post:
-            msg = generate_message(product)
+            is_lightning = (product == cheapest_product)
+            msg = generate_message(product, is_lightning=is_lightning)
             image_url = product.get('image')
             link = product.get('link', '#')
             
@@ -117,9 +164,10 @@ async def post_deals():
             ])
             
             try:
+                sent_msg = None
                 if image_url:
                     try:
-                        await bot.send_photo(
+                        sent_msg = await bot.send_photo(
                             chat_id=chat_id,
                             photo=image_url,
                             caption=msg,
@@ -128,7 +176,7 @@ async def post_deals():
                         )
                     except Exception as photo_e:
                         print(f"Photo upload failed ({photo_e}). Falling back to Text-only message...")
-                        await bot.send_message(
+                        sent_msg = await bot.send_message(
                             chat_id=chat_id,
                             text=msg,
                             parse_mode='HTML',
@@ -136,20 +184,33 @@ async def post_deals():
                             disable_web_page_preview=False
                         )
                 else:
-                    await bot.send_message(
+                    sent_msg = await bot.send_message(
                         chat_id=chat_id,
                         text=msg,
                         parse_mode='HTML',
                         reply_markup=reply_markup,
                         disable_web_page_preview=False
                     )
-                print(f"Posted: {product['name']}")
+                
+                product_name = product.get('name', 'Product').encode('ascii', 'ignore').decode('ascii')
+                print(f"Posted: {product_name}")
+                
+                # Auto-pin the lightning deal
+                if is_lightning and sent_msg:
+                    try:
+                        await bot.pin_chat_message(chat_id=chat_id, message_id=sent_msg.message_id, disable_notification=False)
+                        print(f"Pinned lightning deal: {product_name}")
+                    except Exception as pin_err:
+                        print(f"Could not pin message (check admin rights): {str(pin_err).encode('ascii', 'ignore').decode('ascii')}")
+                        
                 await asyncio.sleep(5)
             except Exception as e:
-                print(f"Failed to post {product['name']}: {e}")
+                err_msg = str(e).encode('ascii', 'ignore').decode('ascii')
+                print(f"Failed to post {product_name}: {err_msg}")
                 
     except Exception as e:
-        print(f"Error in posting: {e}")
+        err_msg = str(e).encode('ascii', 'ignore').decode('ascii')
+        print(f"Error in posting: {err_msg}")
 
 if __name__ == "__main__":
     asyncio.run(post_deals())
