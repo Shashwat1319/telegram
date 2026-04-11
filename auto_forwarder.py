@@ -3,20 +3,20 @@ from telethon import TelegramClient
 from telethon.errors import SessionPasswordNeededError
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.types import Message
+from telethon.network import ConnectionTcpObfuscated
 from dotenv import load_dotenv
 import os
 import time
 
-# To use this, you need API_ID and API_HASH from https://my.telegram.org
+# Load configuration
 load_dotenv()
 API_ID = os.getenv("API_ID")
 API_HASH = os.getenv("API_HASH")
 PHONE_NUMBER = os.getenv("PHONE_NUMBER")
-CHANNEL_ID = os.getenv("CHANNEL_ID") # e.g. @your_channel (Your Deals Channel)
+CHANNEL_ID = os.getenv("CHANNEL_ID") # e.g. @your_channel
 
-# List of Public Loot / Deals Groups (High Engagement)
-TARGET_GROUPS = [
-    "@Promoteclub_b",
+# Target Communities
+TARGET_GROUPS_BASE = [
     "@LootDealsIndia_Official",
     "@Offers_Deals_Loot_India",
     "@Amazon_Flipkart_Loot_Deals",
@@ -44,11 +44,13 @@ TARGET_GROUPS = [
     "@LootGurus"
 ]
 
-# Family Network / Close Friends (Phone numbers or Usernames)
-# Forwarding here looks like a personal message.
-PRIORITY_CONTACTS = [
-    # "919876543210", # Add family phone numbers here
-    # "@friend_username"
+# Priority Groups for ALL accounts
+PRIORITY_GROUPS = ["@Promoteclub_b"]
+
+# Multi-Account Setup
+ACCOUNTS = [
+    {"session": "userbot_session", "phone": os.getenv("PHONE_NUMBER")},
+    {"session": "worker_2_session", "phone": os.getenv("PHONE_NUMBER_2")}
 ]
 
 STATE_FILE = "last_forwarded_id.txt"
@@ -66,64 +68,18 @@ def save_last_id(msg_id):
     with open(STATE_FILE, "w") as f:
         f.write(str(msg_id))
 
-async def run_sync(client):
-    print(f"\n[{time.strftime('%H:%M:%S')}] Starting sync cycle...")
-    try:
-        # Fetch the latest message from your channel
-        print(f"Checking for new deals in {CHANNEL_ID}...")
-        messages = await client.get_messages(CHANNEL_ID, limit=1)
-        
-        if not messages:
-            print("[!] No messages found in channel.")
-        else:
-            latest_msg = messages[0]
-            last_id = get_last_id()
-            
-            if latest_msg.id == last_id:
-                print("[~] No new deals since last run. Exiting.")
-            else:
-                print(f"[+] Found new deal (ID: {latest_msg.id}). Forwarding...")
-                
-                # Forward to Public Groups
-                for group in TARGET_GROUPS:
-                    try:
-                        # Try joining if not already in
-                        try:
-                            await client(JoinChannelRequest(group))
-                        except: pass
-                        
-                        await client.forward_messages(group, latest_msg)
-                        print(f"[OK] Sent to group: {group}")
-                        await asyncio.sleep(10) # Safety delay
-                    except Exception as e:
-                        print(f"[!] Failed to send to {group}: {e}")
+async def run_sync_for_account(account_info, groups_to_target):
+    session_name = account_info["session"]
+    phone = account_info["phone"]
 
-                # Forward to Family/Priority Contacts
-                for contact in PRIORITY_CONTACTS:
-                    try:
-                        await client.forward_messages(contact, latest_msg)
-                        print(f"[FAMILY] Sent to family: {contact}")
-                        await asyncio.sleep(5)
-                    except Exception as e:
-                        print(f"[!] Failed to send to family {contact}: {e}")
-
-                save_last_id(latest_msg.id)
-                print(f"[OK] Sync complete. Last ID updated to {latest_msg.id}")
-        
-    except Exception as e:
-        print(f"[ERROR] Sync failed: {e}")
-
-async def main():
-    if not API_ID or not API_HASH:
-        print("[ERROR] API_ID and API_HASH not found in .env!")
+    if not phone:
+        print(f"[SKIP] No phone number for {session_name}")
         return
 
-    print("Connecting to Telegram...")
-    # Using Obfuscated connection to bypass ISP blocks in India (without needing a proxy)
-    from telethon.network import ConnectionTcpObfuscated
+    print(f"\n--- Starting Sync for: {phone} ({session_name}) ---")
     
     client = TelegramClient(
-        'userbot_session', 
+        session_name, 
         int(API_ID), 
         API_HASH,
         connection=ConnectionTcpObfuscated,
@@ -132,16 +88,66 @@ async def main():
     )
     
     try:
-        await client.start(phone=PHONE_NUMBER)
-        print("[OK] Login Successful!")
+        await client.start(phone=phone)
+        print(f"[OK] Connected as {phone}")
         
-        # Run a single sync cycle and then exit
-        await run_sync(client)
+        last_id = get_last_id()
+        print(f"Scanning {CHANNEL_ID} for deals after ID {last_id}...")
         
+        new_messages = []
+        async for message in client.iter_messages(CHANNEL_ID, min_id=last_id, limit=20):
+            if message.text or message.media:
+                new_messages.append(message)
+        
+        if not new_messages:
+            print(f"[~] No new deals found for this account.")
+            return
+
+        new_messages.reverse()
+        
+        for msg in new_messages:
+            for group in groups_to_target:
+                try:
+                    # Auto-join if needed
+                    try:
+                        await client(JoinChannelRequest(group))
+                    except: pass
+                    
+                    await client.forward_messages(group, msg)
+                    print(f"[OK] Forwarded ID {msg.id} -> {group}")
+                    await asyncio.sleep(8) # Anti-Spam delay
+                except Exception as e:
+                    print(f"[!] Error for group {group}: {e}")
+            
+            save_last_id(msg.id)
+            
     except Exception as e:
-        print(f"[ERROR] Connection error: {e}")
+        print(f"[ERROR] Session {session_name} failed: {e}")
     finally:
         await client.disconnect()
+
+async def main():
+    if not API_ID or not API_HASH:
+        print("[ERROR] API_ID or API_HASH missing in .env")
+        return
+
+    # Account Logic
+    active_accounts = [acc for acc in ACCOUNTS if acc["phone"]]
+    
+    if len(active_accounts) == 1:
+        # Single account mode
+        await run_sync_for_account(active_accounts[0], TARGET_GROUPS_BASE + PRIORITY_GROUPS)
+    elif len(active_accounts) > 1:
+        # Multi-account split mode
+        mid = len(TARGET_GROUPS_BASE) // 2
+        splits = [
+            TARGET_GROUPS_BASE[:mid] + PRIORITY_GROUPS,
+            TARGET_GROUPS_BASE[mid:] + PRIORITY_GROUPS
+        ]
+        for i, acc in enumerate(active_accounts):
+            await run_sync_for_account(acc, splits[i])
+
+    print(f"\n[{time.strftime('%H:%M:%S')}] Entire sync cycle finished.")
 
 if __name__ == "__main__":
     asyncio.run(main())
