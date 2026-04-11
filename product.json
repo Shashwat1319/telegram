@@ -1,6 +1,62 @@
 {
     "products": [
         {
+            "name": "ASIAN Men's Everest-21 Sports Trekking & Hiking,Walking Hi-Neck Shoes with Rubber Outsole & Memory Foam Insole Lace-Up Shoes for Men's & Boy's",
+            "price": "₹1,399.00",
+            "link": "https://www.amazon.com/dp/B0CKNKZJH1?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81pz4FzIOeL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "amazon basics Compatible Ink Bottle for Epson L3110, L3150, L3250, L3252 L3115, L3116, L3101, L3210, L3215, L3216, L3151, L3152, L3156 Printers Ink | Leak-Proof, Color Set Box of 4",
+            "price": "₹569.00",
+            "link": "https://www.amazon.com/dp/B0CHS8MJHX?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61mFvoWuaoL._AC_UL300_SR300,200_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "Foldable Wooden Mini Laptop Table for Bed, Smart Study Table with Drawer Kids & Adults (C-Type -.PINK.)",
+            "price": "₹379.00",
+            "link": "https://www.amazon.com/dp/B0GW356RCB?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51eRiFO6njL._AC_UL300_SR300,200_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "Lifelong 2 Burner Gas Stove Top for Kitchen - Manual Ignition Cooktop Modern Glass Stove for Modular Kitchen, ISI Certified &amp; Compatible with LPG - 1 Year Manufacturer's (Black, LLGS10)",
+            "price": "₹1,199.00 - ₹2,499.00",
+            "link": "https://www.amazon.com/dp/B08VWZXTWY?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71Q5pFUtYmL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Orient Electric Durachill 40 L Portable Air Cooler For Home | Densenest Honeycomb Pads |More Air Delivery | Fully Collapsible Louvers |Inverter Compatible | 1 Year Warranty by Orient | White &amp; Grey",
+            "price": "₹5,699.00",
+            "link": "https://www.amazon.com/dp/B0CSFS1DPP?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61P7opT9hSL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Amazon Basics 1600W Induction Cooktop | 7 Pre-Set Cooking Menus | LED Display | Smart Push Buttons I Energy Efficient, Auto Cut-off, 20A IGBT &amp; 4KV Surge Protection I Black",
+            "price": "Not specified",
+            "link": "https://www.amazon.com/dp/B0FC1Z4WDG?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/717xDsbB1fL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "TEX-RO Metal Clothes Drying Stand Foldable with Wheels – 3-Tier Cloth Dryer Stand for Balcony, Bedroom &amp; Indoor Outdoor | Heavy Duty Hanger Stand for Clothes Hanging, Dress Drying Rack - Grey",
+            "price": "₹499.00 - ₹1,099.00",
+            "link": "https://www.amazon.com/dp/B0GQQHX25W?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81xGIaEgHqL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "THE HOME STYLE Super Soft Glace Cotton King Size Printed Pillow Covers ll Pillow Cases ll Set of 2 Piece- 18\"x 28\" Inches (Abstract Mist)",
+            "price": "₹349.00 - ₹1,999.00",
+            "link": "https://www.amazon.com/dp/B0DGCKPC97?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/716RKRytcYL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
             "name": "TEX-RO Metal Clothes Drying Stand Foldable with Wheels – 3-Tier Cloth Dryer Stand for Balcony, Bedroom & Indoor Outdoor | Heavy Duty Hanger Stand for Clothes Hanging, Dress Drying Rack - Grey",
             "price": "₹499.00 - ₹1,099.00",
             "link": "https://www.amazon.in/dp/B0GQQHX25W?tag=shashwat022-21",
@@ -614,54 +670,6 @@
             "price": "₹199.00",
             "link": "https://www.amazon.in/dp/B0DD478FZR?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/61818em94pL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Milton Kool Seal 7 Insulated Plastic Water Jug,6 litres, Blue | BPA Free, Leak Proof, Easy to Carry Jug with Sturdy Handles | Ideal for Home, Offices, Travel, Picnic, Shops",
-            "price": "₹626.00",
-            "link": "https://www.amazon.in/dp/B07RF7QY55?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71o4+yTXpsL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "MILTON Prime Pack of 5 Water Bottles, 1 Litre Each I BPA Free I Food Grade Fridge Bottle Set I Leak Proof Bottles for Travel, Work, Assorted",
-            "price": "₹451.00",
-            "link": "https://www.amazon.in/dp/B096XW67Q1?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/717FFvujMPL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "realme Buds Wireless 3 Neo in Ear Bluetooth Neckband with 13.4 Mm Dynamic Bass Boost Driver,Upto 32 Hours Playback,Fast Charge,Ai Enc,45Ms Low Latency,Ip55 Dust&Water Resistannt&Bluetooth V 5.4 Black",
-            "price": "₹1,099.00",
-            "link": "https://www.amazon.in/dp/B0DVC6MP1D?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61+esOKPDVL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Boat Airdopes 141, Low Latency, ENx Tech, 42HRS Battery, Fast Charge, IWP, IPX4, Bluetooth Earbuds, TWS Ear Buds Wireless Earphones with mic (Cider Cyan)",
-            "price": "₹699.00 - ₹1,686.00",
-            "link": "https://www.amazon.in/dp/B09N3XMZ5F?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71oXzCK43NL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Apple EarPods (USB-C) ​​​​​​​",
-            "price": "₹1,649.00",
-            "link": "https://www.amazon.in/dp/B0DCNWN8NZ?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/513OSdW4elL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Fire-Boltt Aero Shadow TWS Earbuds Custom EQ, RGB Lights, Wireless Bluetooth 5.4, Music & App Support, 50H Playtime, Fast Charging Case, 50ms Low Latency for Gaming, Touch Controls- Artic White",
-            "price": "₹799.00",
-            "link": "https://www.amazon.in/dp/B0GHQHJDBD?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51yrvA07qFL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "STRIFF Mpad Mouse Mat 230X190X3mm Gaming Mouse Pad, Non-Slip Rubber Base, Waterproof Surface, Premium-Textured, Compatible with Laser and Optical Mice(Universe Black)",
-            "price": "₹99.00",
-            "link": "https://www.amazon.com/dp/B0B9LDCX89?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61zroMjd9FL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "SPHENI Smart Multipurpose Foldable Laptop Table with Cup Holder, Study Table, Bed Table, Breakfast Table, Foldable and Portable/Ergonomic &amp; Rounded Edges/Non-Slip Legs (Black COTTED)",
-            "price": "₹298.00 - ₹369.00",
-            "link": "https://www.amazon.com/dp/B0GDGHMP35?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81s+ze-aVlL._AC_UL300_SR300,200_.jpg"
         }
     ]
 }
