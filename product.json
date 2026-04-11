@@ -1,6 +1,27 @@
 {
     "products": [
         {
+            "name": "Kratos 28 Inch Selfie Stick Tripod Stand with Light, 3-in-1 Multifunctional Design, Rechargeable LED Light with Two Brightness Levels with Bluetooth Remote for Makeup, Selfie &amp; Photoshoot",
+            "price": "₹178.00 - ₹2,899.00",
+            "link": "https://www.amazon.com/dp/B0FVG14W46?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71C7AH5ebiL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "APFEN USB Type- A to Lightning Cable [MFi Certified] Fast Charging &amp; Data Sync Cable Compatible With iPhone 14,13, 12,11,X, 8, 7, 6, 5, iPad Air, Pro, ProMax, Mini",
+            "price": "₹271.00 - ₹699.00",
+            "link": "https://www.amazon.com/dp/B0DHW7ZG5X?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/41bDXvBxnzL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Kratos 41 Inch Magnetic Tripod Stand for iPhone, Aluminum Tripod with Strong Magnetic Holder for MagSafe Design Mobile Phones, 360° Rotation, BT Remote for Selfies, Vlogging &amp; Travel",
+            "price": "₹599.00 - ₹2,999.00",
+            "link": "https://www.amazon.com/dp/B0G1MWVQFR?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61FNxPXIIAL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
             "name": "Good knight Flash Liquid Vaporiser – Pack of 6 (45ml each) | 2x Faster Than Before | Mosquito Repellent Refill | India’s Most Powerful Liquid Vaporizer",
             "price": "₹135.00 - ₹510.00",
             "link": "https://www.amazon.com/dp/B0DDQ631H3?tag=shashwat022-21",
@@ -607,24 +628,6 @@
             "price": "₹3,999.00",
             "link": "https://www.amazon.com/dp/B0G4VNYG5N?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/41KvqS8mQxL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "ZEBRONICS Byte Wired Optical Mouse with 3 Buttons, High Precision, 1000 DPI, Works on Most Surfaces, Plug & Play, USB Interface, 1.3m Cable Length",
-            "price": "₹99.00 - ₹199.00",
-            "link": "https://www.amazon.com/dp/B0DBQ2W84X?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81SyErj5cKL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "THE HOME STYLE Super Soft Glace Cotton King Size Printed Pillow Covers ll Pillow Cases ll Set of 2 Piece- 18\"x 28\" Inches (Abstract Mist)",
-            "price": "₹349.00 - ₹1,999.00",
-            "link": "https://www.amazon.com/dp/B0DGCKPC97?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/716RKRytcYL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "BLABLIBLU Old Money Perfume for Man|30ml Long-Lasting Parfum Fragrances - A Notch above EDP, EDT & EDC|Perfume For Man|Cedar, Vanilla & Chamomile Notes|",
-            "price": "₹185.00 - ₹755.00",
-            "link": "https://www.amazon.com/dp/B0FZB8Q659?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51HpPbtb8IL._AC_UL900_SR900,600_.jpg"
         }
     ]
 }
