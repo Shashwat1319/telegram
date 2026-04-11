@@ -17,6 +17,11 @@ def get_price_value(price_str):
 # Load environment variables
 load_dotenv()
 
+# ---------- Environment variables ----------
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+CHANNEL_ID = os.getenv("CHANNEL_ID")
+CLEAN_ID = CHANNEL_ID.replace('@', '') if CHANNEL_ID else "channel"
+
 # ---------- Constants & Counter ----------
 COUNTER_FILE = "post_count.txt"
 
