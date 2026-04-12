@@ -1,6 +1,76 @@
 {
     "products": [
         {
+            "name": "Philips HD4934/00 1300W Induction Cooktop With Triple MOV For 4Kw Surge Protection With Soft Touch Control | 7 Preset Menus | 3 Years Warranty On Coil, Black",
+            "price": "",
+            "link": "https://www.amazon.com/dp/B0DGKWNGKZ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51CdR8C6hHL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Frido Cloud Comfort Shoes for Men | Zero-Drop Barefoot Design with Wide Toe Box | Lightweight Breathable Comfort Shoes | Natural Foot Movement | Available in Slip-On & Lace-Up Styles",
+            "price": "₹2,199.00",
+            "link": "https://www.amazon.com/dp/B0FV8WG21T?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71g1Wa3r2VL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Virat Kohli 18 New RCBB Half Jersey 2026 for (Kids&amp;Men,Boys)",
+            "price": "₹389.00",
+            "link": "https://www.amazon.com/dp/B0GRHK1JTC?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/517o0+xKElL._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "ANNI DESIGNER Women's Rayon Viscose A-Line Printed Co-Ord Set with Palazzo | Kurta Set for Women | A-Line Kurti Co-Ord Set | Printed Kurti Palazzo | Women Kurta Set",
+            "price": "₹589.00 - ₹769.00",
+            "link": "https://www.amazon.com/dp/B0FRY6YBKQ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61YjeQblSJL._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "OnePlus Pad Lite with Biggest Battery in Segment 9340 mAh, 11\"(27.94 cm) Display with 500 nits Brightness & 11 Hrs of Video Playback, 6GB RAM 128GB Storage, WiFi, Aero Blue",
+            "price": "₹15,999.00",
+            "link": "https://www.amazon.com/dp/B0FHWWDRRM?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61NmETUvDiL._AC_UL300_SR300,200_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "Amkette 4 Port Superspeed USB Hub 3.0 for PC/Laptops, Portable Data Hub with Hi-Speed Data Transfer Up to 5 GBPS, Charging Function| Strong and Durable, Power Supply Port and 80 cm Long Cable (Black)",
+            "price": "₹429.00 - ₹879.00",
+            "link": "https://www.amazon.com/dp/B08JHYWJMP?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51yKyqJWiSL._AC_UL300_SR300,200_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "ZEBRONICS MTS200, Foldable Mobile Holder, Upto 9.6 inches, 360° Rotatable, Stepless Multi Angle Adjustment, Anti-Skid Base & Resting pad, Lightweight & Handy, Compatible with Mobile & Tablet (Black)",
+            "price": "₹189.00",
+            "link": "https://www.amazon.in/dp/B0DDY8L1HQ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71vCy-D4VjL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "S1 Selfie Stick Tripod Light Weight, 28 inch / 70CM Reinforced Tripod for Mobile Phone, Multi-Functional Bluetooth 3in1 Long Selfie Stick for Travel,Vlogging,Compatible with iPhone and All Smartphones",
+            "price": "₹169.00 - ₹1,695.00",
+            "link": "https://www.amazon.in/dp/B0G354X975?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Og1LiG7xL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Amazon Basics TWS in-Ear Earbuds (AB-T08) - C2 with Fast Charging up to 50 Hours of Playtime | Dual 10mm Driver | IPX4 Water-Resistance | Bluetooth 5.3 | Charging Case with Mic | Touch Control (Black)",
+            "price": "₹599.00 - ₹869.00",
+            "link": "https://www.amazon.in/dp/B0CX95VCHB?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61YI3Rls1-L._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "iPhone 16 128 GB: 5G Mobile Phone with Camera Control, A18 Chip and a Big Boost in Battery Life. Works with AirPods; Black",
+            "price": "",
+            "link": "https://www.amazon.in/dp/B0DGJHBX5Y?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61135j8fPJL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
             "name": "DEELMO Men's Regular Fit Button Down Dress Shirts Textured Long Sleeve Casual Hawaiian Shirt",
             "price": "₹495.00",
             "link": "https://www.amazon.in/dp/B0F4P9QWNV?tag=shashwat022-21",
@@ -629,76 +699,6 @@
             "link": "https://www.amazon.com/dp/B00UFF4HC2?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/51C8dxYDWML._AC_UL900_SR900,600_.jpg",
             "category": "Personal Care"
-        },
-        {
-            "name": "Shining Diva Fashion Latest Set of 28 Stylish Traditional Bangle for Women",
-            "price": "₹499.00",
-            "link": "https://www.amazon.com/dp/B0B659TPQQ?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81+giZoWckL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Jewelry"
-        },
-        {
-            "name": "Shining Diva Fashion 5 Pcs Latest Stylish Heart Butterfly Pearl Necklace Jewellery Set for Women Pendant Necklace Gifts for Girls (16476np)",
-            "price": "₹299.00",
-            "link": "https://www.amazon.com/dp/B0DYVPP86H?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/713ZDAwhQuL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Jewelry"
-        },
-        {
-            "name": "MEENAZ evil eye bracelet for woman Evil Eye Bangles for women Anti Tarnish Stylish Stainless Steel gold Bracelet for girls Hand Kada for Women Magnet lock Aesthetic Accessories Jewellery friendship crystal -625",
-            "price": "₹256.00",
-            "link": "https://www.amazon.com/dp/B0CWXVWMYX?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51LtPehussL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Jewelry"
-        },
-        {
-            "name": "Tanush Crystal Glass Bangles Jelly Bangles Pack of 8",
-            "price": "",
-            "link": "https://www.amazon.com/dp/B0GWDN3V8S?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Sz7jCs5GL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Jewelry"
-        },
-        {
-            "name": "Tanishq - Gold Jewellery | | E-Gift Card | Instant delivery | Valid for in-store purchases | Ideal gift for birthday, anniversary & wedding",
-            "price": "₹500.00 - ₹1,99,999.00",
-            "link": "https://www.amazon.com/dp/B07QC7J7PF?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/41SoudZqydL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Jewelry"
-        },
-        {
-            "name": "DOCTOR EXTRA SOFT Men's Classic Ultra Soft Sliders/Slippers with Cushion FootBed for Adult | Comfortable & Light Weight | Stylish & Anti-Skid | Waterproof & Everyday Flip Flops for Gents/Boys D-504",
-            "price": "₹899.00",
-            "link": "https://www.amazon.com/dp/B0CLZPYK16?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61HA3-8XMIL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "HEALTH FIT SUPER SOFT Comfortable Adjustable Back Strap Clogs & Cute Charms |Waterproof Anti Skid & Lightweight Cushioned Stylish Clogs Mules for Women's & Girl's HFSILK11",
-            "price": "₹649.00",
-            "link": "https://www.amazon.com/dp/B0GGL81XR2?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71HSO63SD7L._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Liberty Coolers Meta-2 Slippers for Man | Leather Slippers for Men | Slip On Chappal for Men | Comfortable Flat Slipper | Gents Slipper for Home, Office & Travel Comfortable Fit for Every Occasion",
-            "price": "₹559.00",
-            "link": "https://www.amazon.com/dp/B0BVZJHBXX?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51WVQ1yJHCL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "HUSB Spring Acupressure and Magnetic Therapy Accu Paduka Slippers Foot Massager for Full Body Blood Circulation Slippers Foot Massager For Men and Women (Unisex) (Size 5, 6, 7, 8, 9, 10), Black",
-            "price": "₹348.00",
-            "link": "https://www.amazon.com/dp/B0D9TDWQNT?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81acoNTmZxL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Frido Cloud Comfort Shoes for Men | Zero-Drop Barefoot Design with Wide Toe Box | Lightweight Breathable Comfort Shoes | Natural Foot Movement | Available in Slip-On & Lace-Up Styles",
-            "price": "₹2,199.00",
-            "link": "https://www.amazon.com/dp/B0FSXYJ8C5?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71Tq5HOL+mL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Shoes"
         }
     ]
 }
