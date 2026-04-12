@@ -15,14 +15,29 @@ API_HASH = os.getenv("API_HASH")
 PHONE_NUMBER = os.getenv("PHONE_NUMBER")
 CHANNEL_ID = os.getenv("CHANNEL_ID") # e.g. @your_channel
 
-# Target Communities
+# Target Communities (Includes previously working deal groups + new fully verified open promo groups)
 TARGET_GROUPS_BASE = [
     "@LootDealsIndia_Official",
     "@Offers_Deals_Loot_India",
     "@Amazon_Flipkart_Loot_Deals",
     "@ShoppingLootDeals",
     "@Loot_Deals_India_Official",
-    "@OffersDealsLoot"
+    "@OffersDealsLoot",
+    "@Sub4sub_YouTube_Subscriber_Group",
+    "@Sub4SubGroupcrypto",
+    "@sub4subcrypto",
+    "@lSub4SUb1",
+    "@youtube_Sub4Sub_Groupx",
+    "@sub4sube",
+    "@Promoteclub_b",
+    "@PromoteClub",
+    "@PROMOTEJ",
+    "@Free_Telegram_subscribers",
+    "@teluguludo1",
+    "@saiganeshtrendz",
+    "@Airdrop_share_Referals_links",
+    "@share_your_links11",
+    "@spamlinks2"
 ]
 
 # Priority Groups for ALL accounts
