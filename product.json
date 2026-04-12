@@ -1,6 +1,41 @@
 {
     "products": [
         {
+            "name": "ORACURA Remineralisation Natural Toothpaste (Aloe Vera) | Fluoride-Free, SLES-Free | nHA (Nano Hydroxyapatite) Enamel Repair & Remineralisation | Helps Prevent Cavities & Tooth Sensitivity, Balances pH, Soothes Gums | 75 g (Pack of 1)",
+            "price": "₹200.00",
+            "link": "https://www.amazon.com/dp/B0F1KP1KYZ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51kyDZc4YAL._AC_UL900_SR900,600_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Footvital Memory Foam Shoe Insoles for Men and Women | Soft Cushioned Inserts for Long Standing and Walking | Supports Heel and Arch | Shock Absorbing | Moisture Absorbing | Lightweight Washable Insoles for All Shoes | 2 Pairs | Black | Size 8",
+            "price": "₹178.00 - ₹279.00",
+            "link": "https://www.amazon.com/dp/B0BD8D1XVM?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/717houztLlL._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Dove Body Polish Exfoliating Scrub, Moisturizing Shea Butter and Pomegranate Seeds | Nourishes & Conditions Soft Skin | Sulphate Free, 298gm.",
+            "price": "N/A",
+            "link": "https://www.amazon.com/dp/B001CZ9XT6?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51s6JpwFbEL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "LAKMÉ Sun Expert SPF 50 PA+++ Gel Sunscreen, Niacinamide | Water-Light|For Oily & Combination Skin| Non-sticky | For All Skin Types, For UVA/B Protection,No White Cast 50g",
+            "price": "₹217.00 - ₹395.00",
+            "link": "https://www.amazon.com/dp/B0744R95BT?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/514DZ+9yQ4L._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "APFEN® 20W [Apple MFi Certified] Type-C Fast Charger Adapter & Cable Compatible with iPhone 14/14 Pro/14 Pro Max/13/13 Pro/13 Pro Max/12/11/XR/XS/X/8 Series, White",
+            "price": "₹380.00 - ₹798.00",
+            "link": "https://www.amazon.com/dp/B0F62W35NX?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61sa0aOa5ZL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
             "name": "ASIAN Men's Everest-21 Sports Trekking & Hiking,Walking Hi-Neck Shoes with Rubber Outsole & Memory Foam Insole Lace-Up Shoes for Men's & Boy's",
             "price": "₹1,399.00",
             "link": "https://www.amazon.com/dp/B0CKNKZJH1?tag=shashwat022-21",
@@ -640,36 +675,6 @@
             "price": "₹150.00 - ₹609.00",
             "link": "https://www.amazon.com/dp/B0GK18G4V8?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/41ck8CmeVXL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Parachute Coconut Oil - 600 ml (Easy Jar)",
-            "price": "₹438.00",
-            "link": "https://www.amazon.com/dp/B07KZB82QC?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/610znuVyFXL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "Parachute Advansed Amla Rosemary Hair Oil | 500ml | Amla & Rosemary | For All Hair Types",
-            "price": "₹204.00",
-            "link": "https://www.amazon.com/dp/B0F6D6R1H6?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51xBmqZhrqL._AC_UL300_SR300,200_.jpg"
-        },
-        {
-            "name": "STAR-SPANGLED Push Tap Light, Mini Night Touch LED Puck Lamp, Portable Under Cabinet Lighting AAA Battery Operated Powered, DIY Stick On Lights for Closet, Kitchen (7cm, Golden, Warm White, 5 Pack)",
-            "price": "₹536.00",
-            "link": "https://www.amazon.in/dp/B08T7NLLSL?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71JsMWg-iyL._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "MILTON Helix 1000 Pet Water Bottle 1 Litre Each BPA Free, Leak Proof, Office Bottle Home Kitchen Travel Bottle, Set of 4, Assorted",
-            "price": "₹135.00",
-            "link": "https://www.amazon.in/dp/B098KGQC7M?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/818EOU7f4PS._AC_UL900_SR900,600_.jpg"
-        },
-        {
-            "name": "Gipibox® 2 L Capacity Straw Transparent Motivational Water Bottles|Time Marker Leak Proof&Break-Proof|Best Usage For Office/School/College/Gym/Travel Bottle|Bpa-Free Sports Bottle (1PCS) Plastic",
-            "price": "₹199.00",
-            "link": "https://www.amazon.in/dp/B0DD478FZR?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61818em94pL._AC_UL900_SR900,600_.jpg"
         }
     ]
 }
