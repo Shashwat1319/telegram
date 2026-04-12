@@ -222,12 +222,25 @@ def main():
             subprocess.run([sys.executable, "bot_post.py"], check=True)
         except Exception as e:
             print(f"Telegram Bot error: {e}")
+            
+        # Call Facebook Bot (Handled separately with peak-hour and daily-limit logic)
+        try:
+            subprocess.run([sys.executable, "fb_bot_post.py"], check=True)
+        except Exception as e:
+            # We don't want FB errors to stop the script, just log it.
+            print(f"Facebook Bot error: {e}")
     else:
         print("No new products. Picking random deals for channel activity...")
         try:
             subprocess.run([sys.executable, "bot_post.py", "--random"], check=True)
         except Exception as e:
             print(f"Telegram Bot fallback error: {e}")
+
+        # Also call FB on random runs (Logic inside fb_bot_post.py handles limits)
+        try:
+            subprocess.run([sys.executable, "fb_bot_post.py"], check=True)
+        except Exception as e:
+            print(f"Facebook Bot fallback error: {e}")
 
 if __name__ == "__main__":
     main()

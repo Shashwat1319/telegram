@@ -9,11 +9,12 @@ import webbrowser
 import urllib.parse
 import threading
 
-APP_ID = "2157373155060656"
+APP_ID = "891489110558398"
 REDIRECT_URI = "http://localhost:3000"
 
 # Modern scope-based OAuth (manage_pages is deprecated, use new permissions)
-SCOPES = "pages_manage_posts,pages_show_list"
+# Clean scopes to avoid 'Invalid Scopes' error
+SCOPES = "public_profile,pages_show_list,pages_manage_posts,pages_read_engagement,business_management"
 
 oauth_url = (
     f"https://www.facebook.com/dialog/oauth?"

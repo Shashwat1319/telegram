@@ -68,15 +68,11 @@ def save_last_id(msg_id):
     with open(STATE_FILE, "w") as f:
         f.write(str(msg_id))
 
-async def run_sync_for_account(account_info, groups_to_target):
+async def process_account(account_info, messages_to_forward, groups_to_target):
     session_name = account_info["session"]
     phone = account_info["phone"]
 
-    if not phone:
-        print(f"[SKIP] No phone number for {session_name}")
-        return
-
-    print(f"\n--- Starting Sync for: {phone} ({session_name}) ---")
+    print(f"\n--- Account: {phone} ({session_name}) ---")
     
     client = TelegramClient(
         session_name, 
@@ -89,23 +85,9 @@ async def run_sync_for_account(account_info, groups_to_target):
     
     try:
         await client.start(phone=phone)
-        print(f"[OK] Connected as {phone}")
+        print(f"[OK] Connected.")
         
-        last_id = get_last_id()
-        print(f"Scanning {CHANNEL_ID} for deals after ID {last_id}...")
-        
-        new_messages = []
-        async for message in client.iter_messages(CHANNEL_ID, min_id=last_id, limit=20):
-            if message.text or message.media:
-                new_messages.append(message)
-        
-        if not new_messages:
-            print(f"[~] No new deals found for this account.")
-            return
-
-        new_messages.reverse()
-        
-        for msg in new_messages:
+        for msg in messages_to_forward:
             for group in groups_to_target:
                 try:
                     # Auto-join if needed
@@ -117,9 +99,7 @@ async def run_sync_for_account(account_info, groups_to_target):
                     print(f"[OK] Forwarded ID {msg.id} -> {group}")
                     await asyncio.sleep(8) # Anti-Spam delay
                 except Exception as e:
-                    print(f"[!] Error for group {group}: {e}")
-            
-            save_last_id(msg.id)
+                    print(f"[!] Group {group} error: {e}")
             
     except Exception as e:
         print(f"[ERROR] Session {session_name} failed: {e}")
@@ -131,23 +111,57 @@ async def main():
         print("[ERROR] API_ID or API_HASH missing in .env")
         return
 
-    # Account Logic
+    # 1. First, find out what needs to be forwarded (using Account 1)
+    print("Fetching new deals...")
+    fetcher_client = TelegramClient(
+        ACCOUNTS[0]["session"], 
+        int(API_ID), 
+        API_HASH,
+        connection=ConnectionTcpObfuscated
+    )
+    
+    new_messages = []
+    try:
+        await fetcher_client.start(phone=ACCOUNTS[0]["phone"])
+        last_id = get_last_id()
+        print(f"Checking for deals in {CHANNEL_ID} with ID > {last_id}...")
+        
+        async for message in fetcher_client.iter_messages(CHANNEL_ID, min_id=last_id, limit=20):
+            print(f"Found message ID: {message.id}")
+            if message.text or message.media:
+                new_messages.append(message)
+        await fetcher_client.disconnect()
+    except Exception as e:
+        print(f"[!] Fetching failed: {e}")
+        return
+
+    if not new_messages:
+        print(f"[{time.strftime('%H:%M:%S')}] No new deals to forward.")
+        return
+
+    new_messages.reverse() # Oldest first
+    print(f"[+] Found {len(new_messages)} new deals to forward to all accounts.")
+
+    # 2. Split groups and process with all active accounts
     active_accounts = [acc for acc in ACCOUNTS if acc["phone"]]
     
     if len(active_accounts) == 1:
-        # Single account mode
-        await run_sync_for_account(active_accounts[0], TARGET_GROUPS_BASE + PRIORITY_GROUPS)
+        await process_account(active_accounts[0], new_messages, TARGET_GROUPS_BASE + PRIORITY_GROUPS)
     elif len(active_accounts) > 1:
-        # Multi-account split mode
         mid = len(TARGET_GROUPS_BASE) // 2
         splits = [
             TARGET_GROUPS_BASE[:mid] + PRIORITY_GROUPS,
             TARGET_GROUPS_BASE[mid:] + PRIORITY_GROUPS
         ]
         for i, acc in enumerate(active_accounts):
-            await run_sync_for_account(acc, splits[i])
+            await process_account(acc, new_messages, splits[i])
 
-    print(f"\n[{time.strftime('%H:%M:%S')}] Entire sync cycle finished.")
+    # 3. Update the global state after ALL accounts finished their job
+    if new_messages:
+        save_last_id(new_messages[-1].id)
+        print(f"\n[OK] State updated to ID {new_messages[-1].id}")
+
+    print(f"\n[{time.strftime('%H:%M:%S')}] Sync cycle finished.")
 
 if __name__ == "__main__":
     asyncio.run(main())
