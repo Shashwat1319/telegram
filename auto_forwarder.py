@@ -29,23 +29,12 @@ TARGET_GROUPS_BASE = [
     "@SastaBazar_Loot",
     "@Deals_Loot_India",
     "@Loot_offers_india",
-    "@CouponLootDeals",
-    "@IndiaFreeStuff_Loot",
     "@LootLoDeals",
-    "@DailyLootDealsIndia",
-    "@LootPriceAlerts",
-    "@BestLootDeals",
-    "@LootMastersIndia",
-    "@LootKingIndia",
-    "@LootVandals",
-    "@LootExperts",
-    "@LootMachao",
-    "@LootEmpire",
-    "@LootGurus"
+    "@LootMastersIndia"
 ]
 
 # Priority Groups for ALL accounts
-PRIORITY_GROUPS = ["@Promoteclub_b"]
+PRIORITY_GROUPS = ["@Promoteclub_b","@PromoteClub"]
 
 # Multi-Account Setup
 ACCOUNTS = [
