@@ -22,15 +22,7 @@ TARGET_GROUPS_BASE = [
     "@Amazon_Flipkart_Loot_Deals",
     "@ShoppingLootDeals",
     "@Loot_Deals_India_Official",
-    "@OffersDealsLoot",
-    "@AmazonFlipkartLoot",
-    "@LootShoppingAtoZ",
-    "@LootAlertsIndia",
-    "@SastaBazar_Loot",
-    "@Deals_Loot_India",
-    "@Loot_offers_india",
-    "@LootLoDeals",
-    "@LootMastersIndia"
+    "@OffersDealsLoot"
 ]
 
 # Priority Groups for ALL accounts
