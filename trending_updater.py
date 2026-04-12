@@ -7,6 +7,8 @@ import subprocess
 import time
 import random
 import sys
+import threading
+from concurrent.futures import ThreadPoolExecutor
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -15,6 +17,9 @@ load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 AFFILIATE_ID_IN = os.getenv("AFFILIATE_ID_IN")
 AFFILIATE_ID_COM = os.getenv("AFFILIATE_ID_COM")
+
+# Threading lock for safe JSON writing
+json_lock = threading.Lock()
 
 def get_amazon_trending(category_url):
     """Scrape Amazon India Movers & Shakers for a specific category."""
@@ -158,8 +163,9 @@ def update_json(new_products):
     # Keep only 100 products to avoid huge files
     data['products'] = data['products'][:100]
     
-    with open(file_path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=4, ensure_ascii=False)
+    with json_lock:
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
     
     print(f"Added {added_count} new products.")
     return added_count > 0
@@ -198,23 +204,29 @@ def main():
         "https://www.amazon.in/gp/movers-and-shakers/hpc"
     ]
     
-    any_new = False
-    for url in categories:
+    def sync_category(url):
         slug = url.split('/')[-1]
         cat_name = category_map.get(slug, "Loot")
-        print(f"Syncing: {cat_name}...")
+        print(f"[*] Syncing: {cat_name}...")
         
-        html = get_amazon_trending(url)
-        if html:
-            products = extract_products_with_ai(html)
-            if products:
-                # Tag each product with its category
-                for p in products:
-                    p['category'] = cat_name
-                products = add_affiliate_tags(products)
-                if update_json(products):
-                    any_new = True
-        time.sleep(random.randint(5, 10))
+        try:
+            html = get_amazon_trending(url)
+            if html:
+                products = extract_products_with_ai(html)
+                if products:
+                    for p in products:
+                        p['category'] = cat_name
+                    products = add_affiliate_tags(products)
+                    return update_json(products)
+        except Exception as e:
+            print(f"[!] Error syncing category {cat_name}: {e}")
+        return False
+
+    any_new = False
+    print(f"[*] Dispatching parallel sync for {len(categories)} categories...")
+    with ThreadPoolExecutor(max_workers=4) as executor:
+        results = list(executor.map(sync_category, categories))
+        any_new = any(results)
 
     if any_new:
         git_push_changes()

@@ -131,11 +131,12 @@ async def main():
     new_messages.reverse() # Oldest first
     print(f"[+] Found {len(new_messages)} new deals to forward to all accounts.")
 
-    # 2. Split groups and process with all active accounts
-    active_accounts = [acc for acc in ACCOUNTS if acc["phone"]]
+    # 2. Split groups and process with all active accounts in parallel
+    active_accounts = [acc for acc in ACCOUNTS if acc.get("phone")]
     
+    tasks = []
     if len(active_accounts) == 1:
-        await process_account(active_accounts[0], new_messages, TARGET_GROUPS_BASE + PRIORITY_GROUPS)
+        tasks.append(process_account(active_accounts[0], new_messages, TARGET_GROUPS_BASE + PRIORITY_GROUPS))
     elif len(active_accounts) > 1:
         mid = len(TARGET_GROUPS_BASE) // 2
         splits = [
@@ -143,7 +144,11 @@ async def main():
             TARGET_GROUPS_BASE[mid:] + PRIORITY_GROUPS
         ]
         for i, acc in enumerate(active_accounts):
-            await process_account(acc, new_messages, splits[i])
+            tasks.append(process_account(acc, new_messages, splits[i]))
+
+    if tasks:
+        print(f"[*] Dispatching {len(tasks)} accounts for parallel forwarding...")
+        await asyncio.gather(*tasks)
 
     # 3. Update the global state after ALL accounts finished their job
     if new_messages:
