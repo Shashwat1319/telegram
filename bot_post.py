@@ -52,7 +52,7 @@ def load_products():
 # ---------- Message Templates ----------
 def generate_message(product, is_lightning=False):
     name = product.get('name', 'Great Deal!')
-    price = product.get('price', 'Check Link')
+    price = str(product.get('price', 'Check Link')).replace('', '₹').replace('?', '₹')
     link = product.get('link', '#')
     category = product.get('category', 'Loot')
     
