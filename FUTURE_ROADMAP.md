@@ -17,6 +17,11 @@ This roadmap outlines the features, automation, and promotional strategies to sc
 - [ ] **Cross-Platform Scraping**: Expand beyond Amazon to include **Flipkart**, **Myntra**, and **Ajio** for a wider "Loot" variety.
 - [ ] **Flash Deal Pinner**: Automatically Pin messages that have >80% discount so everyone gets a notification.
 
+### 📅 April 15th Growth Sprint (REMINDER)
+- [ ] **Aggressive Viral Loop**: Change `viral_interval` from 3-7 to **2-4** in `bot_post.py`.
+- [ ] **Special Promo Forwards**: Create `promo_manager.py` to send dedicated "Glitch Channel Join" ads to groups.
+- [ ] **FB-to-TG Funnel**: Add "Hidden Deals" CTA logic to Facebook posts.
+
 ---
 
 ## 💰 Phase 2: Revenue Maximization (May 2026)
@@ -54,4 +59,4 @@ This roadmap outlines the features, automation, and promotional strategies to sc
 > [!TIP]
 > **Consistency is Key**: Even if members don't join fast in the first week, don't stop the forwarder. Telegram search takes 2-3 weeks to index and "rank" your channel. 
 
-**April 11, 2026** - *Drafted by Antigravity AI*
+**April 11, 2026** - *Drafted by Shashwat Srivastava*
