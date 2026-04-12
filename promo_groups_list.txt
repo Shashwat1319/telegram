@@ -1,0 +1,20 @@
+# Active Telegram Promotion Groups (To be checked)
+# Note: Telegram group rules change often. Before adding these to auto_forwarder.py,
+# join them manually once to ensure they allow bot links without instant bans.
+
+@Promoteclub_b
+@PromoteClub
+@Sub4Sub_YouTube_Subscribers
+@TelePromote
+@sub4sub_fast_youtube
+@Promo_Groups_Chat
+@LinkSharingGroups
+@AddMembersTelegram
+@PromoteYourChannels
+@subforsub_youtube_subscribers
+@tg_promoters
+@Channel_Promotion_Group
+@ShareYourLinksHere
+@Sub4Sub_Active
+@Indian_Promote
+@Youtube_Sub4Sub_Active_Members
