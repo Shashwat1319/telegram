@@ -52,7 +52,13 @@ def load_products():
 # ---------- Message Templates ----------
 def generate_message(product, is_lightning=False):
     name = product.get('name', 'Great Deal!')
-    price = str(product.get('price', 'Check Link')).replace('', '₹').replace('?', '₹')
+    
+    # Secure price formatting without relying on invisible string replacements
+    raw_price = str(product.get('price', 'Check Link'))
+    # Remove bad unicode characters manually
+    cleaned_price = "".join(c for c in raw_price if c.isalnum() or c in ".,- ")
+    price = f"₹ {cleaned_price.strip()}" if not cleaned_price.startswith("Check") else cleaned_price
+        
     link = product.get('link', '#')
     category = product.get('category', 'Loot')
     
