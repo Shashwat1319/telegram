@@ -1,6 +1,90 @@
 {
     "products": [
         {
+            "name": "Gillette Mach3 Shaving 3-Bladed Cartridges, Pack of 2",
+            "price": "₹300.00 - ₹1,555.00",
+            "link": "https://www.amazon.com/dp/B00G4UDTXU?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61vAmLNkWBL._AC_UL300_SR300,200_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Colgate Total 80gm Advanced Health Antibacterial Toothpaste, Stronger 12-Hour Anti-Germ Protection, Enamel Protection for Whole Mouth Health, World's No. 1* Germ-fighting Toothpaste",
+            "price": "₹70.00 - ₹376.00",
+            "link": "https://www.amazon.com/dp/B0D12DWVRX?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71fAc3++hsL._AC_UL300_SR300,200_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Colgate Sensitive Everyday Protection Toothpaste, Combo Pack Of 160g (80g X 2), Specifically Developed For Sensitive Teeth &amp; Healthy Gums, Colgate Toothpaste For Prevention Of Cavities &amp; Plaque",
+            "price": "₹129.00 - ₹425.00",
+            "link": "https://www.amazon.com/dp/B07QL37M78?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71uOEAtLC7L._AC_UL300_SR300,200_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Dettol Liquid Handwash Refill – Skincare Hand Wash- 1350ml | pH Balanced | 10x Better Germ Protection",
+            "price": "₹155.00 - ₹402.00",
+            "link": "https://www.amazon.com/dp/B07M9XYH9K?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61cT-uFfHOL._AC_UL300_SR300,200_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Vn care Magnetic Universal Nasal Strips | Breathing Nasal Strip | Anti Snoring Nose Clip | Skin Safe Sleep Nasal Strips | Nasal Dilators For Breathing | Snore Stopper | Snoring Stopper For Men | Breathing Nasal Strip Starter Kit",
+            "price": "₹247.00 - ₹297.00",
+            "link": "https://www.amazon.com/dp/B0G42J82LW?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/7178ZbaydJL._AC_UL300_SR300,200_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Okos Gold Plated Tulip Pink Stone Bracelet for Women & Girls | Elegant Floral Link Bracelet | Lightweight Adjustable Bracelet for Daily Wear, Party & Gifting BR1000084GLD",
+            "price": "₹399.00",
+            "link": "https://www.amazon.com/dp/B0GW8RZNVR?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51qXTkQIdTL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "Skechers Women Summits Sneakers",
+            "price": "₹2,367.00 - ₹2,450.00",
+            "link": "https://www.amazon.com/dp/B0CHVWZB51?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81EhHgyfg0L._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "FAUSTO Men Mojari",
+            "price": "₹999.00 - ₹1,099.00",
+            "link": "https://www.amazon.com/dp/B0CTVLRBYL?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Fv07-AvLL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Boldfit Trekking Shoes for Man Outdoor high Neck ShoAnti Skid Trekking Boots Water Repellent, Outlander Black",
+            "price": "₹1,999.00",
+            "link": "https://www.amazon.com/dp/B0DGXHHY4D?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61RzYM4b6CL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "ASIAN Everest W-21 Women’s Trekking & Hiking Shoes | Durable Outdoor Footwear with Anti-Slip Outsole, Soft Cushion Comfort & Water-Resistant Upper | Ideal for Travel, Biking & Trails",
+            "price": "₹1,199.00",
+            "link": "https://www.amazon.com/dp/B0G2C6HH9G?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81Z88WxIM+L._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "FAUSTO Men Mojari",
+            "price": "₹999.00",
+            "link": "https://www.amazon.com/dp/B091Q8BW3J?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51IPzEUtCiL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "WROGN Men's Linen Blend Shirt | Solid Styles | Slim Fit",
+            "price": "₹1,899.00",
+            "link": "https://www.amazon.com/dp/B0GVYT815N?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/517xGN1VERL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
             "name": "Kindle Oasis (32 GB)",
             "price": "$309.99",
             "link": "https://www.amazon.in/dp/B0BN7W84KB?tag=shashwat022-21",
@@ -615,90 +699,6 @@
             "link": "https://www.amazon.com/dp/B0DGCKPC97?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/716RKRytcYL._AC_UL300_SR300,200_.jpg",
             "category": "Kitchen"
-        },
-        {
-            "name": "TEX-RO Metal Clothes Drying Stand Foldable with Wheels – 3-Tier Cloth Dryer Stand for Balcony, Bedroom & Indoor Outdoor | Heavy Duty Hanger Stand for Clothes Hanging, Dress Drying Rack - Grey",
-            "price": "₹499.00 - ₹1,099.00",
-            "link": "https://www.amazon.in/dp/B0GQQHX25W?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81xGIaEgHqL._AC_UL900_SR900,600_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "KareIn Classic Adult Diaper Pants, Medium 75 - 100 Cm (30\"- 40\"), 10 Count, Unisex, Leakproof, Elastic Waist, Wetness Indicator",
-            "price": "₹224.00 - ₹3,599.00",
-            "link": "https://www.amazon.com/dp/B08Q4P5Q29?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/710R+8iEE3L._AC_UL300_SR300,200_.jpg",
-            "category": "Personal Care"
-        },
-        {
-            "name": "Ariel Power Gel Liquid Detergent for Top Load & Semi Auto – 4kg | Removes 100 Dried Stains in 1 Wash | Faster Dissolving | Long-Lasting Fragrance | Color Protection | At the price of Powders",
-            "price": "₹491.00",
-            "link": "https://www.amazon.com/dp/B0CSPG8D76?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/611TjgxRCSL._AC_UL300_SR300,200_.jpg",
-            "category": "Personal Care"
-        },
-        {
-            "name": "Dettol 5 in 1 Washing Machine Cleaner & Descaling Liquid for top load and front load| Lemon 250ml | Removes Limescale, Dirt and Bad odour | Kills 99.9%* Bacteria",
-            "price": "₹239.00",
-            "link": "https://www.amazon.com/dp/B0FS1HWH3N?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51lHq5GlfQL._AC_UL300_SR300,200_.jpg",
-            "category": "Personal Care"
-        },
-        {
-            "name": "Surf Excel Easy Wash Detergent Powder7 kg | Superfine Washing Powder | Dissolves Easily & Removes Tough Stains | Suitable for all Washing Machines",
-            "price": "₹725.00",
-            "link": "https://www.amazon.com/dp/B0D7GQNL6B?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61akecKSiLL._AC_UL300_SR300,200_.jpg",
-            "category": "Personal Care"
-        },
-        {
-            "name": "Fashion Frill Stylish Silver Bracelet For Men Stainless Steel Silver Chain Bracelets For Men Boys Mens Wristwear Bracelets Jewellery",
-            "price": "₹169.00",
-            "link": "https://www.amazon.com/dp/B0CY2M6KGK?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/41qOmMVi0gL._AC_UL900_SR900,600_.jpg",
-            "category": "Ladies Jewelry"
-        },
-        {
-            "name": "Oxidised Silver Look Jhumka Earrings Box for Women | 16 Pairs Traditional Ethnic Jhumki Combo Gift Hamper with Velvet Box | Festive Wedding Jewellery | Gift For Women",
-            "price": "₹999.00",
-            "link": "https://www.amazon.com/dp/B0GJDSGRGF?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71f8Z-9GTlL._AC_UL900_SR900,600_.jpg",
-            "category": "Ladies Jewelry"
-        },
-        {
-            "name": "Traditional Indian Ear Cuff with Green Stone and Pearl, Non-Piercing Kundan Temple Bugadi Jewellery for Women, South Indian bugadi koppu Maharashtrian Style Kan Phool",
-            "price": "₹299.00",
-            "link": "https://www.amazon.com/dp/B0GJPPC127?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/41dAaoe7+ML._AC_UL900_SR900,600_.jpg",
-            "category": "Ladies Jewelry"
-        },
-        {
-            "name": "AVORA Raw Pyrite Anklet for Women | Natural Stone Jewellery for Wealth, Luck & Protection | Certified Crystal | Spiritual Healing Jewellery Gift for Girls & Women | Adjustable Payal Bracelet",
-            "price": "₹275.00",
-            "link": "https://www.amazon.com/dp/B0FT8NVZSP?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61p4KJh1GJL._AC_UL900_SR900,600_.jpg",
-            "category": "Ladies Jewelry"
-        },
-        {
-            "name": "ZIBUYU® 12PC Ear Cuffs without Piercing, Zinc Alloy Earrings Set for Women & Girls Stylish Western Adjustable Fake Cartilage Earcuffs for Women Fashion & Styling Accessories Jewelry Gift",
-            "price": "₹175.00",
-            "link": "https://www.amazon.com/dp/B0FHVLCR79?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61SdOHKLYqL._AC_UL900_SR900,600_.jpg",
-            "category": "Ladies Jewelry"
-        },
-        {
-            "name": "Hundred HyperTurf Cricket Shoes | TerraSpike Rubber Studs Men | Embedded Support Plate for Stability | Lightweight & Durable | Ideal for Turf, Ground & Hard Surfaces",
-            "price": "₹1,399.00 - ₹1,799.00",
-            "link": "https://www.amazon.in/dp/B0D53L9H1V?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61WGgZSBGfL._AC_UL900_SR900,600_.jpg",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Campus Men's DRIVO Running Shoes",
-            "price": "₹1,298.00",
-            "link": "https://www.amazon.in/dp/B0FWKV1L6T?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/610x0URrXpL._AC_UL900_SR900,600_.jpg",
-            "category": "Ladies Shoes"
         }
     ]
 }
