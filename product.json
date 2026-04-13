@@ -1,6 +1,20 @@
 {
     "products": [
         {
+            "name": "Prestige PIC 20 1600 Watts Induction Cooktop | 4KV Surge Protection | 8 Preset Indian Menu Options & Timer | Soft Button | Easy to Clean | Portable | Black | 1Y Warranty | BIS",
+            "price": "Not available",
+            "link": "https://www.amazon.com/dp/B00YMJ0OI8?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71+18JpxhOL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Kratos 25W Charger Adapter Compatible with Samsung Galaxy S/A/M/F/Z Series S25/S24/S23/S22/S21/21 fe/S20/M14 5G/M34/M54/M53 5g/M33/M13/A34/A54 5G,F15,BIS Certified,1 Year Warranty,White",
+            "price": "₹397.00 - ₹897.00",
+            "link": "https://www.amazon.com/dp/B0FH2N3PFX?tag=shashwat01-20",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51BcZ-rjT3L._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
             "name": "OnePlus Pad Lite with Biggest Battery in Segment 9340 mAh, 11\"(27.94 cm) Display with 500 nits Brightness & 11 Hrs of Video Playback, 8GB RAM 128GB Storage, LTE, Aero Blue",
             "price": "₹17,999.00",
             "link": "https://www.amazon.com/dp/B0FHWR3TBX?tag=shashwat022-21",
@@ -684,20 +698,6 @@
             "price": "₹135.00 - ₹510.00",
             "link": "https://www.amazon.com/dp/B0DDQ631H3?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/611SIEzLWnL._AC_UL900_SR900,600_.jpg",
-            "category": "Personal Care"
-        },
-        {
-            "name": "Dabur Red Gel Ayurvedic Toothpaste - 600g (150g x 4) | Reduction in Bad Breath, Plaque & Gingivitis | Freshness with Protection | For Healthy Gums & Effective Dental Care",
-            "price": "₹219.00",
-            "link": "https://www.amazon.com/dp/B0F4R4BG5G?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81nab+ii5EL._AC_UL900_SR900,600_.jpg",
-            "category": "Personal Care"
-        },
-        {
-            "name": "Dettol Liquid Handwash Refill – Skincare Hand Wash- 1350ml | pH Balanced | 10x Better Germ Protection",
-            "price": "₹165.00 - ₹402.00",
-            "link": "https://www.amazon.com/dp/B07M9XYH9K?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61cT-uFfHOL._AC_UL900_SR900,600_.jpg",
             "category": "Personal Care"
         }
     ]
