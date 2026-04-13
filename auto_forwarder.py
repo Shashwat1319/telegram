@@ -46,7 +46,8 @@ PRIORITY_GROUPS = ["@Promoteclub_b","@PromoteClub"]
 # Multi-Account Setup
 ACCOUNTS = [
     {"session": "userbot_session", "phone": os.getenv("PHONE_NUMBER")},
-    {"session": "worker_2_session", "phone": os.getenv("PHONE_NUMBER_2")}
+    {"session": "worker_2_session", "phone": os.getenv("PHONE_NUMBER_2")},
+    {"session": "worker_3_session", "phone": os.getenv("PHONE_NUMBER_3")}
 ]
 
 STATE_FILE = "last_forwarded_id.txt"
@@ -145,11 +146,14 @@ async def main():
     if len(active_accounts) == 1:
         tasks.append(process_account(active_accounts[0], new_messages, TARGET_GROUPS_BASE + PRIORITY_GROUPS))
     elif len(active_accounts) > 1:
-        mid = len(TARGET_GROUPS_BASE) // 2
-        splits = [
-            TARGET_GROUPS_BASE[:mid] + PRIORITY_GROUPS,
-            TARGET_GROUPS_BASE[mid:] + PRIORITY_GROUPS
-        ]
+        n = len(active_accounts)
+        chunk_size = len(TARGET_GROUPS_BASE) // n
+        splits = []
+        for i in range(n):
+            start = i * chunk_size
+            end = len(TARGET_GROUPS_BASE) if i == n - 1 else (i + 1) * chunk_size
+            splits.append(TARGET_GROUPS_BASE[start:end] + PRIORITY_GROUPS)
+            
         for i, acc in enumerate(active_accounts):
             tasks.append(process_account(acc, new_messages, splits[i]))
 
