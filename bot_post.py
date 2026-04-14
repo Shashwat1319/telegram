@@ -106,6 +106,7 @@ def generate_message(product, is_lightning=False):
 
     if is_ladies:
         templates = [
+            # 1. Hype Style (Existing)
             f"{header_extra}🎀 <b>PREMIUM FASHION LOOT - 80% OFF!</b> 🎀\n\n"
             f"👜 <b>{safe_name}</b>\n"
             f"✨ <b>Exclusive Price:</b> <b>{price}</b> 💎\n\n"
@@ -115,24 +116,26 @@ def generate_message(product, is_lightning=False):
             f"🤫 <b>Limited Stock!</b> Share with your besties! 👯‍♀️\n"
             f"👉 Join <b>@{CLEAN_ID}</b> for more premium drops! 👑",
 
-            f"{header_extra}💄 <b>BEAUTY GLITCH: PRICE SLASHED!</b> 💄\n\n"
-            f"🌟 <b>{safe_name}</b>\n"
-            f"🔥 <b>Special Deal:</b> <b>{price}</b> 😱\n\n"
-            f"✨ <i>Look stunning, spend less! Grab it before the price goes back up.</i>{footer_extra}\n"
-            f"🛒 <a href='{link}'>Add to Cart - Fast!</a>\n\n"
-            f"📢 <b>Forward to your girl gang!</b> Don't let them miss this! 💖\n"
-            f"Join <b>@{CLEAN_ID}</b> for daily beauty steals!",
+            # 2. Quality/Review Style (NEW - Higher conversion)
+            f"{header_extra}🏆 <b>VERIFIED HIGH-QUALITY DEAL</b> 🏆\n\n"
+            f"🛍️ <b>{safe_name}</b>\n"
+            f"💰 <b>Deal Price:</b> <b>{price}</b> ✅\n\n"
+            f"🌟 <i>Top rated by 10,000+ customers! Best choice for quality seekers.</i>{footer_extra}\n"
+            f"👇 <b>SECURE YOUR ORDER</b> 👇\n"
+            f"🛒 <a href='{link}'>Buy Now (Amazon Verified)</a>\n\n"
+            f"📢 Join <b>@{CLEAN_ID}</b> for genuine quality loot! ✨",
 
-            f"{header_extra}🛑 <b>HIDDEN DEAL - FOR LADIES ONLY!</b> 🛑\n\n"
-            f"👠 <b>{safe_name}</b>\n"
-            f"💎 <b>Grab it for:</b> <b>{price}</b> ✅\n\n"
-            f"⚡️ <i>Ye deal miss nahi honi chahiye! Direct link niche hai.</i>{footer_extra}\n"
-            f"🔗 <a href='{link}'>Direct Link to Loot</a>\n\n"
-            f"🚀 <i>Hum aise secret Ladies Loot daily post karte hain!</i>\n"
-            f"Join <b>@{CLEAN_ID}</b> fast before stock ends! ⏳"
+            # 3. Urgency/Stock Style (NEW)
+            f"{header_extra}⏳ <b>STOCK ALERT: ALMOST GONE!</b> ⏳\n\n"
+            f"👗 <b>{safe_name}</b>\n"
+            f"🔥 <b>Loot Price:</b> <b>{price}</b> 📉\n\n"
+            f"⚠️ <i>Orders for this item are surging! Grab it before the price reverts.</i>{footer_extra}\n"
+            f"🔗 <a href='{link}'>Direct Order Link</a>\n\n"
+            f"👉 Join <b>@{CLEAN_ID}</b> to never miss a flash deal!"
         ]
     else:
         templates = [
+            # 1. Glitch Style (Existing)
             f"{header_extra}🚨 <b>ERROR PRICING? SYSTEM GLITCH!</b> 🚨\n\n"
             f"🎁 <b>{safe_name}</b>\n"
             f"💥 <b>Current Price:</b> <b>{price}</b> 😱\n\n"
@@ -142,22 +145,21 @@ def generate_message(product, is_lightning=False):
             f"🤫 <b>DO NOT SHARE ON FACEBOOK/INSTA!</b> Forward only to close friends!\n"
             f"👉 Join <b>@{CLEAN_ID}</b> to get these secret deals first! 🏃‍♂️",
 
-            f"{header_extra}😱 <b>PRICE DROP OF THE MONTH! 99% CLAIMED!</b> 😱\n\n"
+            # 2. Daily Essential/Smart Buy (NEW - For long-term users)
+            f"{header_extra}🏠 <b>SMART BUY FOR YOUR HOME!</b> 🏠\n\n"
             f"📦 <b>{safe_name}</b>\n"
-            f"🔥 <b>Loot Price:</b> <b>{price}</b> 📉\n\n"
-            f"⏳ <i>Stock will end completely in any second! Just 3 pieces left!</i>{footer_extra}\n"
-            f"🛒 <a href='{link}'>Click Here To Buy</a>\n\n"
-            f"💵 Company ka loss aapka profit! Jaldi join kar lo: <b>@{CLEAN_ID}</b>\n"
-            f"📢 <b>Apne dosto ko jaldi share karo, unhe bhi lootne do!</b>",
+            f"💸 <b>Best Price Today:</b> <b>{price}</b> ✨\n\n"
+            f"✅ <i>Genuine price drop! Daily use product with 4.5+ star rating.</i>{footer_extra}\n"
+            f"🛒 <a href='{link}'>Order Now & Save Money</a>\n\n"
+            f"🤝 <i>We only post verified budget deals!</i> Join <b>@{CLEAN_ID}</b>",
 
-            f"{header_extra}🛑 <b>SECRET LINK - WILL BE DELETED SOON!</b> 🛑\n\n"
+            # 3. Comparison/Value Style (NEW - Convinces people to buy)
+            f"{header_extra}💰 <b>BIGGEST SAVINGS ALERT!</b> 💰\n\n"
             f"🌟 <b>{safe_name}</b>\n"
-            f"💎 <b>Get It Only At:</b> <b>{price}</b> ✅\n\n"
-            f"⚡️ <i>Ye price wapas zindagi mein nahi aayega! Guarantee.</i>{footer_extra}\n"
-            f"🔗 <a href='{link}'>Direct Hidden Link to Buy</a>\n\n"
-            f"🚀 <i>Hum aise secret Loot daily post karte hain!</i>\n"
-            f"Join <b>@{CLEAN_ID}</b> fast before we make the channel private! 🔒\n"
-            f"💬 <b>Forward kro groups me taaki price badhne se pehle baki bhi le sake!</b>"
+            f"📉 <b>Now at:</b> <b>{price}</b> (Lowest recently!)\n\n"
+            f"🛠️ <i>Don't wait for the next sale, this is the best price for this quality!</i>{footer_extra}\n"
+            f"🔗 <a href='{link}'>Take me to the Deal</a>\n\n"
+            f"📢 Join <b>@{CLEAN_ID}</b> for 24/7 Loot Tracking!"
         ]
     msg = random.choice(templates)
     
