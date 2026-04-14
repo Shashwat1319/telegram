@@ -194,6 +194,30 @@ def generate_viral_message():
     ]
     return random.choice(templates)
 
+# ---------- Interactive Polls ----------
+async def send_automated_poll(bot, chat_id):
+    question = "Bhaiyo, aapko sabse zyada deals kis category mein chahiye? 🔥"
+    options = [
+        "📱 Mobiles & Accessories",
+        "👟 Shoes & Fashion",
+        "🎧 Earphones & Gadgets",
+        "🏠 Kitchen & Home Appliances",
+        "🧴 Beauty & Personal Care"
+    ]
+    try:
+        print(f"[*] Sending Automated Poll to {chat_id}...")
+        await bot.send_poll(
+            chat_id=chat_id,
+            question=question,
+            options=options,
+            is_anonymous=True,
+            allows_multiple_answers=True
+        )
+        return True
+    except Exception as e:
+        print(f"Failed to send poll: {e}")
+        return False
+
 # ---------- Amazon Bounties ----------
 def generate_bounty_message():
     aff_id = os.getenv("AFFILIATE_ID_IN", "budgetdeals-21")
@@ -245,13 +269,18 @@ async def post_deals():
             products_to_post = products[:num_to_post]
             print(f"Normal mode: Selected top {num_to_post} newest products.")
 
-        # Check for Viral Hook Interval (Increased frequency for April 20th goal)
+        # Check for Interval Tasks (Viral Hooks / Bounties / Polls)
         current_count = increment_post_count()
-        viral_interval = random.randint(3, 7)
         
+        # Poll triggering (Every 15 posts)
+        if current_count % 15 == 0:
+            await send_automated_poll(bot, chat_id)
+
+        # Viral/Bounty Interval (Every 3-7 posts)
+        viral_interval = random.randint(3, 7)
         if current_count >= viral_interval:
-            print(f"Post count: {current_count}. Triggering Viral Growth Cycle!")
-            # 50% chance for Viral Hook, 50% chance for Bounty
+            print(f"Post count: {current_count}. Triggering Growth Cycle!")
+            # Pick between Viral Message or Bounty
             if random.random() > 0.5:
                 growth_msg = generate_viral_message()
             else:
@@ -264,7 +293,7 @@ async def post_deals():
                     parse_mode='HTML',
                     disable_web_page_preview=True
                 )
-                reset_post_count()
+                reset_post_count() # Reset main interval counter
             except Exception as growth_e:
                 print(f"Failed to post growth hook: {growth_e}")
 

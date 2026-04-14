@@ -1,6 +1,104 @@
 {
     "products": [
         {
+            "name": "Livon Hair Serum, For Dry & Frizzy Hair | Provides shine, smoothness & damage protection| Leave in serum for women & Men| With Vitamin E & Argan Oil | 100ml (Pack of 2)",
+            "price": "₹310.00",
+            "link": "https://www.amazon.com/dp/B07MBFFRB1?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61mj12rEjAL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Lakme Perfect Radiance Brightening Facewash with 98% Pure Niacinamide Complex | For Glowing Skin with Glycerin | Known to Reduce Pigmentation | 50gm",
+            "price": "₹85.00",
+            "link": "https://www.amazon.com/dp/B00CS1K0UE?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/41BytXDHTfL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Himalaya Purifying Neem Face Wash, 150 ml | Soap Free | Paraben, Phthalates free | Best for Acne Prone Skin | Eliminates Pimples",
+            "price": "₹128.00 - ₹279.00",
+            "link": "https://www.amazon.com/dp/B010Z0LH8I?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/518N3l4z1-L._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "WishCare Ceramide Lip Balm SPF 50 PA+++ | Brightening Lip Balm for Dark Lips | In-Vivo Tested | Kojic Acid & Niacinamide | Natural & Untinted | For Women & Men | 5g",
+            "price": "₹239.00 - ₹463.66",
+            "link": "https://www.amazon.com/dp/B0CND4C95T?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61n10ZxDE6L._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Lavie Women's Beech Flap Satchel Bag | Satchel Handbag for Work | Ladies Purse | Stylish Shoulder Bag | Gift for Women",
+            "price": "₹1,399.00 - ₹1,749.00",
+            "link": "https://www.amazon.com/dp/B0D2DLBD3N?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61AkvNLOflL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Sparx Mens SS 453 Sandals",
+            "price": "₹486.42 - ₹770.00",
+            "link": "https://www.amazon.com/dp/B0C5HM9XS1?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/6145Fk8ROTL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Cadlec CookXpert 2000W Induction Cooktop | Feather Touch Control | 8 Preset Menus | Auto Cut-Off | High Power Induction Stove | BIS Approved | Black | 2-Year Warranty",
+            "price": "₹3,549.00",
+            "link": "https://www.amazon.com/dp/B0F1BPM734?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71HM0PeTqTL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "TEX-RO Metal Clothes Drying Stand Foldable with Wheels – 3-Tier Cloth Dryer Stand for Balcony, Bedroom &amp; Indoor Outdoor | Heavy Duty Hanger Stand for Clothes Hanging, Dress Drying Rack - Grey",
+            "price": "₹499.00 - ₹1,099.00",
+            "link": "https://www.amazon.com/dp/B0GQQHX25W?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81xGIaEgHqL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Kindle Paperwhite (16 GB) – Now with a 6.8” display and adjustable warm light",
+            "price": "₹13,999.00",
+            "link": "https://www.amazon.com/dp/B08WHL2K6S?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71eA1W+x0GL._AC_UL320_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Echo Buds (2nd Gen) – Wireless earbuds with Alexa, Active Noise Cancellation, and immersive sound",
+            "price": "₹6,499.00",
+            "link": "https://www.amazon.com/dp/B08T25M92M?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61zG+fE4fOL._AC_UL320_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Echo Pop - Compact smart speaker with Alexa",
+            "price": "₹4,499.00",
+            "link": "https://www.amazon.com/dp/B0BQ9K5W8Y?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61B1nB99j3L._AC_UL320_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "All-new Echo Show 8 (3rd Gen, 2023 release) - Smart display with Alexa and 13 MP camera",
+            "price": "₹14,999.00",
+            "link": "https://www.amazon.com/dp/B0BLJ3N372?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61+P2s7P2bL._AC_UL320_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Echo Dot (5th Gen) - Smart speaker with Alexa and Dolby Audio",
+            "price": "₹4,499.00",
+            "link": "https://www.amazon.com/dp/B09WFFQZ6P?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71f0Tq-N1uL._AC_UL320_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "45W USB Type C to C Fast Charging Cable 1M, PD Fast Charge & Data Sync USB-C Cable Compatible with Galaxy S24/S23/S22/S21, Note Series, A & M Series, Tablets & Other Type C Devices (Black) by HOMEMO",
+            "price": "₹319.00 - ₹360.00",
+            "link": "https://www.amazon.com/dp/B0GDQWKTZB?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61X6k2kAzFL._AC_UL900_SR900,600_.jpg",
+            "category": "Computers"
+        },
+        {
             "name": "NUUK BFF Personal Hand Fan, 13000 RPM with IceTouch™ | 3600 mAh USB Rechargeable Battery [Up to 10H] | Portable Mini Fan | 100-Speed Dial | For Travel, Office, Makeup & Outdoor | 12-Month Warranty",
             "price": "₹2,299.00",
             "link": "https://www.amazon.com/dp/B0F4KSL9TQ?tag=shashwat022-21",

@@ -24,15 +24,24 @@ if not FB_PAGE_ID or not FB_ACCESS_TOKEN:
 
 # ---------- Daily & Peak Hour Logic ----------
 def can_post_to_fb():
+    # Check for --force flag in command line
+    if "--force" in sys.argv:
+        print("[!] Force mode active. Bypassing time window checks.")
+        return True
+
     now = datetime.datetime.now()
     
-    # 1. Check Peak Hour (6 PM - 10 PM / 18:00 - 22:00)
-    # Note: User requested "jab log jayada hote h", 6-10 PM is ideal for India.
-    if not (18 <= now.hour < 22):
-        print(f"[*] Skipping FB: Outside peak hours (Current: {now.strftime('%H:%M')}). Window: 18:00-22:00")
+    # 1. Check Peak Hour Windows (India Buying Time)
+    # Window 1: Morning (10 AM - 1 PM) | Window 2: Evening (6 PM - 10 PM)
+    morning_window = (10 <= now.hour < 13)
+    evening_window = (18 <= now.hour < 22)
+    
+    if not (morning_window or evening_window):
+        print(f"[*] Skipping FB: Outside peak hours (Current: {now.strftime('%H:%M')}). Windows: 10:00-13:00, 18:00-22:00")
         return False
         
     # 2. Check Daily Limit
+    # For now keeping it to 1 post per calendar day to avoid spam, but can be expanded.
     today = now.strftime("%Y-%m-%d")
     if os.path.exists(FB_POST_STATE_FILE):
         try:
@@ -74,6 +83,7 @@ def generate_fb_message(product):
     tg_link = "https://t.me/budgetdeals_india"
     
     templates = [
+        # 1. Hype Style
         f"{header_extra}🚨 ERROR PRICING? SYSTEM GLITCH! 🚨\n\n"
         f"🎁 {name}\n"
         f"💥 Current Price: {price} 😱\n\n"
@@ -84,23 +94,24 @@ def generate_fb_message(product):
         f"👉 {tg_link}\n\n"
         f"📢 Forward this to your friends! 🏃‍♂️",
     
-        f"{header_extra}😱 PRICE DROP OF THE MONTH! 99% CLAIMED! 😱\n\n"
+        # 2. Verified Value Style (NEW - For Sales)
+        f"{header_extra}🏆 VERIFIED TOP-QUALITY DEAL 🏆\n\n"
         f"📦 {name}\n"
-        f"🔥 Loot Price: {price} 📉\n\n"
-        f"⏳ Stock will end completely in any second! Just 3 pieces left!\n"
-        f"🛒 Grab the deal: {link}\n\n"
-        f"💵 Company ka loss aapka profit!\n"
-        f"🚀 Join Telegram for Instant Alerts:\n"
-        f"👉 {tg_link}",
+        f"💰 Grab for only: {price} ✅\n\n"
+        f"🌟 High-rated product with genuine savings! This is a smart buy for your home.\n"
+        f"🛒 Order Now: {link}\n\n"
+        f"🔥 Don't wait for price to go up again!\n"
+        f"🚀 Join us for more budget hacks: {tg_link}",
     
-        f"{header_extra}🛑 SECRET LINK - WILL BE DELETED SOON! 🛑\n\n"
+        # 3. Urgency Style
+        f"{header_extra}⏳ FINAL STOCK CALL! PRICE CRASH! ⏳\n\n"
         f"🌟 {name}\n"
-        f"💎 Get It Only At: {price} ✅\n\n"
-        f"⚡️ Ye price wapas zindagi mein nahi aayega! Guarantee.\n"
-        f"🔗 Direct Hidden Link to Buy: {link}\n\n"
-        f"🤫 Real Loot deals are first posted on Telegram:\n"
-        f"🔥 Join Now: {tg_link}\n\n"
-        f"💬 Comment 'LOOT' if you claimed this!"
+        f"💎 Current Best Price: {price} ✨\n\n"
+        f"⚠️ This deal is trending! Add to cart now to lock this price.\n"
+        f"🔗 Direct Deal Link: {link}\n\n"
+        f"🥇 Telegram members get these deals first:\n"
+        f"👉 {tg_link}\n\n"
+        f"💬 Comment 'Interested' for more such deals!"
     ]
     msg = random.choice(templates)
     
