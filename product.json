@@ -1,6 +1,83 @@
 {
     "products": [
         {
+            "name": "Happi Planet | Reusable Kitchen Towels | 20 Pulls - 2000 Times Washable | Pull Wipe Wash Reuse | Highly Absorbent, Eco-Friendly, Non-Toxic | For Oil, Water, Tea, Ketchup &amp; Flour Stains",
+            "price": "₹200.00 - ₹360.00",
+            "link": "https://www.amazon.com/dp/B0FY6MDN3H?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/517XXaE52NL._AC_UL300_SR300,200_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Shining Diva Fashion Latest Stylish Gold Plated Rings for Women and Girls",
+            "price": "₹299.00 - ₹399.00",
+            "link": "https://www.amazon.com/dp/B0DTF6WHRM?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71VpYIYApCL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "SANJOYA Gold Tone Stone Studded Jewelry Set for Women Combo of Necklace Earrings and Maang Tikka Festive Wedding Set",
+            "price": "₹349.00 - ₹647.00",
+            "link": "https://www.amazon.com/dp/B0F5BJNNBN?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61nWIlkcixL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "Sony WH-1000XM5 Wireless Industry Leading Noise Canceling Headphones",
+            "price": "$398.00",
+            "link": "https://www.amazon.in/dp/B0B393M9B5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61w1K-M5bFL._AC_UY320_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Kindle Paperwhite (16 GB)",
+            "price": "$139.99",
+            "link": "https://www.amazon.in/dp/B0BQZ4R1QY?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/611E4xQx3qL._AC_UY320_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Logitech MX Master 3S",
+            "price": "$99.99",
+            "link": "https://www.amazon.in/dp/B0B3CD2G51?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61O-089j1eL._AC_UY320_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Samsung Galaxy S23 Ultra 5G",
+            "price": "$1129.00",
+            "link": "https://www.amazon.in/dp/B0BNQW5939?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51mG9c6Wl+L._AC_UY320_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Apple AirPods Pro (2nd generation)",
+            "price": "$199.00",
+            "link": "https://www.amazon.in/dp/B0BDKW5812?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71NZx2d0f0L._AC_UY320_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Hemu MiNi CoOlEr FoR RoOm CoOlInG MiNi CoOlEr AiR CoOlEr PoRtAbLe AiR CoNdItIoNeRs FoR HoMe OfFiCe ArTiC CoOlEr MiNi CoOlEr (CO1)",
+            "price": "₹444.00 - ₹599.00",
+            "link": "https://www.amazon.in/dp/B0GQ9VVRDD?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51MAA4aq92L._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Carrier 1.5 Ton 5 Star, New Star rated, Flexicool Inverter Split AC (Copper, Convertible 6-in-1 with Smart Energy Display, Insta Cool, Auto Clean and PM 2.5 Filter, ESTER EDGE Gxi-CAI18EE5R36F0, White)",
+            "price": "₹41,990.00 - ₹43,490.00",
+            "link": "https://www.amazon.in/dp/B0GCDZ3BSK?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/519v4EI+NIL._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "BENAVJI Green Shade Net, 50% UV Sun Protection, for Terrace, Garden, Green House, Balcony, & Gardening Multipurpose Agro Netting Size 5X16FT",
+            "price": "₹149.00 - ₹4,890.00",
+            "link": "https://www.amazon.in/dp/B0C85NGC47?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/713mT7R5sML._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
             "name": "Gillette Mach3 Shaving 3-Bladed Cartridges, Pack of 2",
             "price": "₹300.00 - ₹1,555.00",
             "link": "https://www.amazon.com/dp/B00G4UDTXU?tag=shashwat022-21",
@@ -622,83 +699,6 @@
             "link": "https://www.amazon.com/dp/B0BD8D1XVM?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/717houztLlL._AC_UL900_SR900,600_.jpg",
             "category": "Ladies Shoes"
-        },
-        {
-            "name": "Dove Body Polish Exfoliating Scrub, Moisturizing Shea Butter and Pomegranate Seeds | Nourishes & Conditions Soft Skin | Sulphate Free, 298gm.",
-            "price": "N/A",
-            "link": "https://www.amazon.com/dp/B001CZ9XT6?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51s6JpwFbEL._AC_UL300_SR300,200_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "LAKMÉ Sun Expert SPF 50 PA+++ Gel Sunscreen, Niacinamide | Water-Light|For Oily & Combination Skin| Non-sticky | For All Skin Types, For UVA/B Protection,No White Cast 50g",
-            "price": "₹217.00 - ₹395.00",
-            "link": "https://www.amazon.com/dp/B0744R95BT?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/514DZ+9yQ4L._AC_UL300_SR300,200_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "APFEN® 20W [Apple MFi Certified] Type-C Fast Charger Adapter & Cable Compatible with iPhone 14/14 Pro/14 Pro Max/13/13 Pro/13 Pro Max/12/11/XR/XS/X/8 Series, White",
-            "price": "₹380.00 - ₹798.00",
-            "link": "https://www.amazon.com/dp/B0F62W35NX?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61sa0aOa5ZL._AC_UL900_SR900,600_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "ASIAN Men's Everest-21 Sports Trekking & Hiking,Walking Hi-Neck Shoes with Rubber Outsole & Memory Foam Insole Lace-Up Shoes for Men's & Boy's",
-            "price": "₹1,399.00",
-            "link": "https://www.amazon.com/dp/B0CKNKZJH1?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81pz4FzIOeL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "amazon basics Compatible Ink Bottle for Epson L3110, L3150, L3250, L3252 L3115, L3116, L3101, L3210, L3215, L3216, L3151, L3152, L3156 Printers Ink | Leak-Proof, Color Set Box of 4",
-            "price": "₹569.00",
-            "link": "https://www.amazon.com/dp/B0CHS8MJHX?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61mFvoWuaoL._AC_UL300_SR300,200_.jpg",
-            "category": "Computers"
-        },
-        {
-            "name": "Foldable Wooden Mini Laptop Table for Bed, Smart Study Table with Drawer Kids & Adults (C-Type -.PINK.)",
-            "price": "₹379.00",
-            "link": "https://www.amazon.com/dp/B0GW356RCB?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51eRiFO6njL._AC_UL300_SR300,200_.jpg",
-            "category": "Computers"
-        },
-        {
-            "name": "Lifelong 2 Burner Gas Stove Top for Kitchen - Manual Ignition Cooktop Modern Glass Stove for Modular Kitchen, ISI Certified &amp; Compatible with LPG - 1 Year Manufacturer's (Black, LLGS10)",
-            "price": "₹1,199.00 - ₹2,499.00",
-            "link": "https://www.amazon.com/dp/B08VWZXTWY?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71Q5pFUtYmL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Orient Electric Durachill 40 L Portable Air Cooler For Home | Densenest Honeycomb Pads |More Air Delivery | Fully Collapsible Louvers |Inverter Compatible | 1 Year Warranty by Orient | White &amp; Grey",
-            "price": "₹5,699.00",
-            "link": "https://www.amazon.com/dp/B0CSFS1DPP?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61P7opT9hSL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Amazon Basics 1600W Induction Cooktop | 7 Pre-Set Cooking Menus | LED Display | Smart Push Buttons I Energy Efficient, Auto Cut-off, 20A IGBT &amp; 4KV Surge Protection I Black",
-            "price": "Not specified",
-            "link": "https://www.amazon.com/dp/B0FC1Z4WDG?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/717xDsbB1fL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "TEX-RO Metal Clothes Drying Stand Foldable with Wheels – 3-Tier Cloth Dryer Stand for Balcony, Bedroom &amp; Indoor Outdoor | Heavy Duty Hanger Stand for Clothes Hanging, Dress Drying Rack - Grey",
-            "price": "₹499.00 - ₹1,099.00",
-            "link": "https://www.amazon.com/dp/B0GQQHX25W?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81xGIaEgHqL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "THE HOME STYLE Super Soft Glace Cotton King Size Printed Pillow Covers ll Pillow Cases ll Set of 2 Piece- 18\"x 28\" Inches (Abstract Mist)",
-            "price": "₹349.00 - ₹1,999.00",
-            "link": "https://www.amazon.com/dp/B0DGCKPC97?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/716RKRytcYL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
         }
     ]
 }
