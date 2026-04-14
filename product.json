@@ -1,6 +1,41 @@
 {
     "products": [
         {
+            "name": "NUUK BFF Personal Hand Fan, 13000 RPM with IceTouch™ | 3600 mAh USB Rechargeable Battery [Up to 10H] | Portable Mini Fan | 100-Speed Dial | For Travel, Office, Makeup & Outdoor | 12-Month Warranty",
+            "price": "₹2,299.00",
+            "link": "https://www.amazon.com/dp/B0F4KSL9TQ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51sN6gCq7OL._AC_UL300_SR300,200_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "ARCTICOOL Portable Mini Fan - Rechargeable Hand Fan with 3 Adjustable Speeds, 2000mAh Battery, Lightweight Design, Low Noise, and Easy Portability for Indoor and Outdoor Use (Blue)",
+            "price": "₹529.00 - ₹549.00",
+            "link": "https://www.amazon.com/dp/B0CD2RJWHG?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51j-Pjm6VmL._AC_UL300_SR300,200_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "amazon basics T664 Refill Ink | Compatible with Epson L130/L360/L380/L361/L565/L210/L220/L310/L350/L355/L365/L385/L405/L455/L485 Printers | Leak-Proof (70ml, Cyan)",
+            "price": "₹34.00 - ₹42.00",
+            "link": "https://www.amazon.com/dp/B0D542M3VS?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51D9mA9BKRL._AC_UL300_SR300,200_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "Portronics 60W Konnect Core 3 Type C to Type C Fast Charging Cable Cable for Smartphones,Tablets,Laptops & Other Type C Devices,In Built Cable Management Hook,Fast Data Sync,Strong PVC Material(Black)",
+            "price": "₹199.00",
+            "link": "https://www.amazon.com/dp/B0DT9BBQYS?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61lcXBrtUsL._AC_UL300_SR300,200_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "One94Store Portable Bladeless Neck Fan – Modern Design, 12 Air Outlets, 2400mAh Rechargeable Battery, USB Powered, 5-Speed Hands-Free Cooling Fan, Up to 6 Hours Use for Indoor&Outdoor (Blue)",
+            "price": "₹299.00 - ₹499.00",
+            "link": "https://www.amazon.com/dp/B0GQV953S4?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/712KedRQnvL._AC_UL300_SR300,200_.jpg",
+            "category": "Computers"
+        },
+        {
             "name": "Centrino Mens 9563 Centrino Men Glossy Formal Shoes |Slip-On Design with Cushioned Insole for Comfort |Craftsmanship for All-Day Elegance 9563-2",
             "price": "₹749.00",
             "link": "https://www.amazon.com/dp/B0FNRLCVGV?tag=shashwat022-21",
