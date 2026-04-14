@@ -1,6 +1,104 @@
 {
     "products": [
         {
+            "name": "Max Women's Regular Fit Mid Rise Leggings",
+            "price": "₹299.00",
+            "link": "https://www.amazon.com/dp/B09CNQP2X2?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71iwPRiVF3L._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "ROYALSCOUT Men's Cotton Polyester Blend Solid Regular Fit Full Sleeve Short Kurta | Ethnic, Lightweight Summer Kurta for Daily &amp; Occasion Use",
+            "price": "₹495.00",
+            "link": "https://www.amazon.com/dp/B0DHXJG13K?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61ZiMloJazL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "SJeware Unisex Cotton Men And Women Solid Ankle Length Socks (Pack Of 5) Sjw-2013, Assorted",
+            "price": "₹117.00",
+            "link": "https://www.amazon.com/dp/B0C3DH4XPJ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81XgZbmqFOL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Adidas Men Ankle Length Cotton Blend Socks Pack of 1",
+            "price": "₹275.00",
+            "link": "https://www.amazon.com/dp/B09RWL4VQK?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71V4YnALSxL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Van Heusen Men’s Cotton Boxer Briefs Pack of 2 | Long Trunk | No ride-up | Super Combed Cotton for softness | Open Front Fly | Moisture‑Wicking | Sweat Absorbant | All‑Day Fresh Technology | Long Lasting Colors |Soft Plush Waistband | Label‑Free Comfort | style 10032",
+            "price": "₹470.00 - ₹486.00",
+            "link": "https://www.amazon.com/dp/B073WBWVS2?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/611C8OH-V3L._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Raxon Innovation (39 Inches, Pack of 5) PVC Door Guard Gap Filler for Door Bottom Seal Strip - Sound-Proof, Reduce Noise, Energy Saving Door Stopper for Reduce Door Dust, Door Guard for Home",
+            "price": "₹188.00",
+            "link": "https://www.amazon.com/dp/B0983PRR2Z?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61ejfP6n1KL._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "WARMEO MICROMATE Microwave-Safe Stainless Steel Lunch Box, Bpa Free, Perfect for Office, School, Travelling, Combo(800ml+150 ml), Brown",
+            "price": "₹499.00",
+            "link": "https://www.amazon.com/dp/B0FPXKB88Q?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61AmL0TG9UL._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Robustt Heavy Duty AC stand | Rust Proof Iron Air Conditioner Outdoor Unit Mounting Bracket, Supports upto 200kg weight | Air Conditioner Stand Comes with Necessary Wall Fittings - Pack of 1",
+            "price": "₹439.00 - ₹1,999.00",
+            "link": "https://www.amazon.com/dp/B0DX77JM71?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61wn++dqhEL._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "THE HOME STYLE Super Soft Glace Cotton King Size Printed Pillow Covers ll Pillow Cases ll Set of 2 Piece- 18\"x 28\" Inches (Abstract Mist)",
+            "price": "₹349.00 - ₹1,999.00",
+            "link": "https://www.amazon.com/dp/B0DGCKPC97?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/716RKRytcYL._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "L’Oréal Paris Hyaluron Pure 72H Purifying Shampoo, For oily scalp & dry hair with salicylic and hyaluronic acid, 200 ml",
+            "price": "₹185.00 - ₹990.00",
+            "link": "https://www.amazon.com/dp/B0DSLPVDNP?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61JU8IpXoKL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Soulflower Moroccan Argan Oil for Light Oil for styling for Frizzy, Dry & thin hair, Hair Growth, Hair Fall Control for Men & Women |100% Pure, Organic & Natural, Rich in Omega 3, Vitamin E | 30ml",
+            "price": "₹470.00",
+            "link": "https://www.amazon.com/dp/B0DQVB3CLV?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61vEKQw-nfL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Mysore Sandal Soap,450g (150x3) (Pack Of 3)",
+            "price": "₹185.00",
+            "link": "https://www.amazon.com/dp/B00BMR071W?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71DublkdqFL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Dot & Key Watermelon Hyaluronic Cooling Sunscreen In-Vivo Tested SPF 50 PA+++| For Moisturized Skin | UV + Blue Light Protection| Lightweight | No White Cast | Boosts Vitamin D Absorption I Quick Absorbing | 30g",
+            "price": "₹269.00 - ₹952.00",
+            "link": "https://www.amazon.com/dp/B0DSLJVCXS?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61fXGLMXUKL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Deconstruct Brightening Lip Balm with SPF 30,For Dark,Pigmented,Dry,Flaky Lip,SPF 30 for Sun Damage & Discoloration,Lip Balm for Glossy Buttery Soft Pink Lips,For Women & Men,(4 gm)(8 Gm(Pack of 2))",
+            "price": "₹193.00 - ₹378.00",
+            "link": "https://www.amazon.com/dp/B0CCPDPHP5?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/41OX5wEJXhL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
             "name": "Happi Planet | Reusable Kitchen Towels | 20 Pulls - 2000 Times Washable | Pull Wipe Wash Reuse | Highly Absorbent, Eco-Friendly, Non-Toxic | For Oil, Water, Tea, Ketchup &amp; Flour Stains",
             "price": "₹200.00 - ₹360.00",
             "link": "https://www.amazon.com/dp/B0FY6MDN3H?tag=shashwat022-21",
@@ -601,104 +699,6 @@
             "link": "https://www.amazon.in/dp/B08628QJGC?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/51t4-77fHNL._SY355_.jpg",
             "category": "Personal Care"
-        },
-        {
-            "name": "Echo Dot (4th Gen, 2020) Smart speaker with Alexa",
-            "price": "",
-            "link": "https://www.amazon.in/dp/B084D4G4GM?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/717DJ5Q7r+L._SY355_.jpg",
-            "category": "Personal Care"
-        },
-        {
-            "name": "Logitech MK295 Silent Wireless Keyboard and Mouse Combo",
-            "price": "",
-            "link": "https://www.amazon.in/dp/B088L2Z652?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/710mH7kP5hL._SY355_.jpg",
-            "category": "Personal Care"
-        },
-        {
-            "name": "NMII Fancy Glass Golden Beads & Polka Dots Velvet Bangles Set For Women and Girls | Stylish Designer Bangles | Glass Chudi | Women's Fashion Jewellery-Set of 34",
-            "price": "₹161.00 - ₹282.00",
-            "link": "https://www.amazon.com/dp/B0CJRBRWVG?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81VkGjqNNzL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Jewelry"
-        },
-        {
-            "name": "Zeneme Earring Engraved Pearl Daily Office Wear Push Back Stud Jewellery For Girls and Women",
-            "price": "₹194.00 - ₹209.00",
-            "link": "https://www.amazon.com/dp/B083BRGFV8?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61zBTbyVahL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Jewelry"
-        },
-        {
-            "name": "Silver Coin, 20 Gram, Laxmi Ganesh Design",
-            "price": "",
-            "link": "https://www.amazon.com/dp/B0GW32MXCC?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81wpcAhVWQL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Jewelry"
-        },
-        {
-            "name": "Banyan Tree Silver Coin, 10 Gram",
-            "price": "",
-            "link": "https://www.amazon.com/dp/B0GW3DFLZV?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81IEwyKRKnL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Jewelry"
-        },
-        {
-            "name": "Silver Coin 10 Gram with Laxmi Ganesh Design, for Gifting",
-            "price": "",
-            "link": "https://www.amazon.com/dp/B0GW8634T1?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71LxTUwd-5L._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Jewelry"
-        },
-        {
-            "name": "Softouch 2X Royal Perfume 2L Fabric Conditioner with Grapefruit & Jasmine| After Wash Liquid Fabric Softener with Long-Lasting Fragrance| Suitable for All Clothes",
-            "price": "₹274.00 - ₹620.00",
-            "link": "https://www.amazon.com/dp/B09Q6CLHHS?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71TOoEB0q-L._AC_UL300_SR300,200_.jpg",
-            "category": "Personal Care"
-        },
-        {
-            "name": "ENO Lemon Multipack Digestive Fruit Salt 30 gm ( Pack of 6 )",
-            "price": "₹48.00 - ₹185.00",
-            "link": "https://www.amazon.com/dp/B00CZ4SL32?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71HCaffrHnL._AC_UL300_SR300,200_.jpg",
-            "category": "Personal Care"
-        },
-        {
-            "name": "Origami So Soft 2 Ply Facial Tissue Pack | Ultra Soft, Skin Friendly & Highly Absorbent Face Tissues | Multipurpose Car, Home & Office Use | Pack of 6 (100 Pulls Per Pouch, 600 Sheets)",
-            "price": "₹149.00",
-            "link": "https://www.amazon.com/dp/B0FDKV3CK1?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/518waTTDQYL._AC_UL300_SR300,200_.jpg",
-            "category": "Personal Care"
-        },
-        {
-            "name": "HEELIUM Bamboo Bandana for Men & Women | Super Soft | Odour-free & Breathable | Durable & Multipurpose Bandana",
-            "price": "₹294.00 - ₹899.00",
-            "link": "https://www.amazon.com/dp/B09734LQR1?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/810zguJNMLL._AC_UL900_SR900,600_.jpg",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "MARS Candylicious Sheer Lip Gloss for Women | Hydrating & High Shine | Lightweight | Non-Sticky | Enriched with Vitamin-E, Hyaluronic Acid & Avocado Ester (4.0ml) (10-FUJI GUM)",
-            "price": "₹224.00 - ₹259.00",
-            "link": "https://www.amazon.com/dp/B0D2NC4D2T?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61XWqB6wnUL._AC_UL900_SR900,600_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "ORACURA Remineralisation Natural Toothpaste (Aloe Vera) | Fluoride-Free, SLES-Free | nHA (Nano Hydroxyapatite) Enamel Repair & Remineralisation | Helps Prevent Cavities & Tooth Sensitivity, Balances pH, Soothes Gums | 75 g (Pack of 1)",
-            "price": "₹200.00",
-            "link": "https://www.amazon.com/dp/B0F1KP1KYZ?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51kyDZc4YAL._AC_UL900_SR900,600_.jpg",
-            "category": "Personal Care"
-        },
-        {
-            "name": "Footvital Memory Foam Shoe Insoles for Men and Women | Soft Cushioned Inserts for Long Standing and Walking | Supports Heel and Arch | Shock Absorbing | Moisture Absorbing | Lightweight Washable Insoles for All Shoes | 2 Pairs | Black | Size 8",
-            "price": "₹178.00 - ₹279.00",
-            "link": "https://www.amazon.com/dp/B0BD8D1XVM?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/717houztLlL._AC_UL900_SR900,600_.jpg",
-            "category": "Ladies Shoes"
         }
     ]
 }
