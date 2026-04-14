@@ -53,11 +53,36 @@ def load_products():
 def generate_message(product, is_lightning=False):
     name = product.get('name', 'Great Deal!')
     
-    # Secure price formatting without relying on invisible string replacements
+    # Robust price formatting — strips all unicode garbage, properly formats ₹
     raw_price = str(product.get('price', 'Check Link'))
-    # Remove bad unicode characters manually
-    cleaned_price = "".join(c for c in raw_price if c.isalnum() or c in ".,- ")
-    price = f"₹ {cleaned_price.strip()}" if not cleaned_price.startswith("Check") else cleaned_price
+    # Step 1: Remove non-ASCII bytes (kills corrupted ₹ symbols stored as '?' or garbage)
+    ascii_price = raw_price.encode('ascii', 'ignore').decode('ascii').strip()
+    # Step 2: Keep only digits, dot, comma, dash, space
+    ascii_price = re.sub(r'[^\d.,\- ]', '', ascii_price).strip()
+    # Step 3: Normalise range separator (e.g. "  -  " → " - ")
+    ascii_price = re.sub(r'\s*-\s*', ' - ', ascii_price).strip()
+
+    def clean_segment(seg):
+        """Strip leading/trailing commas & dots from a single price segment."""
+        return seg.strip().strip(',.')
+
+    if ascii_price:
+        if ' - ' in ascii_price:
+            # Range: clean each side independently
+            left, right = ascii_price.split(' - ', 1)
+            left, right = clean_segment(left), clean_segment(right)
+            if left and right:
+                price = f"₹{left} - ₹{right}"
+            elif left:
+                price = f"₹{left}"
+            else:
+                price = "Check Link"
+        else:
+            cleaned = clean_segment(ascii_price)
+            price = f"₹{cleaned}" if cleaned else "Check Link"
+    else:
+        price = "Check Link"
+
         
     link = product.get('link', '#')
     category = product.get('category', 'Loot')
