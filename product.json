@@ -1,6 +1,104 @@
 {
     "products": [
         {
+            "name": "iQOO Z10 Lite 5G (Cyber Green, 4GB RAM, 64GB Storage) | 6000 mAh Battery | Dimensity 6300 5G Processor with 433K+* AnTuTu Score | IP64 Rated &amp; Military Grade Shock-Resistance*",
+            "price": "₹12,998.00 - ₹16,998.00",
+            "link": "https://www.amazon.com/dp/B0GCF6LDKF?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61ImCLk1sqL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "amazon basics True Wireless in-Ear Earbuds with Mic, Touch Control, IPX5 Water-Resistance, Bluetooth 5.3, Up to 55 Hours Play Time, Voice Assistance and Fast Charging (Black)",
+            "price": "N/A",
+            "link": "https://www.amazon.com/dp/B0DG9447SQ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51GEnzIIeXL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Redmi Note 14 Pro+ 5G Phantom Purple 8GB RAM 128GB Storage| 50 MP Triple Camera with Telephoto | Corning Gorilla Glass Victus 2 | IP 68 | SD 7s Gen 3",
+            "price": "₹26,998.00",
+            "link": "https://www.amazon.com/dp/B0F7M1338H?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81TCBOLF+qL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Portronics 60W Konnect Core 3 Type C to Type C Fast Charging Cable Cable for Smartphones,Tablets,Laptops &amp; Other Type C Devices,In Built Cable Management Hook,Fast Data Sync,Strong PVC Material(Black)",
+            "price": "₹199.00",
+            "link": "https://www.amazon.com/dp/B0DT9BBQYS?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61lcXBrtUsL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "iPhone Charger Adapter 20W Type C for iPhone 17/17 Air/17 Pro/17 Pro Max, 16/16 Plus/16 Pro/16 Pro Max, 15/15 Plus/15Pro/15 Pro Max &amp; Other Devices with 1 Meter USB C to Type C Data Cable",
+            "price": "₹499.00 - ₹719.20",
+            "link": "https://www.amazon.com/dp/B0CNM4V6Q5?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61yynb2fDIL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Shining Diva Fashion 18k Rose Gold Plated Latest Fancy Stylish Copper Zircon Bali Earrings for Women and Girls",
+            "price": "₹299.00 - ₹525.00",
+            "link": "https://www.amazon.com/dp/B099S9FJ52?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/513MF4mXUcL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "Lorvia Jewels Gold Plated Gemstone Tulip Bracelet for Women – Elegant Floral Vine Design Adjustable Link Chain Lightweight Fashion Jewelry for Gift Wedding Party &amp; Everyday Wear",
+            "price": "₹349.00",
+            "link": "https://www.amazon.com/dp/B0GVNKKYGY?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/512MgeoMYIL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "RENU CREATION House Of Common Gold-Plated, Rhodium Plated Brass, Metal, Alloy, Stone Nose Ring Gold",
+            "price": "₹122.55",
+            "link": "https://www.amazon.com/dp/B0DSSWG7NT?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/515eGvvwPbL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "Shining Diva Fashion Latest Stylish Gold Plated Rings for Women and Girls",
+            "price": "₹299.00 - ₹399.00",
+            "link": "https://www.amazon.com/dp/B0DTF6WHRM?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71VpYIYApCL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "SANJOYA Gold Tone Stone Studded Jewelry Set for Women Combo of Necklace Earrings and Maang Tikka Festive Wedding Set",
+            "price": "₹349.00 - ₹647.00",
+            "link": "https://www.amazon.com/dp/B0F5BJNNBN?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61nWIlkcixL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "KALIAT 100W USB-A to Type-C Fast Charging Cable for OnePlus – Original 1M Warp Charge Red Wire with One Plus 13,13r,12,12r,11,11r,10,10r,10t,10pro,9,9rt,9r,9pro,8,8t,7t,7pro,Nord CE3 lite,CE2",
+            "price": "₹287.00 - ₹298.00",
+            "link": "https://www.amazon.com/dp/B0DJCR7JGF?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61QIoMumAkL._AC_UL600_SR600,400_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "Prestige PIC 20 1600 Watts Induction Cooktop | 4KV Surge Protection | 8 Preset Indian Menu Options & Timer | Soft Touch Button | Easy to Clean | Portable | Black | 1Y Warranty | BIS",
+            "price": "₹2,950.00",
+            "link": "https://www.amazon.com/dp/B00YMJ0OI8?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71+18JpxhOL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Nautica Luxury Finish Modern Wall Clock with Silent Non-Ticking Quartz Sweep Movement – 1pc|12 Inch|Decorative Analog Clock for Home, Office, Bedroom, Kitchen & Living Room (Abs)(3D-Solid Matt-Green)",
+            "price": "₹999.00",
+            "link": "https://www.amazon.com/dp/B0CPJHSLH7?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51+7cAf1SUL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "TEX-RO Metal Clothes Drying Stand Foldable with Wheels – 3-Tier Cloth Dryer Stand for Balcony, Bedroom & Indoor Outdoor | Heavy Duty Hanger Stand for Clothes Hanging, Dress Drying Rack - Grey",
+            "price": "₹499.00 - ₹1,099.00",
+            "link": "https://www.amazon.com/dp/B0GQQHX25W?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81xGIaEgHqL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
             "name": "Livon Hair Serum, For Dry & Frizzy Hair | Provides shine, smoothness & damage protection| Leave in serum for women & Men| With Vitamin E & Argan Oil | 100ml (Pack of 2)",
             "price": "₹310.00",
             "link": "https://www.amazon.com/dp/B07MBFFRB1?tag=shashwat022-21",
