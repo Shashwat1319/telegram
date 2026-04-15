@@ -3,6 +3,9 @@ import random
 import asyncio
 import os
 import re
+import requests
+from urllib.parse import quote
+from datetime import datetime
 from dotenv import load_dotenv
 from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
 
@@ -21,6 +24,7 @@ load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
 CLEAN_ID = CHANNEL_ID.replace('@', '') if CHANNEL_ID else "channel"
+CLICK_TRACKER_URL = os.getenv("CLICK_TRACKER_URL", "")
 
 # ---------- Constants & Counter ----------
 COUNTER_FILE = "post_count.txt"
@@ -85,6 +89,11 @@ def generate_message(product, is_lightning=False):
 
         
     link = product.get('link', '#')
+    
+    # Wrap link with Tracker if available
+    if CLICK_TRACKER_URL:
+        link = f"{CLICK_TRACKER_URL}/go?url={quote(link)}"
+        
     category = product.get('category', 'Loot')
     
     # Simple clean for HTML special characters
