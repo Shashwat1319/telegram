@@ -17,3 +17,10 @@ last_forwarded_id.txt
 
 # Documentation & Artifacts
 *.md
+# Local Data & State
+contacts_*.txt
+discovered_groups.txt
+promo_history.json
+promo_counter.txt
+*.vbs
+*.bat

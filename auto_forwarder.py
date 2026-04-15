@@ -28,9 +28,11 @@ TARGET_GROUPS_BASE = [
 
 PRIORITY_GROUPS = ["@Promoteclub_b"]
 
-# Single Account Setup (only your number)
+# Multi-Account Setup (Main + Workers)
 ACCOUNTS = [
     {"session": "userbot_session", "phone": os.getenv("PHONE_NUMBER")},
+    {"session": "worker_2_session", "phone": os.getenv("PHONE_NUMBER_2")},
+    {"session": "worker_3_session", "phone": os.getenv("PHONE_NUMBER_3")}
 ]
 
 STATE_FILE = "last_forwarded_id.txt"
