@@ -1,6 +1,76 @@
 {
     "products": [
         {
+            "name": "Stayfree Secure Nights XXL | 40 Pads| Cottony Soft Sanitary Pads for Women | Upto 100% leakage protection | Buy XXL at XL price | Absorbs 2x Faster with Wider Back |",
+            "price": "₹229.00",
+            "link": "https://www.amazon.com/dp/B093LFY4X2?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51HaM+H27PL._AC_UL300_SR300,200_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Philips India's No.1 Men's Trimmer | Self Sharpening Blades | Single Stroke Grooming I 9 In1 Face, Nose And Body I 2 +1* Year Warranty | No Oil Needed I 60 Min Runtime I MG3710/65,Black",
+            "price": "₹1,376.19 - ₹2,990.00",
+            "link": "https://www.amazon.com/dp/B09V7GM5M8?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61qXu0ODyKL._AC_UL300_SR300,200_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Zeneme Traditional Gold Plated White Kundan Pearl Beaded Jhumkas With Multi Layered Ear Chain Earrings for Women & Girls",
+            "price": "₹679.00",
+            "link": "https://www.amazon.com/dp/B0FRGGDRGQ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81OmlTiuh+L._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "ZENEME Rhodium-Plated Silver Toned White Floral American Diamond studded Bangles Jewellery Set for Girls and Women (Set Of 2) (2.4, Gold)",
+            "price": "₹629.00",
+            "link": "https://www.amazon.com/dp/B0C1P4T5PN?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71hzH3jDbML._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "Lorvia Jewels Gold Plated Gemstone Tulip Bracelet for Women – Elegant Floral Vine Design Adjustable Link Chain Lightweight Fashion Jewelry for Gift Wedding Party & Everyday Wear",
+            "price": "₹349.00",
+            "link": "https://www.amazon.com/dp/B0GVNKKYGY?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/512MgeoMYIL._AC_UL900_SR900,600_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "iPhone Charger Adapter 20W Type C for iPhone 17/17 Air/17 Pro/17 Pro Max, 16/16 Plus/16 Pro/16 Pro Max, 15/15 Plus/15Pro/15 Pro Max & Other Devices with 1 Meter USB C to Type C Data Cable",
+            "price": "₹499.00 - ₹719.20",
+            "link": "https://www.amazon.com/dp/B0CNM4V6Q5?tag=shashwat01-20",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61yynb2fDIL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "APFEN® 20W [Apple MFi Certified] Type-C Fast Charger Adapter & Cable Compatible with iPhone 14/14 Pro/14 Pro Max/13/13 Pro/13 Pro Max/12/11/XR/XS/X/8 Series, White",
+            "price": "₹380.00 - ₹798.00",
+            "link": "https://www.amazon.com/dp/B0F62W35NX?tag=shashwat01-20",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61sa0aOa5ZL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Kratos 28 Inch Selfie Stick Tripod Stand with Light, 3-in-1 Multifunctional Design, Rechargeable LED Light with Two Brightness Levels with Bluetooth Remote for Makeup, Selfie & Photoshoot",
+            "price": "₹178.00 - ₹2,899.00",
+            "link": "https://www.amazon.com/dp/B0FVG14W46?tag=shashwat01-20",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71C7AH5ebiL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "APFEN USB Type- A to Lightning Cable [MFi Certified] Fast Charging & Data Sync Cable Compatible With iPhone 14,13, 12,11,X, 8, 7, 6, 5, iPad Air, Pro, ProMax, Mini",
+            "price": "₹271.00 - ₹699.00",
+            "link": "https://www.amazon.com/dp/B0DHW7ZG5X?tag=shashwat01-20",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/41bDXvBxnzL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Kratos 41 Inch Magnetic Tripod Stand for iPhone, Aluminum Tripod with Strong Magnetic Holder for MagSafe Design Mobile Phones, 360° Rotation, BT Remote for Selfies, Vlogging & Travel",
+            "price": "₹599.00 - ₹2,997.00",
+            "link": "https://www.amazon.com/dp/B0G1MWVQFR?tag=shashwat01-20",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61FNxPXIIAL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
             "name": "iQOO Z10 Lite 5G (Cyber Green, 4GB RAM, 64GB Storage) | 6000 mAh Battery | Dimensity 6300 5G Processor with 433K+* AnTuTu Score | IP64 Rated &amp; Military Grade Shock-Resistance*",
             "price": "₹12,998.00 - ₹16,998.00",
             "link": "https://www.amazon.com/dp/B0GCF6LDKF?tag=shashwat022-21",
