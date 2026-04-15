@@ -40,24 +40,27 @@ def can_post_to_fb():
         print(f"[*] Skipping FB: Outside peak hours (Current: {now.strftime('%H:%M')}). Windows: 10:00-13:00, 18:00-22:00")
         return False
         
-    # 2. Check Daily Limit
-    # For now keeping it to 1 post per calendar day to avoid spam, but can be expanded.
-    today = now.strftime("%Y-%m-%d")
+    # 2. Check Window-wise Limit (Allow 1 post per window: Morning / Evening)
+    current_window = "morning" if (10 <= now.hour < 13) else "evening"
+    state_key = f"{now.strftime('%Y-%m-%d')}_{current_window}"
+    
     if os.path.exists(FB_POST_STATE_FILE):
         try:
             with open(FB_POST_STATE_FILE, "r") as f:
-                last_date = f.read().strip()
-                if last_date == today:
-                    print(f"[*] Skipping FB: Already posted today ({today}).")
+                last_state = f.read().strip()
+                if last_state == state_key:
+                    print(f"[*] Skipping FB: Already posted for {current_window} window today.")
                     return False
         except: pass
     
     return True
 
 def mark_fb_posted():
-    today = datetime.datetime.now().strftime("%Y-%m-%d")
+    now = datetime.datetime.now()
+    current_window = "morning" if (10 <= now.hour < 13) else "evening"
+    state_key = f"{now.strftime('%Y-%m-%d')}_{current_window}"
     with open(FB_POST_STATE_FILE, "w") as f:
-        f.write(today)
+        f.write(state_key)
 
 # ---------- Load products ----------
 def load_products():
