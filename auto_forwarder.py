@@ -16,25 +16,18 @@ API_HASH = os.getenv("API_HASH")
 PHONE_NUMBER = os.getenv("PHONE_NUMBER")
 CHANNEL_ID = os.getenv("CHANNEL_ID") # e.g. @your_channel
 
-# ✅ Only verified working groups (reduces OTP triggers from failed attempts)
+# ✅ Verified active discussion and loot groups
 TARGET_GROUPS_BASE = [
     "@Promoteclub_b",
-    "@Deals_Bazaar_India",
-    "@Loot_Alert_Group",
-    "@Technical_Loot_Discussion",
-    "@Hidden_Loot_Deals",
-    "@Loot_Queries",
-    "@Deals_Queries",
-    "@Loot_Deals_Discussion",
-    "@Price_Glitch_India",
-    "@Sasta_Shopping_Discussion",
-    "@Online_Loot_Discussion",
-    "@Loot_Alert_Chat",
-    "@Shopping_Loots_India_Chat",
-    "@Amazon_Flipkart_Loot_Discussion",
+    "@gopaisadeals",
+    "@idoffers",
+    "@Free_Shopping_Loot_Offers",
+    "@Loot_Deals_India",
+    "@Amazon_Loot_Deals_India",
+    "@Shopping_Loot_Deals_Discussion",
 ]
 
-PRIORITY_GROUPS = ["@Promoteclub_b", "@Deals_Bazaar_India"]
+PRIORITY_GROUPS = ["@Promoteclub_b"]
 
 # Single Account Setup (only your number)
 ACCOUNTS = [
