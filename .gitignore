@@ -16,6 +16,7 @@ forwarder_log.txt
 last_forwarded_id.txt
 
 # Documentation & Artifacts
+!README.md
 *.md
 # Local Data & State
 contacts_*.txt
