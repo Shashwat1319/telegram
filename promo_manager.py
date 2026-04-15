@@ -2,6 +2,7 @@ import asyncio
 import os
 import random
 from telethon import TelegramClient
+from telethon.sessions import StringSession
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -35,8 +36,26 @@ Abhi tak join nahi kiya? Amazon aur Flipkart par **₹1 Loots** aur **Price Glit
 async def send_promo_to_group(group, session_name, acc):
     print(f"[*] Connecting with session '{session_name}' to post in {group}...")
     try:
-        # Use client.start() which is more robust for existing sessions
-        client = TelegramClient(session_name, acc["api_id"], acc["api_hash"])
+        # [NEW] Prefer String Session from Environment (for GitHub Actions)
+        session_map = {
+            "userbot_session": "TELEGRAM_SESSION_1",
+            "worker_2_session": "TELEGRAM_SESSION_2",
+            "worker_3_session": "TELEGRAM_SESSION_3"
+        }
+        env_key = session_map.get(session_name)
+        session_data = os.getenv(env_key) if env_key else None
+
+        if session_data:
+            print(f"[*] Using String Session from environment ({env_key}).")
+            client = TelegramClient(
+                StringSession(session_data),
+                acc["api_id"],
+                acc["api_hash"]
+            )
+        else:
+            # Use client.start() which is more robust for existing sessions
+            client = TelegramClient(session_name, acc["api_id"], acc["api_hash"])
+        
         await client.start()
         
         if not await client.is_user_authorized():

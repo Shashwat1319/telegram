@@ -1,5 +1,6 @@
 import asyncio
 from telethon import TelegramClient
+from telethon.sessions import StringSession
 from telethon.errors import SessionPasswordNeededError
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.types import Message
@@ -87,22 +88,52 @@ async def process_account(account_info, messages_to_forward, groups_to_target, r
     if not phone: return
     print(f"\n--- Account: {phone} ({session_name}) ---")
     
-    client = TelegramClient(
-        session_name, 
-        int(API_ID), 
-        API_HASH,
-        connection=ConnectionTcpObfuscated if hasattr(ConnectionTcpObfuscated, '__name__') else None,
-        connection_retries=15,
-        retry_delay=10
-    )
+    # [NEW] Prefer String Session from Environment (for GitHub Actions)
+    # Mapping: userbot_session -> TELEGRAM_SESSION_1, etc.
+    session_map = {
+        "userbot_session": "TELEGRAM_SESSION_1",
+        "worker_2_session": "TELEGRAM_SESSION_2",
+        "worker_3_session": "TELEGRAM_SESSION_3"
+    }
+    env_key = session_map.get(session_name)
+    session_data = os.getenv(env_key) if env_key else None
+    
+    if session_data:
+        print(f"[*] Using String Session from environment ({env_key}).")
+        client = TelegramClient(
+            StringSession(session_data),
+            int(API_ID),
+            API_HASH
+        )
+    else:
+        print(f"[*] Using local session file ({session_name}).")
+        client = TelegramClient(
+            session_name, 
+            int(API_ID), 
+            API_HASH,
+            connection=ConnectionTcpObfuscated if hasattr(ConnectionTcpObfuscated, '__name__') else None,
+            connection_retries=15,
+            retry_delay=10
+        )
     
     try:
-        await client.start(phone=phone)
+        await client.connect()
+        # ... (rest of the code follows)
+        if not await client.is_user_authorized():
+            print(f"[!] Session {session_name} is NOT authorized. Skipping to avoid background OTP hang.")
+            await client.disconnect()
+            return
+
         print(f"[OK] Connected.")
         
         # 1. Forward regular messages (fallback to promo if can't forward)
         for msg in messages_to_forward:
             for group in groups_to_target:
+                # [SHIELD] Prevent forwarding back to the source channel
+                if group.lower() == CHANNEL_ID.lower():
+                    # print(f"[*] Skipping {group}: Destination is same as source.")
+                    continue
+
                 try:
                     try: await client(JoinChannelRequest(group))
                     except: pass

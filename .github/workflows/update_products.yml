@@ -45,6 +45,9 @@ jobs:
           CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FB_ACCESS_TOKEN: ${{ secrets.FB_ACCESS_TOKEN }}
+          TELEGRAM_SESSION_1: ${{ secrets.TELEGRAM_SESSION_1 }}
+          TELEGRAM_SESSION_2: ${{ secrets.TELEGRAM_SESSION_2 }}
+          TELEGRAM_SESSION_3: ${{ secrets.TELEGRAM_SESSION_3 }}
           API_ID: ${{ secrets.API_ID }}
           API_HASH: ${{ secrets.API_HASH }}
           PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
