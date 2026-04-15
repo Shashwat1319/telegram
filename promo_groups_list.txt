@@ -1,20 +1,32 @@
-# Active Telegram Promotion Groups (To be checked)
-# Note: Telegram group rules change often. Before adding these to auto_forwarder.py,
-# join them manually once to ensure they allow bot links without instant bans.
-
-@Promoteclub_b
-@PromoteClub
-@Sub4Sub_YouTube_Subscribers
-@TelePromote
-@sub4sub_fast_youtube
-@Promo_Groups_Chat
-@LinkSharingGroups
-@AddMembersTelegram
-@PromoteYourChannels
-@subforsub_youtube_subscribers
-@tg_promoters
-@Channel_Promotion_Group
-@ShareYourLinksHere
-@Sub4Sub_Active
-@Indian_Promote
-@Youtube_Sub4Sub_Active_Members
+# 🔥 HIGH-CONVERSION LOOT & SHOPPING GROUPS 🔥
+# These groups are active for shopping deals and price glitches.
+@Loot_Discussion_Hub
+@Shopping_Loot_India
+@Amazon_Loot_Deals
+@Flipkart_Loots
+@Price_Drop_Alert
+@Sasta_Shopping_Deals
+@Deals_Bazaar_India
+@Loot_Alert_Group
+@Technical_Loot_Discussion
+@Myntra_Loots
+@Ajio_Loot_Deals
+@Paytm_Loot_Offers
+@Zomato_Swiggy_Loots
+@Free_Samples_Discussion
+@Electronic_Loot
+@Mobile_Loot_Deals
+@Kitchen_Loot_Offers
+@Fashion_Loot_India
+@Beauty_Personal_Care_Loots
+@Hidden_Loot_Deals
+@Loot_Queries
+@Deals_Queries
+@Shopping_Loots_India_Chat
+@Loot_Deals_Discussion
+@Amazon_Flipkart_Loot_Discussion
+@Price_Glitch_India
+@Sasta_Shopping_Discussion
+@Loot_Offers_Chat
+@Online_Loot_Discussion
+@Loot_Alert_Chat
