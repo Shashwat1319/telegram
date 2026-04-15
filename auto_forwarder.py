@@ -16,27 +16,29 @@ API_HASH = os.getenv("API_HASH")
 PHONE_NUMBER = os.getenv("PHONE_NUMBER")
 CHANNEL_ID = os.getenv("CHANNEL_ID") # e.g. @your_channel
 
-# 🔥 Updated High-Conversion Loot Groups for Mission 200
+# ✅ Only verified working groups (reduces OTP triggers from failed attempts)
 TARGET_GROUPS_BASE = [
-    "@Loot_Discussion_Hub", "@Shopping_Loot_India", "@Amazon_Loot_Deals",
-    "@Flipkart_Loots", "@Price_Drop_Alert", "@Sasta_Shopping_Deals",
-    "@Deals_Bazaar_India", "@Loot_Alert_Group", "@Technical_Loot_Discussion",
-    "@Myntra_Loots", "@Ajio_Loot_Deals", "@Paytm_Loot_Offers", "@Zomato_Swiggy_Loots",
-    "@Free_Samples_Discussion", "@Electronic_Loot", "@Mobile_Loot_Deals",
-    "@Kitchen_Loot_Offers", "@Fashion_Loot_India", "@Beauty_Personal_Care_Loots",
-    "@Hidden_Loot_Deals", "@Loot_Queries", "@Deals_Queries", "@Shopping_Loots_India_Chat",
-    "@Loot_Deals_Discussion", "@Amazon_Flipkart_Loot_Discussion", "@Price_Glitch_India",
-    "@Sasta_Shopping_Discussion", "@Loot_Offers_Chat", "@Online_Loot_Discussion",
-    "@Loot_Alert_Chat"
+    "@Promoteclub_b",
+    "@Deals_Bazaar_India",
+    "@Loot_Alert_Group",
+    "@Technical_Loot_Discussion",
+    "@Hidden_Loot_Deals",
+    "@Loot_Queries",
+    "@Deals_Queries",
+    "@Loot_Deals_Discussion",
+    "@Price_Glitch_India",
+    "@Sasta_Shopping_Discussion",
+    "@Online_Loot_Discussion",
+    "@Loot_Alert_Chat",
+    "@Shopping_Loots_India_Chat",
+    "@Amazon_Flipkart_Loot_Discussion",
 ]
 
-PRIORITY_GROUPS = ["@Deals_Bazaar_India", "@Loot_Alert_Group"]
+PRIORITY_GROUPS = ["@Promoteclub_b", "@Deals_Bazaar_India"]
 
-# Multi-Account Setup
+# Single Account Setup (only your number)
 ACCOUNTS = [
     {"session": "userbot_session", "phone": os.getenv("PHONE_NUMBER")},
-    {"session": "worker_2_session", "phone": os.getenv("PHONE_NUMBER_2")},
-    {"session": "worker_3_session", "phone": os.getenv("PHONE_NUMBER_3")}
 ]
 
 STATE_FILE = "last_forwarded_id.txt"
@@ -104,7 +106,7 @@ async def process_account(account_info, messages_to_forward, groups_to_target, r
         await client.start(phone=phone)
         print(f"[OK] Connected.")
         
-        # 1. Forward regular messages
+        # 1. Forward regular messages (fallback to promo if can't forward)
         for msg in messages_to_forward:
             for group in groups_to_target:
                 try:
@@ -114,7 +116,17 @@ async def process_account(account_info, messages_to_forward, groups_to_target, r
                     print(f"[OK] Forwarded ID {msg.id} -> {group}")
                     await asyncio.sleep(random.randint(5, 10))
                 except Exception as e:
-                    print(f"[!] Group {group} error: {e}")
+                    err = str(e)
+                    if "admin privileges" in err or "channel" in err.lower():
+                        # Can't forward → send promo invite instead
+                        try:
+                            await client.send_message(group, PROMO_MESSAGE, link_preview=False)
+                            print(f"[PROMO] Invite sent to {group} (forward blocked)")
+                            await asyncio.sleep(random.randint(15, 25))
+                        except Exception as e2:
+                            print(f"[!] {group} promo also failed: {e2}")
+                    else:
+                        print(f"[!] Group {group} skipped: {e}")
 
         # 2. RUN GROWTH MISSION (If cycle hit)
         if run_promo:

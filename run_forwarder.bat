@@ -1,7 +1,10 @@
 @echo off
-:: This script runs the Telegram Auto Forwarder once.
-:: Tailored for Windows Task Scheduler.
-cd /d "%~dp0"
-echo [%date% %time%] Syncing... >> forwarder_log.txt
-py auto_forwarder.py >> forwarder_log.txt 2>&1
-echo [%date% %time%] Done. >> forwarder_log.txt
+title Budget Deals - Auto Forwarder
+cd /d "d:\Telegram\telegram"
+echo Starting Auto Forwarder...
+echo If OTP is asked, type it here and press Enter.
+echo ================================================
+py auto_forwarder.py
+echo.
+echo Done! Window will stay open for 30 seconds...
+timeout /t 30
