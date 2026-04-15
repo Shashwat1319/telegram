@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Beco Max | Kitchen Cleaner - 500 ml | Instantly removes Tough Greases, No stains or residue | Cleans in 60 seconds | Maximum cleaning power | Suitable for Counter Tops, Stoves, Chimneys",
+            "price": "₹182.00",
+            "link": "https://www.amazon.com/dp/B0FMDT8LJH?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51Dpamw6gCL._AC_UL300_SR300,200_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Dettol Liquid Handwash Refill - Original Hand Wash- 1350ml | Germ Defence Formula | 10x Better Germ Protection",
+            "price": "₹162.00 - ₹430.00",
+            "link": "https://www.amazon.com/dp/B01LNA2MQK?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61BacHKoINL._AC_UL300_SR300,200_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Dr. Morepen BG-03 Blood Glucose Test Strips, 50 Strips (Black/White)(Only Strips, No Glucometer)",
+            "price": "₹591.00",
+            "link": "https://www.amazon.com/dp/B01GPLNLBM?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61M-d+xFWsL._AC_UL300_SR300,200_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "TRESemmé Keratin Smooth+ Shampoo 1000ml | 72H Frizz Control with Keratin Protein & Argan Oil | Paraben Free Smoothening Shampoo for Dry & Frizzy Hair",
+            "price": "₹65.00 - ₹1,285.00",
+            "link": "https://www.amazon.com/dp/B07L3ZCJ53?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51La7HRCp0L._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Maybelline New York Kajal, Black, Matte Finish",
+            "price": "₹135.00 - ₹999.00",
+            "link": "https://www.amazon.com/dp/B06WGZP21B?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61b2tDBxhlL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "DOVE Nourishing Bodywash, 825ml, for Soft and Smooth Skin, with Triple Hydration Serum & Glycerine, Dermatologically Tested, Paraben-Free, Sulphate-Free",
+            "price": "₹336.00",
+            "link": "https://www.amazon.com/dp/B07S7R626P?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/517NDeSj-4L._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
             "name": "Stayfree Secure Nights XXL | 40 Pads| Cottony Soft Sanitary Pads for Women | Upto 100% leakage protection | Buy XXL at XL price | Absorbs 2x Faster with Wider Back |",
             "price": "₹229.00",
             "link": "https://www.amazon.com/dp/B093LFY4X2?tag=shashwat022-21",
