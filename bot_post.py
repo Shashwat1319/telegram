@@ -276,8 +276,8 @@ async def post_deals():
         if current_count % 15 == 0:
             await send_automated_poll(bot, chat_id)
 
-        # Viral/Bounty Interval (Every 3-7 posts)
-        viral_interval = random.randint(3, 7)
+        # Viral/Bounty Interval (Aggressive for April 15th Sprint: Every 2-4 posts)
+        viral_interval = random.randint(2, 4)
         if current_count >= viral_interval:
             print(f"Post count: {current_count}. Triggering Growth Cycle!")
             # Pick between Viral Message or Bounty

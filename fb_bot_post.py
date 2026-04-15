@@ -90,7 +90,7 @@ def generate_fb_message(product):
         f"⚠️ Only active for next 5-10 minutes before Amazon fixes it!\n"
         f"👇 CLICK HERE & ADD TO CART FAST 👇\n"
         f"🛒 Buy Here: {link}\n\n"
-        f"🤫 Join our SECRET Telegram for more Glitch Deals:\n"
+        f"🤫 Join our SECRET Telegram for Hidden 1 Rupee Loots:\n"
         f"👉 {tg_link}\n\n"
         f"📢 Forward this to your friends! 🏃‍♂️",
     
@@ -100,8 +100,8 @@ def generate_fb_message(product):
         f"💰 Grab for only: {price} ✅\n\n"
         f"🌟 High-rated product with genuine savings! This is a smart buy for your home.\n"
         f"🛒 Order Now: {link}\n\n"
-        f"🔥 Don't wait for price to go up again!\n"
-        f"🚀 Join us for more budget hacks: {tg_link}",
+        f"🔥 Don't wait! Real Hidden Loots are only posted on Telegram:\n"
+        f"👉 Join Now: {tg_link}",
     
         # 3. Urgency Style
         f"{header_extra}⏳ FINAL STOCK CALL! PRICE CRASH! ⏳\n\n"
@@ -109,7 +109,7 @@ def generate_fb_message(product):
         f"💎 Current Best Price: {price} ✨\n\n"
         f"⚠️ This deal is trending! Add to cart now to lock this price.\n"
         f"🔗 Direct Deal Link: {link}\n\n"
-        f"🥇 Telegram members get these deals first:\n"
+        f"🥇 90% of our Loots never reach Facebook. Join Telegram for VIP access:\n"
         f"👉 {tg_link}\n\n"
         f"💬 Comment 'Interested' for more such deals!"
     ]
