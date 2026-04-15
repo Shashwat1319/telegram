@@ -16,15 +16,14 @@ API_HASH = os.getenv("API_HASH")
 PHONE_NUMBER = os.getenv("PHONE_NUMBER")
 CHANNEL_ID = os.getenv("CHANNEL_ID") # e.g. @your_channel
 
-# ✅ Verified active discussion and loot groups
+# ✅ Discussion and Promo groups only (where members can chat/post)
 TARGET_GROUPS_BASE = [
-    "@Promoteclub_b",
-    "@gopaisadeals",
-    "@idoffers",
-    "@Free_Shopping_Loot_Offers",
-    "@Loot_Deals_India",
-    "@Amazon_Loot_Deals_India",
-    "@Shopping_Loot_Deals_Discussion",
+    "@Promoteclub_b",         # Verified Working
+    "@Promote_Channel_Group",  # Promotion allowed
+    "@Loot_Discussion_India", 
+    "@Shopping_Loot_Discussion",
+    "@Invite_Link_Group",
+    "@Telegram_Promotion_India"
 ]
 
 PRIORITY_GROUPS = ["@Promoteclub_b"]
@@ -46,7 +45,7 @@ Abhi tak join nahi kiya? Amazon aur Flipkart par **₹1 Loots** aur **Price Glit
 🔥 **JOIN FAST (Link valid for 5 mins):** https://t.me/{CHANNEL_ID.replace('@','')}
 🔥 **JOIN FAST:** https://t.me/{CHANNEL_ID.replace('@','')}
 
-🏃‍♂️ *Jaldi karo, link kabhi bhi expire ho sakta hai! Sab loot rahe hain!* ⏳
+跑步🏃‍♂️ *Jaldi karo, link kabhi bhi expire ho sakta hai! Sab loot rahe hain!* ⏳
 """
 
 def get_last_id():
@@ -109,15 +108,18 @@ async def process_account(account_info, messages_to_forward, groups_to_target, r
                     print(f"[OK] Forwarded ID {msg.id} -> {group}")
                     await asyncio.sleep(random.randint(5, 10))
                 except Exception as e:
-                    err = str(e)
-                    if "admin privileges" in err or "channel" in err.lower():
-                        # Can't forward → send promo invite instead
+                    err = str(e).lower()
+                    if "admin privileges" in err or "channel" in err:
+                        # Clearer message for Read-only channels
+                        print(f"[-] Skipping {group}: Read-only Channel (No permission)")
+                        # Fallback to promo invite (sometimes works in linked discussion)
                         try:
                             await client.send_message(group, PROMO_MESSAGE, link_preview=False)
-                            print(f"[PROMO] Invite sent to {group} (forward blocked)")
+                            print(f"[PROMO] Invite sent to {group}")
                             await asyncio.sleep(random.randint(15, 25))
-                        except Exception as e2:
-                            print(f"[!] {group} promo also failed: {e2}")
+                        except: pass
+                    elif "username" in err or "resolve" in err:
+                        print(f"[!] Group {group} skipped: Invalid Username")
                     else:
                         print(f"[!] Group {group} skipped: {e}")
 
@@ -130,7 +132,10 @@ async def process_account(account_info, messages_to_forward, groups_to_target, r
                     print(f"[GROWTH] Promo sent to {group}")
                     await asyncio.sleep(random.randint(20, 40))
                 except Exception as e:
-                    print(f"[!] Promo failed for {group}: {e}")
+                    if "admin privileges" in str(e):
+                        print(f"[-] {group} promo skipped: No permission")
+                    else:
+                        print(f"[!] Promo failed for {group}: {e}")
             
     except Exception as e:
         print(f"[ERROR] Session {session_name} failed: {e}")
