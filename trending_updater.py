@@ -254,5 +254,12 @@ def main():
         except Exception as e:
             print(f"Facebook Bot fallback error: {e}")
 
+    # MISSION 200: Trigger the Growth/Forwarder Engine after every sync
+    try:
+        print("[*] Triggering Growth Engine (auto_forwarder.py)...")
+        subprocess.run([sys.executable, "auto_forwarder.py"], check=True)
+    except Exception as e:
+        print(f"Growth Engine error: {e}")
+
 if __name__ == "__main__":
     main()

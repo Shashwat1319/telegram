@@ -45,5 +45,10 @@ jobs:
           CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FB_ACCESS_TOKEN: ${{ secrets.FB_ACCESS_TOKEN }}
+          API_ID: ${{ secrets.API_ID }}
+          API_HASH: ${{ secrets.API_HASH }}
+          PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
+          PHONE_NUMBER_2: ${{ secrets.PHONE_NUMBER_2 }}
+          PHONE_NUMBER_3: ${{ secrets.PHONE_NUMBER_3 }}
         run: |
           python trending_updater.py
