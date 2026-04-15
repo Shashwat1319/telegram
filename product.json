@@ -1,6 +1,160 @@
 {
     "products": [
         {
+            "name": "Surf Excel Matic Top Load Liquid Detergent 5L Refill Pouch, Specially designed to remove Tough Dried Stains, 1st time in Washing Machine",
+            "price": "₹619.00",
+            "link": "https://www.amazon.in/dp/B0DPX93PJ9?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61ShrCBCKrL._AC_UL900_SR900,600_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Perfora Purple Whitening Toothpaste-125g | Purple Toothpaste For Teeth Whitening | Teeth Stain Remover | Enamel Safe & Effective Teeth Whitener Oral care | Grape Mint",
+            "price": "₹220.00",
+            "link": "https://www.amazon.in/dp/B0F4DRMXQ7?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61NBqBw3e2L._AC_UL900_SR900,600_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "RIN Matic Liquid Detergent, 2Kg, for Dazzling Brightness, with Bright Lock Technology, Long-Lasting Fragrance, for Top Load Washing Machines",
+            "price": "₹268.00",
+            "link": "https://www.amazon.in/dp/B0BHHZBXV5?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61X2H9gIOjL._AC_UL900_SR900,600_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Miduty Shilajit Gold 3X Resin 500–1000mg Serving - Pure Himalayan Shilajit with Gold & Ashwagandha - 100% Ayurvedic - Coffee Free Formula - Lab Tested- 3 grams Sachet",
+            "price": "₹49.00",
+            "link": "https://www.amazon.in/dp/B0G4VVDF98?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61japf+4+7L._AC_UL900_SR900,600_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "V-Guard Spinny Pro 180 mm Table &amp; Wall Fan | 2100 RPM High Speed Motor | 353 CFM Air Delivery | 3 Speed Settings | Compact and Powerful | Durable ABS Build | 2- Year Warranty | Orange Black",
+            "price": "₹1,699.00 - ₹2,250.00",
+            "link": "https://www.amazon.com/dp/B0DFCGMSTH?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71rZcsZzbuL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Hitachi 1.5 Ton 3 Star, New Star rated, Inverter Split AC(Copper, Smart View Display, 4 Way Swing,RAS.D318PCD2BS1, White)",
+            "price": "₹32,999.00 - ₹45,999.00",
+            "link": "https://www.amazon.com/dp/B0GP71KXP5?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/618fIU0coHL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Whitecloud TRANSFORMING HOMES® 4+4 Layer Collapsible Wardrobe for Clothes with 6 Shelves, 2 Side Pocket (Non Woven Febric and Metal Rod, 76x38x145cm)(Blue,7700-2)",
+            "price": "₹999.00",
+            "link": "https://www.amazon.com/dp/B09GPFZXGT?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71X3S6qg94L._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Happi Planet | Reusable Kitchen Towels | 20 Pulls - 2000 Times Washable | Pull Wipe Wash Reuse | Highly Absorbent, Eco-Friendly, Non-Toxic | For Oil, Water, Tea, Ketchup &amp; Flour Stains",
+            "price": "₹200.00 - ₹360.00",
+            "link": "https://www.amazon.com/dp/B0FY6MDN3H?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/517XXaE52NL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "DOCTOR EXTRA SOFT Memory Foam Mens Running Shoe | Sports,Gym,Training,Walking,Jogging,Casual | Lightweight & Comfortable | Loafer Sneakers Lace-Up Athletics Moccasins Slipon for Gent's & Boy's D-2002",
+            "price": "₹1,298.99 - ₹1,399.00",
+            "link": "https://www.amazon.com/dp/B0CM29TZYM?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71iEnP2l3SL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "SANJOYA BY EVERSTYLISH Nilachandrika Moonlight Of The Blue Sky Handmade Kundan Set With Necklace And Earrings Lightweight Jewelry For Women | Party, Festive, Wedding & Gifting",
+            "price": "₹549.00 - ₹1,699.00",
+            "link": "https://www.amazon.com/dp/B0F5BQKZ91?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61ZQ6jNTwPL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "Shining Diva Fashion 30 Pairs Combo Set Latest Stylish Crystal Pearl Earrings for Women and Girls (15283er)",
+            "price": "₹399.00",
+            "link": "https://www.amazon.com/dp/B0CK4H81HC?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71SkAVXh7PL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "Zibuyu® 5PC Pendant Necklace Set for Women&Girls Stylish, Alloy Adjustable Chains Versatile Chic Jewelry Set Gifts for Girls",
+            "price": "₹286.00",
+            "link": "https://www.amazon.com/dp/B0F9Y8YGYV?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61SJjJZtcYL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "YouBella Jewellery for Women Gold Plated Bracelet Bangles for Women",
+            "price": "₹345.00 - ₹445.00",
+            "link": "https://www.amazon.com/dp/B0CBCM1G3S?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71PdwhUWFpL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "Shining Diva Fashion 16 Pcs Trendy Stylish Glass & Kashmiri Ghungroo Bangles Set for Women & Girls | Latest Traditional Festive Wedding Party Jewellery",
+            "price": "₹497.00 - ₹549.00",
+            "link": "https://www.amazon.com/dp/B0GTZ52GRC?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61dx4BYCqyL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "Smart Multipurpose Foldable Laptop Table with Cup Holder, Study Table, Bed Table, Breakfast Table, Foldable and Portable/Ergonomic & Rounded Edges/Non-Slip Legs (Black)",
+            "price": "₹349.00 - ₹369.00",
+            "link": "https://www.amazon.com/dp/B0GNTD8RYK?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/41bPcTZIPsL._AC_UL300_SR300,200_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "COSTAR Handheld Fan, Brushless Motor Portable Hand Fan with Fan Base, 3 Speeds USB Fan, 1800mAh Battery Rechargeable for Summer and Travel Use by Women and Men (Black)",
+            "price": "₹436.00 - ₹999.00",
+            "link": "https://www.amazon.com/dp/B0CZNXJHMF?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61UrCxqVjWL._AC_UL300_SR300,200_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "EvoFox Blaze Ultra Value 8 Button Programmable Gaming Mouse with 1000Hz Polling Rate | Gaming Grade DPI 200 to 12800 | Ultra-Responsive 7000fps | RGB Lights with Music sync Mode | Windows Software",
+            "price": "₹599.00 - ₹630.00",
+            "link": "https://www.amazon.com/dp/B0CLS6F44T?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/516kq12OmmL._AC_UL300_SR300,200_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "Apple iPad 11″: A16 chip, 27.69 cm (11″) Model, Liquid Retina Display, 128GB, Wi-Fi 6, 12MP Front/12MP Back Camera, Touch ID, All-Day Battery Life — Blue",
+            "price": "₹33,900.00 - ₹79,900.00",
+            "link": "https://www.amazon.com/dp/B0DZ7C519W?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61kMIKm23VL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "iQOO Z10 5G (Glacier Silver, 8GB RAM, 128GB Stroage) | India's Biggest Ever 7300 mAh Battery | Snapdragon 7s Gen 3 Processor | Brightest Quad Curved AMOLED Display in The Segment",
+            "price": "₹24,998.00 - ₹26,998.00",
+            "link": "https://www.amazon.com/dp/B0F2HCGXTB?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61ca566nQ0L._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Smartby Universal Remote Control EN2A27 for Hisense 4K ULED HD UHD Android Smart TVs",
+            "price": "₹199.00 - ₹2,999.00",
+            "link": "https://www.amazon.com/dp/B01N0CH8LV?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/510FML0uDaL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "SupCares Tempered Glass for CMF Phone 1 (6.67 Inch) With Installation Kit | Military-Grade Gorilla Screen Protector | Edge to Edge Coverage | Black",
+            "price": "₹292.00 - ₹399.00",
+            "link": "https://www.amazon.com/dp/B0DB5GB5ZW?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61xK6DB5VoL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "MARS Love Track Velvet Lip Tint (2.8ml) (ONE LOVE) | Velvet Matte Finish | Non-Sticky & Lightweight | Highly Pigmented | Comfortable Wear",
+            "price": "₹281.00 - ₹299.00",
+            "link": "https://www.amazon.com/dp/B0DQNP2PRG?tag=shashwat01-20",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51602Bcp+IL._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
             "name": "Lux Cozi Men's Cotton Bigshot Trunk - Pack of 3",
             "price": "₹299.00 - ₹399.00",
             "link": "https://www.amazon.com/dp/B0BL3JFGVM?tag=shashwat022-21",
@@ -545,62 +699,6 @@
             "link": "https://www.amazon.com/dp/B0CK2QQ8T3?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/61mkNrOCZtL._AC_UL300_SR300,200_.jpg",
             "category": "Ladies Fashion"
-        },
-        {
-            "name": "SWAGR Ankle Socks for Men & Women, Multicolor, Pack of 5, Free Size",
-            "price": "₹89.00",
-            "link": "https://www.amazon.com/dp/B0BWPGC2PR?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/91Wl5xcJ+GL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "WROGN Men’s Slim Fit Jeans | Cotton Stretch | Solid | Casual Denim",
-            "price": "₹1,239.00",
-            "link": "https://www.amazon.com/dp/B0GV1SSFH3?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51oAI-MhecL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "WROGN Men's 180 GSM Pure Cotton T-Shirt | Graphic Print",
-            "price": "₹639.00",
-            "link": "https://www.amazon.com/dp/B0GSX76JHD?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/517+QGnFoCL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "HOOVU Fresh Chrysanthemum, 100 gms",
-            "price": "",
-            "link": "https://www.amazon.com/dp/B08YDJPZP8?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/612BsNI0mxL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Carrier 1.5 Ton 5 Star, New Star rated, Flexicool Inverter Split AC (Copper, Convertible 6-in-1 with Smart Energy Display, Insta Cool, Auto Clean and PM 2.5 Filter, ESTER EDGE Gxi-CAI18EE5R36F0, White)",
-            "price": "₹41,990.00 - ₹43,490.00",
-            "link": "https://www.amazon.com/dp/B0GCDZ3BSK?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/519v4EI+NIL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Prestige PIC 20 1600 Watts Induction Cooktop | 4KV Surge Protection | 8 Preset Indian Menu Options &amp; Timer | Soft Touch Button | Easy to Clean | Portable | Black | 1Y Warranty | BIS",
-            "price": "₹2,950.00",
-            "link": "https://www.amazon.com/dp/B00YMJ0OI8?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71+18JpxhOL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Nautica Luxury Finish Modern Wall Clock with Silent Non-Ticking Quartz Sweep Movement – 1pc|12 Inch|Decorative Analog Clock for Home, Office, Bedroom, Kitchen &amp; Living Room (Abs)(3D-Solid Matt-Green)",
-            "price": "₹999.00",
-            "link": "https://www.amazon.com/dp/B0CPJHSLH7?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51+7cAf1SUL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "THE HOME STYLE Super Soft Glace Cotton King Size Printed Pillow Covers ll Pillow Cases ll Set of 2 Piece- 18\"x 28\" Inches (Abstract Mist)",
-            "price": "₹349.00 - ₹1,999.00",
-            "link": "https://www.amazon.com/dp/B0DGCKPC97?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/716RKRytcYL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
         }
     ]
 }
