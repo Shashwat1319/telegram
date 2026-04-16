@@ -1,6 +1,69 @@
 {
     "products": [
         {
+            "name": "Neeman's Eco Classic Slippers for Men | Lightweight & Comfortable Flip Flops | Anti-Skid Rubber Sole | Soft Daily Slippers for Men | Durable, Flexible & Stylish Casual Wear",
+            "price": "₹440.00 - ₹497.14",
+            "link": "https://www.amazon.com/dp/B0BT1YQF9G?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51Q+kAMBOtL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Perfora Purple Whitening Toothpaste-125g | Purple Toothpaste For Teeth Whitening | Teeth Stain Remover | Enamel Safe &amp; Effective Teeth Whitener Oral care | Grape Mint",
+            "price": "₹220.00 - ₹800.00",
+            "link": "https://www.amazon.com/dp/B0F4DRMXQ7?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61NBqBw3e2L._AC_UL300_SR300,200_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Miduty Shilajit Gold 3X Resin 500–1000mg Serving - Pure Himalayan Shilajit with Gold &amp; Ashwagandha - 100% Ayurvedic - Coffee Free Formula - Lab Tested- 3 grams Sachet",
+            "price": "₹49.00",
+            "link": "https://www.amazon.com/dp/B0G4VVDF98?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61japf+4+7L._AC_UL300_SR300,200_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Koparo Organic Dishwash Liquid | 2 Litres Refill Pack | Powerful Grease Cutting Dishwasher Liquid | Thick Foam Liquid Dishwash for Kitchen Utensils | Baby &amp; Pet Safe | Lime &amp; Basil Fragrance",
+            "price": "₹157.00 - ₹870.00",
+            "link": "https://www.amazon.com/dp/B0BD8VSV22?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71uF52MkfTL._AC_UL300_SR300,200_.jpg",
+            "category": "Personal Care"
+        },
+        {
+            "name": "Radhu & Kabby Crystal Flower Hair Claw Clip Pack | Black, Silver & Gold Metal Claw Clips for Women & Girls | Strong Grip Stylish Diamond-Cut Stone Floral Hair Accessories | Pack of 3",
+            "price": "₹299.00 - ₹599.00",
+            "link": "https://www.amazon.com/dp/B0G4RXHLX5?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81lfMwVsBgL._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Jewelry"
+        },
+        {
+            "name": "V-Guard Spinny Pro 180 mm Table & Wall Fan | 2100 RPM High Speed Motor | 353 CFM Air Delivery | 3 Speed Settings | Compact and Powerful | Durable ABS Build | 2- Year Warranty | Orange Black",
+            "price": "₹2,250.00",
+            "link": "https://www.amazon.com/dp/B0DFCGMSTH?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71rZcsZzbuL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "TEKCOOL Mini Cooler for Room C (Green)",
+            "price": "₹275.00 - ₹699.00",
+            "link": "https://www.amazon.com/dp/B0G9RNHK61?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61KcdB-bM+L._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "THE HOME STYLE Super Soft Glace Cotton King Size Printed Pillow Covers ll Pillow Cases ll Set of 2 Piece- 18\"x 28\" Inches (Abstract Mist)",
+            "price": "₹349.00 - ₹1,999.00",
+            "link": "https://www.amazon.com/dp/B0DGCKPC97?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/716RKRytcYL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Boldfit Arm Sleeves for Men & Women UV Protection Hand Sleeve with Thumb for Boys & Girls Sun Protection Cover for Running, Bike Riding, Cricket - Nylon - Black & Off-White",
+            "price": "₹193.00",
+            "link": "https://www.amazon.com/dp/B0D543RPNJ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61l+LyLYl1L._AC_UL300_SR300,200_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
             "name": "Surf Excel Matic Top Load Liquid Detergent 5L Refill Pouch, Specially designed to remove Tough Dried Stains, 1st time in Washing Machine",
             "price": "₹619.00",
             "link": "https://www.amazon.in/dp/B0DPX93PJ9?tag=shashwat022-21",
@@ -636,69 +699,6 @@
             "link": "https://www.amazon.com/dp/B0FPQLF9KJ?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/71LuMO+WvKL._AC_UL300_SR300,200_.jpg",
             "category": "Ladies Shoes"
-        },
-        {
-            "name": "DOCTOR EXTRA SOFT Care Diabetic Orthopedic Pregnancy Flat Super Comfort Dr Flipflops and House Slippers For Women's and Girl's",
-            "price": "₹425.99 - ₹427.99",
-            "link": "https://www.amazon.com/dp/B074D1BRXC?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Iz2UfVeGL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Neeman's Eco Classic Slippers for Men | Lightweight & Comfortable Flip Flops | Anti-Skid Rubber Sole | Soft Daily Slippers for Men | Durable, Flexible & Stylish Casual Wear",
-            "price": "₹419.00 - ₹497.14",
-            "link": "https://www.amazon.com/dp/B0BT1YQF9G?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51Q+kAMBOtL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "DABUR Herb'L Activated Charcoal Toothpaste-120G|Black Gel Toothpaste|Whitening Toothpaste|Fluoride Free|Fights Plaque&Extrinsic Stains|With Power Of Charcoal&Mint|Cool&Refreshing Mouth Experience",
-            "price": "₹99.00 - ₹350.00",
-            "link": "https://www.amazon.in/dp/B09J7Y4P7M?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71UbxXzGgGL._AC_UL900_SR900,600_.jpg",
-            "category": "Personal Care"
-        },
-        {
-            "name": "Cleevo Kitchen Cleaner Spray- 1L Bottle Pack | Natural Plant-Based Cleaning Spray for Tough Stains, Gas Stove, Countertop, Chimney | Grease & Grime Remover | All-in-One Kitchen Surface Cleaner",
-            "price": "₹134.00 - ₹399.00",
-            "link": "https://www.amazon.in/dp/B0CW9R5C3V?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71KORGe2RFL._AC_UL900_SR900,600_.jpg",
-            "category": "Personal Care"
-        },
-        {
-            "name": "Happi Planet | Reusable Kitchen Towels | 20 Pulls - 2000 Times Washable | Pull Wipe Wash Reuse | Highly Absorbent, Eco-Friendly, Non-Toxic | For Oil, Water, Tea, Ketchup & Flour Stains",
-            "price": "₹200.00 - ₹360.00",
-            "link": "https://www.amazon.in/dp/B0FY6MDN3H?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/517XXaE52NL._AC_UL900_SR900,600_.jpg",
-            "category": "Personal Care"
-        },
-        {
-            "name": "Vn care Magnetic Universal Nasal Strips | Breathing Nasal Strip | Anti Snoring Nose Clip | Skin Safe Sleep Nasal Strips | Nasal Dilators For Breathing | Snore Stopper | Snoring Stopper For Men | Breathing Nasal Strip Starter Kit",
-            "price": "₹247.00 - ₹297.00",
-            "link": "https://www.amazon.in/dp/B0G42J82LW?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/7178ZbaydJL._AC_UL900_SR900,600_.jpg",
-            "category": "Personal Care"
-        },
-        {
-            "name": "Be Bodywise 30% Urea Foot Cream Roll On 50ml | For Dry & Cracked Heels | With 5% Lactic Acid, Olive Oil & Vitamin E | Helps Repair and Moisturise Cracked Heels",
-            "price": "₹549.00",
-            "link": "https://www.amazon.in/dp/B0FQNGBH8P?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61+MUEUX8KL._AC_UL900_SR900,600_.jpg",
-            "category": "Personal Care"
-        },
-        {
-            "name": "HEELIUM Bamboo Bandana for Men & Women | Super Soft | Odour-free & Breathable | Durable & Multipurpose Bandana",
-            "price": "₹294.00 - ₹899.00",
-            "link": "https://www.amazon.com/dp/B09734LQR1?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/810zguJNMLL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Van Heusen Men’s Crew Neck T-Shirt – Soft & Breathable Cotton | Regular Fit | Comfortable Everyday Casual Wear | Short Sleeves | Summer Favorite |Solid Colors | Style 60052",
-            "price": "₹407.00",
-            "link": "https://www.amazon.com/dp/B0CK2QQ8T3?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61mkNrOCZtL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Fashion"
         }
     ]
 }
