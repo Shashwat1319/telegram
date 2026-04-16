@@ -1,5 +1,8 @@
-from bs4 import BeautifulSoup
 import os
+os.environ.setdefault('PYTHONIOENCODING', 'utf-8')
+
+from bs4 import BeautifulSoup
+
 import requests
 import json
 import re
@@ -166,7 +169,8 @@ def update_json(new_products):
     added_count = 0
     for product in new_products:
         if product['name'] not in existing_names:
-            print(f"Adding: {product['name']} | Tagged URL: {product['link']}")
+            safe_name = product['name'].encode('ascii', 'replace').decode('ascii')
+            print(f"Adding: {safe_name} | Tagged URL: {product['link']}")
             data['products'].insert(0, product)
             added_count += 1
     
