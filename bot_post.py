@@ -57,126 +57,78 @@ def load_products():
 def generate_message(product, is_lightning=False):
     name = product.get('name', 'Great Deal!')
     
-    # Robust price formatting — strips all unicode garbage, properly formats ₹
+    # Robust price formatting
     raw_price = str(product.get('price', 'Check Link'))
-    # Step 1: Remove non-ASCII bytes (kills corrupted ₹ symbols stored as '?' or garbage)
-    ascii_price = raw_price.encode('ascii', 'ignore').decode('ascii').strip()
-    # Step 2: Keep only digits, dot, comma, dash, space
-    ascii_price = re.sub(r'[^\d.,\- ]', '', ascii_price).strip()
-    # Step 3: Normalise range separator (e.g. "  -  " → " - ")
-    ascii_price = re.sub(r'\s*-\s*', ' - ', ascii_price).strip()
+    raw_mrp = str(product.get('mrp', ''))
+    discount = str(product.get('discount_percent', ''))
 
-    def clean_segment(seg):
-        """Strip leading/trailing commas & dots from a single price segment."""
-        return seg.strip().strip(',.')
+    def format_price(p):
+        if not p or 'Check' in p: return ""
+        ascii_p = p.encode('ascii', 'ignore').decode('ascii').strip()
+        ascii_p = re.sub(r'[^\d.,\- ]', '', ascii_p).strip()
+        if not ascii_p: return ""
+        if ' - ' in ascii_p:
+            l, r = ascii_p.split(' - ', 1)
+            return f"₹{l.strip().strip(',.')} - ₹{r.strip().strip(',.')}"
+        return f"₹{ascii_p.strip().strip(',.')}"
 
-    if ascii_price:
-        if ' - ' in ascii_price:
-            # Range: clean each side independently
-            left, right = ascii_price.split(' - ', 1)
-            left, right = clean_segment(left), clean_segment(right)
-            if left and right:
-                price = f"₹{left} - ₹{right}"
-            elif left:
-                price = f"₹{left}"
-            else:
-                price = "Check Link"
-        else:
-            cleaned = clean_segment(ascii_price)
-            price = f"₹{cleaned}" if cleaned else "Check Link"
-    else:
-        price = "Check Link"
-
-        
-    link = product.get('link', '#')
+    price = format_price(raw_price) or "Check Link"
+    mrp = format_price(raw_mrp)
     
-    # Wrap link with Tracker if available
+    link = product.get('link', '#')
     if CLICK_TRACKER_URL:
         link = f"{CLICK_TRACKER_URL}/go?url={quote(link)}"
         
     category = product.get('category', 'Loot')
-    
-    # Simple clean for HTML special characters
     safe_name = name.replace('<', '&lt;').replace('>', '&gt;')
     
-    # Identify Ladies Categories for special branding
-    ladies_cats = ["Ladies Fashion", "Ladies Shoes", "Ladies Jewelry", "Beauty", "Personal Care"]
-    is_ladies = any(c in category for c in ladies_cats)
-    
+    # Formatting the "Bachat" (Savings) string
+    bachat_str = ""
+    if mrp and price != "Check Link":
+        bachat_str = f"❌ <b>MRP:</b> <strike>{mrp}</strike>\n✅ <b>Loot:</b> <b>{price}</b>"
+        if discount:
+            bachat_str += f" (<b>{discount} OFF</b>)"
+    else:
+        bachat_str = f"💰 <b>Loot Price:</b> <b>{price}</b>"
+
     header_extra = ""
     footer_extra = ""
-    if is_ladies:
-        header_extra = "💃 <b>LADIES SPECIAL LOOT</b> 💃\n"
-        footer_extra = "\n✨ <i>Special deal for the queens!</i> 👜💄"
-        
-    if is_lightning:
-        header_extra = "⚡️ <b>LIGHTNING DEAL OF THE HOUR</b> ⚡️\n"
-        footer_extra = "\n⏳ <i>Highest discount pinned! Buy before it expires!</i> 🏃‍♂️"
+    if is_lightning or (discount and '50%' in discount):
+        header_extra = "🔥 <b>SABSE BADI LOOT DEAL!</b> 🔥\n"
+        footer_extra = "\n⏳ <i>Price kabhi bhi badh sakta hai! Buy FAST!</i> 🏃‍♂️"
 
-    if is_ladies:
-        templates = [
-            # 1. Hype Style (Existing)
-            f"{header_extra}🎀 <b>PREMIUM FASHION LOOT - 80% OFF!</b> 🎀\n\n"
-            f"👜 <b>{safe_name}</b>\n"
-            f"✨ <b>Exclusive Price:</b> <b>{price}</b> 💎\n\n"
-            f"💁‍♀️ <i>Upgrade your style without breaking the bank! Quality guaranteed.</i>{footer_extra}\n"
-            f"👇 <b>CLAIM THIS STYLE NOW</b> 👇\n"
-            f"🛍️ <a href='{link}'>Shop the Collection</a>\n\n"
-            f"🤫 <b>Limited Stock!</b> Share with your besties! 👯‍♀️\n"
-            f"👉 Join <b>@{CLEAN_ID}</b> for more premium drops! 👑",
+    templates = [
+        # 1. Hype/Loot Style
+        f"{header_extra}🚨 <b>TODAY'S TOP LOOT DETECTED!</b> 🚨\n\n"
+        f"🎁 <b>{safe_name}</b>\n\n"
+        f"{bachat_str}\n\n"
+        f"⚡ <i>Grab it before the deal expires! Highly recommended budget buy.</i>{footer_extra}\n\n"
+        f"👇 <b>CLAIM THIS DEAL NOW</b> 👇\n"
+        f"🛒 <a href='{link}'>Add to Cart (Amazon)</a>\n\n"
+        f"👉 Join <b>@{CLEAN_ID}</b> for more secret loots! 🏃‍♂️",
 
-            # 2. Quality/Review Style (NEW - Higher conversion)
-            f"{header_extra}🏆 <b>VERIFIED HIGH-QUALITY DEAL</b> 🏆\n\n"
-            f"🛍️ <b>{safe_name}</b>\n"
-            f"💰 <b>Deal Price:</b> <b>{price}</b> ✅\n\n"
-            f"🌟 <i>Top rated by 10,000+ customers! Best choice for quality seekers.</i>{footer_extra}\n"
-            f"👇 <b>SECURE YOUR ORDER</b> 👇\n"
-            f"🛒 <a href='{link}'>Buy Now (Amazon Verified)</a>\n\n"
-            f"📢 Join <b>@{CLEAN_ID}</b> for genuine quality loot! ✨",
+        # 2. Honest Review/Value Style
+        f"{header_extra}🌟 <b>SMART BUY ALERT!</b> 🌟\n\n"
+        f"📦 <b>{safe_name}</b>\n\n"
+        f"{bachat_str}\n\n"
+        f"✅ <i>Genuine price drop! 4.5+ Star Rated product at its best price.</i>{footer_extra}\n\n"
+        f"🛒 <a href='{link}'>Direct Link to Order</a>\n\n"
+        f"🤝 Join <b>@{CLEAN_ID}</b> for verified budget tracking!",
 
-            # 3. Urgency/Stock Style (NEW)
-            f"{header_extra}⏳ <b>STOCK ALERT: ALMOST GONE!</b> ⏳\n\n"
-            f"👗 <b>{safe_name}</b>\n"
-            f"🔥 <b>Loot Price:</b> <b>{price}</b> 📉\n\n"
-            f"⚠️ <i>Orders for this item are surging! Grab it before the price reverts.</i>{footer_extra}\n"
-            f"🔗 <a href='{link}'>Direct Order Link</a>\n\n"
-            f"👉 Join <b>@{CLEAN_ID}</b> to never miss a flash deal!"
-        ]
-    else:
-        templates = [
-            # 1. Glitch Style (Existing)
-            f"{header_extra}🚨 <b>ERROR PRICING? SYSTEM GLITCH!</b> 🚨\n\n"
-            f"🎁 <b>{safe_name}</b>\n"
-            f"💥 <b>Current Price:</b> <b>{price}</b> 😱\n\n"
-            f"⚠️ <i>Only active for next 5-10 minutes before Amazon fixes it!</i>{footer_extra}\n"
-            f"👇 <b>CLICK HERE & ADD TO CART FAST</b> 👇\n"
-            f"🛒 <a href='{link}'>Claim GLITCH Deal Now</a>\n\n"
-            f"🤫 <b>DO NOT SHARE ON FACEBOOK/INSTA!</b> Forward only to close friends!\n"
-            f"👉 Join <b>@{CLEAN_ID}</b> to get these secret deals first! 🏃‍♂️",
-
-            # 2. Daily Essential/Smart Buy (NEW - For long-term users)
-            f"{header_extra}🏠 <b>SMART BUY FOR YOUR HOME!</b> 🏠\n\n"
-            f"📦 <b>{safe_name}</b>\n"
-            f"💸 <b>Best Price Today:</b> <b>{price}</b> ✨\n\n"
-            f"✅ <i>Genuine price drop! Daily use product with 4.5+ star rating.</i>{footer_extra}\n"
-            f"🛒 <a href='{link}'>Order Now & Save Money</a>\n\n"
-            f"🤝 <i>We only post verified budget deals!</i> Join <b>@{CLEAN_ID}</b>",
-
-            # 3. Comparison/Value Style (NEW - Convinces people to buy)
-            f"{header_extra}💰 <b>BIGGEST SAVINGS ALERT!</b> 💰\n\n"
-            f"🌟 <b>{safe_name}</b>\n"
-            f"📉 <b>Now at:</b> <b>{price}</b> (Lowest recently!)\n\n"
-            f"🛠️ <i>Don't wait for the next sale, this is the best price for this quality!</i>{footer_extra}\n"
-            f"🔗 <a href='{link}'>Take me to the Deal</a>\n\n"
-            f"📢 Join <b>@{CLEAN_ID}</b> for 24/7 Loot Tracking!"
-        ]
+        # 3. Urgency Style
+        f"{header_extra}⏳ <b>HURRY: PRICE DROP ALMOST OVER!</b> ⏳\n\n"
+        f"🛍️ <b>{safe_name}</b>\n\n"
+        f"{bachat_str}\n\n"
+        f"⚠️ <i>Limited period offer! Stocks are running out fast for this deal.</i>{footer_extra}\n\n"
+        f"🚀 <a href='{link}'>Buy Now (Fast Delivery)</a>\n\n"
+        f"📢 Join <b>@{CLEAN_ID}</b> to never miss a flash deal!"
+    ]
     msg = random.choice(templates)
     
-    # Telegram Search SEO Hack: Hiding high-traffic keywords so the post ranks globally without looking ugly
     seo_block = (
         "\n\n<tg-spoiler>"
-        "🏷️ Tags: #AmazonDeals #LootDealsIndia #FlipkartSale #BudgetShopping #Offers #LowestPrice #FreeShopping #SummerSale #99Store\n"
-        "🔎 Search Keywords: sasta shopping app, amazon loot today, cheapest gadgets under 500, flipkart glitch deals, free samples india, audible free trial, prime membership deals, cricket loot offer, kitchen gadgets sale"
+        "🏷️ Tags: #AmazonDeals #LootDealsIndia #BudgetShopping #Offers #LowestPrice #FreeShopping #99Store\n"
+        "🔎 Search Keywords: sasta shopping app, amazon loot today, cheapest gadgets under 500, flipkart glitch deals, free samples india"
         "</tg-spoiler>"
     )
     return msg + seo_block

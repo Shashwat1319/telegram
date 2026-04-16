@@ -74,12 +74,14 @@ def extract_products_with_ai(html_content, retry_count=0):
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
     
     prompt = f"""
-    Extract the top 5 trending products from this Amazon Movers & Shakers HTML snippet.
-    Return ONLY a valid JSON array of objects with exact keys: "name", "price", "link", "image".
+    Find the top 5 products with the HIGHEST DISCOUNT percentages from this Amazon Deals HTML snippet.
+    Return ONLY a valid JSON array of objects with exact keys: "name", "price", "mrp", "discount_percent", "link", "image".
     
     CRITICAL RULES:
-    1. "image": Find the high-res product image URL. If not found, return an empty string "".
-    2. "link": You MUST extract the exact raw URL (containing /dp/ or the ASIN). NEVER EVER generate or return "amzn.to" shortlinks.
+    1. "mrp": Find the original price before the discount.
+    2. "discount_percent": Calculate or find the percentage of savings (e.g. "60%").
+    3. "image": Find the high-res product image URL.
+    4. "link": Extract the exact raw URL (containing /dp/ or the ASIN). MUST preserve the original domain (.in or .com).
     
     HTML Data:
     {html_content}
@@ -138,8 +140,16 @@ def clean_amazon_link(link, tag):
 
 def add_affiliate_tags(products):
     for product in products:
-        link = product['link']
-        tag = AFFILIATE_ID_IN if "amazon.in" in link or ("amazon.in" not in link and "amazon.com" not in link) else AFFILIATE_ID_COM
+        link = product.get('link', '')
+        # Determine the domain and appropriate tag
+        if "amazon.in" in link:
+            tag = AFFILIATE_ID_IN
+        elif "amazon.com" in link:
+            tag = AFFILIATE_ID_COM
+        else:
+            # Default to India if domain is missing
+            tag = AFFILIATE_ID_IN
+            
         product['link'] = clean_amazon_link(link, tag)
     return products
 
@@ -194,14 +204,11 @@ def main():
     }
     
     categories = [
+        "https://www.amazon.in/gp/deals?discounts-widget=%257B%2522state%2522%253A%257B%2522refinementFilters%2522%253A%257B%2522pct_off%2522%253A%255B%252250-%2522%255D%257D%257D%252C%2522version%2522%253A1%257D", # 50% Off or more
+        "https://www.amazon.in/gp/goldbox", # Today's Deals
         "https://www.amazon.in/gp/movers-and-shakers/electronics",
         "https://www.amazon.in/gp/movers-and-shakers/kitchen",
-        "https://www.amazon.in/gp/movers-and-shakers/beauty",
-        "https://www.amazon.in/gp/movers-and-shakers/computers",
-        "https://www.amazon.in/gp/movers-and-shakers/apparel",
-        "https://www.amazon.in/gp/movers-and-shakers/shoes",
-        "https://www.amazon.in/gp/movers-and-shakers/jewelry",
-        "https://www.amazon.in/gp/movers-and-shakers/hpc"
+        "https://www.amazon.in/gp/movers-and-shakers/beauty"
     ]
     
     def sync_category(url):

@@ -1,6 +1,60 @@
 {
     "products": [
         {
+            "name": "Scalpe Pro Daily Anti-Dandruff Shampoo | Removes Dandruff from Source | Prevents Itching & Irritation | Scalpe Science | Climbazole Formulation | Dermatologically Tested | For Women & Men | 100ml",
+            "price": "₹182.00",
+            "mrp": "₹544.00",
+            "discount_percent": "67%",
+            "link": "https://www.amazon.com/dp/B07Q7C4Q45?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51vI5+Mb86L._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Muuchstac Ocean Face Wash for Men | Fight Acne & Pimples, Brighten Skin, Clears Dirt, Oil Control, Refreshing Feel - Multi-Action Formula (100 ml)",
+            "price": "₹150.00",
+            "mrp": "₹291.00",
+            "discount_percent": "48%",
+            "link": "https://www.amazon.com/dp/B07KB1Y75J?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51FodsevJrL._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Clean & Clear Foaming face wash for oily skin, removes 99.8% pimple causing germs, Home & travel combo pack offer- Buy 240ml Get 100ml Free",
+            "price": "₹200.00",
+            "mrp": "₹599.00",
+            "discount_percent": "67%",
+            "link": "https://www.amazon.com/dp/B0BFBDNJH9?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61efoA7sEHL._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Dettol Icy Cool Bathing Soap Bar With 3x intense cooling (400gm), 100gm - Pack of 4",
+            "price": "₹141.00",
+            "mrp": "₹410.31",
+            "discount_percent": "66%",
+            "link": "https://www.amazon.com/dp/B0CP9Q58TK?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/6159Ijkum+L._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Dettol Original Bathing Soap Bar with 12 HR protective shield (400gm) | Kills 99.99% Germs, 100g (Pack of 4)",
+            "price": "₹148.00",
+            "mrp": "₹430.68",
+            "discount_percent": "66%",
+            "link": "https://www.amazon.com/dp/B0CP9NMV6P?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61ajU4cy7sL._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Newtone Garbage Bags | Medium 19 x 21 Inches | 120 Bags (30 Bags X 4 Rolls) | Dustbin/Trash bin | Box Packing | (Green) - Perforated Box for Easy Dispensing",
+            "price": "₹133.00",
+            "mrp": "₹419.00",
+            "discount_percent": "68%",
+            "link": "https://www.amazon.in/dp/B08M5C1YNJ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/716p4cGDl5L._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
             "name": "Lux Cozi Men's Cotton Bigshot Trunk - Pack of 3",
             "price": "₹359.00 - ₹528.00",
             "link": "https://www.amazon.com/dp/B0BL3JFGVM?tag=shashwat022-21",
