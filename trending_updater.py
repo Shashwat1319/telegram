@@ -115,22 +115,21 @@ def extract_products_with_ai(html_content, retry_count=0):
             return extract_products_with_ai(html_content, retry_count + 1)
         return []
 
-def clean_amazon_link(link, tag):
-    """Convert full Amazon links to canonical DP links, but leave short links alone."""
-    # If it's already a short link, don't touch it!
+def clean_amazon_link(link, tag, force_domain=None):
+    """Convert full Amazon links to canonical DP links, ensuring correct domain."""
     if "amzn.to" in link:
         return link
         
-    # Improved regex for ASIN (10 characters after /dp/ or /gp/product/ or /asin/)
     asin_match = re.search(r'/(?:dp|gp/product|asin)/([A-Z0-9]{10})', link, re.IGNORECASE)
     if asin_match:
         asin = asin_match.group(1).upper()
-        domain = "amazon.in" if "amazon.in" in link else "amazon.com"
+        # Use force_domain if provided, otherwise detect from link
+        domain = force_domain if force_domain else ("amazon.in" if "amazon.in" in link else "amazon.com")
         return f"https://www.{domain}/dp/{asin}?tag={tag}"
     
     # Fallback for relative links
     if not link.startswith("http"):
-        domain = "www.amazon.in"
+        domain = force_domain if force_domain else "www.amazon.in"
         link = f"https://{domain}{link if link.startswith('/') else '/' + link}"
     
     # Add tag if missing for long links only
@@ -138,19 +137,20 @@ def clean_amazon_link(link, tag):
         link += ("&" if "?" in link else "?") + f"tag={tag}"
     return link
 
-def add_affiliate_tags(products):
+def add_affiliate_tags(products, source_url=""):
+    forced_domain = "amazon.in" if "amazon.in" in source_url else ("amazon.com" if "amazon.com" in source_url else None)
+    
     for product in products:
         link = product.get('link', '')
-        # Determine the domain and appropriate tag
-        if "amazon.in" in link:
+        # Determine the tag based on the source or domain
+        if forced_domain == "amazon.in" or "amazon.in" in link:
             tag = AFFILIATE_ID_IN
-        elif "amazon.com" in link:
+        elif forced_domain == "amazon.com" or "amazon.com" in link:
             tag = AFFILIATE_ID_COM
         else:
-            # Default to India if domain is missing
             tag = AFFILIATE_ID_IN
             
-        product['link'] = clean_amazon_link(link, tag)
+        product['link'] = clean_amazon_link(link, tag, force_domain=forced_domain)
     return products
 
 def update_json(new_products):
@@ -223,7 +223,7 @@ def main():
                 if products:
                     for p in products:
                         p['category'] = cat_name
-                    products = add_affiliate_tags(products)
+                    products = add_affiliate_tags(products, source_url=url)
                     return update_json(products)
         except Exception as e:
             print(f"[!] Error syncing category {cat_name}: {e}")

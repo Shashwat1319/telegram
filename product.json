@@ -1,6 +1,15 @@
 {
     "products": [
         {
+            "name": "Foxtale Eternal Light 10% Vit C – Gluta Advanced Brightening Serum",
+            "price": "₹199.00",
+            "mrp": "₹1,698.00",
+            "discount_percent": "88%",
+            "link": "https://www.amazon.in/dp/B0GS1WRMRR?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/517jygUEM2L._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
             "name": "Scalpe Pro Daily Anti-Dandruff Shampoo | Removes Dandruff from Source | Prevents Itching & Irritation | Scalpe Science | Climbazole Formulation | Dermatologically Tested | For Women & Men | 100ml",
             "price": "₹182.00",
             "mrp": "₹544.00",
