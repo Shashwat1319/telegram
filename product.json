@@ -1,6 +1,159 @@
 {
     "products": [
         {
+            "name": "Lakme SPF 50 PA++++ Sunscreen Lotion for Bright Skin | In Vivo Tested | UVA UVB Blue Light Protection | Water light| No White Cast | Niacinamide| For All Skin Types | 50 ml",
+            "price": "₹195.00",
+            "mrp": "₹391.00",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B06WRQQXF5?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51AdymQPj5L._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Aroma Magic 7 step Bridal Glow Facial Kit| Enhance Natural glow + Dazzling radiance & Revitalises | with Turmeric & Rose Extracts| All Skin type| Single Use| Pack of 1 (20g + 18ml)",
+            "price": "₹144.00",
+            "mrp": "₹419.04",
+            "discount_percent": "66%",
+            "link": "https://www.amazon.in/dp/B08FCSBJPS?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51JYXsFmuDL._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Noise Sense Bluetooth Calling Smart Watch",
+            "price": "₹2,999",
+            "mrp": "₹5,999",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0BN93YKL5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/717aM43M9wL._SX466_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "HP DeskJet Ink Advantage 2778 All-in-One Printer",
+            "price": "₹7,999",
+            "mrp": "₹9,999",
+            "discount_percent": "20%",
+            "link": "https://www.amazon.in/dp/B0899L2Z61?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71kC4c3rWBL._SX466_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Echo Dot (5th Gen, 2023 release) Smart speaker with Alexa",
+            "price": "₹5,499",
+            "mrp": "₹7,499",
+            "discount_percent": "27%",
+            "link": "https://www.amazon.in/dp/B09BZR34X8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/611z54I0WKL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Amazon Basics Fast Charging USB-C to Lightning Cable, MFi Certified",
+            "price": "₹499",
+            "mrp": "₹1,199",
+            "discount_percent": "58%",
+            "link": "https://www.amazon.in/dp/B0B9S1C93G?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61dK2Fv6TFL._SX466_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Redmi Buds 5 Pro in-Ear Earphones with Active Noise Cancellation",
+            "price": "₹3,299",
+            "mrp": "₹7,999",
+            "discount_percent": "59%",
+            "link": "https://www.amazon.in/dp/B0CN5K631D?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/613R7hF8+CL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "APFEN USB Type- A to Lightning Cable [MFi Certified] Fast Charging & Data Sync Cable Compatible With iPhone 14,13, 12,11,X, 8, 7, 6, 5, iPad Air, Pro, ProMax, Mini",
+            "price": "₹271.00",
+            "mrp": "₹699.00",
+            "discount_percent": "61%",
+            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/41bDXvBxnzL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Kratos 28 Inch Selfie Stick Tripod Stand with Light, 3-in-1 Multifunctional Design, Rechargeable LED Light with Two Brightness Levels with Bluetooth Remote for Makeup, Selfie & Photoshoot",
+            "price": "₹178.00",
+            "mrp": "₹2,899.00",
+            "discount_percent": "94%",
+            "link": "https://www.amazon.in/dp/B0FVG14W46?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71C7AH5ebiL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Smartby Universal Remote Control EN2A27 for Hisense 4K ULED HD UHD Android Smart TVs",
+            "price": "₹199.00",
+            "mrp": "₹2,999.00",
+            "discount_percent": "93%",
+            "link": "https://www.amazon.in/dp/B01N0CH8LV?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/510FML0uDaL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Kratos 41 Inch Magnetic Tripod Stand for iPhone, Aluminum Tripod with Strong Magnetic Holder for MagSafe Design Mobile Phones, 360° Rotation, BT Remote for Selfies, Vlogging & Travel",
+            "price": "₹599.00",
+            "mrp": "₹2,997.00",
+            "discount_percent": "80%",
+            "link": "https://www.amazon.in/dp/B0G1MWVQFR?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61FNxPXIIAL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Qubo 3-Channel Dashcam Trio by Hero Group (Front+Rear+Cabin Camera) [New Launch] | 2K QHD | Built-in Wi-Fi & GPS | Wide FOV | IR Night Vision | App Control | Supports up to 1TB SD Card",
+            "price": "₹2,790.00",
+            "mrp": "₹13,990.00",
+            "discount_percent": "80%",
+            "link": "https://www.amazon.in/dp/B0FPQNPX6R?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61IeOOgiMrL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Portable Air Cooler Fan with Water Tank & USB Power - Mini Personal Evaporative Cooler with 3 Speeds, Mist Humidifier, LED Light, Quiet Cooling for Home, Office, Bedroom (Multicolor) (Style 2)",
+            "price": "₹499.00",
+            "mrp": null,
+            "discount_percent": "223%",
+            "link": "https://www.amazon.in/dp/B0GQ4L5HSR?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61xUWjSYQ4L._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "eumqestoer Portable Air Cooler Fan with Water Tank & USB Power - Mini Personal Evaporative Cooler with 3 Speeds, Mist Humidifier, LED Light, Quiet Cooling for Home, Office, Bedroom (MultiColor)",
+            "price": "₹399.00",
+            "mrp": null,
+            "discount_percent": "230%",
+            "link": "https://www.amazon.in/dp/B0GTVTF5QL?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61wiXQ7cTiL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "MILTON Costa 1000 Pet water bottle 1 ltr with Stainless Steel Lid, Leak proof, BPA Free, Reusable Water bottle for fridge, Office, School",
+            "price": "₹125.00",
+            "mrp": null,
+            "discount_percent": "261%",
+            "link": "https://www.amazon.in/dp/B0FGK4FHHV?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/6103wHlHKuL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Samsung 189 L, 5 Star, Digital Inverter, Direct-Cool Single Door Refrigerator (RR21H2H25CU/HL, Camellia Blue, Base Stand Drawer, Single Touch Defrost, 2026 Model)",
+            "price": "₹17,490.00",
+            "mrp": null,
+            "discount_percent": "300%",
+            "link": "https://www.amazon.in/dp/B0G8J8SKTH?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/614KHnFjbzL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Orient Electric Durachill 40 L Portable Air Cooler For Home | Densenest Honeycomb Pads |More Air Delivery | Fully Collapsible Louvers |Inverter Compatible | 1 Year Warranty by Orient | White & Grey",
+            "price": "₹5,499.00",
+            "mrp": null,
+            "discount_percent": "600%",
+            "link": "https://www.amazon.in/dp/B0CSFS1DPP?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61P7opT9hSL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
             "name": "Foxtale Eternal Light 10% Vit C – Gluta Advanced Brightening Serum",
             "price": "₹199.00",
             "mrp": "₹1,698.00",
