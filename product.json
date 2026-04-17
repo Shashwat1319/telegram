@@ -1,6 +1,123 @@
 {
     "products": [
         {
+            "name": "atomberg Renesa 400mm Pedestal Fan | 5-star rated | Ideal for Home & Office | Silent BLDC Stand Fan | 6 Speeds | 35W | Remote with Oscillation, Timer, Sleep | 2 Years Warranty (Midnight Black)",
+            "price": "₹3,499.00",
+            "mrp": null,
+            "discount_percent": "88%",
+            "link": "https://www.amazon.in/dp/B09T757FCS?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/710CFw58+gL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Blue Star 1.5 Ton 3 Star, Wi-Fi Smart Inverter Split AC (Copper, 5 in 1 Convertible Cooling, 4-Way Swing, Turbo Cool, Voice Command, IC318YNUS, White)",
+            "price": "₹36,490.00",
+            "mrp": null,
+            "discount_percent": "90%",
+            "link": "https://www.amazon.in/dp/B0BZNXBFNK?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51qw5c+kH4L._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Prestige PIC 20 1600 Watts Induction Cooktop | 4KV Surge Protection | 8 Preset Indian Menu Options & Timer | Soft Touch Button | Easy to Clean | Portable | Black | 1Y Warranty | BIS",
+            "price": "₹1,799.00",
+            "mrp": null,
+            "discount_percent": "433%",
+            "link": "https://www.amazon.in/dp/B00YMJ0OI8?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71+18JpxhOL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Da URBAN® Dysen Office Chair, High Back Mesh Ergonomic Home Office Desk Chair with 1 Year Warranty,Tilt Lock Mechanism (Black)",
+            "price": "₹3,249.00",
+            "mrp": null,
+            "discount_percent": "1,754%",
+            "link": "https://www.amazon.in/dp/B0DWFR85ZJ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71LAUP44zUL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Mi Smart Band 5",
+            "price": "₹2,499",
+            "mrp": "₹3,499",
+            "discount_percent": "29%",
+            "link": "https://www.amazon.in/dp/B087P757M5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71f-i11t6JL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Lifelong LL922 Corded Electric Beard Trimmer for Men (Black)",
+            "price": "₹999",
+            "mrp": "₹2,599",
+            "discount_percent": "62%",
+            "link": "https://www.amazon.in/dp/B088Z6W1K1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/6139jFwWpZL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "boAt BassHeads 152 In-Ear Wired Earphones with Mic, 10mm Drivers, Passive Noise Isolation, HD Sound, 1.2m Tangle Free Cable with Swivel-Tangle Free Design (Black)",
+            "price": "₹549",
+            "mrp": "₹1,290",
+            "discount_percent": "57%",
+            "link": "https://www.amazon.in/dp/B07X6H596G?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61u9u71jG+L._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Logitech M221 Wireless Mouse, Silent, Compact, 2.4 GHz with USB Receiver, Optical Tracking, 1000 DPI, 3-Button, Ambidextrous",
+            "price": "₹795",
+            "mrp": "₹1,200",
+            "discount_percent": "34%",
+            "link": "https://www.amazon.in/dp/B01MT1X5B2?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61fR0tS-1YL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Amazon Basics Microfiber Cleaning Cloth, 12 Pack, Blue/White",
+            "price": "₹439",
+            "mrp": "₹750",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B07D57F6V1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71J7jK5J6CL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Aqualogica Glow+ Dewy Sunscreen Gel SPF 50 PA++++ with Papaya & Vitamin C | For Dry, Sensitive, Oily & Combination Skin | UVA/B & Blue Light Protection | Travel Friendly | For Men & Women | 30g",
+            "price": "₹263.00",
+            "mrp": null,
+            "discount_percent": "52%",
+            "link": "https://www.amazon.in/dp/B0D2D9BK8R?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51AFzWKTCuL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Bblunt Hot Shot Heat Protection Hair Mist | Designed for Indian Hair | Prevents Damage | Upto 230° Celsius Protection | Hair Spray for Men & Women | 150 ml",
+            "price": "₹373.00",
+            "mrp": null,
+            "discount_percent": "54%",
+            "link": "https://www.amazon.in/dp/B07W458135?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51jTPFwLUiL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Sotrue Strobe Cream Combo Pack of 2, Rose Gold and Pink - 30gm Each | Primer + Highlighter + Moisturizer | Intense Hydration | Flawless Radiant Dewy Skin | Illuminating & Glowing Makeup Base",
+            "price": "₹428.00",
+            "mrp": null,
+            "discount_percent": "79%",
+            "link": "https://www.amazon.in/dp/B0FNDFVHV5?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51ErEf4fMUL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Navratna Ayurvedic Cool Oil | Combination of 9 Ayurvedic Herbs | Relieves Headache, Body ache, Tiredness, Sleeplessness & Tension| Improves Scalp Health | Relaxing & Rejuvenating cooling effect, 300ml",
+            "price": "₹202.00",
+            "mrp": null,
+            "discount_percent": "208%",
+            "link": "https://www.amazon.in/dp/B01412X46Y?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71X3ryvPdQL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
             "name": "Orient Electric Stand-82 400 MM Oscillating Pedestal Fans | Stand Fan with Tilt Mechanism | High Air Delivery | Aesthetic Design with Telescopic Arrangement | 2 Year Warranty by Orient, Sky Blue",
             "price": "₹2,299.00",
             "mrp": null,
