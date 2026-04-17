@@ -1,6 +1,132 @@
 {
     "products": [
         {
+            "name": "Orient Electric Stand-82 400 MM Oscillating Pedestal Fans | Stand Fan with Tilt Mechanism | High Air Delivery | Aesthetic Design with Telescopic Arrangement | 2 Year Warranty by Orient, Sky Blue",
+            "price": "₹2,299.00",
+            "mrp": null,
+            "discount_percent": "141%",
+            "link": "https://www.amazon.in/dp/B01DLTW3LK?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61LptiXd9ML._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Crompton HighSpeed Torpedo 400 mm Pedestal Fan (Black) – Powerful 2100 RPM, 3-Speed Settings, Wide Oscillation, Thermal Overload Protection, 100% Copper Winding & Sturdy Base with 2-Year Warranty",
+            "price": "₹2,799.00",
+            "mrp": null,
+            "discount_percent": "144%",
+            "link": "https://www.amazon.in/dp/B08QFJNSYV?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51Qts11MjGL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "HP 15s-fq2021TU Laptop (Intel Core i3-1115G4, 8GB RAM, 256GB SSD, 15.6\" FHD), Win 11 Home, MS Office H&S 2021, Jade Silver",
+            "price": "\n₹ 37,990\n",
+            "mrp": "\n₹ 49,830\n",
+            "discount_percent": "23%",
+            "link": "https://www.amazon.in/dp/B09L77S765?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/611K0n9XoOL._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "HP 15s-fq2020TU Laptop (Intel Core i3-1115G4, 8GB RAM, 512GB SSD, 15.6\" FHD), Win 11 Home, MS Office H&S 2021, Jade Silver",
+            "price": "\n₹ 40,990\n",
+            "mrp": "\n₹ 53,050\n",
+            "discount_percent": "22%",
+            "link": "https://www.amazon.in/dp/B09L75K86X?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/611K0n9XoOL._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "HP 15s-fq2021TU Laptop (Intel Core i3-1115G4, 8GB RAM, 256GB SSD, 15.6\" FHD), Win 11 Home, MS Office H&S 2021, Jade Silver",
+            "price": "\n₹ 37,990\n",
+            "mrp": "\n₹ 49,830\n",
+            "discount_percent": "23%",
+            "link": "https://www.amazon.in/dp/B09L77S765?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/611K0n9XoOL._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "HP 15s-fq2020TU Laptop (Intel Core i3-1115G4, 8GB RAM, 512GB SSD, 15.6\" FHD), Win 11 Home, MS Office H&S 2021, Jade Silver",
+            "price": "\n₹ 40,990\n",
+            "mrp": "\n₹ 53,050\n",
+            "discount_percent": "22%",
+            "link": "https://www.amazon.in/dp/B09L75K86X?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/611K0n9XoOL._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "HP 15s-fq2021TU Laptop (Intel Core i3-1115G4, 8GB RAM, 256GB SSD, 15.6\" FHD), Win 11 Home, MS Office H&S 2021, Jade Silver",
+            "price": "\n₹ 37,990\n",
+            "mrp": "\n₹ 49,830\n",
+            "discount_percent": "23%",
+            "link": "https://www.amazon.in/dp/B09L77S765?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/611K0n9XoOL._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "amazon basics in-Ear Wired Earphones with 9 mm Dual Drivers, in-Line Mic, Powerful Bass, Noise Isolation, 3.5 mm Audio Jack (Black and Red)",
+            "price": "₹105.00",
+            "mrp": null,
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B0DLB1D6DC?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61u30bVYHPL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Original Samsung 25W Charger USB Type C Adapter for Samsung Galaxy Z Fold 6/5/4,Z Flip6/5/4, S25/S24/S24+/S24 Ultra, S23/S23+/S23 Ultra/S23 FE, M17 5G PD 3.0 Fast Charging with Type C Cable-Black",
+            "price": "₹599.00",
+            "mrp": null,
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B0DBL6JZKN?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71mOczsYpTL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "iPhone Charger Adapter 20W Type C for iPhone 17/17 Air/17 Pro/17 Pro Max, 16/16 Plus/16 Pro/16 Pro Max, 15/15 Plus/15Pro/15 Pro Max & Other Devices with 1 Meter USB C to Type C Data Cable",
+            "price": "₹499.00",
+            "mrp": null,
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B0CNM4V6Q5?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61yynb2fDIL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "APFEN® 20W [Apple MFi Certified] Type-C Fast Charger Adapter & Cable Compatible with iPhone 14/14 Pro/14 Pro Max/13/13 Pro/13 Pro Max/12/11/XR/XS/X/8 Series, White",
+            "price": "₹380.00",
+            "mrp": null,
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B0F62W35NX?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61sa0aOa5ZL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Hula Hoop Brightening Body Wash | Lactic Acid & Niacinamide | Reduces tan from 1st wash | Brightens & Evens Out Skin Tone | Floral Sakura Scent| For Men & Women | 250ml",
+            "price": "₹247.00 - ₹805.00",
+            "mrp": null,
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B0F8QHDV39?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/519Y-ppczIL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "SET WET Deodorant Spray Perfume Cool, Charm & Mischief Avatar for men, 150ml (Pack of 3)",
+            "price": "₹190.00",
+            "mrp": null,
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B079QBB5YT?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71pCyCh8ubL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Park Avenue Premium Men’s Soaps for Bath – Pure Luxury | 125g (Pack of 4) | Enriched with Shea Butter & Coconut Oil | Grade 1 Soap | For All Skin Types",
+            "price": "₹195.00",
+            "mrp": null,
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B0B6ZXHMX7?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/710Ci0F2WQL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
             "name": "Lakme SPF 50 PA++++ Sunscreen Lotion for Bright Skin | In Vivo Tested | UVA UVB Blue Light Protection | Water light| No White Cast | Niacinamide| For All Skin Types | 50 ml",
             "price": "₹195.00",
             "mrp": "₹391.00",
