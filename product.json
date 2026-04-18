@@ -1,6 +1,69 @@
 {
     "products": [
         {
+            "name": "Kratos 25W Charger Adapter Compatible with Samsung Galaxy S/A/M/F/Z Series S25/S24/S23/S22/S21/21 fe/S20/M14 5G/M34/M54/M53 5g/M33/M13/A34/A54 5G,F15, BIS Certified,1 Year Warranty,White",
+            "price": "₹397.00",
+            "mrp": null,
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B0FH2N3PFX?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51BcZ-rjT3L._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "atomberg SilenceAire Hi-Speed | Newly Launched | 400mm BLDC Pedestal Fan | 5-star rated| Home & Office | Silent Stand Fan | 60W | Remote | Height Adjustable | 2 Years Warranty (Midnight Black)",
+            "price": "₹3,599.00",
+            "mrp": null,
+            "discount_percent": "88%",
+            "link": "https://www.amazon.in/dp/B0GHSH3LG6?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61CrcnnwJ3L._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Bose QuietComfort 45 Bluetooth Noise Cancelling Headphones",
+            "price": "₹25,900",
+            "mrp": "₹34,990",
+            "discount_percent": "26%",
+            "link": "https://www.amazon.in/dp/B0998T9924?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51+1z41tJQL._SL300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "HP Pavilion 15-dk1101TX 15.6-inch Laptop (Core i5-10300H/8GB/512GB SSD/Windows 10 Home)",
+            "price": "₹65,000",
+            "mrp": "₹85,990",
+            "discount_percent": "24%",
+            "link": "https://www.amazon.in/dp/B09BB486G5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71pX1Y-9J3L._SL300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Lenovo Tab P11 Plus (11 Inch, 6 GB RAM, 128 GB Storage, Wi-Fi)",
+            "price": "₹21,999",
+            "mrp": "₹29,999",
+            "discount_percent": "27%",
+            "link": "https://www.amazon.in/dp/B0BF5M43S3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61j6F234f9L._SL300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Sony Bravia 139 cm (55 inches) XR-55X90K 4K Ultra HD Smart LED TV (Black)",
+            "price": "₹82,990",
+            "mrp": "₹1,39,900",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B09WZYK5P1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71N4J2vW+PL._SL300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Samsung Galaxy S23 Ultra 5G (Phantom Black, 12GB, 256GB Storage)",
+            "price": "₹1,19,999",
+            "mrp": "₹1,42,990",
+            "discount_percent": "16%",
+            "link": "https://www.amazon.in/dp/B0BSJ7VWS4?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/5122NfI0rTL._SL300_.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "Dettol Cologne Fresh Bathing Soap Bar with 12hr Freshness and Germ Protection, 100g Pack of 4, (400gm)",
             "price": "128.00",
             "mrp": null,
