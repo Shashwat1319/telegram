@@ -1,6 +1,87 @@
 {
     "products": [
         {
+            "name": "One94Store Rechargeable Neck Fan (Green) | 1200mAh Battery, USB Powered Hands-Free Hanging Fan | Single Speed Dual Fan | Portable Personal Cooling Fan for Travel, Office & Outdoor Use",
+            "price": "₹299.00",
+            "mrp": null,
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B0GHDS5SPJ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71bSle7RFEL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "WEIRD WOLF Study Lamp with 3 Colour Modes & Adjustable Brightness Levels | Table Lamp for Study Room with Gooseneck, Pen & Mobile Holder | Rechargeable 1200mAh Battery | 6 Month Warranty",
+            "price": "₹399.00",
+            "mrp": null,
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B0B919D52V?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71Q8NnTjDNL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Daikin 1.5 Ton 3 Star, New Star rated, Inverter Split AC (Copper, PM2.5 Filter, MTKL50XV16, White)",
+            "price": "₹36,490.00",
+            "mrp": null,
+            "discount_percent": "73%",
+            "link": "https://www.amazon.in/dp/B0GRV2DWP3?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61aNUgUz6EL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Nycil Germ Expert Cool Herbal Prickly Heat and Cooling Powder - 400 g | Get Relief from Skin Problems",
+            "price": "₹182.00",
+            "mrp": null,
+            "discount_percent": "38%",
+            "link": "https://www.amazon.in/dp/B07BDMPGRT?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61wr1m7NSQL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Logitech M171 Wireless Mouse",
+            "price": "₹469",
+            "mrp": "₹795",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B01D2Z8W70?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71fA5t8x1NL._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Redmi 10A Sport (Glacier Blue, 6GB RAM, 128GB Storage)",
+            "price": "₹11,499",
+            "mrp": "₹15,999",
+            "discount_percent": "28%",
+            "link": "https://www.amazon.in/dp/B0BXQ5T5D5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Qj2s6Yj9L._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "HP Deskjet 2332 All-in-One Ink Tank Printer",
+            "price": "₹7,499",
+            "mrp": "₹9,982",
+            "discount_percent": "25%",
+            "link": "https://www.amazon.in/dp/B08747P61B?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/614zW5j3P9L._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "boAt Xtend Smartwatch with Alexa Built-in",
+            "price": "₹2,999",
+            "mrp": "₹7,990",
+            "discount_percent": "62%",
+            "link": "https://www.amazon.in/dp/B0991Y4GFW?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71+zE9u5x5L._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "boAt Bassheads 100 in-Ear Wired Earphones with Mic",
+            "price": "₹379",
+            "mrp": "₹1,099",
+            "discount_percent": "65%",
+            "link": "https://www.amazon.in/dp/B073BMT1Q6?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61lQdD+hJtL._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "atomberg Renesa 400mm Pedestal Fan | 5-star rated | Ideal for Home & Office | Silent BLDC Stand Fan | 6 Speeds | 35W | Remote with Oscillation, Timer, Sleep | 2 Years Warranty (Midnight Black)",
             "price": "₹3,499.00",
             "mrp": null,
