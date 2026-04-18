@@ -94,12 +94,12 @@ def generate_message(product, is_lightning=False):
     header_extra = ""
     footer_extra = ""
     if is_lightning or (discount and '50%' in discount):
-        header_extra = "🔥 <b>SABSE BADI LOOT DEAL!</b> 🔥\n"
+        header_extra = "🔥 <b>MASSIVE PRICE DROP DEAL!</b> 🔥\n"
         footer_extra = "\n⏳ <i>Price kabhi bhi badh sakta hai! Buy FAST!</i> 🏃‍♂️"
 
     templates = [
         # 1. Hype/Loot Style
-        f"{header_extra}🚨 <b>TODAY'S TOP LOOT DETECTED!</b> 🚨\n\n"
+        f"{header_extra}🚨 <b>HUGE DISCOUNT DETECTED!</b> 🚨\n\n"
         f"🎁 <b>{safe_name}</b>\n\n"
         f"{bachat_str}\n\n"
         f"⚡ <i>Grab it before the deal expires! Highly recommended budget buy.</i>{footer_extra}\n\n"
@@ -136,12 +136,12 @@ def generate_message(product, is_lightning=False):
 # ---------- Viral Share Challenge ----------
 def generate_viral_message():
     tg_link = f"https://t.me/{CLEAN_ID}"
-    share_text = "Bhai%20jaldi%20dekh%2C%20lagta%20hai%20Amazon%20mein%20koi%20Glitch%20aaya%20hai%21%20Sab%20ekdam%20free%20jaisa%20mil%20raha%20hai.%20Link%20band%20hone%20se%20pehle%20join%20karke%20loot%20le%21%20%F0%9F%98%B1%F0%9F%9A%A8"
+    share_text = "Bhai%20jaldi%20dekh%2C%20lagta%20hai%20Amazon%20par%20massive%20sale%20aaya%20hai%21%20Sab%20bohot%20saste%20mein%20mil%20raha%20hai.%20Link%20band%20hone%20se%20pehle%20join%20karke%20loot%20le%21%20%F0%9F%98%B1%F0%9F%9A%A8"
     share_url = f"https://t.me/share/url?url={tg_link}&text={share_text}"
 
     templates = [
-        f"🚨 <b>MEMBERS ONLY SECRET GLITCH!</b> 🚨\n\n"
-        f"Bhaiyo, agla <b>₹1 Loot Deal</b> aane wala hai, lekin ye sirf unhe dikhega jo hamare active supportive members hain! 😍\n\n"
+        f"🚨 <b>MEMBERS ONLY HIDDEN DEALS!</b> 🚨\n\n"
+        f"Bhaiyo, agla <b>Top Discount Deal</b> aane wala hai, lekin ye sirf unhe dikhega jo hamare active supportive members hain! 😍\n\n"
         f"🔥 <b>Challenge:</b> Is link ko apne <b>5 Best Friends</b> ya Shopping Groups mein forward karo!\n\n"
         f"👇 <b>FORWARD & JOIN NOW</b> 👇\n"
         f"🚀 <a href='{share_url}'>Click to Forward to Friends</a>\n\n"
@@ -269,8 +269,8 @@ async def post_deals():
             image_url = product.get('image')
             link = product.get('link', '#')
             
-            # Using extreme Hindi text context designed for viral sharing! "Bhai jaldi dekh, lagta hai Amazon mein koi Glitch aaya hai! Sab ekdam free jaisa mil raha hai. Link band hone se pehle join karke loot le! 😱🚨"
-            share_text = "Bhai%20jaldi%20dekh%2C%20lagta%20hai%20Amazon%20mein%20koi%20Glitch%20aaya%20hai%21%20Sab%20ekdam%20free%20jaisa%20mil%20raha%20hai.%20Link%20band%20hone%20se%20pehle%20join%20karke%20loot%20le%21%20%F0%9F%98%B1%F0%9F%9A%A8"
+            # Using balanced Hindi text context designed for viral sharing!
+            share_text = "Bhai%20jaldi%20dekh%2C%20lagta%20hai%20Amazon%20par%20massive%20sale%20aaya%20hai%21%20Sab%20bohot%20saste%20mein%20mil%20raha%20hai.%20Link%20band%20hone%20se%20pehle%20join%20karke%20loot%20le%21%20%F0%9F%98%B1%F0%9F%9A%A8"
             share_url = f"https://t.me/share/url?url=https://t.me/{CHANNEL_ID.replace('@', '')}&text={share_text}"
             
             reply_markup = InlineKeyboardMarkup([

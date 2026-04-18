@@ -82,9 +82,9 @@ def extract_products_with_ai(html_content, retry_count=0):
     
     CRITICAL RULES:
     1. "mrp": Find the original price before the discount.
-    2. "discount_percent": Calculate or find the percentage of savings (e.g. "60%").
+    2. "discount_percent": Calculate or find the percentage of savings (e.g. "60%"). MUST be between 1% and 99%. Skip items with invalid math.
     3. "image": Find the high-res product image URL.
-    4. "link": Extract the exact raw URL (containing /dp/ or the ASIN). MUST preserve the original domain (.in or .com).
+    4. "link": Extract the exact raw URL (containing /dp/ or the ASIN). MUST format as an amazon.in URL (never amazon.com).
     
     HTML Data:
     {html_content}
@@ -146,14 +146,9 @@ def add_affiliate_tags(products, source_url=""):
     for product in products:
         link = product.get('link', '')
         # Determine the tag based on the source or domain
-        if forced_domain == "amazon.in" or "amazon.in" in link:
-            tag = AFFILIATE_ID_IN
-        elif forced_domain == "amazon.com" or "amazon.com" in link:
-            tag = AFFILIATE_ID_COM
-        else:
-            tag = AFFILIATE_ID_IN
+        tag = AFFILIATE_ID_IN if AFFILIATE_ID_IN else "shashwat022-21"
             
-        product['link'] = clean_amazon_link(link, tag, force_domain=forced_domain)
+        product['link'] = clean_amazon_link(link, tag, force_domain="amazon.in")
     return products
 
 def update_json(new_products):

@@ -41,14 +41,14 @@ PROMO_COUNTER_FILE = "promo_counter.txt"
 
 # Viral Recruitment Ad Message
 PROMO_MESSAGE = f"""
-🛑 **LOOT SYSTEM ERROR: ₹1 DEALS DETECTED!** 🚨
+🛑 **MASSIVE 70-90% OFF DEALS DETECTED!** 🚨
 
-Abhi tak join nahi kiya? Amazon aur Flipkart par **₹1 Loots** aur **Price Glitch** links sirf yahan post ho rahi hain! 😱
+Abhi tak join nahi kiya? Amazon aur Flipkart par **Top Discounted Items** aur **Flash Sales** sirf yahan post ho rahi hain! 😱
 
 🔥 **JOIN FAST (Link valid for 5 mins):** https://t.me/{CHANNEL_ID.replace('@','')}
 🔥 **JOIN FAST:** https://t.me/{CHANNEL_ID.replace('@','')}
 
-跑步🏃‍♂️ *Jaldi karo, link kabhi bhi expire ho sakta hai! Sab loot rahe hain!* ⏳
+🏃‍♂️ *Jaldi karo, deals kabhi bhi expire ho sakti hain! Sab loot rahe hain!* ⏳
 """
 
 def get_last_id():

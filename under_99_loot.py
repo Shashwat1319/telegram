@@ -1,3 +1,5 @@
+import sys, io
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -116,9 +118,11 @@ async def post_to_telegram(product):
 async def main():
     print("--- Searching for Extra Cheap Items (Under ₹99) ---")
     urls = [
-        "https://www.amazon.in/s?k=under+99+rupees+kitchen+items",
-        "https://www.amazon.in/s?k=under+99+gadgets",
-        "https://www.amazon.in/s?k=under+149+rupees+beauty"
+        "https://www.amazon.in/s?k=daily+needs&rh=p_36%3A-9900&s=price-asc-rank",
+        "https://www.amazon.in/s?k=mobile+accessories&rh=p_36%3A-9900&s=price-asc-rank",
+        "https://www.amazon.in/s?k=kitchen+tools&rh=p_36%3A-14900&s=price-asc-rank",
+        "https://www.amazon.in/s?k=stationery&rh=p_36%3A-9900&s=price-asc-rank",
+        "https://www.amazon.in/s?k=beauty+combo&rh=p_36%3A-14900&s=price-asc-rank"
     ]
     
     target_url = random.choice(urls)

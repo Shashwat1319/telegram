@@ -14,15 +14,18 @@ API_ID = os.getenv("API_ID")
 API_HASH = os.getenv("API_HASH")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
 
-# Polite and respectful promo message for family/personal contacts
+# PROMO MESSAGE
+# [NEW] More aggressive but respectful message for high conversion
 PROMO_MESSAGE = f"""
-Hi! 👋 
+Hey! 👋
 
-Agar aapko online shopping karna pasand hai aur aap Amazon/Flipkart par paise bachana chahte hain, toh maine ek naya Telegram channel shuru kiya hai wahan main daily best discounts aur offers share karta hoon. 🎁
+Agar aap Amazon/Flipkart se shopping karte ho, toh ye channel miss mat karna! 🛍️
 
-Aap yahan join kar sakte hain: https://t.me/{CHANNEL_ID.replace('@','')}
+Yahan daily **₹1 Deals**, **Price Glitches** aur **90% OFF Loots** aate hain jo 2-5 min mein expire ho jate hain. 😱🔥
 
-Thank you! 🙏✨
+Join Fast: https://t.me/{CHANNEL_ID.replace('@','')}
+
+Paisa bachao! 🙏✨
 """
 
 ACCOUNTS = [
@@ -32,6 +35,7 @@ ACCOUNTS = [
 ]
 
 HISTORY_FILE = "promo_history.json"
+LEADS_FILE = "scraped_leads.txt"
 
 def load_history():
     if os.path.exists(HISTORY_FILE):
@@ -77,40 +81,60 @@ async def main():
     history = load_history()
     now = datetime.now()
     
+    # [NEW] Prioritize scraped leads, then fallback to contacts
+    all_contacts = []
+    
+    # Load Scraped Leads
+    if os.path.exists(LEADS_FILE):
+        with open(LEADS_FILE, "r") as f:
+            scraped = [line.strip() for line in f if line.strip()]
+            all_contacts.extend(scraped)
+            print(f"[*] Loaded {len(scraped)} scraped leads.")
+
+    # Load Account Contacts (optional fallback)
     for account in ACCOUNTS:
         session = account["session"]
         filename = f"contacts_{session}.txt"
+        if os.path.exists(filename):
+            with open(filename, "r") as f:
+                ac_contacts = [line.strip() for line in f if line.strip()]
+                all_contacts.extend(ac_contacts)
+    
+    # Remove duplicates but keep order
+    seen = set()
+    all_contacts = [x for x in all_contacts if not (x in seen or seen.add(x))]
+
+    if not all_contacts:
+        print("[!] No leads found in scraped_leads.txt or contact files.")
+        return
+
+    # Round-robin accounts to spread the load
+    for i, contact in enumerate(all_contacts):
+        # Check weekly limit
+        last_sent = history.get(contact)
+        if last_sent:
+            last_sent_dt = datetime.fromisoformat(last_sent)
+            if now - last_sent_dt < timedelta(days=7):
+                continue
+
+        # Select account
+        acc_idx = i % len(ACCOUNTS)
+        session = ACCOUNTS[acc_idx]["session"]
         
-        if not os.path.exists(filename):
-            print(f"Skipping {session}: {filename} not found.")
-            continue
-            
-        with open(filename, "r") as f:
-            contacts = [line.strip() for line in f if line.strip()]
-            
         client = get_client(session)
-        await client.connect()
-        
         try:
-            for contact in contacts:
-                # Check weekly limit
-                last_sent = history.get(contact)
-                if last_sent:
-                    last_sent_dt = datetime.fromisoformat(last_sent)
-                    if now - last_sent_dt < timedelta(days=7):
-                        continue
+            await client.connect()
+            success = await send_promo(client, session, contact)
+            if success:
+                history[contact] = datetime.now().isoformat() # [FIX] Use real time for each send
+                save_history(history)
                 
-                # Send Promo using the open client
-                success = await send_promo(client, session, contact)
-                if success:
-                    history[contact] = now.isoformat()
-                    save_history(history)
-                    # Strict delay to avoid bans (30-60s)
-                    wait_time = random.randint(45, 90)
-                    print(f"Waiting {wait_time}s to avoid spam flag...")
-                    await asyncio.sleep(wait_time)
-                else:
-                    await asyncio.sleep(10) # Small wait if failed to not hammer the API
+                # Strict delay to avoid bans (60-120s)
+                wait_time = random.randint(60, 120)
+                print(f"Waiting {wait_time}s to avoid spam flag...")
+                await asyncio.sleep(wait_time)
+            else:
+                await asyncio.sleep(10)
         finally:
             await client.disconnect()
 

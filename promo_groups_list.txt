@@ -30,3 +30,12 @@
 @Loot_Offers_Chat
 @Online_Loot_Discussion
 @Loot_Alert_Chat
+
+# --- EXPANDED GROUPS ---
+@cashbackoffersdiscussion
+@deals_groups
+@indian_chatting_grup
+@lootandtricks3
+@GhLoot_Offers_Discussion
+@offerswallchat
+@allrechargebill
