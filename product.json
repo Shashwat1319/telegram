@@ -1,6 +1,78 @@
 {
     "products": [
         {
+            "name": "boAt Airdopes 141 Bluetooth Earbuds",
+            "price": "₹999.00",
+            "mrp": "₹2,990.00",
+            "discount_percent": "66%",
+            "link": "https://www.amazon.in/dp/B0BNX23F7C?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61P2Q66qW-L._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "boAt Airdopes 161 True Wireless Earbuds",
+            "price": "₹999.00",
+            "mrp": "₹2,990.00",
+            "discount_percent": "66%",
+            "link": "https://www.amazon.in/dp/B0BNX3R4G1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51H6KYG7s6L._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "GIZMO Smartwatch for Kids | First Smartwatch for Kids | Activity Tracker with Games, Camera, Alarm & Step Counter | Girls & Boys Smart Watch | Age 5+ | Blue",
+            "price": "₹399.00",
+            "mrp": "₹1,999.00",
+            "discount_percent": "80%",
+            "link": "https://www.amazon.in/dp/B0CN4C222Y?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61R9e8-3EGL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "VGR Hair Trimmer V-077",
+            "price": "₹799.00",
+            "mrp": "₹1,999.00",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B0CGY71DDF?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/617oE5Xp+wL._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "NXTGEN/Kids Smartwatch for Boys and Girls, Activity Tracker with Heart Rate Monitor, Sleep Tracker, Pedometer, Waterproof Smart Watch for Children with 3 Watch Faces (Blue)",
+            "price": "₹369.00",
+            "mrp": "₹1,999.00",
+            "discount_percent": "81%",
+            "link": "https://www.amazon.in/dp/B0CNS59WKY?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61LpXk3s+9L._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Smart And Handsome Face Wash, Instant Brightening, Instant Freshness, 150g",
+            "price": 151.0,
+            "mrp": 240.0,
+            "discount_percent": "37.08%",
+            "link": "https://www.amazon.in/dp/B0B4GYZ4FR?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61kF5W9lV8L._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Garnier Skin Naturals Bright Complete Vitamin C Serum UV Cream, Vitamin C Day Cream for Sun Protection and Skin Brightening - Suitable For all Skin Types, 45g",
+            "price": 160.0,
+            "mrp": 349.0,
+            "discount_percent": "54.15%",
+            "link": "https://www.amazon.in/dp/B07DL94CPX?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71nUe95xR1L._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Foxtale Glow Sunscreen SPF 50 PA++++ with Vitamin C & Niacinamide, In-Vivo Tested, Sensitive-Skin Friendly, Made with 100% New-Gen Filters, Lightweight, Non-Greasy, No White Cast |For Men & Women 50ml",
+            "price": 213.0,
+            "mrp": 994.0,
+            "discount_percent": "78.57%",
+            "link": "https://www.amazon.in/dp/B0C3CP6B5Y?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51eQkrfr5SL._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
             "name": "One94Store Portable Bladeless Hanging Neck Fan – 12 Air Outlets, 2400mAh Rechargeable Battery, USB Powered, 5-Speed Hands-Free Cooling Fan, Up to 6 Hours Use for Indoor&Outdoor (White)",
             "price": "₹549.00",
             "mrp": "₹549.00",
@@ -798,13 +870,6 @@
             "price": "₹275.00 - ₹699.00",
             "link": "https://www.amazon.in/dp/B0G9RNHK61?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/61KcdB-bM+L._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "THE HOME STYLE Super Soft Glace Cotton King Size Printed Pillow Covers ll Pillow Cases ll Set of 2 Piece- 18\"x 28\" Inches (Abstract Mist)",
-            "price": "₹349.00 - ₹1,999.00",
-            "link": "https://www.amazon.in/dp/B0DGCKPC97?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/716RKRytcYL._AC_UL300_SR300,200_.jpg",
             "category": "Kitchen"
         }
     ]
