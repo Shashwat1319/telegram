@@ -1,6 +1,87 @@
 {
     "products": [
         {
+            "name": "One94Store Portable Bladeless Neck Fan – Modern Design, 12 Air Outlets, 2400mAh Rechargeable Battery, USB Powered, 5-Speed Hands-Free Cooling Fan, Up to 6 Hours Use for Indoor&Outdoor (Blue)",
+            "price": "₹299.00",
+            "mrp": null,
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B0GQV953S4?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/712KedRQnvL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Bosch 500 Series 24\" Built-In Dishwasher",
+            "price": "₹54,990",
+            "mrp": "₹86,990",
+            "discount_percent": "36%",
+            "link": "https://www.amazon.in/dp/B071K53G6B?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61-8b6qF0IL._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Prestige PPAN-01 1.7 Litre Electric Kettle",
+            "price": "₹1,299",
+            "mrp": "₹2,075",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B081939DZH?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61eD13u05mL._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Havells Instano 3-Litre Instant Water Heater (Geyser)",
+            "price": "₹4,499",
+            "mrp": "₹7,340",
+            "discount_percent": "38%",
+            "link": "https://www.amazon.in/dp/B07V32179X?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71q7fS+tGBL._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Eureka Forbes Aquasure Compact UV Water Purifier",
+            "price": "₹4,599",
+            "mrp": "₹7,600",
+            "discount_percent": "39%",
+            "link": "https://www.amazon.in/dp/B07Q46Q8C5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Y4eD7u-NL._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Crompton Greaves Consumer Electricals IWL-12L 12-Litre Instant Water Heater (Geyser) (White)",
+            "price": "₹6,099",
+            "mrp": "₹10,500",
+            "discount_percent": "42%",
+            "link": "https://www.amazon.in/dp/B07F3KL6Y5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61-8b6qF0IL._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "TEX-RO Metal Clothes Drying Stand Foldable with Wheels – 3-Tier Cloth Dryer Stand for Balcony, Bedroom & Indoor Outdoor | Heavy Duty Hanger Stand for Clothes Hanging, Dress Drying Rack - Grey",
+            "price": "₹499.00",
+            "mrp": "₹1,099.00",
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B0GQQHX25W?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81xGIaEgHqL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Nutripro Juicer Mixer Grinder Smoothie Maker - 500 Watts (2 Jars & 1 Blade, Gold) - 2 Year Warranty",
+            "price": "₹1,599.00",
+            "mrp": "₹1,799.00",
+            "discount_percent": "66%",
+            "link": "https://www.amazon.in/dp/B0BM4H3FD4?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71GcH0+JU8L._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "eumqestoer Portable Air Cooler Fan with Water Tank & USB Power - Mini Personal Evaporative Cooler with 3 Speeds, Mist Humidifier, LED Light, Quiet Cooling for Home, Office, Bedroom (MultiColor)",
+            "price": "₹499.00",
+            "mrp": null,
+            "discount_percent": "68%",
+            "link": "https://www.amazon.in/dp/B0GTVTF5QL?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61wiXQ7cTiL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
             "name": "boAt Airdopes 141 Bluetooth Earbuds",
             "price": "₹999.00",
             "mrp": "₹2,990.00",
@@ -808,69 +889,6 @@
             "link": "https://www.amazon.in/dp/B0D543RPNJ?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/61l+LyLYl1L._AC_UL300_SR300,200_.jpg",
             "category": "Ladies Fashion"
-        },
-        {
-            "name": "DOCTOR EXTRA SOFT Memory Foam Mens Running Shoe | Sports,Gym,Training,Walking,Jogging,Casual | Lightweight & Comfortable | Loafer Sneakers Lace-Up Athletics Moccasins Slipon for Gent's & Boy's D-2002",
-            "price": "₹1,298.99 - ₹1,399.00",
-            "link": "https://www.amazon.in/dp/B0CM29TZYM?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71iEnP2l3SL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Kawn® Crochet Wrist Handbag for Women Wristlet Sleeve Knot Pouch Portable knitted breathable lightweight foldable Casual Small Purse Cute Tote Bag For Shopping, Dating, Travel",
-            "price": "₹298.98 - ₹498.99",
-            "link": "https://www.amazon.in/dp/B0D6N52HPV?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/7166tH5y8EL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "YONEX Unisex V100-i Badminton Shoes | Made in India | Ideal for Badminton,Squash,Table Tennis,Volleyball | Non-Marking Sole | TRU Cushion | Ergo Shape | Hexagrip |",
-            "price": "₹1,682.00 - ₹1,699.00",
-            "link": "https://www.amazon.in/dp/B0DK1FR1CX?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81AHJveb0gL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Neeman's Eco Classic Slippers for Men | Lightweight & Comfortable Flip Flops | Anti-Skid Rubber Sole | Soft Daily Slippers for Men | Durable, Flexible & Stylish Casual Wear",
-            "price": "₹440.00 - ₹497.14",
-            "link": "https://www.amazon.in/dp/B0BT1YQF9G?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51Q+kAMBOtL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Bata Men's Slip-on Fisherman Sandal",
-            "price": "₹690.00 - ₹750.00",
-            "link": "https://www.amazon.in/dp/B08VJGP5KR?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51+qa412sgL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "V-Guard Spinny Pro 180 mm Table & Wall Fan | 2100 RPM High Speed Motor | 353 CFM Air Delivery | 3 Speed Settings | Compact and Powerful | Durable ABS Build | 2- Year Warranty | Orange Black",
-            "price": "₹2,250.00",
-            "link": "https://www.amazon.in/dp/B0DFCGMSTH?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71rZcsZzbuL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Hitachi 1.5 Ton 3 Star, New Star rated, Inverter Split AC(Copper, Smart View Display, 4 Way Swing,RAS.D318PCD2BS1, White)",
-            "price": "₹32,999.00 - ₹45,999.00",
-            "link": "https://www.amazon.in/dp/B0GP71KXP5?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/618fIU0coHL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Whitecloud TRANSFORMING HOMES® 4+4 Layer Collapsible Wardrobe for Clothes with 6 Shelves, 2 Side Pocket (Non Woven Febric and Metal Rod, 76x38x145cm)(Blue,7700-2)",
-            "price": "₹999.00",
-            "link": "https://www.amazon.in/dp/B09GPFZXGT?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71X3S6qg94L._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "TEKCOOL Mini Cooler for Room C (Green)",
-            "price": "₹275.00 - ₹699.00",
-            "link": "https://www.amazon.in/dp/B0G9RNHK61?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61KcdB-bM+L._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
         }
     ]
 }
