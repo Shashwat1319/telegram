@@ -1,6 +1,141 @@
 {
     "products": [
         {
+            "name": "Dettol Cologne Fresh Bathing Soap Bar with 12hr Freshness and Germ Protection, 100g Pack of 4, (400gm)",
+            "price": "128.00",
+            "mrp": null,
+            "discount_percent": "247%",
+            "link": "https://www.amazon.in/dp/B0CQM3WGNV?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61jXVC7IU0L._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Emami 7 Oils in One Hair Oil | Makes Hair 20x Stronger and Manageable | Coconut Oil, Amla, Jojoba, Olive, Walnut, Argan & Almond Oils | 500ml",
+            "price": "167.00",
+            "mrp": null,
+            "discount_percent": "351%",
+            "link": "https://www.amazon.in/dp/B082CXT58C?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51iqcsi992L._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Dettol Icy Cool Bathing Soap Bar With 2x Menthol (300gm), 75gm - Pack of 4",
+            "price": "149.00",
+            "mrp": null,
+            "discount_percent": "414%",
+            "link": "https://www.amazon.in/dp/B0869VX72V?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61MvUQp2hRL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Hair & Care with Almond, Non-Sticky Hair Oil, 500ml",
+            "price": "99.00",
+            "mrp": null,
+            "discount_percent": "529%",
+            "link": "https://www.amazon.in/dp/B07S2SKYTH?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61emLBPQHRL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Fiama Body Wash Shower Gel Blackcurrant & Bearberry, 895 ml Family Pack, Body Wash for Women & Men with Skin Conditioners for Radiant Glow, Suitable for All Skin Types",
+            "price": "249.00",
+            "mrp": null,
+            "discount_percent": "830%",
+            "link": "https://www.amazon.in/dp/B098LR2L3K?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61YZ1vqmglL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "OnePlus Nord CE 3 Lite 5G",
+            "price": "₹19,999",
+            "mrp": "₹24,999",
+            "discount_percent": "20%",
+            "link": "https://www.amazon.in/dp/B0C38G2Y1C?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Q2n+u+04L._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Samsung Galaxy M14 5G",
+            "price": "₹12,990",
+            "mrp": "₹17,990",
+            "discount_percent": "28%",
+            "link": "https://www.amazon.in/dp/B0C32T5T3J?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71y9hLd-k3L._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "realme Narzo 70 Pro 5G",
+            "price": "₹23,999",
+            "mrp": "₹30,999",
+            "discount_percent": "23%",
+            "link": "https://www.amazon.in/dp/B0CQY35H3Q?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71p53y3b4pL._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Redmi 13C 5G",
+            "price": "₹9,999",
+            "mrp": "₹14,999",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0CT3Q4YDG?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/715l2Pq2C3L._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Redmi 12 5G",
+            "price": "₹11,999",
+            "mrp": "₹17,999",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0CLT4Z1X5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71fG-k1kCqL._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Gesto Portable Neck Fan Rechargeable – Hands-Free Neck Fan for Summer With 1500 mAh Battery & Display | 5-Speed 360° Airflow, USB Charging Personal Fan for Home, Kitchen, Gym, Travel, Running -Black",
+            "price": "₹725.00",
+            "mrp": null,
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B0GNGV8GRD?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/41IgIkhDYrL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Kratos 25W Charger Adapter Compatible with Samsung Galaxy S/A/M/F/Z Series S25/S24/S23/S22/S21/21 fe/S20/M14 5G/M34/M54/M53 5g/M33/M13/A34/A54 5G,F15,BIS Certified,1 Year Warranty,White",
+            "price": "₹397.00",
+            "mrp": null,
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B0FH2N3PFX?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51BcZ-rjT3L._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Whirlpool 1.5 Ton 3 Star, Magicool Inverter Split AC (MAGICOOL 15T 3S INV CNV S5K2PP0, Copper, Convertible 4-in-1 Cooling Mode, HD Filter White)",
+            "price": "₹29,240.00",
+            "mrp": null,
+            "discount_percent": "87%",
+            "link": "https://www.amazon.in/dp/B0DSJ9FQLD?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51FQb13OzAL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Prestige IRIS ECO 1200 W Induction Cooktop with automatic voltage regulator |Indian Menu option|Power Saver|Timer with User Pre-Set|1 year warranty|Black",
+            "price": "₹2,350.00",
+            "mrp": null,
+            "discount_percent": "128%",
+            "link": "https://www.amazon.in/dp/B0C4DMRHYG?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Vu80YcolL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "TEKCOOL cooler fan",
+            "price": "₹249.00",
+            "mrp": null,
+            "discount_percent": "246%",
+            "link": "https://www.amazon.in/dp/B0G9RNHK61?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61KcdB-bM+L._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
             "name": "One94Store Rechargeable Neck Fan (Green) | 1200mAh Battery, USB Powered Hands-Free Hanging Fan | Single Speed Dual Fan | Portable Personal Cooling Fan for Travel, Office & Outdoor Use",
             "price": "₹299.00",
             "mrp": null,
