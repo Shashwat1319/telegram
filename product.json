@@ -1,6 +1,15 @@
 {
     "products": [
         {
+            "name": "One94Store Portable Bladeless Hanging Neck Fan – 12 Air Outlets, 2400mAh Rechargeable Battery, USB Powered, 5-Speed Hands-Free Cooling Fan, Up to 6 Hours Use for Indoor&Outdoor (White)",
+            "price": "₹549.00",
+            "mrp": "₹549.00",
+            "discount_percent": "85%",
+            "link": "https://www.amazon.in/dp/B0GQV394JQ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71Yfvi9GqBL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
             "name": "Kratos 25W Charger Adapter Compatible with Samsung Galaxy S/A/M/F/Z Series S25/S24/S23/S22/S21/21 fe/S20/M14 5G/M34/M54/M53 5g/M33/M13/A34/A54 5G,F15, BIS Certified,1 Year Warranty,White",
             "price": "₹397.00",
             "mrp": null,
