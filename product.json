@@ -1,6 +1,69 @@
 {
     "products": [
         {
+            "name": "Maybelline New York Kajal, Black, Matte Finish",
+            "price": "₹135.00",
+            "mrp": "₹999.00",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B06WGZP21B?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61b2tDBxhlL._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "RR Signature Vento Fresh Luxura 150 mm Exhaust Fan For Kitchen, Bathroom | Silent, Compact Design, Easy Install | Thermal Fuse | High Speed 100% Powerful Copper Motor | 2 Year Warranty [Rose Gold]",
+            "price": "₹569.00",
+            "mrp": "₹949.00",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0DK9WVY8C?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61WSzpQs-ZL._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Sony WI-C310 Wireless in-Ear Headphones (Black)",
+            "price": "₹2,499",
+            "mrp": "₹4,000",
+            "discount_percent": "38%",
+            "link": "https://www.amazon.in/dp/B07N141K4B?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71sYp4h1bJL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Sony WH-CH400 Wireless Bluetooth Headphones (Blue)",
+            "price": "₹3,499",
+            "mrp": "₹5,990",
+            "discount_percent": "42%",
+            "link": "https://www.amazon.in/dp/B07BP7T1S8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61o764K475L._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Sennheiser HD 4.50 BTNC Wireless Over-Ear Headphones with Active Noise Cancellation",
+            "price": "₹7,990",
+            "mrp": "₹14,990",
+            "discount_percent": "47%",
+            "link": "https://www.amazon.in/dp/B01NH02J6G?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/711-V6X12CL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Samsung 21 Ltr Microwave Oven (Black, FG87SUB)",
+            "price": "₹8,499",
+            "mrp": "₹14,500",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B081F7189K?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71P28i868CL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Samsung 28 Ltr Convection Microwave Oven (Black, CE1041SF-DB)",
+            "price": "₹9,099",
+            "mrp": "₹17,500",
+            "discount_percent": "48%",
+            "link": "https://www.amazon.in/dp/B07GRLY46D?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/81F+716P3wL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "Dettol Body Wash and Shower Gel for Women and Men, Lime Fresh - 500ml | Soap-Free Bodywash | 12h Odour Protection",
             "price": "₹150.00",
             "mrp": "₹150.00",
@@ -836,69 +899,6 @@
             "link": "https://www.amazon.in/dp/B01D2Z8W70?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/71fA5t8x1NL._SX679_.jpg",
             "category": "Loot"
-        },
-        {
-            "name": "Redmi 10A Sport (Glacier Blue, 6GB RAM, 128GB Storage)",
-            "price": "₹11,499",
-            "mrp": "₹15,999",
-            "discount_percent": "28%",
-            "link": "https://www.amazon.in/dp/B0BXQ5T5D5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71Qj2s6Yj9L._SX679_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "HP Deskjet 2332 All-in-One Ink Tank Printer",
-            "price": "₹7,499",
-            "mrp": "₹9,982",
-            "discount_percent": "25%",
-            "link": "https://www.amazon.in/dp/B08747P61B?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/614zW5j3P9L._SX679_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "boAt Xtend Smartwatch with Alexa Built-in",
-            "price": "₹2,999",
-            "mrp": "₹7,990",
-            "discount_percent": "62%",
-            "link": "https://www.amazon.in/dp/B0991Y4GFW?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71+zE9u5x5L._SX679_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "boAt Bassheads 100 in-Ear Wired Earphones with Mic",
-            "price": "₹379",
-            "mrp": "₹1,099",
-            "discount_percent": "65%",
-            "link": "https://www.amazon.in/dp/B073BMT1Q6?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61lQdD+hJtL._SX679_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "atomberg Renesa 400mm Pedestal Fan | 5-star rated | Ideal for Home & Office | Silent BLDC Stand Fan | 6 Speeds | 35W | Remote with Oscillation, Timer, Sleep | 2 Years Warranty (Midnight Black)",
-            "price": "₹3,499.00",
-            "mrp": null,
-            "discount_percent": "88%",
-            "link": "https://www.amazon.in/dp/B09T757FCS?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/710CFw58+gL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Blue Star 1.5 Ton 3 Star, Wi-Fi Smart Inverter Split AC (Copper, 5 in 1 Convertible Cooling, 4-Way Swing, Turbo Cool, Voice Command, IC318YNUS, White)",
-            "price": "₹36,490.00",
-            "mrp": null,
-            "discount_percent": "90%",
-            "link": "https://www.amazon.in/dp/B0BZNXBFNK?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51qw5c+kH4L._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Prestige PIC 20 1600 Watts Induction Cooktop | 4KV Surge Protection | 8 Preset Indian Menu Options & Timer | Soft Touch Button | Easy to Clean | Portable | Black | 1Y Warranty | BIS",
-            "price": "₹1,799.00",
-            "mrp": null,
-            "discount_percent": "433%",
-            "link": "https://www.amazon.in/dp/B00YMJ0OI8?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71+18JpxhOL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
         }
     ]
 }
