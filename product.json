@@ -1,6 +1,114 @@
 {
     "products": [
         {
+            "name": "pTron ProTune Buds",
+            "price": "₹699.00",
+            "mrp": "₹2,999.00",
+            "discount_percent": "77%",
+            "link": "https://www.amazon.in/dp/B08P7F1D5C?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61cTf1t06AL._SY355_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "AmazonBasics High-Speed HDMI Cable",
+            "price": "₹359.00",
+            "mrp": "₹499.00",
+            "discount_percent": "28%",
+            "link": "https://www.amazon.in/dp/B0771D7V2L?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/719W6V78YGL._SY355_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Mi Portable Mini Bluetooth Speaker",
+            "price": "₹1,099.00",
+            "mrp": "₹1,499.00",
+            "discount_percent": "27%",
+            "link": "https://www.amazon.in/dp/B07YWRXQ63?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/614M44f+2DL._SY355_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Logitech M221 Wireless Mouse",
+            "price": "₹749.00",
+            "mrp": "₹995.00",
+            "discount_percent": "25%",
+            "link": "https://www.amazon.in/dp/B01L727YAI?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61P25hG2N1L._SY355_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Samsung 32GB Class 10 Micro SD Card",
+            "price": "₹429.00",
+            "mrp": "₹799.00",
+            "discount_percent": "46%",
+            "link": "https://www.amazon.in/dp/B08GVP3L47?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71tq6kL8yAL._SY355_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Lloyd 1.5 Ton 3 Star Inverter Split AC, 2026 New Star Rated (6 in 1 Convertible, Cools Up To 54°C, Turbo Cool, Installation Check, Clean Filter Indication, 100% Copper, White, GLS18I3AGGSC)",
+            "price": 31990.0,
+            "mrp": 36000.0,
+            "discount_percent": 11.14,
+            "link": "https://www.amazon.in/dp/B0GJDVGS6P?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/41I-fAu+ObL._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Crasts USB Plasma Rechargeable Electric Gas Lighter for Pooja Room, Candles, BBQ, Multi Purpose - 360 Degree Flexible & Windproof (Multicolor)",
+            "price": 165.0,
+            "mrp": 799.0,
+            "discount_percent": 79.35,
+            "link": "https://www.amazon.in/dp/B0GSFX7WHG?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71aAFrtIaKL._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Motorola Edge 60 Fusion 5G Smartphone with 6.67\" 120Hz pOLED Display, 50MP OIS Camera, Android 14, Dimensity 7030 Processor, 68W Fast Charging (Pantone Amazonite, 8GB + 256GB Storage)",
+            "price": "₹24,999.00",
+            "mrp": null,
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B0F46SJ5SB?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61NsPikkMBL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Gesto Portable Neck Fan Rechargeable – Hands-Free Neck Fan for Summer With 1500 mAh Battery & Display | 5-Speed 360° Airflow, USB Charging Personal Fan for Home, Kitchen, Gym, Travel, Running -Pink",
+            "price": "₹725.00",
+            "mrp": null,
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B0GNHKGZ3F?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/419guoTTLDL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Fujifilm Instax Mini 12 Gift Box with 10 Shots- Blue",
+            "price": "₹7,996.00",
+            "mrp": "₹7,999.00",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B0C9CG57MT?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61OEp1weckL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Ant Esports AEH0105 HDMI Cable 4K High-Speed HDMI Cord 18Gbps with Ethernet Support 4K 60Hz Compatible with Windows,Apple,UHD TV, Monitor, Computer,Xbox 360,PS5 PS4, Blu-ray, and More -1.5 Meter-Black",
+            "price": "₹99.00",
+            "mrp": null,
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B0CDPJ565Q?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61RXoNct7EL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Fire-Boltt Ninja Phantom Smart Watch 1.83” Display, Transparent Clear Body Design, Bluetooth Calling, 120+ Sports Modes, Voice Assistant, AI Outfit Watch Face Smartwatch for Men & Women Black Smoke",
+            "price": "₹999.00",
+            "mrp": null,
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B0GGHXCQSR?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71EN6U4QjtL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
             "name": "TEKCOOL Mini Cooler for Room Cooling AC Portable Mini Fan Artic Cooler with 7 Colors LED Light, 1/2/3 H Timer, 3 Wind Speeds and 3 Spray Modes for Office,Home,Dorm,Travel?",
             "price": "₹699.00",
             "mrp": null,
@@ -790,114 +898,6 @@
             "discount_percent": "50%",
             "link": "https://www.amazon.in/dp/B06WRQQXF5?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/51AdymQPj5L._AC_UL900_SR900,600_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "Aroma Magic 7 step Bridal Glow Facial Kit| Enhance Natural glow + Dazzling radiance & Revitalises | with Turmeric & Rose Extracts| All Skin type| Single Use| Pack of 1 (20g + 18ml)",
-            "price": "₹144.00",
-            "mrp": "₹419.04",
-            "discount_percent": "66%",
-            "link": "https://www.amazon.in/dp/B08FCSBJPS?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51JYXsFmuDL._AC_UL900_SR900,600_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "Noise Sense Bluetooth Calling Smart Watch",
-            "price": "₹2,999",
-            "mrp": "₹5,999",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0BN93YKL5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/717aM43M9wL._SX466_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "HP DeskJet Ink Advantage 2778 All-in-One Printer",
-            "price": "₹7,999",
-            "mrp": "₹9,999",
-            "discount_percent": "20%",
-            "link": "https://www.amazon.in/dp/B0899L2Z61?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71kC4c3rWBL._SX466_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Echo Dot (5th Gen, 2023 release) Smart speaker with Alexa",
-            "price": "₹5,499",
-            "mrp": "₹7,499",
-            "discount_percent": "27%",
-            "link": "https://www.amazon.in/dp/B09BZR34X8?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/611z54I0WKL._SY300_SX300_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Amazon Basics Fast Charging USB-C to Lightning Cable, MFi Certified",
-            "price": "₹499",
-            "mrp": "₹1,199",
-            "discount_percent": "58%",
-            "link": "https://www.amazon.in/dp/B0B9S1C93G?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61dK2Fv6TFL._SX466_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Redmi Buds 5 Pro in-Ear Earphones with Active Noise Cancellation",
-            "price": "₹3,299",
-            "mrp": "₹7,999",
-            "discount_percent": "59%",
-            "link": "https://www.amazon.in/dp/B0CN5K631D?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/613R7hF8+CL._SY300_SX300_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "APFEN USB Type- A to Lightning Cable [MFi Certified] Fast Charging & Data Sync Cable Compatible With iPhone 14,13, 12,11,X, 8, 7, 6, 5, iPad Air, Pro, ProMax, Mini",
-            "price": "₹271.00",
-            "mrp": "₹699.00",
-            "discount_percent": "61%",
-            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/41bDXvBxnzL._AC_UL900_SR900,600_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Kratos 28 Inch Selfie Stick Tripod Stand with Light, 3-in-1 Multifunctional Design, Rechargeable LED Light with Two Brightness Levels with Bluetooth Remote for Makeup, Selfie & Photoshoot",
-            "price": "₹178.00",
-            "mrp": "₹2,899.00",
-            "discount_percent": "94%",
-            "link": "https://www.amazon.in/dp/B0FVG14W46?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71C7AH5ebiL._AC_UL900_SR900,600_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Smartby Universal Remote Control EN2A27 for Hisense 4K ULED HD UHD Android Smart TVs",
-            "price": "₹199.00",
-            "mrp": "₹2,999.00",
-            "discount_percent": "93%",
-            "link": "https://www.amazon.in/dp/B01N0CH8LV?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/510FML0uDaL._AC_UL900_SR900,600_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Kratos 41 Inch Magnetic Tripod Stand for iPhone, Aluminum Tripod with Strong Magnetic Holder for MagSafe Design Mobile Phones, 360° Rotation, BT Remote for Selfies, Vlogging & Travel",
-            "price": "₹599.00",
-            "mrp": "₹2,997.00",
-            "discount_percent": "80%",
-            "link": "https://www.amazon.in/dp/B0G1MWVQFR?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61FNxPXIIAL._AC_UL900_SR900,600_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Qubo 3-Channel Dashcam Trio by Hero Group (Front+Rear+Cabin Camera) [New Launch] | 2K QHD | Built-in Wi-Fi & GPS | Wide FOV | IR Night Vision | App Control | Supports up to 1TB SD Card",
-            "price": "₹2,790.00",
-            "mrp": "₹13,990.00",
-            "discount_percent": "80%",
-            "link": "https://www.amazon.in/dp/B0FPQNPX6R?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61IeOOgiMrL._AC_UL900_SR900,600_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Foxtale Eternal Light 10% Vit C – Gluta Advanced Brightening Serum",
-            "price": "₹199.00",
-            "mrp": "₹1,698.00",
-            "discount_percent": "88%",
-            "link": "https://www.amazon.in/dp/B0GS1WRMRR?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/517jygUEM2L._AC_UL900_SR900,600_.jpg",
             "category": "Beauty"
         }
     ]
