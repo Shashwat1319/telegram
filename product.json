@@ -1,6 +1,69 @@
 {
     "products": [
         {
+            "name": "Parachute Coconut Oil 600 ml - Bottle",
+            "price": "₹242.00",
+            "mrp": "N/A",
+            "discount_percent": "N/A",
+            "link": "https://www.amazon.in/dp/B07BDNGTYC?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61fapIFwFmL._AC_UL300_SR300,200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "RR Signature Vento Fresh Luxura 150 mm Exhaust Fan For Kitchen, Bathroom | Silent, Compact Design, Easy Install | Thermal Fuse | High Speed 100% Powerful Copper Motor | 2 Year Warranty [Steel Finish]",
+            "price": "₹949.00",
+            "mrp": null,
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0DK9XXKJC?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81y5Xtk6pSL._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Men's Fashion Sneakers",
+            "price": "₹599",
+            "mrp": "₹1,999",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B0C3SJWJHG?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71QYvFz7uEL._SY466_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Men's Training Shoes",
+            "price": "₹699",
+            "mrp": "₹2,299",
+            "discount_percent": "69%",
+            "link": "https://www.amazon.in/dp/B0C3SGSG3X?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/81t8q2J15EL._SY466_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Men's Running Shoes",
+            "price": "₹649",
+            "mrp": "₹2,099",
+            "discount_percent": "69%",
+            "link": "https://www.amazon.in/dp/B0C3SGWJ7D?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/81-W2aQjVQL._SY466_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Men's Walking Shoes",
+            "price": "₹699",
+            "mrp": "₹2,299",
+            "discount_percent": "69%",
+            "link": "https://www.amazon.in/dp/B0C9Q65B74?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/81oJ98mEwXL._SY466_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Men's Casual Shoes",
+            "price": "₹599",
+            "mrp": "₹1,999",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B0B29J5QXV?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/711bA5c6fFL._SY466_.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "Maybelline New York Kajal, Black, Matte Finish",
             "price": "₹135.00",
             "mrp": "₹999.00",
@@ -836,69 +899,6 @@
             "link": "https://www.amazon.in/dp/B0DSJ9FQLD?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/51FQb13OzAL._AC_UL300_SR300,200_.jpg",
             "category": "Kitchen"
-        },
-        {
-            "name": "Prestige IRIS ECO 1200 W Induction Cooktop with automatic voltage regulator |Indian Menu option|Power Saver|Timer with User Pre-Set|1 year warranty|Black",
-            "price": "₹2,350.00",
-            "mrp": null,
-            "discount_percent": "128%",
-            "link": "https://www.amazon.in/dp/B0C4DMRHYG?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Vu80YcolL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "TEKCOOL cooler fan",
-            "price": "₹249.00",
-            "mrp": null,
-            "discount_percent": "246%",
-            "link": "https://www.amazon.in/dp/B0G9RNHK61?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61KcdB-bM+L._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "One94Store Rechargeable Neck Fan (Green) | 1200mAh Battery, USB Powered Hands-Free Hanging Fan | Single Speed Dual Fan | Portable Personal Cooling Fan for Travel, Office & Outdoor Use",
-            "price": "₹299.00",
-            "mrp": null,
-            "discount_percent": null,
-            "link": "https://www.amazon.in/dp/B0GHDS5SPJ?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71bSle7RFEL._AC_UL300_SR300,200_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "WEIRD WOLF Study Lamp with 3 Colour Modes & Adjustable Brightness Levels | Table Lamp for Study Room with Gooseneck, Pen & Mobile Holder | Rechargeable 1200mAh Battery | 6 Month Warranty",
-            "price": "₹399.00",
-            "mrp": null,
-            "discount_percent": null,
-            "link": "https://www.amazon.in/dp/B0B919D52V?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71Q8NnTjDNL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Daikin 1.5 Ton 3 Star, New Star rated, Inverter Split AC (Copper, PM2.5 Filter, MTKL50XV16, White)",
-            "price": "₹36,490.00",
-            "mrp": null,
-            "discount_percent": "73%",
-            "link": "https://www.amazon.in/dp/B0GRV2DWP3?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61aNUgUz6EL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Nycil Germ Expert Cool Herbal Prickly Heat and Cooling Powder - 400 g | Get Relief from Skin Problems",
-            "price": "₹182.00",
-            "mrp": null,
-            "discount_percent": "38%",
-            "link": "https://www.amazon.in/dp/B07BDMPGRT?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61wr1m7NSQL._AC_UL300_SR300,200_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "Logitech M171 Wireless Mouse",
-            "price": "₹469",
-            "mrp": "₹795",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B01D2Z8W70?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71fA5t8x1NL._SX679_.jpg",
-            "category": "Loot"
         }
     ]
 }
