@@ -1,6 +1,105 @@
 {
     "products": [
         {
+            "name": "TEKCOOL Mini Cooler for Room Cooling AC Portable Mini Fan Artic Cooler with 7 Colors LED Light, 1/2/3 H Timer, 3 Wind Speeds and 3 Spray Modes for Office,Home,Dorm,Travel?",
+            "price": "₹699.00",
+            "mrp": null,
+            "discount_percent": "246%",
+            "link": "https://www.amazon.in/dp/B0GVNW9CQR?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61sTL8xtw7L._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Noise Buds VS104 Truly Wireless Earbuds with 45H of Playtime, Quad Mic with ENC, Instacharge(10 Min=200 Min), 13Mm Driver, Low Latency, BT V5.2 (Charcoal Black)",
+            "price": "₹799.00",
+            "mrp": null,
+            "discount_percent": "114%",
+            "link": "https://www.amazon.in/dp/B09Y5MP7C4?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51ImqskYiEL._AC_UL600_SR600,400_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "realme Buds N1 True Wireless in-Ear Earbuds with 46dB Hybrid ANC, 360° Spatial Audio, 12.4mm Dynamic Bass Driver, Upto 40Hrs Battery and Fast Charging (Energizing Green)",
+            "price": "₹1,899.00",
+            "mrp": null,
+            "discount_percent": "64%",
+            "link": "https://www.amazon.in/dp/B0DF2Z6WKD?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61GsqRhLWKL._AC_UL600_SR600,400_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Samsung Galaxy 45W Travel Adaptor (Without Cable), Black",
+            "price": "₹999.00",
+            "mrp": null,
+            "discount_percent": "55%",
+            "link": "https://www.amazon.in/dp/B0DSFTRX77?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61bB+v8qJqL._AC_UL600_SR600,400_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "OnePlus Nord Buds 3 Truly Wireless Bluetooth Earbuds with up to 32dB Active Noise Cancellation, 10mins for 11Hours Fast Charg",
+            "price": "₹2,399.00",
+            "mrp": null,
+            "discount_percent": "71%",
+            "link": "https://www.amazon.in/dp/B0DNJXJS35?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Lm9GFu8ML._AC_UL600_SR600,400_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Redmi A4 5G (Sparkle Purple, 4GB RAM, 128GB Storage) | Segment Largest 6.88in 120Hz | 50MP Dual Camera | 18W Fast Charging | Charger in the Box",
+            "price": "₹11,999.00",
+            "mrp": null,
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B0DLW44CGS?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/81BGKLI+cWL._AC_UL600_SR600,400_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "OnePlus Nord CE 3 Lite 5G (Chromatic Gray, 8GB RAM, 128GB Storage)",
+            "price": "₹17,999",
+            "mrp": "₹21,999",
+            "discount_percent": "18%",
+            "link": "https://www.amazon.in/dp/B0C31916X5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61QRx0wC}fL._SY355_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "LG 1.5 Ton 5 Star AI DUAL Inverter Split AC",
+            "price": "₹45,990",
+            "mrp": "₹67,990",
+            "discount_percent": "32%",
+            "link": "https://www.amazon.in/dp/B0C7P7292S?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71579j16zHL._SY355_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Sony Bravia 50-inch 4K Ultra HD Smart LED TV",
+            "price": "₹47,990",
+            "mrp": "₹69,900",
+            "discount_percent": "31%",
+            "link": "https://www.amazon.in/dp/B0CL9S9PZC?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/81vY2uG9+BL._SY355_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "HP Pavilion Aero 13-be0107AU Laptop",
+            "price": "₹69,990",
+            "mrp": "₹78,990",
+            "discount_percent": "11%",
+            "link": "https://www.amazon.in/dp/B0BLQ9L7K1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71g67gN3QJL._SY355_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Samsung 65-inch QLED 4K Q80C Series Smart TV",
+            "price": "₹109,990",
+            "mrp": "₹189,900",
+            "discount_percent": "42%",
+            "link": "https://www.amazon.in/dp/B0CN8MYJ1N?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/81u2h5V7hKL._SY355_.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "One94Store Portable Bladeless Neck Fan – Modern Design, 12 Air Outlets, 2400mAh Rechargeable Battery, USB Powered, 5-Speed Hands-Free Cooling Fan, Up to 6 Hours Use for Indoor&Outdoor (Blue)",
             "price": "₹299.00",
             "mrp": null,
@@ -800,95 +899,6 @@
             "link": "https://www.amazon.in/dp/B0GS1WRMRR?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/517jygUEM2L._AC_UL900_SR900,600_.jpg",
             "category": "Beauty"
-        },
-        {
-            "name": "Scalpe Pro Daily Anti-Dandruff Shampoo | Removes Dandruff from Source | Prevents Itching & Irritation | Scalpe Science | Climbazole Formulation | Dermatologically Tested | For Women & Men | 100ml",
-            "price": "₹182.00",
-            "mrp": "₹544.00",
-            "discount_percent": "67%",
-            "link": "https://www.amazon.in/dp/B07Q7C4Q45?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51vI5+Mb86L._AC_UL900_SR900,600_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "Muuchstac Ocean Face Wash for Men | Fight Acne & Pimples, Brighten Skin, Clears Dirt, Oil Control, Refreshing Feel - Multi-Action Formula (100 ml)",
-            "price": "₹150.00",
-            "mrp": "₹291.00",
-            "discount_percent": "48%",
-            "link": "https://www.amazon.in/dp/B07KB1Y75J?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51FodsevJrL._AC_UL900_SR900,600_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "Clean & Clear Foaming face wash for oily skin, removes 99.8% pimple causing germs, Home & travel combo pack offer- Buy 240ml Get 100ml Free",
-            "price": "₹200.00",
-            "mrp": "₹599.00",
-            "discount_percent": "67%",
-            "link": "https://www.amazon.in/dp/B0BFBDNJH9?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61efoA7sEHL._AC_UL900_SR900,600_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "Dettol Icy Cool Bathing Soap Bar With 3x intense cooling (400gm), 100gm - Pack of 4",
-            "price": "₹141.00",
-            "mrp": "₹410.31",
-            "discount_percent": "66%",
-            "link": "https://www.amazon.in/dp/B0CP9Q58TK?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/6159Ijkum+L._AC_UL900_SR900,600_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "Dettol Original Bathing Soap Bar with 12 HR protective shield (400gm) | Kills 99.99% Germs, 100g (Pack of 4)",
-            "price": "₹148.00",
-            "mrp": "₹430.68",
-            "discount_percent": "66%",
-            "link": "https://www.amazon.in/dp/B0CP9NMV6P?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61ajU4cy7sL._AC_UL900_SR900,600_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "Newtone Garbage Bags | Medium 19 x 21 Inches | 120 Bags (30 Bags X 4 Rolls) | Dustbin/Trash bin | Box Packing | (Green) - Perforated Box for Easy Dispensing",
-            "price": "₹133.00",
-            "mrp": "₹419.00",
-            "discount_percent": "68%",
-            "link": "https://www.amazon.in/dp/B08M5C1YNJ?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/716p4cGDl5L._AC_UL900_SR900,600_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Lux Cozi Men's Cotton Bigshot Trunk - Pack of 3",
-            "price": "₹359.00 - ₹528.00",
-            "link": "https://www.amazon.in/dp/B0BL3JFGVM?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81Bm9e9ZZXL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Zombom Cotton Polyester Blend Solid Casual Regular Fit Mandarin/Chinese Collor Short Kurta for Men",
-            "price": "₹499.00",
-            "link": "https://www.amazon.in/dp/B0D3XKDWJV?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71mp4i7bfaL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "RCBB Jersey New Virat Jersey 2026 for (Kids,Men&Boys)",
-            "price": "₹399.00",
-            "link": "https://www.amazon.in/dp/B0GVVL52G7?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71S2mkIazRL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "GRECIILOOKS Women Trousers for Women | Women Trousers | Women's High-Waisted Pant | Women Trousers Pants | Korean Trousers for Women",
-            "price": "₹499.00",
-            "link": "https://www.amazon.in/dp/B0DDHFCJN3?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61FkSi+4MqL._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Boldfit Arm Sleeves for Men & Women UV Protection Hand Sleeve with Thumb for Boys & Girls Sun Protection Cover for Running, Bike Riding, Cricket - Nylon - Black & Off-White",
-            "price": "₹193.00 - ₹275.00",
-            "link": "https://www.amazon.in/dp/B0D543RPNJ?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61l+LyLYl1L._AC_UL300_SR300,200_.jpg",
-            "category": "Ladies Fashion"
         }
     ]
 }
