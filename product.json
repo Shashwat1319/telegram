@@ -1,6 +1,78 @@
 {
     "products": [
         {
+            "name": "Lloyd 1.5 Ton 5 Star Inverter Split AC (5 in 1 Convertible, Cools Even at 52°C, Smart 4 Way Air Swing, Turbo Cool, Anti Corrosion Coating, 100% Copper, White, GLS18I5KWGGW)",
+            "price": "₹38,490.00",
+            "mrp": null,
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B0DZ6B4K8C?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/41byOAAtlzL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Philips Viva Collection HD4928/01 2100-Watt Induction Cooktop (Black)",
+            "price": "NaN",
+            "mrp": null,
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B00EDJJ7FS?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61TDmpQ6-2L._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "PHILIPS Viva Collection HD4938/01 2100-Watt Glass Induction Cooktop with Sensor Touch (Black)",
+            "price": "NaN",
+            "mrp": null,
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B00EDJIWFY?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71hs7OkrR4L._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "realme 12 Pro+ 5G (Submarine Blue, 8GB RAM, 256GB Storage)",
+            "price": "₹23,999",
+            "mrp": "₹29,999",
+            "discount_percent": "20%",
+            "link": "https://www.amazon.in/dp/B0CR8VWWBD?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71r7N9JqRXL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Samsung Galaxy M15 5G (Cel Blue, 6GB RAM, 128GB)",
+            "price": "₹11,999",
+            "mrp": "₹14,999",
+            "discount_percent": "20%",
+            "link": "https://www.amazon.in/dp/B0CW2Y45QG?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/7133uTf9eXL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "OnePlus Nord CE 3 Lite 5G (Pagoda Green, 8GB RAM, 128GB Storage)",
+            "price": "₹17,999",
+            "mrp": "₹21,999",
+            "discount_percent": "18%",
+            "link": "https://www.amazon.in/dp/B0CR885WLL?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61LR9htgR5L._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "realme narzo 70 Pro 5G (Glacier Blue, 8GB RAM, 256GB Storage)",
+            "price": "₹21,999",
+            "mrp": "₹29,999",
+            "discount_percent": "27%",
+            "link": "https://www.amazon.in/dp/B0CXL77R9V?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71tY2mO1iSL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Redmi 13C (Stardust Black, 6GB RAM, 128GB Storage)",
+            "price": "₹7,599",
+            "mrp": "₹10,999",
+            "discount_percent": "31%",
+            "link": "https://www.amazon.in/dp/B0CQ22G7W9?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71O2ydtuYvL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "pTron ProTune Buds",
             "price": "₹699.00",
             "mrp": "₹2,999.00",
@@ -827,78 +899,6 @@
             "link": "https://www.amazon.in/dp/B09L77S765?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/611K0n9XoOL._SY450_.jpg",
             "category": "Loot"
-        },
-        {
-            "name": "amazon basics in-Ear Wired Earphones with 9 mm Dual Drivers, in-Line Mic, Powerful Bass, Noise Isolation, 3.5 mm Audio Jack (Black and Red)",
-            "price": "₹105.00",
-            "mrp": null,
-            "discount_percent": null,
-            "link": "https://www.amazon.in/dp/B0DLB1D6DC?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61u30bVYHPL._AC_UL300_SR300,200_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Original Samsung 25W Charger USB Type C Adapter for Samsung Galaxy Z Fold 6/5/4,Z Flip6/5/4, S25/S24/S24+/S24 Ultra, S23/S23+/S23 Ultra/S23 FE, M17 5G PD 3.0 Fast Charging with Type C Cable-Black",
-            "price": "₹599.00",
-            "mrp": null,
-            "discount_percent": null,
-            "link": "https://www.amazon.in/dp/B0DBL6JZKN?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71mOczsYpTL._AC_UL300_SR300,200_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "iPhone Charger Adapter 20W Type C for iPhone 17/17 Air/17 Pro/17 Pro Max, 16/16 Plus/16 Pro/16 Pro Max, 15/15 Plus/15Pro/15 Pro Max & Other Devices with 1 Meter USB C to Type C Data Cable",
-            "price": "₹499.00",
-            "mrp": null,
-            "discount_percent": null,
-            "link": "https://www.amazon.in/dp/B0CNM4V6Q5?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61yynb2fDIL._AC_UL300_SR300,200_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "APFEN® 20W [Apple MFi Certified] Type-C Fast Charger Adapter & Cable Compatible with iPhone 14/14 Pro/14 Pro Max/13/13 Pro/13 Pro Max/12/11/XR/XS/X/8 Series, White",
-            "price": "₹380.00",
-            "mrp": null,
-            "discount_percent": null,
-            "link": "https://www.amazon.in/dp/B0F62W35NX?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61sa0aOa5ZL._AC_UL300_SR300,200_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Hula Hoop Brightening Body Wash | Lactic Acid & Niacinamide | Reduces tan from 1st wash | Brightens & Evens Out Skin Tone | Floral Sakura Scent| For Men & Women | 250ml",
-            "price": "₹247.00 - ₹805.00",
-            "mrp": null,
-            "discount_percent": null,
-            "link": "https://www.amazon.in/dp/B0F8QHDV39?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/519Y-ppczIL._AC_UL300_SR300,200_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "SET WET Deodorant Spray Perfume Cool, Charm & Mischief Avatar for men, 150ml (Pack of 3)",
-            "price": "₹190.00",
-            "mrp": null,
-            "discount_percent": null,
-            "link": "https://www.amazon.in/dp/B079QBB5YT?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71pCyCh8ubL._AC_UL300_SR300,200_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "Park Avenue Premium Men’s Soaps for Bath – Pure Luxury | 125g (Pack of 4) | Enriched with Shea Butter & Coconut Oil | Grade 1 Soap | For All Skin Types",
-            "price": "₹195.00",
-            "mrp": null,
-            "discount_percent": null,
-            "link": "https://www.amazon.in/dp/B0B6ZXHMX7?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/710Ci0F2WQL._AC_UL300_SR300,200_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "Lakme SPF 50 PA++++ Sunscreen Lotion for Bright Skin | In Vivo Tested | UVA UVB Blue Light Protection | Water light| No White Cast | Niacinamide| For All Skin Types | 50 ml",
-            "price": "₹195.00",
-            "mrp": "₹391.00",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B06WRQQXF5?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51AdymQPj5L._AC_UL900_SR900,600_.jpg",
-            "category": "Beauty"
         }
     ]
 }
