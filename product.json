@@ -1,6 +1,78 @@
 {
     "products": [
         {
+            "name": "Noise Buds N2 Pro Truly Wireless Earbuds with ANC (Up to 32dB), 70H Playtime, Dual Pairing, InstaCharge (10 Min = 200 Min), Bluetooth v6.0, Metallic Finish – Arctic Blue",
+            "price": "₹1,399.00",
+            "mrp": "₹1,799.00",
+            "discount_percent": "22%",
+            "link": "https://www.amazon.in/dp/B0FN7J4NWT?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61BYuJfEiSL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "vivo T4x 5G, Glacial Teal (6GB, 128GB)",
+            "price": "₹16,999.00",
+            "mrp": "₹57,999.00",
+            "discount_percent": "71%",
+            "link": "https://www.amazon.in/dp/B0FV98G8VT?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/41L4gDdtZkL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "EDNITA 6Pcs Suction Phone Case, Phone Suction Sticker, Silicone Suction Phone Case for Hands-Free Mobile Accessory Holder Grip, Video Phone Accessory Compatible Mirror, Shower-2Black,2Blue,2White",
+            "price": "₹129.00",
+            "mrp": "₹298.00",
+            "discount_percent": "57%",
+            "link": "https://www.amazon.in/dp/B0F3VTJFW6?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71JLgG49RWL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "All-new Kindle (16 GB)",
+            "price": "₹9,999",
+            "mrp": "₹10,999",
+            "discount_percent": "9%",
+            "link": "https://www.amazon.in/dp/B0BS4WCK9Q?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61c2v4XF7VL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Fire TV Stick Lite",
+            "price": "₹2,799",
+            "mrp": "₹3,999",
+            "discount_percent": "30%",
+            "link": "https://www.amazon.in/dp/B08WRZQC2P?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51zSZX-J6JL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Kindle Paperwhite (8 GB)",
+            "price": "₹10,999",
+            "mrp": "₹13,999",
+            "discount_percent": "21%",
+            "link": "https://www.amazon.in/dp/B077416WTR?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51jXj9mQ4+L._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Echo Dot (4th Gen)",
+            "price": "₹3,249",
+            "mrp": "₹5,999",
+            "discount_percent": "46%",
+            "link": "https://www.amazon.in/dp/B084D4P23N?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71lA-4m2QvL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Smart Rope*",
+            "price": "₹2,299",
+            "mrp": "₹8,999",
+            "discount_percent": "74%",
+            "link": "https://www.amazon.in/dp/B0CFG315PQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/613r3JmXQWL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "Kratos 25W Charger Adapter Compatible with Samsung Galaxy S/A/M/F/Z Series S25/S24/S23/S22/S21/21 fe/S20/M14 5G/M34/M54/M53 5g/M33/M13/A34/A54 5G,F15,BIS Certified,1 Year Warranty,White",
             "price": "₹397.00",
             "mrp": "₹897.00",
@@ -827,78 +899,6 @@
             "link": "https://www.amazon.in/dp/B0BLQ9L7K1?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/71g67gN3QJL._SY355_.jpg",
             "category": "Loot"
-        },
-        {
-            "name": "Samsung 65-inch QLED 4K Q80C Series Smart TV",
-            "price": "₹109,990",
-            "mrp": "₹189,900",
-            "discount_percent": "42%",
-            "link": "https://www.amazon.in/dp/B0CN8MYJ1N?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/81u2h5V7hKL._SY355_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "One94Store Portable Bladeless Neck Fan – Modern Design, 12 Air Outlets, 2400mAh Rechargeable Battery, USB Powered, 5-Speed Hands-Free Cooling Fan, Up to 6 Hours Use for Indoor&Outdoor (Blue)",
-            "price": "₹299.00",
-            "mrp": null,
-            "discount_percent": null,
-            "link": "https://www.amazon.in/dp/B0GQV953S4?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/712KedRQnvL._AC_UL300_SR300,200_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Bosch 500 Series 24\" Built-In Dishwasher",
-            "price": "₹54,990",
-            "mrp": "₹86,990",
-            "discount_percent": "36%",
-            "link": "https://www.amazon.in/dp/B071K53G6B?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61-8b6qF0IL._SY450_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Prestige PPAN-01 1.7 Litre Electric Kettle",
-            "price": "₹1,299",
-            "mrp": "₹2,075",
-            "discount_percent": "37%",
-            "link": "https://www.amazon.in/dp/B081939DZH?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61eD13u05mL._SY450_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Havells Instano 3-Litre Instant Water Heater (Geyser)",
-            "price": "₹4,499",
-            "mrp": "₹7,340",
-            "discount_percent": "38%",
-            "link": "https://www.amazon.in/dp/B07V32179X?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71q7fS+tGBL._SY450_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Eureka Forbes Aquasure Compact UV Water Purifier",
-            "price": "₹4,599",
-            "mrp": "₹7,600",
-            "discount_percent": "39%",
-            "link": "https://www.amazon.in/dp/B07Q46Q8C5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71Y4eD7u-NL._SY450_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Crompton Greaves Consumer Electricals IWL-12L 12-Litre Instant Water Heater (Geyser) (White)",
-            "price": "₹6,099",
-            "mrp": "₹10,500",
-            "discount_percent": "42%",
-            "link": "https://www.amazon.in/dp/B07F3KL6Y5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61-8b6qF0IL._SY450_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "TEX-RO Metal Clothes Drying Stand Foldable with Wheels – 3-Tier Cloth Dryer Stand for Balcony, Bedroom & Indoor Outdoor | Heavy Duty Hanger Stand for Clothes Hanging, Dress Drying Rack - Grey",
-            "price": "₹499.00",
-            "mrp": "₹1,099.00",
-            "discount_percent": null,
-            "link": "https://www.amazon.in/dp/B0GQQHX25W?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81xGIaEgHqL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
         }
     ]
 }
