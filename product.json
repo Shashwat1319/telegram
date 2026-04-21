@@ -1,6 +1,24 @@
 {
     "products": [
         {
+            "name": "Kratos 25W Charger Adapter Compatible with Samsung Galaxy S/A/M/F/Z Series S25/S24/S23/S22/S21/21 fe/S20/M14 5G/M34/M54/M53 5g/M33/M13/A34/A54 5G,F15,BIS Certified,1 Year Warranty,White",
+            "price": "₹397.00",
+            "mrp": "₹897.00",
+            "discount_percent": "56%",
+            "link": "https://www.amazon.in/dp/B0FH2N3PFX?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51BcZ-rjT3L._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Seseno 2-in-1 Greek Yogurt Maker & Hung Curd Maker | Fine Mesh Strainer Box with Lid | Thick Curd, Paneer, Cheese & Whey Separator | BPA Free Kitchen Strainer for Homemade Yogurt - 1100ml",
+            "price": "₹249.00",
+            "mrp": null,
+            "discount_percent": "228%",
+            "link": "https://www.amazon.in/dp/B0FQJZT4WS?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61lfp5ajsLL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
             "name": "Becalm Daily Salicylic Acid Face Wash for Oily and Acne Prone Skin | Airy face wash for Men & Women | Soap & Sulphate free | Oil, Acne, Dullness, Pore control | Microbiome friendly | With Quaternium - 73 & Prebiotic | No fragrance",
             "price": "₹297.00",
             "mrp": null,
@@ -880,24 +898,6 @@
             "discount_percent": null,
             "link": "https://www.amazon.in/dp/B0GQQHX25W?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/81xGIaEgHqL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Nutripro Juicer Mixer Grinder Smoothie Maker - 500 Watts (2 Jars & 1 Blade, Gold) - 2 Year Warranty",
-            "price": "₹1,599.00",
-            "mrp": "₹1,799.00",
-            "discount_percent": "66%",
-            "link": "https://www.amazon.in/dp/B0BM4H3FD4?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71GcH0+JU8L._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "eumqestoer Portable Air Cooler Fan with Water Tank & USB Power - Mini Personal Evaporative Cooler with 3 Speeds, Mist Humidifier, LED Light, Quiet Cooling for Home, Office, Bedroom (MultiColor)",
-            "price": "₹499.00",
-            "mrp": null,
-            "discount_percent": "68%",
-            "link": "https://www.amazon.in/dp/B0GTVTF5QL?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61wiXQ7cTiL._AC_UL300_SR300,200_.jpg",
             "category": "Kitchen"
         }
     ]
