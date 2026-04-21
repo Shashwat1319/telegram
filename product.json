@@ -1,6 +1,96 @@
 {
     "products": [
         {
+            "name": "Home Centre Polyester Solid Bedding Set",
+            "price": "₹699",
+            "mrp": "₹2,399",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B0C14Y4SGW?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/818h0b1I5ZL._SX679_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "TARP 100% Cotton Double Bedsheet",
+            "price": "₹749",
+            "mrp": "₹2,599",
+            "discount_percent": "71%",
+            "link": "https://www.amazon.in/dp/B0C22JQ97W?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71J0hN3k8XL._SX679_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Pebble Magnetics Magnetic Whiteboard Set",
+            "price": "₹249",
+            "mrp": "₹899",
+            "discount_percent": "72%",
+            "link": "https://www.amazon.in/dp/B0C14W973C?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71tV8-uG1hL._SX679_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Zesteez Cotton Blend Satin Solid Bedding Set",
+            "price": "₹1,599",
+            "mrp": "₹5,999",
+            "discount_percent": "73%",
+            "link": "https://www.amazon.in/dp/B0C22S92T4?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/7149t27v6RL._SX679_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Kuber Industries Cotton Blend Satin Solid Bedding Set",
+            "price": "₹1,299",
+            "mrp": "₹4,999",
+            "discount_percent": "74%",
+            "link": "https://www.amazon.in/dp/B0C22J9Y8Z?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/7149t27v6RL._SX679_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Sony Bravia 164 cm (65 inches) 4K Ultra HD Smart LED TV KD-65X80J (Black)",
+            "price": "95,990",
+            "mrp": "1,19,900",
+            "discount_percent": "20%",
+            "link": "https://www.amazon.in/dp/B092Q72R3G?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/81N1vM94eKL._SY355_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Sony Bravia 108 cm (43 inches) 4K Ultra HD Smart LED TV KD-43X75 (Black)",
+            "price": "42,990",
+            "mrp": "54,900",
+            "discount_percent": "21%",
+            "link": "https://www.amazon.in/dp/B09V23QDP7?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/712P5532jPL._SY355_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Sony Bravia XR 108 cm (43 inches) 4K Ultra HD Smart OLED TV XR-43A90K (2022 Model)",
+            "price": "124,990",
+            "mrp": "159,900",
+            "discount_percent": "22%",
+            "link": "https://www.amazon.in/dp/B09W7RV9R8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/715Q9Xo99EL._SY355_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Sony Bravia 139 cm (55 inches) 4K Ultra HD Smart LED TV KD-55X80J (Black)",
+            "price": "59,990",
+            "mrp": "74,900",
+            "discount_percent": "20%",
+            "link": "https://www.amazon.in/dp/B092Q979P8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/81i1PjUe4UL._SY355_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Sony Bravia XR A80K (XR65A80K) 165 cm (65 inches) 4K Ultra HD Smart OLED TV (2022 Model)",
+            "price": "199,990",
+            "mrp": "259,900",
+            "discount_percent": "23%",
+            "link": "https://www.amazon.in/dp/B09W7R4D5K?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/811Qh3h4aAL._SY355_.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "Noise Buds N2 Pro Truly Wireless Earbuds with ANC (Up to 32dB), 70H Playtime, Dual Pairing, InstaCharge (10 Min = 200 Min), Bluetooth v6.0, Metallic Finish – Arctic Blue",
             "price": "₹1,399.00",
             "mrp": "₹1,799.00",
@@ -809,96 +899,6 @@
             "link": "https://www.amazon.in/dp/B0GGHXCQSR?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/71EN6U4QjtL._AC_UL300_SR300,200_.jpg",
             "category": "Electronics"
-        },
-        {
-            "name": "TEKCOOL Mini Cooler for Room Cooling AC Portable Mini Fan Artic Cooler with 7 Colors LED Light, 1/2/3 H Timer, 3 Wind Speeds and 3 Spray Modes for Office,Home,Dorm,Travel?",
-            "price": "₹699.00",
-            "mrp": null,
-            "discount_percent": "246%",
-            "link": "https://www.amazon.in/dp/B0GVNW9CQR?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61sTL8xtw7L._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Noise Buds VS104 Truly Wireless Earbuds with 45H of Playtime, Quad Mic with ENC, Instacharge(10 Min=200 Min), 13Mm Driver, Low Latency, BT V5.2 (Charcoal Black)",
-            "price": "₹799.00",
-            "mrp": null,
-            "discount_percent": "114%",
-            "link": "https://www.amazon.in/dp/B09Y5MP7C4?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51ImqskYiEL._AC_UL600_SR600,400_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "realme Buds N1 True Wireless in-Ear Earbuds with 46dB Hybrid ANC, 360° Spatial Audio, 12.4mm Dynamic Bass Driver, Upto 40Hrs Battery and Fast Charging (Energizing Green)",
-            "price": "₹1,899.00",
-            "mrp": null,
-            "discount_percent": "64%",
-            "link": "https://www.amazon.in/dp/B0DF2Z6WKD?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61GsqRhLWKL._AC_UL600_SR600,400_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Samsung Galaxy 45W Travel Adaptor (Without Cable), Black",
-            "price": "₹999.00",
-            "mrp": null,
-            "discount_percent": "55%",
-            "link": "https://www.amazon.in/dp/B0DSFTRX77?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61bB+v8qJqL._AC_UL600_SR600,400_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "OnePlus Nord Buds 3 Truly Wireless Bluetooth Earbuds with up to 32dB Active Noise Cancellation, 10mins for 11Hours Fast Charg",
-            "price": "₹2,399.00",
-            "mrp": null,
-            "discount_percent": "71%",
-            "link": "https://www.amazon.in/dp/B0DNJXJS35?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Lm9GFu8ML._AC_UL600_SR600,400_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Redmi A4 5G (Sparkle Purple, 4GB RAM, 128GB Storage) | Segment Largest 6.88in 120Hz | 50MP Dual Camera | 18W Fast Charging | Charger in the Box",
-            "price": "₹11,999.00",
-            "mrp": null,
-            "discount_percent": "60%",
-            "link": "https://www.amazon.in/dp/B0DLW44CGS?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81BGKLI+cWL._AC_UL600_SR600,400_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "OnePlus Nord CE 3 Lite 5G (Chromatic Gray, 8GB RAM, 128GB Storage)",
-            "price": "₹17,999",
-            "mrp": "₹21,999",
-            "discount_percent": "18%",
-            "link": "https://www.amazon.in/dp/B0C31916X5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61QRx0wC}fL._SY355_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "LG 1.5 Ton 5 Star AI DUAL Inverter Split AC",
-            "price": "₹45,990",
-            "mrp": "₹67,990",
-            "discount_percent": "32%",
-            "link": "https://www.amazon.in/dp/B0C7P7292S?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71579j16zHL._SY355_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Sony Bravia 50-inch 4K Ultra HD Smart LED TV",
-            "price": "₹47,990",
-            "mrp": "₹69,900",
-            "discount_percent": "31%",
-            "link": "https://www.amazon.in/dp/B0CL9S9PZC?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/81vY2uG9+BL._SY355_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "HP Pavilion Aero 13-be0107AU Laptop",
-            "price": "₹69,990",
-            "mrp": "₹78,990",
-            "discount_percent": "11%",
-            "link": "https://www.amazon.in/dp/B0BLQ9L7K1?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71g67gN3QJL._SY355_.jpg",
-            "category": "Loot"
         }
     ]
 }
