@@ -85,50 +85,41 @@ def generate_message(product, is_lightning=False):
     # Formatting the "Bachat" (Savings) string
     bachat_str = ""
     if mrp and price != "Check Link":
-        bachat_str = f"❌ <b>MRP:</b> <strike>{mrp}</strike>\n✅ <b>Loot:</b> <b>{price}</b>"
+        bachat_str = f"❌ <b>MRP:</b> <strike>{mrp}</strike>\n✅ <b>Deal Price:</b> <b>{price}</b>"
         if discount:
-            bachat_str += f" (<b>{discount} OFF</b>)"
+            bachat_str += f" (<b>{discount} Instant Savings</b>)"
     else:
-        bachat_str = f"💰 <b>Loot Price:</b> <b>{price}</b>"
+        bachat_str = f"💰 <b>Special Price:</b> <b>{price}</b>"
 
-    header_extra = ""
+    header_extra = "✨ <b>VERIFIED BUDGET DEAL</b> ✨\n"
     footer_extra = ""
-    if is_lightning or (discount and '50%' in discount):
-        header_extra = "🔥 <b>MASSIVE PRICE DROP DEAL!</b> 🔥\n"
-        footer_extra = "\n⏳ <i>Price kabhi bhi badh sakta hai! Buy FAST!</i> 🏃‍♂️"
+    if is_lightning or (discount and any(x in discount for x in ['50%', '60%', '70%', '80%', '90%'])):
+        header_extra = "🔥 <b>TOP-RATED FLASH DEAL!</b> 🔥\n"
+        footer_extra = "\n⚠️ <i>Note: Lightning deals expire quickly. Check price on Amazon.</i>"
 
     templates = [
-        # 1. Hype/Loot Style
-        f"{header_extra}🚨 <b>HUGE DISCOUNT DETECTED!</b> 🚨\n\n"
-        f"🎁 <b>{safe_name}</b>\n\n"
-        f"{bachat_str}\n\n"
-        f"⚡ <i>Grab it before the deal expires! Highly recommended budget buy.</i>{footer_extra}\n\n"
-        f"👇 <b>CLAIM THIS DEAL NOW</b> 👇\n"
-        f"🛒 <a href='{link}'>Add to Cart (Amazon)</a>\n\n"
-        f"👉 Join <b>@{CLEAN_ID}</b> for more secret loots! 🏃‍♂️",
-
-        # 2. Honest Review/Value Style
-        f"{header_extra}🌟 <b>SMART BUY ALERT!</b> 🌟\n\n"
+        # 1. Smart Shopper Style
+        f"{header_extra}\n"
         f"📦 <b>{safe_name}</b>\n\n"
         f"{bachat_str}\n\n"
-        f"✅ <i>Genuine price drop! 4.5+ Star Rated product at its best price.</i>{footer_extra}\n\n"
-        f"🛒 <a href='{link}'>Direct Link to Order</a>\n\n"
-        f"🤝 Join <b>@{CLEAN_ID}</b> for verified budget tracking!",
+        f"⭐️ <i>Highly rated product identified by our budget tracker. Best price currently available.</i>{footer_extra}\n\n"
+        f"🛒 <a href='{link}'>View Deal & Order (Amazon)</a>\n\n"
+        f"📍 <i>Join @{CLEAN_ID} for genuine price drop alerts only!</i>",
 
-        # 3. Urgency Style
-        f"{header_extra}⏳ <b>HURRY: PRICE DROP ALMOST OVER!</b> ⏳\n\n"
-        f"🛍️ <b>{safe_name}</b>\n\n"
+        # 2. Daily Pick Style
+        f"{header_extra}\n"
+        f"🎁 <b>OUR TOP PICK TODAY!</b>\n\n"
+        f"<b>Product:</b> {safe_name}\n"
         f"{bachat_str}\n\n"
-        f"⚠️ <i>Limited period offer! Stocks are running out fast for this deal.</i>{footer_extra}\n\n"
-        f"🚀 <a href='{link}'>Buy Now (Fast Delivery)</a>\n\n"
-        f"📢 Join <b>@{CLEAN_ID}</b> to never miss a flash deal!"
+        f"✅ <i>Verified seller and genuine discount. Quality checked.</i>{footer_extra}\n\n"
+        f"🚀 <a href='{link}'>Click here to Grab this Deal</a>\n\n"
+        f"🤝 <i>Share with friends who need this! @{CLEAN_ID}</i>"
     ]
     msg = random.choice(templates)
     
     seo_block = (
         "\n\n<tg-spoiler>"
-        "🏷️ Tags: #AmazonDeals #LootDealsIndia #BudgetShopping #Offers #LowestPrice #FreeShopping #99Store\n"
-        "🔎 Search Keywords: sasta shopping app, amazon loot today, cheapest gadgets under 500, flipkart glitch deals, free samples india"
+        "🏷️ #AmazonIndia #VerifiedDeals #SmartShopping #BudgetDeals #IndiaOffers"
         "</tg-spoiler>"
     )
     return msg + seo_block

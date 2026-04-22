@@ -111,7 +111,32 @@ def extract_products_with_ai(html_content, retry_count=0):
         elif "```" in text:
             text = text.split("```")[1].split("```")[0].strip()
             
-        return json.loads(text)
+        products = json.loads(text)
+        
+        # [TRUST SHIELD] Validate and clean product data before returning
+        validated_products = []
+        for p in products:
+            try:
+                # 1. Clean price - if range, take the lowest (first one)
+                price_str = str(p.get('price', '')).strip()
+                if ' - ' in price_str:
+                    price_val = price_str.split(' - ')[0].replace('₹', '').replace(',', '').strip()
+                    p['price'] = f"₹{price_val}"
+                
+                # 2. Validate discount (1-99%)
+                discount_str = str(p.get('discount_percent', '0')).replace('%', '').replace(',', '').strip()
+                match = re.search(r'\d+', discount_str)
+                discount_num = int(match.group()) if match else 0
+                
+                if 1 <= discount_num <= 99:
+                    p['discount_percent'] = f"{discount_num}%"
+                    validated_products.append(p)
+                else:
+                    print(f"[!] Dropping product {p.get('name', 'Unknown')[:30]}... due to invalid discount: {discount_str}")
+            except Exception as ve:
+                print(f"Validation error for product: {ve}")
+                
+        return validated_products
     except Exception as e:
         print(f"Error with AI extraction on {model}: {e}")
         if retry_count < 2:
