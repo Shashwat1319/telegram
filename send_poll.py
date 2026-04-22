@@ -1,42 +1,23 @@
 import asyncio
 import os
-import sys
-from telegram import Bot
 from dotenv import load_dotenv
+from telegram import Bot
+from bot_post import send_automated_poll
 
-async def send_custom_poll():
+async def main():
     load_dotenv()
-    token = os.getenv("BOT_TOKEN")
-    channel_id = os.getenv("CHANNEL_ID")
+    BOT_TOKEN = os.getenv("BOT_TOKEN")
+    CHANNEL_ID = os.getenv("CHANNEL_ID")
     
-    if not token or not channel_id:
-        print("[ERROR] Missing BOT_TOKEN or CHANNEL_ID in .env")
-        return
-
-    bot = Bot(token=token)
+    bot = Bot(token=BOT_TOKEN)
+    chat_id = f"@{CHANNEL_ID}" if not CHANNEL_ID.startswith("@") else CHANNEL_ID
     
-    # Default poll configuration
-    question = "Bhaiyo, aapko sabse zyada deals kis category mein chahiye? 🔥"
-    options = [
-        "📱 Mobiles & Accessories",
-        "👟 Shoes & Fashion",
-        "🎧 Earphones & Gadgets",
-        "🏠 Kitchen & Home Appliances",
-        "🧴 Beauty & Personal Care"
-    ]
-
-    try:
-        print(f"[*] Sending Poll to {channel_id}...")
-        await bot.send_poll(
-            chat_id=channel_id,
-            question=question,
-            options=options,
-            is_anonymous=True, # Channels only support anonymous polls
-            allows_multiple_answers=True
-        )
-        print("[SUCCESS] Poll sent successfully! check your channel.")
-    except Exception as e:
-        print(f"[FAILED] Could not send poll: {e}")
+    print(f"[*] Triggering Engagement Poll in {chat_id}...")
+    success = await send_automated_poll(bot, chat_id)
+    if success:
+        print("[OK] Poll sent successfully!")
+    else:
+        print("[FAIL] Failed to send poll.")
 
 if __name__ == "__main__":
-    asyncio.run(send_custom_poll())
+    asyncio.run(main())

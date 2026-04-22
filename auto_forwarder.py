@@ -41,14 +41,19 @@ PROMO_COUNTER_FILE = "promo_counter.txt"
 
 # Viral Recruitment Ad Message
 PROMO_MESSAGE = f"""
-🛑 **MASSIVE 70-90% OFF DEALS DETECTED!** 🚨
+✨ **GENUINE AMAZON PRICE DROPS DETECTED** ✨
 
-Abhi tak join nahi kiya? Amazon aur Flipkart par **Top Discounted Items** aur **Flash Sales** sirf yahan post ho rahi hain! 😱
+Spam groups se pareshaan ho? Yahan sirf **Verified Budget Deals** post hoti hain, wo bhi Bina Hallucinations ke! 🛡️
 
-🔥 **JOIN FAST (Link valid for 5 mins):** https://t.me/{CHANNEL_ID.replace('@','')}
-🔥 **JOIN FAST:** https://t.me/{CHANNEL_ID.replace('@','')}
+✅ **Latest Deals posted just now:**
+- 70% Off Branded Skincare
+- Daily Use Gadgets under ₹499
+- Verified Brand Sales
 
-🏃‍♂️ *Jaldi karo, deals kabhi bhi expire ho sakti hain! Sab loot rahe hain!* ⏳
+🔥 **JOIN FOR REAL SAVINGS:** https://t.me/{CHANNEL_ID.replace('@','')}
+🔥 **JOIN FOR REAL SAVINGS:** https://t.me/{CHANNEL_ID.replace('@','')}
+
+🚀 *We track prices 24/7 so you don't have to!*
 """
 
 def get_last_id():
