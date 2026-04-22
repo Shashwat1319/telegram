@@ -1,6 +1,96 @@
 {
     "products": [
         {
+            "name": "Lenovo IdeaPad Slim 3",
+            "price": "₹37990",
+            "mrp": "₹53000",
+            "discount_percent": "28%",
+            "link": "https://www.amazon.in/dp/B0C7K2V4K1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61wM3132pCL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Samsung Galaxy M14 5G",
+            "price": "₹15990",
+            "mrp": "₹21590",
+            "discount_percent": "26%",
+            "link": "https://www.amazon.in/dp/B0C347X31H?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/81b60eS66OL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "OnePlus Nord CE 2 Lite 5G",
+            "price": "₹17999",
+            "mrp": "₹21999",
+            "discount_percent": "18%",
+            "link": "https://www.amazon.in/dp/B09Z3531V5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71j3G3QhA3L._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Fossil Chronograph Black Dial Men's Watch",
+            "price": "₹7497",
+            "mrp": "₹14995",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B09YPNB127?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71iW-s3c2qL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Ambrane ANC Wireless Earbuds",
+            "price": "₹999",
+            "mrp": "₹3999",
+            "discount_percent": "75%",
+            "link": "https://www.amazon.in/dp/B0C4D3K88F?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61w7N+k+cRL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "GOBOULT X1 Pro Wired Earphones Type-C Port, 10mm BassDriver, Inline Control, IPX5 Water Resistant, Comfort Fit Earphone Wired Headphone with mic,TypeC Earphone, Voice Assistant (Black)",
+            "price": "₹299.00",
+            "mrp": null,
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0CC2DP26M?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71JbxWeTvZL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "OnePlus Pad Lite with Biggest Battery in Segment 9340 mAh, 11\"(27.94 cm) Display with 500 nits Brightness & 11 Hrs of Video Playback, 8GB RAM 128GB Storage, LTE, Aero Blue",
+            "price": "₹19,999.00",
+            "mrp": null,
+            "discount_percent": "7%",
+            "link": "https://www.amazon.in/dp/B0FHWR3TBX?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61NmETUvDiL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Noise Diva Araya Smartwatch for Women with AMOLED Display (850 Nits), 60 Precision-Set Crystals, Cycle Tracking, Skin Temperature, SOS with Live Location, 100+ Watch Faces - Frost Silver Ceramic",
+            "price": "₹4,999.00",
+            "mrp": null,
+            "discount_percent": "68%",
+            "link": "https://www.amazon.in/dp/B0G3Q2QZSH?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71DMKfstedL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "TheGiftKart Liquid Silicone Back Cover Case for OnePlus Nord 5 5G | Soft Micro-Fibre Lining Inside | Camera & Screen Protection | Shockproof Back Cover Case for OnePlus Nord 5 5G (Silicone, Black)",
+            "price": "₹279.00",
+            "mrp": null,
+            "discount_percent": "74%",
+            "link": "https://www.amazon.in/dp/B0FGDPWH53?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51+8-6rT+LL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "SAYY Moroccan DeTan Brightening Face Pack for Advance Skin Renewal Radiance Clay Mask (1)",
+            "price": "₹351.00",
+            "mrp": "₹709.00",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0GLG5JSHK?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/31WYQflajRL._AC_UL600_SR600,400_.jpg",
+            "category": "Beauty"
+        },
+        {
             "name": "OnePlus Bullets Z2 Bluetooth Wireless Earbuds with 30H Playtime, 94ms Low Latency, Fast Charching, IP55, QC Chipset (Magico Black)",
             "price": "₹1,999",
             "mrp": "₹2,999",
@@ -809,96 +899,6 @@
             "link": "https://www.amazon.in/dp/B0B2Q32Y79?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/71mK0vXgXDL._SX466_.jpg",
             "category": "Loot"
-        },
-        {
-            "name": "Samsung 19 cu. ft. 3-Door French Door Refrigerator with Twin Cooling Plus™ in Stainless Steel",
-            "price": "₹58,990.00",
-            "mrp": "₹90,000.00",
-            "discount_percent": "34%",
-            "link": "https://www.amazon.in/dp/B078Y763JH?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61zJvM7kXfL._SX466_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Ambrane Micro USB Cable 3A Fast Charging 1M Braided Cable for Smartphones, Tablets, Laptops & other Micro USB devices, 480Mbps Data Sync, Quick Charge 3.0 (RCM 10, Black)",
-            "price": "₹129.00",
-            "mrp": null,
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B09JLLYSJ9?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/510SxqDKbEL._AC_UL600_SR600,400_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Redmi A4 5G (Sparkle Purple, 4GB RAM, 64GB Storage) | Segment Largest 6.88in 120Hz | 50MP Dual Camera | 18W Fast Charging | Charger in the Box",
-            "price": "₹11,999.00",
-            "mrp": null,
-            "discount_percent": "66%",
-            "link": "https://www.amazon.in/dp/B0DLW427YG?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81BGKLI+cWL._AC_UL600_SR600,400_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Samsung Galaxy S26 5G (Black, 12GB RAM, 256GB Storage)_with Other Offers",
-            "price": "₹74,990.00",
-            "mrp": null,
-            "discount_percent": "72%",
-            "link": "https://www.amazon.in/dp/B0GL8GCFR9?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71ju4kS-W8L._AC_UL600_SR600,400_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Portronics Twin Cool Dual Head Portable USB Powered Fan With 360° Rotatable Head, 3 Speed Control, Ultra Silent Operation, Brushless Motor, Suitable For 12/24V Car,SUV,Bus,Desk,Home Fan(Black)",
-            "price": "₹934.00",
-            "mrp": null,
-            "discount_percent": "93%",
-            "link": "https://www.amazon.in/dp/B0DGLPRY2Z?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61tubnw5NjL._AC_UL600_SR600,400_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "iQOO Z10 5G (Glacier Silver, 8GB RAM, 128GB Stroage) | India's Biggest Ever 7300 mAh Battery | Snapdragon 7s Gen 3 Processor | Brightest Quad Curved AMOLED Display in The Segment",
-            "price": "₹24,998.00",
-            "mrp": null,
-            "discount_percent": "95%",
-            "link": "https://www.amazon.in/dp/B0F2HCGXTB?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61ca566nQ0L._AC_UL600_SR600,400_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "DECOMIZER Cotton Feel Glace Cotton Elastic Fitted Printed King Size Double Bed Bedsheet with 2 Large Pillow Covers Fits Upto Mattress of 8 Inches,Size - 72 x 78 x 10 Inches,Navy Jaipuri",
-            "price": "₹678.00",
-            "mrp": "₹1,999.00",
-            "discount_percent": "66%",
-            "link": "https://www.amazon.in/dp/B0DHPP9XVN?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71oVzT+hBaL._AC_UL900_SR900,600_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "GLUN® Round Printed Laundry Bag, Beige & Brown Foldable Waterproof 45 Liter Capacity, Non-Woven Toys & Cloth Storage Bag Pack Of 1",
-            "price": "₹106.40",
-            "mrp": "₹270.00",
-            "discount_percent": "60%",
-            "link": "https://www.amazon.in/dp/B0BRFSY895?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71tLpQfvyhL._AC_UL900_SR900,600_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Lloyd 1.5 Ton 5 Star Inverter Split AC (5 in 1 Convertible, Cools Even at 52°C, Smart 4 Way Air Swing, Turbo Cool, Anti Corrosion Coating, 100% Copper, White, GLS18I5KWGGW)",
-            "price": "₹38,490.00",
-            "mrp": null,
-            "discount_percent": null,
-            "link": "https://www.amazon.in/dp/B0DZ6B4K8C?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/41byOAAtlzL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Philips Viva Collection HD4928/01 2100-Watt Induction Cooktop (Black)",
-            "price": "NaN",
-            "mrp": null,
-            "discount_percent": null,
-            "link": "https://www.amazon.in/dp/B00EDJJ7FS?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61TDmpQ6-2L._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
         }
     ]
 }
