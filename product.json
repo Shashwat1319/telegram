@@ -1,6 +1,132 @@
 {
     "products": [
         {
+            "name": "OnePlus Bullets Z2 Bluetooth Wireless Earbuds with 30H Playtime, 94ms Low Latency, Fast Charching, IP55, QC Chipset (Magico Black)",
+            "price": "₹1,999",
+            "mrp": "₹2,999",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B09VWSMJ94?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61DB2-3rJTL._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "MI Smart Band 5",
+            "price": "₹2,499",
+            "mrp": "₹3,499",
+            "discount_percent": "28%",
+            "link": "https://www.amazon.in/dp/B08P2M6282?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71K7w2fN5iL._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "boAt Rockerz 450 Wireless On Ear Headphones with Bluetooth v5.0, Upto 15H Playtime, 40MM Drivers, HD Sound, Voice Assistant & Lightweight Design (Luscious Black)",
+            "price": "₹1,299",
+            "mrp": "₹3,990",
+            "discount_percent": "67%",
+            "link": "https://www.amazon.in/dp/B082FFW91F?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61p7rW8L6uL._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Redmi SonicBass Wireless Earphones with 40Hrs Playtime, ENx™ Tech, Low Latency Mode, IPX4 Sweatproof, Voice Assistant Support (Blue)",
+            "price": "₹999",
+            "mrp": "₹1,999",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0B7R9V52Q?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/519060i8uKL._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Saffola Oats Masala Hari Mirch, 100% Oats with Real Spices, High in Fiber, Ready in 3 Minutes, 1kg Pouch",
+            "price": "₹165",
+            "mrp": "₹230",
+            "discount_percent": "28%",
+            "link": "https://www.amazon.in/dp/B07PJ66G55?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/81+0t36r0hL._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Mamaearth Rice Dewy Bright Face Wash With Rice Water & Niacinamide for Glass Skin | For Hydrated & Even skin Tone | Glowing & Brightening | Korean skin Care Product | For All skin Types | For Men & Women | 100 ml",
+            "price": "₹151.00",
+            "mrp": null,
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B09Z65JJ69?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51telxeMDOL._AC_UL600_SR600,400_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "BoldHealth Cooling Eye Gel Mask with Beads Ice Pad for Dark Circles, Redness & Puffiness Relaxing Eye Cooling Patch for Men & Women Blue pack of 1 Standard/One Size Fits Most",
+            "price": "₹212.00",
+            "mrp": null,
+            "discount_percent": "42%",
+            "link": "https://www.amazon.in/dp/B0C7QG7X8G?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61gQzAlDZGL._AC_UL600_SR600,400_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "LAKMÉ Sun Expert SPF 50 PA+++ Gel Sunscreen, Niacinamide | Water-Light|For Oily & Combination Skin| Non-sticky | For All Skin Types, For UVA/B Protection,No White Cast 50g",
+            "price": "₹244.00",
+            "mrp": null,
+            "discount_percent": "47%",
+            "link": "https://www.amazon.in/dp/B0744R95BT?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/514DZ+9yQ4L._AC_UL600_SR600,400_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "The Derma Co 10% Niacinamide Serum with 2% Zinc, Powered by Deep Penetration Formula™ | Fades Acne Marks, Controls Oil & Reduces Dark Spots | 10 ml",
+            "price": "₹175.00",
+            "mrp": null,
+            "discount_percent": "48%",
+            "link": "https://www.amazon.in/dp/B0957VWFBG?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Mmj2DozXL._AC_UL600_SR600,400_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Dettol Original Germ Protection Bathing Soap Bar (625gm) | Kills 99.99% germs, 125gm , Pack of 5",
+            "price": "₹211.00",
+            "mrp": null,
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B086T4WGRY?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61KBZnySmlL._AC_UL600_SR600,400_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Pigeon by Stovekraft Brio Plus Induction Stove 2100 Watts for Fast and Easy Cooking",
+            "price": "₹2,049.00",
+            "mrp": null,
+            "discount_percent": "61%",
+            "link": "https://www.amazon.in/dp/B089BMFW96?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/714GUrZtC3L._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Portable Air Cooler Fan with Water Tank & USB Power - Mini Personal Evaporative Cooler with 3 Speeds, , LED Light, Quiet Cooling for Home, Office, Bedroom (MultiColor)",
+            "price": "₹499.00",
+            "mrp": null,
+            "discount_percent": "63%",
+            "link": "https://www.amazon.in/dp/B0GVDCSV19?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61kitNPSzDL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "ATOM ALISTON K1 Series Digital Kitchen Weighing Scale 10 kg, Electronic Weight Machine with LCD Display for Baking, Cooking, Food & Diet, SF-400/A121. 6Months Warranty (Colour May Vary)",
+            "price": "₹215.00",
+            "mrp": null,
+            "discount_percent": "66%",
+            "link": "https://www.amazon.in/dp/B083C6XMKQ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71775fRr+gL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Godrej aer Matic Kit (Machine + 1 Refill) - Automatic Room Fresheners with Flexi Control Spray | Lavender Bloom | 2200 Sprays Guaranteed | Lasts up to 60 days (210ml)",
+            "price": "₹380.00",
+            "mrp": null,
+            "discount_percent": "78%",
+            "link": "https://www.amazon.in/dp/B07FPKJ7MP?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71J+zbpd+0L._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
             "name": "Kerala Ayurveda Nalpamaradi Keram | Ayurvedic Tan Removal & Pigmentation Oil for Face & Body | Turmeric Oil for Glowing Skin & Radiance | 100 ml",
             "price": "₹115.00",
             "mrp": null,
@@ -773,132 +899,6 @@
             "link": "https://www.amazon.in/dp/B00EDJJ7FS?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/61TDmpQ6-2L._AC_UL300_SR300,200_.jpg",
             "category": "Kitchen"
-        },
-        {
-            "name": "PHILIPS Viva Collection HD4938/01 2100-Watt Glass Induction Cooktop with Sensor Touch (Black)",
-            "price": "NaN",
-            "mrp": null,
-            "discount_percent": null,
-            "link": "https://www.amazon.in/dp/B00EDJIWFY?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71hs7OkrR4L._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "realme 12 Pro+ 5G (Submarine Blue, 8GB RAM, 256GB Storage)",
-            "price": "₹23,999",
-            "mrp": "₹29,999",
-            "discount_percent": "20%",
-            "link": "https://www.amazon.in/dp/B0CR8VWWBD?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71r7N9JqRXL._SY300_SX300_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Samsung Galaxy M15 5G (Cel Blue, 6GB RAM, 128GB)",
-            "price": "₹11,999",
-            "mrp": "₹14,999",
-            "discount_percent": "20%",
-            "link": "https://www.amazon.in/dp/B0CW2Y45QG?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/7133uTf9eXL._SY300_SX300_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "OnePlus Nord CE 3 Lite 5G (Pagoda Green, 8GB RAM, 128GB Storage)",
-            "price": "₹17,999",
-            "mrp": "₹21,999",
-            "discount_percent": "18%",
-            "link": "https://www.amazon.in/dp/B0CR885WLL?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61LR9htgR5L._SY300_SX300_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "realme narzo 70 Pro 5G (Glacier Blue, 8GB RAM, 256GB Storage)",
-            "price": "₹21,999",
-            "mrp": "₹29,999",
-            "discount_percent": "27%",
-            "link": "https://www.amazon.in/dp/B0CXL77R9V?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71tY2mO1iSL._SY300_SX300_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Redmi 13C (Stardust Black, 6GB RAM, 128GB Storage)",
-            "price": "₹7,599",
-            "mrp": "₹10,999",
-            "discount_percent": "31%",
-            "link": "https://www.amazon.in/dp/B0CQ22G7W9?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71O2ydtuYvL._SY300_SX300_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "pTron ProTune Buds",
-            "price": "₹699.00",
-            "mrp": "₹2,999.00",
-            "discount_percent": "77%",
-            "link": "https://www.amazon.in/dp/B08P7F1D5C?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61cTf1t06AL._SY355_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "AmazonBasics High-Speed HDMI Cable",
-            "price": "₹359.00",
-            "mrp": "₹499.00",
-            "discount_percent": "28%",
-            "link": "https://www.amazon.in/dp/B0771D7V2L?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/719W6V78YGL._SY355_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Mi Portable Mini Bluetooth Speaker",
-            "price": "₹1,099.00",
-            "mrp": "₹1,499.00",
-            "discount_percent": "27%",
-            "link": "https://www.amazon.in/dp/B07YWRXQ63?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/614M44f+2DL._SY355_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Logitech M221 Wireless Mouse",
-            "price": "₹749.00",
-            "mrp": "₹995.00",
-            "discount_percent": "25%",
-            "link": "https://www.amazon.in/dp/B01L727YAI?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61P25hG2N1L._SY355_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Samsung 32GB Class 10 Micro SD Card",
-            "price": "₹429.00",
-            "mrp": "₹799.00",
-            "discount_percent": "46%",
-            "link": "https://www.amazon.in/dp/B08GVP3L47?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71tq6kL8yAL._SY355_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Lloyd 1.5 Ton 3 Star Inverter Split AC, 2026 New Star Rated (6 in 1 Convertible, Cools Up To 54°C, Turbo Cool, Installation Check, Clean Filter Indication, 100% Copper, White, GLS18I3AGGSC)",
-            "price": 31990.0,
-            "mrp": 36000.0,
-            "discount_percent": 11.14,
-            "link": "https://www.amazon.in/dp/B0GJDVGS6P?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/41I-fAu+ObL._AC_UL900_SR900,600_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Crasts USB Plasma Rechargeable Electric Gas Lighter for Pooja Room, Candles, BBQ, Multi Purpose - 360 Degree Flexible & Windproof (Multicolor)",
-            "price": 165.0,
-            "mrp": 799.0,
-            "discount_percent": 79.35,
-            "link": "https://www.amazon.in/dp/B0GSFX7WHG?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71aAFrtIaKL._AC_UL900_SR900,600_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Motorola Edge 60 Fusion 5G Smartphone with 6.67\" 120Hz pOLED Display, 50MP OIS Camera, Android 14, Dimensity 7030 Processor, 68W Fast Charging (Pantone Amazonite, 8GB + 256GB Storage)",
-            "price": "₹24,999.00",
-            "mrp": null,
-            "discount_percent": "60%",
-            "link": "https://www.amazon.in/dp/B0F46SJ5SB?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61NsPikkMBL._AC_UL300_SR300,200_.jpg",
-            "category": "Electronics"
         }
     ]
 }
