@@ -1,6 +1,42 @@
 {
     "products": [
         {
+            "name": "Kerala Ayurveda Nalpamaradi Keram | Ayurvedic Tan Removal & Pigmentation Oil for Face & Body | Turmeric Oil for Glowing Skin & Radiance | 100 ml",
+            "price": "₹115.00",
+            "mrp": null,
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B07R4XJ54H?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71Rb502-ruL._AC_UL600_SR600,400_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Foxtale Glow Sunscreen SPF 50 PA++++ with Vitamin C & Niacinamide, In-Vivo Tested, Sensitive-Skin Friendly, Made with 100% New-Gen Filters, Lightweight, Non-Greasy, No White Cast |For Men & Women 50ml",
+            "price": "₹213.00",
+            "mrp": null,
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0C3CP6B5Y?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51eQkrfr5SL._AC_UL600_SR600,400_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Bajaj PX 97 Torque New 36L Personal Air Cooler For Room|Honeycomb Cooling Pads|High-Speed |30Ft Powerful Air Throw|3-Speed Control|Portable Cooler-Home|3 Year Comprehensive Product Warranty|White",
+            "price": "93%",
+            "mrp": null,
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B09R3QNGW5?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Juyv14Y0L._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Wakefit Cotton Feel Ultra Soft Waterproof Mattress Protector|Breathable - Hypoallergenic Mattresses Cover 72\" x 36\" - Single, Beetroot, Purple",
+            "price": "5,72,907%",
+            "mrp": null,
+            "discount_percent": null,
+            "link": "https://www.amazon.in/dp/B0BL7LCMLT?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61+rWQw-zbL._AC_UL300_SR300,200_.jpg",
+            "category": "Kitchen"
+        },
+        {
             "name": "Home Centre Polyester Solid Bedding Set",
             "price": "₹699",
             "mrp": "₹2,399",
@@ -862,42 +898,6 @@
             "discount_percent": "60%",
             "link": "https://www.amazon.in/dp/B0F46SJ5SB?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/61NsPikkMBL._AC_UL300_SR300,200_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Gesto Portable Neck Fan Rechargeable – Hands-Free Neck Fan for Summer With 1500 mAh Battery & Display | 5-Speed 360° Airflow, USB Charging Personal Fan for Home, Kitchen, Gym, Travel, Running -Pink",
-            "price": "₹725.00",
-            "mrp": null,
-            "discount_percent": "60%",
-            "link": "https://www.amazon.in/dp/B0GNHKGZ3F?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/419guoTTLDL._AC_UL300_SR300,200_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Fujifilm Instax Mini 12 Gift Box with 10 Shots- Blue",
-            "price": "₹7,996.00",
-            "mrp": "₹7,999.00",
-            "discount_percent": "60%",
-            "link": "https://www.amazon.in/dp/B0C9CG57MT?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61OEp1weckL._AC_UL300_SR300,200_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Ant Esports AEH0105 HDMI Cable 4K High-Speed HDMI Cord 18Gbps with Ethernet Support 4K 60Hz Compatible with Windows,Apple,UHD TV, Monitor, Computer,Xbox 360,PS5 PS4, Blu-ray, and More -1.5 Meter-Black",
-            "price": "₹99.00",
-            "mrp": null,
-            "discount_percent": "60%",
-            "link": "https://www.amazon.in/dp/B0CDPJ565Q?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61RXoNct7EL._AC_UL300_SR300,200_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Fire-Boltt Ninja Phantom Smart Watch 1.83” Display, Transparent Clear Body Design, Bluetooth Calling, 120+ Sports Modes, Voice Assistant, AI Outfit Watch Face Smartwatch for Men & Women Black Smoke",
-            "price": "₹999.00",
-            "mrp": null,
-            "discount_percent": "60%",
-            "link": "https://www.amazon.in/dp/B0GGHXCQSR?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71EN6U4QjtL._AC_UL300_SR300,200_.jpg",
             "category": "Electronics"
         }
     ]
