@@ -45,49 +45,51 @@ def get_amazon_trending(category_url):
         return None
 
 def preprocess_html(html_content):
-    """Extract only product boxes to reduce HTML size for AI."""
+    """Extract structured product data as text to prevent AI hallucination."""
     try:
         soup = BeautifulSoup(html_content, 'html.parser')
-        # Product boxes on Amazon India Movers & Shakers
-        wrappers = soup.select('.p13n-sc-uncentered-wrapper')
-        if not wrappers:
-            # Fallback for different layouts
-            wrappers = soup.select('.a-list-item')
-            
-        cleaned_html = ""
-        for i, wrap in enumerate(wrappers[:10]): # Only top 10 to keep it tiny
-            cleaned_html += str(wrap) + "\n"
+        wrappers = soup.select('.p13n-sc-uncentered-wrapper') or soup.select('.a-list-item') or soup.select('.s-result-item')
         
-        print(f"Preprocessed HTML. Reduced from {len(html_content)} to {len(cleaned_html)} characters.")
-        return cleaned_html if cleaned_html else html_content[:20000]
+        extracted_text = ""
+        for i, wrap in enumerate(wrappers[:12]):
+            # Use specific selectors to guide the AI
+            name = wrap.select_one('.p13n-sc-truncate, .a-size-base-plus, h2')
+            price = wrap.select_one('.a-price-whole, .p13n-sc-price')
+            mrp = wrap.select_one('.a-text-strike')
+            link = wrap.select_one('a.a-link-normal')
+            
+            p_name = name.get_text(strip=True) if name else "Unknown"
+            p_price = price.get_text(strip=True) if price else "Check"
+            p_mrp = mrp.get_text(strip=True) if mrp else "N/A"
+            p_link = link['href'] if link and 'href' in link.attrs else "#"
+            
+            item_summary = f"ITEM {i+1}: NAME: {p_name} | PRICE: {p_price} | MRP: {p_mrp} | LINK: {p_link}\n"
+            extracted_text += item_summary
+            
+        print(f"Preprocessed into structured text. Length: {len(extracted_text)}")
+        return extracted_text if extracted_text else html_content[:15000]
     except Exception as e:
         print(f"Preprocessing error: {e}")
-        return html_content[:20000]
+        return html_content[:15000]
 
-def extract_products_with_ai(html_content, retry_count=0):
-    """Use Gemini API via requests to extract product details with retry logic."""
-    # Using the latest April 2026 stable models
-    models = ["gemini-2.5-flash", "gemini-2.5-flash-lite", "gemini-3.1-flash-lite-preview"]
+def extract_products_with_ai(html_text, retry_count=0):
+    """Use Gemini AI to pick the best deals from pre-structured text."""
+    models = ["gemini-2.5-flash", "gemini-1.5-flash"]
     model = models[retry_count % len(models)]
-    
-    # Pre-process HTML on the first try
-    if retry_count == 0:
-        html_content = preprocess_html(html_content)
     
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
     
     prompt = f"""
-    Find the top 5 products with the HIGHEST DISCOUNT percentages from this Amazon Deals HTML snippet.
-    Return ONLY a valid JSON array of objects with exact keys: "name", "price", "mrp", "discount_percent", "link", "image".
+    Below is a list of Amazon products with prices. Pick the TOP 5 products with the BEST DISCOUNT percentage.
+    Return ONLY a valid JSON array of objects with keys: "name", "price", "mrp", "discount_percent", "link", "image".
     
-    CRITICAL RULES:
-    1. "mrp": Find the original price before the discount.
-    2. "discount_percent": Calculate or find the percentage of savings (e.g. "60%"). MUST be between 1% and 99%. Skip items with invalid math.
-    3. "image": Find the high-res product image URL.
-    4. "link": Extract the exact raw URL (containing /dp/ or the ASIN). MUST format as an amazon.in URL (never amazon.com).
+    CRITICAL TRUST RULES:
+    1. "price" & "mrp": MUST be strings containing ONLY numbers/commas/dots (e.g. "499"). NEVER use percentage in price.
+    2. "discount_percent": MUST be a valid number between 1 and 99. If math is wrong or it looks like a glitch (>99%), SKIP it.
+    3. "name": Keep it slightly shortened for readability.
     
-    HTML Data:
-    {html_content}
+    DATA:
+    {html_text}
     """
     
     payload = {"contents": [{"parts": [{"text": prompt}]}]}
@@ -97,50 +99,49 @@ def extract_products_with_ai(html_content, retry_count=0):
         res_json = response.json()
         
         if "error" in res_json:
-            if res_json["error"]["code"] == 429 and retry_count < 5:
-                print(f"Quota hit for {model}. Retrying...")
-                time.sleep(20)
-                return extract_products_with_ai(html_content, retry_count + 1)
-            print(f"AI Error: {res_json['error']['message']}")
+            if res_json["error"]["code"] == 429 and retry_count < 3:
+                time.sleep(15)
+                return extract_products_with_ai(html_text, retry_count + 1)
             return []
             
         text = res_json['candidates'][0]['content']['parts'][0]['text'].strip()
-        # Clean potential markdown
-        if "```json" in text:
-            text = text.split("```json")[1].split("```")[0].strip()
-        elif "```" in text:
-            text = text.split("```")[1].split("```")[0].strip()
-            
-        products = json.loads(text)
+        if "```json" in text: text = text.split("```json")[1].split("```")[0].strip()
         
-        # [TRUST SHIELD] Validate and clean product data before returning
-        validated_products = []
+        products = json.loads(text)
+        validated = []
         for p in products:
             try:
-                # 1. Clean price - if range, take the lowest (first one)
-                price_str = str(p.get('price', '')).strip()
-                if ' - ' in price_str:
-                    price_val = price_str.split(' - ')[0].replace('₹', '').replace(',', '').strip()
-                    p['price'] = f"₹{price_val}"
+                # [ANTI-HALLUCINATION SHIELD]
+                price_str = str(p.get('price', '0'))
+                mrp_str = str(p.get('mrp', '0'))
                 
-                # 2. Validate discount (1-99%)
-                discount_str = str(p.get('discount_percent', '0')).replace('%', '').replace(',', '').strip()
-                match = re.search(r'\d+', discount_str)
-                discount_num = int(match.group()) if match else 0
+                # Rule: No percent signs in price
+                if '%' in price_str or '%' in mrp_str: continue 
                 
-                if 1 <= discount_num <= 99:
-                    p['discount_percent'] = f"{discount_num}%"
-                    validated_products.append(p)
-                else:
-                    print(f"[!] Dropping product {p.get('name', 'Unknown')[:30]}... due to invalid discount: {discount_str}")
-            except Exception as ve:
-                print(f"Validation error for product: {ve}")
+                # Rule: Extract clean float values
+                p_val = float(re.sub(r'[^\d.]', '', price_str))
+                m_val = float(re.sub(r'[^\d.]', '', mrp_str)) if mrp_str != 'N/A' else 0
                 
-        return validated_products
+                # Rule: Logic check
+                if m_val > 0 and p_val >= m_val: continue # Price higher than MRP? Scam.
+                if p_val == 0: continue
+                
+                # Rule: Suspicious value check (e.g. 5 lakh percent)
+                discount = str(p.get('discount_percent', '0')).replace('%', '').strip()
+                d_val = float(re.search(r'\d+', discount).group()) if re.search(r'\d+', discount) else 0
+                if d_val > 99 or d_val < 1: continue 
+
+                # Normalize formatting
+                p['price'] = f"₹{int(p_val)}"
+                if m_val > 0: p['mrp'] = f"₹{int(m_val)}"
+                p['discount_percent'] = f"{int(d_val)}%"
+                
+                validated.append(p)
+            except: continue
+            
+        return validated
     except Exception as e:
-        print(f"Error with AI extraction on {model}: {e}")
-        if retry_count < 2:
-            return extract_products_with_ai(html_content, retry_count + 1)
+        print(f"Extraction error: {e}")
         return []
 
 def clean_amazon_link(link, tag, force_domain=None):
