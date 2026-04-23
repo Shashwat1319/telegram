@@ -1,6 +1,69 @@
 {
     "products": [
         {
+            "name": "Zeno100 (3+5GB RAM, 64GB ROM) | 5000mAh Battery with Type-C | 90Hz Display | Side Fingerprint | Military Grade Protection | Octa-Core Processor | Pure Black",
+            "price": "₹7,799.00",
+            "mrp": "₹8,199.00",
+            "discount_percent": "4%",
+            "link": "https://www.amazon.in/dp/B0GGYKT3HJ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61B6BIQ9JtL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "One94Store Rechargeable Neck Fan (Green) | 1200mAh Battery, USB Powered Hands-Free Hanging Fan | Single Speed Dual Fan | Portable Personal Cooling Fan for Travel, Office & Outdoor Use",
+            "price": "₹549.00",
+            "mrp": "₹1,999.00",
+            "discount_percent": "72%",
+            "link": "https://www.amazon.in/dp/B0GHDS5SPJ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71bSle7RFEL._AC_UL900_SR900,600_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "boAt Airdopes 161 True Wireless Earbuds",
+            "price": "₹1,499",
+            "mrp": "₹2,990",
+            "discount_percent": "49%",
+            "link": "https://www.amazon.in/dp/B0BLFMR4W8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51s6d+G0PFL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Echo Dot (5th Gen, 2023 release) with Clock",
+            "price": "₹5,499",
+            "mrp": "₹7,499",
+            "discount_percent": "26%",
+            "link": "https://www.amazon.in/dp/B09XJZ171B?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61yMh41F8QL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "realme Buds T100 Bluetooth",
+            "price": "₹1,999",
+            "mrp": "₹2,999",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0BMF61QJ2?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51h8XvJ609L._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "HP 14a Qualcomm Snapdragon 14b Laptop",
+            "price": "₹24,990",
+            "mrp": "₹37,990",
+            "discount_percent": "34%",
+            "link": "https://www.amazon.in/dp/B0CFD2X536?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/719R72wY25L._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Lenovo IdeaPad Slim 3 Chromebook (11.6\" HD Touch)",
+            "price": "₹19,990",
+            "mrp": "₹35,990",
+            "discount_percent": "44%",
+            "link": "https://www.amazon.in/dp/B0BS757X59?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71+Yj1j9QBL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "Fire TV Stick Lite with Alexa Voice Remote",
             "price": "₹1,999",
             "mrp": "₹2,999",
@@ -835,69 +898,6 @@
             "discount_percent": "69%",
             "link": "https://www.amazon.in/dp/B0C9Q65B74?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/81oJ98mEwXL._SY466_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Men's Casual Shoes",
-            "price": "₹599",
-            "mrp": "₹1,999",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B0B29J5QXV?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/711bA5c6fFL._SY466_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Maybelline New York Kajal, Black, Matte Finish",
-            "price": "₹135.00",
-            "mrp": "₹999.00",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B06WGZP21B?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61b2tDBxhlL._AC_UL900_SR900,600_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "RR Signature Vento Fresh Luxura 150 mm Exhaust Fan For Kitchen, Bathroom | Silent, Compact Design, Easy Install | Thermal Fuse | High Speed 100% Powerful Copper Motor | 2 Year Warranty [Rose Gold]",
-            "price": "₹569.00",
-            "mrp": "₹949.00",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B0DK9WVY8C?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61WSzpQs-ZL._AC_UL900_SR900,600_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Sony WI-C310 Wireless in-Ear Headphones (Black)",
-            "price": "₹2,499",
-            "mrp": "₹4,000",
-            "discount_percent": "38%",
-            "link": "https://www.amazon.in/dp/B07N141K4B?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71sYp4h1bJL._SY300_SX300_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Sony WH-CH400 Wireless Bluetooth Headphones (Blue)",
-            "price": "₹3,499",
-            "mrp": "₹5,990",
-            "discount_percent": "42%",
-            "link": "https://www.amazon.in/dp/B07BP7T1S8?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61o764K475L._SY300_SX300_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Sennheiser HD 4.50 BTNC Wireless Over-Ear Headphones with Active Noise Cancellation",
-            "price": "₹7,990",
-            "mrp": "₹14,990",
-            "discount_percent": "47%",
-            "link": "https://www.amazon.in/dp/B01NH02J6G?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/711-V6X12CL._SY300_SX300_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Samsung 21 Ltr Microwave Oven (Black, FG87SUB)",
-            "price": "₹8,499",
-            "mrp": "₹14,500",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B081F7189K?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71P28i868CL._SY300_SX300_.jpg",
             "category": "Loot"
         }
     ]
