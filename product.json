@@ -1,6 +1,87 @@
 {
     "products": [
         {
+            "name": "Fire TV Stick Lite with Alexa Voice Remote",
+            "price": "₹1,999",
+            "mrp": "₹2,999",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B08T9B8H3W?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/614R3w1xVHL._SL1000_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Amazon Smart Plug",
+            "price": "₹499",
+            "mrp": "₹1,199",
+            "discount_percent": "58%",
+            "link": "https://www.amazon.in/dp/B07WGW7P3M?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61f2aL-67NL._SL1500_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Echo Buds (2nd Gen)",
+            "price": "₹6,999",
+            "mrp": "₹9,999",
+            "discount_percent": "30%",
+            "link": "https://www.amazon.in/dp/B08W5DF79N?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/711X-24F5gL._SL1500_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Jabra Elite 3",
+            "price": "₹4,799",
+            "mrp": "₹6,999",
+            "discount_percent": "31%",
+            "link": "https://www.amazon.in/dp/B09BFBYFGH?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Hk5d30+FL._SL1500_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Echo Frames",
+            "price": "₹449",
+            "mrp": "₹1,199",
+            "discount_percent": "63%",
+            "link": "https://www.amazon.in/dp/B0B58G616W?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71y8Qd2gQIL._SL1500_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Lakme Absolute Perfect Radiance Skin Brightening Day Creme 15 g",
+            "price": "₹89.00",
+            "mrp": null,
+            "discount_percent": "39%",
+            "link": "https://www.amazon.in/dp/B01C5717GQ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/31uiqZuManL._AC_UL600_SR600,400_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Biotique Morning Nectar Flawless Skin Moisturizer l Prevents Dark spots, Blackheads and Blemishes l Visibly Flawless Skin l Nourishes and Hydrates Skin l All Skin Types l 120ml",
+            "price": "₹121.00",
+            "mrp": null,
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B00791CORK?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71eGPJQryIL._AC_UL600_SR600,400_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Dabur Vatika Ayurvedic Shampoo - 1 L | For Strong & Healthy Hair | No Parabens | For All Hair Types | Power of Dus Poshan for 10 Hair Problems",
+            "price": "₹138.00",
+            "mrp": null,
+            "discount_percent": "42%",
+            "link": "https://www.amazon.in/dp/B097C5S5ZJ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71iAMC6U3dL._AC_UL600_SR600,400_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Parachute Advansed Almond enriched Coconut Hair Oil with Vitamin E 300ml|Nourishes & Softens Hair | Helps Control Hair Fall| Helps Promotes Hair Growth | Up to 2x Softer Hair|Non-Sticky Formula| Dermatologically-Tested Hair Oil | For Men & Women",
+            "price": "₹105.00",
+            "mrp": null,
+            "discount_percent": "86%",
+            "link": "https://www.amazon.in/dp/B0CGM73L7H?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61-93VOzlzL._AC_UL600_SR600,400_.jpg",
+            "category": "Beauty"
+        },
+        {
             "name": "Kratos 25W Charger Adapter Compatible with Samsung Galaxy S/A/M/F/Z Series S25/S24/S23/S22/S21/21 fe/S20/M14 5G/M34/M54/M53 5g/M33/M13/A34/A54 5G,BIS Certified,1 Year Warranty,White",
             "price": "₹397.00",
             "mrp": "₹897.00",
@@ -817,87 +898,6 @@
             "discount_percent": "41%",
             "link": "https://www.amazon.in/dp/B081F7189K?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/71P28i868CL._SY300_SX300_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Samsung 28 Ltr Convection Microwave Oven (Black, CE1041SF-DB)",
-            "price": "₹9,099",
-            "mrp": "₹17,500",
-            "discount_percent": "48%",
-            "link": "https://www.amazon.in/dp/B07GRLY46D?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/81F+716P3wL._SY300_SX300_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Dettol Body Wash and Shower Gel for Women and Men, Lime Fresh - 500ml | Soap-Free Bodywash | 12h Odour Protection",
-            "price": "₹150.00",
-            "mrp": "₹150.00",
-            "discount_percent": "0%",
-            "link": "https://www.amazon.in/dp/B0CRR7PNQ6?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51Frys+28rL._AC_UL300_SR300,200_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "Magic Soap Tan Removal Sandalwood & Saffron Magic Soaps For Bath | Paraben Free | Chandan & Kesar Bath Soaps | Handmade Soap For Glowing | Skin Brightening For Men & Women (Pack Of 2)",
-            "price": "₹249.00",
-            "mrp": "₹399.00",
-            "discount_percent": "37%",
-            "link": "https://www.amazon.in/dp/B0GWZNBJKJ?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61aYmVf7eUL._AC_UL300_SR300,200_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "L'Oréal Paris Casting Crème Gloss Hair Color With Glycolic Gloss Complex | 5X Glossier Hair Color | Shade 200 - Ebony Black | 60g + 40ml + 60g",
-            "price": "₹434.00",
-            "mrp": "₹749.00",
-            "discount_percent": "42%",
-            "link": "https://www.amazon.in/dp/B006QHB9O2?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61JeZQUD0rL._AC_UL300_SR300,200_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "L'Oreal Paris Total Repair 5 Shampoo For Damaged Hair | Powered by Keratin XS Technology| Fights 5 Signs of Hair Damage- Frizz, Breakage, Dryness, Stiff Hair, and Split end | 200ml",
-            "price": "₹148.00",
-            "mrp": "₹990.00",
-            "discount_percent": "85%",
-            "link": "https://www.amazon.in/dp/B006LXAIFW?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Vcm0PyCmL._AC_UL300_SR300,200_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "SUGAR Cosmetics Glide Peptide Serum Lipstick with Hyaluronic Acid & Vitamin E | Velvet Matte Finish | Long Lasting & Pigmented | 1 Swipe Full Coverage | 4.2gm - 01 Santorini Sunset",
-            "price": "₹166.00",
-            "mrp": "₹467.00",
-            "discount_percent": "65%",
-            "link": "https://www.amazon.in/dp/B0DK776G51?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/617oZkuc0OL._AC_UL300_SR300,200_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "Samsung 183 L Direct Cool Single Door Refrigerator 2023 (Model RR20D",
-            "price": "₹13,990.00",
-            "mrp": "₹22,500.00",
-            "discount_percent": "38%",
-            "link": "https://www.amazon.in/dp/B0BQY13D47?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/81K+E4X8rAL._SX466_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "boAt Airdopes 141 Bluetooth TWS Earbuds with ASAP Charge, 42H Playtime, ENx™ Tech, Low Latency Mode, IWP, GeneSync™, IPX5",
-            "price": "₹1,299.00",
-            "mrp": "₹4,490.00",
-            "discount_percent": "71%",
-            "link": "https://www.amazon.in/dp/B09MVN71C7?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71+Kz2lT1FL._SX466_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Noise ColorFit Pulse Buzz Smartwatch with 1.69\" HD Display, 10 days battery, 60+ Sports Modes & 150+ Watchfaces",
-            "price": "₹2,099.00",
-            "mrp": "₹3,999.00",
-            "discount_percent": "47%",
-            "link": "https://www.amazon.in/dp/B0B17M4R5V?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71XyX-dI5kL._SX466_.jpg",
             "category": "Loot"
         }
     ]
