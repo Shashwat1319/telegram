@@ -1,6 +1,132 @@
 {
     "products": [
         {
+            "name": "Fossil Men's Gen 5 Garrett Smartwatch",
+            "price": "₹7,998",
+            "mrp": "₹15,995",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B088YPJ459?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71qjK4I3+DL._SL1500_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "All-new Echo Dot (4th Gen, 2020) with Alexa | Smart speaker in Charcoal",
+            "price": "₹2,499",
+            "mrp": "₹4,999",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B084D4H4N8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/714ErSAXLXL._SL1500_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Fire TV Stick Lite with Alexa Voice Remote Lite | Stream TV shows and movies with access to thousands of apps",
+            "price": "₹2,999",
+            "mrp": "₹5,999",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0BNQ4Q9H1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51vjKnvE36L._SL1000_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Chaos Choc Layered Cake (125g)",
+            "price": "₹100",
+            "mrp": "₹199",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B09B9JMP7D?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61i-H85oF9L._SL1100_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Echo Dot (5th Gen, 2023) Smart speaker with Alexa, Glacier White",
+            "price": "₹3,499",
+            "mrp": "₹7,399",
+            "discount_percent": "53%",
+            "link": "https://www.amazon.in/dp/B0BPCDW16F?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71fXzJ+4xVL._SL1500_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Gesto Portable Neck Fan Rechargeable – Hands-Free Neck Fan for Summer With 1500 mAh Battery & Display | 5-Speed 360° Airflow, USB Charging Personal Fan for Home, Kitchen, Gym, Travel, Running - Blue",
+            "price": "725.00",
+            "mrp": null,
+            "discount_percent": "93%",
+            "link": "https://www.amazon.in/dp/B0GNMHLKDG?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/41XsQmpJSxL._AC_UL600_SR600,400_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Samsung Galaxy S26 5G (Black, 12GB RAM, 256GB Storage)_with Other Offers",
+            "price": "74,200.00",
+            "mrp": "99,999.00",
+            "discount_percent": "26%",
+            "link": "https://www.amazon.in/dp/B0GL8GCFR9?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71ju4kS-W8L._AC_UL600_SR600,400_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "OnePlus Nord 6 | 8GB+256GB | Mint Green | Snapdragon 8s Gen 4 | Segment's First Stable 165FPS Gaming | Segment's Largest 9000mAh Battery | Most Complete IP Rating | Personalized AI",
+            "price": "38,999.00",
+            "mrp": "41,999.00",
+            "discount_percent": "7%",
+            "link": "https://www.amazon.in/dp/B0GRBBPBGQ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61F1NWYtCKL._AC_UL600_SR600,400_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Prestige Pic 20 Neo Induction Cooktop 1600W|Indian Menu Options| Automatic Voltage Regulator| Timer With User Pre-Set, Manual, Black",
+            "price": "₹3,330.00",
+            "mrp": null,
+            "discount_percent": "91%",
+            "link": "https://www.amazon.in/dp/B0CMQZ98NS?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51fn4CUAClL._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Nat Habit - Fresh Ready To Apply Henna Paste, Pre-Soaked in Black Tea and Herbs,100% Natural Rajasthani Henna, Imparts Rich Brown Shade (Pack of 2 x 220g)",
+            "price": "₹355.00",
+            "mrp": "₹625.00",
+            "discount_percent": "43%",
+            "link": "https://www.amazon.in/dp/B0CCYRK98P?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61Y0oAR0dAL._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Plum Simply Bright 2% Niacinamide Face Wash With Rice Water | Brightens Skin, Helps Fade Blemishes | Softens & Smoothens Skin | Gentle & Non-Drying | Women & Men | 100% Vegan | 50 ml",
+            "price": "₹106.00",
+            "mrp": "₹212.00",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0GCCZLK1R?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/513ZmYzFeYL._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Cinthol Lime Bath Soap - 100g (Pack of 5) | Lemony Deo Fragrance | Grade 1 Soap | For All Skin Types",
+            "price": "₹150.00",
+            "mrp": "₹399.00",
+            "discount_percent": "62%",
+            "link": "https://www.amazon.in/dp/B01A8TM9K6?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61LbZX0h3bL._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Garnier Bright Complete VITAMIN C YOGHURT Night Cream, 40g",
+            "price": "₹146.00",
+            "mrp": "₹399.00",
+            "discount_percent": "63%",
+            "link": "https://www.amazon.in/dp/B005P4WPG8?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61rndzecQSS._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Aqueria Oil Control Brightening Gel Multi-Active French Sunscreen SPF 50 PA++++ | In-Vivo/In-Vitro Tested | 2% Niacinamide & Hyaluronic Acid | Modern UV Filters | Broad Spectrum UVA/UVB & Blue Light Protection | Lightweight, Non-Greasy, No White Cast | Suitable for Daily Use | For Oily, Acne-Prone & Combination Skin (15g)",
+            "price": "₹150.00",
+            "mrp": "₹999.00",
+            "discount_percent": "85%",
+            "link": "https://www.amazon.in/dp/B0GRTWYT67?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61s7FVukH7L._AC_UL900_SR900,600_.jpg",
+            "category": "Beauty"
+        },
+        {
             "name": "Bajaj Airlight 85 MM Personal Rechargeable Fan With Task Lighting | 8 W Table Fan | 360-Degree Table Lamp | 3-6 Hours Battery Backup | Silent Operation | USB Charging Fan | 1-Year Warranty 【White】",
             "price": "₹1,249.00",
             "mrp": null,
@@ -773,132 +899,6 @@
             "link": "https://www.amazon.in/dp/B0FQJZT4WS?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/61xkPRx8yjL._AC_UL300_SR300,200_.jpg",
             "category": "Kitchen"
-        },
-        {
-            "name": "Pigeon By Stovekraft ABS Plastic Acer Plus Induction Cooktop 1800 Watts With Feather Touch Control - Black",
-            "price": "₹2,699.00",
-            "mrp": null,
-            "discount_percent": "420%",
-            "link": "https://www.amazon.in/dp/B0832W3B7Q?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/51ojljAHTnL._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Fancymay Stainless Steel Spider Strainer Skimmer Ladle Set of 3 Sizes for Cooking, Frying, and Food Preparation - Kitchen Pasta Strainer, 38X15.5X5 Cm, Silver",
-            "price": "₹499.00",
-            "mrp": null,
-            "discount_percent": "8245%",
-            "link": "https://www.amazon.in/dp/B08NX62ZKY?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71AFKVKk2yS._AC_UL300_SR300,200_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "HP Pavilion 15-dk2101TX Laptop (11th Gen Intel Core i5-1135G7/8GB/512GB SSD/15.6\" FHD Anti-glare IPS Display/NVIDIA GTX 1650 4GB Graphics/Backlit Keyboard/Win 11)",
-            "price": "\n                      ₹57,990\n                    ",
-            "mrp": "₹73,382",
-            "discount_percent": "21%",
-            "link": "https://www.amazon.in/dp/B0BSK25V1F?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71-7XpM3y3L._SX679_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "MSI GF63 Thin Gaming Laptop Intel i5-11th Gen, 15.6\" FHD 144Hz, 8GB RAM, 512GB SSD NVMe, NVIDIA GTX 1650 4GB GDDR6, Cooler Boost 5, Wi-Fi 6, (1 Year Warranty)",
-            "price": "\n                      ₹57,990\n                    ",
-            "mrp": "₹74,990",
-            "discount_percent": "23%",
-            "link": "https://www.amazon.in/dp/B0BG66C64P?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/81bB7g1XpDL._SX679_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Lenovo LOQ 2023 12th Gen Intel Core i5-12450H 15.6\" FHD 144Hz Gaming Laptop (8GB RAM/512GB SSD/RTX 3050 6GB Graphics/Windows 11 Home/3 Months Game Pass)",
-            "price": "\n                      ₹68,990\n                    ",
-            "mrp": "₹94,101",
-            "discount_percent": "27%",
-            "link": "https://www.amazon.in/dp/B0C1P37322?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71g33dI03zL._SX679_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "HP Pavilion Plus 14-inch Laptop, AMD Ryzen 5 7535U (16GB RAM, 1TB SSD, 2.8K 120Hz Display, Backlit Keyboard, Micro-Edge, 99.9% sRGB, 12 Months Microsoft 365, Win 11 Home), 14-ey0018AU",
-            "price": "\n                      ₹68,990\n                    ",
-            "mrp": "₹81,780",
-            "discount_percent": "16%",
-            "link": "https://www.amazon.in/dp/B0CYK58LSM?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/718X32fUeZL._SX679_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "ASUS ROG Strix G16 (2023) Gaming Laptop, 16\" QHD+ 165Hz Display, GeForce RTX 4060, Intel Core i7-13650HX, 16GB DDR5, 512GB PCIe 4.0 SSD, Wi-Fi 6E, Windows 11 Home, G614JV-AS73",
-            "price": "\n                      ₹115,990\n                    ",
-            "mrp": "₹1,45,990",
-            "discount_percent": "21%",
-            "link": "https://www.amazon.in/dp/B0C5B5FKYC?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/81N7f48G9bL._SX679_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "One94Store Rechargeable Handheld Fan | 1800mAh Battery | 6 Speed Modes Touch Control | Hanging Neck Fan with Mobile Stand | Portable Mini Fan for Travel, Office, Home & Outdoor | (Blue)",
-            "price": 419.0,
-            "mrp": 997.0,
-            "discount_percent": 58,
-            "link": "https://www.amazon.in/dp/B0GHP41QPF?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61f8CS8mr9L._AC_UL900_SR900,600_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "APFEN USB Type- A to Lightning Cable [MFi Certified] Fast Charging & Data Sync Cable Compatible With iPhone 14,13, 12,11,X, 8, 7, 6, 5, iPad Air, Pro, ProMax, Mini",
-            "price": 271.0,
-            "mrp": 699.0,
-            "discount_percent": 61,
-            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/41bDXvBxnzL._AC_UL900_SR900,600_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "One Plus 65W Original Power Adapter with Type-C Cable Ultra-Fast Charger Compatible with One-Plus 12/12R/11/11R/10/10R, Nord CE 3 Lite 5G, Nord 2T 5G, Nord CE 2 Lite 5G, Nord 5G Combo",
-            "price": 399.0,
-            "mrp": 2999.0,
-            "discount_percent": 87,
-            "link": "https://www.amazon.in/dp/B0GPQKQ5MM?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61REdgFKbPL._AC_UL900_SR900,600_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Kratos 28 Inch Selfie Stick Tripod Stand with Light, 3-in-1 Multifunctional Design, Rechargeable LED Light with Two Brightness Levels with Bluetooth Remote for Makeup, Selfie & Photoshoot",
-            "price": 189.0,
-            "mrp": 2899.0,
-            "discount_percent": 93,
-            "link": "https://www.amazon.in/dp/B0FVG14W46?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/71C7AH5ebiL._AC_UL900_SR900,600_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "VILLAIN Perfume for Men",
-            "price": "₹499",
-            "mrp": "₹1,499",
-            "discount_percent": "66%",
-            "link": "https://www.amazon.in/dp/B09R513J58?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51-q34c2z3L._AC_UL320_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Aqualogic Water Filter Compatible",
-            "price": "₹479",
-            "mrp": "₹1,499",
-            "discount_percent": "68%",
-            "link": "https://www.amazon.in/dp/B0CKQ12F92?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71eU09sKj5L._AC_UL320_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "BEING FAB Women Cotton Blend A-line Kurta",
-            "price": "₹399",
-            "mrp": "₹1,299",
-            "discount_percent": "69%",
-            "link": "https://www.amazon.in/dp/B0BR6692W9?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71c9p22FfBL._AC_UL320_.jpg",
-            "category": "Loot"
         }
     ]
 }
