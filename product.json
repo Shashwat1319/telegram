@@ -1,6 +1,87 @@
 {
     "products": [
         {
+            "name": "Samsung Galaxy M14 5G (Aqua Green, 4GB RAM, 64GB Storage) | 5G Ready | 13nm Advanced Processor | 50MP Triple Camera | 6000 mAh Big Battery | 25W Charging Support",
+            "price": "\n            ₹11,490\n            ",
+            "mrp": "\n            ₹17,990\n            ",
+            "discount_percent": "36%",
+            "link": "https://www.amazon.in/dp/B0C4G7L44B?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/7187g-rMzsL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Samsung Galaxy M34 5G (Waterfall Blue, 8GB RAM, 128GB Storage) | 120Hz Super AMOLED Display | 50MP OIS Camera | 6000 mAh Battery | 25W Charger Included | Octa-Core Processor",
+            "price": "\n            ₹16,999\n            ",
+            "mrp": "\n            ₹25,999\n            ",
+            "discount_percent": "34%",
+            "link": "https://www.amazon.in/dp/B0C9Y78W9Z?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/7127f2G95GL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Samsung Galaxy M14 5G (Berry Blue, 6GB RAM, 128GB Storage) | 5G Ready | 13nm Advanced Processor | 50MP Triple Camera | 6000 mAh Big Battery | 25W Charging Support",
+            "price": "\n            ₹14,490\n            ",
+            "mrp": "\n            ₹20,990\n            ",
+            "discount_percent": "31%",
+            "link": "https://www.amazon.in/dp/B0C4G1KKYP?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/7187g-rMzsL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Samsung Galaxy M14 5G (ICY Silver, 4GB RAM, 64GB Storage) | 5G Ready | 13nm Advanced Processor | 50MP Triple Camera | 6000 mAh Big Battery | 25W Charging Support",
+            "price": "\n            ₹11,490\n            ",
+            "mrp": "\n            ₹17,990\n            ",
+            "discount_percent": "36%",
+            "link": "https://www.amazon.in/dp/B0C4G4MJ8Q?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71h5j5m6WzL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Samsung Galaxy M34 5G (Prism Silver, 6GB RAM, 128GB Storage) | 120Hz Super AMOLED Display | 50MP OIS Camera | 6000 mAh Battery | 25W Charger Included | Octa-Core Processor",
+            "price": "\n            ₹14,999\n            ",
+            "mrp": "\n            ₹23,999\n            ",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0C9Y8P78B?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/7127f2G95GL._SY300_SX300_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "DALUCI Cotton Saree Covers for Storage Pack of 12 Big Size 16×14 Inch Saree Bags with Zip Transparent Mesh Window Saree Organizer for Wardrobe Clothes Storage Bags - Beige",
+            "price": "₹599.00",
+            "mrp": null,
+            "discount_percent": "76%",
+            "link": "https://www.amazon.in/dp/B0FYPWRRG8?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71unjwUMUOL._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "CELLO H2O Stainless Steel Water Bottle for Office & Daily Use 1000 ml, Black | Single Wall Freezer & Fridge Safe, Lightweight & Stylish Leakproof Rustproof Steel Water Bottle for School, Gym & Travel",
+            "price": "₹277.00",
+            "mrp": null,
+            "discount_percent": "80%",
+            "link": "https://www.amazon.in/dp/B0BSLJWLT2?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61PUYwPotFL._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Noise Buds VS102 Plus Wireless Earbuds, Bluetooth Earbuds with 70H Playtime, Quad Mic ENC for Clear Calls, 11mm Drivers, Deep Bass, Instacharge, Bluetooth v5.3 (Calm White)",
+            "price": "₹1,199.00",
+            "mrp": "₹3,999.00",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B0DS2WXGS7?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51A18CDWIoL._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "XIAOMI Mi 33W Fast Charging Cable USB C Quick Charge 4.0 Soniccharge Cord Compatible withMi, Redmi, iPhone 15 Pro Samsung Galaxy Android Phone Laptop PD Charger Cable (White)",
+            "price": "₹249.00",
+            "mrp": "₹429.00",
+            "discount_percent": "42%",
+            "link": "https://www.amazon.in/dp/B0C4PVS224?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/51QtbZMVp6L._AC_UL300_SR300,200_.jpg",
+            "category": "Electronics"
+        },
+        {
             "name": "Zeno100 (3+5GB RAM, 64GB ROM) | 5000mAh Battery with Type-C | 90Hz Display | Side Fingerprint | Military Grade Protection | Octa-Core Processor | Pure Black",
             "price": "₹7,799.00",
             "mrp": "₹8,199.00",
@@ -818,87 +899,6 @@
             "link": "https://www.amazon.in/dp/B0G1MWVQFR?tag=shashwat022-21",
             "image": "https://images-eu.ssl-images-amazon.com/images/I/61FNxPXIIAL._AC_UL300_SR300,200_.jpg",
             "category": "Electronics"
-        },
-        {
-            "name": "Silicone Case, Remote Cover Compatible with 2nd Gen Fire Stick Remote Control (Fire Stick, 2gen - Black)",
-            "price": "249.00",
-            "mrp": null,
-            "discount_percent": null,
-            "link": "https://www.amazon.in/dp/B09L83DRGX?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61A0K0qLF+L._AC_UL300_SR300,200_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "APFEN® 20W [Apple MFi Certified] Type-C Fast Charger Adapter & Cable Compatible with iPhone 14/14 Pro/14 Pro Max/13/13 Pro/13 Pro Max/12/11/XR/XS/X/8 Series, White",
-            "price": "380.00",
-            "mrp": null,
-            "discount_percent": null,
-            "link": "https://www.amazon.in/dp/B0F62W35NX?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61sa0aOa5ZL._AC_UL300_SR300,200_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "APFEN USB Type- A to Lightning Cable [MFi Certified] Fast Charging & Data Sync Cable Compatible With iPhone 14,13, 12,11,X, 8",
-            "price": "271.00",
-            "mrp": null,
-            "discount_percent": null,
-            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/41bDXvBxnzL._AC_UL300_SR300,200_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Parachute Coconut Oil 600 ml - Bottle",
-            "price": "₹242.00",
-            "mrp": "N/A",
-            "discount_percent": "N/A",
-            "link": "https://www.amazon.in/dp/B07BDNGTYC?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61fapIFwFmL._AC_UL300_SR300,200_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "RR Signature Vento Fresh Luxura 150 mm Exhaust Fan For Kitchen, Bathroom | Silent, Compact Design, Easy Install | Thermal Fuse | High Speed 100% Powerful Copper Motor | 2 Year Warranty [Steel Finish]",
-            "price": "₹949.00",
-            "mrp": null,
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0DK9XXKJC?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/81y5Xtk6pSL._AC_UL900_SR900,600_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Men's Fashion Sneakers",
-            "price": "₹599",
-            "mrp": "₹1,999",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B0C3SJWJHG?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71QYvFz7uEL._SY466_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Men's Training Shoes",
-            "price": "₹699",
-            "mrp": "₹2,299",
-            "discount_percent": "69%",
-            "link": "https://www.amazon.in/dp/B0C3SGSG3X?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/81t8q2J15EL._SY466_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Men's Running Shoes",
-            "price": "₹649",
-            "mrp": "₹2,099",
-            "discount_percent": "69%",
-            "link": "https://www.amazon.in/dp/B0C3SGWJ7D?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/81-W2aQjVQL._SY466_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Men's Walking Shoes",
-            "price": "₹699",
-            "mrp": "₹2,299",
-            "discount_percent": "69%",
-            "link": "https://www.amazon.in/dp/B0C9Q65B74?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/81oJ98mEwXL._SY466_.jpg",
-            "category": "Loot"
         }
     ]
 }
