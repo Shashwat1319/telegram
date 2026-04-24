@@ -1,6 +1,51 @@
 {
     "products": [
         {
+            "name": "Bajaj Airlight 85 MM Personal Rechargeable Fan With Task Lighting | 8 W Table Fan | 360-Degree Table Lamp | 3-6 Hours Battery Backup | Silent Operation | USB Charging Fan | 1-Year Warranty 【White】",
+            "price": "₹1,249.00",
+            "mrp": null,
+            "discount_percent": "31%",
+            "link": "https://www.amazon.in/dp/B0C7CLZSRG?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61knCEgEGXL._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Butterfly Smart 750 Watts Mixer Grinder with 4 Jars | 3 Stainless Steel Jars & 1 Juicer | ABS Body | Heavy Duty Motor | 2 Years Manufacturer's Warranty | Grey",
+            "price": "₹2,999.00",
+            "mrp": null,
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B075JJ5NQC?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61QcAehpnzL._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "AGARO Elegant Beer Mug, Set of 2, 397ml Each, Transparent, Serves Beer, Juice, Mocktail, Cocktail, Drinking Glass with Handle",
+            "price": "₹272.00",
+            "mrp": null,
+            "discount_percent": "73%",
+            "link": "https://www.amazon.in/dp/B0D3F9F16D?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71hpmbNG3PL._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Havells Leganza 4 Blade 1200mm Ceiling Fan (Bronze Gold), 4 stars",
+            "price": "₹2,690.00",
+            "mrp": null,
+            "discount_percent": "73%",
+            "link": "https://www.amazon.in/dp/B00B4BBDNW?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/71DvWFLfx4L._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "TEKCOOL Mini Cooler for Room Cooling AC Portable Mini Fan Artic Cooler with 7 Colors LED Light, 1/2/3 H Timer, 3 Wind Speeds and 3 Spray Modes for Office,Home,Dorm,Travel.;",
+            "price": "₹699.00",
+            "mrp": null,
+            "discount_percent": "78%",
+            "link": "https://www.amazon.in/dp/B0GWJMQYTZ?tag=shashwat022-21",
+            "image": "https://images-eu.ssl-images-amazon.com/images/I/61sTL8xtw7L._AC_UL900_SR900,600_.jpg",
+            "category": "Kitchen"
+        },
+        {
             "name": "Samsung Galaxy M14 5G (Aqua Green, 4GB RAM, 64GB Storage) | 5G Ready | 13nm Advanced Processor | 50MP Triple Camera | 6000 mAh Big Battery | 25W Charging Support",
             "price": "\n            ₹11,490\n            ",
             "mrp": "\n            ₹17,990\n            ",
@@ -854,51 +899,6 @@
             "link": "https://www.amazon.in/dp/B0BR6692W9?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/71c9p22FfBL._AC_UL320_.jpg",
             "category": "Loot"
-        },
-        {
-            "name": "TILLY Basic Crew Neck Half Sleeve Cotton T-Shirt for Men",
-            "price": "₹239",
-            "mrp": "₹799",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B0BF35Y5R7?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/613t2vjV2JL._AC_UL320_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "LUCKYSUNY High Waist Yoga Pants for Women with Pockets",
-            "price": "₹749",
-            "mrp": "₹2,599",
-            "discount_percent": "71%",
-            "link": "https://www.amazon.in/dp/B0BV9882Y9?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71+6F6t8zWL._AC_UL320_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "QQKO Floor Crevice Nail Drill MÍNi CóÓler for Room Cooling MiNi Cooler AiR Cooler Portable AiR CoNdItIoNeRs for Home Office Artic Cooler MiNi Cooler",
-            "price": "₹999.00",
-            "mrp": null,
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B0GWLQ74HR?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61aXmYK0tgL._AC_UL300_SR300,200_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "L'Oreal Paris Casting Crème Gloss Hair Color With Glycolic Gloss Complex | 5X Glossier Hair Color | Shade 200 - Ebony Black | 60g + 40ml + 60g",
-            "price": "₹440.00",
-            "mrp": "₹749.00",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B006QHB9O2?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61JeZQUD0rL._AC_UL300_SR300,200_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "Kratos 41 Inch Magnetic Tripod Stand for iPhone, Aluminum Tripod with Strong Magnetic Holder for MagSafe Design Mobile Phones, 360° Rotation, BT Remote for Selfies, Vlogging & Travel",
-            "price": "599.00",
-            "mrp": null,
-            "discount_percent": null,
-            "link": "https://www.amazon.in/dp/B0G1MWVQFR?tag=shashwat022-21",
-            "image": "https://images-eu.ssl-images-amazon.com/images/I/61FNxPXIIAL._AC_UL300_SR300,200_.jpg",
-            "category": "Electronics"
         }
     ]
 }
