@@ -102,6 +102,7 @@ def generate_message(product, is_lightning=False):
         f"{header_extra}\n"
         f"📦 <b>{safe_name}</b>\n\n"
         f"{bachat_str}\n\n"
+        f"🔥 <b>Urgency Alert:</b> <i>Only few items left at this price!</i>\n"
         f"⭐️ <i>Highly rated product identified by our budget tracker. Best price currently available.</i>{footer_extra}\n\n"
         f"🛒 <a href='{link}'>View Deal & Order (Amazon)</a>\n\n"
         f"📍 <i>Join @{CLEAN_ID} for genuine price drop alerts only!</i>",
@@ -111,6 +112,7 @@ def generate_message(product, is_lightning=False):
         f"🎁 <b>OUR TOP PICK TODAY!</b>\n\n"
         f"<b>Product:</b> {safe_name}\n"
         f"{bachat_str}\n\n"
+        f"⚡️ <b>Fast Selling:</b> <i>85% members already clicked this loot!</i>\n"
         f"✅ <i>Verified seller and genuine discount. Quality checked.</i>{footer_extra}\n\n"
         f"🚀 <a href='{link}'>Click here to Grab this Deal</a>\n\n"
         f"🤝 <i>Share with friends who need this! @{CLEAN_ID}</i>"
