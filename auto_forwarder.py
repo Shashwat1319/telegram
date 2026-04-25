@@ -189,7 +189,7 @@ async def main():
     should_promo_now = check_should_promote()
     
     print("Fetching new deals...")
-    fetcher_client = TelegramClient(ACCOUNTS[0]["session"], int(API_ID), API_HASH)
+    fetcher_client = TelegramClient(ACCOUNTS[1]["session"], int(API_ID), API_HASH)
     
     new_messages = []
     try:
