@@ -131,18 +131,18 @@ def generate_viral_message():
     share_url = f"https://t.me/share/url?url={tg_link}&text={share_text}"
 
     templates = [
-        f"🚨 <b>MEMBERS ONLY HIDDEN DEALS!</b> 🚨\n\n"
+        f"🔥 <b>MEMBERS ONLY MEGA LOOT UNLOCKED!</b> 🔥\n\n"
         f"Bhaiyo, agla <b>Top Discount Deal</b> aane wala hai, lekin ye sirf unhe dikhega jo hamare active supportive members hain! 😍\n\n"
-        f"🔥 <b>Challenge:</b> Is link ko apne <b>5 Best Friends</b> ya Shopping Groups mein forward karo!\n\n"
-        f"👇 <b>FORWARD & JOIN NOW</b> 👇\n"
-        f"🚀 <a href='{share_url}'>Click to Forward to Friends</a>\n\n"
-        f"🤫 <i>Sharing starts the luck! 1000 members hote hi Mega Loot live hogi!</i>",
+        f"✅ <b>Mission:</b> Is link ko apne <b>5 Groups</b> mein forward karo aur Loot link ka access paao!\n\n"
+        f"👇 <b>CLICK TO SHARE & GET ACCESS</b> 👇\n"
+        f"🚀 <a href='{share_url}'>Click here to Share with Friends</a>\n\n"
+        f"🤫 <i>1000 members hote hi Mega Price Drop activate hoga!</i>",
 
-        f"🛑 <b>SYSTEM ERROR DETECTED - WAITING FOR ACCESS</b> 🛑\n\n"
-        f"Amazon price crash hone wala hai! Hum iska link tabhi post karenge jab channel mein <b>1000 Members</b> pure honge! 🏃‍♂️\n\n"
-        f"📢 <b>Aapki help chahiye:</b> Jaldi se 5 dosto ko ye channel share karo taaki hum turant link de sakein!\n\n"
-        f"🔗 <a href='{share_url}'>Share with 5 Friends (Click Here)</a>\n\n"
-        f"✅ <i>Jaldi join karwao, loot miss mat hone dena!</i>"
+        f"🎁 <b>EXCLUSIVE GIVEAWAY & LOOT ALERT!</b> 🎁\n\n"
+        f"Amazon par massive price crash detected! Hum iska direct loot link tabhi post karenge jab channel mein <b>1000 Members</b> pure honge! 🏃‍♂️\n\n"
+        f"📢 <b>Helping Hand:</b> Jaldi se 5 dosto ko ye channel share karo taaki hum turant link de sakein!\n\n"
+        f"🔗 <a href='{share_url}'>Share and Join (Click Here)</a>\n\n"
+        f"✅ <i>JITNI JALDI SHARE, UTNI JALDI LOOT!</i>"
     ]
     return random.choice(templates)
 
@@ -228,8 +228,8 @@ async def post_deals():
         if current_count % 15 == 0:
             await send_automated_poll(bot, chat_id)
 
-        # Viral/Bounty Interval (Aggressive for April 15th Sprint: Every 2-4 posts)
-        viral_interval = random.randint(2, 4)
+        # Viral/Bounty Interval (Every 10-15 posts to maintain trust)
+        viral_interval = random.randint(10, 15)
         if current_count >= viral_interval:
             print(f"Post count: {current_count}. Triggering Growth Cycle!")
             # Pick between Viral Message or Bounty

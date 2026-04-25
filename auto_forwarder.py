@@ -17,16 +17,17 @@ API_HASH = os.getenv("API_HASH")
 PHONE_NUMBER = os.getenv("PHONE_NUMBER")
 CHANNEL_ID = os.getenv("CHANNEL_ID") # e.g. @your_channel
 
-# ✅ Discussion and Promo groups only (where members can chat/post)
-TARGET_GROUPS_BASE = [
-    "@Promoteclub_b",         # Verified Working
-    "@Promote_Channel_Group",  # Promotion allowed
-    "@Loot_Discussion_India", 
-    "@Shopping_Loot_Discussion",
-    "@Invite_Link_Group",
-    "@Telegram_Promotion_India"
-]
+def load_target_groups():
+    groups = []
+    if os.path.exists("promo_groups_list.txt"):
+        with open("promo_groups_list.txt", "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#"):
+                    groups.append(line)
+    return groups if groups else ["@Promoteclub_b"]
 
+TARGET_GROUPS_BASE = load_target_groups()
 PRIORITY_GROUPS = ["@Promoteclub_b"]
 
 # Multi-Account Setup (Main + Workers)
@@ -41,19 +42,19 @@ PROMO_COUNTER_FILE = "promo_counter.txt"
 
 # Viral Recruitment Ad Message
 PROMO_MESSAGE = f"""
-✨ **GENUINE AMAZON PRICE DROPS DETECTED** ✨
+🔥 **AMAZON MEGA LOOT UNLOCKED!** 🔥
 
-Spam groups se pareshaan ho? Yahan sirf **Verified Budget Deals** post hoti hain, wo bhi Bina Hallucinations ke! 🛡️
+Baki groups me sirf mehnge items milte hain? Yahan milengi sirf **Asli Loots** aur **Price Glitches**! 🛡️
 
 ✅ **Latest Deals posted just now:**
-- 70% Off Branded Skincare
-- Daily Use Gadgets under ₹499
-- Verified Brand Sales
+- ₹99 Store Special Items 🤑
+- 80% Off Branded Smartwatches
+- Verified Loot: Daily Use Items @ ₹149
 
-🔥 **JOIN FOR REAL SAVINGS:** https://t.me/{CHANNEL_ID.replace('@','')}
-🔥 **JOIN FOR REAL SAVINGS:** https://t.me/{CHANNEL_ID.replace('@','')}
+👇 **JOIN FOR REAL SAVINGS:** https://t.me/{CHANNEL_ID.replace('@','')}
+👇 **JOIN FOR REAL SAVINGS:** https://t.me/{CHANNEL_ID.replace('@','')}
 
-🚀 *We track prices 24/7 so you don't have to!*
+🚀 *Ab mehanga kharidna band karo! Join Budget Deals India!*
 """
 
 def get_last_id():
@@ -192,8 +193,14 @@ async def main():
     
     new_messages = []
     try:
-        await fetcher_client.start(phone=ACCOUNTS[0]["phone"])
+        await fetcher_client.connect()
+        if not await fetcher_client.is_user_authorized():
+            print("[!] Main Account (Fetcher) is NOT authorized. Cannot fetch new deals.")
+            await fetcher_client.disconnect()
+            return
+
         last_id = get_last_id()
+        print(f"Checking for deals in {CHANNEL_ID} with ID > {last_id}...")
         async for message in fetcher_client.iter_messages(CHANNEL_ID, min_id=last_id, limit=20):
             if message.text or message.media:
                 new_messages.append(message)
@@ -221,7 +228,8 @@ async def main():
 
     if tasks:
         print(f"[*] Starting Cycle (Promo Mode: {should_promo_now})...")
-        await asyncio.gather(*tasks)
+        for task in tasks:
+            await task
 
     if new_messages:
         save_last_id(new_messages[-1].id)
