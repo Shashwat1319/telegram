@@ -3,6 +3,7 @@ title: "Carrier 1 Ton 3 Star,New Star rated, Flexicool Inverter Split AC (Copper
 description: "Epic Deal: Save 46% on Carrier 1 Ton 3 Star,New Star rated, Flexicool Inverter Split AC (Copper, Convertible 6-in-1 with Smart Energy Display, Insta Cool, Auto Clean, PM 2.5 Filter, ESTER EDGE Gxi-CAI12EE3R36F0, White)! Best price alert on Amazon India."
 pubDate: "2026-04-26"
 heroImage: "https://m.media-amazon.com/images/I/519v4EI+NIL.jpg"
+buyLink: "https://www.amazon.in/dp/B0GCDZ468N?tag=shashwat022-21"
 ---
 
 Carrier AC Deal Alert! 46% Off – Yeh Toh Loot Hai!
@@ -18,7 +19,3 @@ Why this deal is unmissable:
 It's the perfect time to upgrade your home cooling without breaking the bank. Aisa mauka phir nahi milega!
 
 Grab this incredible Carrier AC deal now before it's gone! Buy via this link: https://www.amazon.in/dp/B0GCDZ468N?tag=shashwat022-21
-
-<div class="mega-buy-btn-container">
-    <a href="https://www.amazon.in/dp/B0GCDZ468N?tag=shashwat022-21" target="_blank" rel="noopener noreferrer" class="mega-buy-btn">🔥 GRAB DEAL ON AMAZON NOW 🔥</a>
-</div>
