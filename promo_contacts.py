@@ -17,15 +17,14 @@ CHANNEL_ID = os.getenv("CHANNEL_ID")
 # PROMO MESSAGE
 # [NEW] More aggressive but respectful message for high conversion
 PROMO_MESSAGE = f"""
-Hey! 👋
+Bhai, Amazon/Flipkart se shopping karte ho? 🛍️
 
-Agar aap Amazon/Flipkart se shopping karte ho, toh ye channel miss mat karna! 🛍️
+Maine ek channel banaya hai jahan daily **Verified Loots**, **Price Drops** aur **90% OFF Deals** milti hain. 😱🔥
 
-Yahan daily **₹1 Deals**, **Price Glitches** aur **90% OFF Loots** aate hain jo 2-5 min mein expire ho jate hain. 😱🔥
+Join karlo, extra paisa kyu dena:
+👉 https://t.me/{CHANNEL_ID.replace('@','')}
 
-Join Fast: https://t.me/{CHANNEL_ID.replace('@','')}
-
-Paisa bachao! 🙏✨
+Aaj hi ek ₹149 wali deal miss ho gayi, abhi join karo aur agali miss mat karna! 🙏✨
 """
 
 ACCOUNTS = [

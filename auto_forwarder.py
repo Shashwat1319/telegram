@@ -42,19 +42,18 @@ PROMO_COUNTER_FILE = "promo_counter.txt"
 
 # Viral Recruitment Ad Message
 PROMO_MESSAGE = f"""
-🔥 **AMAZON MEGA LOOT UNLOCKED!** 🔥
+🚀 **SABSE FAST DEALS YAHAN MILTI HAIN!** 🚀
 
-Baki groups me sirf mehnge items milte hain? Yahan milengi sirf **Asli Loots** aur **Price Glitches**! 🛡️
+Ab loot miss nahi hogi! Join **Budget Deals India** for:
+✅ ₹99 Store Special Items 🤑
+✅ 80% Off Branded Smartwatches
+✅ Verified Loot: Daily Use Items @ ₹149
+✅ Real Price Glitches (Amazon/Flipkart)
 
-✅ **Latest Deals posted just now:**
-- ₹99 Store Special Items 🤑
-- 80% Off Branded Smartwatches
-- Verified Loot: Daily Use Items @ ₹149
+👇 **JOIN NOW:** https://t.me/{CHANNEL_ID.replace('@','')}
+👇 **JOIN NOW:** https://t.me/{CHANNEL_ID.replace('@','')}
 
-👇 **JOIN FOR REAL SAVINGS:** https://t.me/{CHANNEL_ID.replace('@','')}
-👇 **JOIN FOR REAL SAVINGS:** https://t.me/{CHANNEL_ID.replace('@','')}
-
-🚀 *Ab mehanga kharidna band karo! Join Budget Deals India!*
+*Ab mehanga kharidna band karo!* 🔥🛡️
 """
 
 def get_last_id():

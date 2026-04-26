@@ -17,11 +17,14 @@ PHONE = os.getenv("PHONE_NUMBER")
 TARGET_GROUPS = [
     "@cashbackoffersdiscussion",
     "@deals_groups",
-    "@indian_chatting_grup",
     "@lootandtricks3",
     "@GhLoot_Offers_Discussion",
     "@offerswallchat",
-    "@allrechargebill"
+    "@allrechargebill",
+    "@LootDealsIndia_Chat",
+    "@ShoppingDealsIndiaGroup",
+    "@FreekaamaalDiscussion",
+    "@DealOfTheDay_Chat"
 ]
 
 LEADS_FILE = "scraped_leads.txt"

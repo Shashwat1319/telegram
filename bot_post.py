@@ -93,7 +93,12 @@ def generate_message(product, is_lightning=False):
 
     header_extra = "✨ <b>VERIFIED BUDGET DEAL</b> ✨\n"
     footer_extra = ""
-    if is_lightning or (discount and any(x in discount for x in ['50%', '60%', '70%', '80%', '90%'])):
+    
+    # [NEW] Viral Glitch Detection
+    if discount and ('90%' in discount or '95%' in discount):
+        header_extra = "🚨 <b>PRICE GLITCH DETECTED!</b> 🚨\n🛑 <b>90%+ DISCOUNT ALERT!</b> 🛑\n"
+        footer_extra = "\n😱 <i>Bhai ye galti se sasta hua hai, jaldi loot lo!</i>"
+    elif is_lightning or (discount and any(x in discount for x in ['70%', '80%'])):
         header_extra = "🔥 <b>TOP-RATED FLASH DEAL!</b> 🔥\n"
         footer_extra = "\n⚠️ <i>Note: Lightning deals expire quickly. Check price on Amazon.</i>"
 
