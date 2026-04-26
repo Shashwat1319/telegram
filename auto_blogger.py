@@ -53,7 +53,7 @@ def create_blog_file(product, content):
     asin_match = re.search(r'/dp/([A-Z0-9]{10})', product['link'])
     asin = asin_match.group(1) if asin_match else str(hash(product['name']))[:8]
     
-    blog_dir = "website/src/content/blog"
+    blog_dir = "website/content/blog"
     if not os.path.exists(blog_dir):
         os.makedirs(blog_dir, exist_ok=True)
     

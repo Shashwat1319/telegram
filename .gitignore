@@ -16,8 +16,10 @@ forwarder_log.txt
 last_forwarded_id.txt
 
 # Documentation & Artifacts
-!README.md
-*.md
+# !README.md - was already not ignored
+# *.md  <-- This was the culprit! Fixed below:
+!website/content/**/*.md
+!website/src/content/**/*.md
 # Local Data & State
 contacts_*.txt
 discovered_groups.txt
