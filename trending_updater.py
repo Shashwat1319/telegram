@@ -74,7 +74,7 @@ def preprocess_html(html_content):
 
 def extract_products_with_ai(html_text, retry_count=0):
     """Use Gemini AI to pick the best deals from pre-structured text."""
-    models = ["gemini-2.5-flash", "gemini-1.5-flash"]
+    models = ["gemini-2.5-flash", "gemini-2.5-pro"]
     model = models[retry_count % len(models)]
     
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
@@ -264,8 +264,10 @@ def main():
         git_push_changes()
         try:
             subprocess.run([sys.executable, "bot_post.py"], check=True)
+            print("[*] Triggering Auto-Blogger...")
+            subprocess.run([sys.executable, "auto_blogger.py"], check=True)
         except Exception as e:
-            print(f"Telegram Bot error: {e}")
+            print(f"Telegram Bot or Blogger error: {e}")
             
         # Call Facebook Bot (Handled separately with peak-hour and daily-limit logic)
         try:

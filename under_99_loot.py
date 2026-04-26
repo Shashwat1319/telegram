@@ -41,7 +41,7 @@ def extract_cheap_products(html):
     cleaned = "\n".join([str(b) for b in boxes])
     if not cleaned: cleaned = html[:15000]
     
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}"
     prompt = f"""
     Extract up to 3 products from this Amazon India search HTML.
     ONLY pick products where the current deal price is strictly under ₹150 (preferably under ₹99).
