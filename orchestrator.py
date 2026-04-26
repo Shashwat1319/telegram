@@ -8,6 +8,7 @@ from datetime import datetime
 # Main deals and reports are now handled by GitHub Actions (Cloud)
 INTERVAL_PROMO = 3 * 60 * 60  # 3 hours (Growth DM)
 INTERVAL_SCRAPER = 24 * 60 * 60 # 24 hours (New Leads Scrape)
+INTERVAL_FORWARD = 60 * 60     # 1 hour (Auto Forwarding)
 
 def run_script(script_name, timeout=1800):
     print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] RUNNING: {script_name}")
@@ -26,20 +27,26 @@ def run_script(script_name, timeout=1800):
 
 def main():
     print("="*50)
-    print(" ARZI PROMOTION ORCHESTRATOR v3.0 - LAPTOP MODE ")
+    print(" ARZI HYBRID ORCHESTRATOR v3.1 - LAPTOP MODE ")
     print("="*50)
     print("Note: Deals, Reports & Website are handled by Cloud.")
     print(f"Start Time: {datetime.now()}")
     
     last_promo = 0
     last_scraper = 0
+    last_forward = 0
 
-    print("[*] Entering Promotion Loop...")
+    print("[*] Entering Hybrid Loop...")
     try:
         while True:
             now = time.time()
 
-            # 1. Promo Engine (DM Growth) - Best run from Laptop (Local IP)
+            # 1. Forwarder Engine (Safe for Laptop IP)
+            if now - last_forward > INTERVAL_FORWARD:
+                run_script("auto_forwarder.py", timeout=900)
+                last_forward = now
+
+            # 2. Promo Engine (DM Growth) - Best run from Laptop (Local IP)
             if now - last_promo > INTERVAL_PROMO:
                 if os.path.exists("scraped_leads.txt"):
                     run_script("promo_contacts.py", timeout=3600) # 1h timeout
