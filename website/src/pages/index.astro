@@ -6,7 +6,8 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 
-const posts = await Astro.glob('../content/blog/*.md');
+const postFiles = import.meta.glob('../content/blog/*.md', { eager: true });
+const posts = Object.values(postFiles);
 posts.sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
 const recentPosts = posts.slice(0, 3);
 ---

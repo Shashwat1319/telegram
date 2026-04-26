@@ -4,6 +4,8 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap');
+
 :root {
 	--accent: #ff9900;
 	--accent-dark: #cc7a00;
@@ -14,7 +16,6 @@
 	--gray-gradient: rgba(240, 242, 245, 50%), #fff;
 	--box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap');
 
 body {
 	font-family: 'Outfit', sans-serif;

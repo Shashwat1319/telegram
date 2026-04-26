@@ -7,7 +7,8 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 
-const posts = await Astro.glob('../../content/blog/*.md');
+const postFiles = import.meta.glob('../../content/blog/*.md', { eager: true });
+const posts = Object.values(postFiles);
 posts.sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
 ---
 
