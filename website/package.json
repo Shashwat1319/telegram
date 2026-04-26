@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "npx rimraf node_modules/.astro node_modules/.vite && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
