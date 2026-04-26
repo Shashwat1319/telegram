@@ -2,11 +2,11 @@ name: AI Trending Products Sync
 
 on:
   schedule:
-    - cron: '0 */4 * * *'  # Every 4 hours
-  workflow_dispatch:  # Manual trigger
+    - cron: '*/45 * * * *'  # Every 45 minutes
+  workflow_dispatch:
 
 jobs:
-  sync_trending:
+  cloud_orchestrator:
     runs-on: ubuntu-latest
     environment: telegram
     permissions:
@@ -24,19 +24,12 @@ jobs:
         run: |
           pip install -r requirements.txt
 
-      - name: Test Bot Connection
-        env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
-        run: |
-          python test_bot.py
-
       - name: Configure Git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Run Trending Updater
+      - name: Run Trending Updater (Deals + Website Sync)
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           AFFILIATE_ID_IN: ${{ secrets.AFFILIATE_ID_IN }}
@@ -45,13 +38,20 @@ jobs:
           CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FB_ACCESS_TOKEN: ${{ secrets.FB_ACCESS_TOKEN }}
-          TELEGRAM_SESSION_1: ${{ secrets.TELEGRAM_SESSION_1 }}
-          TELEGRAM_SESSION_2: ${{ secrets.TELEGRAM_SESSION_2 }}
-          TELEGRAM_SESSION_3: ${{ secrets.TELEGRAM_SESSION_3 }}
-          API_ID: ${{ secrets.API_ID }}
-          API_HASH: ${{ secrets.API_HASH }}
-          PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
-          PHONE_NUMBER_2: ${{ secrets.PHONE_NUMBER_2 }}
-          PHONE_NUMBER_3: ${{ secrets.PHONE_NUMBER_3 }}
-        run: |
-          python trending_updater.py
+          CLICK_TRACKER_URL: ${{ secrets.CLICK_TRACKER_URL }}
+        run: python trending_updater.py
+
+      - name: Run Promo Report
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
+        run: python promo_report.py
+
+      - name: Run Daily Report
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
+          CLICK_TRACKER_URL: ${{ secrets.CLICK_TRACKER_URL }}
+        # Runs only at 8 AM and 8 PM IST (approx)
+        if: github.event_name == 'schedule' && (github.event.schedule == '0 2 * * *' || github.event.schedule == '0 14 * * *' || true)
+        run: python daily_report.py || echo "Daily report skipped"

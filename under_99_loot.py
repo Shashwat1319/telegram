@@ -17,7 +17,7 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
 CLICK_TRACKER_URL = os.getenv("CLICK_TRACKER_URL")
-AFFILIATE_ID_IN = os.getenv("AFFILIATE_ID_IN", "budgetdeals-21")
+AFFILIATE_ID_IN = os.getenv("AFFILIATE_ID_IN", "shashwat022-21")
 
 def get_cheap_html(url):
     headers = {

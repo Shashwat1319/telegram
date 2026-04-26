@@ -74,7 +74,7 @@ def preprocess_html(html_content):
 
 def extract_products_with_ai(html_text, retry_count=0):
     """Use Gemini AI to pick the best deals from pre-structured text."""
-    models = ["gemini-2.5-flash", "gemini-2.5-pro"]
+    models = ["gemini-1.5-flash", "gemini-1.5-pro"]
     model = models[retry_count % len(models)]
     
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
@@ -290,8 +290,12 @@ def main():
 
     # MISSION 200: Trigger the Growth/Forwarder Engine after every sync
     try:
-        print("[*] Triggering Growth Engine (auto_forwarder.py)...")
-        subprocess.run([sys.executable, "auto_forwarder.py"], check=True)
+        # Skip worker accounts (forwarder) on Cloud to avoid IP bans/session issues
+        if not os.getenv("GITHUB_ACTIONS"):
+            print("[*] Triggering Growth Engine (auto_forwarder.py)...")
+            subprocess.run([sys.executable, "auto_forwarder.py"], check=True)
+        else:
+            print("[*] Cloud Mode: Skipping auto_forwarder.py to keep sessions safe.")
     except Exception as e:
         print(f"Growth Engine error: {e}")
 

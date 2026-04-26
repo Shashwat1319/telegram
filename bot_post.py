@@ -179,7 +179,7 @@ async def send_automated_poll(bot, chat_id):
 
 # ---------- Amazon Bounties ----------
 def generate_bounty_message():
-    aff_id = os.getenv("AFFILIATE_ID_IN", "budgetdeals-21")
+    aff_id = os.getenv("AFFILIATE_ID_IN", "shashwat022-21")
     
     bounties = [
         {
@@ -205,117 +205,129 @@ def generate_bounty_message():
 async def post_deals():
     chat_id = f"@{CHANNEL_ID}" if not CHANNEL_ID.startswith("@") else CHANNEL_ID
     async with Bot(token=BOT_TOKEN) as bot:
+        await bot.initialize()
         products = load_products()
         if not products:
             print("No products to post. Checking for Bounty...")
             bounty_msg = generate_bounty_message()
             await bot.send_message(chat_id=chat_id, text=bounty_msg, parse_mode='HTML')
+            await bot.shutdown()
             return
 
-    try:
-        import sys
-        random_mode = len(sys.argv) > 1 and sys.argv[1] == "--random"
-        
-        # [NEW] Duplicate Shield
-        POSTED_LOG = "posted_products.json"
-        posted_history = {}
-        if os.path.exists(POSTED_LOG):
-            try:
-                with open(POSTED_LOG, "r") as f:
-                    posted_history = json.load(f)
-            except: pass
-        
-        # Filter products not posted in last 12 hours
-        now_str = datetime.now().isoformat()
-        twelve_hours_ago = (datetime.now() - timedelta(hours=12)).isoformat()
-        
-        eligible = [p for p in products if p.get('name') not in posted_history or posted_history[p['name']] < twelve_hours_ago]
+        try:
+            import sys
+            random_mode = len(sys.argv) > 1 and sys.argv[1] == "--random"
+            
+            # [NEW] Duplicate Shield
+            POSTED_LOG = "posted_products.json"
+            posted_history = {}
+            if os.path.exists(POSTED_LOG):
+                try:
+                    with open(POSTED_LOG, "r") as f:
+                        posted_history = json.load(f)
+                except: pass
+            
+            # Filter products not posted in last 12 hours
+            now_str = datetime.now().isoformat()
+            twelve_hours_ago = (datetime.now() - timedelta(hours=12)).isoformat()
+            
+            eligible = [p for p in products if p.get('name') not in posted_history or posted_history[p['name']] < twelve_hours_ago]
 
-        if not eligible:
-            print("All available products already posted recently. Skipping cycle.")
-            return
+            if not eligible:
+                print("All available products already posted recently. Skipping cycle.")
+                await bot.shutdown()
+                return
 
-        if random_mode:
-            num_to_post = min(2, len(eligible))
-            products_to_post = random.sample(eligible, num_to_post)
-            print(f"Random mode: Selected {num_to_post} unique products.")
-        else:
-            num_to_post = min(3, len(eligible))
-            products_to_post = eligible[:num_to_post]
-            print(f"Normal mode: Selected {num_to_post} unique products.")
-
-        # Save to history immediately
-        for p in products_to_post:
-            posted_history[p['name']] = now_str
-        with open(POSTED_LOG, "w") as f:
-            json.dump(posted_history, f)
-
-        # Check for Interval Tasks (Viral Hooks / Bounties / Polls)
-        current_count = increment_post_count()
-        
-        # Poll triggering (Every 15 posts)
-        if current_count % 15 == 0:
-            await send_automated_poll(bot, chat_id)
-
-        # Viral/Bounty Interval (Every 10-15 posts to maintain trust)
-        viral_interval = random.randint(10, 15)
-        if current_count >= viral_interval:
-            print(f"Post count: {current_count}. Triggering Growth Cycle!")
-            # Pick between Viral Message or Bounty
-            if random.random() > 0.5:
-                growth_msg = generate_viral_message()
+            if random_mode:
+                num_to_post = min(2, len(eligible))
+                products_to_post = random.sample(eligible, num_to_post)
+                print(f"Random mode: Selected {num_to_post} unique products.")
             else:
-                growth_msg = generate_bounty_message()
+                num_to_post = min(3, len(eligible))
+                products_to_post = eligible[:num_to_post]
+                print(f"Normal mode: Selected {num_to_post} unique products.")
+
+            # Save to history immediately
+            for p in products_to_post:
+                posted_history[p['name']] = now_str
+            with open(POSTED_LOG, "w") as f:
+                json.dump(posted_history, f)
+
+            # Check for Interval Tasks (Viral Hooks / Bounties / Polls)
+            current_count = increment_post_count()
+            
+            # Poll triggering (Every 15 posts)
+            if current_count % 15 == 0:
+                await send_automated_poll(bot, chat_id)
+
+            # Viral/Bounty Interval (Every 10-15 posts to maintain trust)
+            viral_interval = random.randint(10, 15)
+            if current_count >= viral_interval:
+                print(f"Post count: {current_count}. Triggering Growth Cycle!")
+                # Pick between Viral Message or Bounty
+                if random.random() > 0.5:
+                    growth_msg = generate_viral_message()
+                else:
+                    growth_msg = generate_bounty_message()
+                    
+                try:
+                    await bot.send_message(
+                        chat_id=chat_id,
+                        text=growth_msg,
+                        parse_mode='HTML',
+                        disable_web_page_preview=True
+                    )
+                    reset_post_count() # Reset main interval counter
+                except Exception as growth_e:
+                    print(f"Failed to post growth hook: {growth_e}")
+
+            # Identify the cheapest item in this batch to be the "Lightning Deal"
+            cheapest_product = None
+            if products_to_post:
+                cheapest_product = min(products_to_post, key=lambda p: get_price_value(p.get('price', '999999')))
+
+            for product in products_to_post:
+                product_name = product.get('name', 'Product').encode('ascii', 'ignore').decode('ascii')
+                is_lightning = (product == cheapest_product)
+                msg = generate_message(product, is_lightning=is_lightning)
+                image_url = product.get('image')
+                link = product.get('link', '#')
                 
-            try:
-                await bot.send_message(
-                    chat_id=chat_id,
-                    text=growth_msg,
-                    parse_mode='HTML',
-                    disable_web_page_preview=True
-                )
-                reset_post_count() # Reset main interval counter
-            except Exception as growth_e:
-                print(f"Failed to post growth hook: {growth_e}")
-
-        # Identify the cheapest item in this batch to be the "Lightning Deal"
-        cheapest_product = None
-        if products_to_post:
-            cheapest_product = min(products_to_post, key=lambda p: get_price_value(p.get('price', '999999')))
-
-        for product in products_to_post:
-            is_lightning = (product == cheapest_product)
-            msg = generate_message(product, is_lightning=is_lightning)
-            image_url = product.get('image')
-            link = product.get('link', '#')
-            
-            # Using balanced Hindi text context designed for viral sharing!
-            share_text = "Bhai%20jaldi%20dekh%2C%20lagta%20hai%20Amazon%20par%20massive%20sale%20aaya%20hai%21%20Sab%20bohot%20saste%20mein%20mil%20raha%20hai.%20Link%20band%20hone%20se%20pehle%20join%20karke%20loot%20le%21%20%F0%9F%98%B1%F0%9F%9A%A8"
-            share_url = f"https://t.me/share/url?url=https://t.me/{CHANNEL_ID.replace('@', '')}&text={share_text}"
-            
-            reply_markup = InlineKeyboardMarkup([
-                [
-                    InlineKeyboardButton("🛒 BUY NOW (Amazon)", url=link)
-                ],
-                [
-                    InlineKeyboardButton("🔥 Share with Friends", url=share_url),
-                    InlineKeyboardButton("💰 Join Channel", url=f"https://t.me/{CHANNEL_ID.replace('@', '')}")
-                ]
-            ])
-            
-            try:
-                sent_msg = None
-                if image_url:
-                    try:
-                        sent_msg = await bot.send_photo(
-                            chat_id=chat_id,
-                            photo=image_url,
-                            caption=msg,
-                            parse_mode='HTML',
-                            reply_markup=reply_markup
-                        )
-                    except Exception as photo_e:
-                        print(f"Photo upload failed ({photo_e}). Falling back to Text-only message...")
+                # Using balanced Hindi text context designed for viral sharing!
+                share_text = "Bhai%20jaldi%20dekh%2C%20lagta%20hai%20Amazon%20par%20massive%20sale%20aaya%20hai%21%20Sab%20bohot%20saste%20mein%20mil%20raha%20hai.%20Link%20band%20hone%20se%20pehle%20join%20karke%20loot%20le%21%20%F0%9F%98%B1%F0%9F%9A%A8"
+                share_url = f"https://t.me/share/url?url=https://t.me/{CHANNEL_ID.replace('@', '')}&text={share_text}"
+                
+                reply_markup = InlineKeyboardMarkup([
+                    [
+                        InlineKeyboardButton("🛒 BUY NOW (Amazon)", url=link)
+                    ],
+                    [
+                        InlineKeyboardButton("🔥 Share with Friends", url=share_url),
+                        InlineKeyboardButton("💰 Join Channel", url=f"https://t.me/{CHANNEL_ID.replace('@', '')}")
+                    ]
+                ])
+                
+                try:
+                    sent_msg = None
+                    if image_url:
+                        try:
+                            sent_msg = await bot.send_photo(
+                                chat_id=chat_id,
+                                photo=image_url,
+                                caption=msg,
+                                parse_mode='HTML',
+                                reply_markup=reply_markup
+                            )
+                        except Exception as photo_e:
+                            print(f"Photo upload failed ({photo_e}). Falling back to Text-only message...")
+                            sent_msg = await bot.send_message(
+                                chat_id=chat_id,
+                                text=msg,
+                                parse_mode='HTML',
+                                reply_markup=reply_markup,
+                                disable_web_page_preview=False
+                            )
+                    else:
                         sent_msg = await bot.send_message(
                             chat_id=chat_id,
                             text=msg,
@@ -323,34 +335,27 @@ async def post_deals():
                             reply_markup=reply_markup,
                             disable_web_page_preview=False
                         )
-                else:
-                    sent_msg = await bot.send_message(
-                        chat_id=chat_id,
-                        text=msg,
-                        parse_mode='HTML',
-                        reply_markup=reply_markup,
-                        disable_web_page_preview=False
-                    )
-                
-                product_name = product.get('name', 'Product').encode('ascii', 'ignore').decode('ascii')
-                print(f"Posted: {product_name}")
-                
-                # Auto-pin the lightning deal
-                if is_lightning and sent_msg:
-                    try:
-                        await bot.pin_chat_message(chat_id=chat_id, message_id=sent_msg.message_id, disable_notification=False)
-                        print(f"Pinned lightning deal: {product_name}")
-                    except Exception as pin_err:
-                        print(f"Could not pin message (check admin rights): {str(pin_err).encode('ascii', 'ignore').decode('ascii')}")
-                        
-                await asyncio.sleep(5)
-            except Exception as e:
-                err_msg = str(e).encode('ascii', 'ignore').decode('ascii')
-                print(f"Failed to post {product_name}: {err_msg}")
-                
-    except Exception as e:
-        err_msg = str(e).encode('ascii', 'ignore').decode('ascii')
-        print(f"Error in posting: {err_msg}")
+                    
+                    print(f"Posted: {product_name}")
+                    
+                    # Auto-pin the lightning deal
+                    if is_lightning and sent_msg:
+                        try:
+                            await bot.pin_chat_message(chat_id=chat_id, message_id=sent_msg.message_id, disable_notification=False)
+                            print(f"Pinned lightning deal: {product_name}")
+                        except Exception as pin_err:
+                            print(f"Could not pin message (check admin rights): {str(pin_err).encode('ascii', 'ignore').decode('ascii')}")
+                            
+                    await asyncio.sleep(5)
+                except Exception as e:
+                    err_msg = str(e).encode('ascii', 'ignore').decode('ascii')
+                    print(f"Failed to post {product_name}: {err_msg}")
+            
+            await bot.shutdown()
+                    
+        except Exception as e:
+            err_msg = str(e).encode('ascii', 'ignore').decode('ascii')
+            print(f"Error in posting: {err_msg}")
 
 if __name__ == "__main__":
     asyncio.run(post_deals())
