@@ -53,7 +53,7 @@ def create_blog_file(product, content):
     asin_match = re.search(r'/dp/([A-Z0-9]{10})', product['link'])
     asin = asin_match.group(1) if asin_match else str(hash(product['name']))[:8]
     
-    blog_dir = "website/content/blog"
+    blog_dir = "website/src/content/blog"
     if not os.path.exists(blog_dir):
         os.makedirs(blog_dir, exist_ok=True)
     
@@ -67,19 +67,16 @@ def create_blog_file(product, content):
 
     date_str = datetime.now().strftime("%Y-%m-%d")
     
-    # Frontmatter
+    # Frontmatter — buyLink stored here so the Astro layout renders the button cleanly
     frontmatter = f"""---
 title: "{product['name']}"
 description: "Epic Deal: Save {product['discount_percent']} on {product['name']}! Best price alert on Amazon India."
 pubDate: "{date_str}"
 heroImage: "{product['image']}"
+buyLink: "{product['link']}"
 ---
 
 {content}
-
-<div class="mega-buy-btn-container">
-    <a href="{product['link']}" target="_blank" rel="noopener noreferrer" class="mega-buy-btn">🔥 GRAB DEAL ON AMAZON NOW 🔥</a>
-</div>
 """
     
     with open(file_path, "w", encoding="utf-8") as f:
