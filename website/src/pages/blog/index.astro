@@ -90,6 +90,7 @@ const posts = (await getCollection('blog')).sort(
 		<Header />
 		<main>
 			<section>
+				{posts.length === 0 && <p style="text-align: center;">Bhai, abhi AI blog likh raha hai... Kuch hi der mein yahan mast deals dikhengi!</p>}
 				<ul>
 					{
 						posts.map((post) => (
