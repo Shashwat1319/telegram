@@ -1,6 +1,51 @@
 {
     "products": [
         {
+            "name": "Carrier 1 Ton 3 Star Flexicool Inverter Split AC",
+            "price": "₹30490",
+            "mrp": "₹56990",
+            "discount_percent": "46%",
+            "link": "https://www.amazon.in/dp/B0GCDZ468N?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/519v4EI+NIL.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Carrier 1 Ton 5 Star Wi-Fi Smart Flexicool Inverter Split AC",
+            "price": "₹33990",
+            "mrp": "₹67300",
+            "discount_percent": "49%",
+            "link": "https://www.amazon.in/dp/B0GCFB848D?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61cv1NbvF2L.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "LG 1 Ton 4 Star DUAL Inverter Split AC",
+            "price": "₹34490",
+            "mrp": "₹68990",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0GDZVGC9W?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61lmotpGOgL.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Midea 1.5 Ton 3 Star Inverter Split AC",
+            "price": "₹29990",
+            "mrp": "₹61790",
+            "discount_percent": "51%",
+            "link": "https://www.amazon.in/dp/B0GCFPPYX2?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61OgZNJVHJL.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "LG 1.5 Ton 3 Star Smart Inverter Split AC",
+            "price": "₹35490",
+            "mrp": "₹75190",
+            "discount_percent": "53%",
+            "link": "https://www.amazon.in/dp/B0GF1JFPV8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61amuOefPAL.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "Hitachi 1.5 Ton 5 Star Xpandable+ Inverter Split AC (100% Copper, Smart Display, 4-Way Swing, ice Clean, Dust Filter, 5400STXL RAS.G518PCCIBT, White)",
             "price": "₹40750",
             "mrp": "₹75850",
