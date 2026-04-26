@@ -6,9 +6,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 
-const postFiles = import.meta.glob('../content/blog/*.md', { eager: true });
-const posts = Object.values(postFiles);
-posts.sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 const recentPosts = posts.slice(0, 3);
 ---
 
@@ -93,10 +93,10 @@ const recentPosts = posts.slice(0, 3);
 				<div class="deals-grid">
 					{recentPosts.map((post) => (
 						<div class="deal-card">
-							<a href={post.url}>
-								<img src={post.frontmatter.heroImage} alt={post.frontmatter.title} />
+							<a href={`/blog/${post.slug}/`}>
+								<img src={post.data.heroImage} alt={post.data.title} />
 								<div class="deal-info">
-									<h3>{post.frontmatter.title}</h3>
+									<h3>{post.data.title}</h3>
 									<span class="buy-btn">View Detailed Review</span>
 								</div>
 							</a>
