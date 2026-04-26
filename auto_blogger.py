@@ -29,7 +29,7 @@ def generate_blog_content(product):
     1. Start with an exciting title.
     2. Explain why this deal is a 'Loot'.
     3. Include 3-4 bullet points on features or why to buy.
-    4. MUST end with a clear Call-to-Action to buy via the link provided.
+    4. MUST end with an exciting closing statement, but DO NOT include the actual URL in your text (I will append the button).
     5. Optimize for keywords like 'budget deals', 'amazon loot', 'price drop'.
     
     Format: Return ONLY the blog text. No markdown blocks like ```. Just raw text.
@@ -77,8 +77,9 @@ heroImage: "{product['image']}"
 
 {content}
 
----
-**Grab it here before stock ends:** [Buy Now on Amazon]({product['link']})
+<div class="mega-buy-btn-container">
+    <a href="{product['link']}" target="_blank" rel="noopener noreferrer" class="mega-buy-btn">🔥 GRAB DEAL ON AMAZON NOW 🔥</a>
+</div>
 """
     
     with open(file_path, "w", encoding="utf-8") as f:

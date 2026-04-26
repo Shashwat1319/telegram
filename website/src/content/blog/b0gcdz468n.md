@@ -19,5 +19,6 @@ It's the perfect time to upgrade your home cooling without breaking the bank. Ai
 
 Grab this incredible Carrier AC deal now before it's gone! Buy via this link: https://www.amazon.in/dp/B0GCDZ468N?tag=shashwat022-21
 
----
-**Grab it here before stock ends:** [Buy Now on Amazon](https://www.amazon.in/dp/B0GCDZ468N?tag=shashwat022-21)
+<div class="mega-buy-btn-container">
+    <a href="https://www.amazon.in/dp/B0GCDZ468N?tag=shashwat022-21" target="_blank" rel="noopener noreferrer" class="mega-buy-btn">🔥 GRAB DEAL ON AMAZON NOW 🔥</a>
+</div>

@@ -19,5 +19,6 @@ Is price par itne features wala AC dobara nahi milega. Don't wait for the prices
 
 Abhi kharido aur garmiyon mein relax karo: https://www.amazon.in/dp/B0GCFB848D?tag=shashwat022-21
 
----
-**Grab it here before stock ends:** [Buy Now on Amazon](https://www.amazon.in/dp/B0GCFB848D?tag=shashwat022-21)
+<div class="mega-buy-btn-container">
+    <a href="https://www.amazon.in/dp/B0GCFB848D?tag=shashwat022-21" target="_blank" rel="noopener noreferrer" class="mega-buy-btn">🔥 GRAB DEAL ON AMAZON NOW 🔥</a>
+</div>

@@ -140,3 +140,34 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
+
+/* Custom Buy Button for Blog Posts */
+.mega-buy-btn-container {
+	margin: 2.5rem 0;
+	text-align: center;
+}
+.mega-buy-btn {
+	display: inline-block;
+	background: linear-gradient(135deg, #ff9900 0%, #ff5500 100%);
+	color: #ffffff !important;
+	font-size: 1.25rem;
+	font-weight: 800;
+	padding: 16px 36px;
+	border-radius: 50px;
+	text-decoration: none !important;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	box-shadow: 0 6px 20px rgba(255, 153, 0, 0.4);
+	transition: all 0.3s ease;
+	border: 2px solid transparent;
+}
+.mega-buy-btn:hover {
+	transform: translateY(-3px) scale(1.02);
+	box-shadow: 0 8px 25px rgba(255, 153, 0, 0.6);
+	background: linear-gradient(135deg, #ffaa00 0%, #ff6600 100%);
+	color: #ffffff !important;
+}
+.mega-buy-btn:active {
+	transform: translateY(1px);
+	box-shadow: 0 4px 10px rgba(255, 153, 0, 0.4);
+}

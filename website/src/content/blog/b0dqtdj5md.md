@@ -17,7 +17,6 @@ This isn't just any AC; it's a Hitachi! Here’s why it’s a must-buy:
 
 Don't miss out on this amazing opportunity to beat the heat smartly. This budget-friendly AC won't last long at this price drop. Grab this Hitachi AC loot deal before stock runs out!
 
-Click here to buy now: https://www.amazon.in/dp/B0DQTDJ5MD?tag=shashwat022-21
-
----
-**Grab it here before stock ends:** [Buy Now on Amazon](https://www.amazon.in/dp/B0DQTDJ5MD?tag=shashwat022-21)
+<div class="mega-buy-btn-container">
+    <a href="https://www.amazon.in/dp/B0DQTDJ5MD?tag=shashwat022-21" target="_blank" rel="noopener noreferrer" class="mega-buy-btn">🔥 GRAB DEAL ON AMAZON NOW 🔥</a>
+</div>
