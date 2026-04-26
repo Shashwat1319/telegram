@@ -57,7 +57,7 @@ def create_blog_file(product, content):
     if not os.path.exists(blog_dir):
         os.makedirs(blog_dir, exist_ok=True)
     
-    filename = f"{asin}.md"
+    filename = f"{asin.lower()}.md"
     file_path = os.path.join(blog_dir, filename)
     
     # Check if exists

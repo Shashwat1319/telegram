@@ -3,35 +3,115 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+).slice(0, 3);
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			.hero-banner {
+				background: #fdf2f2;
+				padding: 3rem 1rem;
+				text-align: center;
+				border-radius: 12px;
+				margin-bottom: 2rem;
+			}
+			.deals-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 1.5rem;
+				margin-top: 2rem;
+			}
+			.deal-card {
+				background: white;
+				border: 1px solid #eee;
+				border-radius: 12px;
+				overflow: hidden;
+				transition: 0.3s;
+				box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+			}
+			.deal-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+			}
+			.deal-card img {
+				width: 100%;
+				height: 200px;
+				object-fit: cover;
+			}
+			.deal-info {
+				padding: 1rem;
+			}
+			.deal-info h3 {
+				font-size: 1.1rem;
+				margin: 0.5rem 0;
+				color: #333;
+			}
+			.buy-btn {
+				display: block;
+				background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+				border: 1px solid #a88734;
+				color: #111;
+				text-align: center;
+				padding: 0.6rem;
+				border-radius: 8px;
+				text-decoration: none;
+				font-weight: 700;
+				margin-top: 1rem;
+			}
+			.loot-tag {
+				background: #e41e31;
+				color: white;
+				font-size: 0.7rem;
+				font-weight: 800;
+				padding: 2px 8px;
+				border-radius: 4px;
+				text-transform: uppercase;
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>🚀 Welcome to Budget Deals India!</h1>
-			<p>
-				Your one-stop destination for the <b>craziest loot deals</b> from Amazon India. We track price drops 24/7 
-				to bring you verified bargains that save you thousands.
-			</p>
-			<p>
-				From high-performance ACs to kitchen essentials under ₹99, we cover it all. Every deal is analyzed by our
-				AI engine to ensure it's a genuine "Loot" before we post it here.
-			</p>
-			<p><b>Why follow us?</b></p>
-			<ul>
-				<li><b>Verified Loots</b>: No fake discounts, only real price drops.</li>
-				<li><b>Flash Notifications</b>: We post the best deals on our Telegram channel first.</li>
-				<li><b>Daily Updates</b>: 10+ new budget deals added every single day.</li>
-			</ul>
-			<p>
-				🔥 <b>JOIN OUR TELEGRAM CHANNEL FOR INSTANT ALERTS</b> 🔥<br/>
-				Don't miss the 1-minute flash deals. Join <a href="https://t.me/budgetdeals_india">@budgetdeals_india</a> now!
-			</p>
+			<div class="hero-banner">
+				<span class="loot-tag">🔥 Trending Now</span>
+				<h1>Loot Deals & Extreme Discounts!</h1>
+				<p>{SITE_DESCRIPTION}</p>
+				<p>🚀 Join 15,000+ shoppers on <a href="https://t.me/budgetdeals_india">Telegram</a></p>
+			</div>
+
+			<section>
+				<h2>🔥 Latest Loot Verified by AI</h2>
+				<div class="deals-grid">
+					{posts.map((post) => (
+						<div class="deal-card">
+							<a href={`/blog/${post.id}/`}>
+								<img src={post.data.heroImage} alt={post.data.title} />
+								<div class="deal-info">
+									<h3>{post.data.title}</h3>
+									<span class="buy-btn">View Detailed Review</span>
+								</div>
+							</a>
+						</div>
+					))}
+				</div>
+			</section>
+
+			<section style="margin-top: 4rem;">
+				<h2>About Budget Deals India</h2>
+				<p>
+					We are India's #1 AI-powered deals curator. We scan thousands of Amazon products every hour
+					to find genuine price drops and loot offers. From electronics to daily essentials, we bring you 
+					the best prices verified for quality and trust.
+				</p>
+			</section>
 		</main>
 		<Footer />
 	</body>
