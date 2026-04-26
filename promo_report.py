@@ -19,7 +19,11 @@ def send_telegram(message):
         "text": message,
         "parse_mode": "Markdown"
     }
-    requests.post(url, json=payload)
+    response = requests.post(url, json=payload)
+    if response.status_code != 200:
+        print(f"[ERROR] Telegram API failed: {response.text}")
+    else:
+        print(f"[SUCCESS] Report sent to Admin.")
 
 def main():
     if not os.path.exists(HISTORY_FILE):

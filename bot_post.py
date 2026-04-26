@@ -5,7 +5,7 @@ import os
 import re
 import requests
 from urllib.parse import quote
-from datetime import datetime
+from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
 
@@ -204,14 +204,13 @@ def generate_bounty_message():
 # ---------- Post deals ----------
 async def post_deals():
     chat_id = f"@{CHANNEL_ID}" if not CHANNEL_ID.startswith("@") else CHANNEL_ID
-    bot = Bot(token=BOT_TOKEN)
-
-    products = load_products()
-    if not products:
-        print("No products to post. Checking for Bounty...")
-        bounty_msg = generate_bounty_message()
-        await bot.send_message(chat_id=chat_id, text=bounty_msg, parse_mode='HTML')
-        return
+    async with Bot(token=BOT_TOKEN) as bot:
+        products = load_products()
+        if not products:
+            print("No products to post. Checking for Bounty...")
+            bounty_msg = generate_bounty_message()
+            await bot.send_message(chat_id=chat_id, text=bounty_msg, parse_mode='HTML')
+            return
 
     try:
         import sys
