@@ -1,6 +1,51 @@
 {
     "products": [
         {
+            "name": "Hitachi 1.5 Ton 3 Star Inverter Split AC (Copper, Smart View Display, 4 Way Swing)",
+            "price": "₹34999",
+            "mrp": "₹63990",
+            "discount_percent": "45%",
+            "link": "https://www.amazon.in/dp/B0GP71KXP5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/618fIU0coHL.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Carrier 1 Ton 5 Star Wi-Fi Smart Flexicool Inverter Split AC (Copper, Convertible 6-in-1)",
+            "price": "₹33990",
+            "mrp": "₹67300",
+            "discount_percent": "49%",
+            "link": "https://www.amazon.in/dp/B0GCFB848D?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61cv1NbvF2L.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "LG 1 Ton 4 Star DUAL Inverter Split AC (Copper, AI Convertible 6-in-1 with VIRAAT Mode)",
+            "price": "₹34490",
+            "mrp": "₹68990",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0GDZVGC9W?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61lmotpGOgL.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Samsung 1 Ton 3 Star New Star rated Bespoke AI Inverter Smart Split AC (WiFi, Energy Saving)",
+            "price": "₹32449",
+            "mrp": "₹67990",
+            "discount_percent": "52%",
+            "link": "https://www.amazon.in/dp/B0GHYMPNZ9?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61-kuokjN1L.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "LG 1.5 Ton 3 Star Smart Inverter Split AC (Copper, AI Convertible 6-in-1, Faster Cooling)",
+            "price": "₹35490",
+            "mrp": "₹75190",
+            "discount_percent": "53%",
+            "link": "https://www.amazon.in/dp/B0GF1JFPV8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61amuOefPAL.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "Carrier 1 Ton 3 Star Flexicool Inverter Split AC",
             "price": "₹30490",
             "mrp": "₹56990",
