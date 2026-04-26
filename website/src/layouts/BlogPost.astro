@@ -9,11 +9,29 @@ import Header from '../components/Header.astro';
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage, buyLink } = Astro.props;
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "Article",
+	"headline": title,
+	"description": description,
+	"image": heroImage || "",
+	"datePublished": pubDate.toISOString(),
+	"dateModified": (updatedDate || pubDate).toISOString(),
+	"author": { "@type": "Organization", "name": "Budget Deals India" },
+	"publisher": {
+		"@type": "Organization",
+		"name": "Budget Deals India",
+		"logo": { "@type": "ImageObject", "url": "https://budgetdealsindia.netlify.app/logo.png" }
+	},
+	"mainEntityOfPage": { "@type": "WebPage", "@id": Astro.url }
+};
 ---
 
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 		<style>
 			main {
 				width: calc(100% - 2em);
