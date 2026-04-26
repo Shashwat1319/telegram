@@ -92,7 +92,7 @@ const posts = (await getCollection('blog')).sort(
 				<div class="deals-grid">
 					{posts.map((post) => (
 						<div class="deal-card">
-							<a href={`/blog/${post.id}/`}>
+							<a href={`/blog/${post.slug}/`}>
 								<img src={post.data.heroImage} alt={post.data.title} />
 								<div class="deal-info">
 									<h3>{post.data.title}</h3>
