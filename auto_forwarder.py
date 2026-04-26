@@ -188,7 +188,13 @@ async def main():
     should_promo_now = check_should_promote()
     
     print("Fetching new deals...")
-    fetcher_client = TelegramClient(ACCOUNTS[1]["session"], int(API_ID), API_HASH)
+    print("Fetching new deals...")
+    # Use worker_2_session for fetching, prefer String Session
+    session_data = os.getenv("TELEGRAM_SESSION_2")
+    if session_data:
+        fetcher_client = TelegramClient(StringSession(session_data), int(API_ID), API_HASH)
+    else:
+        fetcher_client = TelegramClient(ACCOUNTS[1]["session"], int(API_ID), API_HASH)
     
     new_messages = []
     try:

@@ -76,7 +76,13 @@ async def main():
         print("[ERROR] API_ID/API_HASH missing in .env")
         return
 
-    client = TelegramClient("userbot_session", int(API_ID), API_HASH)
+    from telethon.sessions import StringSession
+    session_data = os.getenv("TELEGRAM_SESSION_1")
+    if session_data:
+        client = TelegramClient(StringSession(session_data), int(API_ID), API_HASH)
+    else:
+        client = TelegramClient("userbot_session", int(API_ID), API_HASH)
+    
     await client.start(phone=PHONE)
     
     history = load_history()

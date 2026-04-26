@@ -112,7 +112,9 @@ async def main():
         # Check weekly limit
         last_sent = history.get(contact)
         if last_sent:
-            last_sent_dt = datetime.fromisoformat(last_sent)
+            # Handle both old (string) and new (dict) formats
+            ts = last_sent["time"] if isinstance(last_sent, dict) else last_sent
+            last_sent_dt = datetime.fromisoformat(ts)
             if now - last_sent_dt < timedelta(days=7):
                 continue
 
@@ -125,7 +127,11 @@ async def main():
             await client.connect()
             success = await send_promo(client, session, contact)
             if success:
-                history[contact] = datetime.now().isoformat() # [FIX] Use real time for each send
+                # [FIX] Store detailed history for reporting
+                history[contact] = {
+                    "time": datetime.now().isoformat(),
+                    "account": session
+                }
                 save_history(history)
                 
                 # Strict delay to avoid bans (60-120s)

@@ -8,6 +8,7 @@ from datetime import datetime
 INTERVAL_MAIN = 45 * 60       # 45 minutes (Scraping + Posting + Forwarding)
 INTERVAL_PROMO = 3 * 60 * 60  # 3 hours (Growth DM)
 INTERVAL_POLL = 6 * 60 * 60   # 6 hours (Engagement)
+INTERVAL_REPORT = 30 * 60     # 30 minutes (Promo Report)
 INTERVAL_SCRAPER = 24 * 60 * 60 # 24 hours (New Leads Scrape)
 
 def run_script(script_name):
@@ -31,11 +32,14 @@ def main():
     last_main = 0
     last_promo = 0
     last_poll = 0
+    last_report = 0
     last_scraper = 0
 
-    # Initial Report & Poll
+    # Initial Report, Poll & First Promo Batch
     run_script("daily_report.py")
     run_script("auto_engagement.py")
+    if os.path.exists("scraped_leads.txt"):
+        run_script("promo_contacts.py")
 
     try:
         while True:
@@ -57,7 +61,12 @@ def main():
                 run_script("auto_engagement.py")
                 last_poll = now
 
-            # 4. Scraper (New Leads)
+            # 4. Promo Report (Every 30m)
+            if now - last_report > INTERVAL_REPORT:
+                run_script("promo_report.py")
+                last_report = now
+
+            # 5. Scraper (New Leads)
             if now - last_scraper > INTERVAL_SCRAPER:
                 run_script("scrape_active_members.py")
                 last_scraper = now

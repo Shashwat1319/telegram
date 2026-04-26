@@ -217,16 +217,39 @@ async def post_deals():
         import sys
         random_mode = len(sys.argv) > 1 and sys.argv[1] == "--random"
         
-        if random_mode and len(products) > 3:
-            # Pick 2 random products from history to keep channel active
-            num_to_post = min(2, len(products))
-            products_to_post = random.sample(products, num_to_post)
-            print(f"Fallback mode: Selected {num_to_post} random products.")
+        # [NEW] Duplicate Shield
+        POSTED_LOG = "posted_products.json"
+        posted_history = {}
+        if os.path.exists(POSTED_LOG):
+            try:
+                with open(POSTED_LOG, "r") as f:
+                    posted_history = json.load(f)
+            except: pass
+        
+        # Filter products not posted in last 12 hours
+        now_str = datetime.now().isoformat()
+        twelve_hours_ago = (datetime.now() - timedelta(hours=12)).isoformat()
+        
+        eligible = [p for p in products if p.get('name') not in posted_history or posted_history[p['name']] < twelve_hours_ago]
+
+        if not eligible:
+            print("All available products already posted recently. Skipping cycle.")
+            return
+
+        if random_mode:
+            num_to_post = min(2, len(eligible))
+            products_to_post = random.sample(eligible, num_to_post)
+            print(f"Random mode: Selected {num_to_post} unique products.")
         else:
-            # Post the top 3 (newest) products found
-            num_to_post = min(3, len(products))
-            products_to_post = products[:num_to_post]
-            print(f"Normal mode: Selected top {num_to_post} newest products.")
+            num_to_post = min(3, len(eligible))
+            products_to_post = eligible[:num_to_post]
+            print(f"Normal mode: Selected {num_to_post} unique products.")
+
+        # Save to history immediately
+        for p in products_to_post:
+            posted_history[p['name']] = now_str
+        with open(POSTED_LOG, "w") as f:
+            json.dump(posted_history, f)
 
         # Check for Interval Tasks (Viral Hooks / Bounties / Polls)
         current_count = increment_post_count()
