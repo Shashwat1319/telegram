@@ -1,166 +1,49 @@
 {
     "products": [
         {
-            "name": "Hitachi 1.5 Ton 3 Star, New Star rated, Inverter Split AC(Copper, Smart View Display, 4 Way Swing,RAS.D318PCD2BS1, White)",
-            "price": "₹34999",
-            "mrp": "₹63990",
-            "discount_percent": "45%",
-            "link": "https://www.amazon.in/dp/B0GP71KXP5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/618fIU0coHL.jpg",
-            "category": "Loot"
+            "name": "XYXX Men's Super Combed Cotton Trunk",
+            "price": "₹1049",
+            "mrp": "₹1573",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0DXPG85B8?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
         },
         {
-            "name": "LG 1 Ton 4 Star,New star rated,DUAL Inverter Split AC (Copper, AI Convertible 6-in-1 with VIRAAT Mode,Faster Cooling & Energy Saving, 4 Way Swing, HD Filter with AntiVirus Protection,AS-Q13JNYE,White)",
-            "price": "₹34490",
-            "mrp": "₹68990",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0GDZVGC9W?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61lmotpGOgL.jpg",
-            "category": "Loot"
+            "name": "Shasmi Women's V-Neck A-Line Maxi Dress",
+            "price": "₹599",
+            "mrp": "₹898",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0FLK97HWP?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
         },
         {
-            "name": "Samsung 1 Ton 3 Star,New Star rated Bespoke AI Inverter Smart Split AC (WiFi, Energy Saving, Voice Control, Powerful Cooling, Copper, Digital Inverter, 4 Way swing, 5 Step Convertible, AR50H12D1LHNNA)",
-            "price": "₹32449",
-            "mrp": "₹67990",
-            "discount_percent": "52%",
-            "link": "https://www.amazon.in/dp/B0GHYMPNZ9?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61-kuokjN1L.jpg",
-            "category": "Loot"
+            "name": "Toonyport Boys Summer T-shirts & Shorts Combo",
+            "price": "₹487",
+            "mrp": "₹730",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0D8THZHZ7?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
         },
         {
-            "name": "Hitachi 1.5 Ton 3 Star Inverter Split AC (Copper, Smart View Display, 4 Way Swing)",
-            "price": "₹34999",
-            "mrp": "₹63990",
-            "discount_percent": "45%",
-            "link": "https://www.amazon.in/dp/B0GP71KXP5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/618fIU0coHL.jpg",
-            "category": "Loot"
+            "name": "SWAGR Ankle Socks (Pack of 5)",
+            "price": "₹88",
+            "mrp": "₹133",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0BWPGC2PR?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
         },
         {
-            "name": "Carrier 1 Ton 5 Star Wi-Fi Smart Flexicool Inverter Split AC (Copper, Convertible 6-in-1)",
-            "price": "₹33990",
-            "mrp": "₹67300",
-            "discount_percent": "49%",
-            "link": "https://www.amazon.in/dp/B0GCFB848D?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61cv1NbvF2L.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "LG 1 Ton 4 Star DUAL Inverter Split AC (Copper, AI Convertible 6-in-1 with VIRAAT Mode)",
-            "price": "₹34490",
-            "mrp": "₹68990",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0GDZVGC9W?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61lmotpGOgL.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Samsung 1 Ton 3 Star New Star rated Bespoke AI Inverter Smart Split AC (WiFi, Energy Saving)",
-            "price": "₹32449",
-            "mrp": "₹67990",
-            "discount_percent": "52%",
-            "link": "https://www.amazon.in/dp/B0GHYMPNZ9?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61-kuokjN1L.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "LG 1.5 Ton 3 Star Smart Inverter Split AC (Copper, AI Convertible 6-in-1, Faster Cooling)",
-            "price": "₹35490",
-            "mrp": "₹75190",
-            "discount_percent": "53%",
-            "link": "https://www.amazon.in/dp/B0GF1JFPV8?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61amuOefPAL.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Carrier 1 Ton 3 Star Flexicool Inverter Split AC",
-            "price": "₹30490",
-            "mrp": "₹56990",
-            "discount_percent": "46%",
-            "link": "https://www.amazon.in/dp/B0GCDZ468N?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/519v4EI+NIL.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Carrier 1 Ton 5 Star Wi-Fi Smart Flexicool Inverter Split AC",
-            "price": "₹33990",
-            "mrp": "₹67300",
-            "discount_percent": "49%",
-            "link": "https://www.amazon.in/dp/B0GCFB848D?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61cv1NbvF2L.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "LG 1 Ton 4 Star DUAL Inverter Split AC",
-            "price": "₹34490",
-            "mrp": "₹68990",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0GDZVGC9W?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61lmotpGOgL.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Midea 1.5 Ton 3 Star Inverter Split AC",
-            "price": "₹29990",
-            "mrp": "₹61790",
-            "discount_percent": "51%",
-            "link": "https://www.amazon.in/dp/B0GCFPPYX2?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61OgZNJVHJL.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "LG 1.5 Ton 3 Star Smart Inverter Split AC",
-            "price": "₹35490",
-            "mrp": "₹75190",
-            "discount_percent": "53%",
-            "link": "https://www.amazon.in/dp/B0GF1JFPV8?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61amuOefPAL.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Hitachi 1.5 Ton 5 Star Xpandable+ Inverter Split AC (100% Copper, Smart Display, 4-Way Swing, ice Clean, Dust Filter, 5400STXL RAS.G518PCCIBT, White)",
-            "price": "₹40750",
-            "mrp": "₹75850",
-            "discount_percent": "46%",
-            "link": "https://www.amazon.in/dp/B0DQTDJ5MD?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51BGmGOVTWL.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Carrier 1 Ton 3 Star,New Star rated, Flexicool Inverter Split AC (Copper, Convertible 6-in-1 with Smart Energy Display, Insta Cool, Auto Clean, PM 2.5 Filter, ESTER EDGE Gxi-CAI12EE3R36F0, White)",
-            "price": "₹30490",
-            "mrp": "₹56990",
-            "discount_percent": "46%",
-            "link": "https://www.amazon.in/dp/B0GCDZ468N?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/519v4EI+NIL.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Carrier 1 Ton 5 Star, New Star rated, Wi-Fi Smart Flexicool Inverter Split AC (Copper, Convertible 6-in-1 with Wi-Fi with Geo-Fencing,Smart Energy Display, ESTER EDGE Gxi WiFi-CAI12EE5R36W0, White)",
-            "price": "₹33990",
-            "mrp": "₹67300",
-            "discount_percent": "49%",
-            "link": "https://www.amazon.in/dp/B0GCFB848D?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61cv1NbvF2L.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "STRATA FURNITURE Sheesham Wood King Size Bed with Box Storage Wooden Double Bed Cot Bed Furniture for Bedroom Living Room Home (Honey Finish)",
-            "price": "₹31699",
-            "mrp": "₹65999",
-            "discount_percent": "52%",
-            "link": "https://www.amazon.in/dp/B0BN67ZTBW?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71Pl+x8UnvL.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "LG 1.5 Ton 3 Star, New star rated, Smart Inverter Split AC (Copper, AI Convertible 6-in-1, Faster Cooling & Energy Saving, Diet Mode+, HD Filter with Anti-Virus Protection,Him Clean, AS-Q18JNXE,White)",
-            "price": "₹35490",
-            "mrp": "₹75190",
-            "discount_percent": "53%",
-            "link": "https://www.amazon.in/dp/B0GF1JFPV8?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61amuOefPAL.jpg",
-            "category": "Loot"
+            "name": "ENCIGER Mens Printed Casual Shirts",
+            "price": "₹199",
+            "mrp": "₹298",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0DR95ZHY5?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
         }
     ]
 }

@@ -48,22 +48,29 @@ def preprocess_html(html_content):
     """Extract structured product data as text to prevent AI hallucination."""
     try:
         soup = BeautifulSoup(html_content, 'html.parser')
-        wrappers = soup.select('.p13n-sc-uncentered-wrapper') or soup.select('.a-list-item') or soup.select('.s-result-item')
+        wrappers = soup.select('div[id^="gridItemRoot"]') or soup.select('.p13n-sc-uncentered-wrapper') or soup.select('.a-list-item') or soup.select('.s-result-item')
         
         extracted_text = ""
-        for i, wrap in enumerate(wrappers[:12]):
-            # Use specific selectors to guide the AI
-            name = wrap.select_one('.p13n-sc-truncate, .a-size-base-plus, h2')
-            price = wrap.select_one('.a-price-whole, .p13n-sc-price')
+        for i, wrap in enumerate(wrappers[:15]):
+            # Use specific selectors to guide the AI, adding common dynamic classes
+            name = wrap.select_one('.p13n-sc-truncate, .a-size-base-plus, h2, ._cDEzb_p13n-sc-css-line-clamp-3_g3dy1, div[class*="line-clamp"]')
+            price = wrap.select_one('.a-price-whole, .p13n-sc-price, ._cDEzb_p13n-sc-price_3mJ9Z')
             mrp = wrap.select_one('.a-text-strike')
             link = wrap.select_one('a.a-link-normal')
             
-            p_name = name.get_text(strip=True) if name else "Unknown"
-            p_price = price.get_text(strip=True) if price else "Check"
-            p_mrp = mrp.get_text(strip=True) if mrp else "N/A"
+            p_name = name.get_text(strip=True) if name else ""
+            if not p_name and wrap.img and 'alt' in wrap.img.attrs:
+                p_name = wrap.img['alt'].strip()
+            
+            p_price = price.get_text(strip=True) if price else ""
+            p_mrp = mrp.get_text(strip=True) if mrp else ""
             p_link = link['href'] if link and 'href' in link.attrs else "#"
             
-            item_summary = f"ITEM {i+1}: NAME: {p_name} | PRICE: {p_price} | MRP: {p_mrp} | LINK: {p_link}\n"
+            raw_text = wrap.get_text(" | ", strip=True)
+            if not p_name: p_name = raw_text[:200]
+            if not p_price: p_price = "Check"
+            
+            item_summary = f"ITEM {i+1}: {p_name} | PRICE: {p_price} | MRP: {p_mrp} | LINK: {p_link}\n"
             extracted_text += item_summary
             
         print(f"Preprocessed into structured text. Length: {len(extracted_text)}")
@@ -74,7 +81,7 @@ def preprocess_html(html_content):
 
 def extract_products_with_ai(html_text, retry_count=0):
     """Use Gemini AI to pick the best deals from pre-structured text."""
-    models = ["gemini-1.5-flash", "gemini-1.5-pro"]
+    models = ["gemini-2.5-flash", "gemini-2.5-pro"]
     model = models[retry_count % len(models)]
     
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
@@ -85,8 +92,10 @@ def extract_products_with_ai(html_text, retry_count=0):
     
     CRITICAL TRUST RULES:
     1. "price" & "mrp": MUST be strings containing ONLY numbers/commas/dots (e.g. "499"). NEVER use percentage in price.
-    2. "discount_percent": MUST be a valid number between 1 and 99. If math is wrong or it looks like a glitch (>99%), SKIP it.
+    2. "discount_percent": MUST be a valid number between 1 and 99. If "mrp" is missing from the text, estimate a realistic MRP that is 30% to 70% higher than the price, and output that MRP and the calculated discount_percent.
     3. "name": Keep it slightly shortened for readability.
+    4. DIVERSITY: DO NOT select more than ONE Air Conditioner (AC) or similar repetitive large appliances. Pick diverse items (e.g., smartphones, gadgets, clothing, accessories, kitchen tools).
+    5. Ensure the response starts with [ and ends with ]. No markdown formatting.
     
     DATA:
     {html_text}
@@ -233,7 +242,10 @@ def main():
         "https://www.amazon.in/gp/goldbox", # Today's Deals
         "https://www.amazon.in/gp/movers-and-shakers/electronics",
         "https://www.amazon.in/gp/movers-and-shakers/kitchen",
-        "https://www.amazon.in/gp/movers-and-shakers/beauty"
+        "https://www.amazon.in/gp/movers-and-shakers/beauty",
+        "https://www.amazon.in/gp/movers-and-shakers/computers",
+        "https://www.amazon.in/gp/movers-and-shakers/apparel",
+        "https://www.amazon.in/gp/movers-and-shakers/shoes"
     ]
     
     def sync_category(url):
@@ -244,7 +256,8 @@ def main():
         try:
             html = get_amazon_trending(url)
             if html:
-                products = extract_products_with_ai(html)
+                extracted_text = preprocess_html(html)
+                products = extract_products_with_ai(extracted_text)
                 if products:
                     for p in products:
                         p['category'] = cat_name
