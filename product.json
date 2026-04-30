@@ -1,6 +1,267 @@
 {
     "products": [
         {
+            "name": "PRO Shoe Cream Polish",
+            "price": "₹272",
+            "mrp": "₹408",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B08SM9QWW7?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "ProArch Leather Backpack for Women",
+            "price": "₹849",
+            "mrp": "₹1273",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0FPR3YYJP?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "PALAY® Rain Shoes Cover",
+            "price": "₹498",
+            "mrp": "₹747",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0DWN2M2YC?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Nike Mens Revolution 7 Running Shoes",
+            "price": "₹2956",
+            "mrp": "₹4434",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0GKY7N6VY?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Lavie Women's Betula Tote Handbag",
+            "price": "₹849",
+            "mrp": "₹1273",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0B8DM61NN?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "ANNI DESIGNER Women's Co-Ord Set",
+            "price": "₹499",
+            "mrp": "₹823",
+            "discount_percent": "39%",
+            "link": "https://www.amazon.in/dp/B0FQP968GQ?tag=shashwat022-21",
+            "image": "https://example.com/anni-designer-co-ord-set.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "GRECIILOOKS Women's High Waist Trousers",
+            "price": "₹549",
+            "mrp": "₹906",
+            "discount_percent": "39%",
+            "link": "https://www.amazon.in/dp/B0DR327SD8?tag=shashwat022-21",
+            "image": "https://example.com/grecilooks-womens-trousers.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Boldfit Men's Gym Shorts",
+            "price": "₹449",
+            "mrp": "₹741",
+            "discount_percent": "39%",
+            "link": "https://amazon.in/Boldfit-Mens-Gym-Shorts-BFTBM7004TBlackS_Black_S/dp/B0D83W8VB/ref=zg_bsms_g_apparel_d_sccl_8/521-9416824-5777361?psc=1&tag=shashwat022-21",
+            "image": "https://example.com/boldfit-mens-gym-shorts.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Citizen EVA Poncho Raincoat",
+            "price": "₹189",
+            "mrp": "₹312",
+            "discount_percent": "39%",
+            "link": "https://www.amazon.in/dp/B0F9TP3W1L?tag=shashwat022-21",
+            "image": "https://example.com/citizen-poncho-raincoat.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Foldable Laptop Table with Cup Holder",
+            "price": "₹289",
+            "mrp": "₹491",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GXPWGSTQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "Gesto Portable Neck Fan",
+            "price": "₹725",
+            "mrp": "₹1232",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GNGV8GRD?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "Safari Expandable Travel Bag",
+            "price": "₹1199",
+            "mrp": "₹2038",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B097GNF52Q?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "Portronics 240W Type C Cable",
+            "price": "₹254",
+            "mrp": "₹431",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CJCGMQDF?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "APC Back-UPS BX600C-IN",
+            "price": "₹4299",
+            "mrp": "₹7308",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B016XVRKZM?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "TEKCOOL Double Ended Spray Fan",
+            "price": "₹249",
+            "mrp": "₹410",
+            "discount_percent": "39%",
+            "link": "https://www.amazon.in/dp/B0GWJR25X2?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "PEXPO Water Bottle 1 ltr (Pack of 2)",
+            "price": "₹289",
+            "mrp": "₹485",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0F7LXBP97?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "SMTG Door Guard (Pack of 5)",
+            "price": "₹104",
+            "mrp": "₹176",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0F6D16ZQ4?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Trance Mattress Protector",
+            "price": "₹496",
+            "mrp": "₹843",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0BTVWZ6MY?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "MYTRIDENT Bath Towel",
+            "price": "₹199",
+            "mrp": "₹338",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CHFPXZND?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "HP 712w 32GB USB 3.2 Flash Drive",
+            "price": "₹872",
+            "mrp": "₹1482",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0C9TX9YSH?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Celfiexpt 71-inch Selfie Stick Tripod",
+            "price": "₹1598",
+            "mrp": "₹2716",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0BV6LN7S7?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "APFEN 20W Type-C Fast Charger & Cable",
+            "price": "₹380",
+            "mrp": "₹646",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0F62W35NX?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "OnePlus Nord Buds 3r TWS Earbuds",
+            "price": "₹1999",
+            "mrp": "₹3398",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0FMDL81GS?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "realme NARZO 90x 5G Smartphone",
+            "price": "₹14999",
+            "mrp": "₹25498",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GHX1RLKC?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Swiss Beauty Pure Matte Creamy Lipstick",
+            "price": "₹148",
+            "mrp": "₹222",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B087B9H7K5?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Park Avenue Voyage Perfume For Men",
+            "price": "₹155",
+            "mrp": "₹240",
+            "discount_percent": "35%",
+            "link": "https://www.amazon.in/dp/B084V46KGT?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Dot & Key Vitamin C + E Super Bright Sunscreen",
+            "price": "₹263",
+            "mrp": "₹420",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0DSLD5N92?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "SAYY Moroccan DeTan Brightening Face Pack",
+            "price": "₹399",
+            "mrp": "₹658",
+            "discount_percent": "39%",
+            "link": "https://www.amazon.in/dp/B0GLG5JSHK?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Brillare Rosemary Oil Shots",
+            "price": "₹715",
+            "mrp": "₹1216",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0F8N73779?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
             "name": "XYXX Men's Super Combed Cotton Trunk",
             "price": "₹1049",
             "mrp": "₹1573",
