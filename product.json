@@ -1,6 +1,150 @@
 {
     "products": [
         {
+            "name": "GoSriKi Women's Kurta Set",
+            "price": "₹699",
+            "mrp": "₹1188",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0DRZL432C?tag=shashwat022-21",
+            "image": "https://via.placeholder.com/150",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Robustt Reusable Raincoat",
+            "price": "₹249",
+            "mrp": "₹423",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GMX3NNV5?tag=shashwat022-21",
+            "image": "https://via.placeholder.com/150",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Jockey Women Full Coverage Bra",
+            "price": "₹729",
+            "mrp": "₹1239",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0FH4L9LZ9?tag=shashwat022-21",
+            "image": "https://via.placeholder.com/150",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Trance Waterproof Mattress Protector",
+            "price": "₹496",
+            "mrp": "₹839",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0BTVWZ6MY?tag=shashwat022-21",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/7100bFhVjSL._AC_UL320_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "PEXPO 1L Hot/Cold Flask",
+            "price": "₹679",
+            "mrp": "₹1149",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0D92FW8NC?tag=shashwat022-21",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/71u9t2g7kQL._AC_UL320_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Pigeon Induction Cooktop 1800W",
+            "price": "₹2599",
+            "mrp": "₹4399",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B01GFTEV5Y?tag=shashwat022-21",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/61Gg9PjT+ZL._AC_UL320_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "DYLECT Cordless Pressure Washer",
+            "price": "₹3599",
+            "mrp": "₹6099",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GGHF3D4D?tag=shashwat022-21",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/61r-X6uM7xL._AC_UL320_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Crompton Personal Air Cooler",
+            "price": "₹5999",
+            "mrp": "₹10199",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0842R4WSV?tag=shashwat022-21",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/71u9t2g7kQL._AC_UL320_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Gesto Portable Neck Fan Rechargeable",
+            "price": "₹725",
+            "mrp": "₹1087",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0GNGV8GRD?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "Oakter Mini UPS PRO for WiFi Routers",
+            "price": "₹949",
+            "mrp": "₹1423",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0DT457VWG?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "Dyazo Aluminum Laptop Stand",
+            "price": "₹279",
+            "mrp": "₹418",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0BVR9RCYW?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "APFEN USB-A to Lightning Cable",
+            "price": "₹271",
+            "mrp": "₹406",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "INSIGHT Lip & Cheek Tint - Candy Cane (3g)",
+            "price": "₹61",
+            "mrp": "₹91",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0CG6GH7KT?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Pond's Super Light Gel Moisturiser, 25g",
+            "price": "₹50",
+            "mrp": "₹75",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B08CWBF1ZQ?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "BELLAVITA Perfume Bathing Soap Bar (3x100g)",
+            "price": "₹199",
+            "mrp": "₹298",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0DVGS1F9Y?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Brillare Rosemary Oil Shots for Hair Growth",
+            "price": "₹715",
+            "mrp": "₹1072",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0F8N73779?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
             "name": "PRO Shoe Cream Polish",
             "price": "₹272",
             "mrp": "₹408",
