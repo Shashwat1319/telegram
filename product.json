@@ -1,6 +1,33 @@
 {
     "products": [
         {
+            "name": "ProKart Knitting Wool Yarn",
+            "price": "₹773",
+            "mrp": "₹1299",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0DHQQ8PT8?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Philips Emergency LED Bulb",
+            "price": "₹328",
+            "mrp": "₹558",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0C5D8BBP7?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Presto! Garbage Bags",
+            "price": "₹235",
+            "mrp": "₹400",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B08TDFC7LX?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
             "name": "ProKart Premium Woolen 4 ply Hand Knitting Wool Yarn",
             "price": "₹599",
             "mrp": "₹958",
