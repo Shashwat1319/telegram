@@ -1,6 +1,87 @@
 {
     "products": [
         {
+            "name": "ProKart Premium Woolen 4 ply Hand Knitting Wool Yarn",
+            "price": "₹599",
+            "mrp": "₹958",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0DHQQ8PT8?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Trance Cotton Feel Terry Ultra Soft Waterproof Mattress Protector",
+            "price": "₹496",
+            "mrp": "₹793",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0BTVWZ6MY?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "DYLECT® AirWash Go Cordless Pressure Washer Gun",
+            "price": "₹3599",
+            "mrp": "₹5758",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0GGHF3D4D?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Go24 pexpo Water Bottle 1 LTR Stainless Steel",
+            "price": "₹679",
+            "mrp": "₹1086",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0D92FW8NC?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "HP 712w 32GB USB Flash Drive",
+            "price": "₹872",
+            "mrp": "₹1482",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0C9TX9YSH?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Ambrane Type C Cable 1M",
+            "price": "₹129",
+            "mrp": "₹219",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CJJQLDS9?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Zebronics Thunder Wireless Headphones",
+            "price": "₹799",
+            "mrp": "₹1358",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B07L8KNP5F?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Remote Control for TCL Roku TV",
+            "price": "₹492",
+            "mrp": "₹836",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B07GCB9J7D?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Kratos 25W Charger Adapter",
+            "price": "₹443",
+            "mrp": "₹753",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0FH2N3PFX?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
             "name": "DOBAD Men's Cotton Shorts",
             "price": "₹426",
             "mrp": "₹647",
