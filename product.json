@@ -1,6 +1,87 @@
 {
     "products": [
         {
+            "name": "DOBAD Men's Cotton Shorts",
+            "price": "₹426",
+            "mrp": "₹647",
+            "discount_percent": "34%",
+            "link": "https://www.amazon.in/dp/B0D17J53FZ?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Bloomingdale Rain Coat with Pant Set",
+            "price": "₹199",
+            "mrp": "₹308",
+            "discount_percent": "35%",
+            "link": "https://www.amazon.in/dp/B0CH189D6D?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Btag High Waist Shapewear Shorts",
+            "price": "₹259",
+            "mrp": "₹409",
+            "discount_percent": "36%",
+            "link": "https://www.amazon.in/dp/B0FH1ZTDVG?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Citizen Eco-Friendly Poncho Raincoat",
+            "price": "₹189",
+            "mrp": "₹302",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0F9TP3W1L?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Smartwatch with Fitness Tracker",
+            "price": "₹2499",
+            "mrp": "₹3999",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/smartwatch-fitness-tracker-example?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61Vf2B-V3yL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Air Fryer (4L)",
+            "price": "₹3499",
+            "mrp": "₹7000",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/air-fryer-4l-example?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/711WjJ23qYL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Wireless Headphones",
+            "price": "₹999",
+            "mrp": "₹2500",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/wireless-headphones-example?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61jG66FvQTL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Smartphone (128GB)",
+            "price": "₹19999",
+            "mrp": "₹50000",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/smartphone-128gb-example?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71KCwNV6MuL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Men's Analog Watch",
+            "price": "₹1499",
+            "mrp": "₹3800",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/mens-analog-watch-example?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Xm3z89YEL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "GoSriKi Women's Kurta Set",
             "price": "₹699",
             "mrp": "₹1188",
