@@ -1,6 +1,33 @@
 {
     "products": [
         {
+            "name": "Godrej aer Matic Kit",
+            "price": "₹569",
+            "mrp": "₹910",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0FKGHBLB6?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41Kq+zFwLmL._SX300_SY300_QL70_FMwebp_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "TEKCOOL Double Ended Spray Fan",
+            "price": "₹799",
+            "mrp": "₹1280",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0GWJR25X2?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41Kq+zFwLmL._SX300_SY300_QL70_FMwebp_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Presto! Garbage Bags (Medium)",
+            "price": "₹239",
+            "mrp": "₹395",
+            "discount_percent": "39%",
+            "link": "https://www.amazon.in/dp/B0821PN8L4?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41Kq+zFwLmL._SX300_SY300_QL70_FMwebp_.jpg",
+            "category": "Kitchen"
+        },
+        {
             "name": "Portronics Conch Theta C Wired Earphones",
             "price": "₹322",
             "mrp": "₹483",
@@ -872,33 +899,6 @@
             "link": "https://www.amazon.in/dp/B0DVGS1F9Y?tag=shashwat022-21",
             "image": "",
             "category": "Beauty"
-        },
-        {
-            "name": "Brillare Rosemary Oil Shots for Hair Growth",
-            "price": "₹715",
-            "mrp": "₹1072",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0F8N73779?tag=shashwat022-21",
-            "image": "",
-            "category": "Beauty"
-        },
-        {
-            "name": "PRO Shoe Cream Polish",
-            "price": "₹272",
-            "mrp": "₹408",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B08SM9QWW7?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "ProArch Leather Backpack for Women",
-            "price": "₹849",
-            "mrp": "₹1273",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0FPR3YYJP?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Shoes"
         }
     ]
 }
