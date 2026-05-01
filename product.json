@@ -1,6 +1,60 @@
 {
     "products": [
         {
+            "name": "Kratos 25W Samsung Charger Adapter",
+            "price": "₹397",
+            "mrp": "₹635",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0FH2N3PFX?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "OnePlus Bullets Wireless Z3 Neckband",
+            "price": "₹999",
+            "mrp": "₹1658",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0GXLZ4V1F?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Realme P2 Pro 5G Back Cover",
+            "price": "₹299",
+            "mrp": "₹505",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0DM69GGHD?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Kratos Ai Face Tracking Tripod",
+            "price": "₹179",
+            "mrp": "₹301",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GG4FRZZZ?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Ambrane Type C Fast Charging Cable",
+            "price": "₹129",
+            "mrp": "₹219",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CJJQLDS9?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "TEX-RO Clothes Drying Stand",
+            "price": "₹499",
+            "mrp": "₹848",
+            "discount_percent": "41%",
+            "link": "https://amazon.in/TEX-RO-Clothes-Drying-Foldable-Wheels/dp/B0GQQHX2W/ref=zg_bsms_g_kitchen_d_sccl_2/524-3187132-6549803?psc=1&tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
             "name": "ProKart Knitting Wool Yarn",
             "price": "₹773",
             "mrp": "₹1299",
