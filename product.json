@@ -1,6 +1,42 @@
 {
     "products": [
         {
+            "name": "Portronics Conch Theta C Wired Earphones",
+            "price": "₹322",
+            "mrp": "₹483",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0DGLQHBF9?tag=shashwat022-21",
+            "image": null,
+            "category": "Electronics"
+        },
+        {
+            "name": "Acer Flow Wireless Mouse",
+            "price": "₹389",
+            "mrp": "₹583",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0FQQMSRP8?tag=shashwat022-21",
+            "image": null,
+            "category": "Electronics"
+        },
+        {
+            "name": "Artistque Armor Case for Realme P2 Pro 5G",
+            "price": "₹299",
+            "mrp": "₹448",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0DM69GGHD?tag=shashwat022-21",
+            "image": null,
+            "category": "Electronics"
+        },
+        {
+            "name": "Kratos K13 Ai Tracking Tripod",
+            "price": "₹199",
+            "mrp": "₹298",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0GG4FRZZZ?tag=shashwat022-21",
+            "image": null,
+            "category": "Electronics"
+        },
+        {
             "name": "Kokila NO PPD Shampoo Hair Colour 400ml",
             "price": "₹792",
             "mrp": "₹1346",
@@ -863,42 +899,6 @@
             "link": "https://www.amazon.in/dp/B0FPR3YYJP?tag=shashwat022-21",
             "image": "",
             "category": "Ladies Shoes"
-        },
-        {
-            "name": "PALAY® Rain Shoes Cover",
-            "price": "₹498",
-            "mrp": "₹747",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0DWN2M2YC?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Nike Mens Revolution 7 Running Shoes",
-            "price": "₹2956",
-            "mrp": "₹4434",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0GKY7N6VY?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Lavie Women's Betula Tote Handbag",
-            "price": "₹849",
-            "mrp": "₹1273",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0B8DM61NN?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "ANNI DESIGNER Women's Co-Ord Set",
-            "price": "₹499",
-            "mrp": "₹823",
-            "discount_percent": "39%",
-            "link": "https://www.amazon.in/dp/B0FQP968GQ?tag=shashwat022-21",
-            "image": "https://example.com/anni-designer-co-ord-set.jpg",
-            "category": "Ladies Fashion"
         }
     ]
 }
