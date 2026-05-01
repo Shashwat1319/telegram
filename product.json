@@ -1,6 +1,24 @@
 {
     "products": [
         {
+            "name": "ProKart Woolen Hand Knitting Yarn (4 Pack)",
+            "price": "₹599",
+            "mrp": "₹958",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0DHQQ8PT8?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Presto! Garbage Bags Medium (180 Count)",
+            "price": "₹239",
+            "mrp": "₹382",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0821PN8L4?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
             "name": "APFEN USB A to Lightning Cable",
             "price": "₹271",
             "mrp": "₹407",
@@ -879,24 +897,6 @@
             "mrp": "₹1232",
             "discount_percent": "41%",
             "link": "https://www.amazon.in/dp/B0GNGV8GRD?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
-            "category": "Computers"
-        },
-        {
-            "name": "Safari Expandable Travel Bag",
-            "price": "₹1199",
-            "mrp": "₹2038",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B097GNF52Q?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
-            "category": "Computers"
-        },
-        {
-            "name": "Portronics 240W Type C Cable",
-            "price": "₹254",
-            "mrp": "₹431",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0CJCGMQDF?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
             "category": "Computers"
         }
