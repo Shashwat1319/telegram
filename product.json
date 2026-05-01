@@ -1,6 +1,15 @@
 {
     "products": [
         {
+            "name": "Presto! Garbage Bags (Medium, 180 Count)",
+            "price": "₹239",
+            "mrp": "₹406",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0821PN8L4?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/B0821PN8L4._SL160_.jpg",
+            "category": "Kitchen"
+        },
+        {
             "name": "KARWAN 100W Type C Cable",
             "price": "₹329",
             "mrp": "₹559",
@@ -890,15 +899,6 @@
             "link": "https://www.amazon.in/mens-analog-watch-example?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/71Xm3z89YEL._AC_UL320_.jpg",
             "category": "Loot"
-        },
-        {
-            "name": "GoSriKi Women's Kurta Set",
-            "price": "₹699",
-            "mrp": "₹1188",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0DRZL432C?tag=shashwat022-21",
-            "image": "https://via.placeholder.com/150",
-            "category": "Ladies Fashion"
         }
     ]
 }
