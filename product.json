@@ -1,6 +1,213 @@
 {
     "products": [
         {
+            "name": "ZEBRONICS TT60+ Type-C Cable",
+            "price": "₹99",
+            "mrp": "₹168",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0FJ2L7YF8?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "Amazon Basics Laptop & Mobile Stand",
+            "price": "₹259",
+            "mrp": "₹440",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0BTNT8X6K?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "Amazon Basics 64GB Flash Drive",
+            "price": "₹799",
+            "mrp": "₹1358",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CGD23TG3?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "OnePlus Pad 3 (12GB RAM, 256GB)",
+            "price": "₹49999",
+            "mrp": "₹84998",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0FN6YM9MV?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "STRIFF Transparent Wireless Mouse",
+            "price": "₹385",
+            "mrp": "₹655",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0DXFHF33M?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "Lakme Blush & Glow Kiwi Sheet Mask, 25 ml",
+            "price": "₹40",
+            "mrp": "₹68",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B084S2HBQM?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Kesh King Ayurvedic Anti Hairfall Shampoo (Pack of 2)",
+            "price": "₹458",
+            "mrp": "₹778",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CWP49QDJ?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Dettol Icy Cool Bathing Soap Bar, 75gm (Pack of 4)",
+            "price": "₹150",
+            "mrp": "₹255",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0869VX72V?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Savlon Herbal Handwash Refill Pouch, 1.3L",
+            "price": "₹170",
+            "mrp": "₹289",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B08ZDCRNZM?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Fiama Body Wash Blackcurrant & Bearberry, 895 ml",
+            "price": "₹187",
+            "mrp": "₹317",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B098LR2L3K?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Bajaj Airlight Rechargeable Fan",
+            "price": "₹1229",
+            "mrp": "₹2048",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0C7CLZSRG?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Presto! Garbage Bags Medium",
+            "price": "₹239",
+            "mrp": "₹398",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0821PN8L4?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Philips Viva Induction Cooktop",
+            "price": "₹4599",
+            "mrp": "₹7665",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B00EDJJ7FS?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Zebronics Wired Keyboard",
+            "price": "₹249",
+            "mrp": "₹374",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0FPQYK3D7?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Zebronics Wireless Mouse",
+            "price": "₹219",
+            "mrp": "₹329",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0FF4XBM5N?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Kratos K13 Ai Face Tracking Tripod",
+            "price": "₹199",
+            "mrp": "₹299",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0GG4FRZZZ?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Zebronics 200HB USB 3.0 4 Port Hub",
+            "price": "₹189",
+            "mrp": "₹284",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0BBQK41CV?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Zebronics TT60+ Type C Braided Cable",
+            "price": "₹99",
+            "mrp": "₹149",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0FJ2L7YF8?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "OnePlus Nord CE 3 Lite 5G",
+            "price": "₹18999",
+            "mrp": "₹28499",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/oneplus-nord-ce-3-lite-5g?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71+D7W9JgFL._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Amazon Basics Microfiber Cloths",
+            "price": "₹499",
+            "mrp": "₹749",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/amazon-basics-microfiber-cleaning-cloths?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/81R6gIuJ1FL._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Whirlpool 1.5 Ton 3 Star AC",
+            "price": "₹38000",
+            "mrp": "₹65000",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/whirlpool-1-5ton-3star-inverter-split-ac?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Wj+L4jGfL._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Instant Pot Duo 7-in-1 Pressure Cooker",
+            "price": "₹8999",
+            "mrp": "₹18999",
+            "discount_percent": "52%",
+            "link": "https://www.amazon.in/instant-pot-duo-7-in-1-electric-pressure-cooker?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71k4v5r-6LL._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Fire-Boltt Phoenix Smartwatch",
+            "price": "₹1799",
+            "mrp": "₹10999",
+            "discount_percent": "83%",
+            "link": "https://www.amazon.in/fire-boltt-phoenix-smartwatch?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Y+z4I2BBL._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "Amazon Brand - Presto! Garbage Bags (180 Count)",
             "price": "₹239",
             "mrp": "₹382",
@@ -692,96 +899,6 @@
             "link": "https://www.amazon.in/dp/B0GHX1RLKC?tag=shashwat022-21",
             "image": "",
             "category": "Electronics"
-        },
-        {
-            "name": "Swiss Beauty Pure Matte Creamy Lipstick",
-            "price": "₹148",
-            "mrp": "₹222",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B087B9H7K5?tag=shashwat022-21",
-            "image": "",
-            "category": "Beauty"
-        },
-        {
-            "name": "Park Avenue Voyage Perfume For Men",
-            "price": "₹155",
-            "mrp": "₹240",
-            "discount_percent": "35%",
-            "link": "https://www.amazon.in/dp/B084V46KGT?tag=shashwat022-21",
-            "image": "",
-            "category": "Beauty"
-        },
-        {
-            "name": "Dot & Key Vitamin C + E Super Bright Sunscreen",
-            "price": "₹263",
-            "mrp": "₹420",
-            "discount_percent": "37%",
-            "link": "https://www.amazon.in/dp/B0DSLD5N92?tag=shashwat022-21",
-            "image": "",
-            "category": "Beauty"
-        },
-        {
-            "name": "SAYY Moroccan DeTan Brightening Face Pack",
-            "price": "₹399",
-            "mrp": "₹658",
-            "discount_percent": "39%",
-            "link": "https://www.amazon.in/dp/B0GLG5JSHK?tag=shashwat022-21",
-            "image": "",
-            "category": "Beauty"
-        },
-        {
-            "name": "Brillare Rosemary Oil Shots",
-            "price": "₹715",
-            "mrp": "₹1216",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0F8N73779?tag=shashwat022-21",
-            "image": "",
-            "category": "Beauty"
-        },
-        {
-            "name": "XYXX Men's Super Combed Cotton Trunk",
-            "price": "₹1049",
-            "mrp": "₹1573",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0DXPG85B8?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Shasmi Women's V-Neck A-Line Maxi Dress",
-            "price": "₹599",
-            "mrp": "₹898",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0FLK97HWP?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Toonyport Boys Summer T-shirts & Shorts Combo",
-            "price": "₹487",
-            "mrp": "₹730",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0D8THZHZ7?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "SWAGR Ankle Socks (Pack of 5)",
-            "price": "₹88",
-            "mrp": "₹133",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0BWPGC2PR?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "ENCIGER Mens Printed Casual Shirts",
-            "price": "₹199",
-            "mrp": "₹298",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0DR95ZHY5?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Fashion"
         }
     ]
 }
