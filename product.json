@@ -1,6 +1,78 @@
 {
     "products": [
         {
+            "name": "APFEN USB A to Lightning Cable",
+            "price": "₹271",
+            "mrp": "₹407",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "Amazon Basics 2-in-1 Laptop Stand",
+            "price": "₹259",
+            "mrp": "₹389",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0BTNT8X6K?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "Zebronics Freego Wireless Mouse",
+            "price": "₹219",
+            "mrp": "₹329",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0FF4XBM5N?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "Cordless Hair Trimmer",
+            "price": "₹899",
+            "mrp": "₹2299",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B0C39K916K?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/618x+4j-tEL._AC_UL320_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Men's Cotton T-Shirt",
+            "price": "₹349",
+            "mrp": "₹899",
+            "discount_percent": "61%",
+            "link": "https://www.amazon.in/dp/B0BLHJSK2N?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71u9zE3QnOL._AC_UL320_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Wired On-Ear Headphones",
+            "price": "₹499",
+            "mrp": "₹1299",
+            "discount_percent": "61%",
+            "link": "https://www.amazon.in/dp/B0BNB18J9C?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71FqP4h0h5L._AC_UL320_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Portable Bluetooth Speaker",
+            "price": "₹699",
+            "mrp": "₹1899",
+            "discount_percent": "63%",
+            "link": "https://www.amazon.in/dp/B0BJ61L7L5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/616vR-VpB8L._AC_UL320_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "USB C Fast Charging Cable",
+            "price": "₹249",
+            "mrp": "₹719",
+            "discount_percent": "65%",
+            "link": "https://www.amazon.in/dp/B0C4ZGF49V?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61eG3X3lTXL._AC_UL320_.jpg",
+            "category": "Electronics"
+        },
+        {
             "name": "Godrej aer Matic Room Freshener Kit",
             "price": "₹569",
             "mrp": "₹854",
@@ -827,78 +899,6 @@
             "link": "https://www.amazon.in/dp/B0CJCGMQDF?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
             "category": "Computers"
-        },
-        {
-            "name": "APC Back-UPS BX600C-IN",
-            "price": "₹4299",
-            "mrp": "₹7308",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B016XVRKZM?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
-            "category": "Computers"
-        },
-        {
-            "name": "TEKCOOL Double Ended Spray Fan",
-            "price": "₹249",
-            "mrp": "₹410",
-            "discount_percent": "39%",
-            "link": "https://www.amazon.in/dp/B0GWJR25X2?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "PEXPO Water Bottle 1 ltr (Pack of 2)",
-            "price": "₹289",
-            "mrp": "₹485",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B0F7LXBP97?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "SMTG Door Guard (Pack of 5)",
-            "price": "₹104",
-            "mrp": "₹176",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0F6D16ZQ4?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Trance Mattress Protector",
-            "price": "₹496",
-            "mrp": "₹843",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0BTVWZ6MY?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "MYTRIDENT Bath Towel",
-            "price": "₹199",
-            "mrp": "₹338",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0CHFPXZND?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "HP 712w 32GB USB 3.2 Flash Drive",
-            "price": "₹872",
-            "mrp": "₹1482",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0C9TX9YSH?tag=shashwat022-21",
-            "image": "",
-            "category": "Electronics"
-        },
-        {
-            "name": "Celfiexpt 71-inch Selfie Stick Tripod",
-            "price": "₹1598",
-            "mrp": "₹2716",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0BV6LN7S7?tag=shashwat022-21",
-            "image": "",
-            "category": "Electronics"
         }
     ]
 }
