@@ -19,8 +19,8 @@ FB_POST_STATE_FILE = "last_fb_post.txt"
 
 # Agar inme se koi nahi hai, toh aage nahi badhenge
 if not FB_PAGE_ID or not FB_ACCESS_TOKEN:
-    print("Error: FB_PAGE_ID or FB_ACCESS_TOKEN missing in .env")
-    exit()
+    print("[FB] Skipping: FB_PAGE_ID or FB_ACCESS_TOKEN missing in .env. This is expected if FB is not configured.")
+    exit(0)  # Clean exit, not crash
 
 # ---------- Daily & Peak Hour Logic ----------
 def can_post_to_fb():
@@ -168,9 +168,14 @@ def post_to_facebook():
         if 'error' in result:
             error_msg = result['error'].get('message', 'Unknown Error')
             error_code = result['error'].get('code', 'N/A')
-            print(f"Failed to post {product_name} on FB: [{error_code}] {error_msg}")
+            # [FIX] Permission error is a known issue — log and skip gracefully
+            if error_code in [200, '200'] or 'pages_manage_posts' in error_msg or 'permission' in error_msg.lower():
+                print(f"[FB] SKIPPING: Facebook permission error [{error_code}]. Action needed: Resubmit app for Pages API review.")
+                print(f"[FB] FB posting is DISABLED until permissions are granted. All other systems continue normally.")
+            else:
+                print(f"[FB] Failed to post {product_name}: [{error_code}] {error_msg}")
         else:
-            print(f"Successfully Posted on FB: {product_name} (Post ID: {result.get('id')})")
+            print(f"[FB] Successfully Posted: {product_name} (Post ID: {result.get('id')})")
             mark_fb_posted() # Update state to prevent double-posting today
             
     except Exception as e:

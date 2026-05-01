@@ -94,8 +94,9 @@ def extract_products_with_ai(html_text, retry_count=0):
     1. "price" & "mrp": MUST be strings containing ONLY numbers/commas/dots (e.g. "499"). NEVER use percentage in price.
     2. "discount_percent": MUST be a valid number between 1 and 99. If "mrp" is missing from the text, estimate a realistic MRP that is 30% to 70% higher than the price, and output that MRP and the calculated discount_percent.
     3. "name": Keep it slightly shortened for readability.
-    4. DIVERSITY: DO NOT select more than ONE Air Conditioner (AC) or similar repetitive large appliances. Pick diverse items (e.g., smartphones, gadgets, clothing, accessories, kitchen tools).
-    5. Ensure the response starts with [ and ends with ]. No markdown formatting.
+    4. DIVERSITY: DO NOT select more than ONE Air Conditioner (AC), TV, Refrigerator, or similar large appliances. Pick diverse items (e.g., earphones, gadgets, clothing, accessories, kitchen tools, beauty products).
+    5. PRICE FILTER (STRICT): ONLY select products where the current price is between Rs.199 and Rs.2999. SKIP any product above Rs.2999 or below Rs.99. Impulse-buy items only!
+    6. Ensure the response starts with [ and ends with ]. No markdown formatting.
     
     DATA:
     {html_text}
@@ -138,7 +139,12 @@ def extract_products_with_ai(html_text, retry_count=0):
                 # Rule: Suspicious value check (e.g. 5 lakh percent)
                 discount = str(p.get('discount_percent', '0')).replace('%', '').strip()
                 d_val = float(re.search(r'\d+', discount).group()) if re.search(r'\d+', discount) else 0
-                if d_val > 99 or d_val < 1: continue 
+                if d_val > 99 or d_val < 1: continue
+
+                # Rule: PRICE RANGE FILTER — Only impulse-buy zone (₹199 - ₹2999)
+                if p_val < 199 or p_val > 2999:
+                    print(f"[FILTER] Skipping '{p.get('name','')}' — price ₹{int(p_val)} outside impulse range")
+                    continue
 
                 # Normalize formatting
                 p['price'] = f"₹{int(p_val)}"

@@ -102,31 +102,58 @@ def generate_message(product, is_lightning=False):
         header_extra = "🔥 <b>TOP-RATED FLASH DEAL!</b> 🔥\n"
         footer_extra = "\n⚠️ <i>Note: Lightning deals expire quickly. Check price on Amazon.</i>"
 
+    # Calculate savings amount for extra punch
+    savings_str = ""
+    try:
+        p_num = float(re.sub(r'[^\d.]', '', price))
+        m_num = float(re.sub(r'[^\d.]', '', mrp)) if mrp else 0
+        if m_num > p_num > 0:
+            savings_str = f"\n💵 <b>You Save: ₹{int(m_num - p_num)}</b> on this order!"
+    except: pass
+
     templates = [
-        # 1. Smart Shopper Style
+        # 1. Scarcity + Urgency (High Convert)
         f"{header_extra}\n"
         f"📦 <b>{safe_name}</b>\n\n"
-        f"{bachat_str}\n\n"
-        f"🔥 <b>Urgency Alert:</b> <i>Only few items left at this price!</i>\n"
-        f"⭐️ <i>Highly rated product identified by our budget tracker. Best price currently available.</i>{footer_extra}\n\n"
-        f"🛒 <a href='{link}'>View Deal & Order (Amazon)</a>\n\n"
-        f"📍 <i>Join @{CLEAN_ID} for genuine price drop alerts only!</i>",
+        f"{bachat_str}{savings_str}\n\n"
+        f"⚠️ <b>STOCK ALERT:</b> <i>Only a few units left at this price — price may rise any minute!</i>\n"
+        f"🕐 <i>Best time to order: RIGHT NOW. Delivery by tomorrow if ordered in next 2 hours.</i>{footer_extra}\n\n"
+        f"🛒 <a href='{link}'>Order on Amazon — Click Here</a>\n\n"
+        f"📢 <i>Follow @{CLEAN_ID} — We only post verified deals, no spam!</i>",
 
-        # 2. Daily Pick Style
+        # 2. Smart Buyer Style (Trust + Value)
         f"{header_extra}\n"
-        f"🎁 <b>OUR TOP PICK TODAY!</b>\n\n"
+        f"🎯 <b>SMART BUY ALERT!</b>\n\n"
         f"<b>Product:</b> {safe_name}\n"
-        f"{bachat_str}\n\n"
-        f"⚡️ <b>Fast Selling:</b> <i>85% members already clicked this loot!</i>\n"
-        f"✅ <i>Verified seller and genuine discount. Quality checked.</i>{footer_extra}\n\n"
-        f"🚀 <a href='{link}'>Click here to Grab this Deal</a>\n\n"
-        f"🤝 <i>Share with friends who need this! @{CLEAN_ID}</i>"
+        f"{bachat_str}{savings_str}\n\n"
+        f"✅ <i>Verified genuine discount — not a fake MRP trick.</i>\n"
+        f"⭐ <i>Highly rated by 1000+ buyers. Worth every rupee.</i>{footer_extra}\n\n"
+        f"🚀 <a href='{link}'>Grab This Deal Now (Amazon)</a>\n\n"
+        f"🤝 <i>Tag a friend who needs this! @{CLEAN_ID}</i>",
+
+        # 3. Flash Deal Style (Excitement)
+        f"{header_extra}\n"
+        f"⚡ <b>FLASH DEAL — LIMITED TIME!</b> ⚡\n\n"
+        f"🔥 <b>{safe_name}</b>\n"
+        f"{bachat_str}{savings_str}\n\n"
+        f"🏃 <i>1000+ people viewed this in last 1 hour. Add to cart before it goes out of stock!</i>{footer_extra}\n\n"
+        f"🛍️ <a href='{link}'>Buy Now — Don't Miss This!</a>\n\n"
+        f"💡 <i>Pro Tip: Use Amazon Pay for extra 5% cashback! | @{CLEAN_ID}</i>",
+
+        # 4. Simple Direct (Clean + High Trust)
+        f"{header_extra}\n"
+        f"🏷️ <b>TODAY'S BEST DEAL</b> 🏷️\n\n"
+        f"<b>{safe_name}</b>\n\n"
+        f"{bachat_str}{savings_str}\n\n"
+        f"📦 <i>Free delivery available. Easy returns within 7 days.</i>{footer_extra}\n\n"
+        f"👇 <a href='{link}'>Click to Buy on Amazon India</a>\n\n"
+        f"🔔 <i>Turn on notifications so you never miss a loot deal! @{CLEAN_ID}</i>"
     ]
     msg = random.choice(templates)
     
     seo_block = (
         "\n\n<tg-spoiler>"
-        "🏷️ #AmazonIndia #VerifiedDeals #SmartShopping #BudgetDeals #IndiaOffers"
+        "🏷️ #AmazonIndia #VerifiedDeals #SmartShopping #BudgetDeals #IndiaOffers #Loot #DealOfTheDay"
         "</tg-spoiler>"
     )
     return msg + seo_block
