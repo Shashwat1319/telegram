@@ -1,6 +1,33 @@
 {
     "products": [
         {
+            "name": "Smartwatch Fitness Tracker",
+            "price": "₹1499",
+            "mrp": "₹3999",
+            "discount_percent": "62%",
+            "link": "https://www.amazon.in/dp/B0BNGW92S8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71YyMswb1jL._AC_UL320_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Electric Kettle 1.5L",
+            "price": "₹599",
+            "mrp": "₹1599",
+            "discount_percent": "62%",
+            "link": "https://www.amazon.in/dp/B0BG7YJ65X?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61+9fK-uCjL._AC_UL320_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Leather Men's Wallet",
+            "price": "₹299",
+            "mrp": "₹799",
+            "discount_percent": "62%",
+            "link": "https://www.amazon.in/dp/B0B6L5N8WJ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71jY8tLgUoL._AC_UL320_.jpg",
+            "category": "Electronics"
+        },
+        {
             "name": "Wireless Earbuds",
             "price": "₹799",
             "mrp": "₹2499",
@@ -872,33 +899,6 @@
             "link": "https://www.amazon.in/dp/B0GGHF3D4D?tag=shashwat022-21",
             "image": "https://images-na.ssl-images-amazon.com/images/I/61r-X6uM7xL._AC_UL320_.jpg",
             "category": "Kitchen"
-        },
-        {
-            "name": "Crompton Personal Air Cooler",
-            "price": "₹5999",
-            "mrp": "₹10199",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0842R4WSV?tag=shashwat022-21",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/71u9t2g7kQL._AC_UL320_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Gesto Portable Neck Fan Rechargeable",
-            "price": "₹725",
-            "mrp": "₹1087",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0GNGV8GRD?tag=shashwat022-21",
-            "image": "",
-            "category": "Computers"
-        },
-        {
-            "name": "Oakter Mini UPS PRO for WiFi Routers",
-            "price": "₹949",
-            "mrp": "₹1423",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0DT457VWG?tag=shashwat022-21",
-            "image": "",
-            "category": "Computers"
         }
     ]
 }
