@@ -1,6 +1,51 @@
 {
     "products": [
         {
+            "name": "Kokila NO PPD Shampoo Hair Colour 400ml",
+            "price": "₹792",
+            "mrp": "₹1346",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CP5S82ZV?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "POND'S Bright Beauty Face Wash 200g",
+            "price": "₹245",
+            "mrp": "₹416",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B08NYD1GGK?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Kesh King Anti Hairfall Shampoo (2x340ml)",
+            "price": "₹458",
+            "mrp": "₹778",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CWP49QDJ?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "WishCare Lip Balm Combo",
+            "price": "₹454",
+            "mrp": "₹771",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GT16XHSQ?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Parachute Coconut Oil 1L",
+            "price": "₹440",
+            "mrp": "₹748",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B003NQESIS?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
             "name": "ProKart Woolen Hand Knitting Yarn (4 Pack)",
             "price": "₹599",
             "mrp": "₹958",
@@ -854,51 +899,6 @@
             "link": "https://www.amazon.in/dp/B0FQP968GQ?tag=shashwat022-21",
             "image": "https://example.com/anni-designer-co-ord-set.jpg",
             "category": "Ladies Fashion"
-        },
-        {
-            "name": "GRECIILOOKS Women's High Waist Trousers",
-            "price": "₹549",
-            "mrp": "₹906",
-            "discount_percent": "39%",
-            "link": "https://www.amazon.in/dp/B0DR327SD8?tag=shashwat022-21",
-            "image": "https://example.com/grecilooks-womens-trousers.jpg",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Boldfit Men's Gym Shorts",
-            "price": "₹449",
-            "mrp": "₹741",
-            "discount_percent": "39%",
-            "link": "https://amazon.in/Boldfit-Mens-Gym-Shorts-BFTBM7004TBlackS_Black_S/dp/B0D83W8VB/ref=zg_bsms_g_apparel_d_sccl_8/521-9416824-5777361?psc=1&tag=shashwat022-21",
-            "image": "https://example.com/boldfit-mens-gym-shorts.jpg",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Citizen EVA Poncho Raincoat",
-            "price": "₹189",
-            "mrp": "₹312",
-            "discount_percent": "39%",
-            "link": "https://www.amazon.in/dp/B0F9TP3W1L?tag=shashwat022-21",
-            "image": "https://example.com/citizen-poncho-raincoat.jpg",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Foldable Laptop Table with Cup Holder",
-            "price": "₹289",
-            "mrp": "₹491",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0GXPWGSTQ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
-            "category": "Computers"
-        },
-        {
-            "name": "Gesto Portable Neck Fan",
-            "price": "₹725",
-            "mrp": "₹1232",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0GNGV8GRD?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
-            "category": "Computers"
         }
     ]
 }
