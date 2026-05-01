@@ -1,6 +1,60 @@
 {
     "products": [
         {
+            "name": "KARWAN 100W Type C Cable",
+            "price": "₹329",
+            "mrp": "₹559",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0G3Q1KVYY?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "Smart Foldable Laptop Table",
+            "price": "₹299",
+            "mrp": "₹508",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GZ6X2DZL?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "SanDisk Cruzer Blade 16GB Pendrive",
+            "price": "₹500",
+            "mrp": "₹850",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B002U1ZBG0?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "BOXJOY 5 Shelf Shoe Rack",
+            "price": "₹1775",
+            "mrp": "₹2662",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0DLVGWRVJ?tag=shashwat022-21",
+            "image": "https://example.com/product_image.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Presto! Garbage Bags (180 Count)",
+            "price": "₹239",
+            "mrp": "₹358",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0821PN8L4?tag=shashwat022-21",
+            "image": "https://example.com/product_image.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "TEKCOOL Spray Fan",
+            "price": "₹799",
+            "mrp": "₹1198",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0GWJR25X2?tag=shashwat022-21",
+            "image": "https://example.com/product_image.jpg",
+            "category": "Kitchen"
+        },
+        {
             "name": "Smartwatch Fitness Tracker",
             "price": "₹1499",
             "mrp": "₹3999",
@@ -845,60 +899,6 @@
             "link": "https://www.amazon.in/dp/B0DRZL432C?tag=shashwat022-21",
             "image": "https://via.placeholder.com/150",
             "category": "Ladies Fashion"
-        },
-        {
-            "name": "Robustt Reusable Raincoat",
-            "price": "₹249",
-            "mrp": "₹423",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0GMX3NNV5?tag=shashwat022-21",
-            "image": "https://via.placeholder.com/150",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Jockey Women Full Coverage Bra",
-            "price": "₹729",
-            "mrp": "₹1239",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0FH4L9LZ9?tag=shashwat022-21",
-            "image": "https://via.placeholder.com/150",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Trance Waterproof Mattress Protector",
-            "price": "₹496",
-            "mrp": "₹839",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B0BTVWZ6MY?tag=shashwat022-21",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/7100bFhVjSL._AC_UL320_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "PEXPO 1L Hot/Cold Flask",
-            "price": "₹679",
-            "mrp": "₹1149",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B0D92FW8NC?tag=shashwat022-21",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/71u9t2g7kQL._AC_UL320_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Pigeon Induction Cooktop 1800W",
-            "price": "₹2599",
-            "mrp": "₹4399",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B01GFTEV5Y?tag=shashwat022-21",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/61Gg9PjT+ZL._AC_UL320_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "DYLECT Cordless Pressure Washer",
-            "price": "₹3599",
-            "mrp": "₹6099",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0GGHF3D4D?tag=shashwat022-21",
-            "image": "https://images-na.ssl-images-amazon.com/images/I/61r-X6uM7xL._AC_UL320_.jpg",
-            "category": "Kitchen"
         }
     ]
 }
