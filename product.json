@@ -1,6 +1,33 @@
 {
     "products": [
         {
+            "name": "Godrej aer Matic Room Freshener Kit",
+            "price": "₹569",
+            "mrp": "₹854",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0FKGHBLB6?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Bajaj Airlight Personal Rechargeable Fan",
+            "price": "₹1229",
+            "mrp": "₹1905",
+            "discount_percent": "35%",
+            "link": "https://www.amazon.in/dp/B0C7CLZSRG?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Amazon Brand - Presto! Garbage Bags",
+            "price": "₹239",
+            "mrp": "₹394",
+            "discount_percent": "39%",
+            "link": "https://www.amazon.in/dp/B0821PN8L4?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
             "name": "ZEBRONICS TT60+ Type-C Cable",
             "price": "₹99",
             "mrp": "₹168",
@@ -870,33 +897,6 @@
             "mrp": "₹2716",
             "discount_percent": "41%",
             "link": "https://www.amazon.in/dp/B0BV6LN7S7?tag=shashwat022-21",
-            "image": "",
-            "category": "Electronics"
-        },
-        {
-            "name": "APFEN 20W Type-C Fast Charger & Cable",
-            "price": "₹380",
-            "mrp": "₹646",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0F62W35NX?tag=shashwat022-21",
-            "image": "",
-            "category": "Electronics"
-        },
-        {
-            "name": "OnePlus Nord Buds 3r TWS Earbuds",
-            "price": "₹1999",
-            "mrp": "₹3398",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0FMDL81GS?tag=shashwat022-21",
-            "image": "",
-            "category": "Electronics"
-        },
-        {
-            "name": "realme NARZO 90x 5G Smartphone",
-            "price": "₹14999",
-            "mrp": "₹25498",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0GHX1RLKC?tag=shashwat022-21",
             "image": "",
             "category": "Electronics"
         }
