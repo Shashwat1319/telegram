@@ -1,6 +1,24 @@
 {
     "products": [
         {
+            "name": "Boat 20000 mAh Power Bank",
+            "price": "₹1399",
+            "mrp": "₹2266",
+            "discount_percent": "38%",
+            "link": "https://www.amazon.in/dp/B0DR8QTD8Y?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Samsung 25W Super Fast Charger",
+            "price": "₹344",
+            "mrp": "₹567",
+            "discount_percent": "39%",
+            "link": "https://www.amazon.in/dp/B0GHFFDRGN?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
             "name": "Amayra Women's Kurta Set",
             "price": "₹897",
             "mrp": "₹1525",
@@ -881,24 +899,6 @@
             "link": "https://www.amazon.in/dp/B0FYZ27SLB?tag=shashwat022-21",
             "image": "",
             "category": "Ladies Shoes"
-        },
-        {
-            "name": "Imsa Moda Men’s Polycotton Track Pants",
-            "price": "₹310",
-            "mrp": "₹496",
-            "discount_percent": "38%",
-            "link": "https://www.amazon.in/dp/B0GWVVZTBF?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Amayra Women's Pure Cotton Straight Kurta Set",
-            "price": "₹897",
-            "mrp": "₹1435",
-            "discount_percent": "38%",
-            "link": "https://www.amazon.in/dp/B0GPDG4NG3?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Fashion"
         }
     ]
 }
