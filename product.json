@@ -1,6 +1,123 @@
 {
     "products": [
         {
+            "name": "Bajaj Pygmy Mini Fan",
+            "price": "₹949",
+            "mrp": "₹1613",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B08VJFYH6N?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Noise Buds N1 Earbuds",
+            "price": "₹799",
+            "mrp": "₹1358",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CQJXC3SP?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Foldable Laptop Table (B Black)",
+            "price": "₹299",
+            "mrp": "₹508",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GZ6X2DZL?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "iPhone 20W Type C Charger",
+            "price": "₹499",
+            "mrp": "₹848",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CNM4V6Q5?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Plum 10% Niacinamide Serum",
+            "price": "₹199",
+            "mrp": "₹324",
+            "discount_percent": "39%",
+            "link": "https://www.amazon.in/dp/B0C85R7M9D?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Plum Bulgarian Rose Water Face Toner",
+            "price": "₹204",
+            "mrp": "₹337",
+            "discount_percent": "39%",
+            "link": "https://www.amazon.in/dp/B093CNS6G1?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Plum BodyLovin' Vanilla Vibes Body Oil",
+            "price": "₹224",
+            "mrp": "₹374",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B09TL5SDW8?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Plum Eye-Swear-By Kajal",
+            "price": "₹223",
+            "mrp": "₹375",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B09GKW2BVZ?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Redmi 20000mAh Power Bank",
+            "price": "₹1899",
+            "mrp": "₹3999",
+            "discount_percent": "53%",
+            "link": "https://www.amazon.in/dp/B08J3B873D?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71W3Qh2v7PL._SX679_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "boAt BassHeads 100 Earphones",
+            "price": "₹399",
+            "mrp": "₹999",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B07C3S1Q9X?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61+vY+hV2rL._SX679_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "boAt Airdopes 141 Earbuds",
+            "price": "₹999",
+            "mrp": "₹2999",
+            "discount_percent": "67%",
+            "link": "https://www.amazon.in/dp/B0B667G7CN?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/516+A-w7vPL._SX300_SY300_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Cello Opalware Dinner Set (19 Pcs)",
+            "price": "₹1499",
+            "mrp": "₹4500",
+            "discount_percent": "67%",
+            "link": "https://www.amazon.in/dp/B08XJ81R2T?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71u9s937FjL._SX679_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "pTron Bassbuds Duo Earbuds",
+            "price": "₹699",
+            "mrp": "₹2599",
+            "discount_percent": "73%",
+            "link": "https://www.amazon.in/dp/B09D8V9Y24?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61+R+x1yYVL._SX679_.jpg",
+            "category": "Kitchen"
+        },
+        {
             "name": "TRYLO Riza T-FIT Bra",
             "price": "₹283",
             "mrp": "₹475",
@@ -781,123 +898,6 @@
             "discount_percent": "33%",
             "link": "https://www.amazon.in/dp/B0DM69GGHD?tag=shashwat022-21",
             "image": null,
-            "category": "Electronics"
-        },
-        {
-            "name": "Kratos K13 Ai Tracking Tripod",
-            "price": "₹199",
-            "mrp": "₹298",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0GG4FRZZZ?tag=shashwat022-21",
-            "image": null,
-            "category": "Electronics"
-        },
-        {
-            "name": "Kokila NO PPD Shampoo Hair Colour 400ml",
-            "price": "₹792",
-            "mrp": "₹1346",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0CP5S82ZV?tag=shashwat022-21",
-            "image": "",
-            "category": "Beauty"
-        },
-        {
-            "name": "POND'S Bright Beauty Face Wash 200g",
-            "price": "₹245",
-            "mrp": "₹416",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B08NYD1GGK?tag=shashwat022-21",
-            "image": "",
-            "category": "Beauty"
-        },
-        {
-            "name": "Kesh King Anti Hairfall Shampoo (2x340ml)",
-            "price": "₹458",
-            "mrp": "₹778",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0CWP49QDJ?tag=shashwat022-21",
-            "image": "",
-            "category": "Beauty"
-        },
-        {
-            "name": "WishCare Lip Balm Combo",
-            "price": "₹454",
-            "mrp": "₹771",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0GT16XHSQ?tag=shashwat022-21",
-            "image": "",
-            "category": "Beauty"
-        },
-        {
-            "name": "Parachute Coconut Oil 1L",
-            "price": "₹440",
-            "mrp": "₹748",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B003NQESIS?tag=shashwat022-21",
-            "image": "",
-            "category": "Beauty"
-        },
-        {
-            "name": "ProKart Woolen Hand Knitting Yarn (4 Pack)",
-            "price": "₹599",
-            "mrp": "₹958",
-            "discount_percent": "37%",
-            "link": "https://www.amazon.in/dp/B0DHQQ8PT8?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Presto! Garbage Bags Medium (180 Count)",
-            "price": "₹239",
-            "mrp": "₹382",
-            "discount_percent": "37%",
-            "link": "https://www.amazon.in/dp/B0821PN8L4?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "APFEN USB A to Lightning Cable",
-            "price": "₹271",
-            "mrp": "₹407",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
-            "image": "",
-            "category": "Computers"
-        },
-        {
-            "name": "Amazon Basics 2-in-1 Laptop Stand",
-            "price": "₹259",
-            "mrp": "₹389",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0BTNT8X6K?tag=shashwat022-21",
-            "image": "",
-            "category": "Computers"
-        },
-        {
-            "name": "Zebronics Freego Wireless Mouse",
-            "price": "₹219",
-            "mrp": "₹329",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0FF4XBM5N?tag=shashwat022-21",
-            "image": "",
-            "category": "Computers"
-        },
-        {
-            "name": "Cordless Hair Trimmer",
-            "price": "₹899",
-            "mrp": "₹2299",
-            "discount_percent": "60%",
-            "link": "https://www.amazon.in/dp/B0C39K916K?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/618x+4j-tEL._AC_UL320_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Men's Cotton T-Shirt",
-            "price": "₹349",
-            "mrp": "₹899",
-            "discount_percent": "61%",
-            "link": "https://www.amazon.in/dp/B0BLHJSK2N?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71u9zE3QnOL._AC_UL320_.jpg",
             "category": "Electronics"
         }
     ]
