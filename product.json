@@ -1,6 +1,51 @@
 {
     "products": [
         {
+            "name": "Plum Coconut Milk Conditioner",
+            "price": "₹299",
+            "mrp": "₹388",
+            "discount_percent": "23%",
+            "link": "https://www.amazon.in/dp/B0C3R6LNQT?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Syska SSK-SRL-9W Smart LED Bulb",
+            "price": "₹599",
+            "mrp": "₹1200",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B09WTVX5M4?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61T2bK6a9LL._SL1500_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Pigeon Amaze Plus Electric Kettle",
+            "price": "₹649",
+            "mrp": "₹1495",
+            "discount_percent": "57%",
+            "link": "https://www.amazon.in/dp/B08V39D11X?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61r5f8zXJBL._SL1500_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "AmazonBasics USB 3.0 Cable",
+            "price": "₹299",
+            "mrp": "₹999",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B00NH0Q5U6?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61Y-oR7W7EL._SL1500_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Red Tape Men's Leather Wallet",
+            "price": "₹499",
+            "mrp": "₹1999",
+            "discount_percent": "75%",
+            "link": "https://www.amazon.in/dp/B08K3S2R1B?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71u9t2g70AL._SL1500_.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "EvoFox Gaming Controller",
             "price": "₹379",
             "mrp": "₹644",
@@ -854,51 +899,6 @@
             "link": "https://www.amazon.in/dp/B0G3Q1KVYY?tag=shashwat022-21",
             "image": "",
             "category": "Computers"
-        },
-        {
-            "name": "Smart Foldable Laptop Table",
-            "price": "₹299",
-            "mrp": "₹508",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0GZ6X2DZL?tag=shashwat022-21",
-            "image": "",
-            "category": "Computers"
-        },
-        {
-            "name": "SanDisk Cruzer Blade 16GB Pendrive",
-            "price": "₹500",
-            "mrp": "₹850",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B002U1ZBG0?tag=shashwat022-21",
-            "image": "",
-            "category": "Computers"
-        },
-        {
-            "name": "BOXJOY 5 Shelf Shoe Rack",
-            "price": "₹1775",
-            "mrp": "₹2662",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0DLVGWRVJ?tag=shashwat022-21",
-            "image": "https://example.com/product_image.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Presto! Garbage Bags (180 Count)",
-            "price": "₹239",
-            "mrp": "₹358",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0821PN8L4?tag=shashwat022-21",
-            "image": "https://example.com/product_image.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "TEKCOOL Spray Fan",
-            "price": "₹799",
-            "mrp": "₹1198",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0GWJR25X2?tag=shashwat022-21",
-            "image": "https://example.com/product_image.jpg",
-            "category": "Kitchen"
         }
     ]
 }
