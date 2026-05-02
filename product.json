@@ -1,6 +1,33 @@
 {
     "products": [
         {
+            "name": "Noise GaN Charger 100W",
+            "price": "₹449",
+            "mrp": "₹718",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0GC7GD2R7?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41-Pq-XgY1L._AC_UL320_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "iPhone Charger Adapter 20W Type C",
+            "price": "₹499",
+            "mrp": "₹798",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0CNM4V6Q5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41-Pq-XgY1L._AC_UL320_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Noise Buds N1 TWS Earbuds",
+            "price": "₹799",
+            "mrp": "₹1358",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CQJXC3SP?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41-Pq-XgY1L._AC_UL320_.jpg",
+            "category": "Electronics"
+        },
+        {
             "name": "DIVIJA STORE Foldable Laptop Table",
             "price": "₹299",
             "mrp": "₹496",
@@ -872,33 +899,6 @@
             "link": "https://www.amazon.in/dp/B0C47QW6?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/71R2o5F629L._SX679_.jpg",
             "category": "Ladies Shoes"
-        },
-        {
-            "name": "Smart LED Bulb",
-            "price": "₹349",
-            "mrp": "₹1199",
-            "discount_percent": "71%",
-            "link": "https://www.amazon.in/dp/B0B47QW6?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61k-o-0sO5L._SL1500_.jpg",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Godrej aer Matic Kit",
-            "price": "₹569",
-            "mrp": "₹910",
-            "discount_percent": "37%",
-            "link": "https://www.amazon.in/dp/B0FKGHBLB6?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41Kq+zFwLmL._SX300_SY300_QL70_FMwebp_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "TEKCOOL Double Ended Spray Fan",
-            "price": "₹799",
-            "mrp": "₹1280",
-            "discount_percent": "37%",
-            "link": "https://www.amazon.in/dp/B0GWJR25X2?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41Kq+zFwLmL._SX300_SY300_QL70_FMwebp_.jpg",
-            "category": "Kitchen"
         }
     ]
 }
