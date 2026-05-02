@@ -1,6 +1,114 @@
 {
     "products": [
         {
+            "name": "Amayra Women's Kurta Set",
+            "price": "₹897",
+            "mrp": "₹1525",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GPDG4NG3?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Dollar Men's Boxer (Pack of 6)",
+            "price": "₹618",
+            "mrp": "₹1051",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GK8XCC1K?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Pepe Jeans Men's Track Pant",
+            "price": "₹615",
+            "mrp": "₹1046",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0C3DDHZ56?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "DEELMO Men's Short Kurta",
+            "price": "₹485",
+            "mrp": "₹825",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CNM4RLZ2?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Amazon Basics Air Fryer",
+            "price": "₹2999",
+            "mrp": "₹7000",
+            "discount_percent": "57%",
+            "link": "https://www.amazon.in/dp/B0C9Y6W4T8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61-dJ00L9yL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Philips HD2139/60 Induction Cooker",
+            "price": "₹2999",
+            "mrp": "₹7195",
+            "discount_percent": "58%",
+            "link": "https://www.amazon.in/dp/B0B1H8S735?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71N142994fL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Amazon Basics Multi-Functional Mixer Grinder",
+            "price": "₹1199",
+            "mrp": "₹3000",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B0C1J422K9?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61Vd6k+1jYL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Amazon Basics 400W Hand Blender",
+            "price": "₹1399",
+            "mrp": "₹4000",
+            "discount_percent": "65%",
+            "link": "https://www.amazon.in/dp/B0C9G7C3N4?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61sI5L3a-7L._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "pTron Bassbuds Fute Bluetooth Headphones",
+            "price": "₹599",
+            "mrp": "₹3299",
+            "discount_percent": "81%",
+            "link": "https://www.amazon.in/dp/B0BJL9743D?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61XyGgI-JFL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Boat Aavante Bar 610 Soundbar",
+            "price": "₹1599",
+            "mrp": "₹2398",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0BZ4DJ7GZ?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "25W Charger for Samsung",
+            "price": "₹344",
+            "mrp": "₹516",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0GHFFDRGN?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "DIVIJA Foldable Laptop Table",
+            "price": "₹299",
+            "mrp": "₹448",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0DK7B3B2G?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
             "name": "Samsung Original Type C to C Cable",
             "price": "₹374",
             "mrp": "₹565",
@@ -791,114 +899,6 @@
             "link": "https://www.amazon.in/dp/B0GPDG4NG3?tag=shashwat022-21",
             "image": "",
             "category": "Ladies Fashion"
-        },
-        {
-            "name": "Dollar Mens Cotton Rich Boxer (Pack of 6)",
-            "price": "₹618",
-            "mrp": "₹988",
-            "discount_percent": "38%",
-            "link": "https://www.amazon.in/dp/B0GK8XCC1K?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "TRYLO Riza T-FIT Women's Bra",
-            "price": "₹297",
-            "mrp": "₹475",
-            "discount_percent": "38%",
-            "link": "https://www.amazon.in/dp/B0CKBY5R6R?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Boldfit Head Caps for Men & Women",
-            "price": "₹399",
-            "mrp": "₹638",
-            "discount_percent": "38%",
-            "link": "https://www.amazon.in/dp/B0GJDZBZPW?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Lifelong 3.5L Air Fryer",
-            "price": "₹2299",
-            "mrp": "₹6500",
-            "discount_percent": "65%",
-            "link": "https://www.amazon.in/dp/B0BP3F9C5B?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/718y91gQ6PL._AC_UL320_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Red Tape Men's Casual Shoe",
-            "price": "₹1599",
-            "mrp": "₹4999",
-            "discount_percent": "68%",
-            "link": "https://www.amazon.in/dp/B09L6W7N4R?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61-m61G6jmL._AC_UL320_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "boAt Airdopes 141 TWS Earbuds",
-            "price": "₹1199",
-            "mrp": "₹4490",
-            "discount_percent": "73%",
-            "link": "https://www.amazon.in/dp/B09V3Y82W3?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51EEJp-rXjL._AC_UL320_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "boAt Rockerz 450 Bluetooth Headphones",
-            "price": "₹999",
-            "mrp": "₹3990",
-            "discount_percent": "75%",
-            "link": "https://www.amazon.in/dp/B08V1M58G1?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61N+x-4F7+L._AC_UL320_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Fire-Boltt Phoenix Smart Watch",
-            "price": "₹1799",
-            "mrp": "₹10999",
-            "discount_percent": "84%",
-            "link": "https://www.amazon.in/dp/B0BJL4C9M2?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61s7G-1R1pL._AC_UL320_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Story@Home Blackout Curtains",
-            "price": "₹629",
-            "mrp": "₹1056",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B0GQGLHYP8?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "CELLO Storage Container Set",
-            "price": "₹349",
-            "mrp": "₹593",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B01LYBZX6Y?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "BSB HOME Mattress Cover",
-            "price": "₹369",
-            "mrp": "₹627",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0GQ3FR1T8?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "BERGNER TriPly Kadai",
-            "price": "₹999",
-            "mrp": "₹1698",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0C5HWKVZJ?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
         }
     ]
 }
