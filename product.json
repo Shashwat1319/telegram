@@ -1,6 +1,222 @@
 {
     "products": [
         {
+            "name": "TRYLO Riza T-FIT Bra",
+            "price": "₹283",
+            "mrp": "₹475",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0CKBY5R6R?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "U.S. Polo Assn. Men's Trunks",
+            "price": "₹573",
+            "mrp": "₹967",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0D3DR4Q7T?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Imsa Moda Men's Track Pants",
+            "price": "₹310",
+            "mrp": "₹523",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0GWVVZTBF?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "CBlue Men's Sports Shorts",
+            "price": "₹368",
+            "mrp": "₹625",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0F6D561SF?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Dollar Men's Cotton Boxer (6-Pack)",
+            "price": "₹618",
+            "mrp": "₹1050",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GK8XCC1K?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Noise GaN Charger 100W + Type-C Cable",
+            "price": "₹449",
+            "mrp": "₹763",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GC7GD2R7?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "Bajaj Pygmy Mini Fan (Blue)",
+            "price": "₹949",
+            "mrp": "₹1613",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B08VJFYH6N?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "uppercase 14L Laptop Messenger Bag (Beige)",
+            "price": "₹1699",
+            "mrp": "₹2888",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CNT88PQD?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "ZOUK Women's Office Backpack 17.5L",
+            "price": "₹1364",
+            "mrp": "₹2319",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CQT1BY8R?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "APFEN USB-A to Lightning Cable",
+            "price": "₹271",
+            "mrp": "₹461",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "Bajaj Pygmy Mini Fan 110MM (Blue)",
+            "price": "₹949",
+            "mrp": "₹1400",
+            "discount_percent": "32%",
+            "link": "https://www.amazon.in/dp/B08VJFYH6N?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Noise Buds N1 Truly Wireless Earbuds (Calm Beige)",
+            "price": "₹799",
+            "mrp": "₹1200",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0CQJXC3SP?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "DIVIJA STORE Foldable Laptop Table (Black)",
+            "price": "₹299",
+            "mrp": "₹450",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0DK7B3B2G?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Noise GaN Charger 100W + Type-C Braided Cable",
+            "price": "₹449",
+            "mrp": "₹700",
+            "discount_percent": "35%",
+            "link": "https://www.amazon.in/dp/B0GC7GD2R7?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Kratos 25W Charger Adapter for Samsung Galaxy",
+            "price": "₹399",
+            "mrp": "₹650",
+            "discount_percent": "38%",
+            "link": "https://www.amazon.in/dp/B0FH2N3PFX?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Amazon Basics Cloth Drying Stand",
+            "price": "₹695",
+            "mrp": "₹1077",
+            "discount_percent": "35%",
+            "link": "https://www.amazon.in/dp/B0DCKD9ZW9?tag=shashwat022-21",
+            "image": null,
+            "category": "Kitchen"
+        },
+        {
+            "name": "BERGNER TriPly Stainless Steel Kadai",
+            "price": "₹999",
+            "mrp": "₹1598",
+            "discount_percent": "38%",
+            "link": "https://www.amazon.in/dp/B0C5HWKVZJ?tag=shashwat022-21",
+            "image": null,
+            "category": "Kitchen"
+        },
+        {
+            "name": "CELLO Kitchen Storage Container Set",
+            "price": "₹349",
+            "mrp": "₹586",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B01LYBZX6Y?tag=shashwat022-21",
+            "image": null,
+            "category": "Kitchen"
+        },
+        {
+            "name": "BSB HOME Mattress Protector",
+            "price": "₹369",
+            "mrp": "₹627",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GQ3FR1T8?tag=shashwat022-21",
+            "image": null,
+            "category": "Kitchen"
+        },
+        {
+            "name": "Plum Coconut Milk & Peptides Conditioner",
+            "price": "₹300",
+            "mrp": "₹510",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0C3R6LNQT?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Plum BodyLovin' Rose Hand Cream",
+            "price": "₹206",
+            "mrp": "₹350",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0DK71DK5S?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Plum 15% Vitamin C Serum",
+            "price": "₹224",
+            "mrp": "₹380",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0C85MW3RV?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Plum Bulgarian Valley Rose Water Toner",
+            "price": "₹204",
+            "mrp": "₹346",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B093CNS6G1?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Plum Hibiscus & Ceramides Shampoo",
+            "price": "₹248",
+            "mrp": "₹421",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0C85G5D26?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
             "name": "Boldfit Men Badminton Shoes",
             "price": "₹899",
             "mrp": "₹1530",
@@ -682,222 +898,6 @@
             "discount_percent": "61%",
             "link": "https://www.amazon.in/dp/B0BLHJSK2N?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/71u9zE3QnOL._AC_UL320_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Wired On-Ear Headphones",
-            "price": "₹499",
-            "mrp": "₹1299",
-            "discount_percent": "61%",
-            "link": "https://www.amazon.in/dp/B0BNB18J9C?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71FqP4h0h5L._AC_UL320_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Portable Bluetooth Speaker",
-            "price": "₹699",
-            "mrp": "₹1899",
-            "discount_percent": "63%",
-            "link": "https://www.amazon.in/dp/B0BJ61L7L5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/616vR-VpB8L._AC_UL320_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "USB C Fast Charging Cable",
-            "price": "₹249",
-            "mrp": "₹719",
-            "discount_percent": "65%",
-            "link": "https://www.amazon.in/dp/B0C4ZGF49V?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61eG3X3lTXL._AC_UL320_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Godrej aer Matic Room Freshener Kit",
-            "price": "₹569",
-            "mrp": "₹854",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0FKGHBLB6?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Bajaj Airlight Personal Rechargeable Fan",
-            "price": "₹1229",
-            "mrp": "₹1905",
-            "discount_percent": "35%",
-            "link": "https://www.amazon.in/dp/B0C7CLZSRG?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Amazon Brand - Presto! Garbage Bags",
-            "price": "₹239",
-            "mrp": "₹394",
-            "discount_percent": "39%",
-            "link": "https://www.amazon.in/dp/B0821PN8L4?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "ZEBRONICS TT60+ Type-C Cable",
-            "price": "₹99",
-            "mrp": "₹168",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0FJ2L7YF8?tag=shashwat022-21",
-            "image": "",
-            "category": "Computers"
-        },
-        {
-            "name": "Amazon Basics Laptop & Mobile Stand",
-            "price": "₹259",
-            "mrp": "₹440",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0BTNT8X6K?tag=shashwat022-21",
-            "image": "",
-            "category": "Computers"
-        },
-        {
-            "name": "Amazon Basics 64GB Flash Drive",
-            "price": "₹799",
-            "mrp": "₹1358",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0CGD23TG3?tag=shashwat022-21",
-            "image": "",
-            "category": "Computers"
-        },
-        {
-            "name": "OnePlus Pad 3 (12GB RAM, 256GB)",
-            "price": "₹49999",
-            "mrp": "₹84998",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0FN6YM9MV?tag=shashwat022-21",
-            "image": "",
-            "category": "Computers"
-        },
-        {
-            "name": "STRIFF Transparent Wireless Mouse",
-            "price": "₹385",
-            "mrp": "₹655",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0DXFHF33M?tag=shashwat022-21",
-            "image": "",
-            "category": "Computers"
-        },
-        {
-            "name": "Lakme Blush & Glow Kiwi Sheet Mask, 25 ml",
-            "price": "₹40",
-            "mrp": "₹68",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B084S2HBQM?tag=shashwat022-21",
-            "image": "",
-            "category": "Beauty"
-        },
-        {
-            "name": "Kesh King Ayurvedic Anti Hairfall Shampoo (Pack of 2)",
-            "price": "₹458",
-            "mrp": "₹778",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0CWP49QDJ?tag=shashwat022-21",
-            "image": "",
-            "category": "Beauty"
-        },
-        {
-            "name": "Dettol Icy Cool Bathing Soap Bar, 75gm (Pack of 4)",
-            "price": "₹150",
-            "mrp": "₹255",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0869VX72V?tag=shashwat022-21",
-            "image": "",
-            "category": "Beauty"
-        },
-        {
-            "name": "Savlon Herbal Handwash Refill Pouch, 1.3L",
-            "price": "₹170",
-            "mrp": "₹289",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B08ZDCRNZM?tag=shashwat022-21",
-            "image": "",
-            "category": "Beauty"
-        },
-        {
-            "name": "Fiama Body Wash Blackcurrant & Bearberry, 895 ml",
-            "price": "₹187",
-            "mrp": "₹317",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B098LR2L3K?tag=shashwat022-21",
-            "image": "",
-            "category": "Beauty"
-        },
-        {
-            "name": "Bajaj Airlight Rechargeable Fan",
-            "price": "₹1229",
-            "mrp": "₹2048",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B0C7CLZSRG?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Presto! Garbage Bags Medium",
-            "price": "₹239",
-            "mrp": "₹398",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B0821PN8L4?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Philips Viva Induction Cooktop",
-            "price": "₹4599",
-            "mrp": "₹7665",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B00EDJJ7FS?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Zebronics Wired Keyboard",
-            "price": "₹249",
-            "mrp": "₹374",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0FPQYK3D7?tag=shashwat022-21",
-            "image": "",
-            "category": "Electronics"
-        },
-        {
-            "name": "Zebronics Wireless Mouse",
-            "price": "₹219",
-            "mrp": "₹329",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0FF4XBM5N?tag=shashwat022-21",
-            "image": "",
-            "category": "Electronics"
-        },
-        {
-            "name": "Kratos K13 Ai Face Tracking Tripod",
-            "price": "₹199",
-            "mrp": "₹299",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0GG4FRZZZ?tag=shashwat022-21",
-            "image": "",
-            "category": "Electronics"
-        },
-        {
-            "name": "Zebronics 200HB USB 3.0 4 Port Hub",
-            "price": "₹189",
-            "mrp": "₹284",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0BBQK41CV?tag=shashwat022-21",
-            "image": "",
-            "category": "Electronics"
-        },
-        {
-            "name": "Zebronics TT60+ Type C Braided Cable",
-            "price": "₹99",
-            "mrp": "₹149",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0FJ2L7YF8?tag=shashwat022-21",
-            "image": "",
             "category": "Electronics"
         }
     ]
