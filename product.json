@@ -1,6 +1,69 @@
 {
     "products": [
         {
+            "name": "Pigeon Brio Plus Induction Stove",
+            "price": "₹1999",
+            "mrp": "₹3398",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B089BMFW96?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "BERGNER TriPly Stainless Steel Deep Kadai",
+            "price": "₹1799",
+            "mrp": "₹3058",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0C5HWKVZJ?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Digital Kitchen Weighing Scale",
+            "price": "₹599",
+            "mrp": "₹1599",
+            "discount_percent": "63%",
+            "link": "https://www.amazon.in/dp/B09D1B9X9D?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61k1j9p8yQL._SX679_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "LED Desk Lamp with Pen Holder",
+            "price": "₹349",
+            "mrp": "₹999",
+            "discount_percent": "65%",
+            "link": "https://www.amazon.in/dp/B09M821X9V?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71bXo0m56jL._SX679_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Portable USB Mini Fan",
+            "price": "₹249",
+            "mrp": "₹749",
+            "discount_percent": "67%",
+            "link": "https://www.amazon.in/dp/B0BNL3R5Q1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71V2bF3b8NL._SX679_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Fitness Tracker Smart Band",
+            "price": "₹499",
+            "mrp": "₹1499",
+            "discount_percent": "67%",
+            "link": "https://www.amazon.in/dp/B0C39R1XQZ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61M6x0Jp+FL._SX679_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Wireless Earbuds with Mic",
+            "price": "₹799",
+            "mrp": "₹2499",
+            "discount_percent": "68%",
+            "link": "https://www.amazon.in/dp/B0BNXXW8F3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61NGLkKk4nL._SX679_.jpg",
+            "category": "Electronics"
+        },
+        {
             "name": "Plum Coconut Milk Conditioner",
             "price": "₹299",
             "mrp": "₹388",
@@ -836,69 +899,6 @@
             "link": "https://www.amazon.in/dp/B0DSFPK9LM?tag=shashwat022-21",
             "image": "",
             "category": "Ladies Shoes"
-        },
-        {
-            "name": "Red Tape Men Pull On Clogs",
-            "price": "₹509",
-            "mrp": "₹839",
-            "discount_percent": "39%",
-            "link": "https://www.amazon.in/dp/B0CSWPV67G?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Lavie Women's Faroe Satchel Handbag",
-            "price": "₹1299",
-            "mrp": "₹2208",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B07SMBF83L?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "THE SIMPLE GHAR White Shoe Cleaner Cream",
-            "price": "₹299",
-            "mrp": "₹508",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0GW8HJJX1?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Shalimar Scented Garbage Bags",
-            "price": "₹388",
-            "mrp": "₹612",
-            "discount_percent": "36%",
-            "link": "https://www.amazon.in/dp/B0D988VJM3?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Bajaj Rechargeable Fan",
-            "price": "₹1229",
-            "mrp": "₹1991",
-            "discount_percent": "38%",
-            "link": "https://www.amazon.in/dp/B0C7CLZSRG?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Presto! Garbage Bags (Medium, 180 Count)",
-            "price": "₹239",
-            "mrp": "₹406",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0821PN8L4?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/B0821PN8L4._SL160_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "KARWAN 100W Type C Cable",
-            "price": "₹329",
-            "mrp": "₹559",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0G3Q1KVYY?tag=shashwat022-21",
-            "image": "",
-            "category": "Computers"
         }
     ]
 }
