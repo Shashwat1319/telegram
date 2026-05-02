@@ -1,6 +1,69 @@
 {
     "products": [
         {
+            "name": "EvoFox Gaming Controller",
+            "price": "₹379",
+            "mrp": "₹644",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0DZ6LLZTT?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "ZOUK Women's Office Backpack",
+            "price": "₹1364",
+            "mrp": "₹2319",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CQT1BY8R?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "Plum BodyLovin' Vanilla Body Lotion",
+            "price": "₹239",
+            "mrp": "₹406",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0FM7VYRPW?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Noise GaN Charger 100W + Cable",
+            "price": "₹449",
+            "mrp": "₹763",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GC7GD2R7?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "Samsung 25W Type C Charger",
+            "price": "₹344",
+            "mrp": "₹584",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GHFFDRGN?tag=shashwat022-21",
+            "image": "",
+            "category": "Electronics"
+        },
+        {
+            "name": "BERGNER TriPly Stainless Steel Kadai with Lid",
+            "price": "₹999",
+            "mrp": "₹1550",
+            "discount_percent": "35%",
+            "link": "https://www.amazon.in/dp/B0C5HWKVZJ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/B0C5HWKVZJ._SX300_SY300_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "BSB HOME Cotton Printed Mattress Protector",
+            "price": "₹679",
+            "mrp": "₹1090",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0GQ3G4N3J?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/B0GQ3G4N3J._SX300_SY300_.jpg",
+            "category": "Kitchen"
+        },
+        {
             "name": "Noise GaN Charger 100W",
             "price": "₹449",
             "mrp": "₹718",
@@ -836,69 +899,6 @@
             "link": "https://www.amazon.in/dp/B0GWJR25X2?tag=shashwat022-21",
             "image": "https://example.com/product_image.jpg",
             "category": "Kitchen"
-        },
-        {
-            "name": "Smartwatch Fitness Tracker",
-            "price": "₹1499",
-            "mrp": "₹3999",
-            "discount_percent": "62%",
-            "link": "https://www.amazon.in/dp/B0BNGW92S8?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71YyMswb1jL._AC_UL320_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Electric Kettle 1.5L",
-            "price": "₹599",
-            "mrp": "₹1599",
-            "discount_percent": "62%",
-            "link": "https://www.amazon.in/dp/B0BG7YJ65X?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61+9fK-uCjL._AC_UL320_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Leather Men's Wallet",
-            "price": "₹299",
-            "mrp": "₹799",
-            "discount_percent": "62%",
-            "link": "https://www.amazon.in/dp/B0B6L5N8WJ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71jY8tLgUoL._AC_UL320_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Wireless Earbuds",
-            "price": "₹799",
-            "mrp": "₹2499",
-            "discount_percent": "68%",
-            "link": "https://www.amazon.in/dp/B0BPX87QW6?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61KNJBWzU7L._SX679_.jpg",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Insulated Coffee Mug",
-            "price": "₹249",
-            "mrp": "₹799",
-            "discount_percent": "69%",
-            "link": "https://www.amazon.in/dp/B0B57QW6?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61fW8-JzEHL._SX679_.jpg",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Laptop Stand",
-            "price": "₹899",
-            "mrp": "₹2999",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B0B67QW6?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71X8k+mS0pL._SX679_.jpg",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Fitness Tracker",
-            "price": "₹1499",
-            "mrp": "₹4999",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B0C47QW6?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71R2o5F629L._SX679_.jpg",
-            "category": "Ladies Shoes"
         }
     ]
 }
