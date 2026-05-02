@@ -1,6 +1,42 @@
 {
     "products": [
         {
+            "name": "DIVIJA STORE Foldable Laptop Table",
+            "price": "₹299",
+            "mrp": "₹496",
+            "discount_percent": "39%",
+            "link": "https://www.amazon.in/dp/B0DK7B3B2G?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41-R5hR6Y4L._AC_SL160_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "25W Charger for Samsung with Type C Cable",
+            "price": "₹344",
+            "mrp": "₹577",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0GHFFDRGN?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41-R5hR6Y4L._AC_SL160_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Bajaj Pygmy Mini Fan 110MM",
+            "price": "₹949",
+            "mrp": "₹1604",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B08VJFYH6N?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41-R5hR6Y4L._AC_SL160_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Plum BodyLovin' Vanilla Body Oil",
+            "price": "₹224",
+            "mrp": "₹381",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B09TL5SDW8?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
             "name": "Bajaj Pygmy Mini Fan",
             "price": "₹949",
             "mrp": "₹1613",
@@ -863,42 +899,6 @@
             "link": "https://www.amazon.in/dp/B0GWJR25X2?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/41Kq+zFwLmL._SX300_SY300_QL70_FMwebp_.jpg",
             "category": "Kitchen"
-        },
-        {
-            "name": "Presto! Garbage Bags (Medium)",
-            "price": "₹239",
-            "mrp": "₹395",
-            "discount_percent": "39%",
-            "link": "https://www.amazon.in/dp/B0821PN8L4?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41Kq+zFwLmL._SX300_SY300_QL70_FMwebp_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Portronics Conch Theta C Wired Earphones",
-            "price": "₹322",
-            "mrp": "₹483",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0DGLQHBF9?tag=shashwat022-21",
-            "image": null,
-            "category": "Electronics"
-        },
-        {
-            "name": "Acer Flow Wireless Mouse",
-            "price": "₹389",
-            "mrp": "₹583",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0FQQMSRP8?tag=shashwat022-21",
-            "image": null,
-            "category": "Electronics"
-        },
-        {
-            "name": "Artistque Armor Case for Realme P2 Pro 5G",
-            "price": "₹299",
-            "mrp": "₹448",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0DM69GGHD?tag=shashwat022-21",
-            "image": null,
-            "category": "Electronics"
         }
     ]
 }
