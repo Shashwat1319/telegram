@@ -1,6 +1,177 @@
 {
     "products": [
         {
+            "name": "ZOUK Flap Sling Bag",
+            "price": "₹799",
+            "mrp": "₹1118",
+            "discount_percent": "28%",
+            "link": "https://www.amazon.in/dp/B0BQWF4G11?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Flite Women Flip-Flops",
+            "price": "₹299",
+            "mrp": "₹427",
+            "discount_percent": "30%",
+            "link": "https://www.amazon.in/dp/B07DRV9HFN?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Red Tape Men Clogs",
+            "price": "₹509",
+            "mrp": "₹763",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0CSWQ5K9H?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Vendoz Women Flat Sandals",
+            "price": "₹398",
+            "mrp": "₹636",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B07XHN9LMH?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "BLUE WORLD Women Handbag",
+            "price": "₹498",
+            "mrp": "₹846",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0FYZ27SLB?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Imsa Moda Men’s Polycotton Track Pants",
+            "price": "₹310",
+            "mrp": "₹496",
+            "discount_percent": "38%",
+            "link": "https://www.amazon.in/dp/B0GWVVZTBF?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Amayra Women's Pure Cotton Straight Kurta Set",
+            "price": "₹897",
+            "mrp": "₹1435",
+            "discount_percent": "38%",
+            "link": "https://www.amazon.in/dp/B0GPDG4NG3?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Dollar Mens Cotton Rich Boxer (Pack of 6)",
+            "price": "₹618",
+            "mrp": "₹988",
+            "discount_percent": "38%",
+            "link": "https://www.amazon.in/dp/B0GK8XCC1K?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "TRYLO Riza T-FIT Women's Bra",
+            "price": "₹297",
+            "mrp": "₹475",
+            "discount_percent": "38%",
+            "link": "https://www.amazon.in/dp/B0CKBY5R6R?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Boldfit Head Caps for Men & Women",
+            "price": "₹399",
+            "mrp": "₹638",
+            "discount_percent": "38%",
+            "link": "https://www.amazon.in/dp/B0GJDZBZPW?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Lifelong 3.5L Air Fryer",
+            "price": "₹2299",
+            "mrp": "₹6500",
+            "discount_percent": "65%",
+            "link": "https://www.amazon.in/dp/B0BP3F9C5B?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/718y91gQ6PL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Red Tape Men's Casual Shoe",
+            "price": "₹1599",
+            "mrp": "₹4999",
+            "discount_percent": "68%",
+            "link": "https://www.amazon.in/dp/B09L6W7N4R?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61-m61G6jmL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "boAt Airdopes 141 TWS Earbuds",
+            "price": "₹1199",
+            "mrp": "₹4490",
+            "discount_percent": "73%",
+            "link": "https://www.amazon.in/dp/B09V3Y82W3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51EEJp-rXjL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "boAt Rockerz 450 Bluetooth Headphones",
+            "price": "₹999",
+            "mrp": "₹3990",
+            "discount_percent": "75%",
+            "link": "https://www.amazon.in/dp/B08V1M58G1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61N+x-4F7+L._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Fire-Boltt Phoenix Smart Watch",
+            "price": "₹1799",
+            "mrp": "₹10999",
+            "discount_percent": "84%",
+            "link": "https://www.amazon.in/dp/B0BJL4C9M2?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61s7G-1R1pL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Story@Home Blackout Curtains",
+            "price": "₹629",
+            "mrp": "₹1056",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0GQGLHYP8?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "CELLO Storage Container Set",
+            "price": "₹349",
+            "mrp": "₹593",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B01LYBZX6Y?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "BSB HOME Mattress Cover",
+            "price": "₹369",
+            "mrp": "₹627",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GQ3FR1T8?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
+            "name": "BERGNER TriPly Kadai",
+            "price": "₹999",
+            "mrp": "₹1698",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0C5HWKVZJ?tag=shashwat022-21",
+            "image": "",
+            "category": "Kitchen"
+        },
+        {
             "name": "ASIAN Men NITROEDGE-01 Running Shoes",
             "price": "₹1285",
             "mrp": "₹2056",
@@ -728,177 +899,6 @@
             "link": "https://www.amazon.in/dp/B0FH2N3PFX?tag=shashwat022-21",
             "image": "",
             "category": "Electronics"
-        },
-        {
-            "name": "OnePlus Bullets Wireless Z3 Neckband",
-            "price": "₹999",
-            "mrp": "₹1658",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B0GXLZ4V1F?tag=shashwat022-21",
-            "image": "",
-            "category": "Electronics"
-        },
-        {
-            "name": "Realme P2 Pro 5G Back Cover",
-            "price": "₹299",
-            "mrp": "₹505",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0DM69GGHD?tag=shashwat022-21",
-            "image": "",
-            "category": "Electronics"
-        },
-        {
-            "name": "Kratos Ai Face Tracking Tripod",
-            "price": "₹179",
-            "mrp": "₹301",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0GG4FRZZZ?tag=shashwat022-21",
-            "image": "",
-            "category": "Electronics"
-        },
-        {
-            "name": "Ambrane Type C Fast Charging Cable",
-            "price": "₹129",
-            "mrp": "₹219",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0CJJQLDS9?tag=shashwat022-21",
-            "image": "",
-            "category": "Electronics"
-        },
-        {
-            "name": "TEX-RO Clothes Drying Stand",
-            "price": "₹499",
-            "mrp": "₹848",
-            "discount_percent": "41%",
-            "link": "https://amazon.in/TEX-RO-Clothes-Drying-Foldable-Wheels/dp/B0GQQHX2W/ref=zg_bsms_g_kitchen_d_sccl_2/524-3187132-6549803?psc=1&tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "ProKart Knitting Wool Yarn",
-            "price": "₹773",
-            "mrp": "₹1299",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B0DHQQ8PT8?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Philips Emergency LED Bulb",
-            "price": "₹328",
-            "mrp": "₹558",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0C5D8BBP7?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Presto! Garbage Bags",
-            "price": "₹235",
-            "mrp": "₹400",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B08TDFC7LX?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "ProKart Premium Woolen 4 ply Hand Knitting Wool Yarn",
-            "price": "₹599",
-            "mrp": "₹958",
-            "discount_percent": "37%",
-            "link": "https://www.amazon.in/dp/B0DHQQ8PT8?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Trance Cotton Feel Terry Ultra Soft Waterproof Mattress Protector",
-            "price": "₹496",
-            "mrp": "₹793",
-            "discount_percent": "37%",
-            "link": "https://www.amazon.in/dp/B0BTVWZ6MY?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "DYLECT® AirWash Go Cordless Pressure Washer Gun",
-            "price": "₹3599",
-            "mrp": "₹5758",
-            "discount_percent": "37%",
-            "link": "https://www.amazon.in/dp/B0GGHF3D4D?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Go24 pexpo Water Bottle 1 LTR Stainless Steel",
-            "price": "₹679",
-            "mrp": "₹1086",
-            "discount_percent": "37%",
-            "link": "https://www.amazon.in/dp/B0D92FW8NC?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "HP 712w 32GB USB Flash Drive",
-            "price": "₹872",
-            "mrp": "₹1482",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0C9TX9YSH?tag=shashwat022-21",
-            "image": "",
-            "category": "Electronics"
-        },
-        {
-            "name": "Ambrane Type C Cable 1M",
-            "price": "₹129",
-            "mrp": "₹219",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0CJJQLDS9?tag=shashwat022-21",
-            "image": "",
-            "category": "Electronics"
-        },
-        {
-            "name": "Zebronics Thunder Wireless Headphones",
-            "price": "₹799",
-            "mrp": "₹1358",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B07L8KNP5F?tag=shashwat022-21",
-            "image": "",
-            "category": "Electronics"
-        },
-        {
-            "name": "Remote Control for TCL Roku TV",
-            "price": "₹492",
-            "mrp": "₹836",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B07GCB9J7D?tag=shashwat022-21",
-            "image": "",
-            "category": "Electronics"
-        },
-        {
-            "name": "Kratos 25W Charger Adapter",
-            "price": "₹443",
-            "mrp": "₹753",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0FH2N3PFX?tag=shashwat022-21",
-            "image": "",
-            "category": "Electronics"
-        },
-        {
-            "name": "DOBAD Men's Cotton Shorts",
-            "price": "₹426",
-            "mrp": "₹647",
-            "discount_percent": "34%",
-            "link": "https://www.amazon.in/dp/B0D17J53FZ?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Bloomingdale Rain Coat with Pant Set",
-            "price": "₹199",
-            "mrp": "₹308",
-            "discount_percent": "35%",
-            "link": "https://www.amazon.in/dp/B0CH189D6D?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Fashion"
         }
     ]
 }
