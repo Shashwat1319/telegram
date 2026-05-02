@@ -1,6 +1,24 @@
 {
     "products": [
         {
+            "name": "Samsung Original Type C to C Cable",
+            "price": "₹374",
+            "mrp": "₹565",
+            "discount_percent": "34%",
+            "link": "https://www.amazon.in/dp/B008FWZ5MS?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
+            "name": "Dynotrek Tablet Laptop Sleeve Case",
+            "price": "₹299",
+            "mrp": "₹450",
+            "discount_percent": "34%",
+            "link": "https://www.amazon.in/dp/B09PLLGDMM?tag=shashwat022-21",
+            "image": "",
+            "category": "Computers"
+        },
+        {
             "name": "Pigeon Brio Plus Induction Stove",
             "price": "₹1999",
             "mrp": "₹3398",
@@ -881,24 +899,6 @@
             "link": "https://www.amazon.in/dp/B0C5HWKVZJ?tag=shashwat022-21",
             "image": "",
             "category": "Kitchen"
-        },
-        {
-            "name": "ASIAN Men NITROEDGE-01 Running Shoes",
-            "price": "₹1285",
-            "mrp": "₹2056",
-            "discount_percent": "37%",
-            "link": "https://www.amazon.in/dp/B0CMGPL7VF?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "betterhood PosturePro Arch Support Insoles",
-            "price": "₹368",
-            "mrp": "₹607",
-            "discount_percent": "39%",
-            "link": "https://www.amazon.in/dp/B0DSFPK9LM?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Shoes"
         }
     ]
 }
