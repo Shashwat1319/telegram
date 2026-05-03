@@ -1,6 +1,78 @@
 {
     "products": [
         {
+            "name": "Vaseline Sun Protect SPF 30 Body Lotion, 400ml",
+            "price": "₹364",
+            "mrp": "₹485",
+            "discount_percent": "25%",
+            "link": "https://www.amazon.in/dp/B07W7D9NSB?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Dettol Original Bathing Soap Bar 100g (Pack of 4)",
+            "price": "₹135",
+            "mrp": "₹180",
+            "discount_percent": "25%",
+            "link": "https://www.amazon.in/dp/B0CP9NMV6P?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Lakme Sun Expert Tinted Sunscreen SPF 50 PA+++ 50ml",
+            "price": "₹260",
+            "mrp": "₹346",
+            "discount_percent": "25%",
+            "link": "https://www.amazon.in/dp/B085WJVX7C?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Biotique Herbcolor Conditioning Hair Colour 1N",
+            "price": "₹151",
+            "mrp": "₹201",
+            "discount_percent": "25%",
+            "link": "https://www.amazon.in/dp/B0847NC3YS?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Dettol Body Wash & Shower Gel, Lavender Fresh - 250ml",
+            "price": "₹113",
+            "mrp": "₹150",
+            "discount_percent": "25%",
+            "link": "https://www.amazon.in/dp/B0DT3T183L?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Parlak Milk and Oil Packet Holder, Black Plastic Kitchen",
+            "price": "₹149",
+            "mrp": "₹299",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0GTF761GQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Ambrane Type C to 3.5mm Audio Jack Converter with DAC",
+            "price": "₹179",
+            "mrp": "₹500",
+            "discount_percent": "64%",
+            "link": "https://www.amazon.in/dp/B0DV9MW9NH?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "Sounce BassEngine Type-C In Ear Wired Earphones with Mic",
+            "price": "₹198",
+            "mrp": "₹600",
+            "discount_percent": "67%",
+            "link": "https://www.amazon.in/dp/B0FQJTC86Q?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
             "name": "Boldfit Winter Cap for Women Woolen Winter Cap with Neck",
             "price": "₹249",
             "mrp": "₹625",
@@ -827,78 +899,6 @@
             "link": "https://www.amazon.in/dp/B08ZDCRNZM?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/716OSXV7ERL._SL1500_.jpg",
             "category": "Beauty"
-        },
-        {
-            "name": "Fiama Body Wash Blackcurrant & Bearberry, 895 ml",
-            "price": "₹187",
-            "mrp": "₹317",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B098LR2L3K?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61YZ1vqmglL._SL1080_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "Presto! Garbage Bags Medium",
-            "price": "₹239",
-            "mrp": "₹398",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B0821PN8L4?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61fn1xtHO4L._SL1500_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "AmazonBasics Smart Wi-Fi LED Bulb 9W",
-            "price": "₹349",
-            "mrp": "₹1199",
-            "discount_percent": "71%",
-            "link": "https://www.amazon.in/dp/B0BS62D42W?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51wX1f3sKUL._AC_SY200_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "AmazonBasics USB-C to USB-C Cable (3ft)",
-            "price": "₹249",
-            "mrp": "₹374",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0FPQYK3D7?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71p3Ej-3FHL._SL1500_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Zebronics Wireless Mouse",
-            "price": "₹219",
-            "mrp": "₹329",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0FF4XBM5N?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61aOe5y2ARL._SL1500_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Kratos K13 Ai Face Tracking Tripod",
-            "price": "₹199",
-            "mrp": "₹299",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0GG4FRZZZ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51mfBEL2H3L._SY355_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Zebronics 200HB USB 3.0 4 Port Hub",
-            "price": "₹189",
-            "mrp": "₹284",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0BBQK41CV?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51izuxaFpXL._SL1500_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Zebronics TT60+ Type C Braided Cable",
-            "price": "₹99",
-            "mrp": "₹149",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0FJ2L7YF8?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51YrGDmp8XL._SL1500_.jpg",
-            "category": "Electronics"
         }
     ]
 }
