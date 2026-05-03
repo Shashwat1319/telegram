@@ -1,6 +1,114 @@
 {
     "products": [
         {
+            "name": "Noise Pulse Hyper Smart Watch",
+            "price": "₹1299",
+            "mrp": "₹2208",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0F8JGXHT8?tag=shashwat022-21",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/41-mock-image.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "HIFFIN 6x9FT Photography Backdrop",
+            "price": "₹399",
+            "mrp": "₹678",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B09CV87PNQ?tag=shashwat022-21",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/41-mock-image.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "APFEN USB Lightning Cable",
+            "price": "₹271",
+            "mrp": "₹460",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/41-mock-image.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Sony RMT-TX100U TV Remote",
+            "price": "₹199",
+            "mrp": "₹338",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B08WP9RWYJ?tag=shashwat022-21",
+            "image": "https://images-na.ssl-images-amazon.com/images/I/41-mock-image.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Signamio Ceramic Shivling Incense Burner",
+            "price": "₹263",
+            "mrp": "₹395",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B09HXLYFHT?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/B09HXLYFHT._SL160_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Ajanta Abstract Quartz Wall Clock",
+            "price": "₹489",
+            "mrp": "₹735",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B01N6OOW52?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/B01N6OOW52._SL160_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Drumstone Mini Desk Air Cooler",
+            "price": "₹598",
+            "mrp": "₹900",
+            "discount_percent": "34%",
+            "link": "https://www.amazon.in/dp/B0GP1Z1PRZ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/B0GP1Z1PRZ._SL160_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Lakme Sun Expert Tinted Sunscreen 50ml",
+            "price": "₹260",
+            "mrp": "₹390",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B085WJVX7C?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Fiama Gel Bathing Bar (Pack of 3)",
+            "price": "₹241",
+            "mrp": "₹361",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B09G35FZ8P?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Vaseline Sun Protect Body Lotion 400ml",
+            "price": "₹338",
+            "mrp": "₹507",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B07W7D9NSB?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Dove Nourishing Bodywash 825ml",
+            "price": "₹278",
+            "mrp": "₹417",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B07S7R626P?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
+            "name": "Bare Anatomy Hair Growth Serum",
+            "price": "₹616",
+            "mrp": "₹924",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0FTSBJGMK?tag=shashwat022-21",
+            "image": "",
+            "category": "Beauty"
+        },
+        {
             "name": "TAGDO Men's T-Shirt",
             "price": "₹449",
             "mrp": "₹763",
@@ -791,114 +899,6 @@
             "link": "https://www.amazon.in/dp/B0DKTMYHNQ?tag=shashwat022-21",
             "image": "",
             "category": "Ladies Shoes"
-        },
-        {
-            "name": "Reebok Men's Advent TR Shoe",
-            "price": "₹1439",
-            "mrp": "₹2445",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0DG5N8WX4?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Dynotrek Laptop Sleeve Case",
-            "price": "₹299",
-            "mrp": "₹519",
-            "discount_percent": "42%",
-            "link": "https://www.amazon.in/dp/B09PLLGMDM?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/placeholder.jpg",
-            "category": "Computers"
-        },
-        {
-            "name": "EvoFox Wireless Gaming Controller",
-            "price": "₹379",
-            "mrp": "₹659",
-            "discount_percent": "42%",
-            "link": "https://www.amazon.in/dp/B0DZ6LLZTT?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/placeholder.jpg",
-            "category": "Computers"
-        },
-        {
-            "name": "Samsung Type C to C Cable",
-            "price": "₹372",
-            "mrp": "₹649",
-            "discount_percent": "42%",
-            "link": "https://www.amazon.in/dp/B008FWZ5MS?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/placeholder.jpg",
-            "category": "Computers"
-        },
-        {
-            "name": "Uppercase Laptop Messenger Bag",
-            "price": "₹1619",
-            "mrp": "₹2899",
-            "discount_percent": "44%",
-            "link": "https://www.amazon.in/dp/B0CHM8W9W6?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/placeholder.jpg",
-            "category": "Computers"
-        },
-        {
-            "name": "Boat Aavante Bar 610 Sound Bar",
-            "price": "₹1599",
-            "mrp": "₹2654",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B0BZ4DJ7GZ?tag=shashwat022-21",
-            "image": null,
-            "category": "Electronics"
-        },
-        {
-            "name": "25W Samsung Charger with Type C Cable",
-            "price": "₹344",
-            "mrp": "₹574",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B0GHFFDRGN?tag=shashwat022-21",
-            "image": null,
-            "category": "Electronics"
-        },
-        {
-            "name": "APFEN 20W MFi Type-C Charger",
-            "price": "₹380",
-            "mrp": "₹638",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B0F62W35NX?tag=shashwat022-21",
-            "image": null,
-            "category": "Electronics"
-        },
-        {
-            "name": "Noise Buds N1 Wireless Earbuds",
-            "price": "₹799",
-            "mrp": "₹1350",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0CQJXC3SP?tag=shashwat022-21",
-            "image": null,
-            "category": "Electronics"
-        },
-        {
-            "name": "APFEN USB Type-A to Lightning Cable",
-            "price": "₹271",
-            "mrp": "₹461",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
-            "image": null,
-            "category": "Electronics"
-        },
-        {
-            "name": "Story@Home Blackout Window Curtains",
-            "price": "₹629",
-            "mrp": "₹1018",
-            "discount_percent": "38%",
-            "link": "https://www.amazon.in/dp/B0GQGLHYP8?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "BERGNER TriPro Stainless Steel Deep Kadai",
-            "price": "₹999",
-            "mrp": "₹1648",
-            "discount_percent": "39%",
-            "link": "https://www.amazon.in/dp/B0C5HWKVZJ?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
         }
     ]
 }
