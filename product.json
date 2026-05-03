@@ -1,6 +1,69 @@
 {
     "products": [
         {
+            "name": "TAGDO Men's T-Shirt",
+            "price": "₹449",
+            "mrp": "₹763",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0FHWJ8HKD?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Boldfit Head Cap",
+            "price": "₹399",
+            "mrp": "₹678",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GJDZBZPW?tag=shashwat022-21",
+            "image": "",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "AmazonBasics Rechargeable LED Desk Lamp",
+            "price": "₹899",
+            "mrp": "₹2999",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B09NKLF848?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/610Hq5Qd8xL._AC_SY200_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "AmazonBasics Handheld Fan",
+            "price": "₹599",
+            "mrp": "₹1999",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B0CB361F7G?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71T-Hq167QL._AC_SY200_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "AmazonBasics Smart Wi-Fi LED Bulb 9W",
+            "price": "₹349",
+            "mrp": "₹1199",
+            "discount_percent": "71%",
+            "link": "https://www.amazon.in/dp/B0BS62D42W?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51wX1f3sKUL._AC_SY200_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "boAt Wave Call 2 Smart Watch",
+            "price": "₹1299",
+            "mrp": "₹4999",
+            "discount_percent": "74%",
+            "link": "https://www.amazon.in/dp/B0C76L737H?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/610tD6g+VYL._AC_SY200_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "AmazonBasics USB-C to USB-C Cable (3ft)",
+            "price": "₹249",
+            "mrp": "₹999",
+            "discount_percent": "75%",
+            "link": "https://www.amazon.in/dp/B0B6L5J141?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71u-gM9HwUL._AC_SY200_.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "Boat 20000 mAh Power Bank",
             "price": "₹1399",
             "mrp": "₹2266",
@@ -836,69 +899,6 @@
             "link": "https://www.amazon.in/dp/B0C5HWKVZJ?tag=shashwat022-21",
             "image": "",
             "category": "Kitchen"
-        },
-        {
-            "name": "CELLO Checkers Kitchen Storage Container Set",
-            "price": "₹349",
-            "mrp": "₹586",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B01LYBZX6Y?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "BSB HOME Cotton Printed Mattress Cover",
-            "price": "₹369",
-            "mrp": "₹627",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0GQ3FR1T8?tag=shashwat022-21",
-            "image": "",
-            "category": "Kitchen"
-        },
-        {
-            "name": "ZOUK Flap Sling Bag",
-            "price": "₹799",
-            "mrp": "₹1118",
-            "discount_percent": "28%",
-            "link": "https://www.amazon.in/dp/B0BQWF4G11?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Flite Women Flip-Flops",
-            "price": "₹299",
-            "mrp": "₹427",
-            "discount_percent": "30%",
-            "link": "https://www.amazon.in/dp/B07DRV9HFN?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Red Tape Men Clogs",
-            "price": "₹509",
-            "mrp": "₹763",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0CSWQ5K9H?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Vendoz Women Flat Sandals",
-            "price": "₹398",
-            "mrp": "₹636",
-            "discount_percent": "37%",
-            "link": "https://www.amazon.in/dp/B07XHN9LMH?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "BLUE WORLD Women Handbag",
-            "price": "₹498",
-            "mrp": "₹846",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0FYZ27SLB?tag=shashwat022-21",
-            "image": "",
-            "category": "Ladies Shoes"
         }
     ]
 }
