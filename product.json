@@ -1,6 +1,33 @@
 {
     "products": [
         {
+            "name": "Signamio Ceramic Shivling Backflow Smoke Fountain Incense",
+            "price": "₹263",
+            "mrp": "₹525",
+            "discount_percent": "49%",
+            "link": "https://www.amazon.in/dp/B09HXLYFHT?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "CELLO Checkers Kitchen Storage Container Box Set 18 Pcs",
+            "price": "₹349",
+            "mrp": "₹700",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B01LYBZX6Y?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Parlak Milk and Oil Packet Holder, Black Kitchen Organizer",
+            "price": "₹149",
+            "mrp": "₹299",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0GTF761GQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
             "name": "Stainless Steel Water Bottle 1 Litre",
             "price": "₹299",
             "mrp": "₹799",
@@ -872,33 +899,6 @@
             "link": "https://www.amazon.in/dp/B0BVR9RCYW?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/61quH1ypfHL._SL1500_.jpg",
             "category": "Computers"
-        },
-        {
-            "name": "APFEN USB-A to Lightning Cable",
-            "price": "₹271",
-            "mrp": "₹461",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41bDXvBxnzL._SL1024_.jpg",
-            "category": "Computers"
-        },
-        {
-            "name": "INSIGHT Lip & Cheek Tint - Candy Cane (3g)",
-            "price": "₹61",
-            "mrp": "₹91",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0CG6GH7KT?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51l2OgErZKL._SL1200_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "Pond's Super Light Gel Moisturiser, 25g",
-            "price": "₹50",
-            "mrp": "₹75",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B08CWBF1ZQ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51yZ9Fa9SuL._SL1000_.jpg",
-            "category": "Beauty"
         }
     ]
 }
