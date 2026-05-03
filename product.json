@@ -1,6 +1,51 @@
 {
     "products": [
         {
+            "name": "Stainless Steel Water Bottle 1 Litre",
+            "price": "₹299",
+            "mrp": "₹799",
+            "discount_percent": "62%",
+            "link": "https://www.amazon.in/dp/B0B6L5N8M7?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51rYg1Kz+EL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Digital Kitchen Weighing Scale",
+            "price": "₹399",
+            "mrp": "₹1199",
+            "discount_percent": "66%",
+            "link": "https://www.amazon.in/dp/B0BW3P7N2J?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/711zWpS5tWL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Fast Charging USB-C Cable 3A, 1 Meter",
+            "price": "₹129",
+            "mrp": "₹399",
+            "discount_percent": "67%",
+            "link": "https://www.amazon.in/dp/B0B5P2R1L3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61+dKz9k3jL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Fitness Tracker Smartwatch with Heart Rate Monitor",
+            "price": "₹449",
+            "mrp": "₹1499",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B0C3Q1F9J2?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61N+x2eNrsL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Wireless Bluetooth Earbuds with Mic",
+            "price": "₹249",
+            "mrp": "₹999",
+            "discount_percent": "75%",
+            "link": "https://www.amazon.in/dp/B0B1J3L9J6?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71D0-J5p87L._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "Amazon Brand - Symbol Men's Cotton Rich Stretch Track Pants",
             "price": "₹499",
             "mrp": "₹999",
@@ -854,51 +899,6 @@
             "link": "https://www.amazon.in/dp/B08CWBF1ZQ?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/51yZ9Fa9SuL._SL1000_.jpg",
             "category": "Beauty"
-        },
-        {
-            "name": "DIVIJA STORE Foldable Laptop Table (Black)",
-            "price": "₹299",
-            "mrp": "₹450",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0DVGS1F9Y?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61RcxqY9pZL._SL1500_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "PRO Shoe Cream Polish",
-            "price": "₹272",
-            "mrp": "₹408",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B08SM9QWW7?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71Pb17TIxtL._SL1500_.jpg",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Citizen EVA Poncho Raincoat",
-            "price": "₹189",
-            "mrp": "₹312",
-            "discount_percent": "39%",
-            "link": "https://www.amazon.in/dp/B0F9TP3W1L?tag=shashwat022-21",
-            "image": "https://example.com/citizen-poncho-raincoat.jpg",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Foldable Laptop Table with Cup Holder",
-            "price": "₹289",
-            "mrp": "₹491",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0GXPWGSTQ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
-            "category": "Computers"
-        },
-        {
-            "name": "Portronics 240W Type C Cable",
-            "price": "₹254",
-            "mrp": "₹431",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0CJCGMQDF?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
-            "category": "Computers"
         }
     ]
 }
