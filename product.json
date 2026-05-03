@@ -1,6 +1,114 @@
 {
     "products": [
         {
+            "name": "Boldfit Winter Cap for Women Woolen Winter Cap with Neck",
+            "price": "₹249",
+            "mrp": "₹625",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B0DN1RBPXG?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "NAVYSPORT Men's Crew Length Cushion Cotton Socks (Pack 3)",
+            "price": "₹250",
+            "mrp": "₹719",
+            "discount_percent": "65%",
+            "link": "https://www.amazon.in/dp/B073WWJL9V?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Max Men's Cotton Regular Fit Half Sleeves Crew Neck Solid",
+            "price": "₹199",
+            "mrp": "₹665",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B0BV6WJYW9?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Samsung Original Type C to C Cable - 1 Meter",
+            "price": "₹374",
+            "mrp": "₹899",
+            "discount_percent": "58%",
+            "link": "https://www.amazon.in/dp/B008FWZ5MS?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "One94Store High Speed Portable Hand Fan",
+            "price": "₹499",
+            "mrp": "₹1299",
+            "discount_percent": "62%",
+            "link": "https://www.amazon.in/dp/B0CXJ97J1T?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "MAONO AU-400 Lavalier Omnidirectional Microphone",
+            "price": "₹418",
+            "mrp": "₹1199",
+            "discount_percent": "65%",
+            "link": "https://www.amazon.in/dp/B07JF9B592?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "DIVIJA STORE Wood Smart Foldable Laptop Table",
+            "price": "₹299",
+            "mrp": "₹999",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B0DK7B3B2G?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "STRIFF Gel Wrist Support Gaming Mouse Pad",
+            "price": "₹149",
+            "mrp": "₹499",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B0CKF8QQLF?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "Parlak Milk & Oil Packet Holder, Black Plastic Kitchen Organizer",
+            "price": "₹149",
+            "mrp": "₹300",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0GTF761GQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "TheGiftKart Crystal Clear Back Cover for Nothing Phone 1",
+            "price": "₹279",
+            "mrp": "₹558",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0BB7T3WXL?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "HIFFIN® Black 6X9FT Professional Backdrop for Photography",
+            "price": "₹399",
+            "mrp": "₹798",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B09CV87PNQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "Gizga Pro Series 3-in-1 Cleaning KIT for Gadgets",
+            "price": "₹149",
+            "mrp": "₹298",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B09RHDZ8V5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
             "name": "ForeverCarry Women’s Shoulder & Sling Bag with Zipper Closure",
             "price": "₹399",
             "mrp": "₹997",
@@ -790,114 +898,6 @@
             "discount_percent": "33%",
             "link": "https://www.amazon.in/dp/B0FJ2L7YF8?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/51YrGDmp8XL._SL1500_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Amazon Brand - Presto! Garbage Bags (180 Count)",
-            "price": "₹239",
-            "mrp": "₹382",
-            "discount_percent": "37%",
-            "link": "https://www.amazon.in/dp/B0821PN8L4?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61fn1xtHO4L._SL1500_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "25W Charger for Samsung",
-            "price": "₹344",
-            "mrp": "₹516",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0GHFFDRGN?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61uhHbGSwML._SL1500_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "DIVIJA Foldable Laptop Table",
-            "price": "₹299",
-            "mrp": "₹478",
-            "discount_percent": "37%",
-            "link": "https://www.amazon.in/dp/B0C5D8BBP7?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/614t8cE-siL._SL1080_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Treo by Milton Cube Storage Containers (Set of 3)",
-            "price": "₹166",
-            "mrp": "₹266",
-            "discount_percent": "37%",
-            "link": "https://www.amazon.in/dp/B07T6TG1PW?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/713OQmi7zpL._SL1500_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "ZEBRONICS TT60+ Type C Braided Cable",
-            "price": "₹99",
-            "mrp": "₹168",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0FJ2L7YF8?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51YrGDmp8XL._SL1500_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Portronics Conch Theta C Earphones",
-            "price": "₹279",
-            "mrp": "₹474",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0DGLQHBF9?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51Bl64-+u7L._SL1500_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Portable USB Mini Fan",
-            "price": "₹249",
-            "mrp": "₹423",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0FPQYK3D7?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71p3Ej-3FHL._SL1500_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Kratos K13 Ai Auto Face Tracking Tripod",
-            "price": "₹199",
-            "mrp": "₹338",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0GG4FRZZZ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51mfBEL2H3L._SY355_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Kratos 25W Samsung Charger Adapter",
-            "price": "₹397",
-            "mrp": "₹635",
-            "discount_percent": "37%",
-            "link": "https://www.amazon.in/dp/B0FH2N3PFX?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51BcZ-rjT3L._SL1500_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "AmazonBasics USB 3.0 Cable",
-            "price": "₹299",
-            "mrp": "₹505",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0DM69GGHD?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/617AZbPAXKL._SL1500_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Kratos Ai Face Tracking Tripod",
-            "price": "₹179",
-            "mrp": "₹301",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0GG4FRZZZ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51mfBEL2H3L._SY355_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Ambrane Type C Fast Charging Cable",
-            "price": "₹129",
-            "mrp": "₹219",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0CJJQLDS9?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61v8i6E4bWL._SL1500_.jpg",
             "category": "Electronics"
         }
     ]
