@@ -1,6 +1,51 @@
 {
     "products": [
         {
+            "name": "Silicone Spatula Set for Non-Stick Cookware (3 Pcs)",
+            "price": "₹179",
+            "mrp": "₹749",
+            "discount_percent": "76%",
+            "link": "https://www.amazon.in/dp/B09C63G6W3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71R2s5X0ZML._AC_SL1500_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Adjustable Yoga Mat Carrying Strap",
+            "price": "₹119",
+            "mrp": "₹499",
+            "discount_percent": "76%",
+            "link": "https://www.amazon.in/dp/B0BN1Z7H2B?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61kM2oB-4hL._AC_SL1500_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Portable USB Rechargeable Mini Fan, Handheld/Desk",
+            "price": "₹199",
+            "mrp": "₹899",
+            "discount_percent": "77%",
+            "link": "https://www.amazon.in/dp/B0BQV8K14N?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71zD-Wp-2dL._AC_SL1500_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Velvet Hair Scrunchies for Women & Girls (Set of 5)",
+            "price": "₹99",
+            "mrp": "₹449",
+            "discount_percent": "77%",
+            "link": "https://www.amazon.in/dp/B0BC9J6J7L?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71F1tB4V3CL._AC_SL1500_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Wireless Earbuds with Mic, Bluetooth 5.0",
+            "price": "₹349",
+            "mrp": "₹1999",
+            "discount_percent": "82%",
+            "link": "https://www.amazon.in/dp/B0BP8L4C4K?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61M-Fw0M9UL._AC_SL1500_.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "Vaseline Sun Protect SPF 30 Body Lotion, 400ml",
             "price": "₹364",
             "mrp": "₹485",
@@ -854,51 +899,6 @@
             "link": "https://www.amazon.in/dp/B0FJ2L7YF8?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/51YrGDmp8XL._SL1500_.jpg",
             "category": "Computers"
-        },
-        {
-            "name": "HIFFIN 6x9FT Photography Backdrop",
-            "price": "₹399",
-            "mrp": "₹678",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0BTNT8X6K?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61QxfC9mAGL._SL1500_.jpg",
-            "category": "Computers"
-        },
-        {
-            "name": "STRIFF Transparent Wireless Mouse",
-            "price": "₹385",
-            "mrp": "₹655",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0DXFHF33M?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61WDYQe8OOL._SL1500_.jpg",
-            "category": "Computers"
-        },
-        {
-            "name": "Lakme Blush & Glow Kiwi Sheet Mask, 25 ml",
-            "price": "₹40",
-            "mrp": "₹68",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B084S2HBQM?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61q6BMWvP6S._SL1000_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "Dettol Icy Cool Bathing Soap Bar, 75gm (Pack of 4)",
-            "price": "₹150",
-            "mrp": "₹255",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0869VX72V?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61MvUQp2hRL._SL1000_.jpg",
-            "category": "Beauty"
-        },
-        {
-            "name": "Savlon Herbal Handwash Refill Pouch, 1.3L",
-            "price": "₹170",
-            "mrp": "₹289",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B08ZDCRNZM?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/716OSXV7ERL._SL1500_.jpg",
-            "category": "Beauty"
         }
     ]
 }
