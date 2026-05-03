@@ -83,7 +83,12 @@ async def main():
     else:
         client = TelegramClient("userbot_session", int(API_ID), API_HASH)
     
-    await client.start(phone=PHONE)
+    # [FIX] Use connect() not start() — start() prompts for OTP and hangs in automation
+    await client.connect()
+    if not await client.is_user_authorized():
+        print("[ERROR] Session not authorized. Run generate_string_sessions.py to refresh.")
+        await client.disconnect()
+        return
     
     history = load_history()
     all_new_leads = set()

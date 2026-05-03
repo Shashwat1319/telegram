@@ -66,10 +66,11 @@ async def send_promo_to_group(group, session_name, acc):
         else:
             client = TelegramClient(session_name, acc["api_id"], acc["api_hash"])
         
-        await client.start()
+        # [FIX] Use connect() not start() — start() prompts for OTP and hangs in automation
+        await client.connect()
         
         if not await client.is_user_authorized():
-            print(f"[!] Session '{session_name}' not authorized.")
+            print(f"[!] Session '{session_name}' not authorized. Skipping to avoid hang.")
             await client.disconnect()
             return False
 

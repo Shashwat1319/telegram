@@ -112,48 +112,42 @@ def generate_message(product, is_lightning=False):
     except: pass
 
     templates = [
-        # 1. Scarcity + Urgency (High Convert)
-        f"{header_extra}\n"
-        f"📦 <b>{safe_name}</b>\n\n"
+        # 1. Premium Verified Style (Clean + High Trust)
+        f"✨ <b>{header_extra.strip()}</b>\n\n"
+        f"📦 <b>{safe_name}</b>\n"
+        f"───────────────────\n"
         f"{bachat_str}{savings_str}\n\n"
-        f"⚠️ <b>STOCK ALERT:</b> <i>Only a few units left at this price — price may rise any minute!</i>\n"
-        f"🕐 <i>Best time to order: RIGHT NOW. Delivery by tomorrow if ordered in next 2 hours.</i>{footer_extra}\n\n"
-        f"🛒 <a href='{link}'>Order on Amazon — Click Here</a>\n\n"
-        f"📢 <i>Follow @{CLEAN_ID} — We only post verified deals, no spam!</i>",
+        f"✅ <b>Verified Budget Deal</b>\n"
+        f"⭐ Highly Rated | Prime Eligible\n"
+        f"🕒 <i>Price verified at {datetime.now().strftime('%H:%M')}</i>\n\n"
+        f"🔗 <a href='{link}'><b>CLAIM THIS DEAL ON AMAZON</b></a>\n\n"
+        f"📢 <i>Join @{CLEAN_ID} for more verified loots.</i>",
 
-        # 2. Smart Buyer Style (Trust + Value)
-        f"{header_extra}\n"
-        f"🎯 <b>SMART BUY ALERT!</b>\n\n"
-        f"<b>Product:</b> {safe_name}\n"
-        f"{bachat_str}{savings_str}\n\n"
-        f"✅ <i>Verified genuine discount — not a fake MRP trick.</i>\n"
-        f"⭐ <i>Highly rated by 1000+ buyers. Worth every rupee.</i>{footer_extra}\n\n"
-        f"🚀 <a href='{link}'>Grab This Deal Now (Amazon)</a>\n\n"
-        f"🤝 <i>Tag a friend who needs this! @{CLEAN_ID}</i>",
+        # 2. Scarcity / High Demand Style
+        f"🔥 <b>TRENDING NOW</b>\n\n"
+        f"🏷️ <b>{safe_name}</b>\n"
+        f"───────────────────\n"
+        f"{bachat_str}\n\n"
+        f"🚨 <b>Inventory Alert:</b> Low stock detected at this price point. "
+        f"Price typically rises after first 50 orders.\n\n"
+        f"🛒 <a href='{link}'><b>SECURE YOUR ORDER NOW</b></a>\n\n"
+        f"<i>Verified by @{CLEAN_ID} | Fast Delivery</i>",
 
-        # 3. Flash Deal Style (Excitement)
-        f"{header_extra}\n"
-        f"⚡ <b>FLASH DEAL — LIMITED TIME!</b> ⚡\n\n"
-        f"🔥 <b>{safe_name}</b>\n"
+        # 3. Direct Loot Style (High Energy)
+        f"🚨 <b>{header_extra.strip() or 'LOOT ALERT!'}</b>\n\n"
+        f"💎 <b>{safe_name}</b>\n"
+        f"───────────────────\n"
         f"{bachat_str}{savings_str}\n\n"
-        f"🏃 <i>1000+ people viewed this in last 1 hour. Add to cart before it goes out of stock!</i>{footer_extra}\n\n"
-        f"🛍️ <a href='{link}'>Buy Now — Don't Miss This!</a>\n\n"
-        f"💡 <i>Pro Tip: Use Amazon Pay for extra 5% cashback! | @{CLEAN_ID}</i>",
-
-        # 4. Simple Direct (Clean + High Trust)
-        f"{header_extra}\n"
-        f"🏷️ <b>TODAY'S BEST DEAL</b> 🏷️\n\n"
-        f"<b>{safe_name}</b>\n\n"
-        f"{bachat_str}{savings_str}\n\n"
-        f"📦 <i>Free delivery available. Easy returns within 7 days.</i>{footer_extra}\n\n"
-        f"👇 <a href='{link}'>Click to Buy on Amazon India</a>\n\n"
-        f"🔔 <i>Turn on notifications so you never miss a loot deal! @{CLEAN_ID}</i>"
+        f"🏃 <b>Bhai jaldi karo!</b> Ye deals bohot jaldi expire hoti hain. "
+        f"Perfect impulse buy under ₹400!\n\n"
+        f"👉 <a href='{link}'><b>GRAB IT BEFORE IT'S GONE</b></a>\n\n"
+        f"🔔 <i>Unmute @{CLEAN_ID} for real-time price glitch alerts!</i>"
     ]
     msg = random.choice(templates)
     
     seo_block = (
         "\n\n<tg-spoiler>"
-        "🏷️ #AmazonIndia #VerifiedDeals #SmartShopping #BudgetDeals #IndiaOffers #Loot #DealOfTheDay"
+        "🏷️ #AmazonDeals #BudgetIndia #VerifiedLoot #SmartShopping"
         "</tg-spoiler>"
     )
     return msg + seo_block
@@ -227,6 +221,52 @@ def generate_bounty_message():
     ]
     selected = random.choice(bounties)
     return selected["desc"]
+
+# ---------- Short Link Helper ----------
+def get_short_url(target_url):
+    """Call the Netlify tracker to get a shortened, obfuscated link."""
+    if not CLICK_TRACKER_URL:
+        return target_url
+        
+    try:
+        # Check cache first
+        cache_file = "short_links_cache.json"
+        cache = {}
+        if os.path.exists(cache_file):
+            try:
+                with open(cache_file, "r") as f:
+                    cache = json.load(f)
+            except: pass
+        
+        if target_url in cache:
+            return cache[target_url]
+            
+        # Register new short link
+        api_url = f"{CLICK_TRACKER_URL}/go?action=shorten&url={quote(target_url)}"
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) BudgetDealsBot/1.0"
+        }
+        response = requests.get(api_url, headers=headers, timeout=15)
+        
+        if response.status_code == 200:
+            try:
+                data = response.json()
+                short_url = data.get("shortUrl")
+                if short_url:
+                    cache[target_url] = short_url
+                    with open(cache_file, "w") as f:
+                        json.dump(cache, f)
+                    return short_url
+            except Exception as json_e:
+                print(f"JSON Parse Error: {json_e} | Response: {response.text[:100]}")
+        else:
+            print(f"API Error: {response.status_code} | Response: {response.text[:100]}")
+            
+    except Exception as e:
+        print(f"Shortening request failed: {e}")
+    
+    # Fallback to direct tracker link
+    return f"{CLICK_TRACKER_URL}/go?url={quote(target_url)}"
 
 # ---------- Post deals ----------
 async def post_deals():
@@ -316,9 +356,15 @@ async def post_deals():
             for product in products_to_post:
                 product_name = product.get('name', 'Product').encode('ascii', 'ignore').decode('ascii')
                 is_lightning = (product == cheapest_product)
+                
+                # [NEW] Generate Short Link
+                raw_link = product.get('link', '#')
+                link = get_short_url(raw_link)
+                
+                # Temporarily update product link for message generation
+                product['link'] = link
                 msg = generate_message(product, is_lightning=is_lightning)
                 image_url = product.get('image')
-                link = product.get('link', '#')
                 
                 # Using balanced Hindi text context designed for viral sharing!
                 share_text = "Bhai%20jaldi%20dekh%2C%20lagta%20hai%20Amazon%20par%20massive%20sale%20aaya%20hai%21%20Sab%20bohot%20saste%20mein%20mil%20raha%20hai.%20Link%20band%20hone%20se%20pehle%20join%20karke%20loot%20le%21%20%F0%9F%98%B1%F0%9F%9A%A8"

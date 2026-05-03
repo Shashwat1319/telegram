@@ -48,15 +48,27 @@ def main():
         with open("scraped_leads.txt", "r") as f:
             leads_count = len(f.readlines())
 
+    # Get Member Count
+    member_count = "N/A"
+    if BOT_TOKEN and os.getenv("CHANNEL_ID"):
+        try:
+            chan_id = os.getenv("CHANNEL_ID")
+            r = requests.get(f"https://api.telegram.org/bot{BOT_TOKEN}/getChatMemberCount?chat_id={chan_id}")
+            if r.status_code == 200:
+                member_count = r.json().get("result", "N/A")
+        except:
+            pass
+
     report = f"""
 🚀 **DAILY PROGRESS REPORT** ({date_today})
 
 ✅ **Clicks Today**: {clicks_today}
 📈 **Total Clicks**: {total_clicks}
-👥 **Leads in Database**: {leads_count}
+👥 **Members**: {member_count}
+📱 **Leads in DB**: {leads_count}
 
 ---
-💡 *Status*: Orchestrator is running 24/7. 
+💡 *Status*: Option B Cleanup Complete. Viral Promo Running.
 *Target*: $50/day (Approx. 400+ Clicks/day needed)
 
 Keep going, we are scaling! 🔥

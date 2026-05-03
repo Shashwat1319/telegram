@@ -57,6 +57,7 @@ def preprocess_html(html_content):
             price = wrap.select_one('.a-price-whole, .p13n-sc-price, ._cDEzb_p13n-sc-price_3mJ9Z')
             mrp = wrap.select_one('.a-text-strike')
             link = wrap.select_one('a.a-link-normal')
+            image = wrap.select_one('img[src]')
             
             p_name = name.get_text(strip=True) if name else ""
             if not p_name and wrap.img and 'alt' in wrap.img.attrs:
@@ -65,12 +66,13 @@ def preprocess_html(html_content):
             p_price = price.get_text(strip=True) if price else ""
             p_mrp = mrp.get_text(strip=True) if mrp else ""
             p_link = link['href'] if link and 'href' in link.attrs else "#"
+            p_image = image['src'] if image and 'src' in image.attrs else ""
             
             raw_text = wrap.get_text(" | ", strip=True)
             if not p_name: p_name = raw_text[:200]
             if not p_price: p_price = "Check"
             
-            item_summary = f"ITEM {i+1}: {p_name} | PRICE: {p_price} | MRP: {p_mrp} | LINK: {p_link}\n"
+            item_summary = f"ITEM {i+1}: {p_name} | PRICE: {p_price} | MRP: {p_mrp} | IMAGE: {p_image} | LINK: {p_link}\n"
             extracted_text += item_summary
             
         print(f"Preprocessed into structured text. Length: {len(extracted_text)}")
@@ -87,16 +89,17 @@ def extract_products_with_ai(html_text, retry_count=0):
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
     
     prompt = f"""
-    Below is a list of Amazon products with prices. Pick the TOP 5 products with the BEST DISCOUNT percentage.
+    Below is a list of Amazon products with prices and image URLs. Pick the TOP 5 products with the BEST DISCOUNT percentage.
     Return ONLY a valid JSON array of objects with keys: "name", "price", "mrp", "discount_percent", "link", "image".
     
     CRITICAL TRUST RULES:
     1. "price" & "mrp": MUST be strings containing ONLY numbers/commas/dots (e.g. "499"). NEVER use percentage in price.
-    2. "discount_percent": MUST be a valid number between 1 and 99. If "mrp" is missing from the text, estimate a realistic MRP that is 30% to 70% higher than the price, and output that MRP and the calculated discount_percent.
-    3. "name": Keep it slightly shortened for readability.
-    4. DIVERSITY: DO NOT select more than ONE Air Conditioner (AC), TV, Refrigerator, or similar large appliances. Pick diverse items (e.g., earphones, gadgets, clothing, accessories, kitchen tools, beauty products).
-    5. PRICE FILTER (STRICT): ONLY select products where the current price is between Rs.199 and Rs.2999. SKIP any product above Rs.2999 or below Rs.99. Impulse-buy items only!
-    6. Ensure the response starts with [ and ends with ]. No markdown formatting.
+    2. "image": Extract the EXACT image URL provided in the text. DO NOT LEAVE EMPTY OR USE PLACEHOLDERS.
+    3. "discount_percent": MUST be a valid number between 1 and 99. If "mrp" is missing, estimate a realistic MRP.
+    4. NAME: Keep it slightly shortened for readability (max 60 chars).
+    5. DIVERSITY: Pick diverse items (e.g., earphones, gadgets, clothing, accessories, kitchen tools, beauty products).
+    6. PRICE FILTER (STRICT): ONLY select products where the current price is between Rs.99 and Rs.499. This is for a "Budget Loot" sprint.
+    7. Ensure the response starts with [ and ends with ]. No markdown formatting.
     
     DATA:
     {html_text}
@@ -141,9 +144,9 @@ def extract_products_with_ai(html_text, retry_count=0):
                 d_val = float(re.search(r'\d+', discount).group()) if re.search(r'\d+', discount) else 0
                 if d_val > 99 or d_val < 1: continue
 
-                # Rule: PRICE RANGE FILTER — Only impulse-buy zone (₹199 - ₹2999)
-                if p_val < 199 or p_val > 2999:
-                    print(f"[FILTER] Skipping '{p.get('name','')}' — price ₹{int(p_val)} outside impulse range")
+                # Rule: PRICE RANGE FILTER — Only impulse-buy zone (₹99 - ₹499)
+                if p_val < 99 or p_val > 499:
+                    print(f"[FILTER] Skipping '{p.get('name','')}' — price ₹{int(p_val)} outside budget zone")
                     continue
 
                 # Normalize formatting

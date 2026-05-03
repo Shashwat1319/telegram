@@ -15,16 +15,17 @@ API_HASH = os.getenv("API_HASH")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
 
 # PROMO MESSAGE
-# [NEW] More aggressive but respectful message for high conversion
+# [ULTRA-SHORT LOOT] For maximum Clicks
 PROMO_MESSAGE = f"""
-Bhai, Amazon/Flipkart se shopping karte ho? 🛍️
+🚨 **AMAZON LOOT: ₹99 Store Unlocked!** 🚨
 
-Maine ek channel banaya hai jahan daily **Verified Loots**, **Price Drops** aur **90% OFF Deals** milti hain. 😱🔥
+Bhai jaldi join kar, Amazon par price glitch hua hai. Sab kuch ₹99-₹199 mein mil raha hai! 😱🔥
 
-Join karlo, extra paisa kyu dena:
-👉 https://t.me/{CHANNEL_ID.replace('@','')}
+👇 **JALDI JOIN KARO (Link Expiring):**
+https://t.me/{CHANNEL_ID.replace('@','')}
+https://t.me/{CHANNEL_ID.replace('@','')}
 
-Aaj hi ek ₹149 wali deal miss ho gayi, abhi join karo aur agali miss mat karna! 🙏✨
+*Abhi join karo, loot miss mat karna!* 🏃‍♂️💨
 """
 
 ACCOUNTS = [
@@ -124,7 +125,7 @@ async def main():
         
         client = get_client(session)
         try:
-            await client.connect()
+            await asyncio.wait_for(client.connect(), timeout=30)
             success = await send_promo(client, session, contact)
             if success:
                 # [FIX] Store detailed history for reporting
@@ -134,14 +135,19 @@ async def main():
                 }
                 save_history(history)
                 
-                # Strict delay to avoid bans (60-120s)
-                wait_time = random.randint(60, 120)
-                print(f"Waiting {wait_time}s to avoid spam flag...")
+                # [STEALTH] Longer delay to avoid bans (3-5 minutes)
+                wait_time = random.randint(180, 300)
+                print(f"Waiting {wait_time}s to stay under Telegram radar...")
                 await asyncio.sleep(wait_time)
             else:
-                await asyncio.sleep(10)
+                await asyncio.sleep(30)
+        except Exception as e:
+            print(f"[!] Cycle Error for {session}: {e}")
+            await asyncio.sleep(60) # Wait a minute before next account
         finally:
-            await client.disconnect()
+            try:
+                await client.disconnect()
+            except: pass
 
 if __name__ == "__main__":
     asyncio.run(main())

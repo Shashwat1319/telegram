@@ -19,7 +19,15 @@ CHANNEL_ID = os.getenv("CHANNEL_ID") # e.g. @your_channel
 
 def load_target_groups():
     groups = []
-    if os.path.exists("promo_groups_list.txt"):
+    # [NEW] Prioritize verified groups to avoid bans/spam
+    if os.path.exists("verified_promo_groups.txt"):
+        with open("verified_promo_groups.txt", "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#"):
+                    groups.append(line)
+    
+    if not groups and os.path.exists("promo_groups_list.txt"):
         with open("promo_groups_list.txt", "r", encoding="utf-8") as f:
             for line in f:
                 line = line.strip()
@@ -28,7 +36,7 @@ def load_target_groups():
     return groups if groups else ["@Promoteclub_b"]
 
 TARGET_GROUPS_BASE = load_target_groups()
-PRIORITY_GROUPS = ["@Promoteclub_b"]
+PRIORITY_GROUPS = []  # Now managed via verified_promo_groups.txt
 
 # Multi-Account Setup (Main + Workers)
 ACCOUNTS = [
@@ -42,18 +50,15 @@ PROMO_COUNTER_FILE = "promo_counter.txt"
 
 # Viral Recruitment Ad Message
 PROMO_MESSAGE = f"""
-🚀 **SABSE FAST DEALS YAHAN MILTI HAIN!** 🚀
+🚨 **AMAZON LOOT: ₹99 Store Unlocked!** 🚨
 
-Ab loot miss nahi hogi! Join **Budget Deals India** for:
-✅ ₹99 Store Special Items 🤑
-✅ 80% Off Branded Smartwatches
-✅ Verified Loot: Daily Use Items @ ₹149
-✅ Real Price Glitches (Amazon/Flipkart)
+Bhai jaldi join kar, Amazon par price glitch hua hai. Sab kuch ₹99-₹199 mein mil raha hai! 😱🔥
 
-👇 **JOIN NOW:** https://t.me/{CHANNEL_ID.replace('@','')}
-👇 **JOIN NOW:** https://t.me/{CHANNEL_ID.replace('@','')}
+👇 **JALDI JOIN KARO (Link Expiring):**
+https://t.me/{CHANNEL_ID.replace('@','')}
+https://t.me/{CHANNEL_ID.replace('@','')}
 
-*Ab mehanga kharidna band karo!* 🔥🛡️
+*Abhi join karo, loot miss mat karna!* 🏃‍♂️💨
 """
 
 def get_last_id():
@@ -215,7 +220,7 @@ async def main():
         return
 
     if not new_messages and not should_promo_now:
-        print(f"[{time.strftime('%H:%M:%S')}] Nothing to do this cycle.")
+        print(f"[{time.strftime('%H:%M:%S')}] Nothing to do this cycle (No deals & No promo cycle).")
         return
 
     new_messages.reverse()

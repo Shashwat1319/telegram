@@ -34,7 +34,6 @@
 # --- EXPANDED GROUPS ---
 @cashbackoffersdiscussion
 @deals_groups
-@indian_chatting_grup
 @lootandtricks3
 @GhLoot_Offers_Discussion
 @offerswallchat
