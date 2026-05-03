@@ -1,6 +1,24 @@
 {
     "products": [
         {
+            "name": "Amazon Brand - Symbol Men's Cotton Rich Stretch Track Pants",
+            "price": "₹499",
+            "mrp": "₹999",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B097PBPTFR?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Boldfit Head Caps for Men & Women, Sports Cap",
+            "price": "₹399",
+            "mrp": "₹799",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0GJDZBZPW?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Fashion"
+        },
+        {
             "name": "DIVIJA STORE Wood Smart Multipurpose Foldable Laptop Table with...",
             "price": "₹299",
             "mrp": "₹498",
@@ -881,24 +899,6 @@
             "link": "https://www.amazon.in/dp/B0CJCGMQDF?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
             "category": "Computers"
-        },
-        {
-            "name": "TEKCOOL Double Ended Spray Fan",
-            "price": "₹249",
-            "mrp": "₹410",
-            "discount_percent": "39%",
-            "link": "https://www.amazon.in/dp/B0GWJR25X2?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71il+-b8WnL._SL1500_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "CELLO Kitchen Storage Container Set",
-            "price": "₹349",
-            "mrp": "₹586",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B0F7LXBP97?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/613UosUj0TL._SL1500_.jpg",
-            "category": "Kitchen"
         }
     ]
 }
