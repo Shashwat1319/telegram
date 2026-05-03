@@ -7,6 +7,11 @@
   status = 200
 
 [[redirects]]
+  from = "/s/:id"
+  to = "/.netlify/functions/go?id=:id"
+  status = 200
+
+[[redirects]]
   from = "/stats"
   to = "/.netlify/functions/stats"
   status = 200

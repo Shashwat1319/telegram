@@ -11,15 +11,20 @@ API_HASH = os.getenv("API_HASH")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
 
 PROMO_MESSAGE = f"""
-🚨 **AMAZON LOOT: ₹99 Store Unlocked!** 🚨
+✨ **MAY LOOT SPRINT: VERIFIED DEALS ONLY** ✨
 
-Bhai jaldi join kar, Amazon par price glitch hua hai. Sab kuch ₹99-₹199 mein mil raha hai! 😱🔥
+Bhaiyo, random channels se thak gaye ho? Join our **Verified Budget Channel** where we post only verified loots under ₹400! 😱🔥
 
-👇 **JALDI JOIN KARO (Link Expiring):**
+✅ **Today's Stats:**
+- 28+ Items Verified Today (₹99 - ₹399)
+- All items in stock with images
+- No spam, just real loots.
+
+👇 **JOIN THE LOOT NOW (Limited Entry):**
 https://t.me/{CHANNEL_ID.replace('@','')}
 https://t.me/{CHANNEL_ID.replace('@','')}
 
-*Abhi join karo, loot miss mat karna!* 🏃‍♂️💨
+*Jaldi join karo, price badhne se pehle loot lo!* 🏃‍♂️💨
 """
 
 GROUPS = [

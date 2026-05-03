@@ -270,6 +270,52 @@ def get_short_url(target_url):
     # Fallback to direct tracker link
     return f"{CLICK_TRACKER_URL}/go?url={quote(target_url)}"
 
+# ---------- Short Link Helper ----------
+def get_short_url(target_url):
+    """Call the Netlify tracker to get a shortened, obfuscated link."""
+    if not CLICK_TRACKER_URL:
+        return target_url
+        
+    try:
+        # Check cache first
+        cache_file = "short_links_cache.json"
+        cache = {}
+        if os.path.exists(cache_file):
+            try:
+                with open(cache_file, "r") as f:
+                    cache = json.load(f)
+            except: pass
+        
+        if target_url in cache:
+            return cache[target_url]
+            
+        # Register new short link
+        api_url = f"{CLICK_TRACKER_URL}/go?action=shorten&url={quote(target_url)}"
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) BudgetDealsBot/1.0"
+        }
+        response = requests.get(api_url, headers=headers, timeout=15)
+        
+        if response.status_code == 200:
+            try:
+                data = response.json()
+                short_url = data.get("shortUrl")
+                if short_url:
+                    cache[target_url] = short_url
+                    with open(cache_file, "w") as f:
+                        json.dump(cache, f)
+                    return short_url
+            except Exception as json_e:
+                print(f"JSON Parse Error: {json_e} | Response: {response.text[:100]}")
+        else:
+            print(f"API Error: {response.status_code} | Response: {response.text[:100]}")
+            
+    except Exception as e:
+        print(f"Shortening request failed: {e}")
+    
+    # Fallback to direct tracker link
+    return f"{CLICK_TRACKER_URL}/go?url={quote(target_url)}"
+
 # ---------- Post deals ----------
 async def post_deals():
     chat_id = f"@{CHANNEL_ID}" if not CHANNEL_ID.startswith("@") else CHANNEL_ID
