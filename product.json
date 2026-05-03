@@ -1,6 +1,60 @@
 {
     "products": [
         {
+            "name": "DIVIJA STORE Wood Smart Multipurpose Foldable Laptop Table with...",
+            "price": "₹299",
+            "mrp": "₹498",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0DK7B3B2G?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "Portronics Toad 103 Wired Optical Mouse with 2400 DPI, Plug & Play...",
+            "price": "₹165",
+            "mrp": "₹275",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0F5Q9QTH1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "MAONO AU-400 Lavalier Auxiliary Omnidirectional Microphone (Blac...",
+            "price": "₹418",
+            "mrp": "₹697",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B07JF9B592?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "One94Store High Speed Portable Hand Fan, 4800 RPM, 1200mAh USB...",
+            "price": "₹499",
+            "mrp": "₹832",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0CXJ97J1T?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "APFEN USB Type- A to Lightning Cable [MFi Certified] Fast Chargin...",
+            "price": "₹271",
+            "mrp": "₹452",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "Parlak Milk and Oil Packet Holder, Black Plastic Organizer",
+            "price": "₹149",
+            "mrp": "₹425",
+            "discount_percent": "65%",
+            "link": "https://www.amazon.in/dp/B0GTF761GQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
             "name": "ORTHO JOY Extra Soft Doctor Ortho Slippers for men",
             "price": "₹396",
             "mrp": "₹850",
@@ -845,33 +899,6 @@
             "link": "https://www.amazon.in/dp/B0F7LXBP97?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/613UosUj0TL._SL1500_.jpg",
             "category": "Kitchen"
-        },
-        {
-            "name": "SMTG Door Guard (Pack of 5)",
-            "price": "₹104",
-            "mrp": "₹176",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0F6D16ZQ4?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51EhO912qxL._SL1079_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Plum BodyLovin' Rose Hand Cream",
-            "price": "₹206",
-            "mrp": "₹350",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0CHFPXZND?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/81P0KMKnAmL._SL1500_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Plum Hibiscus & Ceramides Shampoo",
-            "price": "₹248",
-            "mrp": "₹421",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0F62W35NX?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61sa0aOa5ZL._SL1500_.jpg",
-            "category": "Electronics"
         }
     ]
 }
