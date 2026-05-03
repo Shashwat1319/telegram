@@ -1,6 +1,69 @@
 {
     "products": [
         {
+            "name": "ForeverCarry Women’s Shoulder & Sling Bag with Zipper Closure",
+            "price": "₹399",
+            "mrp": "₹997",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B0GF99QBKR?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Ambrane Type C to 3.5mm Audio Jack Converter",
+            "price": "₹179",
+            "mrp": "₹799",
+            "discount_percent": "77%",
+            "link": "https://www.amazon.in/dp/B0DV9MW9NH?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "TheGiftKart Crystal Clear Back Cover Case Nothing Phone 1",
+            "price": "₹279",
+            "mrp": "₹1299",
+            "discount_percent": "78%",
+            "link": "https://www.amazon.in/dp/B0BB7T3WXL?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "HIFFIN® Black 6X9FT Professional Photography Backdrop",
+            "price": "₹399",
+            "mrp": "₹1999",
+            "discount_percent": "80%",
+            "link": "https://www.amazon.in/dp/B09CV87PNQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "Ajanta Quartz Abstract Analog Wall Clock (32 Cm, White)",
+            "price": "₹489",
+            "mrp": "₹978",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B01N6OOW52?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Parlak Milk and Oil Packet Holder, Black Plastic Kitchen Organizer",
+            "price": "₹149",
+            "mrp": "₹298",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0GTF761GQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Signamio Aromatic Ceramic Shivling Backflow Dhoop Fountain",
+            "price": "₹263",
+            "mrp": "₹526",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B09HXLYFHT?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
             "name": "Signamio Ceramic Shivling Backflow Smoke Fountain Incense",
             "price": "₹263",
             "mrp": "₹525",
@@ -836,69 +899,6 @@
             "link": "https://www.amazon.in/dp/B0CJJQLDS9?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/61v8i6E4bWL._SL1500_.jpg",
             "category": "Electronics"
-        },
-        {
-            "name": "Samsung 25W Type C Charger",
-            "price": "₹344",
-            "mrp": "₹584",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B08TDFC7LX?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51ZJZXZIfSL._SL1500_.jpg",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Ambrane Type C Cable 1M",
-            "price": "₹129",
-            "mrp": "₹219",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0CJJQLDS9?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61v8i6E4bWL._SL1500_.jpg",
-            "category": "Electronics"
-        },
-        {
-            "name": "Bloomingdale Rain Coat with Pant Set",
-            "price": "₹199",
-            "mrp": "₹308",
-            "discount_percent": "35%",
-            "link": "https://www.amazon.in/dp/B0CH189D6D?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51UQzMhobRL._SL1500_.jpg",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Btag High Waist Shapewear Shorts",
-            "price": "₹259",
-            "mrp": "₹409",
-            "discount_percent": "36%",
-            "link": "https://www.amazon.in/dp/B0FH1ZTDVG?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71EeBTcp2TL._SL1500_.jpg",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Citizen Eco-Friendly Poncho Raincoat",
-            "price": "₹189",
-            "mrp": "₹302",
-            "discount_percent": "37%",
-            "link": "https://www.amazon.in/dp/B0F9TP3W1L?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51dHv1MghmL._SL1500_.jpg",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Robustt Reusable Raincoat",
-            "price": "₹249",
-            "mrp": "₹423",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0GMX3NNV5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71IWprywgmL._SL1500_.jpg",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Dyazo Aluminum Laptop Stand",
-            "price": "₹279",
-            "mrp": "₹418",
-            "discount_percent": "33%",
-            "link": "https://www.amazon.in/dp/B0BVR9RCYW?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61quH1ypfHL._SL1500_.jpg",
-            "category": "Computers"
         }
     ]
 }
