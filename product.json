@@ -1,6 +1,204 @@
 {
     "products": [
         {
+            "name": "ORTHO JOY Extra Soft Doctor Ortho Slippers for men",
+            "price": "₹396",
+            "mrp": "₹850",
+            "discount_percent": "53%",
+            "link": "https://www.amazon.in/dp/B089NC56L3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "DOCTOR EXTRA SOFT Diabetic Orthopedic Slippers for Women",
+            "price": "₹409",
+            "mrp": "₹900",
+            "discount_percent": "54%",
+            "link": "https://www.amazon.in/dp/B074D1BRXC?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "WALKAROO Men's Slide Sandals with Soft Sole",
+            "price": "₹444",
+            "mrp": "₹1000",
+            "discount_percent": "55%",
+            "link": "https://www.amazon.in/dp/B0FQ2XRJ2B?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Fevicol Shoefix 2g, Pack of 2 - Expert Shoe Repair Glue",
+            "price": "₹119",
+            "mrp": "₹280",
+            "discount_percent": "57%",
+            "link": "https://www.amazon.in/dp/B0FQ551S21?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Boldfit Head Caps for Men & Women, Summer Cap, Sports Cap",
+            "price": "₹399",
+            "mrp": "₹718",
+            "discount_percent": "44%",
+            "link": "https://www.amazon.in/dp/B0GJDZBZPW?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Amazon Brand - Symbol Men's Cotton Rich Strechable Knit Track Pants",
+            "price": "₹499",
+            "mrp": "₹1098",
+            "discount_percent": "54%",
+            "link": "https://www.amazon.in/dp/B097PBPTFR?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Biotique Herbcolor Conditioning Hair Colour Natural Black 1N",
+            "price": "₹120",
+            "mrp": "₹171",
+            "discount_percent": "29%",
+            "link": "https://www.amazon.in/dp/B0847NC3YS?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "DOVE Nourishing Bodywash, 825ml for Soft and Smooth Skin",
+            "price": "₹415",
+            "mrp": "₹593",
+            "discount_percent": "30%",
+            "link": "https://www.amazon.in/dp/B07S7R626P?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Lakme Sun Expert Tinted Sunscreen SPF 50 PA+++ 100g",
+            "price": "₹331",
+            "mrp": "₹473",
+            "discount_percent": "30%",
+            "link": "https://www.amazon.in/dp/B085T374WK?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Dettol Icy Cool Bathing Soap Bar 100gm (Pack of 4)",
+            "price": "₹134",
+            "mrp": "₹192",
+            "discount_percent": "30%",
+            "link": "https://www.amazon.in/dp/B0CP9Q58TK?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Smart LED Bulb E27 Compatible with Alexa",
+            "price": "₹249",
+            "mrp": "₹599",
+            "discount_percent": "58%",
+            "link": "https://www.amazon.in/dp/B08P1QJ2XF?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61+vY+T+fL._SL1500_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Wireless Bluetooth Earphones with Mic",
+            "price": "₹399",
+            "mrp": "₹999",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B0B7F4B4B4?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71u9GvV7-HL._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Men's Casual Solid Cotton T-Shirt",
+            "price": "₹199",
+            "mrp": "₹499",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B07P5Q6R7S?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61M-k1g-6QL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Mini Portable Bluetooth Speaker Waterproof",
+            "price": "₹449",
+            "mrp": "₹1299",
+            "discount_percent": "65%",
+            "link": "https://www.amazon.in/dp/B08Q2Y3Z4A?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61KxU41VfPL._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Travel Neck Pillow - Memory Foam",
+            "price": "₹120",
+            "mrp": "₹399",
+            "discount_percent": "69%",
+            "link": "https://www.amazon.in/dp/B09F2G3H4I?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Y+gL2c+TL._SL1500_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Signamio Ceramic Shivling Backflow Incense Burner Holder",
+            "price": "₹263",
+            "mrp": "₹439",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B09HXLYFHT?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Parlak Milk & Oil Packet Holder, Kitchen Organizer",
+            "price": "₹149",
+            "mrp": "₹279",
+            "discount_percent": "46%",
+            "link": "https://www.amazon.in/dp/B0GTF761GQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Halonix 10W B22D Radar Motion Sensor LED Bulb (Pack 2)",
+            "price": "₹175",
+            "mrp": "₹350",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B085BMZH74?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "HIFFIN Black 6X9FT Professional Backdrop",
+            "price": "₹399",
+            "mrp": "₹997",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B09CV87PNQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "APFEN 20W MFi Certified Type-C Fast Charger",
+            "price": "₹380",
+            "mrp": "₹950",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B0F62W35NX?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "Sounce BassEngine Type-C In Ear Wired Earphones",
+            "price": "₹198",
+            "mrp": "₹495",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B0FQJTC86Q?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "Gizga Pro Series 3-in-1 Cleaning KIT",
+            "price": "₹149",
+            "mrp": "₹372",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B09RHDZ8V5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
             "name": "Fevicol Shoefix 2g, Pack of 2 (Shoe Repair Glue)",
             "price": "₹119",
             "mrp": "₹159",
