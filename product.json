@@ -1,6 +1,150 @@
 {
     "products": [
         {
+            "name": "SAKHWALA Women Track Pant Wide Leg High Waist Drawstring",
+            "price": "₹448",
+            "mrp": "₹750",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0F958N4RH?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Jockey 1406 Women's High Coverage Cotton Mid Waist Hipster",
+            "price": "₹445",
+            "mrp": "₹750",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B010FMJV8Y?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "DEELMO Men’s Stylish Cotton Blend Casual Full Sleeve Shirt",
+            "price": "₹495",
+            "mrp": "₹900",
+            "discount_percent": "45%",
+            "link": "https://www.amazon.in/dp/B0FXS7QNLH?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "DOCTOR EXTRA SOFT Women's Ortho Care Sliders",
+            "price": "₹427",
+            "mrp": "₹855",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B09HSL1X1D?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Liril Lime & Tea Tree Oil Bath Soaps 125g (Pack of 2)",
+            "price": "₹139",
+            "mrp": "₹239",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0D5QVY9MW?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "LUMONY® Silicone Ice Face Bowl For Facial Ice Plunge",
+            "price": "₹149",
+            "mrp": "₹279",
+            "discount_percent": "46%",
+            "link": "https://www.amazon.in/dp/B0GY11K7X1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "RIXTEC PVC Makeup Bag Travel Toiletry Organizer Set of 3",
+            "price": "₹153",
+            "mrp": "₹289",
+            "discount_percent": "47%",
+            "link": "https://www.amazon.in/dp/B0DW9B8QL7?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Nivea Unisex Fresh Scent Deodorant Roll-On 25ml (Pack of 3)",
+            "price": "₹147",
+            "mrp": "₹299",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B07YLZPNKC?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Robustrion Cover for iPad 11th / 10th Generation Case",
+            "price": "₹469",
+            "mrp": "₹1179",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B0BJV4FYGF?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "Boat Type C to Lighting Cable for 27W Fast Charging",
+            "price": "₹249",
+            "mrp": "₹629",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B0G4MDFNGZ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "Ambrane Unbreakable 3A Fast Charging 1.5M Braided Type C",
+            "price": "₹108",
+            "mrp": "₹279",
+            "discount_percent": "61%",
+            "link": "https://www.amazon.in/dp/B0DV8ZPMCQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "Toy Imagine Mini Portable Thermal Printer – Bluetooth",
+            "price": "₹199",
+            "mrp": "₹669",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B0FJMHRQXY?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "RMT-TX100U TV Remote Control Fit for Sony Smart Televisions",
+            "price": "₹199",
+            "mrp": "₹570",
+            "discount_percent": "65%",
+            "link": "https://www.amazon.in/dp/B08WP9RWYJ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "Goldmedal G-Dial 2 Pin Plug 5-Meter Extension Cord",
+            "price": "₹249",
+            "mrp": "₹715",
+            "discount_percent": "65%",
+            "link": "https://www.amazon.in/dp/B011IC7JLG?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "Ambrane Type C Cable 3A Fast Charging 1M Braided Cable",
+            "price": "₹129",
+            "mrp": "₹430",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B0CJJQLDS9?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "Gizga Pro Series 3-in-1 Cleaning KIT - 150ml Cleaning Spray",
+            "price": "₹149",
+            "mrp": "₹499",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B09RHDZ8V5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
             "name": "Shoetopia Women Flat Sandal",
             "price": "₹470",
             "mrp": "₹855",
@@ -755,150 +899,6 @@
             "link": "https://www.amazon.in/dp/B0BB7T3WXL?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
             "category": "Electronics"
-        },
-        {
-            "name": "HIFFIN® Black 6X9FT Professional Backdrop for Photography",
-            "price": "₹399",
-            "mrp": "₹798",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B09CV87PNQ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "Gizga Pro Series 3-in-1 Cleaning KIT for Gadgets",
-            "price": "₹149",
-            "mrp": "₹298",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B09RHDZ8V5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "ForeverCarry Women’s Shoulder & Sling Bag with Zipper Closure",
-            "price": "₹399",
-            "mrp": "₹997",
-            "discount_percent": "60%",
-            "link": "https://www.amazon.in/dp/B0GF99QBKR?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Ambrane Type C to 3.5mm Audio Jack Converter",
-            "price": "₹179",
-            "mrp": "₹799",
-            "discount_percent": "77%",
-            "link": "https://www.amazon.in/dp/B0DV9MW9NH?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "TheGiftKart Crystal Clear Back Cover Case Nothing Phone 1",
-            "price": "₹279",
-            "mrp": "₹1299",
-            "discount_percent": "78%",
-            "link": "https://www.amazon.in/dp/B0BB7T3WXL?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "HIFFIN® Black 6X9FT Professional Photography Backdrop",
-            "price": "₹399",
-            "mrp": "₹1999",
-            "discount_percent": "80%",
-            "link": "https://www.amazon.in/dp/B09CV87PNQ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "Ajanta Quartz Abstract Analog Wall Clock (32 Cm, White)",
-            "price": "₹489",
-            "mrp": "₹978",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B01N6OOW52?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Parlak Milk and Oil Packet Holder, Black Plastic Kitchen Organizer",
-            "price": "₹149",
-            "mrp": "₹298",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0GTF761GQ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Signamio Aromatic Ceramic Shivling Backflow Dhoop Fountain",
-            "price": "₹263",
-            "mrp": "₹526",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B09HXLYFHT?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Signamio Ceramic Shivling Backflow Smoke Fountain Incense",
-            "price": "₹263",
-            "mrp": "₹525",
-            "discount_percent": "49%",
-            "link": "https://www.amazon.in/dp/B09HXLYFHT?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "CELLO Checkers Kitchen Storage Container Box Set 18 Pcs",
-            "price": "₹349",
-            "mrp": "₹700",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B01LYBZX6Y?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Parlak Milk and Oil Packet Holder, Black Kitchen Organizer",
-            "price": "₹149",
-            "mrp": "₹299",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0GTF761GQ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Stainless Steel Water Bottle 1 Litre",
-            "price": "₹299",
-            "mrp": "₹799",
-            "discount_percent": "62%",
-            "link": "https://www.amazon.in/dp/B0B6L5N8M7?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51rYg1Kz+EL._AC_UL320_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Digital Kitchen Weighing Scale",
-            "price": "₹399",
-            "mrp": "₹1199",
-            "discount_percent": "66%",
-            "link": "https://www.amazon.in/dp/B0BW3P7N2J?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/711zWpS5tWL._AC_UL320_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Fast Charging USB-C Cable 3A, 1 Meter",
-            "price": "₹129",
-            "mrp": "₹399",
-            "discount_percent": "67%",
-            "link": "https://www.amazon.in/dp/B0B5P2R1L3?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61+dKz9k3jL._AC_UL320_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Fitness Tracker Smartwatch with Heart Rate Monitor",
-            "price": "₹449",
-            "mrp": "₹1499",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B0C3Q1F9J2?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61N+x2eNrsL._AC_UL320_.jpg",
-            "category": "Loot"
         }
     ]
 }
