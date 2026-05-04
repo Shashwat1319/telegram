@@ -1,6 +1,15 @@
 {
     "products": [
         {
+            "name": "DOCTOR EXTRA SOFT Women's Ortho Care Super Comfort Sliders",
+            "price": "₹427",
+            "mrp": "₹1199",
+            "discount_percent": "64%",
+            "link": "https://www.amazon.in/dp/B09HSL1X1D?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Shoes"
+        },
+        {
             "name": "Liril Lime & Tea Tree Oil Bath Soaps 125g (B3G1, Pk2)",
             "price": "₹139",
             "mrp": "₹255",
@@ -888,15 +897,6 @@
             "mrp": "₹250",
             "discount_percent": "39%",
             "link": "https://www.amazon.in/dp/B0847NC3YS?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "DOVE Nourishing Bodywash, 825ml",
-            "price": "₹294",
-            "mrp": "₹500",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B07S7R626P?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
             "category": "Beauty"
         }
