@@ -1,6 +1,96 @@
 {
     "products": [
         {
+            "name": "Dyazo 13/13.3 Inch Laptop Sleeve/Case Cover with Handle",
+            "price": "₹299",
+            "mrp": "₹750",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B09X68MQRR?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "APFEN USB Type-A to Lightning Cable [MFi Certified]",
+            "price": "₹271",
+            "mrp": "₹680",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "Toy Imagine Mini Portable Thermal Printer (1 Roll + 1 Extra)",
+            "price": "₹199",
+            "mrp": "₹500",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B0FJMHRQXY?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "Wood Multipurpose Foldable Laptop Table with Cup Holder",
+            "price": "₹299",
+            "mrp": "₹860",
+            "discount_percent": "65%",
+            "link": "https://www.amazon.in/dp/B0GXBW8GH3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "OpenTech® Military-Grade Tempered Glass for Oneplus Nord",
+            "price": "₹197",
+            "mrp": "₹800",
+            "discount_percent": "75%",
+            "link": "https://www.amazon.in/dp/B09Z7Y4D5Z?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "Gizga Pro Series 3-in-1 Cleaning KIT for Gadgets",
+            "price": "₹149",
+            "mrp": "₹650",
+            "discount_percent": "77%",
+            "link": "https://www.amazon.in/dp/B09RHDZ8V5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "Yellow Weaves Top Load Washing Machine Cover (56x56x86 cm)",
+            "price": "₹424",
+            "mrp": "₹699",
+            "discount_percent": "39%",
+            "link": "https://www.amazon.in/dp/B09HV5N53T?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "JIALTO 10 Pcs Heavy Duty Adhesive Hooks for Bathroom, Kitchen",
+            "price": "₹205",
+            "mrp": "₹349",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CMTW6335?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Ajanta Quartz Abstract Analog Wall Clock (32 Cm X 32 Cm)",
+            "price": "₹489",
+            "mrp": "₹849",
+            "discount_percent": "42%",
+            "link": "https://www.amazon.in/dp/B01N6OOW52?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Wakefit Sleeping Pillow | Height Adjustable, Soft & Fluffy Comfort",
+            "price": "₹458",
+            "mrp": "₹799",
+            "discount_percent": "42%",
+            "link": "https://www.amazon.in/dp/B09W2R818W?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
             "name": "Desidiya® Portable Table Fan - USB/Battery Rechargeable",
             "price": "₹319",
             "mrp": "₹1063",
@@ -809,96 +899,6 @@
             "link": "https://www.amazon.in/dp/B0CP9NMV6P?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
             "category": "Beauty"
-        },
-        {
-            "name": "Lakme Sun Expert Tinted Sunscreen SPF 50 PA+++ 50ml",
-            "price": "₹260",
-            "mrp": "₹346",
-            "discount_percent": "25%",
-            "link": "https://www.amazon.in/dp/B085WJVX7C?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "Biotique Herbcolor Conditioning Hair Colour 1N",
-            "price": "₹151",
-            "mrp": "₹201",
-            "discount_percent": "25%",
-            "link": "https://www.amazon.in/dp/B0847NC3YS?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "Dettol Body Wash & Shower Gel, Lavender Fresh - 250ml",
-            "price": "₹113",
-            "mrp": "₹150",
-            "discount_percent": "25%",
-            "link": "https://www.amazon.in/dp/B0DT3T183L?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "Parlak Milk and Oil Packet Holder, Black Plastic Kitchen",
-            "price": "₹149",
-            "mrp": "₹299",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0GTF761GQ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Ambrane Type C to 3.5mm Audio Jack Converter with DAC",
-            "price": "₹179",
-            "mrp": "₹500",
-            "discount_percent": "64%",
-            "link": "https://www.amazon.in/dp/B0DV9MW9NH?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "Sounce BassEngine Type-C In Ear Wired Earphones with Mic",
-            "price": "₹198",
-            "mrp": "₹600",
-            "discount_percent": "67%",
-            "link": "https://www.amazon.in/dp/B0FQJTC86Q?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "Boldfit Winter Cap for Women Woolen Winter Cap with Neck",
-            "price": "₹249",
-            "mrp": "₹625",
-            "discount_percent": "60%",
-            "link": "https://www.amazon.in/dp/B0DN1RBPXG?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "NAVYSPORT Men's Crew Length Cushion Cotton Socks (Pack 3)",
-            "price": "₹250",
-            "mrp": "₹719",
-            "discount_percent": "65%",
-            "link": "https://www.amazon.in/dp/B073WWJL9V?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Max Men's Cotton Regular Fit Half Sleeves Crew Neck Solid",
-            "price": "₹199",
-            "mrp": "₹665",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B0BV6WJYW9?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Samsung Original Type C to C Cable - 1 Meter",
-            "price": "₹374",
-            "mrp": "₹899",
-            "discount_percent": "58%",
-            "link": "https://www.amazon.in/dp/B008FWZ5MS?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
         }
     ]
 }
