@@ -1,6 +1,60 @@
 {
     "products": [
         {
+            "name": "Desidiya® Portable Table Fan - USB/Battery Rechargeable",
+            "price": "₹319",
+            "mrp": "₹1063",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B0F1TJ2WJ6?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "Toy Imagine Mini Portable Thermal Printer - Bluetooth Pocket",
+            "price": "₹199",
+            "mrp": "₹663",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B0FJMHRQXY?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "Zebronics-NS1000 Laptop Stand - Foldable, 6 Adjustable Levels",
+            "price": "₹184",
+            "mrp": "₹613",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B0C376RWQP?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "MILTON Aston 1000 BPA & BPS-Free Water Bottle 1 ltr Blue",
+            "price": "₹254",
+            "mrp": "₹508",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0FP9FP9GX?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Yellow Weaves Top Load Automatic Washing Machine Cover",
+            "price": "₹424",
+            "mrp": "₹848",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B09HV5N53T?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Ezee Live Life Ezee Way Black Garbage Bags for Dustbin",
+            "price": "₹159",
+            "mrp": "₹318",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B06VX8YR6Q?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
             "name": "SAKHWALA Women Track Pant Wide Leg High Waist Drawstring",
             "price": "₹448",
             "mrp": "₹750",
@@ -845,60 +899,6 @@
             "link": "https://www.amazon.in/dp/B008FWZ5MS?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
             "category": "Computers"
-        },
-        {
-            "name": "One94Store High Speed Portable Hand Fan",
-            "price": "₹499",
-            "mrp": "₹1299",
-            "discount_percent": "62%",
-            "link": "https://www.amazon.in/dp/B0CXJ97J1T?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "MAONO AU-400 Lavalier Omnidirectional Microphone",
-            "price": "₹418",
-            "mrp": "₹1199",
-            "discount_percent": "65%",
-            "link": "https://www.amazon.in/dp/B07JF9B592?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "DIVIJA STORE Wood Smart Foldable Laptop Table",
-            "price": "₹299",
-            "mrp": "₹999",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B0DK7B3B2G?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "STRIFF Gel Wrist Support Gaming Mouse Pad",
-            "price": "₹149",
-            "mrp": "₹499",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B0CKF8QQLF?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "Parlak Milk & Oil Packet Holder, Black Plastic Kitchen Organizer",
-            "price": "₹149",
-            "mrp": "₹300",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0GTF761GQ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "TheGiftKart Crystal Clear Back Cover for Nothing Phone 1",
-            "price": "₹279",
-            "mrp": "₹558",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0BB7T3WXL?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
         }
     ]
 }
