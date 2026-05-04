@@ -1,6 +1,87 @@
 {
     "products": [
         {
+            "name": "Biotique Herbcolor Conditioning Hair Colour, Natural Black",
+            "price": "₹152",
+            "mrp": "₹250",
+            "discount_percent": "39%",
+            "link": "https://www.amazon.in/dp/B0847NC3YS?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "DOVE Nourishing Bodywash, 825ml",
+            "price": "₹294",
+            "mrp": "₹500",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B07S7R626P?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "LAKMÉ Sun Expert SPF 50 PA+++ Gel Sunscreen, 50g",
+            "price": "₹225",
+            "mrp": "₹400",
+            "discount_percent": "43%",
+            "link": "https://www.amazon.in/dp/B0744R95BT?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Savlon Moisture Shield Handwash Refill Pouch, 1.3L",
+            "price": "₹135",
+            "mrp": "₹250",
+            "discount_percent": "46%",
+            "link": "https://www.amazon.in/dp/B086476V1S?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Park Avenue Premium Men’s Soaps - Pure Luxury (Pack of 4)",
+            "price": "₹130",
+            "mrp": "₹250",
+            "discount_percent": "48%",
+            "link": "https://www.amazon.in/dp/B0B6ZXHMX7?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "RMT-TX100U TV Remote Control Fit for Sony Smart TVs",
+            "price": "₹199",
+            "mrp": "₹499",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B08WP9RWYJ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "25W Charger for Samsung with Type C Cable - BIS Certified",
+            "price": "₹344",
+            "mrp": "₹899",
+            "discount_percent": "61%",
+            "link": "https://www.amazon.in/dp/B0GHFFDRGN?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "DIVIJA Wood Smart Multipurpose Foldable Laptop Table",
+            "price": "₹299",
+            "mrp": "₹799",
+            "discount_percent": "62%",
+            "link": "https://www.amazon.in/dp/B0DK7B3B2G?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "HIFFIN Black 6X9FT Professional Backdrop for Photography",
+            "price": "₹399",
+            "mrp": "₹1099",
+            "discount_percent": "63%",
+            "link": "https://www.amazon.in/dp/B09CV87PNQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
             "name": "Silicone Spatula Set for Non-Stick Cookware (3 Pcs)",
             "price": "₹179",
             "mrp": "₹749",
@@ -818,87 +899,6 @@
             "link": "https://www.amazon.in/dp/B00PXJWJJI?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
             "category": "Kitchen"
-        },
-        {
-            "name": "CELLO Checkers Kitchen Storage Container Box Set of 18 Pcs",
-            "price": "₹349",
-            "mrp": "₹749",
-            "discount_percent": "53%",
-            "link": "https://www.amazon.in/dp/B01LYBZX6Y?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Signamio Aromatic Ceramic Shivling Backflow Incense Burner",
-            "price": "₹263",
-            "mrp": "₹599",
-            "discount_percent": "56%",
-            "link": "https://www.amazon.in/dp/B09HXLYFHT?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Halonix 10W B22D Radar Motion Sensor LED Bulb (Pack of 2)",
-            "price": "₹175",
-            "mrp": "₹399",
-            "discount_percent": "56%",
-            "link": "https://www.amazon.in/dp/B085BMZH74?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "APFEN USB Type-A to Lightning Cable [MFi Certified] Fast Charging",
-            "price": "₹271",
-            "mrp": "₹699",
-            "discount_percent": "61%",
-            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "APFEN 20W [Apple MFi Certified] Type-C Fast Charger Adapter",
-            "price": "₹380",
-            "mrp": "₹999",
-            "discount_percent": "61%",
-            "link": "https://www.amazon.in/dp/B0F62W35NX?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "Gizga Pro Series 3-in-1 Cleaning KIT for Laptop, PC, etc.",
-            "price": "₹149",
-            "mrp": "₹399",
-            "discount_percent": "62%",
-            "link": "https://www.amazon.in/dp/B09RHDZ8V5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "DIVIJA STORE Wood Smart Multipurpose Foldable Laptop Table",
-            "price": "₹299",
-            "mrp": "₹899",
-            "discount_percent": "66%",
-            "link": "https://www.amazon.in/dp/B0DK7B3B2G?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "Sounce BassEngine Type-C In Ear Wired Earphones with HD Mic",
-            "price": "₹198",
-            "mrp": "₹599",
-            "discount_percent": "66%",
-            "link": "https://www.amazon.in/dp/B0FQJTC86Q?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "ZEBRONICS TT60+ Type-C Cable",
-            "price": "₹99",
-            "mrp": "₹168",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0FJ2L7YF8?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51YrGDmp8XL._SL1500_.jpg",
-            "category": "Computers"
         }
     ]
 }
