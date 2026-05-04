@@ -89,17 +89,18 @@ def extract_products_with_ai(html_text, retry_count=0):
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
     
     prompt = f"""
-    Below is a list of Amazon products with prices and image URLs. Pick the TOP 5 products with the BEST DISCOUNT percentage.
+    Below is a list of Amazon products. Your mission is to find the absolute BEST "LOOT" DEALS (Price Glitches or Heavy Discounts).
+    Pick the TOP 5 products where the discount is extremely high (Ideally 60% to 95% OFF).
+    
     Return ONLY a valid JSON array of objects with keys: "name", "price", "mrp", "discount_percent", "link", "image".
     
-    CRITICAL TRUST RULES:
-    1. "price" & "mrp": MUST be strings containing ONLY numbers/commas/dots (e.g. "499"). NEVER use percentage in price.
-    2. "image": Extract the EXACT image URL provided in the text. DO NOT LEAVE EMPTY OR USE PLACEHOLDERS.
-    3. "discount_percent": MUST be a valid number between 1 and 99. If "mrp" is missing, estimate a realistic MRP.
-    4. NAME: Keep it slightly shortened for readability (max 60 chars).
-    5. DIVERSITY: Pick diverse items (e.g., earphones, gadgets, clothing, accessories, kitchen tools, beauty products).
-    6. PRICE FILTER (STRICT): ONLY select products where the current price is between Rs.99 and Rs.499. This is for a "Budget Loot" sprint.
-    7. Ensure the response starts with [ and ends with ]. No markdown formatting.
+    CRITICAL LOOT RULES:
+    1. PRIORITY: Select items with the BIGGEST gap between Price and MRP (e.g. MRP 999, Price 149).
+    2. "price" & "mrp": MUST be strings containing ONLY numbers (e.g. "149").
+    3. PRICE RANGE: Only items between Rs.49 and Rs.499.
+    4. IMAGE: Extract the EXACT image URL. NO PLACEHOLDERS.
+    5. SELECTION: Look for gadgets, lifestyle items, or beauty products that look like a "Price Glitch".
+    6. Ensure the response starts with [ and ends with ]. No markdown.
     
     DATA:
     {html_text}
