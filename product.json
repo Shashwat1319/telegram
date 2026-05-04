@@ -1,6 +1,132 @@
 {
     "products": [
         {
+            "name": "Liril Lime & Tea Tree Oil Bath Soaps 125g (B3G1, Pk2)",
+            "price": "₹139",
+            "mrp": "₹255",
+            "discount_percent": "45%",
+            "link": "https://www.amazon.in/dp/B0D5QVY9MW?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Nivea Unisex Fresh Scent Roll-On Whitening Smooth Skin (P3)",
+            "price": "₹147",
+            "mrp": "₹270",
+            "discount_percent": "45%",
+            "link": "https://www.amazon.in/dp/B07YLZPNKC?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "LUMONY® Silicone Ice Face Bowl For Ice Bath & Facials",
+            "price": "₹149",
+            "mrp": "₹300",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0GY11K7X1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "RIXTEC PVC Makeup Bag Travel Toiletries Organizer (Set of 3)",
+            "price": "₹153",
+            "mrp": "₹310",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0DW9B8QL7?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Cello H2O Unbreakable Plastic Bottle, 1 Litre (Set of 3)",
+            "price": "₹199",
+            "mrp": "₹450",
+            "discount_percent": "55%",
+            "link": "https://www.amazon.in/dp/B07P88219H?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61b7b0YnLcL._SX679_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Generic Mobile Holder for Desk & Table",
+            "price": "₹129",
+            "mrp": "₹299",
+            "discount_percent": "56%",
+            "link": "https://www.amazon.in/dp/B07YYYYYYY?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51t+dC+cK9L._SX679_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "boAt BassHeads 100 Wired Earphones with Mic",
+            "price": "₹349",
+            "mrp": "₹999",
+            "discount_percent": "65%",
+            "link": "https://www.amazon.in/dp/B073R5K6C3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Ke2K2VlHL._SX679_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Mi Smart Band 6 - 1.56\" AMOLED Display, SpO2 Monitor",
+            "price": "₹299",
+            "mrp": "₹899",
+            "discount_percent": "66%",
+            "link": "https://www.amazon.in/dp/B09J1X2Q5P?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61M-FwR4vDL._SX679_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Portronics Car Power 12 Fast Car Charger",
+            "price": "₹399",
+            "mrp": "₹1299",
+            "discount_percent": "69%",
+            "link": "https://www.amazon.in/dp/B0BJ5V176V?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61U04y8K4wL._SX679_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Wakefit Sleeping Pillow | Height Adjustable | Soft & Fluffy",
+            "price": "₹458",
+            "mrp": "₹799",
+            "discount_percent": "42%",
+            "link": "https://www.amazon.in/dp/B09W2R818W?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "MILTON Aston 1000 BPA & BPS-Free Water Bottle 1 ltr",
+            "price": "₹254",
+            "mrp": "₹449",
+            "discount_percent": "43%",
+            "link": "https://www.amazon.in/dp/B0FP9FP9GX?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "TEX-RO Metal Clothes Drying Stand Foldable with Wheels",
+            "price": "₹499",
+            "mrp": "₹899",
+            "discount_percent": "44%",
+            "link": "https://www.amazon.in/dp/B0GQQHX25W?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Yellow Weaves Top Load Fully Automatic Washing Machine Cover",
+            "price": "₹424",
+            "mrp": "₹799",
+            "discount_percent": "46%",
+            "link": "https://www.amazon.in/dp/B09HV5N53T?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "JIALTO 10 Pcs Heavy Duty Adhesive Big Hooks Set",
+            "price": "₹205",
+            "mrp": "₹399",
+            "discount_percent": "48%",
+            "link": "https://www.amazon.in/dp/B0CMTW6335?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
             "name": "Dyazo 13/13.3 Inch Laptop Sleeve/Case Cover with Handle",
             "price": "₹299",
             "mrp": "₹750",
@@ -771,132 +897,6 @@
             "mrp": "₹500",
             "discount_percent": "41%",
             "link": "https://www.amazon.in/dp/B07S7R626P?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "LAKMÉ Sun Expert SPF 50 PA+++ Gel Sunscreen, 50g",
-            "price": "₹225",
-            "mrp": "₹400",
-            "discount_percent": "43%",
-            "link": "https://www.amazon.in/dp/B0744R95BT?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "Savlon Moisture Shield Handwash Refill Pouch, 1.3L",
-            "price": "₹135",
-            "mrp": "₹250",
-            "discount_percent": "46%",
-            "link": "https://www.amazon.in/dp/B086476V1S?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "Park Avenue Premium Men’s Soaps - Pure Luxury (Pack of 4)",
-            "price": "₹130",
-            "mrp": "₹250",
-            "discount_percent": "48%",
-            "link": "https://www.amazon.in/dp/B0B6ZXHMX7?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "RMT-TX100U TV Remote Control Fit for Sony Smart TVs",
-            "price": "₹199",
-            "mrp": "₹499",
-            "discount_percent": "60%",
-            "link": "https://www.amazon.in/dp/B08WP9RWYJ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "25W Charger for Samsung with Type C Cable - BIS Certified",
-            "price": "₹344",
-            "mrp": "₹899",
-            "discount_percent": "61%",
-            "link": "https://www.amazon.in/dp/B0GHFFDRGN?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "DIVIJA Wood Smart Multipurpose Foldable Laptop Table",
-            "price": "₹299",
-            "mrp": "₹799",
-            "discount_percent": "62%",
-            "link": "https://www.amazon.in/dp/B0DK7B3B2G?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "HIFFIN Black 6X9FT Professional Backdrop for Photography",
-            "price": "₹399",
-            "mrp": "₹1099",
-            "discount_percent": "63%",
-            "link": "https://www.amazon.in/dp/B09CV87PNQ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "Silicone Spatula Set for Non-Stick Cookware (3 Pcs)",
-            "price": "₹179",
-            "mrp": "₹749",
-            "discount_percent": "76%",
-            "link": "https://www.amazon.in/dp/B09C63G6W3?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71R2s5X0ZML._AC_SL1500_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Adjustable Yoga Mat Carrying Strap",
-            "price": "₹119",
-            "mrp": "₹499",
-            "discount_percent": "76%",
-            "link": "https://www.amazon.in/dp/B0BN1Z7H2B?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61kM2oB-4hL._AC_SL1500_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Portable USB Rechargeable Mini Fan, Handheld/Desk",
-            "price": "₹199",
-            "mrp": "₹899",
-            "discount_percent": "77%",
-            "link": "https://www.amazon.in/dp/B0BQV8K14N?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71zD-Wp-2dL._AC_SL1500_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Velvet Hair Scrunchies for Women & Girls (Set of 5)",
-            "price": "₹99",
-            "mrp": "₹449",
-            "discount_percent": "77%",
-            "link": "https://www.amazon.in/dp/B0BC9J6J7L?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71F1tB4V3CL._AC_SL1500_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Wireless Earbuds with Mic, Bluetooth 5.0",
-            "price": "₹349",
-            "mrp": "₹1999",
-            "discount_percent": "82%",
-            "link": "https://www.amazon.in/dp/B0BP8L4C4K?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61M-Fw0M9UL._AC_SL1500_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Vaseline Sun Protect SPF 30 Body Lotion, 400ml",
-            "price": "₹364",
-            "mrp": "₹485",
-            "discount_percent": "25%",
-            "link": "https://www.amazon.in/dp/B07W7D9NSB?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "Dettol Original Bathing Soap Bar 100g (Pack of 4)",
-            "price": "₹135",
-            "mrp": "₹180",
-            "discount_percent": "25%",
-            "link": "https://www.amazon.in/dp/B0CP9NMV6P?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
             "category": "Beauty"
         }
