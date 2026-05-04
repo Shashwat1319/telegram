@@ -1,6 +1,177 @@
 {
     "products": [
         {
+            "name": "mifaso Type c Charger 15ft Ultra Thin Flat Power Strip",
+            "price": "₹299",
+            "mrp": "₹1017",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B07WJG8K85?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "APFEN USB Type- A to Lightning Cable [MFi Certified]",
+            "price": "₹271",
+            "mrp": "₹949",
+            "discount_percent": "71%",
+            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "Zebronics-NS1000 Laptop Stand Featuring Foldable Design",
+            "price": "₹184",
+            "mrp": "₹736",
+            "discount_percent": "75%",
+            "link": "https://www.amazon.in/dp/B0C376RWQP?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "Sounce Mouse Pad Speed Type with Antifray Stitched Edges",
+            "price": "₹99",
+            "mrp": "₹446",
+            "discount_percent": "77%",
+            "link": "https://www.amazon.in/dp/B0BSR2N5W9?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "Gizga Essentials 14.1\" Laptop Keyboard Protector Skin",
+            "price": "₹99",
+            "mrp": "₹495",
+            "discount_percent": "80%",
+            "link": "https://www.amazon.in/dp/B0F327RFGT?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "Lakme Absolute Matte Melt Liquid Lip Color (Mulberry Kiss)",
+            "price": "₹399",
+            "mrp": "₹750",
+            "discount_percent": "47%",
+            "link": "https://www.amazon.in/dp/B08P1QJ339?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/419D4e-V8CL._SX300_SY300_QL70_FMwebp_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Nescafe Classic Coffee, 200g Pouch",
+            "price": "₹299",
+            "mrp": "₹599",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B08V819K3N?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51wB8s7M9GL._SX300_SY300_QL70_FMwebp_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Amazon Basics USB 2.0 A-Male to Micro B Cable (3 feet)",
+            "price": "₹189",
+            "mrp": "₹495",
+            "discount_percent": "62%",
+            "link": "https://www.amazon.in/dp/B00NH13DV2?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41K0K+i8v2L._SX300_SY300_QL70_FMwebp_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Cello Ornella Glass Set, 6-Pieces",
+            "price": "₹299",
+            "mrp": "₹899",
+            "discount_percent": "67%",
+            "link": "https://www.amazon.in/dp/B08V819K3N?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51wB8s7M9GL._SX300_SY300_QL70_FMwebp_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Kuber Industries 6 Piece Microfiber Cleaning Cloth",
+            "price": "₹249",
+            "mrp": "₹899",
+            "discount_percent": "72%",
+            "link": "https://www.amazon.in/dp/B08V819K3N?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51Hq0L92JRL._SX300_SY300_QL70_FMwebp_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "APFEN USB-A to Lightning Cable [MFi Certified] Fast Charging",
+            "price": "₹271",
+            "mrp": "₹1199",
+            "discount_percent": "77%",
+            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "RMT-TX100U TV Remote Control for Sony Smart Televisions",
+            "price": "₹199",
+            "mrp": "₹899",
+            "discount_percent": "77%",
+            "link": "https://www.amazon.in/dp/B08WP9RWYJ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "Zebronics NS1000 Foldable Laptop Stand, Anti-Slip",
+            "price": "₹184",
+            "mrp": "₹999",
+            "discount_percent": "81%",
+            "link": "https://www.amazon.in/dp/B0C376RWQP?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "DIVIJA Multipurpose Foldable Laptop Table with Cup Holder",
+            "price": "₹299",
+            "mrp": "₹1799",
+            "discount_percent": "83%",
+            "link": "https://www.amazon.in/dp/B0DK7B3B2G?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "APFEN 20W MFi Certified Type-C Fast Charger Adapter & Cable",
+            "price": "₹380",
+            "mrp": "₹2299",
+            "discount_percent": "83%",
+            "link": "https://www.amazon.in/dp/B0F62W35NX?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "Yellow Weaves Top Load Washing Machine Cover (6-7kg)",
+            "price": "₹399",
+            "mrp": "₹670",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B09HV5N53T?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Ajanta Quartz Abstract Analog Wall Clock (White)",
+            "price": "₹489",
+            "mrp": "₹850",
+            "discount_percent": "43%",
+            "link": "https://www.amazon.in/dp/B01N6OOW52?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Signamio Ceramic Shivling Backflow Dhoop Smoke Fountain",
+            "price": "₹263",
+            "mrp": "₹470",
+            "discount_percent": "44%",
+            "link": "https://www.amazon.in/dp/B09HXLYFHT?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "THE HOME STYLE Super Soft Glace Cotton King Size Pillow Covers",
+            "price": "₹349",
+            "mrp": "₹650",
+            "discount_percent": "46%",
+            "link": "https://www.amazon.in/dp/B0DGCKPC97?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
             "name": "Biotique Herbcolor Conditioning Hair Colour, Natural Black",
             "price": "₹152",
             "mrp": "₹250",
@@ -728,177 +899,6 @@
             "link": "https://www.amazon.in/dp/B0GF99QBKR?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
             "category": "Ladies Shoes"
-        },
-        {
-            "name": "WALKAROO Men's Sandal-WE8821",
-            "price": "₹364",
-            "mrp": "₹728",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0FJ5YGFJB?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "DOCTOR EXTRA SOFT Care Diabetic Orthopedic Flipflops",
-            "price": "₹409",
-            "mrp": "₹818",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B074D1BRXC?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Bata Men's Slip-on Slipper",
-            "price": "₹189",
-            "mrp": "₹378",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B09W5YDM4J?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "NAVYSPORT Men's Crew Length Cushion Cotton Socks (Pack of 3)",
-            "price": "₹250",
-            "mrp": "₹501",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B073WWJL9V?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "TRASA Women's Cotton Fashion Biker Workout Cycling Shorts",
-            "price": "₹299",
-            "mrp": "₹598",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0BSNDSQCV?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Max Men's Cotton Regular Fit Half Sleeves Crew Neck T-Shirt",
-            "price": "₹199",
-            "mrp": "₹398",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0BV6WJYW9?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Boldfit Winter Cap with Neck Warmer & Gloves Set",
-            "price": "₹249",
-            "mrp": "₹498",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0DN1RBPXG?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Boldfit Head Caps for Men & Women, Summer Cap",
-            "price": "₹399",
-            "mrp": "₹798",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0GJDZBZPW?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "One94Store High Speed Portable Hand Fan, 4800 RPM",
-            "price": "₹499",
-            "mrp": "₹899",
-            "discount_percent": "44%",
-            "link": "https://www.amazon.in/dp/B0CXJ97J1T?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "MAONO AU-400 Lavalier Auxiliary Omnidirectional Microphone",
-            "price": "₹418",
-            "mrp": "₹899",
-            "discount_percent": "53%",
-            "link": "https://www.amazon.in/dp/B07JF9B592?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "STRIFF Gel Wrist Support Gaming Mouse Pad (Black)",
-            "price": "₹149",
-            "mrp": "₹349",
-            "discount_percent": "57%",
-            "link": "https://www.amazon.in/dp/B0CKF8QQLF?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "KARWAN 60W 2in1 Type C to Type C Cable with iWatch Charger",
-            "price": "₹329",
-            "mrp": "₹799",
-            "discount_percent": "58%",
-            "link": "https://www.amazon.in/dp/B0G3XGQJ6R?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "Lakme Sun Expert Tinted Sunscreen SPF 50 PA +++ 50ml",
-            "price": "₹260",
-            "mrp": "₹473",
-            "discount_percent": "45%",
-            "link": "https://www.amazon.in/dp/B085WJVX7C?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "DOVE Nourishing Bodywash 825ml for Soft & Smooth Skin",
-            "price": "₹278",
-            "mrp": "₹525",
-            "discount_percent": "47%",
-            "link": "https://www.amazon.in/dp/B07S7R626P?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "Vaseline Sun Protect SPF 30 Body Lotion 400ml",
-            "price": "₹297",
-            "mrp": "₹571",
-            "discount_percent": "48%",
-            "link": "https://www.amazon.in/dp/B07W7D9NSB?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "Biotique Herbcolor Conditioning Hair Colour Natural Black",
-            "price": "₹120",
-            "mrp": "₹240",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0847NC3YS?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "LAKMÉ Sun Expert SPF 50 PA+++ Gel Sunscreen 50g",
-            "price": "₹225",
-            "mrp": "₹500",
-            "discount_percent": "55%",
-            "link": "https://www.amazon.in/dp/B0744R95BT?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "Parlak Milk & Oil Packet Holder, Black Plastic Organizer",
-            "price": "₹149",
-            "mrp": "₹299",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0GTF761GQ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Ajanta AQ-2147 Quartz Glass Abstract Blue Office Clock",
-            "price": "₹185",
-            "mrp": "₹379",
-            "discount_percent": "51%",
-            "link": "https://www.amazon.in/dp/B00PXJWJJI?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
         }
     ]
 }
