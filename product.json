@@ -1,6 +1,132 @@
 {
     "products": [
         {
+            "name": "boAt BassHeads 102 Wired Earphones with in-line mic",
+            "price": "₹399",
+            "mrp": "₹1290",
+            "discount_percent": "69%",
+            "link": "https://www.amazon.in/dp/B0B6472H32?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41-N04vWcSL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Blaupunkt EM01 Wired Earphone with Mic",
+            "price": "₹299",
+            "mrp": "₹999",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B0BH3G586N?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/31gP82z07UL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Boult Audio Bassbuds X1 in-Ear Wired Earphones with Mic",
+            "price": "₹299",
+            "mrp": "₹1299",
+            "discount_percent": "76%",
+            "link": "https://www.amazon.in/dp/B09V7N615Q?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61S2R5u7FHL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "pTron Pride Lite HBE (High Bass Earphones) with Mic",
+            "price": "₹129",
+            "mrp": "₹1000",
+            "discount_percent": "87%",
+            "link": "https://www.amazon.in/dp/B0BNW68L79?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51-mF9L02FL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "REDTECH Wired Earphones with mic in-Ear, Stereo Bass",
+            "price": "₹99",
+            "mrp": "₹999",
+            "discount_percent": "90%",
+            "link": "https://www.amazon.in/dp/B0C3C91QW1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/610y+Xb9sEL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Pond's Super Light Gel Oil Free Face Moisturizer 300g",
+            "price": "₹434",
+            "mrp": "₹668",
+            "discount_percent": "35%",
+            "link": "https://www.amazon.in/dp/B0DFWPG1RM?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Ghar Magic De-Tan Face Wash Saffron & Glutathione 100ml",
+            "price": "₹239",
+            "mrp": "₹368",
+            "discount_percent": "35%",
+            "link": "https://www.amazon.in/dp/B0GYYWPB3K?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Pilgrim Tea Tree & Salicylic Acid Anti-Dandruff Shampoo (200ml)",
+            "price": "₹242",
+            "mrp": "₹372",
+            "discount_percent": "35%",
+            "link": "https://www.amazon.in/dp/B0GQ3K6TDC?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "LUMONY® Silicone Face Ice Bowl for Ice Bath Facial Plunge",
+            "price": "₹149",
+            "mrp": "₹248",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0GY11K7X1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "One94Store Rechargeable Handheld Fan 1800mAh Battery",
+            "price": "₹399",
+            "mrp": "₹799",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0GHP41QPF?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "DIVIJA STORE Wood Smart Multipurpose Foldable Laptop Table",
+            "price": "₹299",
+            "mrp": "₹649",
+            "discount_percent": "53%",
+            "link": "https://www.amazon.in/dp/B0DK7B3B2G?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "APFEN USB Type-A to Lightning Cable MFi Certified",
+            "price": "₹271",
+            "mrp": "₹599",
+            "discount_percent": "54%",
+            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "Kratos 25W Charger Adapter with Type C to C Cable",
+            "price": "₹399",
+            "mrp": "₹899",
+            "discount_percent": "55%",
+            "link": "https://www.amazon.in/dp/B0DZHYQGNX?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "Ambrane Type C 3A Fast Charging 1M Braided Cable",
+            "price": "₹129",
+            "mrp": "₹299",
+            "discount_percent": "56%",
+            "link": "https://www.amazon.in/dp/B0CJJQLDS9?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
             "name": "Lux Cozi Men Underwear",
             "price": "₹318",
             "mrp": "₹530",
@@ -773,132 +899,6 @@
             "link": "https://www.amazon.in/dp/B0C376RWQP?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
             "category": "Computers"
-        },
-        {
-            "name": "Sounce Mouse Pad Speed Type with Antifray Stitched Edges",
-            "price": "₹99",
-            "mrp": "₹446",
-            "discount_percent": "77%",
-            "link": "https://www.amazon.in/dp/B0BSR2N5W9?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "Gizga Essentials 14.1\" Laptop Keyboard Protector Skin",
-            "price": "₹99",
-            "mrp": "₹495",
-            "discount_percent": "80%",
-            "link": "https://www.amazon.in/dp/B0F327RFGT?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "Lakme Absolute Matte Melt Liquid Lip Color (Mulberry Kiss)",
-            "price": "₹399",
-            "mrp": "₹750",
-            "discount_percent": "47%",
-            "link": "https://www.amazon.in/dp/B08P1QJ339?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/419D4e-V8CL._SX300_SY300_QL70_FMwebp_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Nescafe Classic Coffee, 200g Pouch",
-            "price": "₹299",
-            "mrp": "₹599",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B08V819K3N?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51wB8s7M9GL._SX300_SY300_QL70_FMwebp_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Amazon Basics USB 2.0 A-Male to Micro B Cable (3 feet)",
-            "price": "₹189",
-            "mrp": "₹495",
-            "discount_percent": "62%",
-            "link": "https://www.amazon.in/dp/B00NH13DV2?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41K0K+i8v2L._SX300_SY300_QL70_FMwebp_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Cello Ornella Glass Set, 6-Pieces",
-            "price": "₹299",
-            "mrp": "₹899",
-            "discount_percent": "67%",
-            "link": "https://www.amazon.in/dp/B08V819K3N?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51wB8s7M9GL._SX300_SY300_QL70_FMwebp_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Kuber Industries 6 Piece Microfiber Cleaning Cloth",
-            "price": "₹249",
-            "mrp": "₹899",
-            "discount_percent": "72%",
-            "link": "https://www.amazon.in/dp/B08V819K3N?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51Hq0L92JRL._SX300_SY300_QL70_FMwebp_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "APFEN USB-A to Lightning Cable [MFi Certified] Fast Charging",
-            "price": "₹271",
-            "mrp": "₹1199",
-            "discount_percent": "77%",
-            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "RMT-TX100U TV Remote Control for Sony Smart Televisions",
-            "price": "₹199",
-            "mrp": "₹899",
-            "discount_percent": "77%",
-            "link": "https://www.amazon.in/dp/B08WP9RWYJ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "Zebronics NS1000 Foldable Laptop Stand, Anti-Slip",
-            "price": "₹184",
-            "mrp": "₹999",
-            "discount_percent": "81%",
-            "link": "https://www.amazon.in/dp/B0C376RWQP?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "DIVIJA Multipurpose Foldable Laptop Table with Cup Holder",
-            "price": "₹299",
-            "mrp": "₹1799",
-            "discount_percent": "83%",
-            "link": "https://www.amazon.in/dp/B0DK7B3B2G?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "APFEN 20W MFi Certified Type-C Fast Charger Adapter & Cable",
-            "price": "₹380",
-            "mrp": "₹2299",
-            "discount_percent": "83%",
-            "link": "https://www.amazon.in/dp/B0F62W35NX?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "Yellow Weaves Top Load Washing Machine Cover (6-7kg)",
-            "price": "₹399",
-            "mrp": "₹670",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B09HV5N53T?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Ajanta Quartz Abstract Analog Wall Clock (White)",
-            "price": "₹489",
-            "mrp": "₹850",
-            "discount_percent": "43%",
-            "link": "https://www.amazon.in/dp/B01N6OOW52?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
         }
     ]
 }
