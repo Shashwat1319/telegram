@@ -1,6 +1,33 @@
 {
     "products": [
         {
+            "name": "Lux Cozi Men Underwear",
+            "price": "₹318",
+            "mrp": "₹530",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B072KRH61C?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "THE HOME STYLE Super Soft Glace Cotton Pillow Covers Set of 2",
+            "price": "₹349",
+            "mrp": "₹699",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0DGCKPC97?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Yellow Weaves Top Load Washing Machine Cover (Blue)",
+            "price": "₹424",
+            "mrp": "₹849",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B09HV5N53T?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
             "name": "DOCTOR EXTRA SOFT Women's Ortho Care Super Comfort Sliders",
             "price": "₹427",
             "mrp": "₹1199",
@@ -872,33 +899,6 @@
             "link": "https://www.amazon.in/dp/B01N6OOW52?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
             "category": "Kitchen"
-        },
-        {
-            "name": "Signamio Ceramic Shivling Backflow Dhoop Smoke Fountain",
-            "price": "₹263",
-            "mrp": "₹470",
-            "discount_percent": "44%",
-            "link": "https://www.amazon.in/dp/B09HXLYFHT?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "THE HOME STYLE Super Soft Glace Cotton King Size Pillow Covers",
-            "price": "₹349",
-            "mrp": "₹650",
-            "discount_percent": "46%",
-            "link": "https://www.amazon.in/dp/B0DGCKPC97?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Biotique Herbcolor Conditioning Hair Colour, Natural Black",
-            "price": "₹152",
-            "mrp": "₹250",
-            "discount_percent": "39%",
-            "link": "https://www.amazon.in/dp/B0847NC3YS?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
         }
     ]
 }
