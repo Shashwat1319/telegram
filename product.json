@@ -1,6 +1,15 @@
 {
     "products": [
         {
+            "name": "Ajanta AQ-2147 Quartz Glass Blue Office Clock",
+            "price": "₹175",
+            "mrp": "₹500",
+            "discount_percent": "65%",
+            "link": "https://www.amazon.in/dp/B00PXJWJJI?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
             "name": "boAt BassHeads 102 Wired Earphones with in-line mic",
             "price": "₹399",
             "mrp": "₹1290",
@@ -888,15 +897,6 @@
             "mrp": "₹949",
             "discount_percent": "71%",
             "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "Zebronics-NS1000 Laptop Stand Featuring Foldable Design",
-            "price": "₹184",
-            "mrp": "₹736",
-            "discount_percent": "75%",
-            "link": "https://www.amazon.in/dp/B0C376RWQP?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
             "category": "Computers"
         }
