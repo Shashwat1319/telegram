@@ -1,6 +1,87 @@
 {
     "products": [
         {
+            "name": "SNEAKARE Shoe Cleaning Multipack Wipes, Travel-Friendly",
+            "price": "₹298",
+            "mrp": "₹664",
+            "discount_percent": "55%",
+            "link": "https://www.amazon.in/dp/B0F43VMBD7?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Dr.Ortho Orthopedic Acupressure Flip-Flops For Men & Women",
+            "price": "₹399",
+            "mrp": "₹886",
+            "discount_percent": "55%",
+            "link": "https://www.amazon.in/dp/B0DZ6YXVWP?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Carrylux Dual Tone Large Capacity Croco Pattern Tote",
+            "price": "₹386",
+            "mrp": "₹857",
+            "discount_percent": "55%",
+            "link": "https://www.amazon.in/dp/B0C4BTH192?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "DOCTOR EXTRA SOFT Chappal Care Orthopaedic Flip-Flop",
+            "price": "₹427",
+            "mrp": "₹951",
+            "discount_percent": "55%",
+            "link": "https://www.amazon.in/dp/B0BRMSFSVS?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Amazon Basics Double Decker Egg Boiler 350 Watt",
+            "price": "₹429",
+            "mrp": "₹849",
+            "discount_percent": "49%",
+            "link": "https://www.amazon.in/dp/B0CHMK7J36?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Ajanta AQ-2147 Quartz Glass Abstract Blue Office Clock",
+            "price": "₹175",
+            "mrp": "₹349",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B00PXJWJJI?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "THE HOME STYLE Super Soft Glace Cotton King Size Pillow Covers",
+            "price": "₹349",
+            "mrp": "₹699",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0DGCKPC97?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Milton Kool Trendy 400 Kids Insulated Water Bottle",
+            "price": "₹139",
+            "mrp": "₹299",
+            "discount_percent": "54%",
+            "link": "https://www.amazon.in/dp/B09Y5LD9G2?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Milton Stainless Steel Executive Insulated Tiffin",
+            "price": "₹289",
+            "mrp": "₹649",
+            "discount_percent": "55%",
+            "link": "https://www.amazon.in/dp/B0D72NB1YL?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
             "name": "Pilgrim Australian Tea Tree & Salicylic Anti-Dandruff Shampoo",
             "price": "₹242",
             "mrp": "₹323",
@@ -818,87 +899,6 @@
             "link": "https://www.amazon.in/dp/B0G4MDFNGZ?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
             "category": "Computers"
-        },
-        {
-            "name": "Ambrane Unbreakable 3A Fast Charging 1.5M Braided Type C",
-            "price": "₹108",
-            "mrp": "₹279",
-            "discount_percent": "61%",
-            "link": "https://www.amazon.in/dp/B0DV8ZPMCQ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "Toy Imagine Mini Portable Thermal Printer – Bluetooth",
-            "price": "₹199",
-            "mrp": "₹669",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B0FJMHRQXY?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "RMT-TX100U TV Remote Control Fit for Sony Smart Televisions",
-            "price": "₹199",
-            "mrp": "₹570",
-            "discount_percent": "65%",
-            "link": "https://www.amazon.in/dp/B08WP9RWYJ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "Goldmedal G-Dial 2 Pin Plug 5-Meter Extension Cord",
-            "price": "₹249",
-            "mrp": "₹715",
-            "discount_percent": "65%",
-            "link": "https://www.amazon.in/dp/B011IC7JLG?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "Ambrane Type C Cable 3A Fast Charging 1M Braided Cable",
-            "price": "₹129",
-            "mrp": "₹430",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B0CJJQLDS9?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "Gizga Pro Series 3-in-1 Cleaning KIT - 150ml Cleaning Spray",
-            "price": "₹149",
-            "mrp": "₹499",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B09RHDZ8V5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "Shoetopia Women Flat Sandal",
-            "price": "₹470",
-            "mrp": "₹855",
-            "discount_percent": "45%",
-            "link": "https://www.amazon.in/dp/B0D77N8528?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "DOCTOR EXTRA SOFT Women's Ortho Care Orthopaedic Sliders",
-            "price": "₹427",
-            "mrp": "₹779",
-            "discount_percent": "45%",
-            "link": "https://www.amazon.in/dp/B09HSL1X1D?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "DOCTOR HEALTH SUPER SOFT Men’s Buckle Thong Sandals",
-            "price": "₹499",
-            "mrp": "₹909",
-            "discount_percent": "45%",
-            "link": "https://www.amazon.in/dp/B0GSB65S2J?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Shoes"
         }
     ]
 }
