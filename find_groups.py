@@ -16,7 +16,7 @@ async def find_20_groups():
 
     print("[*] Starting Telegram Global Search for Promo Groups...\n")
     
-    keywords = ["sub4sub", "promote", "youtube subscribers", "share links", "telegram promote", "grow channel", "link sharing", "view4view"]
+    keywords = ["loots discussion", "deals chat india", "shopping loot", "amazon deals", "flipkart loot", "sasta bazar chat", "shopping group india"]
     found_groups = []
     
     for kw in keywords:

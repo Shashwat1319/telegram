@@ -41,23 +41,20 @@ async def get_active_members(client, group_username):
             print(f"[-] Could not join/resolve {group_username}: {e}")
 
         active_users = []
-        # Get participants
-        # We use limit=None to get as many as possible (Telethon handles pagination)
-        # However, for safety and speed, we'll limit to 1000 per group for now
-        async for user in client.iter_participants(group_username, limit=1000):
-            if user.bot or user.deleted:
-                continue
-            
-            # Check if user is "Recently" or "Online"
-            is_active = isinstance(user.status, (UserStatusRecently, UserStatusOnline))
-            
-            if is_active:
-                if user.username:
-                    active_users.append(f"@{user.username}")
-                elif user.phone:
-                    active_users.append(f"+{user.phone}")
+        # Get recent messages to find people who are ACTUALLY chatting (High Intent)
+        async for message in client.iter_messages(group_username, limit=300):
+            if message.sender_id and not message.out:
+                sender = await message.get_sender()
+                if sender and not sender.bot and not sender.deleted:
+                    if sender.username:
+                        active_users.append(f"@{sender.username}")
+                    elif sender.phone:
+                        active_users.append(f"+{sender.phone}")
         
-        print(f"[OK] Found {len(active_users)} active users in {group_username}")
+        # Remove duplicates
+        active_users = list(set(active_users))
+        
+        print(f"[OK] Found {len(active_users)} highly active chatters in {group_username}")
         return active_users
     except Exception as e:
         print(f"[ERROR] Failed to scrape {group_username}: {e}")

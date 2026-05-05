@@ -1,43 +1,51 @@
-import asyncio
 import os
-from telethon import TelegramClient
-from telethon.sessions import StringSession
+import asyncio
+import sys
+from telethon import TelegramClient, functions, types
 from dotenv import load_dotenv
 
+# Set encoding for Windows console
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding='utf-8')
+
 load_dotenv()
-API_ID = os.getenv("API_ID")
+
+API_ID = int(os.getenv("API_ID"))
 API_HASH = os.getenv("API_HASH")
+SESSION_NAME = "userbot_session"
+GROUP_USERNAME = "FlipkartBitcoin"
 
-# Pick a few groups to check
-GROUPS_TO_CHECK = [
-    "@LootDealsDiscussion",
-    "@onlinelootrjgroup",
-    "@deals_groups"
-]
-
-async def check_visibility():
-    session_data = os.getenv("TELEGRAM_SESSION_1")
-    client = TelegramClient(StringSession(session_data), int(API_ID), API_HASH)
+async def main():
+    print(f"[*] Starting Visibility Test for @{GROUP_USERNAME}...")
+    client = TelegramClient(SESSION_NAME, API_ID, API_HASH)
+    await client.start()
     
-    await client.connect()
-    print("--- Message Visibility Audit ---")
-    
-    for group in GROUPS_TO_CHECK:
-        print(f"\n[*] Checking group: {group}")
+    try:
+        entity = await client.get_entity(GROUP_USERNAME)
+        
+        # 1. Send a test message
+        print("[*] Sending test message...")
+        msg = await client.send_message(entity, "🔍 Testing Group Visibility - Please Ignore")
+        print(f"[*] Message sent (ID: {msg.id}). Waiting 15 seconds for bot reaction...")
+        
+        # 2. Wait to see if it gets deleted
+        await asyncio.sleep(15)
+        
+        # 3. Check if it still exists
         try:
-            # Check last 20 messages to see if OUR promo is there
-            async for message in client.iter_messages(group, limit=20):
-                text = str(message.text) if message.text else ""
-                # Check if it contains our channel link or keywords
-                if "t.me/budgetdeals_india" in text or "LOOT ALERT" in text:
-                    print(f"[FOUND] Our message is VISIBLE! ID: {message.id} | Date: {message.date}")
-                    break
+            messages = await client.get_messages(entity, ids=msg.id)
+            if messages:
+                print("[SUCCESS] Message is still visible! You ARE allowed to post here.")
             else:
-                print(f"[MISSING] Our message is NOT found in the last 20 messages of {group}.")
+                print("[FAILED] Message was INSTANTLY DELETED. This group has an anti-link/anti-spam bot.")
         except Exception as e:
-            print(f"[ERROR] Could not check {group}: {e}")
+            print(f"[FAILED] Error while checking message: {e}")
             
-    await client.disconnect()
+    except Exception as e:
+        print(f"[!] Error during test: {e}")
+        print("[HINT] If you get 'PeerIdInvalid', try joining the group manually first.")
+    finally:
+        await client.disconnect()
 
 if __name__ == "__main__":
-    asyncio.run(check_visibility())
+    asyncio.run(main())

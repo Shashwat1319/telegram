@@ -206,21 +206,23 @@ def generate_bounty_message():
         {
             "name": "Amazon Prime FREE Trial",
             "url": f"https://www.amazon.in/tryprime?tag={aff_id}",
-            "desc": f"🚀 <b>Join Amazon Prime for FREE!</b>\n\nGet FREE 1-Day Delivery, early access to lightning deals, and Prime Video access.\n\n✨ <b>Membership Benefits:</b>\n✅ Free Delivery on All Orders\n✅ Prime Music & Video\n✅ Exclusive Member Deals\n\n👉 <b>Join Now (Free Trial):</b> https://www.amazon.in/tryprime?tag={aff_id}"
+            "desc": "🚀 <b>Join Amazon Prime for FREE!</b>\n\nGet FREE 1-Day Delivery, early access to lightning deals, and Prime Video access.\n\n✨ <b>Membership Benefits:</b>\n✅ Free Delivery on All Orders\n✅ Prime Music & Video\n✅ Exclusive Member Deals\n\n👉 <b>Join Now (Free Trial):</b> {link}"
         },
         {
             "name": "Amazon Business (GST Invoice)",
             "url": f"https://www.amazon.in/tryab?tag={aff_id}",
-            "desc": f"💼 <b>Save 28% Extra with GST Invoice!</b>\n\nRegister your Business Account for FREE and get exclusive business pricing and GST claims on every purchase.\n\n✨ <b>Best for Resellers & Shop Owners!</b>\n👉 <b>Register Free Account:</b> https://www.amazon.in/tryab?tag={aff_id}"
+            "desc": "💼 <b>Save 28% Extra with GST Invoice!</b>\n\nRegister your Business Account for FREE and get exclusive business pricing and GST claims on every purchase.\n\n✨ <b>Best for Resellers & Shop Owners!</b>\n👉 <b>Register Free Account:</b> {link}"
         },
         {
             "name": "Audible 90-Days Free",
             "url": f"https://www.amazon.in/dp/B077S5CVYQ?tag={aff_id}",
-            "desc": f"🎧 <b>Listen to 100,000+ Audiobooks for FREE!</b>\n\nGet 90 days of Audible membership for absolutely zero cost. Perfect for learning and entertainment.\n\n👉 <b>Claim 90-Day Free Trial:</b> https://www.amazon.in/dp/B077S5CVYQ?tag={aff_id}"
+            "desc": "🎧 <b>Listen to 100,000+ Audiobooks for FREE!</b>\n\nGet 90 days of Audible membership for absolutely zero cost. Perfect for learning and entertainment.\n\n👉 <b>Claim 90-Day Free Trial:</b> {link}"
         }
     ]
     selected = random.choice(bounties)
-    return selected["desc"]
+    # Track the bounty link
+    tracked_link = get_short_url(selected["url"])
+    return selected["desc"].format(link=tracked_link)
 
 # ---------- Short Link Helper ----------
 def get_short_url(target_url):

@@ -51,7 +51,9 @@ def process_product(product):
     link = product.get('link', '')
     
     # Check if image is missing or placeholder
-    is_missing = not img or "placeholder" in img or "via.placeholder" in img
+    image_url = product.get("image", "")
+    # Treat empty strings or Amazon placeholder GIFs as missing
+    is_missing = not img or "placeholder" in img or "via.placeholder" in img or "01jrA-8DXYL.gif" in image_url or ".gif" in image_url.lower()
     
     if is_missing and link and "amazon" in link:
         print(f"[*] Fetching image for: {name[:40]}...")

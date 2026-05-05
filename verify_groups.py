@@ -1,80 +1,84 @@
-import asyncio
 import os
-from telethon import TelegramClient
-from telethon.tl.functions.channels import GetFullChannelRequest
+import asyncio
+import sys
+from telethon import TelegramClient, functions, types
 from dotenv import load_dotenv
 
-async def verify_groups():
-    load_dotenv()
-    try:
-        api_id = int(os.getenv("API_ID"))
-        api_hash = os.getenv("API_HASH")
-        phone = os.getenv("PHONE_NUMBER")
-    except:
-        print("[ERROR] Missing API_ID or API_HASH in .env")
-        return
+# Set encoding for Windows console
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding='utf-8')
 
-    print("[*] Connecting to Telegram to verify groups...")
-    client = TelegramClient("userbot_session", api_id, api_hash)
+load_dotenv()
+
+API_ID = int(os.getenv("API_ID"))
+API_HASH = os.getenv("API_HASH")
+SESSION_NAME = "userbot_session"
+GROUPS_FILE = "promo_groups_list.txt"
+
+async def main():
+    print(f"[*] Starting Bulk Group Verification...")
+    client = TelegramClient(SESSION_NAME, API_ID, API_HASH)
+    await client.start()
     
-    try:
-        await client.start(phone=phone)
-    except Exception as e:
-        print(f"[ERROR] Failed to start Telegram client: {e}")
+    if not os.path.exists(GROUPS_FILE):
+        print(f"[!] Error: {GROUPS_FILE} not found.")
         return
 
-    try:
-        with open("promo_groups_list.txt", "r") as f:
-            groups = [line.strip() for line in f.readlines() if line.strip() and not line.startswith("#")]
-    except:
-        print("[ERROR] promo_groups_list.txt not found.")
-        return
+    with open(GROUPS_FILE, "r", encoding="utf-8") as f:
+        groups = [line.strip() for line in f if line.strip() and not line.startswith("#")]
 
-    print(f"[*] Found {len(groups)} groups to verify. This might take a minute...\n")
-    
     verified_list = []
+    failed_list = []
 
-    for group in groups:
+    for username in groups:
+        clean_username = username.replace("@", "").strip()
+        print(f"[*] Checking @{clean_username}...")
+        
         try:
-            entity = await client.get_entity(group)
+            entity = await client.get_entity(clean_username)
             
-            # Skip if it's a user
-            if hasattr(entity, 'first_name'):
-                print(f"[-] {group}: Is a user, not a group.")
+            # Check if it's a broadcast channel (usually read-only)
+            if isinstance(entity, types.Channel) and getattr(entity, 'broadcast', False):
+                print(f"    [X] Broadcast Channel (Read-Only). Skipping.")
+                failed_list.append(f"{username} (Broadcast Channel)")
                 continue
 
-            # Need GetFullChannelRequest to get accurate participant count for megagroups
-            full = await client(GetFullChannelRequest(channel=entity))
-            count = full.full_chat.participants_count
-            
-            # Check if it's a broadcast channel (we usually can't post here unless admin)
-            is_broadcast = getattr(entity, 'broadcast', False)
-            
-            if is_broadcast:
-                print(f"[X] {group}: Is a broadcast channel (You can't post here without admin).")
-            elif count and count >= 100:
-                print(f"[OK] {group}: VALID ({count} members).")
-                verified_list.append(group)
-            else:
-                print(f"[-] {group}: Too small ({count} members).")
+            # Check permissions
+            try:
+                # Try to join if not already a member
+                try:
+                    await client(functions.channels.JoinChannelRequest(entity))
+                except: pass
                 
-        except ValueError:
-            print(f"[X] {group}: Username not found or dead.")
+                permissions = await client.get_permissions(entity)
+                if permissions.send_messages:
+                    print(f"    [OK] Active & Permitted.")
+                    verified_list.append(username)
+                else:
+                    print(f"    [X] Restricted (Read-Only).")
+                    failed_list.append(f"{username} (Restricted)")
+            except Exception as e:
+                print(f"    [X] Permission Error: {e}")
+                failed_list.append(f"{username} (Error: {e})")
+                
         except Exception as e:
-            print(f"[X] {group}: Error -> {e}")
-            
-        await asyncio.sleep(1) # Prevent FloodWait
+            print(f"    [X] Could not find group: {e}")
+            failed_list.append(f"{username} (Not Found)")
+        
+        await asyncio.sleep(1) # Safety delay
 
-    print("\n---------------------------------------------------------")
-    print(f"[*] VERIFICATION COMPLETE. Found {len(verified_list)} working groups.")
-    
-    if verified_list:
-        with open("verified_promo_groups.txt", "w") as f:
-            for vg in verified_list:
-                f.write(f"{vg}\n")
-        print("[*] Saved working groups to 'verified_promo_groups.txt'")
+    # Write back the verified list
+    with open("verified_promo_groups.txt", "w", encoding="utf-8") as f:
+        f.write("# VERIFIED ACTIVE GROUPS\n")
+        for g in verified_list:
+            f.write(f"{g}\n")
+
+    print(f"\n[DONE] Verification Summary:")
+    print(f"    - Verified Active: {len(verified_list)}")
+    print(f"    - Restricted/Failed: {len(failed_list)}")
+    print(f"\n[*] Active groups saved to: verified_promo_groups.txt")
 
     await client.disconnect()
 
 if __name__ == "__main__":
-    asyncio.run(verify_groups())
+    asyncio.run(main())

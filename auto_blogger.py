@@ -8,6 +8,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+CLICK_TRACKER_URL = os.getenv("CLICK_TRACKER_URL", "")
+
+def get_tracked_link(target_url):
+    """Wrap link with Netlify tracker for deep-linking and stats."""
+    if not CLICK_TRACKER_URL:
+        return target_url
+    from urllib.parse import quote
+    return f"{CLICK_TRACKER_URL}/go?url={quote(target_url)}"
 
 def generate_blog_content(product):
     """Use Gemini to write a 150-200 word SEO-optimized blog post."""
@@ -73,7 +81,7 @@ title: "{product['name']}"
 description: "Epic Deal: Save {product['discount_percent']} on {product['name']}! Best price alert on Amazon India."
 pubDate: "{date_str}"
 heroImage: "{product['image']}"
-buyLink: "{product['link']}"
+buyLink: "{get_tracked_link(product['link'])}"
 ---
 
 {content}

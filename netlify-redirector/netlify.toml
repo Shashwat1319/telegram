@@ -10,3 +10,8 @@
   from = "/stats"
   to = "/.netlify/functions/stats"
   status = 200
+
+[[redirects]]
+  from = "/s/*"
+  to = "/.netlify/functions/go"
+  status = 200
