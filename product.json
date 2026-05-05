@@ -1,6 +1,87 @@
 {
     "products": [
         {
+            "name": "Trance Cotton Feel Terry Ultra Soft Waterproof Mattress Protector",
+            "price": "₹496",
+            "mrp": "₹999",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0BTVWZ6MY?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Milton Stainless Steel Executive Lunch Insulated Tiffin",
+            "price": "₹289",
+            "mrp": "₹599",
+            "discount_percent": "51%",
+            "link": "https://www.amazon.in/dp/B0D72NB1YL?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "AADHIK Stainless Steel Sauce Pan, Tea Pan, Milk Pan 1.5 Litre",
+            "price": "₹299",
+            "mrp": "₹650",
+            "discount_percent": "53%",
+            "link": "https://www.amazon.in/dp/B0CSWF7JCB?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Go24 pexpo Water Bottle 1 ltr Stainless Steel (Pack of 2)",
+            "price": "₹289",
+            "mrp": "₹700",
+            "discount_percent": "58%",
+            "link": "https://www.amazon.in/dp/B0F7LXBP97?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Compact Digital Kitchen Weighing Scale 5kg",
+            "price": "₹399",
+            "mrp": "₹1299",
+            "discount_percent": "69%",
+            "link": "https://amazon.in/#?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71s8L+bA+kL._SL1500_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "Organic Vitamin C Foaming Face Wash 150ml",
+            "price": "₹249",
+            "mrp": "₹899",
+            "discount_percent": "72%",
+            "link": "https://amazon.in/#?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61b7l3YjF9L._SL1500_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "USB-C to USB-A Fast Charging Data Cable (2-Pack)",
+            "price": "₹129",
+            "mrp": "₹499",
+            "discount_percent": "74%",
+            "link": "https://amazon.in/#?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71k42+9-3jL._SL1500_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "Men's Regular Fit Half Sleeve Cotton T-Shirt",
+            "price": "₹199",
+            "mrp": "₹799",
+            "discount_percent": "75%",
+            "link": "https://amazon.in/#?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61M-Fw2lVzL._UX679_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "Wireless Bluetooth Earbuds with Mic",
+            "price": "₹349",
+            "mrp": "₹1499",
+            "discount_percent": "77%",
+            "link": "https://amazon.in/#?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71u9s8R5zYL._SL1500_.jpg",
+            "category": "Computers"
+        },
+        {
             "name": "SNEAKARE Shoe Cleaning Multipack Wipes, Travel-Friendly",
             "price": "₹298",
             "mrp": "₹664",
@@ -818,87 +899,6 @@
             "link": "https://www.amazon.in/dp/B0F958N4RH?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
             "category": "Ladies Fashion"
-        },
-        {
-            "name": "Jockey 1406 Women's High Coverage Cotton Mid Waist Hipster",
-            "price": "₹445",
-            "mrp": "₹750",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B010FMJV8Y?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "DEELMO Men’s Stylish Cotton Blend Casual Full Sleeve Shirt",
-            "price": "₹495",
-            "mrp": "₹900",
-            "discount_percent": "45%",
-            "link": "https://www.amazon.in/dp/B0FXS7QNLH?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "DOCTOR EXTRA SOFT Women's Ortho Care Sliders",
-            "price": "₹427",
-            "mrp": "₹855",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B09HSL1X1D?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Shoes"
-        },
-        {
-            "name": "Liril Lime & Tea Tree Oil Bath Soaps 125g (Pack of 2)",
-            "price": "₹139",
-            "mrp": "₹239",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0D5QVY9MW?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "LUMONY® Silicone Ice Face Bowl For Facial Ice Plunge",
-            "price": "₹149",
-            "mrp": "₹279",
-            "discount_percent": "46%",
-            "link": "https://www.amazon.in/dp/B0GY11K7X1?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "RIXTEC PVC Makeup Bag Travel Toiletry Organizer Set of 3",
-            "price": "₹153",
-            "mrp": "₹289",
-            "discount_percent": "47%",
-            "link": "https://www.amazon.in/dp/B0DW9B8QL7?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "Nivea Unisex Fresh Scent Deodorant Roll-On 25ml (Pack of 3)",
-            "price": "₹147",
-            "mrp": "₹299",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B07YLZPNKC?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "Robustrion Cover for iPad 11th / 10th Generation Case",
-            "price": "₹469",
-            "mrp": "₹1179",
-            "discount_percent": "60%",
-            "link": "https://www.amazon.in/dp/B0BJV4FYGF?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "Boat Type C to Lighting Cable for 27W Fast Charging",
-            "price": "₹249",
-            "mrp": "₹629",
-            "discount_percent": "60%",
-            "link": "https://www.amazon.in/dp/B0G4MDFNGZ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
         }
     ]
 }
