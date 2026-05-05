@@ -1,6 +1,78 @@
 {
     "products": [
         {
+            "name": "Pilgrim Australian Tea Tree & Salicylic Anti-Dandruff Shampoo",
+            "price": "₹242",
+            "mrp": "₹323",
+            "discount_percent": "25%",
+            "link": "https://www.amazon.in/dp/B0GQ3K6TDC?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "LAKMÉ Rose Loose Face Powder & Eyebrow Pencil Combo",
+            "price": "₹140",
+            "mrp": "₹200",
+            "discount_percent": "30%",
+            "link": "https://www.amazon.in/dp/B0B91122RQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Clean & Clear Foaming Face Wash Combo (240ml+100ml)",
+            "price": "₹205",
+            "mrp": "₹293",
+            "discount_percent": "30%",
+            "link": "https://www.amazon.in/dp/B0BFBDNJH9?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Deconstruct Brightening Lip Balm with SPF 30 (Pack of 2)",
+            "price": "₹193",
+            "mrp": "₹276",
+            "discount_percent": "30%",
+            "link": "https://www.amazon.in/dp/B0CCPDPHP5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "LUMONY® Ice Face Bowl Silicone Face Ice Bowl For Ice",
+            "price": "₹149",
+            "mrp": "₹229",
+            "discount_percent": "34%",
+            "link": "https://www.amazon.in/dp/B0GY11K7X1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "iPhone Charger Adapter 20W Type C with 1 Meter USB C Cable",
+            "price": "₹499",
+            "mrp": "₹999",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0CNM4V6Q5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "Smartby Universal Remote Control for Hisense Smart TVs",
+            "price": "₹199",
+            "mrp": "₹499",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B01N0CH8LV?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "RMT-TX100U TV Remote Control Fit for Sony Smart TVs",
+            "price": "₹199",
+            "mrp": "₹499",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B08WP9RWYJ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
             "name": "One94Store Rechargeable Handheld Fan (Blue)",
             "price": "₹399",
             "mrp": "₹1299",
@@ -827,78 +899,6 @@
             "link": "https://www.amazon.in/dp/B0GSB65S2J?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
             "category": "Ladies Shoes"
-        },
-        {
-            "name": "Boldfit Head Cap for Men & Women, Summer Sports Cap",
-            "price": "₹399",
-            "mrp": "₹799",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0GJDZBZPW?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "SAKHWALA Women's Wide Leg Track Pants High Waist",
-            "price": "₹448",
-            "mrp": "₹999",
-            "discount_percent": "55%",
-            "link": "https://www.amazon.in/dp/B0F958N4RH?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "TRYLO Women Full Coverage Bra, Cotton",
-            "price": "₹345",
-            "mrp": "₹799",
-            "discount_percent": "56%",
-            "link": "https://www.amazon.in/dp/B0BHLYB85B?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Boldfit Woolen Winter Cap for Women & Men with hand gloves",
-            "price": "₹249",
-            "mrp": "₹599",
-            "discount_percent": "58%",
-            "link": "https://www.amazon.in/dp/B0BJZ5QYFV?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "DEELMO Men’s Stylish Cotton Blend Casual Shirt",
-            "price": "₹495",
-            "mrp": "₹1299",
-            "discount_percent": "61%",
-            "link": "https://www.amazon.in/dp/B0FXS7QNLH?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "mifaso Type C Charger 15ft Ultra Thin Flat Power Strip",
-            "price": "₹299",
-            "mrp": "₹1100",
-            "discount_percent": "72%",
-            "link": "https://www.amazon.in/dp/B07WJG8K85?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "Zebronics-NS1000 Laptop Stand with Foldable Design",
-            "price": "₹184",
-            "mrp": "₹700",
-            "discount_percent": "73%",
-            "link": "https://www.amazon.in/dp/B0C376RWQP?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "Robustrion Cover for iPad 11th / 10th Gen (2022/2025)",
-            "price": "₹469",
-            "mrp": "₹1800",
-            "discount_percent": "73%",
-            "link": "https://www.amazon.in/dp/B0BJV4FYGF?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
         }
     ]
 }
