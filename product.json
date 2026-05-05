@@ -1,6 +1,24 @@
 {
     "products": [
         {
+            "name": "amazon basics Double Decker Egg Boiler | 350 Watt",
+            "price": "₹429",
+            "mrp": "₹899",
+            "discount_percent": "52%",
+            "link": "https://www.amazon.in/dp/B0CHMK7J36?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Go24 pexpo Water Bottle 1 ltr Stainless Steel Sports/Fridge (2 Pk)",
+            "price": "₹289",
+            "mrp": "₹649",
+            "discount_percent": "55%",
+            "link": "https://www.amazon.in/dp/B0F7LXBP97?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
             "name": "Trance Terry Waterproof Mattress Protector (72x24 inch, Grey)",
             "price": "₹496",
             "mrp": "₹710",
@@ -879,24 +897,6 @@
             "mrp": "₹1063",
             "discount_percent": "70%",
             "link": "https://www.amazon.in/dp/B0F1TJ2WJ6?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "Toy Imagine Mini Portable Thermal Printer - Bluetooth Pocket",
-            "price": "₹199",
-            "mrp": "₹663",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B0FJMHRQXY?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "Zebronics-NS1000 Laptop Stand - Foldable, 6 Adjustable Levels",
-            "price": "₹184",
-            "mrp": "₹613",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B0C376RWQP?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
             "category": "Computers"
         }
