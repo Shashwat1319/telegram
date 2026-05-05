@@ -1,6 +1,168 @@
 {
     "products": [
         {
+            "name": "One94Store Rechargeable Handheld Fan (Blue)",
+            "price": "₹399",
+            "mrp": "₹1299",
+            "discount_percent": "69%",
+            "link": "https://www.amazon.in/dp/B0GHP41QPF?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "Original USB-C to C Type Braided 1M Fast Charging Cable",
+            "price": "₹252",
+            "mrp": "₹849",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B0FM45Y98Y?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "GPS Colour Your Dreams 12A / 2612A Easy Refill Toner",
+            "price": "₹349",
+            "mrp": "₹1199",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B0D3BW5LZ3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "Dyazo 10 Angle Aluminum Laptop Stand Portable & Foldable",
+            "price": "₹279",
+            "mrp": "₹999",
+            "discount_percent": "72%",
+            "link": "https://www.amazon.in/dp/B0BVR9RCYW?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "Portronics Toad 103 Wired Optical Mouse (Black)",
+            "price": "₹165",
+            "mrp": "₹699",
+            "discount_percent": "76%",
+            "link": "https://www.amazon.in/dp/B0F5Q9QTH1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Computers"
+        },
+        {
+            "name": "iPhone Charger Adapter 20W Type C for iPhone 17/17 Air",
+            "price": "₹499",
+            "mrp": "₹999",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0CNM4V6Q5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "One94Store Rechargeable Handheld Fan with Mobile Stand",
+            "price": "₹399",
+            "mrp": "₹799",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0GHP41QPF?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "Smartby Universal Remote Control EN2A27 for Hisense TVs",
+            "price": "₹199",
+            "mrp": "₹499",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B01N0CH8LV?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "RMT-TX100U TV Remote Control for Sony Smart Televisions",
+            "price": "₹199",
+            "mrp": "₹499",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B08WP9RWYJ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "Clean & Clear Foaming face wash for oily skin (340ml)",
+            "price": "₹205",
+            "mrp": "₹292",
+            "discount_percent": "30%",
+            "link": "https://www.amazon.in/dp/B0BFBDNJH9?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Pilgrim Australian Tea Tree & Salicylic Acid Anti-Dandruff Shampoo",
+            "price": "₹242",
+            "mrp": "₹345",
+            "discount_percent": "30%",
+            "link": "https://www.amazon.in/dp/B0GQ3K6TDC?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Dettol Icy Cool Bathing Soap Bar With 2x Menthol (300gm)",
+            "price": "₹150",
+            "mrp": "₹230",
+            "discount_percent": "35%",
+            "link": "https://www.amazon.in/dp/B0869VX72V?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "LAKMÉ Rose Loose Face Powder With Sunscreen, Warm Pink",
+            "price": "₹140",
+            "mrp": "₹215",
+            "discount_percent": "35%",
+            "link": "https://www.amazon.in/dp/B0B91122RQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "LUMONY® Ice Face Bowl Silicone Face Ice Bowl For Ice Bath",
+            "price": "₹149",
+            "mrp": "₹248",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0GY11K7X1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Noise Buds VS102 Truly Wireless Earbuds",
+            "price": "₹399",
+            "mrp": "₹1499",
+            "discount_percent": "73%",
+            "link": "https://www.amazon.in/dp/B0B551Y4C3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61KNJFIS+rL._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Cosmic Byte Anti-Slip Gaming Mouse Pad",
+            "price": "₹179",
+            "mrp": "₹699",
+            "discount_percent": "74%",
+            "link": "https://www.amazon.in/dp/B07D3V15J3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71W2b2lYnPL._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Generic Microfiber Cleaning Cloth (5 Pack)",
+            "price": "₹99",
+            "mrp": "₹399",
+            "discount_percent": "75%",
+            "link": "https://www.amazon.in/dp/B09XXX1234?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71B7N8m87SL._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Kadence Frontier Guitar Pick Set (10 Pcs)",
+            "price": "₹129",
+            "mrp": "₹799",
+            "discount_percent": "83%",
+            "link": "https://www.amazon.in/dp/B07N9D5T5M?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/718y6M-t-QL._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "Nivea Unisex Fresh Scent Deodorant Roll-On 25ml (3 Pack)",
             "price": "₹136",
             "mrp": "₹240",
@@ -737,168 +899,6 @@
             "link": "https://www.amazon.in/dp/B0BJV4FYGF?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
             "category": "Computers"
-        },
-        {
-            "name": "Ambrane Unbreakable 3A Fast Charging 1.5M Braided Type C USB Cable",
-            "price": "₹108",
-            "mrp": "₹500",
-            "discount_percent": "78%",
-            "link": "https://www.amazon.in/dp/B0DV8ZPMCQ?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "Toy Imagine Mini Portable Thermal Printer – Bluetooth Pocket",
-            "price": "₹199",
-            "mrp": "₹1000",
-            "discount_percent": "80%",
-            "link": "https://www.amazon.in/dp/B0FJMHRQXY?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "Pilgrim 10% Vitamin C Face Serum For Daily Brightness 10ml",
-            "price": "₹198",
-            "mrp": "₹495",
-            "discount_percent": "60%",
-            "link": "https://www.amazon.in/dp/B0D5DBMKMC?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "Liril Lime & Tea Tree Oil Bath Soaps (Buy 3 Get 1) Pack 2",
-            "price": "₹139",
-            "mrp": "₹397",
-            "discount_percent": "65%",
-            "link": "https://www.amazon.in/dp/B0D5QVY9MW?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "NIVEA Men Fresh Power Underarm Roll-On Deodorant 50Ml",
-            "price": "₹144",
-            "mrp": "₹411",
-            "discount_percent": "65%",
-            "link": "https://www.amazon.in/dp/B0159ZS3K4?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "RIXTEC PVC Makeup Bag Travel Toiletries Organizer Set of 3",
-            "price": "₹153",
-            "mrp": "₹510",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B0DW9B8QL7?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "LUMONY® Ice Face Bowl Silicone For Ice With Built-In Tray",
-            "price": "₹149",
-            "mrp": "₹496",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B0GY11K7X1?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Beauty"
-        },
-        {
-            "name": "Gizga Pro Series 3-in-1 Cleaning KIT",
-            "price": "₹149",
-            "mrp": "₹425",
-            "discount_percent": "65%",
-            "link": "https://www.amazon.in/dp/B09RHDZ8V5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "DIVIJA STORE Wood Multipurpose Foldable Laptop Table",
-            "price": "₹299",
-            "mrp": "₹854",
-            "discount_percent": "65%",
-            "link": "https://www.amazon.in/dp/B0DK7B3B2G?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "APFEN® 20W [Apple MFi Certified] Type-C Fast Charger",
-            "price": "₹380",
-            "mrp": "₹1085",
-            "discount_percent": "65%",
-            "link": "https://www.amazon.in/dp/B0F62W35NX?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "OpenTech® Military-Grade Tempered Glass Screen Protector",
-            "price": "₹197",
-            "mrp": "₹659",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B09Z7Y4D5Z?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "Ambrane Type C Cable 3A Fast Charging 1M Braided",
-            "price": "₹129",
-            "mrp": "₹516",
-            "discount_percent": "75%",
-            "link": "https://www.amazon.in/dp/B0CJJQLDS9?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "Philips Stellar Bright B22 9-Watt LED Bulb (Cool Day Light)",
-            "price": "₹179",
-            "mrp": "₹699",
-            "discount_percent": "74%",
-            "link": "https://www.amazon.in/dp/B07F2R2S5N?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/616vR76o3QL._AC_SY450_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Spigen Optik Crystal Screen Protector for iPhone",
-            "price": "₹149",
-            "mrp": "₹599",
-            "discount_percent": "75%",
-            "link": "https://www.amazon.in/dp/B0BW86N8B7?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61vYfG+1nFL._AC_SY450_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Mi Smart Band 6 - Fitness Tracker (Black)",
-            "price": "₹249",
-            "mrp": "₹999",
-            "discount_percent": "75%",
-            "link": "https://www.amazon.in/dp/B09D1V6P1K?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/719n912xJQL._AC_SY450_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Symbol Men's Regular Fit Half Sleeve T-Shirt",
-            "price": "₹199",
-            "mrp": "₹799",
-            "discount_percent": "75%",
-            "link": "https://www.amazon.in/dp/B08V5T2J3Q?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71rXN2Y58dL._AC_SY450_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "AmazonBasics USB 2.0 A-Male to Micro B Charger Cable",
-            "price": "₹119",
-            "mrp": "₹499",
-            "discount_percent": "76%",
-            "link": "https://www.amazon.in/dp/B07R9XQ686?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71N7jX70jCL._AC_SY450_.jpg",
-            "category": "Loot"
-        },
-        {
-            "name": "Ezee Live Life Black Garbage Bags for Dustbin (90 Pcs)",
-            "price": "₹159",
-            "mrp": "₹299",
-            "discount_percent": "47%",
-            "link": "https://www.amazon.in/dp/B06VX8YR6Q?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
         }
     ]
 }
