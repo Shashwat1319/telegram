@@ -1,6 +1,60 @@
 {
     "products": [
         {
+            "name": "Nivea Unisex Fresh Scent Deodorant Roll-On 25ml (3 Pack)",
+            "price": "₹136",
+            "mrp": "₹240",
+            "discount_percent": "43%",
+            "link": "https://www.amazon.in/dp/B07YLZPNKC?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Pilgrim 10% Vitamin C Face Serum for Daily Brightness 10ml",
+            "price": "₹198",
+            "mrp": "₹350",
+            "discount_percent": "43%",
+            "link": "https://www.amazon.in/dp/B0D5DBMKMC?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "LUMONY® Ice Face Bowl Silicone For Ice Bath & Facials",
+            "price": "₹149",
+            "mrp": "₹299",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B0GY11K7X1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Solimo Stainless Steel Peeler for Fruits & Vegetables",
+            "price": "₹99",
+            "mrp": "₹249",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B07F2R7S5Y?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61r56k3-jHL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "AmazonBasics Mouse Pad - Black",
+            "price": "₹179",
+            "mrp": "₹449",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B00V1S74GA?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/619L27eL9YL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "AmazonBasics Microfiber Cleaning Cloth (3-Pack)",
+            "price": "₹149",
+            "mrp": "₹399",
+            "discount_percent": "63%",
+            "link": "https://www.amazon.in/dp/B00D2F6BKO?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71J15pT60rL._AC_UL320_.jpg",
+            "category": "Loot"
+        },
+        {
             "name": "Ajanta AQ-2147 Quartz Glass Blue Office Clock",
             "price": "₹175",
             "mrp": "₹500",
@@ -845,60 +899,6 @@
             "link": "https://www.amazon.in/dp/B06VX8YR6Q?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
             "category": "Kitchen"
-        },
-        {
-            "name": "Yellow Weaves Top Load Auto Washing Machine Cover (Blue)",
-            "price": "₹424",
-            "mrp": "₹799",
-            "discount_percent": "47%",
-            "link": "https://www.amazon.in/dp/B09HV5N53T?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Ajanta AQ-2147 Quartz Glass Abstract Blue Office Clock",
-            "price": "₹185",
-            "mrp": "₹350",
-            "discount_percent": "47%",
-            "link": "https://www.amazon.in/dp/B00PXJWJJI?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Wakefit Sleeping Pillow for Better Shoulder & Neck Support",
-            "price": "₹458",
-            "mrp": "₹899",
-            "discount_percent": "49%",
-            "link": "https://www.amazon.in/dp/B09W2R818W?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "THE HOME STYLE Super Soft Glace Cotton King Size Pillow Covers (Set of 2)",
-            "price": "₹349",
-            "mrp": "₹699",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0DGCKPC97?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "mifaso Type c Charger 15ft Ultra Thin Flat Power Strip",
-            "price": "₹299",
-            "mrp": "₹1017",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B07WJG8K85?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "APFEN USB Type- A to Lightning Cable [MFi Certified]",
-            "price": "₹271",
-            "mrp": "₹949",
-            "discount_percent": "71%",
-            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
         }
     ]
 }
