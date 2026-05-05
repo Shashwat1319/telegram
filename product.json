@@ -1,6 +1,42 @@
 {
     "products": [
         {
+            "name": "Trance Terry Waterproof Mattress Protector (72x24 inch, Grey)",
+            "price": "₹496",
+            "mrp": "₹710",
+            "discount_percent": "30%",
+            "link": "https://www.amazon.in/dp/B0BTVWZ6MY?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Milton Stainless Steel Executive Lunch Insulated Tiffin (Beige)",
+            "price": "₹289",
+            "mrp": "₹415",
+            "discount_percent": "30%",
+            "link": "https://www.amazon.in/dp/B0D72NB1YL?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "AADHIK Stainless Steel Sauce Pan, 1.5 Litre, Silver",
+            "price": "₹299",
+            "mrp": "₹430",
+            "discount_percent": "30%",
+            "link": "https://www.amazon.in/dp/B0CSWF7JCB?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "amazon basics Double Decker Egg Boiler, 14 Eggs, White",
+            "price": "₹429",
+            "mrp": "₹660",
+            "discount_percent": "35%",
+            "link": "https://www.amazon.in/dp/B0CHMK7J36?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
             "name": "Trance Cotton Feel Terry Ultra Soft Waterproof Mattress Protector",
             "price": "₹496",
             "mrp": "₹999",
@@ -863,42 +899,6 @@
             "link": "https://www.amazon.in/dp/B0C376RWQP?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
             "category": "Computers"
-        },
-        {
-            "name": "MILTON Aston 1000 BPA & BPS-Free Water Bottle 1 ltr Blue",
-            "price": "₹254",
-            "mrp": "₹508",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B0FP9FP9GX?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Yellow Weaves Top Load Automatic Washing Machine Cover",
-            "price": "₹424",
-            "mrp": "₹848",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B09HV5N53T?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Ezee Live Life Ezee Way Black Garbage Bags for Dustbin",
-            "price": "₹159",
-            "mrp": "₹318",
-            "discount_percent": "50%",
-            "link": "https://www.amazon.in/dp/B06VX8YR6Q?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "SAKHWALA Women Track Pant Wide Leg High Waist Drawstring",
-            "price": "₹448",
-            "mrp": "₹750",
-            "discount_percent": "40%",
-            "link": "https://www.amazon.in/dp/B0F958N4RH?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Ladies Fashion"
         }
     ]
 }
