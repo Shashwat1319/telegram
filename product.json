@@ -1,6 +1,114 @@
 {
     "products": [
         {
+            "name": "Ghar Soaps Magic De-Tan Face wash Saffron & Glutathione 100ml",
+            "price": "₹290",
+            "mrp": "₹414",
+            "discount_percent": "29%",
+            "link": "https://www.amazon.in/dp/B0DBZL8S69?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "LAKMÉ Rose Loose Face Powder With Sunscreen, Warm Pink, 40 G",
+            "price": "₹140",
+            "mrp": "₹200",
+            "discount_percent": "30%",
+            "link": "https://www.amazon.in/dp/B0B91122RQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Deconstruct Brightening Lip Balm with SPF 30 for Dark Lips",
+            "price": "₹193",
+            "mrp": "₹284",
+            "discount_percent": "32%",
+            "link": "https://www.amazon.in/dp/B0CCPDPHP5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "Aroma Magic 7 step Bridal Glow Facial Kit, Turmeric & Rose",
+            "price": "₹144",
+            "mrp": "₹215",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B08FCSBJPS?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "LUMONY® Ice Face Bowl Silicone For Ice Bath, Facial Ice Plunge",
+            "price": "₹149",
+            "mrp": "₹229",
+            "discount_percent": "34%",
+            "link": "https://www.amazon.in/dp/B0GY11K7X1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Beauty"
+        },
+        {
+            "name": "PHILIPS Wired Headphone with Mic",
+            "price": "₹499",
+            "mrp": "₹999",
+            "discount_percent": "50%",
+            "link": "https://www.amazon.in/dp/B09ST9F3V3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61kG1p8b-2L._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Wipro Smart LED Bulb (9W, B22, White, Alexa Compatible)",
+            "price": "₹399",
+            "mrp": "₹999",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B08XJ8D3F9?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41-pU1yG+zL._SX300_SY300_QL70_FMwebp_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "Amazon Basics Microfiber Cleaning Cloth (5-pack)",
+            "price": "₹199",
+            "mrp": "₹499",
+            "discount_percent": "60%",
+            "link": "https://www.amazon.in/dp/B07R175K7Y?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71R2o583mML._AC_UY218_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "ZEBRONICS Zeb-Companion 106 Wireless Keyboard & Mouse",
+            "price": "₹449",
+            "mrp": "₹1299",
+            "discount_percent": "65%",
+            "link": "https://www.amazon.in/dp/B0BT521N4N?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61Qh3r-Wj2L._SX679_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "pTron Bassbuds Duo TWS Earbuds",
+            "price": "₹299",
+            "mrp": "₹2199",
+            "discount_percent": "86%",
+            "link": "https://www.amazon.in/dp/B0BQ594L2C?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61+oA9xT6eL._SY450_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "amazon basics Double Decker Egg Boiler - 14 Eggs, 350W",
+            "price": "₹429",
+            "mrp": "₹999",
+            "discount_percent": "57%",
+            "link": "https://www.amazon.in/dp/B0CHMK7J36?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
+            "name": "AADHIK Stainless Steel Sauce Pan, Tea Pan, 1.5 Litre",
+            "price": "₹299",
+            "mrp": "₹700",
+            "discount_percent": "57%",
+            "link": "https://www.amazon.in/dp/B0CSWF7JCB?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Kitchen"
+        },
+        {
             "name": "amazon basics Double Decker Egg Boiler | 350 Watt",
             "price": "₹429",
             "mrp": "₹899",
@@ -791,114 +899,6 @@
             "link": "https://www.amazon.in/dp/B09HV5N53T?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
             "category": "Kitchen"
-        },
-        {
-            "name": "JIALTO 10 Pcs Heavy Duty Adhesive Big Hooks Set",
-            "price": "₹205",
-            "mrp": "₹399",
-            "discount_percent": "48%",
-            "link": "https://www.amazon.in/dp/B0CMTW6335?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Dyazo 13/13.3 Inch Laptop Sleeve/Case Cover with Handle",
-            "price": "₹299",
-            "mrp": "₹750",
-            "discount_percent": "60%",
-            "link": "https://www.amazon.in/dp/B09X68MQRR?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "APFEN USB Type-A to Lightning Cable [MFi Certified]",
-            "price": "₹271",
-            "mrp": "₹680",
-            "discount_percent": "60%",
-            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "Toy Imagine Mini Portable Thermal Printer (1 Roll + 1 Extra)",
-            "price": "₹199",
-            "mrp": "₹500",
-            "discount_percent": "60%",
-            "link": "https://www.amazon.in/dp/B0FJMHRQXY?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "Wood Multipurpose Foldable Laptop Table with Cup Holder",
-            "price": "₹299",
-            "mrp": "₹860",
-            "discount_percent": "65%",
-            "link": "https://www.amazon.in/dp/B0GXBW8GH3?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
-        },
-        {
-            "name": "OpenTech® Military-Grade Tempered Glass for Oneplus Nord",
-            "price": "₹197",
-            "mrp": "₹800",
-            "discount_percent": "75%",
-            "link": "https://www.amazon.in/dp/B09Z7Y4D5Z?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "Gizga Pro Series 3-in-1 Cleaning KIT for Gadgets",
-            "price": "₹149",
-            "mrp": "₹650",
-            "discount_percent": "77%",
-            "link": "https://www.amazon.in/dp/B09RHDZ8V5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Electronics"
-        },
-        {
-            "name": "Yellow Weaves Top Load Washing Machine Cover (56x56x86 cm)",
-            "price": "₹424",
-            "mrp": "₹699",
-            "discount_percent": "39%",
-            "link": "https://www.amazon.in/dp/B09HV5N53T?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "JIALTO 10 Pcs Heavy Duty Adhesive Hooks for Bathroom, Kitchen",
-            "price": "₹205",
-            "mrp": "₹349",
-            "discount_percent": "41%",
-            "link": "https://www.amazon.in/dp/B0CMTW6335?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Ajanta Quartz Abstract Analog Wall Clock (32 Cm X 32 Cm)",
-            "price": "₹489",
-            "mrp": "₹849",
-            "discount_percent": "42%",
-            "link": "https://www.amazon.in/dp/B01N6OOW52?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Wakefit Sleeping Pillow | Height Adjustable, Soft & Fluffy Comfort",
-            "price": "₹458",
-            "mrp": "₹799",
-            "discount_percent": "42%",
-            "link": "https://www.amazon.in/dp/B09W2R818W?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Desidiya® Portable Table Fan - USB/Battery Rechargeable",
-            "price": "₹319",
-            "mrp": "₹1063",
-            "discount_percent": "70%",
-            "link": "https://www.amazon.in/dp/B0F1TJ2WJ6?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Computers"
         }
     ]
 }
