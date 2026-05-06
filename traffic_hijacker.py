@@ -17,6 +17,7 @@ WORKERS = [
 ]
 
 # TARGET BIG CHANNELS (Where we will leave comments)
+TARGET_CHANNELS = [
     "deals_bay", "FlipkartBitcoin", "dealsmania_loot", "LootDealsIndia7", "ShoppingLoots", "cashbackoffersdiscussion"
 ]
 

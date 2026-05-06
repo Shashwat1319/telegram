@@ -54,14 +54,12 @@ def load_products():
         return json.load(f)["products"]
 
 # ---------- Message Templates ----------
-def generate_message(product, is_lightning=False):
+def generate_message(product, post_count=0):
     name = product.get('name', 'Great Deal!')
     
     # Robust price formatting
     raw_price = str(product.get('price', 'Check Link'))
-    raw_mrp = str(product.get('mrp', ''))
-    discount = str(product.get('discount_percent', ''))
-
+    
     def format_price(p):
         if not p or 'Check' in p: return ""
         ascii_p = p.encode('ascii', 'ignore').decode('ascii').strip()
@@ -73,81 +71,50 @@ def generate_message(product, is_lightning=False):
         return f"₹{ascii_p.strip().strip(',.')}"
 
     price = format_price(raw_price) or "Check Link"
-    mrp = format_price(raw_mrp)
-    
     link = product.get('link', '#')
     if CLICK_TRACKER_URL:
         link = f"{CLICK_TRACKER_URL}/go?url={quote(link)}"
         
-    category = product.get('category', 'Loot')
     safe_name = name.replace('<', '&lt;').replace('>', '&gt;')
     
-    # Formatting the "Bachat" (Savings) string
-    bachat_str = ""
-    if mrp and price != "Check Link":
-        bachat_str = f"❌ <b>MRP:</b> <strike>{mrp}</strike>\n✅ <b>Deal Price:</b> <b>{price}</b>"
-        if discount:
-            bachat_str += f" (<b>{discount} Instant Savings</b>)"
-    else:
-        bachat_str = f"💰 <b>Special Price:</b> <b>{price}</b>"
-
-    header_extra = "✨ <b>VERIFIED BUDGET DEAL</b> ✨\n"
-    footer_extra = ""
+    # Extract AI-generated content
+    hook = product.get('hook', 'Padhai me distract hote ho baar baar?')
+    pain = product.get('pain', 'Hostel me focus karna waise hi mushkil hai.')
+    fix = product.get('fix', f"Ye {price} ka item use karke dekho, kaafi helpful hai.")
+    rating = product.get('rating', '')
     
-    # [NEW] Viral Glitch Detection
-    if discount and ('90%' in discount or '95%' in discount):
-        header_extra = "🚨 <b>PRICE GLITCH DETECTED!</b> 🚨\n🛑 <b>90%+ DISCOUNT ALERT!</b> 🛑\n"
-        footer_extra = "\n😱 <i>Bhai ye galti se sasta hua hai, jaldi loot lo!</i>"
-    elif is_lightning or (discount and any(x in discount for x in ['70%', '80%'])):
-        header_extra = "🔥 <b>TOP-RATED FLASH DEAL!</b> 🔥\n"
-        footer_extra = "\n⚠️ <i>Note: Lightning deals expire quickly. Check price on Amazon.</i>"
+    proof_str = f"⭐ <b>Rating:</b> {rating}" if rating and rating != "Not specified" else ""
+    
+    if post_count == 0:
+        # Template 1: Hook + Pain + Fix + CTA
+        msg = f"<b>{hook}</b>\n\n" \
+              f"{pain}\n\n" \
+              f"{fix}\n\n" \
+              f"👉 <b>Item:</b> {safe_name}\n" \
+              f"💰 <b>Price:</b> {price}\n"
+    elif post_count == 1:
+        # Template 2: "Worth it?" post
+        msg = f"🤔 <b>Is this {price} item actually worth it?</b>\n\n" \
+              f"Kaafi students use kar rahe hain isko aajkal. {fix}\n\n" \
+              f"👉 <b>Item:</b> {safe_name}\n"
+    else:
+        # Template 3: Mini-review style
+        msg = f"📝 <b>Quick Review: {safe_name[:30]}...</b>\n\n" \
+              f"Hostel me space kam hai toh ye kaafi useful hai. {pain} " \
+              f"Perfect toh nahi hai par {price} me solid deal hai.\n\n" \
+              f"💰 <b>Best Price:</b> {price}\n"
 
-    # Calculate savings amount for extra punch
-    savings_str = ""
-    try:
-        p_num = float(re.sub(r'[^\d.]', '', price))
-        m_num = float(re.sub(r'[^\d.]', '', mrp)) if mrp else 0
-        if m_num > p_num > 0:
-            savings_str = f"\n💵 <b>You Save: ₹{int(m_num - p_num)}</b> on this order!"
-    except: pass
+    if proof_str:
+        msg += f"{proof_str}\n\n"
+    else:
+        msg += "\n"
 
-    templates = [
-        # 1. Premium Verified Style (Clean + High Trust)
-        f"✨ <b>{header_extra.strip()}</b>\n\n"
-        f"📦 <b>{safe_name}</b>\n"
-        f"───────────────────\n"
-        f"{bachat_str}{savings_str}\n\n"
-        f"✅ <b>Verified Budget Deal</b>\n"
-        f"⭐ Highly Rated | Prime Eligible\n"
-        f"🕒 <i>Price verified at {datetime.now().strftime('%H:%M')}</i>\n\n"
-        f"🔗 <a href='{link}'><b>CLAIM THIS DEAL ON AMAZON</b></a>\n\n"
-        f"📢 <i>Join @{CLEAN_ID} for more verified loots.</i>",
-
-        # 2. Scarcity / High Demand Style
-        f"🔥 <b>TRENDING NOW</b>\n\n"
-        f"🏷️ <b>{safe_name}</b>\n"
-        f"───────────────────\n"
-        f"{bachat_str}\n\n"
-        f"🚨 <b>Inventory Alert:</b> Low stock detected at this price point. "
-        f"Price typically rises after first 50 orders.\n\n"
-        f"🛒 <a href='{link}'><b>SECURE YOUR ORDER NOW</b></a>\n\n"
-        f"<i>Verified by @{CLEAN_ID} | Fast Delivery</i>",
-
-        # 3. Direct Loot Style (High Energy)
-        f"🚨 <b>{header_extra.strip() or 'LOOT ALERT!'}</b>\n\n"
-        f"💎 <b>{safe_name}</b>\n"
-        f"───────────────────\n"
-        f"{bachat_str}{savings_str}\n\n"
-        f"🏃 <b>Bhai jaldi karo!</b> Ye deals bohot jaldi expire hoti hain. "
-        f"Perfect impulse buy under ₹400!\n\n"
-        f"👉 <a href='{link}'><b>GRAB IT BEFORE IT'S GONE</b></a>\n\n"
-        f"🔔 <i>Unmute @{CLEAN_ID} for real-time price glitch alerts!</i>"
-    ]
-    msg = random.choice(templates)
+    msg += f"🔗 <a href='{link}'><b>Link Here 👇</b></a>\n\n" \
+           f"📢 <i>Join @{CLEAN_ID} for more student/hostel hacks!</i>"
     
     seo_block = (
         "\n\n<tg-spoiler>"
-        "🏷️ #AmazonDeals #BudgetIndia #VerifiedLoot #SmartShopping"
+        "🏷️ #StudentHacks #HostelLife #BudgetFinds #StudyTools"
         "</tg-spoiler>"
     )
     return msg + seo_block
@@ -197,6 +164,15 @@ async def send_automated_poll(bot, chat_id):
     except Exception as e:
         print(f"Failed to send poll: {e}")
         return False
+
+# ---------- Authority Posts (Non-Selling) ----------
+def generate_authority_post():
+    posts = [
+        "📚 <b>3 cheeze jo hostel me avoid karo padhai ke time:</b>\n\n1. Bed pe padhna (Neend aayegi 100%)\n2. Dosto ke samne room khula rakhna\n3. Mess jane ke theek baad padhne baithna (Food coma)\n\n<i>Table aur chair pe focus double hota hai. Try karke dekho.</i>",
+        "💡 <b>Quick Hack:</b> Agar phone bohot distract kar raha hai, toh screen ko 'Grayscale' (Black & White) mode me daal do. \n\nInsta/Reels ka dopamine 50% gir jayega aur phone use karne ka mann kam karega. Try it right now!",
+        "💸 <b>Budgeting Rule for Students: 50-30-20</b>\n\n- 50% zaroori kharcha (Rent, Mess)\n- 30% wants (Movie, Bahar ka khana)\n- 20% save karo (Emergencies ke liye)\n\n<i>Pocket money kitni bhi ho, saving aadat se aati hai.</i>"
+    ]
+    return random.choice(posts)
 
 # ---------- Amazon Bounties ----------
 def generate_bounty_message():
@@ -333,7 +309,7 @@ async def post_deals():
             import sys
             random_mode = len(sys.argv) > 1 and sys.argv[1] == "--random"
             
-            # [NEW] Duplicate Shield
+            # [NEW] Multi-post Duplicate Shield
             POSTED_LOG = "posted_products.json"
             posted_history = {}
             if os.path.exists(POSTED_LOG):
@@ -342,29 +318,55 @@ async def post_deals():
                         posted_history = json.load(f)
                 except: pass
             
-            # Filter products not posted in last 12 hours
-            now_str = datetime.now().isoformat()
-            twelve_hours_ago = (datetime.now() - timedelta(hours=12)).isoformat()
+            # Filter products
+            now = datetime.now()
+            now_str = now.isoformat()
             
-            eligible = [p for p in products if p.get('name') not in posted_history or posted_history[p['name']] < twelve_hours_ago]
+            # Convert old string format to object format if necessary
+            for key in list(posted_history.keys()):
+                if isinstance(posted_history[key], str):
+                    posted_history[key] = {"last_posted": posted_history[key], "count": 1}
+
+            eligible = []
+            for p in products:
+                name = p.get('name')
+                if not name: continue
+                if name not in posted_history:
+                    eligible.append(p)
+                else:
+                    history = posted_history[name]
+                    # Dynamic gap: between 20 to 36 hours
+                    dynamic_gap = random.randint(20, 36)
+                    gap_time = (now - timedelta(hours=dynamic_gap)).isoformat()
+                    
+                    if history.get("count", 0) < 3 and history.get("last_posted", "") < gap_time:
+                        # 20% chance to drop the product early to avoid robotic repetition
+                        if history.get("count", 0) == 2 and random.random() < 0.2:
+                            continue
+                        eligible.append(p)
 
             if not eligible:
-                print("All available products already posted recently. Skipping cycle.")
+                print("All available products already posted recently or maxed out. Skipping cycle.")
                 await bot.shutdown()
                 return
 
             if random_mode:
                 num_to_post = min(2, len(eligible))
                 products_to_post = random.sample(eligible, num_to_post)
-                print(f"Random mode: Selected {num_to_post} unique products.")
+                print(f"Random mode: Selected {num_to_post} products.")
             else:
                 num_to_post = min(3, len(eligible))
                 products_to_post = eligible[:num_to_post]
-                print(f"Normal mode: Selected {num_to_post} unique products.")
+                print(f"Normal mode: Selected {num_to_post} products.")
 
             # Save to history immediately
             for p in products_to_post:
-                posted_history[p['name']] = now_str
+                name = p.get('name')
+                if name in posted_history:
+                    posted_history[name]["last_posted"] = now_str
+                    posted_history[name]["count"] = posted_history[name].get("count", 0) + 1
+                else:
+                    posted_history[name] = {"last_posted": now_str, "count": 1}
             with open(POSTED_LOG, "w") as f:
                 json.dump(posted_history, f)
 
@@ -375,12 +377,15 @@ async def post_deals():
             if current_count % 15 == 0:
                 await send_automated_poll(bot, chat_id)
 
-            # Viral/Bounty Interval (Every 10-15 posts to maintain trust)
+            # Viral/Bounty/Authority Interval (Every 10-15 posts to maintain trust)
             viral_interval = random.randint(10, 15)
             if current_count >= viral_interval:
-                print(f"Post count: {current_count}. Triggering Growth Cycle!")
-                # Pick between Viral Message or Bounty
-                if random.random() > 0.5:
+                print(f"Post count: {current_count}. Triggering Growth/Authority Cycle!")
+                # Pick between Authority (40%), Viral Message (30%) or Bounty (30%)
+                rand_val = random.random()
+                if rand_val < 0.4:
+                    growth_msg = generate_authority_post()
+                elif rand_val < 0.7:
                     growth_msg = generate_viral_message()
                 else:
                     growth_msg = generate_bounty_message()
@@ -411,7 +416,8 @@ async def post_deals():
                 
                 # Temporarily update product link for message generation
                 product['link'] = link
-                msg = generate_message(product, is_lightning=is_lightning)
+                current_post_count = posted_history.get(product.get('name'), {}).get('count', 1) - 1
+                msg = generate_message(product, post_count=max(0, current_post_count))
                 image_url = product.get('image')
                 
                 # Using balanced Hindi text context designed for viral sharing!

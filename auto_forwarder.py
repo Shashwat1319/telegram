@@ -121,7 +121,6 @@ async def process_account(account_info, messages_to_forward, groups_to_target, r
             session_name, 
             int(API_ID), 
             API_HASH,
-            connection=ConnectionTcpObfuscated if hasattr(ConnectionTcpObfuscated, '__name__') else None,
             connection_retries=15,
             retry_delay=10
         )

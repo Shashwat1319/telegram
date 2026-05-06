@@ -58,6 +58,7 @@ def preprocess_html(html_content):
             mrp = wrap.select_one('.a-text-strike')
             link = wrap.select_one('a.a-link-normal')
             image = wrap.select_one('img[src]')
+            rating_element = wrap.select_one('i[class*="a-icon-star"] span.a-icon-alt') or wrap.select_one('span[class*="a-icon-alt"]')
             
             p_name = name.get_text(strip=True) if name else ""
             if not p_name and wrap.img and 'alt' in wrap.img.attrs:
@@ -67,12 +68,13 @@ def preprocess_html(html_content):
             p_mrp = mrp.get_text(strip=True) if mrp else ""
             p_link = link['href'] if link and 'href' in link.attrs else "#"
             p_image = image['src'] if image and 'src' in image.attrs else ""
+            p_rating = rating_element.get_text(strip=True) if rating_element else "Not specified"
             
             raw_text = wrap.get_text(" | ", strip=True)
             if not p_name: p_name = raw_text[:200]
             if not p_price: p_price = "Check"
             
-            item_summary = f"ITEM {i+1}: {p_name} | PRICE: {p_price} | MRP: {p_mrp} | IMAGE: {p_image} | LINK: {p_link}\n"
+            item_summary = f"ITEM {i+1}: {p_name} | PRICE: {p_price} | MRP: {p_mrp} | RATING: {p_rating} | IMAGE: {p_image} | LINK: {p_link}\n"
             extracted_text += item_summary
             
         print(f"Preprocessed into structured text. Length: {len(extracted_text)}")
@@ -89,18 +91,26 @@ def extract_products_with_ai(html_text, retry_count=0):
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
     
     prompt = f"""
-    Below is a list of Amazon products. Your mission is to find the absolute BEST "LOOT" DEALS (Price Glitches or Heavy Discounts).
-    Pick the TOP 5 products where the discount is extremely high (Ideally 60% to 95% OFF).
+    Below is a list of Amazon products. Your mission is to find the absolute BEST deals for our specific niche: "Student productivity tools & Hostel life hacks under ₹500".
+    Pick the TOP 3 products that are highly useful for students (e.g., study accessories, desk organization, hostel gadgets, budget tech).
     
-    Return ONLY a valid JSON array of objects with keys: "name", "price", "mrp", "discount_percent", "link", "image".
+    Return ONLY a valid JSON array of objects with keys: "name", "price", "mrp", "discount_percent", "rating", "link", "image", "hook", "pain", "fix".
     
-    CRITICAL LOOT RULES:
-    1. PRIORITY: Select items with the BIGGEST gap between Price and MRP (e.g. MRP 999, Price 149).
-    2. "price" & "mrp": MUST be strings containing ONLY numbers (e.g. "149").
-    3. PRICE RANGE: Only items between Rs.49 and Rs.499.
-    4. IMAGE: Extract the EXACT image URL. NO PLACEHOLDERS.
-    5. SELECTION: Look for gadgets, lifestyle items, or beauty products that look like a "Price Glitch".
-    6. Ensure the response starts with [ and ends with ]. No markdown.
+    CRITICAL RULES:
+    1. BUYING MINDSET & URGENCY: Select products solving urgent 'needs' rather than 'wants' (e.g., Exam reading lamps, back pain support cushions, study timers, noise-canceling earplugs).
+    2. CONTENT FORMAT & TONE VARIETY: Generate conversational Hinglish. Mix the tone across the 3 products to sound unpredictable and real:
+       - 1 product should have an "Excited" tone.
+       - 1 product should have a "Neutral/Practical" tone.
+       - 1 product should have an "Honest/Minor Flaw" tone (e.g., "Quality okayish hai par price ke hisaab se theek hai").
+       For each, write:
+       - "hook": A catchy question with urgency (e.g., "Exams sir par hain aur desk par jagah nahi?")
+       - "pain": Relatable pain point.
+       - "fix": Honest-sounding recommendation matching the assigned tone.
+    3. RATING: Extract the exact text like "4.2 out of 5 stars" into the "rating" key.
+    4. PRICE RANGE: Only items between Rs.49 and Rs.499.
+    5. "price" & "mrp": MUST be strings containing ONLY numbers.
+    6. IMAGE: Extract the EXACT image URL. NO PLACEHOLDERS.
+    7. Ensure the response starts with [ and ends with ]. No markdown.
     
     DATA:
     {html_text}

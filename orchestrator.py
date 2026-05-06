@@ -7,9 +7,17 @@ from datetime import datetime
 # Configuration for PROMOTION ONLY (Laptop Mode)
 # Main deals and reports are now handled by GitHub Actions (Cloud)
 INTERVAL_PROMO = 3 * 60 * 60  # 3 hours (Growth DM)
-INTERVAL_SCRAPER = 24 * 60 * 60 # 24 hours (New Leads Scrape)
+INTERVAL_SCRAPER = 12 * 60 * 60 # 12 hours (High-Intent Leads Scrape)
 INTERVAL_FORWARD = 15 * 60     # 15 minutes (Growth Burst Mode)
 INTERVAL_REPORT = 12 * 60 * 60 # 12 hours (Daily Progress Report)
+
+def start_background_task(script_name):
+    print(f"[*] STARTING BACKGROUND TASK: {script_name}")
+    try:
+        return subprocess.Popen([sys.executable, script_name])
+    except Exception as e:
+        print(f"[CRITICAL] Could not start {script_name}: {e}")
+        return None
 
 def run_script(script_name, timeout=1800):
     print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] RUNNING: {script_name}")
@@ -38,9 +46,17 @@ def main():
     last_forward = 0
     last_report = 0
 
+    print("[*] Starting AI Traffic Hijacker (Background)...")
+    hijacker_process = start_background_task("traffic_hijacker.py")
+
     print("[*] Entering Hybrid Loop...")
     try:
         while True:
+            # Check if hijacker died, restart it
+            if hijacker_process and hijacker_process.poll() is not None:
+                print("[!] AI Traffic Hijacker stopped. Restarting...")
+                hijacker_process = start_background_task("traffic_hijacker.py")
+
             now = time.time()
 
             # 1. Forwarder Engine (Safe for Laptop IP)
@@ -75,6 +91,10 @@ def main():
         print("\n[!] Orchestrator stopped by user.")
     except Exception as e:
         print(f"\n[FATAL] Orchestrator crashed: {e}")
+    finally:
+        if 'hijacker_process' in locals() and hijacker_process:
+            hijacker_process.terminate()
+            print("[*] Terminated AI Traffic Hijacker.")
 
 if __name__ == "__main__":
     main()

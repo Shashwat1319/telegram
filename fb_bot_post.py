@@ -72,54 +72,42 @@ def generate_fb_message(product):
     name = product.get('name', 'Great Deal!')
     price = product.get('price', 'Check Link')
     link = product.get('link', '#')
-    category = product.get('category', 'Loot')
     
-    # Identify Ladies Categories
-    ladies_cats = ["Ladies Fashion", "Ladies Shoes", "Ladies Jewelry", "Beauty", "Personal Care"]
-    is_ladies = any(c in category for c in ladies_cats)
+    # Extract AI-generated content
+    hook = product.get('hook', 'Padhai me distract hote ho baar baar?')
+    pain = product.get('pain', 'Hostel me focus karna waise hi mushkil hai.')
+    fix = product.get('fix', f"Ye {price} ka item use karke dekho, kaafi helpful hai.")
     
-    header_extra = ""
-    if is_ladies:
-        header_extra = "💃 LADIES SPECIAL LOOT 💃\n✨ Special deal for our lady followers! 👜💄\n\n"
-
-    # Facebook me HTML <b>, <i> kaam nahi karte, toh plain text + emojis use karenge
     tg_link = "https://t.me/budgetdeals_india"
     
     templates = [
-        # 1. Hype Style
-        f"{header_extra}🚨 ERROR PRICING? SYSTEM GLITCH! 🚨\n\n"
-        f"🎁 {name}\n"
-        f"💥 Current Price: {price} 😱\n\n"
-        f"⚠️ Only active for next 5-10 minutes before Amazon fixes it!\n"
-        f"👇 CLICK HERE & ADD TO CART FAST 👇\n"
-        f"🛒 Buy Here: {link}\n\n"
-        f"🤫 Join our SECRET Telegram for Hidden 1 Rupee Loots:\n"
-        f"👉 {tg_link}\n\n"
-        f"📢 Forward this to your friends! 🏃‍♂️",
+        # 1. Value + Soft Plug (Student Problem)
+        f"💡 {hook}\n\n"
+        f"Mera bhi same issue tha. {pain}\n\n"
+        f"Ek solution mila hai: {fix}\n\n"
+        f"👉 Check it out here: {link}\n\n"
+        f"📌 Aise aur bhi hostel/student hacks ke liye Telegram join karo:\n{tg_link}",
     
-        # 2. Verified Value Style (NEW - For Sales)
-        f"{header_extra}🏆 VERIFIED TOP-QUALITY DEAL 🏆\n\n"
-        f"📦 {name}\n"
-        f"💰 Grab for only: {price} ✅\n\n"
-        f"🌟 High-rated product with genuine savings! This is a smart buy for your home.\n"
-        f"🛒 Order Now: {link}\n\n"
-        f"🔥 Don't wait! Real Hidden Loots are only posted on Telegram:\n"
-        f"👉 Join Now: {tg_link}",
+        # 2. Honest Review Style
+        f"📝 Quick Honest Review:\n\n"
+        f"{pain} Toh maine try kiya isko fix karne ka.\n\n"
+        f"{fix}\n\n"
+        f"Price chal raha hai: {price} abhi.\n"
+        f"🔗 Link: {link}\n\n"
+        f"💡 Daily aise useful tools ke liye Telegram join kar lo:\n{tg_link}",
     
-        # 3. Urgency Style
-        f"{header_extra}⏳ FINAL STOCK CALL! PRICE CRASH! ⏳\n\n"
-        f"🌟 {name}\n"
-        f"💎 Current Best Price: {price} ✨\n\n"
-        f"⚠️ This deal is trending! Add to cart now to lock this price.\n"
-        f"🔗 Direct Deal Link: {link}\n\n"
-        f"🥇 90% of our Loots never reach Facebook. Join Telegram for VIP access:\n"
-        f"👉 {tg_link}\n\n"
-        f"💬 Comment 'Interested' for more such deals!"
+        # 3. Urgency/Exam Focus
+        f"⏳ Exams pass aa rahe hain aur same problem face kar rahe ho? \n\n"
+        f"👉 {hook}\n\n"
+        f"{pain}\n"
+        f"Ye try karke dekho, kaafi budget-friendly ({price}) aur effective hai: {fix}\n\n"
+        f"🛒 Amazon Link: {link}\n\n"
+        f"📲 Join our Telegram for more tips: {tg_link}"
     ]
     msg = random.choice(templates)
     
     # Facebook Hashtags
-    seo_block = "\n\n#AmazonDeals #LootDealsIndia #FlipkartSale #BudgetShopping #Offers #Cheapest"
+    seo_block = "\n\n#StudentLife #HostelHacks #StudyTips #BudgetFinds #StudentProblems"
     return msg + seo_block
 
 # ---------- Post to Facebook ----------
