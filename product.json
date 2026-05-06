@@ -1,6 +1,42 @@
 {
     "products": [
         {
+            "name": "Ambrane 360° Rotation Foldable Mobile Stand",
+            "price": "₹245",
+            "mrp": "₹799",
+            "discount_percent": "69%",
+            "link": "https://www.amazon.in/dp/B0CQLXQKGR?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "Tygot 6 Angles Adjustable Aluminum Foldable Laptop Stand",
+            "price": "₹299",
+            "mrp": "₹999",
+            "discount_percent": "70%",
+            "link": "https://www.amazon.in/dp/B0D9FL2BHZ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "APFEN 20W MFi Certified Type-C Fast Charger Adapter & Cable",
+            "price": "₹380",
+            "mrp": "₹1499",
+            "discount_percent": "74%",
+            "link": "https://www.amazon.in/dp/B0F62W35NX?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
+            "name": "SPAIZZEN Military-Grade Tempered Glass for Samsung Galaxy A37",
+            "price": "₹109",
+            "mrp": "₹499",
+            "discount_percent": "78%",
+            "link": "https://www.amazon.in/dp/B0GWTK6KBH?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
+            "category": "Electronics"
+        },
+        {
             "name": "Ghar Soaps Magic De-Tan Face wash Saffron & Glutathione 100ml",
             "price": "₹290",
             "mrp": "₹414",
@@ -863,42 +899,6 @@
             "link": "https://www.amazon.in/dp/B0BJ5V176V?tag=shashwat022-21",
             "image": "https://m.media-amazon.com/images/I/61U04y8K4wL._SX679_.jpg",
             "category": "Ladies Fashion"
-        },
-        {
-            "name": "Wakefit Sleeping Pillow | Height Adjustable | Soft & Fluffy",
-            "price": "₹458",
-            "mrp": "₹799",
-            "discount_percent": "42%",
-            "link": "https://www.amazon.in/dp/B09W2R818W?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "MILTON Aston 1000 BPA & BPS-Free Water Bottle 1 ltr",
-            "price": "₹254",
-            "mrp": "₹449",
-            "discount_percent": "43%",
-            "link": "https://www.amazon.in/dp/B0FP9FP9GX?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "TEX-RO Metal Clothes Drying Stand Foldable with Wheels",
-            "price": "₹499",
-            "mrp": "₹899",
-            "discount_percent": "44%",
-            "link": "https://www.amazon.in/dp/B0GQQHX25W?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Yellow Weaves Top Load Fully Automatic Washing Machine Cover",
-            "price": "₹424",
-            "mrp": "₹799",
-            "discount_percent": "46%",
-            "link": "https://www.amazon.in/dp/B09HV5N53T?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/01jrA-8DXYL.gif",
-            "category": "Kitchen"
         }
     ]
 }
