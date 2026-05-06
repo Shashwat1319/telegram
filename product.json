@@ -1,6 +1,45 @@
 {
     "products": [
         {
+            "name": "DRDO-PRO Soft Silicone Noise Cancelling Ear Plugs for Study & Sleep",
+            "price": "₹99",
+            "mrp": "₹199",
+            "discount_percent": "50%",
+            "rating": "3.8 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0B6L5N6M3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61jC8V9e8XL._SL1500_.jpg",
+            "hook": "Hostel ke shor mein concentration banana mushkil ho raha hai? 🤯",
+            "pain": "Kabhi roommate ki baatein, kabhi corridor ka shor, kabhi bahar ki awazein... padhai par focus karna impossible sa lagta hai. Din ho ya raat, shanti milti hi nahi.",
+            "fix": "Ye silicone ear plugs ek budget solution hain shor se bachne ke liye. Noise cancel to completely nahi karte, matlab *thodi* awazein toh aayengi, par kaafi हद tak distraction kam ho jaati hai. Quality theek-thaak hai considering the price, par agar bohot high-end noise cancellation chahiye toh ye shayad utne effective nahi honge. Par ₹99 mein, ek try toh banta hai! Kaam chal jaata hai.",
+            "category": "Electronics"
+        },
+        {
+            "name": "STO-ALL Portable Multi-Pocket Desk Organizer with Pen Holder",
+            "price": "₹249",
+            "mrp": "₹499",
+            "discount_percent": "50%",
+            "rating": "4.2 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0C32X7L8G?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/7123Lz7V92L._SL1500_.jpg",
+            "hook": "Kya tumhara study table hamesha messy rehta hai? 😵‍💫",
+            "pain": "Chhote se hostel desk par books, pens, chargers, sab kuchh aise scattered hote hain ki padhne ka mood hi nahi banta. Jab koi cheez chahiye hoti hai toh dhoondhte reh jaate ho.",
+            "fix": "Ye multi-pocket desk organizer kaafi useful hai. Isme alag-alag compartments hain jahan tum apne pens, notepads, phone, aur choti-moti cheezein organize kar sakte ho. Desk par space bachata hai aur sab kuchh ek jagah mil jaata hai. Practical option hai for managing clutter.",
+            "category": "Electronics"
+        },
+        {
+            "name": "Wipro SmartLite Mini LED USB Reading Lamp",
+            "price": "₹199",
+            "mrp": "₹399",
+            "discount_percent": "50%",
+            "rating": "4.5 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0BP9J82P9?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71G1v+eF6hL._SL1500_.jpg",
+            "hook": "Raat bhar padhai karni hai par roommate ko disturb nahi karna? 😎",
+            "pain": "Hostel mein sab so rahe hote hain aur tumhe apni assignment complete karni hai. Desk lamp ki light itni tez hoti hai ki sab uth jaate hain, ya fir bed pe padhte hue aankhon pe strain aata hai.",
+            "fix": "Arre, tension kyun le rahe ho! Ye Wipro ka mini LED lamp toh zabardast hai! USB se charge hota hai, compact hai, aur itni perfect light deta hai ki tum aaram se padh sako without bothering anyone. Iske bina hostel life adhoori hai, trust me! Jaldi le lo, stock khatam na ho jaaye!",
+            "category": "Electronics"
+        },
+        {
             "name": "SYGA Multi-functional 5-Compartment Desk Organizer for Stationary",
             "price": "₹199",
             "mrp": "₹399",
