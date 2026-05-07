@@ -1,6 +1,45 @@
 {
     "products": [
         {
+            "name": "Hoteon 2 in 1 Portable Water Bottle Sprayer with Mini Fan, Cooling Mist Fan for Office, Travel, Outdoor, School, Home (Multicolor, Pack of 1)",
+            "price": "₹199",
+            "mrp": "₹499",
+            "discount_percent": "60%",
+            "rating": "3.5 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B07R9L7R2Q?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41D86p72vWL._SX300_SY300_QL70_FMwebp_.jpg",
+            "hook": "Garmi mein padhai par focus karna mushkil ho raha hai, especially hostel mein?",
+            "pain": "Hostel ke chote room mein garmi se haal behaal ho jaata hai, aur AC ya cooler har jagah nahi milta. Padhai ke time pasina aur bechaini alag.",
+            "fix": "Ye Hoteon 2 in 1 Portable Water Bottle Sprayer with Mini Fan emergency garmi se relief ke liye theek hai. Quality okayish hai par price (₹199) ke hisaab se theek hai – thodi der ki cooling ya mist ke liye chal jaayega. Koi high expectation mat rakhna, but it does the job in a pinch.",
+            "category": "Loot"
+        },
+        {
+            "name": "boAt BassHeads 100 Wired Earphones with in-line mic, super extra bass, tangle free cable, 10mm drivers, and noise cancellation in mic (Black)",
+            "price": "₹299",
+            "mrp": "₹999",
+            "discount_percent": "70%",
+            "rating": "4.1 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B073JYC4XM?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71BytGjN6RL._SL1500_.jpg",
+            "hook": "Hostel ke shor mein padhna ya online lecture sunna mushkil lag raha hai?",
+            "pain": "Jab roomies baatein kar rahe hon ya bahar se awaz aa rahi ho, focus karna bahut tough ho jaata hai. Lectures sunne mein bhi dikkat aati hai.",
+            "fix": "boAt BassHeads 100 earphones ek practical solution hain. Inka super extra bass aur in-line mic aapke online calls aur lectures ke liye perfect hain, aur noise cancellation feature se distraction bhi kam hota hai. Hostel life ke liye ek useful accessory hai.",
+            "category": "Loot"
+        },
+        {
+            "name": "Gizga Essentials Universal Portable Foldable Laptop Stand Holder for Desk Table, Up to 15.6 Inch Laptops, with 7 Adjustable Height Levels, Strong & Sturdy, Anti-Skid, Portable (Black)",
+            "price": "₹399",
+            "mrp": "₹999",
+            "discount_percent": "60%",
+            "rating": "4.0 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B09V7S18L1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71R2o5fT50L._SL1500_.jpg",
+            "hook": "Hostel mein laptop par padhte hue neck pain ho raha hai? Iska solution mil gaya!",
+            "pain": "Ghanto laptop par jhuk kar padhne se gardan aur peeth mein dard hota hai, aur desk par jagah bhi kam pad jaati hai. Posture bhi kharab hota ja raha hai, yaar!",
+            "fix": "Arre, is Gizga Essentials Portable Laptop Stand se saari problem solve! 7 height levels, compact design – matlab, sahi posture aur organised desk space, woh bhi sirf ₹399 mein! Must-have hai, jaldi le lo, deal miss na ho jaaye!",
+            "category": "Loot"
+        },
+        {
             "name": "DRDO-PRO Soft Silicone Noise Cancelling Ear Plugs for Study & Sleep",
             "price": "₹99",
             "mrp": "₹199",
