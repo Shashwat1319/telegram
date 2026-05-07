@@ -1,6 +1,45 @@
 {
     "products": [
         {
+            "name": "Professional Noise Cancelling Ear Plugs for Sleeping, Studying & Work (Reusable)",
+            "price": "₹179",
+            "mrp": "₹350",
+            "discount_percent": "49%",
+            "rating": "3.8 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0B6GYD82G?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61sJb0k8r8L._AC_SL1500_.jpg",
+            "hook": "Hostel mein shor se padhai nahi ho pa rahi? Neend bhi disturb hoti hai?",
+            "pain": "Roomies ki baatein, bahar ka traffic, ya loud music... focus karna mushkil ho jaata hai. Exam time mein toh aur bhi tension badhti hai.",
+            "fix": "Yeh noise-cancelling ear plugs hostel ke shor se bachne ke liye kaam aa sakte hain. ₹179 mein reusable hain, toh one-time investment hai. Quality okayish hai par price ke hisaab se theek hai, thoda shor kam kar dete hain. Complete silence toh nahi milega, par disturbance level zaroor kam hoga.",
+            "category": "Loot"
+        },
+        {
+            "name": "Multifunctional Wooden Desk Organizer with Pen Holder & Mobile Stand",
+            "price": "₹249",
+            "mrp": "₹499",
+            "discount_percent": "50%",
+            "rating": "4.3 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0CG61S12R?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71h3hS-kYFL._AC_SL1500_.jpg",
+            "hook": "Kya aapki study desk hamesha messy rehti hai aur kuch milta hi nahi?",
+            "pain": "Papers, pens, markers, phone... sab idhar-udhar bikhra rehta hai. Important notes bhi gum ho jaate hain aur padhai mein dhyan nahi lagta.",
+            "fix": "Yeh multifunctional wooden desk organizer aapke liye kaafi useful ho sakta hai. Pens, stationery, aur phone ke liye bhi alag slot hai. ₹249 mein, yeh aapki desk ko organize karne mein madad karega aur padhai par focus badhayega. Ek practical solution hai.",
+            "category": "Loot"
+        },
+        {
+            "name": "Portable Rechargeable LED Desk Lamp with 3 Brightness Modes for Study",
+            "price": "₹399",
+            "mrp": "₹999",
+            "discount_percent": "60%",
+            "rating": "4.1 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0BP7GF62Q?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Y+zL8WpHL._AC_SL1500_.jpg",
+            "hook": "Exams sir par hain aur raat bhar padhna hai? Magar light ka problem hai kya?",
+            "pain": "Hostel mein reading light achhi nahi milti, ya phir roomies disturb hote hain. Aur baar-baar current jaane ka tension alag!",
+            "fix": "Yaar, yeh Portable LED Desk Lamp toh ek number cheez hai! Pura 60% off mil raha hai, ₹399 mein! Rechargeable hai, toh light jaane ki tension nahi, aur 3 brightness modes hain, jo adjust kar sakte ho. Isse achhi deal mil hi nahi sakti, jaldi grab karo!",
+            "category": "Loot"
+        },
+        {
             "name": "Hoteon 2 in 1 Portable Water Bottle Sprayer with Mini Fan, Cooling Mist Fan for Office, Travel, Outdoor, School, Home (Multicolor, Pack of 1)",
             "price": "₹199",
             "mrp": "₹499",
