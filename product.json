@@ -1,6 +1,45 @@
 {
     "products": [
         {
+            "name": "Generic Rechargeable LED Light with Touch Control - 3 Light Modes, Desk Lamp, Reading Lamp, Table Lamp for Home Office Desk (White)",
+            "price": "₹399",
+            "mrp": "₹999",
+            "discount_percent": "60%",
+            "rating": "3.9 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0BQ26YF3H?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41D5tOa74wL._AC_UL320_.jpg",
+            "hook": "Hostel mein late night study ya power cut mein andhera ho jaata hai? Roshni ki zaroorat hai, but budget tight hai?",
+            "pain": "Raat mein padhne ke liye proper light nahi milti ya phir room ki main light se sab disturb hote hain. Exam time mein toh bina light ke dimaag bhi kaam nahi karta.",
+            "fix": "Dekho, ye rechargeable LED light price ke hisaab se theek hai. 3 light modes hain aur touch control bhi mil jaata hai, jo convenience ke liye achha hai. Battery backup theek-thaak hai, but agar aapko super long-lasting chahiye toh thoda aur invest karna pad sakta hai. Overall, urgent need ke liye ek decent aur budget-friendly option hai.",
+            "category": "Loot"
+        },
+        {
+            "name": "ELV Adjustable Reading Book Stand, Portable Lightweight Book Holder, Cookbook Holder, Document Holder for Textbooks (Black)",
+            "price": "₹249",
+            "mrp": "₹599",
+            "discount_percent": "58%",
+            "rating": "4.2 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B08GLQ41R3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61Nl0B0C4hL._AC_UL320_.jpg",
+            "hook": "Kya padhai karte waqt kitaabein pakadte-pakadte haath thak jaate hain ya neck strain hota hai?",
+            "pain": "Textbooks ya heavy reference books ko der tak pakadna mushkil ho jaata hai, aur unko flat rakhne se posture kharab hota hai. Desk par space bhi kam pad jaati hai.",
+            "fix": "Ye ELV Adjustable Reading Book Stand kaafi practical hai. Books ko ek comfortable angle par hold karta hai, jisse aapka posture theek rehta hai aur hands-free padhai kar sakte ho. Desk bhi organised lagta hai. Simple aur effective solution for serious students.",
+            "category": "Loot"
+        },
+        {
+            "name": "Styledge Aluminium Alloy Portable Laptop Stand, Adjustable Laptop Riser for Desk, Ergonomic Portable Stand for Notebook & MacBook, Ventilated Multi-Angle Foldable Laptop Holder, Compatible Upto 15.6 inch (Silver)",
+            "price": "₹399",
+            "mrp": "₹999",
+            "discount_percent": "60%",
+            "rating": "4.1 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0C6L75N18?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51wXQcK2gKL._AC_UL320_.jpg",
+            "hook": "Long study sessions mein back aur neck pain se pareshaan ho gaye ho? Jaldi solution chahiye?!",
+            "pain": "Laptop niche rakh ke kaam karte ho toh kamar akkad jaati hai, gardan mein dard hota hai aur concentration bhi toot jaati hai. Poore din thake-thake rehte ho!",
+            "fix": "OMG! Ye laptop stand toh must-have hai! Aluminium alloy ka hai, foldable aur adjustable. Ab laptop ko apni eye-level par rakh kar padho, presentation banao, ya movie dekho, no more pain! Productivity skyrocket ho jaayegi, aur health bhi achhi raheगी. Best deal ever!",
+            "category": "Loot"
+        },
+        {
             "name": "Professional Noise Cancelling Ear Plugs for Sleeping, Studying & Work (Reusable)",
             "price": "₹179",
             "mrp": "₹350",
