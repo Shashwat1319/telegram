@@ -77,32 +77,50 @@ def generate_message(product, post_count=0):
         link = f"{CLICK_TRACKER_URL}/go?url={quote(link)}"
         
     safe_name = name.replace('<', '&lt;').replace('>', '&gt;')
-    
     # Extract AI-generated content
-    hook = product.get('hook', 'Padhai me distract hote ho baar baar?')
-    pain = product.get('pain', 'Hostel me focus karna waise hi mushkil hai.')
-    fix = product.get('fix', f"Ye {price} ka item use karke dekho, kaafi helpful hai.")
+    hook = product.get('hook', 'Bhai ye loot miss mat karna! 😱')
+    pain = product.get('pain', 'Hostel me aisi cheeze roz roz nahi milti.')
+    fix = product.get('fix', f"Ye solid deal hai, abhi order kar lo.")
+    loot_reason = product.get('loot_reason', '')
     rating = product.get('rating', '')
     
     proof_str = f"⭐ <b>Rating:</b> {rating}" if rating and rating != "Not specified" else ""
+    loot_block = f"📉 <b>Loot Reason:</b> {loot_reason}\n" if loot_reason else ""
     
+    # Calculate price drop %
+    try:
+        p_val = get_price_value(product.get('price', '0'))
+        m_val = get_price_value(product.get('mrp', '0'))
+        if m_val > p_val:
+            drop = int(((m_val - p_val) / m_val) * 100)
+            badge = f"🔥 <b>PRICE DROP: {drop}% OFF</b> 🔥\n\n"
+        else:
+            badge = "🚀 <b>LIMITED TIME DEAL</b> 🚀\n\n"
+    except:
+        badge = "⚡ <b>HOT DEAL</b> ⚡\n\n"
+
     if post_count == 0:
-        # Template 1: Hook + Pain + Fix + CTA
-        msg = f"<b>{hook}</b>\n\n" \
-              f"{pain}\n\n" \
-              f"{fix}\n\n" \
+        # Template 1: Aggressive Loot
+        msg = f"{badge}" \
+              f"<b>{hook}</b>\n\n" \
+              f"❌ <b>Pain:</b> {pain}\n" \
+              f"✅ <b>Fix:</b> {fix}\n\n" \
+              f"{loot_block}" \
               f"👉 <b>Item:</b> {safe_name}\n" \
-              f"💰 <b>Price:</b> {price}\n"
+              f"💰 <b>Loot Price:</b> {price}\n"
     elif post_count == 1:
         # Template 2: "Worth it?" post
-        msg = f"🤔 <b>Is this {price} item actually worth it?</b>\n\n" \
-              f"Kaafi students use kar rahe hain isko aajkal. {fix}\n\n" \
-              f"👉 <b>Item:</b> {safe_name}\n"
+        msg = f"🤔 <b>Worth it or Not?</b>\n\n" \
+              f"{fix}\n" \
+              f"{loot_block}\n" \
+              f"👉 <b>Item:</b> {safe_name}\n" \
+              f"💰 <b>Current Price:</b> {price}\n"
     else:
         # Template 3: Mini-review style
         msg = f"📝 <b>Quick Review: {safe_name[:30]}...</b>\n\n" \
-              f"Hostel me space kam hai toh ye kaafi useful hai. {pain} " \
-              f"Perfect toh nahi hai par {price} me solid deal hai.\n\n" \
+              f"{pain} " \
+              f"Overall {price} me mast product hai.\n\n" \
+              f"{loot_block}" \
               f"💰 <b>Best Price:</b> {price}\n"
 
     if proof_str:
@@ -110,12 +128,12 @@ def generate_message(product, post_count=0):
     else:
         msg += "\n"
 
-    msg += f"🔗 <a href='{link}'><b>Link Here 👇</b></a>\n\n" \
-           f"📢 <i>Join @{CLEAN_ID} for more student/hostel hacks!</i>"
+    msg += f"🔗 <a href='{link}'><b>BUY BEFORE PRICE GOES UP 👇</b></a>\n\n" \
+           f"📢 <i>Join @{CLEAN_ID} for more secret student loots!</i>"
     
     seo_block = (
         "\n\n<tg-spoiler>"
-        "🏷️ #StudentHacks #HostelLife #BudgetFinds #StudyTools"
+        "🏷️ #LootDeals #StudentHacks #AmazonSale #BudgetFinds"
         "</tg-spoiler>"
     )
     return msg + seo_block

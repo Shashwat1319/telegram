@@ -15,17 +15,17 @@ API_HASH = os.getenv("API_HASH")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
 
 # PROMO MESSAGE
-# [ULTRA-SHORT LOOT] For maximum Clicks
+# [HIGH-TRUST LOOT] For better Conversions
 PROMO_MESSAGE = f"""
-🚨 **AMAZON LOOT: ₹99 Store Unlocked!** 🚨
+🎓 **HOSTEL LOOT: Student Budget finds!** 🎓
 
-Bhai jaldi join kar, Amazon par price glitch hua hai. Sab kuch ₹99-₹199 mein mil raha hai! 😱🔥
+Bhai, Amazon par students ke liye mast hidden deals aayi hain (Study lamps, RGB gadgets, Desk decor) sab ₹99-₹299 mein! 😱🔥
 
-👇 **JALDI JOIN KARO (Link Expiring):**
+👇 **ABHI LOOT LO (Verified Deals):**
 https://t.me/{CHANNEL_ID.replace('@','')}
 https://t.me/{CHANNEL_ID.replace('@','')}
 
-*Abhi join karo, loot miss mat karna!* 🏃‍♂️💨
+*Sirf kaam ki cheeze, zero spam!* 🏃‍♂️💨
 """
 
 ACCOUNTS = [

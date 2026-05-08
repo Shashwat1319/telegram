@@ -92,25 +92,22 @@ def extract_products_with_ai(html_text, retry_count=0):
     
     prompt = f"""
     Below is a list of Amazon products. Your mission is to find the absolute BEST deals for our specific niche: "Student productivity tools & Hostel life hacks under ₹500".
-    Pick the TOP 3 products that are highly useful for students (e.g., study accessories, desk organization, hostel gadgets, budget tech).
     
-    Return ONLY a valid JSON array of objects with keys: "name", "price", "mrp", "discount_percent", "rating", "link", "image", "hook", "pain", "fix".
+    Pick the TOP 3 products that are currently VIRAL or highly useful for students (e.g., RGB desk gadgets, hidden hostel hacks, budget tech, study organization).
+    
+    Return ONLY a valid JSON array of objects with keys: "name", "price", "mrp", "discount_percent", "rating", "link", "image", "hook", "pain", "fix", "loot_reason".
     
     CRITICAL RULES:
-    1. BUYING MINDSET & URGENCY: Select products solving urgent 'needs' rather than 'wants' (e.g., Exam reading lamps, back pain support cushions, study timers, noise-canceling earplugs).
-    2. CONTENT FORMAT & TONE VARIETY: Generate conversational Hinglish. Mix the tone across the 3 products to sound unpredictable and real:
-       - 1 product should have an "Excited" tone.
-       - 1 product should have a "Neutral/Practical" tone.
-       - 1 product should have an "Honest/Minor Flaw" tone (e.g., "Quality okayish hai par price ke hisaab se theek hai").
-       For each, write:
-       - "hook": A catchy question with urgency (e.g., "Exams sir par hain aur desk par jagah nahi?")
-       - "pain": Relatable pain point.
-       - "fix": Honest-sounding recommendation matching the assigned tone.
-    3. RATING: Extract the exact text like "4.2 out of 5 stars" into the "rating" key.
-    4. PRICE RANGE: Only items between Rs.49 and Rs.499.
-    5. "price" & "mrp": MUST be strings containing ONLY numbers.
-    6. IMAGE: Extract the EXACT image URL. NO PLACEHOLDERS.
-    7. Ensure the response starts with [ and ends with ]. No markdown.
+    1. BUYING MINDSET & URGENCY: Select products that look like a 'mistake price' or 'limited time loot' (e.g. 70%+ off).
+    2. CONTENT FORMAT: Use aggressive Hinglish. Sound like a hostel senior sharing a secret.
+       - "hook": Catchy, FOMO-driven (e.g., "Bhai ye price glitch hai ya kya? 😱")
+       - "pain": Relatable student struggle (e.g., "Raat bhar padhna hai par roommates light off kar dete hain?")
+       - "fix": How this solves it + why it's a steal.
+       - "loot_reason": One sentence on why this is the lowest price (e.g., "Usually ₹800 ka milta hai, abhi ₹249 hai!").
+    3. RATING: Extract exact rating.
+    4. PRICE RANGE: ₹99 to ₹499 (Impulse zone).
+    5. IMAGE: Ensure it's a high-quality main image URL.
+    6. TONE VARIETY: 1 Excited, 1 Shocked, 1 Honest/Practical.
     
     DATA:
     {html_text}
