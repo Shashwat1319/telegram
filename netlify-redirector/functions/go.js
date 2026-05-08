@@ -163,7 +163,7 @@ export default async (request, context) => {
         <a href="${finalUrl}" id="redirect-btn" class="btn">CONTINUE TO DEAL</a>
         
         <div class="footer-note">
-            Secure tracking enabled for ${tag}
+            ✓ Verified Safe Redirect &bull; Budget Deals India
         </div>
     </div>
 
@@ -183,8 +183,8 @@ export default async (request, context) => {
                 // Android Intent: Best way to force app open
                 deepLink = "intent://www.amazon.in/dp/" + asin + "/?tag=" + tag + "#Intent;scheme=https;package=com.amazon.mShop.android.shopping;end";
             } else if (isIOS) {
-                // iOS Scheme
-                deepLink = "com.amazon.mobile.shopping://www.amazon.in/products/" + asin;
+                // iOS: amzn:// scheme is the correct Amazon deep link
+                deepLink = "amzn://dp/" + asin + "?tag=" + tag;
             }
         }
 
@@ -203,7 +203,7 @@ export default async (request, context) => {
         // 4. Final fallback (only if user stays on page)
         setTimeout(() => {
             window.location.href = targetUrl;
-        }, 5000);
+        }, 2000);
     </script>
 </body>
 </html>

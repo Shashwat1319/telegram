@@ -215,22 +215,49 @@ def update_json(new_products):
                 data = json.load(f)
         except: pass
 
+    # Dedup by both name AND ASIN (prevents same product with different names)
+    asin_pattern = re.compile(r'/dp/([A-Z0-9]{10})', re.IGNORECASE)
     existing_names = {p['name'] for p in data['products']}
+    existing_asins = set()
+    for p in data['products']:
+        m = asin_pattern.search(p.get('link', ''))
+        if m:
+            existing_asins.add(m.group(1).upper())
+
     added_count = 0
     for product in new_products:
-        if product['name'] not in existing_names:
-            safe_name = product['name'].encode('ascii', 'replace').decode('ascii')
-            print(f"Adding: {safe_name} | Tagged URL: {product['link']}")
-            data['products'].insert(0, product)
-            added_count += 1
-    
+        # Skip placeholder / broken images
+        img = product.get('image', '')
+        if not img or 'PLACEHOLDER' in img or 'example.com' in img:
+            print(f"[FILTER] Skipping bad image: {product.get('name','')}")
+            continue
+
+        # Skip name duplicates
+        if product['name'] in existing_names:
+            continue
+
+        # Skip ASIN duplicates
+        m = asin_pattern.search(product.get('link', ''))
+        asin = m.group(1).upper() if m else ''
+        if asin and asin in existing_asins:
+            print(f"[DEDUP] Skipping ASIN duplicate: {product.get('name','')}")
+            continue
+
+        safe_name = product['name'].encode('ascii', 'replace').decode('ascii')
+        print(f"Adding: {safe_name} | Tagged URL: {product['link']}")
+        data['products'].insert(0, product)
+        existing_names.add(product['name'])
+        if asin:
+            existing_asins.add(asin)
+        added_count += 1
+
     # Keep only 100 products to avoid huge files
     data['products'] = data['products'][:100]
-    
+
     with json_lock:
         with open(file_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
-    
+
     print(f"Added {added_count} new products.")
     return added_count > 0
 
@@ -265,7 +292,8 @@ def main():
         "https://www.amazon.in/gp/movers-and-shakers/beauty",
         "https://www.amazon.in/gp/movers-and-shakers/computers",
         "https://www.amazon.in/gp/movers-and-shakers/apparel",
-        "https://www.amazon.in/gp/movers-and-shakers/shoes"
+        "https://www.amazon.in/gp/movers-and-shakers/office-products",
+        "https://www.amazon.in/gp/movers-and-shakers/toys"  # Gadgets & low-cost impulse items
     ]
     
     def sync_category(url):
