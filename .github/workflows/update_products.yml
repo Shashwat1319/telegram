@@ -2,7 +2,7 @@ name: AI Trending Products Sync
 
 on:
   schedule:
-    - cron: '0 4,10,16 * * *'  # 3 times a day (approx 9:30 AM, 3:30 PM, 9:30 PM IST)
+    - cron: '0 4,6,8,10,12,14,16,18 * * *'  # Every 2 hours (9:30 AM to 11:30 PM IST)
   workflow_dispatch:
 
 jobs:

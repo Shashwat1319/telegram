@@ -57,7 +57,32 @@ def preprocess_html(html_content):
             price = wrap.select_one('.a-price-whole, .p13n-sc-price, ._cDEzb_p13n-sc-price_3mJ9Z')
             mrp = wrap.select_one('.a-text-strike')
             link = wrap.select_one('a.a-link-normal')
-            image = wrap.select_one('img[src]')
+            
+            # [IMPROVED IMAGE SCRAPING]
+            image_el = wrap.select_one('img[data-a-dynamic-image], img[data-old-hires], img[src]')
+            p_image = ""
+            if image_el:
+                # Priority 1: Dynamic image JSON (contains highest res)
+                if image_el.has_attr('data-a-dynamic-image'):
+                    try:
+                        img_data = json.loads(image_el['data-a-dynamic-image'])
+                        p_image = list(img_data.keys())[-1] # Get largest resolution
+                    except: pass
+                
+                # Priority 2: Old hires
+                if not p_image and image_el.has_attr('data-old-hires'):
+                    p_image = image_el['data-old-hires']
+                
+                # Priority 3: Data-src (lazy loaded)
+                if not p_image and image_el.has_attr('data-src'):
+                    p_image = image_el['data-src']
+                
+                # Priority 4: src (ensure it's not a 1x1 placeholder)
+                if not p_image and image_el.has_attr('src'):
+                    src = image_el['src']
+                    if "01jrA-8DXYL.gif" not in src and "transparent-pixel" not in src:
+                        p_image = src
+            
             rating_element = wrap.select_one('i[class*="a-icon-star"] span.a-icon-alt') or wrap.select_one('span[class*="a-icon-alt"]')
             
             p_name = name.get_text(strip=True) if name else ""
@@ -67,8 +92,10 @@ def preprocess_html(html_content):
             p_price = price.get_text(strip=True) if price else ""
             p_mrp = mrp.get_text(strip=True) if mrp else ""
             p_link = link['href'] if link and 'href' in link.attrs else "#"
-            p_image = image['src'] if image and 'src' in image.attrs else ""
             p_rating = rating_element.get_text(strip=True) if rating_element else "Not specified"
+            
+            # Last ditch image fallback
+            if not p_image: p_image = "https://m.media-amazon.com/images/I/41-lF1XJ22L._AC_UL600_FMwebp_QL65_.jpg" # Default TWS image
             
             raw_text = wrap.get_text(" | ", strip=True)
             if not p_name: p_name = raw_text[:200]

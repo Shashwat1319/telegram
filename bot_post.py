@@ -128,7 +128,9 @@ def generate_message(product, post_count=0):
     else:
         msg += "\n"
 
+    current_time = datetime.now().strftime('%I:%M %p')
     msg += f"🔗 <a href='{link}'><b>BUY BEFORE PRICE GOES UP 👇</b></a>\n\n" \
+           f"✅ <i>Verified Active at {current_time} IST</i>\n" \
            f"📢 <i>Join @{CLEAN_ID} for more secret student loots!</i>"
     
     seo_block = (

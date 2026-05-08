@@ -50,7 +50,7 @@ export default async (request, context) => {
   const tagMatch = finalUrl.match(/tag=([^&]+)/);
   if (tagMatch) tag = tagMatch[1];
 
-  // --- 4. Return a Deep-Linking Bridge Page ---
+    // --- 4. Return a Deep-Linking Bridge Page ---
   const html = `
 <!DOCTYPE html>
 <html lang="en">
@@ -64,13 +64,13 @@ export default async (request, context) => {
             --primary: #FF9900;
             --primary-dark: #e68a00;
             --bg: #0f172a;
-            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-bg: rgba(30, 41, 59, 0.8);
             --text: #f8fafc;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
             color: var(--text);
             display: flex;
             align-items: center;
@@ -82,88 +82,116 @@ export default async (request, context) => {
             width: 90%;
             max-width: 400px;
             text-align: center;
-            padding: 2.5rem;
+            padding: 3rem 2rem;
             background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            border-radius: 24px;
+            backdrop-filter: blur(16px);
+            border-radius: 32px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 0.6s ease-out;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .logo {
             font-weight: 800;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #FF9900, #FFD700);
+            background: linear-gradient(135deg, #FF9900 0%, #FFD700 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
         }
         .verified-badge {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-            background: rgba(16, 185, 129, 0.1);
+            gap: 6px;
+            background: rgba(16, 185, 129, 0.15);
             color: #10b981;
-            padding: 4px 12px;
+            padding: 6px 14px;
             border-radius: 99px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(16, 185, 129, 0.2);
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .loader-container {
+            position: relative;
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 2rem;
         }
         .loader {
-            width: 48px;
-            height: 48px;
+            width: 100%;
+            height: 100%;
             border: 4px solid rgba(255, 153, 0, 0.1);
             border-left-color: var(--primary);
             border-radius: 50%;
-            display: inline-block;
-            animation: spin 1s linear infinite;
-            margin-bottom: 1.5rem;
+            animation: spin 0.8s linear infinite;
+        }
+        .loader-check {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--primary);
         }
         @keyframes spin { to { transform: rotate(360deg); } }
-        h1 { font-size: 1.25rem; margin-bottom: 0.5rem; font-weight: 700; }
-        p { color: #94a3b8; font-size: 0.875rem; margin-bottom: 2rem; line-height: 1.5; }
+        h1 { font-size: 1.5rem; margin-bottom: 0.75rem; font-weight: 700; }
+        p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 2.5rem; line-height: 1.6; }
         .btn {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             width: 100%;
-            background: var(--primary);
+            background: linear-gradient(to bottom, #FF9900, #FFB347);
             color: #000;
             text-decoration: none;
-            padding: 1rem;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 14px 0 rgba(255, 153, 0, 0.39);
-            margin-bottom: 1rem;
+            padding: 1.1rem;
+            border-radius: 16px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 20px -5px rgba(255, 153, 0, 0.4);
+            margin-bottom: 1.25rem;
         }
-        .btn:active { transform: scale(0.98); }
-        .footer-note { font-size: 0.75rem; color: #64748b; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 15px 30px -5px rgba(255, 153, 0, 0.5); }
+        .btn:active { transform: translateY(0); }
+        .footer-note { font-size: 0.8rem; color: #64748b; font-weight: 500; }
+        .secure-icon { vertical-align: middle; margin-right: 4px; opacity: 0.7; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">Budget Deals India</div>
+        <div class="logo">Budget Deals</div>
         <div class="verified-badge">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            Loot Verified
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Verified Safe Link
         </div>
         
         <div id="status-container">
-            <div class="loader"></div>
-            <h1>Opening Amazon App</h1>
-            <p>We're safely redirecting you to the best deal. If the app doesn't open, click the button below.</p>
+            <div class="loader-container">
+                <div class="loader"></div>
+                <div class="loader-check">
+                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+            </div>
+            <h1 id="headline">Opening App...</h1>
+            <p id="subtext">Securing the best student price. One second...</p>
         </div>
 
-        <a href="${finalUrl}" id="redirect-btn" class="btn">CONTINUE TO DEAL</a>
+        <a href="${finalUrl}" id="redirect-btn" class="btn">
+            CONTINUE TO AMAZON
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
         
         <div class="footer-note">
-            ✓ Verified Safe Redirect &bull; Budget Deals India
+            <svg class="secure-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            Safe & Secure Redirect
         </div>
     </div>
 
@@ -172,42 +200,47 @@ export default async (request, context) => {
         const asin = "${asin}";
         const tag = "${tag}";
         
-        let deepLink = targetUrl;
-
         // Smart Deep Linking Strategy
         const isAndroid = /Android/i.test(navigator.userAgent);
         const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        const isMobile = isAndroid || isIOS;
 
-        if (asin) {
+        let deepLink = targetUrl;
+        
+        if (asin && isMobile) {
             if (isAndroid) {
-                // Android Intent: Best way to force app open
-                deepLink = "intent://www.amazon.in/dp/" + asin + "/?tag=" + tag + "#Intent;scheme=https;package=com.amazon.mShop.android.shopping;end";
+                // Robust Android Intent
+                deepLink = "intent://www.amazon.in/dp/" + asin + "/?tag=" + tag + "#Intent;scheme=https;package=com.amazon.mShop.android.shopping;S.browser_fallback_url=" + encodeURIComponent(targetUrl) + ";end";
             } else if (isIOS) {
-                // iOS: amzn:// scheme is the correct Amazon deep link
+                // For iOS, the standard URL is often best if Universal Links are set up,
+                // but amzn:// works for some specific apps.
                 deepLink = "amzn://dp/" + asin + "?tag=" + tag;
             }
         }
 
-        // 1. Log attempt
-        console.log("Attempting deep link:", deepLink);
+        // 1. Immediate attempt for mobile
+        if (isMobile) {
+            window.location.href = deepLink;
+        } else {
+            // Instant redirect for Desktop (skip bridge)
+            window.location.replace(targetUrl);
+        }
 
-        // 2. Immediate attempt
-        window.location.href = deepLink;
-
-        // 3. Update button if it takes too long
+        // 2. Faster feedback loop
         setTimeout(() => {
-            document.querySelector('h1').innerText = "Almost there...";
-            document.getElementById('redirect-btn').innerText = "OPEN IN AMAZON APP";
-        }, 2000);
+            document.getElementById('headline').innerText = "Almost there!";
+            document.getElementById('subtext').innerText = "If the app didn't open automatically, tap below.";
+        }, 800);
 
-        // 4. Final fallback (only if user stays on page)
+        // 3. Force fallback after 1.5s (reduced from 2s)
         setTimeout(() => {
-            window.location.href = targetUrl;
-        }, 2000);
+            if (isMobile) window.location.href = targetUrl;
+        }, 1500);
     </script>
 </body>
 </html>
-  `;
+`;
+
 
   return new Response(html, {
     status: 200,
