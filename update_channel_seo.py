@@ -15,10 +15,10 @@ async def update_seo():
         return
 
     # High-traffic SEO targeting keywords
-    NEW_NAME = "Amazon Loot Deals - Glitch & Error Prices \U0001f6cd\ufe0f"
+    NEW_NAME = "Hostel Loot Deals - Student Gadgets & Glitches 🎓"
     NEW_BIO = (
-        "India's #1 channel for Amazon Glitches, Loot Deals & 99 Store offers. "
-        "Sasta shopping starts here! \U0001f680 Join & Share for secret deals."
+        "Secret deals for Hostel Life! 🚀 Amazon Loot, Hidden Student Gadgets & ₹99 Deals. "
+        "Verified by Students. Join to save 80% on everything! 🔥"
     )
 
     bot = Bot(token=BOT_TOKEN)
