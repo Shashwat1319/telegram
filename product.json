@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "products": [
     {
       "name": "THE HOME STYLE Super Soft Glace Cotton King Size Printed Pillow Covers ll Pillow Cases ll Set of 2 Piece- 18\"x 28\" Inches (Abstract Mist)",
@@ -325,4 +326,683 @@
       "category": "Electronics"
     }
   ]
+=======
+    "products": [
+        {
+            "name": "Generic Rechargeable LED Light with Touch Control - 3 Light Modes, Desk Lamp, Reading Lamp, Table Lamp for Home Office Desk (White)",
+            "price": "₹399",
+            "mrp": "₹999",
+            "discount_percent": "60%",
+            "rating": "3.9 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0BQ26YF3H?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41D5tOa74wL._AC_UL320_.jpg",
+            "hook": "Hostel mein late night study ya power cut mein andhera ho jaata hai? Roshni ki zaroorat hai, but budget tight hai?",
+            "pain": "Raat mein padhne ke liye proper light nahi milti ya phir room ki main light se sab disturb hote hain. Exam time mein toh bina light ke dimaag bhi kaam nahi karta.",
+            "fix": "Dekho, ye rechargeable LED light price ke hisaab se theek hai. 3 light modes hain aur touch control bhi mil jaata hai, jo convenience ke liye achha hai. Battery backup theek-thaak hai, but agar aapko super long-lasting chahiye toh thoda aur invest karna pad sakta hai. Overall, urgent need ke liye ek decent aur budget-friendly option hai.",
+            "category": "Loot"
+        },
+        {
+            "name": "ELV Adjustable Reading Book Stand, Portable Lightweight Book Holder, Cookbook Holder, Document Holder for Textbooks (Black)",
+            "price": "₹249",
+            "mrp": "₹599",
+            "discount_percent": "58%",
+            "rating": "4.2 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B08GLQ41R3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61Nl0B0C4hL._AC_UL320_.jpg",
+            "hook": "Kya padhai karte waqt kitaabein pakadte-pakadte haath thak jaate hain ya neck strain hota hai?",
+            "pain": "Textbooks ya heavy reference books ko der tak pakadna mushkil ho jaata hai, aur unko flat rakhne se posture kharab hota hai. Desk par space bhi kam pad jaati hai.",
+            "fix": "Ye ELV Adjustable Reading Book Stand kaafi practical hai. Books ko ek comfortable angle par hold karta hai, jisse aapka posture theek rehta hai aur hands-free padhai kar sakte ho. Desk bhi organised lagta hai. Simple aur effective solution for serious students.",
+            "category": "Loot"
+        },
+        {
+            "name": "Styledge Aluminium Alloy Portable Laptop Stand, Adjustable Laptop Riser for Desk, Ergonomic Portable Stand for Notebook & MacBook, Ventilated Multi-Angle Foldable Laptop Holder, Compatible Upto 15.6 inch (Silver)",
+            "price": "₹399",
+            "mrp": "₹999",
+            "discount_percent": "60%",
+            "rating": "4.1 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0C6L75N18?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51wXQcK2gKL._AC_UL320_.jpg",
+            "hook": "Long study sessions mein back aur neck pain se pareshaan ho gaye ho? Jaldi solution chahiye?!",
+            "pain": "Laptop niche rakh ke kaam karte ho toh kamar akkad jaati hai, gardan mein dard hota hai aur concentration bhi toot jaati hai. Poore din thake-thake rehte ho!",
+            "fix": "OMG! Ye laptop stand toh must-have hai! Aluminium alloy ka hai, foldable aur adjustable. Ab laptop ko apni eye-level par rakh kar padho, presentation banao, ya movie dekho, no more pain! Productivity skyrocket ho jaayegi, aur health bhi achhi raheगी. Best deal ever!",
+            "category": "Loot"
+        },
+        {
+            "name": "Professional Noise Cancelling Ear Plugs for Sleeping, Studying & Work (Reusable)",
+            "price": "₹179",
+            "mrp": "₹350",
+            "discount_percent": "49%",
+            "rating": "3.8 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0B6GYD82G?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61sJb0k8r8L._AC_SL1500_.jpg",
+            "hook": "Hostel mein shor se padhai nahi ho pa rahi? Neend bhi disturb hoti hai?",
+            "pain": "Roomies ki baatein, bahar ka traffic, ya loud music... focus karna mushkil ho jaata hai. Exam time mein toh aur bhi tension badhti hai.",
+            "fix": "Yeh noise-cancelling ear plugs hostel ke shor se bachne ke liye kaam aa sakte hain. ₹179 mein reusable hain, toh one-time investment hai. Quality okayish hai par price ke hisaab se theek hai, thoda shor kam kar dete hain. Complete silence toh nahi milega, par disturbance level zaroor kam hoga.",
+            "category": "Loot"
+        },
+        {
+            "name": "Multifunctional Wooden Desk Organizer with Pen Holder & Mobile Stand",
+            "price": "₹249",
+            "mrp": "₹499",
+            "discount_percent": "50%",
+            "rating": "4.3 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0CG61S12R?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71h3hS-kYFL._AC_SL1500_.jpg",
+            "hook": "Kya aapki study desk hamesha messy rehti hai aur kuch milta hi nahi?",
+            "pain": "Papers, pens, markers, phone... sab idhar-udhar bikhra rehta hai. Important notes bhi gum ho jaate hain aur padhai mein dhyan nahi lagta.",
+            "fix": "Yeh multifunctional wooden desk organizer aapke liye kaafi useful ho sakta hai. Pens, stationery, aur phone ke liye bhi alag slot hai. ₹249 mein, yeh aapki desk ko organize karne mein madad karega aur padhai par focus badhayega. Ek practical solution hai.",
+            "category": "Loot"
+        },
+        {
+            "name": "Portable Rechargeable LED Desk Lamp with 3 Brightness Modes for Study",
+            "price": "₹399",
+            "mrp": "₹999",
+            "discount_percent": "60%",
+            "rating": "4.1 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0BP7GF62Q?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Y+zL8WpHL._AC_SL1500_.jpg",
+            "hook": "Exams sir par hain aur raat bhar padhna hai? Magar light ka problem hai kya?",
+            "pain": "Hostel mein reading light achhi nahi milti, ya phir roomies disturb hote hain. Aur baar-baar current jaane ka tension alag!",
+            "fix": "Yaar, yeh Portable LED Desk Lamp toh ek number cheez hai! Pura 60% off mil raha hai, ₹399 mein! Rechargeable hai, toh light jaane ki tension nahi, aur 3 brightness modes hain, jo adjust kar sakte ho. Isse achhi deal mil hi nahi sakti, jaldi grab karo!",
+            "category": "Loot"
+        },
+        {
+            "name": "Hoteon 2 in 1 Portable Water Bottle Sprayer with Mini Fan, Cooling Mist Fan for Office, Travel, Outdoor, School, Home (Multicolor, Pack of 1)",
+            "price": "₹199",
+            "mrp": "₹499",
+            "discount_percent": "60%",
+            "rating": "3.5 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B07R9L7R2Q?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41D86p72vWL._SX300_SY300_QL70_FMwebp_.jpg",
+            "hook": "Garmi mein padhai par focus karna mushkil ho raha hai, especially hostel mein?",
+            "pain": "Hostel ke chote room mein garmi se haal behaal ho jaata hai, aur AC ya cooler har jagah nahi milta. Padhai ke time pasina aur bechaini alag.",
+            "fix": "Ye Hoteon 2 in 1 Portable Water Bottle Sprayer with Mini Fan emergency garmi se relief ke liye theek hai. Quality okayish hai par price (₹199) ke hisaab se theek hai – thodi der ki cooling ya mist ke liye chal jaayega. Koi high expectation mat rakhna, but it does the job in a pinch.",
+            "category": "Loot"
+        },
+        {
+            "name": "boAt BassHeads 100 Wired Earphones with in-line mic, super extra bass, tangle free cable, 10mm drivers, and noise cancellation in mic (Black)",
+            "price": "₹299",
+            "mrp": "₹999",
+            "discount_percent": "70%",
+            "rating": "4.1 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B073JYC4XM?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71BytGjN6RL._SL1500_.jpg",
+            "hook": "Hostel ke shor mein padhna ya online lecture sunna mushkil lag raha hai?",
+            "pain": "Jab roomies baatein kar rahe hon ya bahar se awaz aa rahi ho, focus karna bahut tough ho jaata hai. Lectures sunne mein bhi dikkat aati hai.",
+            "fix": "boAt BassHeads 100 earphones ek practical solution hain. Inka super extra bass aur in-line mic aapke online calls aur lectures ke liye perfect hain, aur noise cancellation feature se distraction bhi kam hota hai. Hostel life ke liye ek useful accessory hai.",
+            "category": "Loot"
+        },
+        {
+            "name": "Gizga Essentials Universal Portable Foldable Laptop Stand Holder for Desk Table, Up to 15.6 Inch Laptops, with 7 Adjustable Height Levels, Strong & Sturdy, Anti-Skid, Portable (Black)",
+            "price": "₹399",
+            "mrp": "₹999",
+            "discount_percent": "60%",
+            "rating": "4.0 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B09V7S18L1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71R2o5fT50L._SL1500_.jpg",
+            "hook": "Hostel mein laptop par padhte hue neck pain ho raha hai? Iska solution mil gaya!",
+            "pain": "Ghanto laptop par jhuk kar padhne se gardan aur peeth mein dard hota hai, aur desk par jagah bhi kam pad jaati hai. Posture bhi kharab hota ja raha hai, yaar!",
+            "fix": "Arre, is Gizga Essentials Portable Laptop Stand se saari problem solve! 7 height levels, compact design – matlab, sahi posture aur organised desk space, woh bhi sirf ₹399 mein! Must-have hai, jaldi le lo, deal miss na ho jaaye!",
+            "category": "Loot"
+        },
+        {
+            "name": "DRDO-PRO Soft Silicone Noise Cancelling Ear Plugs for Study & Sleep",
+            "price": "₹99",
+            "mrp": "₹199",
+            "discount_percent": "50%",
+            "rating": "3.8 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0B6L5N6M3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61jC8V9e8XL._SL1500_.jpg",
+            "hook": "Hostel ke shor mein concentration banana mushkil ho raha hai? 🤯",
+            "pain": "Kabhi roommate ki baatein, kabhi corridor ka shor, kabhi bahar ki awazein... padhai par focus karna impossible sa lagta hai. Din ho ya raat, shanti milti hi nahi.",
+            "fix": "Ye silicone ear plugs ek budget solution hain shor se bachne ke liye. Noise cancel to completely nahi karte, matlab *thodi* awazein toh aayengi, par kaafi हद tak distraction kam ho jaati hai. Quality theek-thaak hai considering the price, par agar bohot high-end noise cancellation chahiye toh ye shayad utne effective nahi honge. Par ₹99 mein, ek try toh banta hai! Kaam chal jaata hai.",
+            "category": "Electronics"
+        },
+        {
+            "name": "STO-ALL Portable Multi-Pocket Desk Organizer with Pen Holder",
+            "price": "₹249",
+            "mrp": "₹499",
+            "discount_percent": "50%",
+            "rating": "4.2 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0C32X7L8G?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/7123Lz7V92L._SL1500_.jpg",
+            "hook": "Kya tumhara study table hamesha messy rehta hai? 😵‍💫",
+            "pain": "Chhote se hostel desk par books, pens, chargers, sab kuchh aise scattered hote hain ki padhne ka mood hi nahi banta. Jab koi cheez chahiye hoti hai toh dhoondhte reh jaate ho.",
+            "fix": "Ye multi-pocket desk organizer kaafi useful hai. Isme alag-alag compartments hain jahan tum apne pens, notepads, phone, aur choti-moti cheezein organize kar sakte ho. Desk par space bachata hai aur sab kuchh ek jagah mil jaata hai. Practical option hai for managing clutter.",
+            "category": "Electronics"
+        },
+        {
+            "name": "Wipro SmartLite Mini LED USB Reading Lamp",
+            "price": "₹199",
+            "mrp": "₹399",
+            "discount_percent": "50%",
+            "rating": "4.5 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0BP9J82P9?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71G1v+eF6hL._SL1500_.jpg",
+            "hook": "Raat bhar padhai karni hai par roommate ko disturb nahi karna? 😎",
+            "pain": "Hostel mein sab so rahe hote hain aur tumhe apni assignment complete karni hai. Desk lamp ki light itni tez hoti hai ki sab uth jaate hain, ya fir bed pe padhte hue aankhon pe strain aata hai.",
+            "fix": "Arre, tension kyun le rahe ho! Ye Wipro ka mini LED lamp toh zabardast hai! USB se charge hota hai, compact hai, aur itni perfect light deta hai ki tum aaram se padh sako without bothering anyone. Iske bina hostel life adhoori hai, trust me! Jaldi le lo, stock khatam na ho jaaye!",
+            "category": "Electronics"
+        },
+        {
+            "name": "SYGA Multi-functional 5-Compartment Desk Organizer for Stationary",
+            "price": "₹199",
+            "mrp": "₹399",
+            "discount_percent": "50%",
+            "rating": "3.9 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B08GP38S1Y?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/713J1yM21FL._AC_SL1500_.jpg",
+            "hook": "Kya tumhara study table hamesha mess rehta hai? Pen, pencil, notes sab scattered?",
+            "pain": "Hostel rooms aur study desks chote hote hain, aur saara samaan idhar-udhar pada rehta hai. Zaroorat ki cheez dhoondhne mein hi aadha ghanta lag jaata hai.",
+            "fix": "Dekho, ye 5-compartment organizer kaam chalaau hai. Quality okayish hai par price ke hisaab se theek hai. Plastic thoda light ho sakta hai, par tumhare pens, highlighters aur chhote-mote stationery items ko ek jagah rakhne ke liye ye kaafi useful hai. Budget mein desk ko organized rakhna hai toh consider kar sakte ho.",
+            "category": "Loot"
+        },
+        {
+            "name": "AmazonBasics Mini LED Desk Lamp with 3 Brightness Modes & USB Charging Port",
+            "price": "₹449",
+            "mrp": "₹899",
+            "discount_percent": "50%",
+            "rating": "4.1 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B09V7N6S4F?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61k1T0aXfBL._AC_SL1500_.jpg",
+            "hook": "Raat bhar padhne ke liye light problem hai ya roommate disturb hota hai?",
+            "pain": "Hostel mein sab so jaate hain, par tumhari padhai baaki hoti hai. Room ki main light on karne se sabko disturbance hoti hai aur mobile ki flashlight se aankhon par strain padhta hai.",
+            "fix": "Yeh mini LED desk lamp ek practical solution hai. Iske 3 brightness modes hain, jo tumhari aankhon ko sukoon denge aur USB charging se power cut mein bhi tension nahi. Chota hai aur easily kahi bhi adjust ho jaata hai, bilkul hostel ke space ke liye perfect.",
+            "category": "Loot"
+        },
+        {
+            "name": "HSR Digital Study Timer with Loud Alarm & Magnetic Back for Students",
+            "price": "₹299",
+            "mrp": "₹699",
+            "discount_percent": "57%",
+            "rating": "4.3 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0BP6V9SJW?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71rB58J13oL._AC_SL1500_.jpg",
+            "hook": "Time management ka tension hai aur exam preparation mein focus nahi ban raha?",
+            "pain": "Pura din phone mein scroll karte nikal jaata hai, padhai ke liye time hi nahi milta. Ya fir, 'thoda aur padh leta hoon' bolte-bolte break kab chhod diya pata hi nahi chalta.",
+            "fix": "OMG! Ye timer toh next-level hai! Iski loud alarm aur magnetic back ka combo hostel life mein game-changer hai. Pomodoro technique use karke padhai karoge toh na sirf focus badhega, balki breaks bhi properly loge. Ab time waste karne ki koi jagah nahi!",
+            "category": "Loot"
+        },
+        {
+            "name": "Quiet Zone Reusable Silicone Ear Plugs for Sleeping, Studying, Noise Reduction (2 Pair Pack)",
+            "price": "₹129",
+            "mrp": "₹199",
+            "discount_percent": "35%",
+            "rating": "3.8 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0BQV789KL?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51A2B3C4DE._SL1000_.jpg",
+            "hook": "Hostel ke shor mein padhai karna mushkil ho raha hai? Concentration break ho jaati hai kya?",
+            "pain": "Roommates ka gappe marna, corridor ka shor, ya aas-paas ke log... yeh sab padhai se dhyan bhatka dete hain. Bina disturbance ke padhna impossible lagta hai kabhi-kabhi.",
+            "fix": "Yeh Quiet Zone earplugs kaafi budget-friendly option hain shor ko kam karne ke liye. Pure noise-cancellation toh nahi milegi, high-end ones jaisi, par kaafi हद tak ambient noise ko control kar dete hain. Quality okayish hai par price ke hisaab se theek hai. Emergency ke liye rakhe ja sakte hain.",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Study Buddy Multipurpose Desk Organizer with Pen Holder, Mobile Stand, and Stationery Tray",
+            "price": "₹199",
+            "mrp": "₹299",
+            "discount_percent": "33%",
+            "rating": "4.0 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0BQR456HJ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61XzY9J2KL._SL1500_.jpg",
+            "hook": "Apni study table ko organize karna hai bina zyada kharch kiye?",
+            "pain": "Books, pens, charger, phone... sab kuch desk par scattered rehta hai, aur important notes milte hi nahi time par. Productivity zero ho jaati hai is mess mein.",
+            "fix": "Yeh Study Buddy desk organizer kaafi useful hai. Pen holder, mobile stand aur chote stationery items ke liye trays hain. Basic functionality ke liye theek hai aur compact bhi hai, so hostel room mein zyada space nahi lega.",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Gadgets Guru Portable Rechargeable LED Desk Lamp with 3 Brightness Modes, Touch Control",
+            "price": "₹349",
+            "mrp": "₹699",
+            "discount_percent": "50%",
+            "rating": "4.3 out of 5 stars",
+            "link": "https://www.amazon.in/dp/B0BP9123FG?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71R22C91CGL._SL1500_.jpg",
+            "hook": "Kya raat bhar study karne ke liye perfect light nahi mil rahi? Ab bijli jaaye ya roomie so jaaye, tumhari padhai nahi rukegi!",
+            "pain": "Hostel mein light ka issue, ya late night study sessions mein roomies ko disturb karne ka dar, ya fir light cut ho jaye toh adhoori padhai... kitna frustrating hota hai na?",
+            "fix": "Yaar, yeh Gadgets Guru LED Lamp toh must-have hai! Rechargeable hai, teen brightness levels hain aur touch control se adjust kar sakte ho. Matlab, no more compromises with your study time, chahe kitni bhi andheri raat ho! Aur look bhi killer hai, trust me!",
+            "category": "Kitchen"
+        },
+        {
+            "name": "THE HOME STYLE Super Soft Glace Cotton King Size Printed Pillow Covers ll Pillow Cases ll Set of 2 Piece- 18\"x 28\" Inches (Abstract Mist)",
+            "price": "₹349",
+            "mrp": "₹1000",
+            "discount_percent": "65%",
+            "link": "https://www.amazon.in/dp/B0DGCKPC97?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/716RKRytcYL._SL1500_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "JIALTO 10 Pcs Heavy Duty Adhesive Big Hooks Set - Waterproof Stainless Steel Hooks for Bathroom, Kitchen, Home & Office - Rustproof Towel and Coat Hangers",
+            "price": "₹205",
+            "mrp": "₹650",
+            "discount_percent": "68%",
+            "link": "https://www.amazon.in/dp/B0CMTW6335?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/81A0hEXsRzL._SL1500_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Ajanta AQ-2147 Quartz Glass Abstract Blue Office Clock (210 x 42 x 211 mm",
+            "price": "₹185",
+            "mrp": "₹700",
+            "discount_percent": "73%",
+            "link": "https://www.amazon.in/dp/B00PXJWJJI?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/713K92lv4wL._SL1500_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "ZEBRONICS TT60+ Type-C Cable",
+            "price": "₹99",
+            "mrp": "₹168",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0FJ2L7YF8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51YrGDmp8XL._SL1500_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "HIFFIN 6x9FT Photography Backdrop",
+            "price": "₹399",
+            "mrp": "₹678",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0BTNT8X6K?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61QxfC9mAGL._SL1500_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "STRIFF Transparent Wireless Mouse",
+            "price": "₹385",
+            "mrp": "₹655",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0DXFHF33M?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61WDYQe8OOL._SL1500_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "Lakme Blush & Glow Kiwi Sheet Mask, 25 ml",
+            "price": "₹40",
+            "mrp": "₹68",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B084S2HBQM?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61q6BMWvP6S._SL1000_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Dettol Icy Cool Bathing Soap Bar, 75gm (Pack of 4)",
+            "price": "₹150",
+            "mrp": "₹255",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0869VX72V?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61MvUQp2hRL._SL1000_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Savlon Herbal Handwash Refill Pouch, 1.3L",
+            "price": "₹170",
+            "mrp": "₹289",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B08ZDCRNZM?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/716OSXV7ERL._SL1500_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Fiama Body Wash Blackcurrant & Bearberry, 895 ml",
+            "price": "₹187",
+            "mrp": "₹317",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B098LR2L3K?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61YZ1vqmglL._SL1080_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Presto! Garbage Bags Medium",
+            "price": "₹239",
+            "mrp": "₹398",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0821PN8L4?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61fn1xtHO4L._SL1500_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "AmazonBasics Smart Wi-Fi LED Bulb 9W",
+            "price": "₹349",
+            "mrp": "₹1199",
+            "discount_percent": "71%",
+            "link": "https://www.amazon.in/dp/B0BS62D42W?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51wX1f3sKUL._AC_SY200_.jpg",
+            "category": "Loot"
+        },
+        {
+            "name": "AmazonBasics USB-C to USB-C Cable (3ft)",
+            "price": "₹249",
+            "mrp": "₹374",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0FPQYK3D7?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71p3Ej-3FHL._SL1500_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Zebronics Wireless Mouse",
+            "price": "₹219",
+            "mrp": "₹329",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0FF4XBM5N?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61aOe5y2ARL._SL1500_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Kratos K13 Ai Face Tracking Tripod",
+            "price": "₹199",
+            "mrp": "₹299",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0GG4FRZZZ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51mfBEL2H3L._SY355_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Zebronics 200HB USB 3.0 4 Port Hub",
+            "price": "₹189",
+            "mrp": "₹284",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0BBQK41CV?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51izuxaFpXL._SL1500_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Zebronics TT60+ Type C Braided Cable",
+            "price": "₹99",
+            "mrp": "₹149",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0FJ2L7YF8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51YrGDmp8XL._SL1500_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Amazon Brand - Presto! Garbage Bags (180 Count)",
+            "price": "₹239",
+            "mrp": "₹382",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0821PN8L4?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61fn1xtHO4L._SL1500_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "25W Charger for Samsung",
+            "price": "₹344",
+            "mrp": "₹516",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0GHFFDRGN?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61uhHbGSwML._SL1500_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "DIVIJA Foldable Laptop Table",
+            "price": "₹299",
+            "mrp": "₹478",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0C5D8BBP7?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/614t8cE-siL._SL1080_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Treo by Milton Cube Storage Containers (Set of 3)",
+            "price": "₹166",
+            "mrp": "₹266",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B07T6TG1PW?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/713OQmi7zpL._SL1500_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "ZEBRONICS TT60+ Type C Braided Cable",
+            "price": "₹99",
+            "mrp": "₹168",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0FJ2L7YF8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51YrGDmp8XL._SL1500_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Portronics Conch Theta C Earphones",
+            "price": "₹279",
+            "mrp": "₹474",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0DGLQHBF9?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51Bl64-+u7L._SL1500_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Portable USB Mini Fan",
+            "price": "₹249",
+            "mrp": "₹423",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0FPQYK3D7?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71p3Ej-3FHL._SL1500_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Kratos K13 Ai Auto Face Tracking Tripod",
+            "price": "₹199",
+            "mrp": "₹338",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GG4FRZZZ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51mfBEL2H3L._SY355_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Kratos 25W Samsung Charger Adapter",
+            "price": "₹397",
+            "mrp": "₹635",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0FH2N3PFX?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51BcZ-rjT3L._SL1500_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "AmazonBasics USB 3.0 Cable",
+            "price": "₹299",
+            "mrp": "₹505",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0DM69GGHD?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/617AZbPAXKL._SL1500_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Kratos Ai Face Tracking Tripod",
+            "price": "₹179",
+            "mrp": "₹301",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GG4FRZZZ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51mfBEL2H3L._SY355_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Ambrane Type C Fast Charging Cable",
+            "price": "₹129",
+            "mrp": "₹219",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CJJQLDS9?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61v8i6E4bWL._SL1500_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Samsung 25W Type C Charger",
+            "price": "₹344",
+            "mrp": "₹584",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B08TDFC7LX?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51ZJZXZIfSL._SL1500_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Ambrane Type C Cable 1M",
+            "price": "₹129",
+            "mrp": "₹219",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CJJQLDS9?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61v8i6E4bWL._SL1500_.jpg",
+            "category": "Electronics"
+        },
+        {
+            "name": "Bloomingdale Rain Coat with Pant Set",
+            "price": "₹199",
+            "mrp": "₹308",
+            "discount_percent": "35%",
+            "link": "https://www.amazon.in/dp/B0CH189D6D?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51UQzMhobRL._SL1500_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Btag High Waist Shapewear Shorts",
+            "price": "₹259",
+            "mrp": "₹409",
+            "discount_percent": "36%",
+            "link": "https://www.amazon.in/dp/B0FH1ZTDVG?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71EeBTcp2TL._SL1500_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Citizen Eco-Friendly Poncho Raincoat",
+            "price": "₹189",
+            "mrp": "₹302",
+            "discount_percent": "37%",
+            "link": "https://www.amazon.in/dp/B0F9TP3W1L?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51dHv1MghmL._SL1500_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Robustt Reusable Raincoat",
+            "price": "₹249",
+            "mrp": "₹423",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GMX3NNV5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71IWprywgmL._SL1500_.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Dyazo Aluminum Laptop Stand",
+            "price": "₹279",
+            "mrp": "₹418",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0BVR9RCYW?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61quH1ypfHL._SL1500_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "APFEN USB-A to Lightning Cable",
+            "price": "₹271",
+            "mrp": "₹461",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0DHW7ZG5X?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41bDXvBxnzL._SL1024_.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "INSIGHT Lip & Cheek Tint - Candy Cane (3g)",
+            "price": "₹61",
+            "mrp": "₹91",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0CG6GH7KT?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51l2OgErZKL._SL1200_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "Pond's Super Light Gel Moisturiser, 25g",
+            "price": "₹50",
+            "mrp": "₹75",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B08CWBF1ZQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51yZ9Fa9SuL._SL1000_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "DIVIJA STORE Foldable Laptop Table (Black)",
+            "price": "₹299",
+            "mrp": "₹450",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B0DVGS1F9Y?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61RcxqY9pZL._SL1500_.jpg",
+            "category": "Beauty"
+        },
+        {
+            "name": "PRO Shoe Cream Polish",
+            "price": "₹272",
+            "mrp": "₹408",
+            "discount_percent": "33%",
+            "link": "https://www.amazon.in/dp/B08SM9QWW7?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Pb17TIxtL._SL1500_.jpg",
+            "category": "Ladies Shoes"
+        },
+        {
+            "name": "Citizen EVA Poncho Raincoat",
+            "price": "₹189",
+            "mrp": "₹312",
+            "discount_percent": "39%",
+            "link": "https://www.amazon.in/dp/B0F9TP3W1L?tag=shashwat022-21",
+            "image": "https://example.com/citizen-poncho-raincoat.jpg",
+            "category": "Ladies Fashion"
+        },
+        {
+            "name": "Foldable Laptop Table with Cup Holder",
+            "price": "₹289",
+            "mrp": "₹491",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0GXPWGSTQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "Portronics 240W Type C Cable",
+            "price": "₹254",
+            "mrp": "₹431",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CJCGMQDF?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/PLACEHOLDER.jpg",
+            "category": "Computers"
+        },
+        {
+            "name": "TEKCOOL Double Ended Spray Fan",
+            "price": "₹249",
+            "mrp": "₹410",
+            "discount_percent": "39%",
+            "link": "https://www.amazon.in/dp/B0GWJR25X2?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71il+-b8WnL._SL1500_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "CELLO Kitchen Storage Container Set",
+            "price": "₹349",
+            "mrp": "₹586",
+            "discount_percent": "40%",
+            "link": "https://www.amazon.in/dp/B0F7LXBP97?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/613UosUj0TL._SL1500_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "SMTG Door Guard (Pack of 5)",
+            "price": "₹104",
+            "mrp": "₹176",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0F6D16ZQ4?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51EhO912qxL._SL1079_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Plum BodyLovin' Rose Hand Cream",
+            "price": "₹206",
+            "mrp": "₹350",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0CHFPXZND?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/81P0KMKnAmL._SL1500_.jpg",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Plum Hibiscus & Ceramides Shampoo",
+            "price": "₹248",
+            "mrp": "₹421",
+            "discount_percent": "41%",
+            "link": "https://www.amazon.in/dp/B0F62W35NX?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61sa0aOa5ZL._SL1500_.jpg",
+            "category": "Electronics"
+        }
+    ]
+>>>>>>> e4b625b6c2f9953a2e768a97e3aed9be2f37b058
 }
