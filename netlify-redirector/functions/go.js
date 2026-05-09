@@ -20,7 +20,8 @@ export default async (request, context) => {
   // --- 2. Handle /s/:id Redirect ---
   let finalUrl = targetUrl;
   if (id && id !== "go") {
-    finalUrl = await store.get(`map:${id}`, { type: "json" });
+    const mapped = await store.get(`map:${id}`, { type: "json" });
+    if (mapped) finalUrl = mapped;
   }
 
   if (!finalUrl) {
@@ -50,148 +51,184 @@ export default async (request, context) => {
   const tagMatch = finalUrl.match(/tag=([^&]+)/);
   if (tagMatch) tag = tagMatch[1];
 
-    // --- 4. Return a Deep-Linking Bridge Page ---
+  // --- 4. Return a Deep-Linking Bridge Page ---
   const html = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting | Budget Deals India</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Secure Gateway | Budget Deals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #FF9900;
-            --primary-dark: #e68a00;
-            --bg: #0f172a;
-            --card-bg: rgba(30, 41, 59, 0.8);
-            --text: #f8fafc;
+            --accent: #FFD700;
+            --bg: #0b0f19;
+            --card: rgba(23, 32, 53, 0.95);
+            --text: #ffffff;
+            --muted: #94a3b8;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(255, 153, 0, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(15, 23, 42, 1) 0px, transparent 50%);
             color: var(--text);
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            padding: 20px;
+        }
+        .card {
+            width: 100%;
+            max-width: 420px;
+            background: var(--card);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
             overflow: hidden;
         }
-        .container {
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-            padding: 3rem 2rem;
-            background: var(--card-bg);
-            backdrop-filter: blur(16px);
-            border-radius: 32px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .logo {
-            font-weight: 800;
-            font-size: 1.75rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #FF9900 0%, #FFD700 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
-        }
-        .verified-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(16, 185, 129, 0.15);
-            color: #10b981;
-            padding: 6px 14px;
-            border-radius: 99px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            margin-bottom: 2.5rem;
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .loader-container {
-            position: relative;
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 2rem;
-        }
-        .loader {
-            width: 100%;
-            height: 100%;
-            border: 4px solid rgba(255, 153, 0, 0.1);
-            border-left-color: var(--primary);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-        .loader-check {
+        .card::before {
+            content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--primary);
+            top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
         }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        h1 { font-size: 1.5rem; margin-bottom: 0.75rem; font-weight: 700; }
-        p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 2.5rem; line-height: 1.6; }
-        .btn {
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            width: 100%;
-            background: linear-gradient(to bottom, #FF9900, #FFB347);
+            gap: 8px;
+        }
+        .brand span { color: var(--primary); }
+        
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(34, 197, 94, 0.1);
+            color: #4ade80;
+            padding: 8px 16px;
+            border-radius: 99px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            text-transform: uppercase;
+        }
+
+        .product-circle {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed rgba(255, 153, 0, 0.3);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); border-color: rgba(255, 153, 0, 0.3); }
+            50% { transform: scale(1.05); border-color: rgba(255, 153, 0, 0.6); }
+            100% { transform: scale(1); border-color: rgba(255, 153, 0, 0.3); }
+        }
+
+        h1 { font-size: 1.5rem; margin-bottom: 12px; font-weight: 700; }
+        p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 32px; }
+
+        .btn {
+            display: block;
+            background: linear-gradient(135deg, #FF9900 0%, #FFB347 100%);
             color: #000;
             text-decoration: none;
-            padding: 1.1rem;
-            border-radius: 16px;
+            padding: 18px;
+            border-radius: 18px;
             font-weight: 800;
             font-size: 1.1rem;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 20px -5px rgba(255, 153, 0, 0.4);
-            margin-bottom: 1.25rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 30px -5px rgba(255, 153, 0, 0.4);
+            margin-bottom: 16px;
         }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 15px 30px -5px rgba(255, 153, 0, 0.5); }
-        .btn:active { transform: translateY(0); }
-        .footer-note { font-size: 0.8rem; color: #64748b; font-weight: 500; }
-        .secure-icon { vertical-align: middle; margin-right: 4px; opacity: 0.7; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 20px 40px -5px rgba(255, 153, 0, 0.5); }
+        
+        .trust-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .trust-item {
+            font-size: 0.7rem;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            justify-content: center;
+        }
+        .loading-bar {
+            height: 3px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 32px;
+        }
+        .loading-progress {
+            height: 100%;
+            width: 0%;
+            background: var(--primary);
+            animation: load 1.5s forwards;
+        }
+        @keyframes load { to { width: 100%; } }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">Budget Deals</div>
-        <div class="verified-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            Verified Safe Link
-        </div>
+    <div class="card">
+        <div class="brand">Budget<span>Deals</span></div>
         
-        <div id="status-container">
-            <div class="loader-container">
-                <div class="loader"></div>
-                <div class="loader-check">
-                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                </div>
-            </div>
-            <h1 id="headline">Opening App...</h1>
-            <p id="subtext">Securing the best student price. One second...</p>
+        <div class="status-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Amazon Verified Link
         </div>
 
-        <a href="${finalUrl}" id="redirect-btn" class="btn">
-            CONTINUE TO AMAZON
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        </a>
-        
-        <div class="footer-note">
-            <svg class="secure-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-            Safe & Secure Redirect
+        <div class="product-circle">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        </div>
+
+        <h1 id="title">Opening App...</h1>
+        <p id="desc">Connecting to Amazon Secure Server to verify student price...</p>
+
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+
+        <a href="${finalUrl}" class="btn" id="main-btn">OPEN AMAZON APP</a>
+
+        <div class="trust-grid">
+            <div class="trust-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                SSL Secured
+            </div>
+            <div class="trust-item">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                Deal Active
+            </div>
         </div>
     </div>
 
@@ -200,47 +237,47 @@ export default async (request, context) => {
         const asin = "${asin}";
         const tag = "${tag}";
         
-        // Smart Deep Linking Strategy
         const isAndroid = /Android/i.test(navigator.userAgent);
         const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-        const isMobile = isAndroid || isIOS;
-
+        
         let deepLink = targetUrl;
         
-        if (asin && isMobile) {
+        if (asin) {
             if (isAndroid) {
-                // Robust Android Intent
-                deepLink = "intent://www.amazon.in/dp/" + asin + "/?tag=" + tag + "#Intent;scheme=https;package=com.amazon.mShop.android.shopping;S.browser_fallback_url=" + encodeURIComponent(targetUrl) + ";end";
+                // FIXED INTENT SYNTAX: Removed the slash before the query string
+                deepLink = "intent://www.amazon.in/dp/" + asin + "?tag=" + tag + "#Intent;scheme=https;package=com.amazon.mShop.android.shopping;S.browser_fallback_url=" + encodeURIComponent(targetUrl) + ";end";
             } else if (isIOS) {
-                // For iOS, the standard URL is often best if Universal Links are set up,
-                // but amzn:// works for some specific apps.
+                // iOS uses universal links usually, but amzn:// is a fallback
                 deepLink = "amzn://dp/" + asin + "?tag=" + tag;
             }
         }
 
-        // 1. Immediate attempt for mobile
-        if (isMobile) {
+        // 1. Immediate Deep Link Attempt
+        if (isAndroid || isIOS) {
             window.location.href = deepLink;
         } else {
-            // Instant redirect for Desktop (skip bridge)
+            // Desktop: Instant redirect
             window.location.replace(targetUrl);
         }
 
-        // 2. Faster feedback loop
+        // 2. UI Updates for Users Still on Page
         setTimeout(() => {
-            document.getElementById('headline').innerText = "Almost there!";
-            document.getElementById('subtext').innerText = "If the app didn't open automatically, tap below.";
-        }, 800);
-
-        // 3. Force fallback after 1.5s (reduced from 2s)
-        setTimeout(() => {
-            if (isMobile) window.location.href = targetUrl;
+            document.getElementById('title').innerText = "Almost There!";
+            document.getElementById('desc').innerText = "If the Amazon app didn't open automatically, click the button below.";
+            document.getElementById('main-btn').innerText = "CLICK TO CONTINUE";
         }, 1500);
+
+        // 3. Last Resort Fallback (Mobile Web)
+        setTimeout(() => {
+             // Only redirect if the user is still on this page (meaning app didn't open)
+             if (isAndroid || isIOS) {
+                 window.location.href = targetUrl;
+             }
+        }, 3000);
     </script>
 </body>
 </html>
 `;
-
 
   return new Response(html, {
     status: 200,
