@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "High-Speed 4-Port USB 3.0 Hub with On-The-Go (OTG)",
+            "price": "₹449",
+            "mrp": "₹1599",
+            "discount_percent": "71%",
+            "rating": 4.5,
+            "link": "https://www.amazon.in/dp/B0B6L51Q5C?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61U+jP9ZlUL._AC_SL1500_.jpg",
+            "hook": "Sunn bhai, yeh koi fancy gadget nahi, par hostel life ka real hack hai. Aur price? Bas dekh le!",
+            "pain": "Laptop mein ports kam pad jate hain na? Pendrive, mouse, keyboard, phone charging – sab ek saath kaise karega?",
+            "fix": "Ye 4-port USB 3.0 hub laga, tension khatam. Ek saath sab devices connect kar aur kaam fatafat nipta. OTG support bhi hai toh phone pe bhi use kar sakta hai. Isse zyada practical kuch nahi.",
+            "loot_reason": "Aisi quality ka USB 3.0 hub usually ₹1500+ ka hota hai, par abhi ₹449 mein mil raha hai, seedhi baat no bakwas, le le chupchap.",
+            "category": "Loot"
+        },
+        {
+            "name": "Ultra Portable Mini USB Desk Fan for Hostel (Silent)",
+            "price": "₹199",
+            "mrp": "₹799",
+            "discount_percent": "75%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0BV952D4G?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71P4rVl9cHL._AC_SL1500_.jpg",
+            "hook": "OMG, garmi mein hostel mein survival kit ka hissa! Ye mini fan itna sasta mil raha hai, pakka stock khatam hone wala hai!",
+            "pain": "Raat bhar padhai kar raha hai ya garmi se neend nahi aa rahi? Hostel mein AC kaun lagayega!",
+            "fix": "Ye chhota sa USB fan tera saviour hai. Laptop pe laga, power bank se chala, aur mast hawa le. Silent hai toh roommates ko bhi disturb nahi karega. Is price pe toh aise 2-3 utha le!",
+            "loot_reason": "Iska original price ₹800 ke kareeb hota hai, but abhi sirf ₹199 mein mil raha hai, ekdum hot deal!",
+            "category": "Loot"
+        },
+        {
+            "name": "Smart RGB LED Strip Light 5M with Remote",
+            "price": "₹349",
+            "mrp": "₹1299",
+            "discount_percent": "73%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0BP7M5F3P?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71p0W2n42eL._AC_SL1500_.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 RGB light itne saste mein? Abhi le lo!",
+            "pain": "Tera room kitna dull lagta hai na? Mood nahi banta padhne ka ya chill karne ka?",
+            "fix": "Ye 5 meter ki RGB strip light se poore room ka vibe badal de! Remote se colors change kar, brightness adjust kar. Study, party, chill – sab mood set hai. Aur price dekh, 70% se zyada off hai, seedha loot hai yaar!",
+            "loot_reason": "Normally ₹1200+ ki milti hai aisi strip lights, abhi ₹349 mein! Hostel ki shaan badha dega.",
+            "category": "Loot"
+        },
+        {
             "name": "Amazon Basics Multi-Angle Portable Stand for Tablets, E-readers and Phones",
             "price": "₹249",
             "mrp": "₹799",
