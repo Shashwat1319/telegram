@@ -1,4 +1,5 @@
 import json
+import time
 import random
 import asyncio
 import os
@@ -19,6 +20,30 @@ def get_price_value(price_str):
 
 # Load environment variables
 load_dotenv()
+
+# ---------- Image Downloader ----------
+def download_image(url):
+    """Download image to a local file for reliable Telegram upload."""
+    if not url: return None
+    try:
+        # Create temp dir if not exists
+        temp_dir = os.path.join(os.getcwd(), "temp_images")
+        if not os.path.exists(temp_dir):
+            os.makedirs(temp_dir)
+            
+        local_filename = os.path.join(temp_dir, f"temp_{int(time.time())}_{random.randint(100,999)}.jpg")
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        }
+        with requests.get(url, headers=headers, stream=True, timeout=15) as r:
+            r.raise_for_status()
+            with open(local_filename, 'wb') as f:
+                for chunk in r.iter_content(chunk_size=8192):
+                    f.write(chunk)
+        return local_filename
+    except Exception as e:
+        print(f"Image download failed: {e}")
+        return None
 
 # ---------- Environment variables ----------
 BOT_TOKEN = os.getenv("BOT_TOKEN")
@@ -414,14 +439,21 @@ async def post_deals():
                 try:
                     sent_msg = None
                     if image_url:
+                        local_image = download_image(image_url)
                         try:
-                            sent_msg = await bot.send_photo(
-                                chat_id=chat_id,
-                                photo=image_url,
-                                caption=msg,
-                                parse_mode='HTML',
-                                reply_markup=reply_markup
-                            )
+                            if local_image:
+                                with open(local_image, 'rb') as photo_file:
+                                    sent_msg = await bot.send_photo(
+                                        chat_id=chat_id,
+                                        photo=photo_file,
+                                        caption=msg,
+                                        parse_mode='HTML',
+                                        reply_markup=reply_markup
+                                    )
+                                # Cleanup
+                                os.remove(local_image)
+                            else:
+                                raise Exception("Could not download image")
                         except Exception as photo_e:
                             print(f"Photo upload failed ({photo_e}). Falling back to Text-only message...")
                             sent_msg = await bot.send_message(
