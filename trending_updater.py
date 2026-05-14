@@ -115,13 +115,13 @@ def extract_products_with_ai(html_text, retry_count=0):
     
     CRITICAL RULES:
     1. BUYING MINDSET & URGENCY: Select products that look like a 'mistake price' or 'limited time loot' (e.g. 70%+ off).
-    2. CONTENT FORMAT: Use aggressive Hinglish. Sound like a hostel senior sharing a secret.
+    2. RATING: ONLY pick products with 4.0+ stars. Skip everything else.
+    3. PRICE RANGE: ₹99 to ₹499 (Impulse zone).
+    4. CONTENT FORMAT: Use aggressive Hinglish. Sound like a hostel senior sharing a secret.
        - "hook": Catchy, FOMO-driven (e.g., "Bhai ye price glitch hai ya kya? 😱")
        - "pain": Relatable student struggle (e.g., "Raat bhar padhna hai par roommates light off kar dete hain?")
        - "fix": How this solves it + why it's a steal.
        - "loot_reason": One sentence on why this is the lowest price (e.g., "Usually ₹800 ka milta hai, abhi ₹249 hai!").
-    3. RATING: Extract exact rating.
-    4. PRICE RANGE: ₹99 to ₹499 (Impulse zone).
     5. IMAGE: Ensure it's a high-quality main image URL.
     6. TONE VARIETY: 1 Excited, 1 Shocked, 1 Honest/Practical.
     
@@ -186,12 +186,23 @@ def extract_products_with_ai(html_text, retry_count=0):
         print(f"Extraction error: {e}")
         return []
 
+import urllib.parse
+
 def clean_amazon_link(link, tag, force_domain=None):
     """Convert full Amazon links to canonical DP links, ensuring correct domain."""
+    # Handle redirects (Sponsored links)
+    if "url=" in link:
+        try:
+            parsed = urllib.parse.urlparse(link)
+            queries = urllib.parse.parse_qs(parsed.query)
+            if 'url' in queries:
+                link = queries['url'][0]
+        except: pass
+
     if "amzn.to" in link:
         return link
         
-    asin_match = re.search(r'/(?:dp|gp/product|asin)/([A-Z0-9]{10})', link, re.IGNORECASE)
+    asin_match = re.search(r'/(?:dp|gp/product|asin|d|product)/([A-Z0-9]{10})', link, re.IGNORECASE)
     if asin_match:
         asin = asin_match.group(1).upper()
         # Use force_domain if provided, otherwise detect from link

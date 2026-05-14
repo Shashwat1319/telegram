@@ -19,6 +19,37 @@ CHANNEL_ID = os.getenv("CHANNEL_ID")
 CLICK_TRACKER_URL = os.getenv("CLICK_TRACKER_URL")
 AFFILIATE_ID_IN = os.getenv("AFFILIATE_ID_IN", "shashwat022-21")
 
+# ---------- Short Link Helper ----------
+def get_short_url(target_url):
+    """Call the Netlify tracker to get a shortened, obfuscated link."""
+    if not CLICK_TRACKER_URL:
+        return target_url
+        
+    try:
+        # Register new short link
+        api_url = f"{CLICK_TRACKER_URL}/go?action=shorten&url={quote(target_url)}"
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) BudgetDealsBot/1.0"
+        }
+        response = requests.get(api_url, headers=headers, timeout=15)
+        
+        if response.status_code == 200:
+            try:
+                data = response.json()
+                short_url = data.get("shortUrl")
+                if short_url:
+                    return short_url
+            except Exception as json_e:
+                print(f"JSON Parse Error: {json_e}")
+        else:
+            print(f"API Error: {response.status_code}")
+            
+    except Exception as e:
+        print(f"Shortening request failed: {e}")
+    
+    # Fallback to direct tracker link
+    return f"{CLICK_TRACKER_URL}/go?url={quote(target_url)}"
+
 def get_cheap_html(url):
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36",
@@ -32,23 +63,27 @@ def get_cheap_html(url):
     except:
         return None
 
+import urllib.parse
+
 def extract_cheap_products(html):
     if not html: return []
     
     # Preprocess
     soup = BeautifulSoup(html, 'html.parser')
-    boxes = soup.select('.s-result-item')[:15]
+    boxes = soup.select('.s-result-item')[:25] 
     cleaned = "\n".join([str(b) for b in boxes])
-    if not cleaned: cleaned = html[:15000]
     
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}"
     prompt = f"""
-    Extract up to 3 products from this Amazon India search HTML.
-    ONLY pick products where the current deal price is strictly under ₹150 (preferably under ₹99).
-    If nothing is under ₹150, return an empty array [].
+    Extract up to 5 HIGH-QUALITY active products from this Amazon India search HTML.
     
-    Return a valid JSON array of objects with keys: "name", "price", "mrp", "link", "image".
-    "link" MUST be the exact relative URL starting with /dp/ or /gp/.
+    CRITICAL RULES:
+    1. ONLY pick products with 4.0+ star rating.
+    2. Focus on "Extreme Loot" (Branded item, 70%+ off).
+    3. Price: ₹49 to ₹399.
+    4. "link" MUST be extracted carefully. If it's a redirect/sponsored link, find the REAL product URL inside it (usually starts with /dp/).
+    
+    Return a valid JSON array of objects with keys: "name", "price", "mrp", "link", "image", "rating".
     
     HTML Data:
     {cleaned}
@@ -68,7 +103,15 @@ def extract_cheap_products(html):
         return []
 
 def format_cheap_link(link):
-    if "amzn.to" in link: return link
+    # Handle redirects
+    if "url=" in link:
+        try:
+            parsed = urllib.parse.urlparse(link)
+            queries = urllib.parse.parse_qs(parsed.query)
+            if 'url' in queries:
+                link = queries['url'][0]
+        except: pass
+
     asin_match = re.search(r'/(?:dp|gp/product|asin|d|product)/([A-Z0-9]{10})', link, re.IGNORECASE)
     if asin_match:
         asin = asin_match.group(1).upper()
@@ -81,63 +124,83 @@ async def post_to_telegram(product):
     clean_id = chat_id.replace("@", "")
     
     link = format_cheap_link(product.get("link", ""))
-    if CLICK_TRACKER_URL:
-        link = f"{CLICK_TRACKER_URL}/go?url={quote(link)}"
+    # Force a check: if no ASIN, skip
+    if "dp/" not in link and "gp/" not in link: return
+
+    tracked_link = get_short_url(link)
         
-    price = str(product.get("price", "99"))
-    mrp = str(product.get("mrp", "199"))
+    price = str(product.get("price", "99")).replace("₹", "").replace(",", "").strip()
+    mrp = str(product.get("mrp", "199")).replace("₹", "").replace(",", "").strip()
     name = str(product.get("name", "Budget Gadget")).replace('<','').replace('>','')
     image = product.get("image", "")
 
-    # Ensure price symbols
-    price_str = price if "₹" in price else f"₹{price}"
-    mrp_str = mrp if "₹" in mrp else f"₹{mrp}"
+    try:
+        p_val = float(re.sub(r'[^\d.]', '', price))
+        m_val = float(re.sub(r'[^\d.]', '', mrp))
+        discount = int(((m_val - p_val) / m_val) * 100) if m_val > p_val else 0
+    except:
+        discount = 50
 
     msg = (
-        f"🤑 <b>UNDER ₹99 EXTREME LOOT!</b> 🤑\n\n"
+        f"🔥 <b>{discount}% OFF - BRANDED LOOT!</b> 🔥\n\n"
         f"📦 <b>{name}</b>\n\n"
-        f"❌ MRP: <strike>{mrp_str}</strike>\n"
-        f"✅ <b>Loot Price:</b> <b>{price_str}</b>\n\n"
-        f"⚠️ <i>Aise saste items jaldi out of stock hote hain! Minimum order delay na karein!</i>\n\n"
-        f"👇 <b>Loot It Now</b> 👇\n"
-        f"🛒 <a href='{link}'>Add to Cart & Buy</a>\n\n"
-        f"👉 Join <b>@{clean_id}</b> for more 99 Rs store Loots!"
+        f"❌ MRP: <strike>₹{mrp}</strike>\n"
+        f"✅ <b>Loot Price:</b> <b>₹{price}</b>\n\n"
+        f"🌟 <b>Rating:</b> ⭐⭐⭐⭐+ \n"
+        f"🚚 <b>Delivery:</b> Free for Prime Users\n\n"
+        f"👇 <b>GRAB IT NOW (Deep Link)</b> 👇\n"
+        f"🛒 <a href='{tracked_link}'>Click Here to Buy</a>\n\n"
+        f"👉 Join <b>@{clean_id}</b> for faster loot alerts!"
     )
 
-    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🛒 BUY LOOT", url=link)]])
+    reply_markup = InlineKeyboardMarkup([[InlineKeyboardButton("🛒 BUY AT ₹" + price, url=tracked_link)]])
     
     try:
         if image:
             await bot.send_photo(chat_id=chat_id, photo=image, caption=msg, parse_mode='HTML', reply_markup=reply_markup)
         else:
             await bot.send_message(chat_id=chat_id, text=msg, parse_mode='HTML', reply_markup=reply_markup, disable_web_page_preview=False)
-        print(f"Posted Under-99 deal: {name}")
+        print(f"Posted: {name}")
+        return True
     except Exception as e:
         print(f"Failed to post: {e}")
+        return False
 
 async def main():
-    print("--- Searching for Extra Cheap Items (Under ₹99) ---")
+    print("--- SCRAPING FRESH HIGH-VALUE DEALS ---")
     urls = [
-        "https://www.amazon.in/s?k=daily+needs&rh=p_36%3A-9900&s=price-asc-rank",
-        "https://www.amazon.in/s?k=mobile+accessories&rh=p_36%3A-9900&s=price-asc-rank",
-        "https://www.amazon.in/s?k=kitchen+tools&rh=p_36%3A-14900&s=price-asc-rank",
-        "https://www.amazon.in/s?k=stationery&rh=p_36%3A-9900&s=price-asc-rank",
-        "https://www.amazon.in/s?k=beauty+combo&rh=p_36%3A-14900&s=price-asc-rank"
+        "https://www.amazon.in/s?k=boat+neckband&rh=p_36%3A-49900&s=review-rank",
+        "https://www.amazon.in/s?k=smart+gadgets&rh=p_36%3A-29900&s=review-rank",
+        "https://www.amazon.in/s?k=daily+needs+combo&rh=p_36%3A-19900&s=review-rank",
+        "https://www.amazon.in/s?k=kitchen+gadgets&rh=p_36%3A-29900&s=review-rank",
+        "https://www.amazon.in/s?k=wireless+earbuds&rh=p_36%3A-49900&s=review-rank"
     ]
     
-    target_url = random.choice(urls)
-    print(f"[*] Scraping Category: {target_url}")
+    all_found = []
+    for target_url in urls:
+        print(f"[*] Scraping: {target_url}")
+        html = get_cheap_html(target_url)
+        products = extract_cheap_products(html)
+        
+        if products:
+            for p in products:
+                if len(p.get("name", "")) < 10: continue
+                
+                # Cleanup and Add to list
+                p['link'] = format_cheap_link(p.get('link', ''))
+                all_found.append(p)
+                
+                print(f"[FOUND] {p.get('name')} | Price: {p.get('price')}")
+                # Post live
+                await post_to_telegram(p)
+                await asyncio.sleep(15) # Safety gap
     
-    html = get_cheap_html(target_url)
-    products = extract_cheap_products(html)
-    
-    if products:
-        for p in products:
-            print(f"[FOUND] {p.get('name')} | Price: {p.get('price')}")
-            await post_to_telegram(p)
-            await asyncio.sleep(5)
-    else:
-        print("[!] No deals under 150 found right now.")
+    # Save to product.json for bot_post.py to use as well
+    if all_found:
+        with open("product.json", "w", encoding="utf-8") as f:
+            json.dump({"products": all_found}, f, indent=4)
+        print(f"[SUCCESS] Updated product.json with {len(all_found)} fresh deals.")
+
         
 if __name__ == "__main__":
     asyncio.run(main())

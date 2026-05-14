@@ -80,6 +80,7 @@ def create_video_frame(product):
     draw.text(((1080 - w2) / 2, 220), sub_text, fill="yellow", font=subtitle_font)
 
     # 3. Add Product Image
+    desc_y = 450 # Default start for text if no image
     img_url = product.get("image", "")
     if img_url:
         prod_img = download_image(img_url)
@@ -97,10 +98,8 @@ def create_video_frame(product):
             draw.rounded_rectangle([box_x1, box_y1, box_x2, box_y2], radius=40, fill="white")
             canvas.paste(prod_img, ((1080 - img_w) // 2, 450), prod_img)
             
-            # Start Y position for product desc
+            # Update Y position for product desc
             desc_y = box_y2 + 80
-    else:
-        desc_y = 600
         
     # 4. Add Product Name
     name_font = get_font(55, bold=False)

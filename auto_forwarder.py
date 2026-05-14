@@ -50,15 +50,17 @@ PROMO_COUNTER_FILE = "promo_counter.txt"
 
 # Viral Recruitment Ad Message
 PROMO_MESSAGE = f"""
-🚨 **AMAZON LOOT: ₹99 Store Unlocked!** 🚨
+🔥 **Student Loot Alert: Branded Items at \u20b999!** 🔥
 
-Bhai jaldi join kar, Amazon par price glitch hua hai. Sab kuch ₹99-₹199 mein mil raha hai! 😱🔥
+Bhai, Amazon par massive price drop hua hai selected electronics aur gadgets par. Branded Earphones aur Home utilities abhi \u20b999 - \u20b9199 mein mil rahe hain. 😱
 
-👇 **JALDI JOIN KARO (Link Expiring):**
+Maine saare **Verified 4-Star+** deals channel par daal di hain. Jaldi check kar lo warna stock out ho jayega!
+
+👇 **LOOT ACCESS (Verified Links):**
 https://t.me/{CHANNEL_ID.replace('@','')}
 https://t.me/{CHANNEL_ID.replace('@','')}
 
-*Abhi join karo, loot miss mat karna!* 🏃‍♂️💨
+✅ *No Scam, Only Real Verified Deals!*
 """
 
 def get_last_id():

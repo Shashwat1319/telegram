@@ -31,24 +31,30 @@ def generate_ai_reply(original_text):
             f"Price drop alert! Yahan better deals hain 😱: {CHANNEL_LINK}"
         ])
 
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}"
     prompt = f"""
-    You are a helpful, enthusiastic Indian shopper in a Telegram deal group.
-    Someone just posted this deal: "{original_text[:200]}"
+    You are a real Indian deal hunter in a Telegram discussion group.
+    Someone just posted this deal: "{original_text[:300]}"
 
-    Write a very short, casual reply (1-2 sentences max) in Hinglish.
-    The goal is to casually mention that even better loots or a cheaper alternative is available on your channel: {CHANNEL_LINK}
+    Task: Write a very short, helpful comment in Hinglish (Hindi + English).
+    Goal: Casually mention that you found the same thing cheaper or a better alternative on this channel: {CHANNEL_LINK}
 
-    Rules:
-    - Keep it very natural and conversational. Don't sound like a bot.
-    - Use emojis sparingly (max 1 or 2).
-    - MUST include the exact link: {CHANNEL_LINK}
-    - Do not use quotes around your response.
+    Style Guidelines:
+    - Use words like 'Bhai', 'Mast', 'Sasta', 'Loot', 'Checkout'.
+    - Sound like you are helping, not advertising.
+    - Max 1-2 sentences. 
+    - Use 1 relevant emoji.
+    - MUST include the link: {CHANNEL_LINK}
+    - DON'T use robotic phrases like 'Join my channel'. Say 'Yahan check kar lo' or 'Ispe sasta mil raha'.
+
+    Response only with the message text.
     """
     
     try:
         response = requests.post(url, json={"contents": [{"parts": [{"text": prompt}]}]}, timeout=15)
         text = response.json()['candidates'][0]['content']['parts'][0]['text'].strip()
+        # Clean potential markdown
+        text = text.replace("**", "").replace('"', "")
         return text if CHANNEL_LINK in text else f"{text} Check here: {CHANNEL_LINK}"
     except:
         return f"Bhai isse achhi deal kal yahan aayi thi, check this out: {CHANNEL_LINK}"

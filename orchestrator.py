@@ -10,6 +10,8 @@ INTERVAL_PROMO = 3 * 60 * 60  # 3 hours (Growth DM)
 INTERVAL_SCRAPER = 12 * 60 * 60 # 12 hours (High-Intent Leads Scrape)
 INTERVAL_FORWARD = 15 * 60     # 15 minutes (Growth Burst Mode)
 INTERVAL_REPORT = 12 * 60 * 60 # 12 hours (Daily Progress Report)
+INTERVAL_UNDER99 = 2 * 60 * 60 # 2 hours (High-Conversion Loot)
+INTERVAL_MAIN_POST = 4 * 60 * 60 # 4 hours (Branded Deals)
 
 def start_background_task(script_name):
     print(f"[*] STARTING BACKGROUND TASK: {script_name}")
@@ -45,6 +47,8 @@ def main():
     last_scraper = 0
     last_forward = 0
     last_report = 0
+    last_under99 = 0
+    last_main_post = 0
 
     print("[*] Starting AI Traffic Hijacker (Background)...")
     hijacker_process = start_background_task("traffic_hijacker.py")
@@ -79,7 +83,17 @@ def main():
                 run_script("scrape_active_members.py", timeout=3600) # 1h timeout
                 last_scraper = now
                 
-            # 4. Daily Progress Report
+            # 4. Under-₹99 High Conversion Loot
+            if now - last_under99 > INTERVAL_UNDER99:
+                run_script("under_99_loot.py", timeout=900)
+                last_under99 = now
+
+            # 5. Branded Main Post (from product.json)
+            if now - last_main_post > INTERVAL_MAIN_POST:
+                run_script("bot_post.py", timeout=300)
+                last_main_post = now
+
+            # 6. Daily Progress Report
             if now - last_report > INTERVAL_REPORT:
                 run_script("daily_report.py", timeout=300)
                 last_report = now

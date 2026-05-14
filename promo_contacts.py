@@ -14,18 +14,19 @@ API_ID = os.getenv("API_ID")
 API_HASH = os.getenv("API_HASH")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
 
-# PROMO MESSAGE
-# [HIGH-TRUST LOOT] For better Conversions
+# PROMO MESSAGE - [HIGH-TRUST STUDENT LOOT]
 PROMO_MESSAGE = f"""
-🎓 **HOSTEL LOOT: Student Budget finds!** 🎓
+🔥 **Student Loot Alert: Branded Items at \u20b999!** 🔥
 
-Bhai, Amazon par students ke liye mast hidden deals aayi hain (Study lamps, RGB gadgets, Desk decor) sab ₹99-₹299 mein! 😱🔥
+Bhai, Amazon par massive price drop hua hai selected electronics aur daily gadgets par. Branded Earphones aur Home utilities abhi \u20b999 - \u20b9199 mein mil rahe hain. 😱
 
-👇 **ABHI LOOT LO (Verified Deals):**
+Maine saare **Verified 4-Star+** deals channel par daal di hain. Jaldi check kar lo warna stock out ho jayega!
+
+👇 **LOOT ACCESS (Verified Links):**
 https://t.me/{CHANNEL_ID.replace('@','')}
 https://t.me/{CHANNEL_ID.replace('@','')}
 
-*Sirf kaam ki cheeze, zero spam!* 🏃‍♂️💨
+✅ *No Scam, Only Real Hand-picked Deals!*
 """
 
 ACCOUNTS = [
