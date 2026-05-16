@@ -85,40 +85,23 @@ export default async (request, context) => {
             <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
             Verified Amazon Associate
         </div>
-        <div class="loader"></div>
-        <h1>Opening Deal...</h1>
-        <p>Redirecting to Amazon App for<br>Exclusive Discounted Price.</p>
-        <a href="${finalAmazonUrl}" class="btn">GO TO AMAZON</a>
+        <h1>Action Required</h1>
+        <p>To get the lowest price and open the <b>Amazon App</b>, you must tap the button below.</p>
+        <a href="${finalAmazonUrl}" class="btn" onclick="triggerTap(event)">🔓 UNLOCK DEAL IN APP</a>
     </div>
 
     <script>
-        const amazonUrl = "${finalAmazonUrl}";
-        const asin = "${asin}";
-        const tag = "${myTag}";
+        // We REMOVED the auto-redirect!
+        // Why? Because Javascript auto-redirects (window.location) inside Telegram's in-app browser 
+        // often FAIL to trigger Android App Links, trapping the user in the web view where they aren't logged in.
+        // A physical TAP is required to securely break out of the in-app browser and open the native Amazon app.
         
-        const isAndroid = /Android/i.test(navigator.userAgent);
-        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-        function openApp() {
-            if (asin) {
-                if (isAndroid) {
-                    const intent = "intent://www.amazon.in/dp/" + asin + "/?tag=" + tag + "#Intent;scheme=https;package=com.amazon.mShop.android.shopping;S.browser_fallback_url=" + encodeURIComponent(amazonUrl) + ";end";
-                    window.location.href = intent;
-                } else if (isIOS) {
-                    window.location.href = "com.amazon.mobile.shopping.web://www.amazon.in/dp/" + asin + "/?tag=" + tag;
-                } else {
-                    window.location.replace(amazonUrl);
-                }
-            } else {
-                window.location.replace(amazonUrl);
-            }
-            
-            setTimeout(() => {
-                window.location.replace(amazonUrl);
-            }, 2500);
+        function triggerTap(e) {
+            // The standard href click will trigger App Links naturally.
+            // We add a small visual feedback.
+            e.target.innerHTML = "Opening Amazon...";
+            e.target.style.background = "#e58a00";
         }
-
-        setTimeout(openApp, 300);
     </script>
 </body>
 </html>
