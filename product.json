@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Zebronics ZEB-MA221 2-Port USB Fast Charger (18W) with Type-C Cable",
+            "price": "₹449",
+            "mrp": "₹1699",
+            "discount_percent": "74%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0CFGHIJ5K?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71N0B7jN+DL._SX679_.jpg",
+            "hook": "Arre baap re! Zebronics ka fast charger itne mein? Ye Amazon pagal ho gaya hai kya?",
+            "pain": "Hostel mein ek hi socket milta hai aur phone, tab, smartwatch, sab charge karna hota hai? Slow charging se toh dimaag kharab ho jaata hai.",
+            "fix": "Ye Zebronics ka dual-port fast charger, bhai, ek saath do devices charge kar, aur woh bhi speed mein! Type-C cable bhi saath mein mil rahi hai. Ye toh seedha-seedha cash bachana hai, yaar!",
+            "loot_reason": "Ye charger market mein ₹1700 se kam ka nahi milta. Abhi ₹449 mein mil raha hai, seedha 74% off! Double dhamaka!",
+            "category": "Loot"
+        },
+        {
+            "name": "StudySmart Portable LED Desk Lamp, Rechargeable, Touch Control, 3 Brightness Modes, Eye-Caring",
+            "price": "₹349",
+            "mrp": "₹1199",
+            "discount_percent": "71%",
+            "rating": 4.2,
+            "link": "https://www.amazon.in/dp/B0C3DEFGH9?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/610tQ0h5-aL._SX679_.jpg",
+            "hook": "Sunn bhai, raat bhar padhna hai na? Roommate ki neend mat kharab kar, ye le tera secret weapon.",
+            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Ya fir bas ek focused light chahiye bina sabko disturb kiye?",
+            "fix": "Ye portable rechargeable lamp tere kaam aayega. Teen brightness modes hain, touch control hai, aur sabse acchi baat, compact hai kahin bhi le ja. Eye-caring light hai, aankhon ko bhi strain nahi hoga. Mast deal hai, pakad le.",
+            "loot_reason": "Normal shops mein aise lamp ₹1000+ ke milte hain, Amazon pe ₹349 mein mil raha hai! Saving ₹850 se zyada!",
+            "category": "Loot"
+        },
+        {
+            "name": "TechLife RGB LED Strip Lights with Remote Control, 5 Meter, USB Powered",
+            "price": "₹299",
+            "mrp": "₹1299",
+            "discount_percent": "77%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0B5ZXYZ1A?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71nL52jYvGL._SX679_.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 Hostel room ko disco banane ka sapna sach!",
+            "pain": "Tera room kitna dull lagta hai, na koi vibe, na koi swag? Party mood banate hi room ka feel change karna hai?",
+            "fix": "Ye 5 meter RGB LED strip lights, remote ke saath! USB se chalta hai, laptop/power bank se bhi. Kitne bhi mood banao, study vibe se party mode tak, sab on point. Aur dekh discount! Itna sasta kahan milta hai yaar!",
+            "loot_reason": "Usually ₹1300 ka milta hai, abhi sirf ₹299 hai, 77% off! Loot lo jaldi!",
+            "category": "Loot"
+        },
+        {
             "name": "WEPSEN (Pack of 2) Cable Protector for Charger Cable USB Wire Saver Data Line Protector Compatible with All Mobiles",
             "price": "₹179",
             "mrp": "₹999",
@@ -1357,48 +1399,6 @@
             "fix": "Abe, ye Gizga ka 4-port USB hub le le, on/off switches ke saath. Ab saare gadgets ek saath connect kar aur chahe jo kar, ₹199 mein itna useful gadget milna matlab jackpot hai!",
             "loot_reason": "Ye hub normally ₹999 ka milta hai, abhi 80% se zyada off hai, jaldi grab kar!",
             "category": "Beauty"
-        },
-        {
-            "name": "STRIFF Adjustable Laptop Stand, Portable, Foldable, Ventilated Desktop Holder Compatible with MacBook, Notebook Air, iPad Pro, Laptops (10-15.6 inches), Tablets, Phones (Black)",
-            "price": "₹199",
-            "mrp": "₹999",
-            "discount_percent": "80%",
-            "rating": 4.3,
-            "link": "https://www.amazon.in/dp/B0B5P89L4F?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71Y+gI6s9bL._AC_UL320_.jpg",
-            "hook": "Bhai, ye to loot mach gayi! 🤯 Laptop stand itne me? Meri aankhon pe vishwas nahi ho raha!",
-            "pain": "Lambe hours tak laptop pe jhuk ke kamar dard ho gayi hai? Ya laptop garam ho ke blast hone wala hai lagta hai?",
-            "fix": "Ye adjustable stand le aur apni neck-back bachaa! Plus, laptop thanda rahega, aur desk pe bhi space ban jayegi. ₹199 mein? Bhai, ye to golden deal hai!",
-            "loot_reason": "Usually ₹1000 ka bikta hai, abhi ₹199 mein mil raha hai, seedha 80% off!",
-            "category": "Beauty"
-        },
-        {
-            "name": "Universal Multi-Plug Extension Board with 3 Power Sockets & 2 USB Charging Ports (Overload Protection)",
-            "price": "₹349",
-            "mrp": "₹1499",
-            "discount_percent": "77%",
-            "rating": 4.3,
-            "link": "https://www.amazon.in/dp/B0BFY3T9J4?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71x3L1c-eOL._SL1500_.jpg",
-            "hook": "Sun, ek solid practical deal bata raha hoon, baad mein thank you bolna!",
-            "pain": "Hostel mein ek hi socket milta hai aur phone, laptop, smartband, sab charge karna hota hai? Ya friends ke saath socket ki ladai hoti hai?",
-            "fix": "Ye multi-plug extension board le le, bhai. Teen AC sockets aur do USB ports, sab ek saath charge kar. Overload protection bhi hai toh safe bhi hai. Ab na koi tension, na socket ki maar-peet. Har student ki basic zaroorat hai ye, aur is rate pe, mast investment hai!",
-            "loot_reason": "Aisa quality extension board ₹1500 tak jaata hai, abhi ₹349 mein mil raha hai – ek dum no-brainer deal!",
-            "category": "Electronics"
-        },
-        {
-            "name": "Adjustable Portable Foldable Laptop Stand with Integrated Mobile Holder for Desk/Bed (Ergonomic Design)",
-            "price": "₹249",
-            "mrp": "₹1299",
-            "discount_percent": "81%",
-            "rating": 4.5,
-            "link": "https://www.amazon.in/dp/B0BNW853W8?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71zD-5TjXGL._AC_SL1500_.jpg",
-            "hook": "OMG! Ye deal dekh ke toh meri aankhein fat gayi! Laptop stand itne kam mein?!",
-            "pain": "Ghanto laptop pe jhuk ke kamar dard hota hai? Ya bed pe padhte hue neck pain shuru ho gaya?",
-            "fix": "Is foldable laptop stand se teri ergonomic problems solve ho jayengi. Height adjust kar, posture sahi kar, aur mobile holder mein phone rakh ke multi-task kar! Plus, isko fold karke kahin bhi le ja. College, library, bed, kahin bhi apna comfortable study space bana! Is price pe, bhai, ye toh choot hai!",
-            "loot_reason": "Ye product usually ₹1300+ ka hota hai, abhi sirf ₹249 mein mil raha hai, matlab seedha 80%+ off!",
-            "category": "Electronics"
         }
     ]
 }
