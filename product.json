@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "STRIFF Wireless Mouse, 2.4G Wireless Optical Mouse with USB Receiver, 3 Adjustable DPI, Ergonomic Mouse for Laptop, PC, Mac, MacBook (Black)",
+            "price": "₹249",
+            "mrp": "₹999",
+            "discount_percent": "75%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0C9SMG651?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41K0jW7p-0L._SX300_SY300_QL70_FMwebp_.jpg",
+            "hook": "Suno bhai, ye koi flashy gadget nahi, but sabse zaroori cheez hai! 🖱️ Wireless mouse, woh bhi itne saste mein?",
+            "pain": "Laptop ka trackpad use kar kar ke haath dukhte hain? Ya presentation banate waqt precision chahiye aur mouse budget se bahar hai?",
+            "fix": "Ye STRIFF wireless mouse tere saare assignments aur browsing ko super smooth bana dega. Ergonomic design, adjustable DPI, aur cable ka jhanjhat nahi. Hostel desk pe space bhi kam lega, aur kaam fatafat hoga. Pure student life ka best friend!",
+            "loot_reason": "Iski original price ₹1000 hai, abhi ₹249 mein mil raha hai. Ye toh seedha practical loot hai, soch mat!",
+            "category": "Electronics"
+        },
+        {
+            "name": "XERGY 10 Meter LED Strip Lights for Room Decoration, RGB Lighting Strip with Music Sync, Remote & App Control, USB Powered, Color Changing LED Lights for Bedroom, Living Room, Gaming Room",
+            "price": "₹449",
+            "mrp": "₹1999",
+            "discount_percent": "77%",
+            "rating": 4.2,
+            "link": "https://www.amazon.in/dp/B0CN6L8L4G?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71rQ1HnL0DL._SX300_SY300_QL70_FMwebp_.jpg",
+            "hook": "OMG! 10 meter RGB strip with Music Sync? 🤯 Is price pe toh koi soch bhi nahi sakta!",
+            "pain": "Roommates ke taane sun-sun ke thak gaya hai ki tera room 'shandaar' nahi? Ya party vibe chahiye without breaking the bank?",
+            "fix": "Ye 10 meter ki LED strip poore room ko club bana degi! Music ke saath sync hoti hai, remote aur app se control kar. ₹449 mein pura hostel room 'lit' kar dega! Jaldi le, warna koi aur le jayega!",
+            "loot_reason": "Bhai, ₹2000 waali cheez ₹449 mein? Ye toh sidha-sidha Amazon ki galti hai!",
+            "category": "Electronics"
+        },
+        {
+            "name": "XERGY Rechargable RGB Portable Small Mini LED Light Strip with Remote Control 30cm, Multi color Light for Decoration/Gaming Setup/TV Back Light/Cupboard (USB Plugged)",
+            "price": "₹199",
+            "mrp": "₹999",
+            "discount_percent": "80%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0CJ7V735X?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41T-M6f-gBL._SX300_SY300_QL70_FMwebp_.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 RGB light strip, woh bhi sirf ₹199 mein!",
+            "pain": "Hostel room boring lag raha hai? Ya gaming setup ko next level le jaana hai but budget ka rona hai?",
+            "fix": "Ye XERGY mini RGB strip tere desk ya monitor ke peeche laga, remote se colors badal, aur dekh room ka vibe kaise instant change hota hai! Rechargeable hai, USB powered, matlab jahan chaho wahan use karo. Full paisa vasool deal!",
+            "loot_reason": "Normally ₹1000 ki aati hai, abhi ₹199 mein mil rahi hai. Jaldi grab kar, stock khatam ho jayega!",
+            "category": "Electronics"
+        },
+        {
             "name": "Universal 3-in-1 Fast Charging Cable (Type C, Micro USB, Lightning) for All Devices",
             "price": "₹149",
             "mrp": "₹600",
@@ -1357,48 +1399,6 @@
             "fix": "Ye 5 meter RGB LED strip lights, remote ke saath! USB se chalta hai, laptop/power bank se bhi. Kitne bhi mood banao, study vibe se party mode tak, sab on point. Aur dekh discount! Itna sasta kahan milta hai yaar!",
             "loot_reason": "Usually ₹1300 ka milta hai, abhi sirf ₹299 hai, 77% off! Loot lo jaldi!",
             "category": "Loot"
-        },
-        {
-            "name": "WEPSEN (Pack of 2) Cable Protector for Charger Cable USB Wire Saver Data Line Protector Compatible with All Mobiles",
-            "price": "₹179",
-            "mrp": "₹999",
-            "discount_percent": "82%",
-            "rating": 4.0,
-            "link": "https://www.amazon.in/dp/B0C399F72D?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61gE5vFh21L._AC_UL320_.jpg",
-            "hook": "Sun, ek sach bata raha hu, ye cheez har hostel wale ke paas honi chahiye!",
-            "pain": "Kitne charger cables tod diye tune ab tak? Har do mahine mein naya kharidna padta hai na? Hostel mein cables ki life toh pata hi hai.",
-            "fix": "Ye cable protector tere charger ki life badha dega, aur naye cable kharidne ka kharcha bachayega. Pack of 2 hai, ek phone ke liye, ek laptop ke liye rakh le. Chota sa investment, badi bachatt!",
-            "loot_reason": "₹1000 ki cheez ₹179 mein? Bhai ye toh seedha-seedha budget hack hai, miss mat kar!",
-            "category": "Electronics"
-        },
-        {
-            "name": "Portronics USB Hub 3.0 Type C - (Mport 32) 4-in-1 Type C Hub Adapter with 1 USB 3.0 Port, 3 USB 2.0 Ports, 5Gbps High Speed Data Transfer, Aluminum Alloy Body, Driver-Free (Grey)",
-            "price": "₹499",
-            "mrp": "₹1999",
-            "discount_percent": "75%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0BN29739Q?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41-WdMvY7eL._AC_UL320_.jpg",
-            "hook": "OMG! Itna useful gadget aur itne kam mein? Meri aankhon ko yakeen nahi ho raha! 🤯",
-            "pain": "Tere laptop mein ports kam pad jate hain? Mouse, keyboard, pen drive, charger sab lagana hai aur jagah hi nahi milti?",
-            "fix": "Ye Portronics Mport 32 USB Hub tera saviour hai! Type-C se 4 extra ports – 1 fast USB 3.0 aur 3 normal USB 2.0. Ab sab kuch ek saath connect kar aur productivity badha! Aluminum body hai, premium lagta hai, aur driver-free hai, bas laga aur kaam shuru!",
-            "loot_reason": "₹2000 ka hub ab sirf ₹499 mein! Poora 75% off, aisi deal baar baar nahi milti!",
-            "category": "Electronics"
-        },
-        {
-            "name": "Zebronics Zeb-Buds 10 Wired Earphones with Mic, 3.5mm Jack, 1.2m Cable, in-Ear Design, Call Function and Passive Noise Cancellation (Black)",
-            "price": "₹149",
-            "mrp": "₹699",
-            "discount_percent": "79%",
-            "rating": 4.0,
-            "link": "https://www.amazon.in/dp/B0B6L51J1P?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41-UuJ1iXVL._AC_UL320_.jpg",
-            "hook": "Bhai, ye deal pakka price glitch hai ya kya? Itne saste earphones? 😱",
-            "pain": "Online class mein lecturers ki awaaz clear nahi aati ya roommates ke shor mein padh nahi paate? Ya bas chill music sunna hai bina kisi disturbance ke?",
-            "fix": "Ye Zebronics Zeb-Buds 10 tere kaan ki shanti aur productivity dono badha degi! Mic bhi hai calls ke liye aur passive noise cancellation bhi. Aur bhai, ₹699 wale ₹149 mein mil rahe hain, socho kitni badhiya sound quality hogi is price mein!",
-            "loot_reason": "Normally ₹700 ka bikta hai, abhi sirf ₹149 mein mil raha hai, jaldi lele warna stock khatam!",
-            "category": "Electronics"
         }
     ]
 }
