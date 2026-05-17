@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Universal 3-in-1 Fast Charging Cable (Type C, Micro USB, Lightning) for All Devices",
+            "price": "₹149",
+            "mrp": "₹600",
+            "discount_percent": "75%",
+            "rating": 4.2,
+            "link": "https://www.amazon.in/dp/B0BNP71N7R?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/711qC8oFHSL._AC_SL1500_.jpg",
+            "hook": "Sunn bhai, ye ek cable tere saare jhamelay khatam kar degi, pakka bol raha hoon.",
+            "pain": "Har device ke liye alag charger dhoondhna, ya roommates se Type-C, Micro USB, Lightning cable maangna? Kitna irritating hai na?",
+            "fix": "Ye universal 3-in-1 cable le le, ek hi wire se tera phone, tab, power bank sab charge hoga. Aur sirf ₹149 mein, har hostel ke liye must-have hai!",
+            "loot_reason": "Yeh cable usually ₹600 ki milti hai, par abhi ₹149 mein 75% discount mil raha hai, mat chhodna!",
+            "category": "Computers"
+        },
+        {
+            "name": "CoolBreeze Portable USB Rechargeable Foldable Mini Fan for Hostel & Study",
+            "price": "₹199",
+            "mrp": "₹850",
+            "discount_percent": "76%",
+            "rating": 4.5,
+            "link": "https://www.amazon.in/dp/B0BDL4G1B1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61kM29D81bL._AC_SL1500_.jpg",
+            "hook": "OMG! Garmi mein hostel wale AC nahi lagate, par ye fan sirf ₹199 mein? 🤯",
+            "pain": "Hostels ki garmi mein padhna mushkil, aur power cut mein toh aur buri haalat hoti hai? Raat bhar paseene mein nahate ho?",
+            "fix": "Ye portable USB fan teri jaan bachayega! Kahin bhi laga, laptop se charge kar, aur mast thandi hawa le. Is price pe toh soch mat, seedha add to cart!",
+            "loot_reason": "Original price ₹850 hai, par abhi ₹199 mein 76% discount! Loot machi hai!",
+            "category": "Computers"
+        },
+        {
+            "name": "Gadgets Zone USB Powered RGB LED Strip Light for Desk Setup & Ambiance",
+            "price": "₹299",
+            "mrp": "₹1200",
+            "discount_percent": "75%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0CK1Y7F6Q?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71x4i143xmL._AC_SL1500_.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 Apne room ko club bana dega!",
+            "pain": "Tera boring study table dekh ke mood off ho jata hai na? Hostels mein lights bhi dull hoti hain.",
+            "fix": "Ye USB RGB strip light laga! Poore desk ka vibe change ho jayega, aur bas ₹299 mein? Mood bhi fresh aur padhai mein bhi maza! Aisi deal phir nahi milegi!",
+            "loot_reason": "Normally ₹1200 ka milta hai, abhi 75% off pe ₹299 mein loot le!",
+            "category": "Computers"
+        },
+        {
             "name": "40 LED Strip Light with USB for TV Backlight, Computer Monitor, Mood Lighting (3M, Remote Control, RGB)",
             "price": "₹279",
             "mrp": "₹1199",
@@ -1357,48 +1399,6 @@
             "fix": "Ye Zebronics Zeb-Buds 10 tere kaan ki shanti aur productivity dono badha degi! Mic bhi hai calls ke liye aur passive noise cancellation bhi. Aur bhai, ₹699 wale ₹149 mein mil rahe hain, socho kitni badhiya sound quality hogi is price mein!",
             "loot_reason": "Normally ₹700 ka bikta hai, abhi sirf ₹149 mein mil raha hai, jaldi lele warna stock khatam!",
             "category": "Electronics"
-        },
-        {
-            "name": "DataVault 2-in-1 OTG USB Pen Drive 64GB - Type-A & Type-C Compatible",
-            "price": "₹249",
-            "mrp": "₹999",
-            "discount_percent": "75%",
-            "rating": 4.5,
-            "link": "https://www.amazon.in/dp/B0BF23Z9R0?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61r5f8J2wVL._SL1500_.jpg",
-            "hook": "Dekh bhai, ye wali cheez har student ke paas honi chahiye, especially hostel waalon ke liye.",
-            "pain": "Internet nahi chal raha aur files transfer karni hain phone se laptop ya laptop se doosre phone mein? Har baar data cable dhundhna ya cloud upload karna kitna irritating hai na?",
-            "fix": "Ye DataVault OTG pen drive teri saari problems solve kar degi. Phone (Type-C) aur laptop (USB-A) dono se direct connect kar, 64GB storage, aur bina internet ke data transfer. Notes, movies, assignments, sab on the go. Isse practical kuch nahi milega iss price mein, trust me.",
-            "loot_reason": "Ye ₹1000 ki pen drive abhi ₹249 mein hai, seedha 75% ka discount, sahi mauka hai!",
-            "category": "Kitchen"
-        },
-        {
-            "name": "BlendItGo Mini Portable USB Rechargeable Blender for Shakes & Smoothies - 380ml",
-            "price": "₹299",
-            "mrp": "₹1299",
-            "discount_percent": "76%",
-            "rating": 4.2,
-            "link": "https://www.amazon.in/dp/B0C3R89B99?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61M3J0A-WfL._SL1500_.jpg",
-            "hook": "WTF! 🤯 Hostel mein mini blender? Is price mein? Sach mein?!",
-            "pain": "Roz canteen ke khane se bore ho gaya hai? Ya protein shake banane ke liye mess mein ghusna padta hai?",
-            "fix": "Ye BlendItGo bhai, tera personal juice bar hai! USB se charge kar, subah protein shake bana, ya shaam ko fresh juice! Healthy bhi rahega aur hostel kitchen ke chakkar bhi nahi lagane padenge. Itna chota hai ki bag mein bhi fit ho jaaye. Ye deal chhodna paap hoga!",
-            "loot_reason": "Normally ₹1300 ka bikta hai, abhi sirf ₹299 mein, 77% discount! Grab it before it's gone!",
-            "category": "Kitchen"
-        },
-        {
-            "name": "TechSpark Portable LED Desk Lamp with Pen Holder & USB Charging Port - 3 Brightness Modes",
-            "price": "₹399",
-            "mrp": "₹1499",
-            "discount_percent": "73%",
-            "rating": 4.4,
-            "link": "https://www.amazon.in/dp/B0BP61P9F2?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71u9N+f-uUL._SL1500_.jpg",
-            "hook": "Bhai, ye price glitch hai ya kya? 😱 Itni kam mein desk lamp kaun deta hai yaar!",
-            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Ya fir table pe book ke saath pen, phone sab ghusa rehta hai?",
-            "fix": "Ye TechSpark lamp tera poora 'study-zone' bana dega! Teen brightness modes, pen holder, aur USB charging point bhi hai. Matlab, ek item, teen tension khatam! It's a steal, bro, warna aise lamps ₹1000+ ke milte hain.",
-            "loot_reason": "Usually ₹1500 ka milta hai, abhi ₹399 mein, 73% off! Abhi nahi toh kabhi nahi!",
-            "category": "Kitchen"
         }
     ]
 }
