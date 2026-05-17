@@ -41,9 +41,9 @@ jobs:
           CLICK_TRACKER_URL: ${{ secrets.CLICK_TRACKER_URL }}
         run: |
           python trending_updater.py
-          git pull --rebase origin main || git rebase --abort
           git add .
-          git commit -m "Auto-sync May Sprint: New Budget Deals" || echo "No changes to commit"
+          git commit -m "Auto-sync May Sprint: New Budget Deals & Trackers" || echo "No changes to commit"
+          git pull --rebase origin main || (git rebase --abort && git pull --no-rebase origin main -X theirs)
           git push origin main || echo "Push failed"
 
       - name: Run Promo Report
