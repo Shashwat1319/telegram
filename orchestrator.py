@@ -83,10 +83,10 @@ def main():
                 run_script("scrape_active_members.py", timeout=3600) # 1h timeout
                 last_scraper = now
                 
-            # 4. Under-₹99 High Conversion Loot
-            if now - last_under99 > INTERVAL_UNDER99:
-                run_script("under_99_loot.py", timeout=900)
-                last_under99 = now
+            # 4. Under-₹99 High Conversion Loot (PAUSED for High-Intent Pivot)
+            # if now - last_under99 > INTERVAL_UNDER99:
+            #     run_script("under_99_loot.py", timeout=900)
+            #     last_under99 = now
 
             # 5. Branded Main Post (from product.json)
             if now - last_main_post > INTERVAL_MAIN_POST:
