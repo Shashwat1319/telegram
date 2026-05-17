@@ -101,8 +101,11 @@ def preprocess_html(html_content):
 
 def extract_products_with_ai(html_text, retry_count=0):
     """Use Gemini AI to pick the best deals from pre-structured text."""
-    models = ["gemini-2.5-flash", "gemini-2.5-pro"]
-    model = models[retry_count % len(models)]
+    models = ["gemini-2.5-flash", "gemini-1.5-flash", "gemini-1.5-flash-8b"]
+    if retry_count == 0:
+        model = random.choice(models)
+    else:
+        model = models[retry_count % len(models)]
     
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
     
@@ -309,15 +312,11 @@ def main():
     }
     
     categories = [
-        "https://www.amazon.in/gp/deals?discounts-widget=%257B%2522state%2522%253A%257B%2522refinementFilters%2522%253A%257B%2522pct_off%2522%253A%255B%252250-%2522%255D%257D%257D%252C%2522version%2522%253A1%257D", # 50% Off or more
         "https://www.amazon.in/gp/goldbox", # Today's Deals
         "https://www.amazon.in/gp/movers-and-shakers/electronics",
         "https://www.amazon.in/gp/movers-and-shakers/kitchen",
-        "https://www.amazon.in/gp/movers-and-shakers/beauty",
         "https://www.amazon.in/gp/movers-and-shakers/computers",
-        "https://www.amazon.in/gp/movers-and-shakers/apparel",
-        "https://www.amazon.in/gp/movers-and-shakers/office-products",
-        "https://www.amazon.in/gp/movers-and-shakers/toys"  # Gadgets & low-cost impulse items
+        "https://www.amazon.in/gp/movers-and-shakers/office-products"
     ]
     
     def sync_category(url):
