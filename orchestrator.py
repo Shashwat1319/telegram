@@ -36,6 +36,23 @@ def run_script(script_name, timeout=1800):
     except Exception as e:
         print(f"[CRITICAL] Could not run {script_name}: {e}")
 
+def git_sync():
+    print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Syncing with Cloud (GitHub)...")
+    try:
+        # Commit local tracker changes if any to prevent merge conflicts
+        subprocess.run(["git", "add", "."], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.run(["git", "commit", "-m", "Local tracker auto-sync"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        # Pull changes cleanly
+        result = subprocess.run(["git", "pull", "--rebase", "origin", "main"], capture_output=True, text=True)
+        if "conflict" in result.stderr.lower() or result.returncode != 0:
+            print("[!] Git conflict detected during sync. Aborting rebase and forcing cloud state...")
+            subprocess.run(["git", "rebase", "--abort"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            subprocess.run(["git", "reset", "--hard", "origin/main"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        else:
+            print("[SUCCESS] Local repository is in sync with GitHub!")
+    except Exception as e:
+        print(f"[!] Error during git sync: {e}")
+
 def main():
     print("="*50)
     print(" ARZI HYBRID ORCHESTRATOR v3.1 - LAPTOP MODE ")
@@ -56,6 +73,9 @@ def main():
     print("[*] Entering Hybrid Loop...")
     try:
         while True:
+            # Sync with Cloud to get latest verified products
+            git_sync()
+
             # Check if hijacker died, restart it
             if hijacker_process and hijacker_process.poll() is not None:
                 print("[!] AI Traffic Hijacker stopped. Restarting...")
