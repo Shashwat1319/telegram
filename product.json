@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "PowerUp 3-Port Fast USB Wall Charger Adapter (3.1A Output)",
+            "price": "₹399",
+            "mrp": "₹1800",
+            "discount_percent": "78%",
+            "rating": 4.2,
+            "link": "https://amazon.in/#?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41-qQn-X4SL._SL1000_.jpg",
+            "hook": "Sunn, ye ek useful deal hai jo tere kaam aayegi. Charger sockets ki problem khatam!",
+            "pain": "Hostel mein ek hi socket milta hai aur phone, smart watch, earbuds, power bank sab charge karna hai? Hamesha line lagani padti hai?",
+            "fix": "Ye 3-port fast charger utha le. Ek hi socket mein teen device ek saath charge kar. Time bachega, jhagda nahi hoga, aur sab devices full charge rahenge. Is price mein toh investment hai bhai!",
+            "loot_reason": "Normally ₹1800 ka aata hai, abhi ₹399 mein mil raha hai. Ye toh seedha value for money hai!",
+            "category": "Electronics"
+        },
+        {
+            "name": "CoolBreeze USB Powered Portable Mini Desk Fan (Quiet Operation)",
+            "price": "₹249",
+            "mrp": "₹1200",
+            "discount_percent": "79%",
+            "rating": 4.1,
+            "link": "https://amazon.in/#?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/51-m4L025XL._SL1000_.jpg",
+            "hook": "OMG! Ye mini fan ₹249 mein?! Garmi mein jaan bacha lega bhai!",
+            "pain": "Hostel mein AC nahi hai aur ceiling fan tak hawa nahi pahunchti? Garmi mein padhai kaise karega?",
+            "fix": "Ye USB fan le, seedha laptop ya power bank se chala. Chhota hai, powerful hai, aur table pe rakh ke mast hawa kha. ₹249 mein pura summer set hai, bhai, aisi deal nahi milti!",
+            "loot_reason": "Iska original price ₹1200 hai, abhi sirf ₹249 mein hai. Ekdum unexpected price drop!",
+            "category": "Electronics"
+        },
+        {
+            "name": "TechWiz Smart RGB LED Strip Light with Remote (5M)",
+            "price": "₹199",
+            "mrp": "₹999",
+            "discount_percent": "80%",
+            "rating": 4.3,
+            "link": "https://amazon.in/#?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/611Dq56qRFL._SL1500_.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 Hostel room ko pura gaming setup vibes de dega ye!",
+            "pain": "Tera boring room dekh ke mood off ho jata hai? Ya raat mein padhte huye thoda colour chahiye?",
+            "fix": "Ye le bhai, ₹199 mein RGB strip! Remote se colour change kar, brightness adjust kar. Study-time, chill-time, party-time – sab set hai. Is price mein, ye toh pakka loot hai!",
+            "loot_reason": "Typically ₹999 ka milta hai, abhi ₹199 mein mil raha hai! Ye deal miss mat karna!",
+            "category": "Electronics"
+        },
+        {
             "name": "ZEBRONICS ZEB-KM200L Wired USB Gaming Keyboard with RGB LED, 104 Keys, Multimedia Keys and 2-Step Stand (Black)",
             "price": "₹499",
             "mrp": "₹999",
@@ -1357,48 +1399,6 @@
             "fix": "Ye Philips ka original 100W C-to-C cable hai, matlab phone se laptop tak, sab superfast charge hoga. Durable bhi hai aur itna discount toh sapne mein bhi nahi milta. Jaldi se pakad lo!",
             "loot_reason": "Typically ₹800-₹1000 ka milta hai yeh cable, abhi ₹179 mein mil raha hai! Lifetime deal hai!",
             "category": "Beauty"
-        },
-        {
-            "name": "Portronics POR-1456 Adapto 22 20W USB-C Charger with Power Delivery for iPhone 12/13/14 Series & Android Devices, BIS Certified (White)",
-            "price": "₹399",
-            "mrp": "₹1199",
-            "discount_percent": "66%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0BJJ5S92F?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/31Vd+YqKxRL._AC_UL320_.jpg",
-            "hook": "Hostel life ka ultimate hack: Phone ab full speed pe charge hoga! 🚀",
-            "pain": "Subah college jaane ki jaldi hai aur phone 0% pe hai? Ya roommates ke slow chargers se frustration hoti hai?",
-            "fix": "Ye 20W fast charger lele, type-C PD support ke saath, iPhone aur Android dono ke liye. BIS certified hai matlab safe bhi. ₹399 mein, seedha phone ko power up kar, time bacha!",
-            "loot_reason": "Normally ₹1200 ka milta hai, abhi ₹399 mein, ye deal miss mat karna!",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Portronics Toad 23 Wireless Mouse, 2.4GHz, with USB Receiver, Optical Tracking, PC, Mac, Laptop, Ipad, Computer, 6-Months Warranty (Grey)",
-            "price": "₹249",
-            "mrp": "₹699",
-            "discount_percent": "64%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0BPBSQJ15?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41-q0sM2hYL._AC_UL320_.jpg",
-            "hook": "Bhai ye price glitch hai ya kya? Wireless mouse sirf ₹249 mein?! 😲",
-            "pain": "Laptop pe kaam karte hue trackpad se haath dukh jaate hain? Ya wired mouse ka wire ulajhta rehta hai?",
-            "fix": "Ekdum smooth, ergonomic wireless mouse abhi sirf ₹249 mein. Projects banate time ya late-night browsing mein, productivity double! Itni sasti deal kahi nahi milegi, jaldi loot lo!",
-            "loot_reason": "₹699 wala mouse ₹249 mein, almost 65% off hai, jaldi grab kar!",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Portronics Portable Ruffpad 8.5E LCD Writing Pad for Kids and Adults with Stylus, 8.5 Inch Re-Writable Paperless Digital Pad for Drawing, Learning, Home, Office & School (Blue)",
-            "price": "₹299",
-            "mrp": "₹999",
-            "discount_percent": "70%",
-            "rating": 4.0,
-            "link": "https://www.amazon.in/dp/B0BJJ5S91D?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41rWJg9T4LL._AC_UL320_.jpg",
-            "hook": "OMG! Ye Ruffpad 70% off mein?! Pakka price glitch hai! 😱",
-            "pain": "Har baar rough work ke liye pages waste hote hain? Ya notes banane mein problem hoti hai?",
-            "fix": "Ye Ruffpad lele, unlimited notes bana, maths ke sums solve kar, doodle kar, aur bas ek button se clear! ₹999 ka item ₹299 mein, bhai soch mat, seedha lele!",
-            "loot_reason": "Original price ₹999 hai, abhi ₹299 mein mil raha hai, seedha ₹700 ka fayda!",
-            "category": "Kitchen"
         }
     ]
 }
