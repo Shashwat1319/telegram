@@ -10,10 +10,12 @@ load_dotenv()
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
-# ACCOUNTS FOR COMMENTING (Worker accounts to keep main channel safe)
+from telethon.sessions import StringSession
+
+# ACCOUNTS FOR COMMENTING (Worker accounts using StringSession to avoid SQLite database locks)
 WORKERS = [
-    {"session": "worker_2_session", "api_id": os.getenv("API_ID"), "api_hash": os.getenv("API_HASH")},
-    {"session": "worker_3_session", "api_id": os.getenv("API_ID"), "api_hash": os.getenv("API_HASH")},
+    {"session": os.getenv("TELEGRAM_SESSION_2"), "api_id": os.getenv("API_ID"), "api_hash": os.getenv("API_HASH"), "name": "worker_2"},
+    {"session": os.getenv("TELEGRAM_SESSION_3"), "api_id": os.getenv("API_ID"), "api_hash": os.getenv("API_HASH"), "name": "worker_3"},
 ]
 
 # TARGET BIG CHANNELS (Where we will leave comments)
@@ -60,12 +62,17 @@ def generate_ai_reply(original_text):
         return f"Bhai isse achhi deal kal yahan aayi thi, check this out: {CHANNEL_LINK}"
 
 async def start_commenting_bot(worker_info):
-    session = worker_info["session"]
+    session_str = worker_info["session"]
     api_id = worker_info["api_id"]
     api_hash = worker_info["api_hash"]
+    name = worker_info["name"]
     
-    print(f"[*] Worker '{session}' is now monitoring big channels...")
-    client = TelegramClient(session, api_id, api_hash)
+    if not session_str:
+        print(f"[!] Skipping worker '{name}': TELEGRAM_SESSION string is missing in environment.")
+        return
+        
+    print(f"[*] Worker '{name}' is now monitoring big channels...")
+    client = TelegramClient(StringSession(session_str), int(api_id), api_hash)
     await client.start()
     
     @client.on(events.NewMessage(chats=TARGET_CHANNELS))
@@ -97,7 +104,7 @@ async def start_commenting_bot(worker_info):
             except Exception as e:
                 print(f"[FAILED] Could not comment: {e}")
 
-    print(f"[*] Worker '{session}' listening for events...")
+    print(f"[*] Worker '{name}' listening for events...")
     await client.run_until_disconnected()
 
 async def main():

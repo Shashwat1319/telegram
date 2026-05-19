@@ -23,27 +23,40 @@ load_dotenv()
 
 # ---------- Image Downloader ----------
 def download_image(url):
-    """Download image to a local file for reliable Telegram upload."""
+    """Download image to a local file for reliable Telegram upload with 404 fallback."""
     if not url: return None
-    try:
-        # Create temp dir if not exists
-        temp_dir = os.path.join(os.getcwd(), "temp_images")
-        if not os.path.exists(temp_dir):
-            os.makedirs(temp_dir)
+    
+    temp_dir = os.path.join(os.getcwd(), "temp_images")
+    if not os.path.exists(temp_dir):
+        try: os.makedirs(temp_dir)
+        except: pass
+        
+    local_filename = os.path.join(temp_dir, f"temp_{int(time.time())}_{random.randint(100,999)}.jpg")
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
+    
+    urls_to_try = [url]
+    # Amazon image CDN suffix cleaner fallback
+    if "media-amazon.com" in url:
+        clean_url = re.sub(r'\._[A-Z0-9]+_\.', '.', url)
+        if clean_url != url:
+            urls_to_try.append(clean_url)
             
-        local_filename = os.path.join(temp_dir, f"temp_{int(time.time())}_{random.randint(100,999)}.jpg")
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        }
-        with requests.get(url, headers=headers, stream=True, timeout=15) as r:
-            r.raise_for_status()
-            with open(local_filename, 'wb') as f:
-                for chunk in r.iter_content(chunk_size=8192):
-                    f.write(chunk)
-        return local_filename
-    except Exception as e:
-        print(f"Image download failed: {e}")
-        return None
+    for target_url in urls_to_try:
+        try:
+            with requests.get(target_url, headers=headers, stream=True, timeout=15) as r:
+                if r.status_code == 200:
+                    with open(local_filename, 'wb') as f:
+                        for chunk in r.iter_content(chunk_size=8192):
+                            f.write(chunk)
+                    return local_filename
+                else:
+                    print(f"[RETRY-INFO] Target URL failed with status {r.status_code}: {target_url}")
+        except Exception as e:
+            print(f"[RETRY-INFO] Error downloading from {target_url}: {e}")
+            
+    return None
 
 # ---------- Environment variables ----------
 BOT_TOKEN = os.getenv("BOT_TOKEN")
