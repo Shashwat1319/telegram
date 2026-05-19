@@ -36,6 +36,12 @@ for p in products:
     # Filter: ASIN duplicates
     m = asin_pattern.search(link)
     asin = m.group(1).upper() if m else None
+    
+    # [CRITICAL GUARD] Remove products with no valid ASIN (hallucinated / broken links)
+    if not asin:
+        print(f"  [REMOVED - NO VALID ASIN] {name[:60]} | Link: {link}")
+        continue
+        
     if asin and asin in seen_asins:
         print(f"  [REMOVED - ASIN dupe {asin}] {name[:60]}")
         continue

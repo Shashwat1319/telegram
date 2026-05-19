@@ -46,6 +46,10 @@ def get_amazon_trending(category_url):
 
 def preprocess_html(html_content):
     """Extract structured product data as text to prevent AI hallucination."""
+    if not html_content or "captcha" in html_content.lower() or "api-services-support@amazon.com" in html_content:
+        print("⚠️ Warning: Amazon CAPTCHA or blocking detected. Aborting this category.")
+        return ""
+        
     try:
         soup = BeautifulSoup(html_content, 'html.parser')
         wrappers = soup.select('div[id^="gridItemRoot"]') or soup.select('.p13n-sc-uncentered-wrapper') or soup.select('.a-list-item') or soup.select('.s-result-item')
@@ -94,10 +98,10 @@ def preprocess_html(html_content):
             extracted_text += item_summary
             
         print(f"Preprocessed into structured text. Length: {len(extracted_text)}")
-        return extracted_text if extracted_text else html_content[:15000]
+        return extracted_text
     except Exception as e:
         print(f"Preprocessing error: {e}")
-        return html_content[:15000]
+        return ""
 
 def extract_products_with_ai(html_text, retry_count=0):
     """Use Gemini AI to pick the best deals from pre-structured text."""
@@ -263,9 +267,15 @@ def update_json(new_products):
         if product['name'] in existing_names:
             continue
 
-        # Skip ASIN duplicates
+        # Skip ASIN duplicates and validate ASIN presence
         m = asin_pattern.search(product.get('link', ''))
         asin = m.group(1).upper() if m else ''
+        
+        # [CRITICAL GUARD] Enforce that only links with valid ASINs are added
+        if not asin:
+            print(f"[FILTER] Skipping product with NO valid ASIN: {product.get('name','')}")
+            continue
+            
         if asin and asin in existing_asins:
             print(f"[DEDUP] Skipping ASIN duplicate: {product.get('name','')}")
             continue
@@ -328,6 +338,9 @@ def main():
             html = get_amazon_trending(url)
             if html:
                 extracted_text = preprocess_html(html)
+                if not extracted_text:
+                    print(f"[-] Skipping {cat_name}: no valid products parsed (possibly CAPTCHA).")
+                    return False
                 products = extract_products_with_ai(extracted_text)
                 if products:
                     for p in products:

@@ -68,9 +68,18 @@ import urllib.parse
 def extract_cheap_products(html):
     if not html: return []
     
+    if "captcha" in html.lower() or "api-services-support@amazon.com" in html:
+        print("⚠️ Warning: Amazon CAPTCHA or blocking detected in search. Aborting.")
+        return []
+        
     # Preprocess
     soup = BeautifulSoup(html, 'html.parser')
-    boxes = soup.select('.s-result-item')[:25] 
+    boxes = soup.select('.s-result-item')
+    if not boxes or len(boxes) < 2:
+        print("⚠️ Warning: No product items found in search HTML.")
+        return []
+        
+    boxes = boxes[:25]
     cleaned = "\n".join([str(b) for b in boxes])
     
     url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={GEMINI_API_KEY}"
@@ -186,20 +195,66 @@ async def main():
             for p in products:
                 if len(p.get("name", "")) < 10: continue
                 
-                # Cleanup and Add to list
-                p['link'] = format_cheap_link(p.get('link', ''))
-                all_found.append(p)
+                # Cleanup and Format Link
+                link = format_cheap_link(p.get('link', ''))
+                p['link'] = link
                 
+                # Validate that the link contains a real Amazon ASIN
+                asin_match = re.search(r'/(?:dp|gp/product|asin|d|product)/([A-Z0-9]{10})', link, re.IGNORECASE)
+                if not asin_match:
+                    print(f"[-] Skipping hallucinated product (no valid ASIN): {p.get('name')}")
+                    continue
+                
+                all_found.append(p)
                 print(f"[FOUND] {p.get('name')} | Price: {p.get('price')}")
+                
                 # Post live
                 await post_to_telegram(p)
                 await asyncio.sleep(15) # Safety gap
     
-    # Save to product.json for bot_post.py to use as well
+    # Save/Merge to product.json for bot_post.py to use as well
     if all_found:
-        with open("product.json", "w", encoding="utf-8") as f:
-            json.dump({"products": all_found}, f, indent=4)
-        print(f"[SUCCESS] Updated product.json with {len(all_found)} fresh deals.")
+        existing_data = {"products": []}
+        file_path = "product.json"
+        if os.path.exists(file_path):
+            try:
+                with open(file_path, "r", encoding="utf-8") as f:
+                    existing_data = json.load(f)
+            except: pass
+            
+        # Clean existing items' names & ASINs to dedup
+        asin_pattern = re.compile(r'/dp/([A-Z0-9]{10})', re.IGNORECASE)
+        existing_names = {x['name'] for x in existing_data['products']}
+        existing_asins = set()
+        for x in existing_data['products']:
+            m = asin_pattern.search(x.get('link', ''))
+            if m:
+                existing_asins.add(m.group(1).upper())
+                
+        # Merge new ones at the beginning (newest first)
+        newly_added = 0
+        for p in all_found:
+            # Check duplicate name
+            if p['name'] in existing_names: continue
+            
+            # Check duplicate ASIN
+            m = asin_pattern.search(p.get('link', ''))
+            asin = m.group(1).upper() if m else ''
+            if asin and asin in existing_asins: continue
+            
+            existing_data['products'].insert(0, p)
+            existing_names.add(p['name'])
+            if asin:
+                existing_asins.add(asin)
+            newly_added += 1
+            
+        # Keep limit at 100
+        existing_data['products'] = existing_data['products'][:100]
+        
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(existing_data, f, indent=4, ensure_ascii=False)
+            
+        print(f"[SUCCESS] Merged {newly_added} fresh deals. Total products in database: {len(existing_data['products'])}")
 
         
 if __name__ == "__main__":
