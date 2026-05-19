@@ -52,18 +52,30 @@ def process_product(product):
     
     # Check if image is missing or placeholder
     image_url = product.get("image", "")
-    # Treat empty strings or Amazon placeholder GIFs as missing
     is_missing = not img or "placeholder" in img or "via.placeholder" in img or "01jrA-8DXYL.gif" in image_url or ".gif" in image_url.lower()
     
+    # Also check if the URL is broken (e.g. returns 404)
+    if not is_missing and image_url:
+        try:
+            r = requests.head(image_url, timeout=1.5)
+            if r.status_code != 200:
+                print(f"[*] Image returned status {r.status_code} (broken) for: {name[:40]}")
+                is_missing = True
+        except:
+            is_missing = True
+    
     if is_missing and link and "amazon" in link:
-        print(f"[*] Fetching image for: {name[:40]}...")
+        print(f"[*] Fetching active image from Amazon page for: {name[:40]}...")
         new_img = get_amazon_image(link)
         if new_img:
             product['image'] = new_img
-            print(f"[OK] Found image: {new_img[:50]}...")
+            print(f"[OK] Found active image: {new_img[:50]}...")
             return True
         else:
-            print(f"[FAIL] Could not find image for {name[:40]}")
+            print(f"[FAIL] Could not find active image on Amazon page for {name[:40]}")
+            # Clear image so it gets filtered out of the final list
+            product['image'] = ""
+            return True
     return False
 
 def main():

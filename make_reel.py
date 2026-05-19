@@ -7,7 +7,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 def get_latest_product():
-    """Load the most recent product from product.json."""
+    """Load the first product from product.json that has a working image URL, limited to the first 10 products for speed."""
     if not os.path.exists("product.json"):
         print("product.json not found!")
         return None
@@ -15,11 +15,32 @@ def get_latest_product():
         with open("product.json", "r", encoding="utf-8") as f:
             data = json.load(f)
             if data and "products" in data and len(data["products"]) > 0:
-                print(f"Loaded product: {data['products'][0]['name']}")
+                print("Checking first 10 products for valid active images...")
+                checked = 0
+                for prod in data["products"]:
+                    if checked >= 10:
+                        break
+                    img_url = prod.get("image", "")
+                    if img_url:
+                        checked += 1
+                        # Fast request to verify image is not a 404
+                        try:
+                            r = requests.head(img_url, timeout=1.5)
+                            if r.status_code == 200:
+                                print(f"Loaded active product with working image: {prod['name']}")
+                                return prod
+                            else:
+                                print(f"Skipping product image {img_url} due to HTTP status: {r.status_code}")
+                        except Exception as ex:
+                            print(f"Skipping product image {img_url} due to request error: {ex}")
+                
+                # Fallback to first product if validation failed for all
+                print("Warning: No active product image passed the 200 check within the first 10. Falling back to first product.")
                 return data["products"][0]
     except Exception as e:
         print(f"Error loading product.json: {e}")
     return None
+
 
 def download_image(url):
     """Download image and return a PIL Image object."""
@@ -34,17 +55,19 @@ def download_image(url):
         return None
 
 def get_font(size, bold=False):
-    """Utility to load a font, downloading a premium Google Font if standard system fonts are missing."""
+    """Utility to load a font, downloading a premium Google Font from CDN if standard system fonts are missing."""
     font_name = "Oswald-Bold.ttf" if bold else "Oswald-Regular.ttf"
     if not os.path.exists(font_name):
         try:
-            print(f"Downloading premium font {font_name} from Google Fonts...")
-            url = f"https://github.com/google/fonts/raw/main/ofl/oswald/{font_name}"
+            print(f"Downloading premium font {font_name} from high-reliability CDN...")
+            url = "https://cdn.jsdelivr.net/fontsource/fonts/oswald@latest/latin-700-normal.ttf" if bold else "https://cdn.jsdelivr.net/fontsource/fonts/oswald@latest/latin-400-normal.ttf"
             r = requests.get(url, timeout=10)
             if r.status_code == 200:
                 with open(font_name, "wb") as f:
                     f.write(r.content)
+                print(f"Successfully downloaded premium font {font_name}!")
             else:
+                print(f"CDN download failed with status {r.status_code}, falling back to Arial.")
                 font_name = "arial.ttf"
         except Exception as e:
             print(f"Failed to download premium font: {e}")
@@ -146,7 +169,7 @@ def create_video_frame(product):
     w_t1 = draw.textlength(t1, font=cta_font)
     draw.text(((1080 - w_t1) / 2, 1650), t1, fill="white", font=cta_font)
     
-    t2 = "Join Telegram: @BudgetDealsIndia 🚀"
+    t2 = "Join Telegram: @budgetdeals_india 🚀"
     w_t2 = draw.textlength(t2, font=cta_bottom)
     draw.text(((1080 - w_t2) / 2, 1750), t2, fill="#00BFFF", font=cta_bottom)
     
@@ -185,10 +208,10 @@ Product: {name}
 Price: {product.get('price', 'Check Link')}
 
 👇 GET THIS DEAL HERE BEFORE IT EXPIRES 👇
-Join Our Official Telegram Channel: https://t.me/BudgetDealsIndia
+Join Our Official Telegram Channel: https://t.me/budgetdeals_india
 Click the link above, we drop these 90% OFF deals directly in Telegram daily!
 
-(Search "@BudgetDealsIndia" on Telegram to join free!)
+(Search "@budgetdeals_india" on Telegram to join free!)
 
 Keywords / SEO Tags:
 amazon gadgets, super cheap amazon finds, amazon glitch today, loot deals india, lowest price online, amazon loot tricks, electronic sales 2026, free products online, flipkart sale hack
