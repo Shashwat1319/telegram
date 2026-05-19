@@ -56,7 +56,7 @@ jobs:
         env:
           YOUTUBE_CLIENT_SECRETS: ${{ secrets.YOUTUBE_CLIENT_SECRETS }}
           YOUTUBE_TOKEN: ${{ secrets.YOUTUBE_TOKEN }}
-        if: ${{ secrets.YOUTUBE_CLIENT_SECRETS != '' && secrets.YOUTUBE_TOKEN != '' }}
+        if: ${{ env.YOUTUBE_CLIENT_SECRETS != '' && env.YOUTUBE_TOKEN != '' }}
         run: python youtube_auto_upload.py || echo "YouTube upload skipped or failed"
 
       - name: Run Daily Report
