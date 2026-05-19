@@ -34,18 +34,35 @@ def download_image(url):
         return None
 
 def get_font(size, bold=False):
-    """Utility to load a font."""
-    # Attempt to load standard Windows arial font
-    font_name = "arialbd.ttf" if bold else "arial.ttf"
+    """Utility to load a font, downloading a premium Google Font if standard system fonts are missing."""
+    font_name = "Oswald-Bold.ttf" if bold else "Oswald-Regular.ttf"
+    if not os.path.exists(font_name):
+        try:
+            print(f"Downloading premium font {font_name} from Google Fonts...")
+            url = f"https://github.com/google/fonts/raw/main/ofl/oswald/{font_name}"
+            r = requests.get(url, timeout=10)
+            if r.status_code == 200:
+                with open(font_name, "wb") as f:
+                    f.write(r.content)
+            else:
+                font_name = "arial.ttf"
+        except Exception as e:
+            print(f"Failed to download premium font: {e}")
+            font_name = "arial.ttf"
+            
     try:
         return ImageFont.truetype(font_name, size)
     except:
-        # Fallback to default if Arial is not found
+        # Fallback to standard Windows font locations
         try:
-            return ImageFont.truetype("C:\\Windows\\Fonts\\arial.ttf", size)
+            sys_font = "arialbd.ttf" if bold else "arial.ttf"
+            return ImageFont.truetype(sys_font, size)
         except:
-            print("Arial not found, using default font (will be small and unstyled).")
-            return ImageFont.load_default()
+            try:
+                return ImageFont.truetype("C:\\Windows\\Fonts\\arial.ttf", size)
+            except:
+                print("Defaulting to basic unstyled font.")
+                return ImageFont.load_default()
 
 def wrap_text(text, font, max_width, draw):
     """Word wrapper for drawing long text."""

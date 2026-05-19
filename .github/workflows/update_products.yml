@@ -52,6 +52,13 @@ jobs:
           ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
         run: python promo_report.py
 
+      - name: Run YouTube Auto Shorts Uploader
+        env:
+          YOUTUBE_CLIENT_SECRETS: ${{ secrets.YOUTUBE_CLIENT_SECRETS }}
+          YOUTUBE_TOKEN: ${{ secrets.YOUTUBE_TOKEN }}
+        if: ${{ secrets.YOUTUBE_CLIENT_SECRETS != '' && secrets.YOUTUBE_TOKEN != '' }}
+        run: python youtube_auto_upload.py || echo "YouTube upload skipped or failed"
+
       - name: Run Daily Report
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
@@ -59,4 +66,5 @@ jobs:
           CLICK_TRACKER_URL: ${{ secrets.CLICK_TRACKER_URL }}
         if: github.event_name == 'schedule' && (github.event.schedule == '0 2 * * *' || github.event.schedule == '0 14 * * *' || true)
         run: python daily_report.py || echo "Daily report skipped"
+
 
