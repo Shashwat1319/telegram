@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "USB Rechargeable LED Study Lamp with Pen Holder",
+            "price": "₹349",
+            "mrp": "₹1499",
+            "discount_percent": "77%",
+            "rating": 4.5,
+            "link": "https://www.amazon.in/dp/B0B5Z8Z6M7?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61NlUoQ-NQL._SL1500_.jpg",
+            "hook": "Dekh bhai, bina light ke padhai nahi hoti. Ye kaam ki cheez hai, aur abhi mast price pe hai.",
+            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Ya table pe pen aur highlighters scattered rehte hain?",
+            "fix": "Ye rechargeable study lamp tere liye best hai. Apna focus light rahegi, aur pen holder se table bhi organized. ₹1500 ki light sirf ₹349 mein mil rahi hai, matlab practically free! Must-have hai hostel life ke liye.",
+            "loot_reason": "Iski original price ₹1499 hai, abhi ₹349 mein mil rahi hai, seedha 77% ka fayda, bilkul miss mat karna!",
+            "category": "Computers"
+        },
+        {
+            "name": "Mi \"Night Owl\" Flexible USB LED Reading Light",
+            "price": "₹199",
+            "mrp": "₹799",
+            "discount_percent": "75%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0CCYYYYYY?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41GljVEEkxL.jpg",
+            "hook": "Raat bhar padhne walon, tumhare liye secret weapon!",
+            "pain": "Roommates ki light off karne ki demand ya phir khud ki aankhon pe strain pad raha hai raat bhar padhte hue? Har baar phone ki torch use karni padti hai?",
+            "fix": "Ye flexible USB light mast hai! Laptop, power bank, ya kisi bhi USB adapter mein laga do, aur apni book pe hi focus karo. Roommates ko disturb nahi hoga aur tumhari aankhen bhi safe rahengi. ₹199 mein bilkul worth it deal hai, ekdum practical!",
+            "loot_reason": "Is quality ki light normally ₹799+ ki milti hai, abhi ₹199 mein mil rahi hai, ekdum genuine deal. Price drop hai!",
+            "category": "Electronics"
+        },
+        {
+            "name": "Portronics \"Cool Breeze\" Portable Mini USB Desk Fan",
+            "price": "₹249",
+            "mrp": "₹999",
+            "discount_percent": "75%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0BVXXXXXX?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41GJpjvpd9L.jpg",
+            "hook": "Bhai garmi se fat rahi hai? Ye loot dekh! 😱",
+            "pain": "Hostel mein AC nahi hai aur table fan chalao toh bill alag se? Raat bhar padhte hue paseena chhut raha hai?",
+            "fix": "Chhote se USB fan se apni study desk pe private AC zone bana! Laptop se power de, power bank se bhi chalta hai, compact hai, aur hawa itni tez ki papers ud jaayein. Abhi sirf ₹249 mein mil raha hai, jaldi le!",
+            "loot_reason": "Usually ₹999 ka milta hai, ye ₹249 ka price glitch lag raha hai! 75% off, miss mat karna.",
+            "category": "Electronics"
+        },
+        {
             "name": "Hostel Boss Foldable Study Table/Laptop Stand",
             "price": "₹399",
             "mrp": "₹1499",
@@ -1357,48 +1399,6 @@
             "fix": "Ye RGB strip se poore room ki vibes badal jayegi! Desk ke peeche laga, bed ke neeche, jahaan mann kare. Remote se colors change kar, brightness adjust kar. Aur itna sasta? Pakka limited stock hai!",
             "loot_reason": "Normally ₹1200 ki milti hai aisi lights, abhi seedha 75% off pe ₹299 mein, ab toh le le!",
             "category": "Ladies Fashion"
-        },
-        {
-            "name": "AmazonBasics USB 3.0 A Male to A Female Extension Cable - 6.5 Feet (2 Meters)",
-            "price": "₹179",
-            "mrp": "₹595",
-            "discount_percent": "69%",
-            "rating": 4.4,
-            "link": "https://www.amazon.in/dp/B008VPEJ4C?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/418Vz-d-WkL._SX300_SY300_FMwebp_.jpg",
-            "hook": "Ekdum practical aur zaroori cheez, woh bhi itne bade discount par!",
-            "pain": "USB port laptop ke peeche hai ya CPU ke neeche? Har baar pen drive ya mouse nikalne-lagane mein kamar toot jaati hai ya laptop hilana padta hai?",
-            "fix": "Yeh 2-meter ka AmazonBasics extension cable hai, ab USB port ko apni reach mein le aao! Pen drive, charger, external hard drive – sab aaram se connect karo. Best part? AmazonBasics hai, toh quality ki tension nahi, aur price itna down hai ki soch bhi nahi sakte!",
-            "loot_reason": "Normally ₹500+ ka milta hai aisa cable, abhi ₹179 mein mil raha hai, which is almost 70% off. Hostel life ka asli hack!",
-            "category": "Beauty"
-        },
-        {
-            "name": "Lapster USB C Type C to 3.5mm Jack Audio Connector with DAC Chip Mobile Headphone Adapter",
-            "price": "₹299",
-            "mrp": "₹999",
-            "discount_percent": "70%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0BQ564L88?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41iXg7b0xUL._SX300_SY300_FMwebp_.jpg",
-            "hook": "OMG! Yeh problem sabki hai, aur Lapster ne toh iska solution itne kam mein de diya!",
-            "pain": "Naya phone le liya Type-C wala, par ab headphone jack nahi hai? Puraani earphone kaise use karein? Bina music ke hostel life toh socha bhi nahi jaata!",
-            "fix": "Ye Lapster ka Type-C to 3.5mm adapter with DAC chip hai, matlab sound quality bhi mast aayegi. Ab apne favorite headphones phir se use kar paoge, aur wo bhi ekdum budget mein. Zindagi aasaan!",
-            "loot_reason": "Ye audio adapter toh ₹800-₹1000 tak jata hai, abhi ₹299 mein mil raha hai. Must-have accessory for Type-C phones!",
-            "category": "Beauty"
-        },
-        {
-            "name": "Philips USB C to C Cable 100W, 1.2M",
-            "price": "₹179",
-            "mrp": "₹999",
-            "discount_percent": "82%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0CKK21J1P?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41K-sSj-LmL._SX300_SY300_FMwebp_.jpg",
-            "hook": "Bhai ye price glitch hai ya kya? 😱 Philips ka 100W C-to-C cable itne mein? Loot lo yaar!",
-            "pain": "Laptop charge karna hai, phone bhi fast charge chahiye, par saste cables phat jaate hain ya slow hote hain? Class ke beech mein battery khatam hone ka darr?",
-            "fix": "Ye Philips ka original 100W C-to-C cable hai, matlab phone se laptop tak, sab superfast charge hoga. Durable bhi hai aur itna discount toh sapne mein bhi nahi milta. Jaldi se pakad lo!",
-            "loot_reason": "Typically ₹800-₹1000 ka milta hai yeh cable, abhi ₹179 mein mil raha hai! Lifetime deal hai!",
-            "category": "Beauty"
         }
     ]
 }
