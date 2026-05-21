@@ -137,29 +137,33 @@ def generate_message(product, post_count=0):
     except:
         badge = "⚡ <b>HOT DEAL</b> ⚡\n\n"
 
-    if post_count == 0:
-        # Template 1: Aggressive Loot
-        msg = f"{badge}" \
-              f"<b>{hook}</b>\n\n" \
-              f"❌ <b>Pain:</b> {pain}\n" \
-              f"✅ <b>Fix:</b> {fix}\n\n" \
-              f"{loot_block}" \
-              f"👉 <b>Item:</b> {safe_name}\n" \
-              f"💰 <b>Loot Price:</b> {price}\n"
-    elif post_count == 1:
-        # Template 2: "Worth it?" post
-        msg = f"🤔 <b>Worth it or Not?</b>\n\n" \
-              f"{fix}\n" \
-              f"{loot_block}\n" \
-              f"👉 <b>Item:</b> {safe_name}\n" \
-              f"💰 <b>Current Price:</b> {price}\n"
-    else:
-        # Template 3: Mini-review style
-        msg = f"📝 <b>Quick Review: {safe_name[:30]}...</b>\n\n" \
-              f"{pain} " \
-              f"Overall {price} me mast product hai.\n\n" \
-              f"{loot_block}" \
-              f"💰 <b>Best Price:</b> {price}\n"
+    # Clean Pipeline Format: Product → Price → Why → Deal → Link
+    # Rotating hooks for variety without spam feel
+    templates = [
+        # Format A: Direct deal
+        f"{badge}"
+        f"🔥 <b>{safe_name[:60]}</b>\n\n"
+        f"💸 <b>Price:</b> {price}\n"
+        f"✔️ <b>Why:</b> {fix}\n"
+        f"⏰ <b>Deal:</b> Limited stock — price can go up anytime!\n",
+
+        # Format B: Pain → Solution
+        f"{badge}"
+        f"😤 {pain}\n\n"
+        f"✅ <b>Solution:</b> {safe_name[:50]}\n"
+        f"💸 <b>Price:</b> {price}\n"
+        f"✔️ {fix}\n"
+        f"⏰ <b>Grab it before price hike!\n",
+
+        # Format C: Review style
+        f"{badge}"
+        f"⭐ <b>Today's Best Deal</b>\n\n"
+        f"📦 <b>{safe_name[:55]}</b>\n"
+        f"💸 <b>Price:</b> {price}\n"
+        f"✔️ {fix}\n"
+        f"⏰ Limited time offer!\n",
+    ]
+    msg = templates[post_count % len(templates)]
 
     if proof_str:
         msg += f"{proof_str}\n\n"
