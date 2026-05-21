@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Callas Multipurpose Foldable Laptop Table/Study Desk",
+            "price": "₹449",
+            "mrp": "₹1699",
+            "discount_percent": "73%",
+            "rating": 4.5,
+            "link": "https://www.amazon.in/dp/B08V32P84V?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71o30T25bKL._AC_SL1500_.jpg",
+            "hook": "Dekh bhai, ye wali cheez sach mein kaam aati hai hostel mein. Trust me, it's a lifesaver! 👍",
+            "pain": "Bed pe baith ke padhne mein back pain hota hai, desk pe space nahi hai, ya fir chai-coffee girne ka darr? Comfort se padhai hoti hi nahi!",
+            "fix": "Ye foldable table le le. Bed pe, floor pe, kahin bhi use kar. Laptop rakh, kitaabein rakh, breakfast kar le. Space bhi nahi lega jab fold karega. Aur itne discount mein, investment nahi, life hack hai! Padhai mein focus badhega!",
+            "loot_reason": "Aisi tables ₹1000 se upar hi milti hain, ₹449 mein mil rahi hai, practicality ke liye best deal hai!",
+            "category": "Electronics"
+        },
+        {
+            "name": "Portronics Adapto 4-Port Fast Charger (3.4A, Universal)",
+            "price": "₹349",
+            "mrp": "₹1499",
+            "discount_percent": "76%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0BLGG8D3L?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61M6E5q56LL._AC_SL1500_.jpg",
+            "hook": "Arre baap re! ₹1500 wala charger ₹349 mein?! Ye toh scam hai, matlab legit loot! 🤯",
+            "pain": "Hostel mein ek hi socket milta hai aur phone, laptop, power bank, smartwatch sab charge karna hai? Roommates bhi line lagaye rehte hain!",
+            "fix": "Ye le bhai, 4-in-1 fast charger! Ek hi socket se chaar devices charge kar, aur woh bhi fast. Ab na jhagda na charging ka wait. Power sockets ki tension khatam. Iss price mein toh blind buy hai!",
+            "loot_reason": "Normally iske liye ₹1200-₹1500 dene padte hain, aaj ₹349 mein mil raha hai, kal tak stock khatam ho jayega!",
+            "category": "Electronics"
+        },
+        {
+            "name": "Mi RGB LED Strip Light with USB (5 Meter)",
+            "price": "₹199",
+            "mrp": "₹899",
+            "discount_percent": "77%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0BP3W44J1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/610tq+P-h+L._AC_SL1500_.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 Meri hostel wali life ko next level bana dega!",
+            "pain": "Pura din lecture mein bore hote ho, raat ko room mein bhi wahi dull light? Mood hi nahi banta na padhne ka ya chill karne ka!",
+            "fix": "Ye RGB strip light laga! USB se power do, remote se colors badlo. Kabhi party vibe, kabhi chill study mode. Hostel room ko ekdum LIT bana de! Aur sirf ₹199 mein? Bhai, soch mat, grab kar!",
+            "loot_reason": "Same cheez bahar ₹800-₹900 ki milti hai, abhi ₹199 mein loot lo, it's a steal!",
+            "category": "Electronics"
+        },
+        {
             "name": "Waterproof Travel Gadget Organizer Pouch for Cables, Chargers & Power Bank",
             "price": "₹249",
             "mrp": "₹899",
@@ -1357,48 +1399,6 @@
             "fix": "Ye 5-meter RGB LED strip light sirf ₹299 mein! App control hai, remote bhi. Tera room instantly epic ho jayega, aur vibe set. Itni sasti RGB lighting kabhi nahi milegi, chal de! ",
             "loot_reason": "Usually ₹1300 ka milta hai, abhi 77% off pe sirf ₹299 mein mil raha hai! Ye deal haath se mat jaane de.",
             "category": "Loot"
-        },
-        {
-            "name": "GIZGA Essentials Small Cable Organizer, Cord Holder for Desk, Cable Management Clips for Organizing Charging Cords, USB Cables, Power Cords, Audio Cables for Home and Office - Set of 6 (Multicolour)",
-            "price": "₹119",
-            "mrp": "₹499",
-            "discount_percent": "76%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0BP7K5992?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71rJ-8WjEUL._AC_UL320_.jpg",
-            "hook": "Sunn bhai, hostel life mein ye chhoti cheezein bahut kaam aati hain.",
-            "pain": "Tere charging cables aur earphones har jagah uljhe rehte hain? Desk pe mess dekhke dimag kharab hota hai?",
-            "fix": "Ye cable organizer set le le, ₹119 mein 6 pieces mil rahe hain. Sab cables neatly manage kar, tera desk clean rahega aur time bhi bachega dhoondhne mein. Must-have hai!",
-            "loot_reason": "Sirf ₹119 mein 6 cable holders mil rahe hain, jinka MRP ₹499 hai. Aisa deal hostel mein bhi mushkil se milega!",
-            "category": "Electronics"
-        },
-        {
-            "name": "CAYSENS Desk Lamp for Study with Pen Holder, USB Rechargeable Desk Light for Students Eye-Caring LED Table Lamp with Brightness Dimmer Touch Control for Office Home Bedroom Reading (Black)",
-            "price": "₹299",
-            "mrp": "₹1000",
-            "discount_percent": "70%",
-            "rating": 4.0,
-            "link": "https://www.amazon.in/dp/B0C39Y1GJM?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/610tqR909TL._AC_UL320_.jpg",
-            "hook": "WHAT?! ₹1000 ki table lamp ₹299 mein?! Ye to price glitch hai yaar! 😱",
-            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Ya fir aankhein thak jaati hain dim light mein padhke?",
-            "fix": "Ye eye-caring rechargeable lamp le aa. Brightness adjust kar, saath mein pen holder bhi hai. Hostel ki raat mein tera best friend ban jayega ye!",
-            "loot_reason": "Normally ₹1000 ki milti hai, abhi sirf ₹299 mein hai, seedha 70% ka discount!",
-            "category": "Electronics"
-        },
-        {
-            "name": "STRIFF Multi-Angle Adjustable Mobile Phone Holder Stand for Desk, Foldable & Portable Desktop Phone Stand Compatible with All Mobile Phones & Tablets (4-10 inches) - (Black)",
-            "price": "₹119",
-            "mrp": "₹999",
-            "discount_percent": "88%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0BP7KZ1G5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61b1m21W+QL._AC_UL320_.jpg",
-            "hook": "Arre bhai, ye kya deal hai?! ₹119 mein itna useful gadget! 🤩",
-            "pain": "Hostel mein phone rakhne ki jagah nahi milti ya fir lecture dekhte hue haath dard ho jaate hain?",
-            "fix": "Ye foldable stand le, phone/tablet adjust kar, aur aaram se notes bana ya movies dekh! Itna sasta aur itna kaam ka, bhai bas le le!",
-            "loot_reason": "Pure ₹999 wala stand sirf ₹119 mein mil raha hai, 88% off! Aisi deal phir nahi milegi!",
-            "category": "Electronics"
         }
     ]
 }
