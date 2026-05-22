@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Rechargeable Mini LED Desk Lamp with Pen Holder & Phone Stand",
+            "price": "₹289",
+            "mrp": "₹950",
+            "discount_percent": "69%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0B2F8T7XQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41-DHAwVkNL.jpg",
+            "hook": "Okay, ye cheez to har hostel waale ke paas honi chahiye, no excuses!",
+            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Ya table pe pen, pencil scattered rehte hain?",
+            "fix": "Ye compact rechargeable desk lamp, saath mein pen holder aur phone stand ke saath, ₹289 mein. Apni study space ko organized rakho aur jab chahe padho bina kisi ko disturb kiye. Power cut ho tab bhi kaam aayega. Bahut practical aur useful deal hai.",
+            "loot_reason": "Iska original price ₹950 se upar hai, 69% discount pe mil raha hai, mat chhodna!",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Ultra-Slim Portable Wireless Mouse (Silent Click)",
+            "price": "₹199",
+            "mrp": "₹799",
+            "discount_percent": "75%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0BP99Q8M2?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41tH9rMdsxL.jpg",
+            "hook": "WAIT, WHAT?! Itne saste mein wireless mouse? Mera puraana wala to ₹700 ka tha! 😱",
+            "pain": "Laptop pe trackpad se kaam karte karte ungliyan dukh jaati hain? Ya wired mouse se table pe wire ka jhamela?",
+            "fix": "Ye ultra-slim wireless mouse, silent click ke saath, sirf ₹199 mein! Lectures ke notes banao ya assignments poore karo, bina kisi disturbance ke. Bag mein bhi aram se fit ho jayega. Iss price mein to koi local shop pe bhi nahi milega, seedha loot hai bhai!",
+            "loot_reason": "Market mein minimum ₹700-800 ka milta hai, ye to seedha 75% off pe 'loot' hai!",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Smart RGB LED Strip Lights (5 Meter) with Remote",
+            "price": "₹249",
+            "mrp": "₹999",
+            "discount_percent": "75%",
+            "rating": 4.4,
+            "link": "https://www.amazon.in/dp/B0B5Z8Z6M3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71y7B1WdJXL._AC_SL1500_.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? Pure hostel ko party zone bana dega! 🥳",
+            "pain": "Hostel ka room boring aur lifeless lagta hai? Padhne ka mood nahi banta ya party vibes miss karta hai?",
+            "fix": "Ye 5 meter RGB strip lights, remote control ke saath, abhi ₹249 mein mil rahe hain! Mood light, study light, party light – sab ek mein! Normal LED se alag, pura vibe change kar dega. Isse sasta aur kahi nahi milega, jaldi grab kar!",
+            "loot_reason": "MRP ₹999 hai yaar, 75% off pe mil raha hai! Ye deal kabhi nahi aayegi dobara!",
+            "category": "Kitchen"
+        },
+        {
             "name": "RNG EKO LED RGB Strip Lights 5M with Remote (USB Powered)",
             "price": "₹349",
             "mrp": "₹1599",
@@ -1357,48 +1399,6 @@
             "fix": "Ye portable blender tumhara best friend hai! USB charge karo, fruits daalo, aur fresh smoothie ready! Itni heavy discount, believe nahi ho raha!",
             "loot_reason": "Usually ₹1500 tak jaati hai iski price, par abhi ₹449 mein mil rahi hai, 70% se bhi zyada off!",
             "category": "Computers"
-        },
-        {
-            "name": "Portable LED Desk Lamp with 3 Brightness Modes & Flexible Neck for Study, Reading (USB Rechargeable)",
-            "price": "₹299",
-            "mrp": "₹999",
-            "discount_percent": "70%",
-            "rating": 4.3,
-            "link": "https://www.amazon.in/dp/B0CHZ3D9Q5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61r5fM6jTML._AC_UL640_FMwebp_QL65_.jpg",
-            "hook": "Bhai ye price glitch hai ya kya? 😱 Itni badhiya LED lamp itne mein?!",
-            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Ya table lamp ka bulb fuse ho gaya?",
-            "fix": "Ye lo, USB rechargeable, 3 brightness modes, aur flexible neck! Ab aaram se padho, kisi ko disturbance nahi. Aur iss rate mein toh bas utha lo!",
-            "loot_reason": "Normally ₹999 ki milti hai, abhi sirf ₹299 mein mil rahi hai, seedha 70% off! Loot lo!",
-            "category": "Computers"
-        },
-        {
-            "name": "Multi-functional Wooden Desk Organizer with Pen Holder & Mobile Stand",
-            "price": "₹199",
-            "mrp": "₹700",
-            "discount_percent": "71%",
-            "rating": 4.4,
-            "link": "https://www.amazon.in/dp/B0B0N6M3H9?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/710e%2Bd%2BzFkL._SL1500_.jpg",
-            "hook": "Padhai ke table pe hamesha kachra rehta hai? Ye organizer tumhari life set kar dega, ekdum practical deal hai!",
-            "pain": "Notes idhar-udhar, pen mil nahi raha, desk pe sirf mess hai? Important documents gum ho jaate hain exams ke time?",
-            "fix": "Ye multi-functional organizer tumhare saare stationery, phone aur chote-mote saman ko ek jagah rakhega. Desk tidy rahega, focus badhega aur chizein dhundhne mein time waste nahi hoga. Padhai ke liye must-have hai, trust me!",
-            "loot_reason": "Market mein aise organizers ₹700 tak ke milte hain, par abhi ye sirf ₹199 mein mil raha hai, seedha 70%+ ka fayda!",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Pocket Mini Portable USB Rechargeable Fan",
-            "price": "₹149",
-            "mrp": "₹750",
-            "discount_percent": "80%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0C399Y31C?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61M6rXzU%2BSL._SL1500_.jpg",
-            "hook": "Yaar garmi mein hostel mein AC nahi milta, ye fan toh jaan bachayega! 🌬️ Itni heavy deal, shocking!",
-            "pain": "Light chali gayi aur garmi se bura haal hai? Library mein bhi garmi lagti hai? Exam hall mein bhi paseena chhuth raha hai?",
-            "fix": "Ye chhota sa fan tumhari pocket mein fit ho jayega aur jahan bhi garmi lage, instant thandi hawa dega. USB se charge hota hai, power bank se bhi chala sakte ho. Kitna practical hai soch! Miss mat karna ye offer!",
-            "loot_reason": "Generally ₹750 ka milta hai, abhi sirf ₹149 mein mil raha hai, 80% off se bhi zyada ka discount hai!",
-            "category": "Kitchen"
         }
     ]
 }
