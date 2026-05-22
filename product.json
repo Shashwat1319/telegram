@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "RNG EKO LED RGB Strip Lights 5M with Remote (USB Powered)",
+            "price": "₹349",
+            "mrp": "₹1599",
+            "discount_percent": "78%",
+            "rating": 4.2,
+            "link": "https://www.amazon.in/dp/B0BNW1R6V3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61r56m9nQNL._SL1500_.jpg",
+            "hook": "Apna room ko direct LIT AF banao! 🔥 Ye RGB strip light dekh, kitne saste mein mil rahi hai!",
+            "pain": "Hostel room boring lagta hai? Vibe chahiye par budget tight hai aur lighting options nahi hain?",
+            "fix": "Ye USB se chalne wali RGB light le le, kahin bhi laga do - desk ke peeche, bed ke niche. Remote se color change karo, study mood ya party mood set karo. Aur is price mein? Bhai, room ka ambiance change kar, sasta aur best tarika!",
+            "loot_reason": "Yeh typically ₹1500+ ki hoti hain, abhi ₹349 mein mil rahi hai, almost 78% ka discount hai!",
+            "category": "Computers"
+        },
+        {
+            "name": "GaxQuly Portable USB Mini Desk Fan for Hostel/Office",
+            "price": "₹149",
+            "mrp": "₹699",
+            "discount_percent": "78%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0BFH74B1Y?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/31x6TKRWgUL.jpg",
+            "hook": "Garmi mein hostel ki jaan! 🌬️ Ye chhota fan dekh, abhi loot lo!",
+            "pain": "Garmi mein hostel room mein AC to milta nahi, aur bada fan jagah leta hai?",
+            "fix": "Ye compact USB fan lele, laptop, power bank ya charger se chala. Kitna bhi ghanto padho, hawa aati rahegi. Desk pe rakh ya bed pe, chill kar. Is price mein to maza hi aa jayega!",
+            "loot_reason": "Aisa useful fan typically ₹700+ ka milta hai, abhi ₹149 mein mil raha hai, seedha 78% se zyada off!",
+            "category": "Computers"
+        },
+        {
+            "name": "Portronics ReCHARGE 15W LED Desk Lamp with Clip (Rechargeable)",
+            "price": "₹199",
+            "mrp": "₹999",
+            "discount_percent": "80%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0BP79K1R7?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41lJ8x1yeIL.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 Raat mein padhne walo ke liye bomb deal!",
+            "pain": "Late night study karni hai par roommates light off kar dete hain? Ya library mein bhi proper light nahi milti?",
+            "fix": "Ye rechargeable clip light कहीं भी लगा लो, अपनी स्टडी ज़ोन बनाओ! Aankhon ko bhi stress nahi hota. Plus, battery backup mast hai, poori raat nikaal degi. Itni sasti mein to milta hi nahi bhai!",
+            "loot_reason": "Normally ₹1000 ki aati hai, abhi sirf ₹199 mein mil rahi hai, seedha 80% off!",
+            "category": "Computers"
+        },
+        {
             "name": "Callas Multipurpose Foldable Laptop Table/Study Desk",
             "price": "₹449",
             "mrp": "₹1699",
@@ -1357,48 +1399,6 @@
             "fix": "Ye chhota sa fan tumhari pocket mein fit ho jayega aur jahan bhi garmi lage, instant thandi hawa dega. USB se charge hota hai, power bank se bhi chala sakte ho. Kitna practical hai soch! Miss mat karna ye offer!",
             "loot_reason": "Generally ₹750 ka milta hai, abhi sirf ₹149 mein mil raha hai, 80% off se bhi zyada ka discount hai!",
             "category": "Kitchen"
-        },
-        {
-            "name": "Mini Portable USB Rechargeable Fan with Night LED Light",
-            "price": "₹249",
-            "mrp": "₹999",
-            "discount_percent": "75%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0C39XRYH7?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61r5fM9h-VL._SL1500_.jpg",
-            "hook": "Chal, ek useful cheez batata hoon, jo hostel mein kaam aayegi. Aur price sunke khush ho jayega!",
-            "pain": "Raat bhar padhna hai par garmi se neend aa rahi hai? Ya light chali gayi aur मच्छर काट रहे हैं?",
-            "fix": "Ye chhota sa rechargeable fan with LED light lele. USB se charge hota hai, kahin bhi carry kar. Padhai mein cooling bhi dega aur emergency light ka bhi kaam karega. ₹250 mein kya bigad raha hai?",
-            "loot_reason": "MRP ₹1000 hai, abhi ₹249 mein mil raha hai – practical deal hai, pakad le!",
-            "category": "Loot"
-        },
-        {
-            "name": "Universal 3-in-1 Travel Adapter with 2 USB Ports",
-            "price": "₹399",
-            "mrp": "₹1599",
-            "discount_percent": "75%",
-            "rating": 4.5,
-            "link": "https://www.amazon.in/dp/B0B684X8J9?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71wLpW5cQyL._SL1500_.jpg",
-            "hook": "OMG! Ye toh hostel ka ultimate hack hai, aur itna sasta?🤯",
-            "pain": "Hostel mein ek hi socket milta hai aur phone, laptop, smartwatch sab charge karna hai? Ya dost bhi charger maangte rehte hain?",
-            "fix": "Ye 3-in-1 Universal Travel Adapter lele, bhai. 2 USB ports aur ek universal socket. Ek saath multiple devices charge kar, aur tension khatam. Har hostel-ite ki life saver, aur abhi ₹400 ke andar mil raha hai! ",
-            "loot_reason": "Iska real price ₹1600 hai, abhi seedha 75% off pe ₹399 mein utha le, aisa chance phir nahi milega!",
-            "category": "Loot"
-        },
-        {
-            "name": "Smart RGB LED Strip Light with App Control (5M)",
-            "price": "₹299",
-            "mrp": "₹1299",
-            "discount_percent": "77%",
-            "rating": 4.2,
-            "link": "https://www.amazon.in/dp/B0CKD83L6N?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71Yt194i3mL._SL1500_.jpg",
-            "hook": "Bhai, ye price glitch hai ya kya? 😱 Hostel room ko next-level setup banana hai?",
-            "pain": "Tera room kitna boring lagta hai na? Mood nahi banta padhai ka ya party ka? Normal light se kuch nahi hota.",
-            "fix": "Ye 5-meter RGB LED strip light sirf ₹299 mein! App control hai, remote bhi. Tera room instantly epic ho jayega, aur vibe set. Itni sasti RGB lighting kabhi nahi milegi, chal de! ",
-            "loot_reason": "Usually ₹1300 ka milta hai, abhi 77% off pe sirf ₹299 mein mil raha hai! Ye deal haath se mat jaane de.",
-            "category": "Loot"
         }
     ]
 }
