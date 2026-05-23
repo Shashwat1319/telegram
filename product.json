@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "All-in-One Desk Organizer with Pen Holder, Sticky Notes & Phone Stand",
+            "price": "₹199",
+            "mrp": "₹799",
+            "discount_percent": "75%",
+            "rating": 4.2,
+            "link": "https://www.amazon.in/dp/B0CK1Y84K8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61gRz9kYgqL._AC_SL1500_.jpg",
+            "hook": "Bhai, sach bolun toh ye cheez tere kaam aayegi, pakka. Itna useful aur itne saste mein!",
+            "pain": "Teri table pe pens, notes, phone sab idhar-udhar bikhre rehte hain? Important cheezein milti nahi time pe?",
+            "fix": "Simple solution! Isme pens daal, apni to-do list ke liye sticky notes hain, aur phone bhi khada kar le video dekhne ke liye ya calls attend karne ke liye. Table organised, mind clear. Padhai mein focus badhega.",
+            "loot_reason": "Ek normal pen stand bhi ₹300-400 ka aata hai, ye toh multi-functional hai aur bas ₹199 mein mil raha hai. Must-have hai.",
+            "category": "Electronics"
+        },
+        {
+            "name": "Portable Mini USB Desk Fan (Rechargeable, High Speed)",
+            "price": "₹349",
+            "mrp": "₹1399",
+            "discount_percent": "75%",
+            "rating": 4.5,
+            "link": "https://www.amazon.in/dp/B0B5Z8R75T?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/414g4kBKDYL.jpg",
+            "hook": "Oye, saans le pa raha hai garmi mein? 🥵 Ye deal dekh ke toh mere hosh udd gaye!",
+            "pain": "Garmi mein padhai ka toh mood hi nahi hota? AC nahi hai hostel mein? Ya power cut ho jaye toh kya karega?",
+            "fix": "Tension mat le, ye chhota packet bada dhamaka hai! Rechargeable hai, USB se charge kar. Table pe rakh ya bahar le ja, full hawa. Exam hall mein bhi silent killer hai ye, garmi gayab, focus on!",
+            "loot_reason": "Aise fans ₹1000 se upar jaate hain. Abhi ₹349 mein mil raha hai, matlab seedha 75% off, galti se mil raha hai ye!",
+            "category": "Electronics"
+        },
+        {
+            "name": "Smart RGB LED Strip Light with Remote (5M)",
+            "price": "₹299",
+            "mrp": "₹1099",
+            "discount_percent": "72%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0CK1Y85N8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41aT81wo9HL.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 RGB light strip bas itne mein? Pura room club banade!",
+            "pain": "Hostel room boring lagta hai? Padhne ka mood nahi banta? Ya party vibes chahiye par budget tight hai?",
+            "fix": "Yehi toh solution hai! Remote control se colors badlo, brightness adjust karo. Padhai ke liye soothing ambiance ya dosto ke sath chill karne ke liye party mode, sab set! Aur itne kam mein? Yeh toh double loot hai!",
+            "loot_reason": "Usually ₹1000+ ka milta hai, abhi ₹299 mein, 70% se zyada off! Jaldi kar, stock khatam hone wala hai.",
+            "category": "Electronics"
+        },
+        {
             "name": "Rechargeable Mini LED Desk Lamp with Pen Holder & Phone Stand",
             "price": "₹289",
             "mrp": "₹950",
@@ -1357,48 +1399,6 @@
             "fix": "Ye RAEGR Arc 200 mini speaker waterproof hai, type-C charging, 10 ghante ki battery! Pool party ho ya bathroom singing session, ye sab jhel lega. Sound quality bhi top-notch hai, aur itne kam price mein? Shocking deal!",
             "loot_reason": "Original price ₹1999 hai, abhi 75% ki dhansu discount pe mil raha hai, jaldi grab kar!",
             "category": "Beauty"
-        },
-        {
-            "name": "Zebronics Zeb-Warrior 2.0 Multimedia Speaker with RGB Lights, USB Powered, Volume Control & 3.5mm Jack",
-            "price": "₹299",
-            "mrp": "₹1099",
-            "discount_percent": "73%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0C8V2Y3B6?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71YyP4R0rQL._AC_SX679_.jpg",
-            "hook": "Bhai ye price glitch hai ya kya? 😱 RGB speaker itne mein?!",
-            "pain": "Hostel room mein vibe nahi aati? Ya study break mein music sunne ke liye dull setup hai?",
-            "fix": "Ye Zebronics Zeb-Warrior speaker, RGB lights ke saath, tere room ko next-level setup bana dega! USB powered hai, laptop ya power bank se chala le. Aur sound bhi killer hai, sirf ₹299 mein, bhai ye toh steal hai!",
-            "loot_reason": "MRP ₹1099 hai, abhi 73% off pe mil raha hai, jaldi le le warna stock out ho jayega!",
-            "category": "Beauty"
-        },
-        {
-            "name": "Reusable Silicone Cable Management Clips & Desk Cord Organizer (Set of 6)",
-            "price": "₹199",
-            "mrp": "₹699",
-            "discount_percent": "71%",
-            "rating": 4.5,
-            "link": "https://www.amazon.in/dp/B0B6L5M6L6?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/719hL3iE6ML._AC_UL640_FMwebp_QL65_.jpg",
-            "hook": "Dekho, ye choti cheez hai par hostel life mein game-changer hai! Practical deal alert! 🚀",
-            "pain": "Charging cable baar-baar gir jaati hai table se? Laptop aur phone ke wires mein jungle ban gaya hai?",
-            "fix": "In clips se saare cables organize ho jaayenge, desk tidy rahega aur cables bhi save. Aur price dekho, ₹200 mein saara jhanjhat khatam!",
-            "loot_reason": "Aise organizers ₹700 tak bikte hain, par abhi ₹199 mein mil rahe hain, 71% ka solid discount!",
-            "category": "Computers"
-        },
-        {
-            "name": "USB Rechargeable Portable Mini Blender for Shakes, Smoothies, Juices - 380ml (Travel Friendly)",
-            "price": "₹449",
-            "mrp": "₹1499",
-            "discount_percent": "70%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0CQR51F8P?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61iJ9-f41TL._AC_UL640_FMwebp_QL65_.jpg",
-            "hook": "OMG, guys! Hostel mein ghar jaisa shake banao! Ye deal toh sabse pehle grab karni hai! 🤯",
-            "pain": "Breakfast ka time nahi milta ya hostel mess ka khana bore ho gaya? Healthy options chahiye par kitchen nahi hai?",
-            "fix": "Ye portable blender tumhara best friend hai! USB charge karo, fruits daalo, aur fresh smoothie ready! Itni heavy discount, believe nahi ho raha!",
-            "loot_reason": "Usually ₹1500 tak jaati hai iski price, par abhi ₹449 mein mil rahi hai, 70% se bhi zyada off!",
-            "category": "Computers"
         }
     ]
 }
