@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Portable Mini Fan USB Rechargeable Handheld & Desk Fan",
+            "price": "₹249",
+            "mrp": "₹999",
+            "discount_percent": "75%",
+            "rating": 4.2,
+            "link": "https://www.amazon.in/dp/B0C39XF9V3?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61mQJ-fJ7VL._SL1500_.jpg",
+            "hook": "Kya! Ye wala fan itne mein? Price glitch hai ya kya? 😱",
+            "pain": "Garmi se bura haal hai? Light chali gayi toh pankha band? Hostel AC toh sapna hai! Lecture mein bhi garmi lagti hai?",
+            "fix": "Ye portable mini fan yaar, meri jaan bachata hai! USB rechargeable hai, haath mein pakad ke ghoomo ya table pe rakho. Chhoti si cheez hai par garmi ki aisi-taisi kar deti hai. Aur discount itna heavy hai ki abhi le liya toh tension free ho jaoge!",
+            "loot_reason": "Iska original price ₹999 se upar hota hai, abhi sirf ₹249 mein mil raha hai, mat chhodna!",
+            "category": "Electronics"
+        },
+        {
+            "name": "USB Powered RGB LED Strip Lights (5 Meter) with Remote",
+            "price": "₹349",
+            "mrp": "₹1299",
+            "discount_percent": "73%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0CG6173X2?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/719FvU7524L._SL1500_.jpg",
+            "hook": "OMG! Hostel room ko club banana hai? Ye dekh! 🔥",
+            "pain": "Hostel room boring lagta hai? Vibe nahi aati? Guests aate hain toh sharam aati hai? Party mood on karna hai?",
+            "fix": "Bhai, 5 meter ki RGB LED strip lights, USB powered, remote se control! Room ki ambience aisi change hogi ki sab puchenge kahan se liya. Mood light, study light, party light – sab ek mein. Aur price dekh, maza hi aa jayega!",
+            "loot_reason": "Iski MRP ₹1299 hai, abhi sirf ₹349 mein! Jaldi le, stock out na ho jaaye!",
+            "category": "Electronics"
+        },
+        {
+            "name": "Flexible USB LED Reading Light with Clip",
+            "price": "₹199",
+            "mrp": "₹799",
+            "discount_percent": "75%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0BP7M966V?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71B7G6Y9tYL._SL1500_.jpg",
+            "hook": "Bro, hostel mein late night padhai ka ek hi solution hai, aur wo bhi itne mein! 🤫",
+            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Ya table lamp ka bulb fuse ho gaya? Aankhon pe stress alag se!",
+            "fix": "Ye clip-on LED light direct USB se chalti hai, kahin bhi laga do - bed, table, shelf. Focus light deti hai, na aankhon pe zor, na roommate ko disturb. Best part? Abhi ₹799 wala ₹199 mein mil raha hai!",
+            "loot_reason": "Usually ₹799 ka bikta hai, abhi ₹199 mein loot lo, trust me, bahut kaam aayegi.",
+            "category": "Electronics"
+        },
+        {
             "name": "Portable USB Rechargeable LED Study Lamp with Clip",
             "price": "₹249",
             "mrp": "₹999",
@@ -1357,48 +1399,6 @@
             "fix": "Ye Portronics ka 3-pack le lo, sirf ₹249 mein! Har jagah ek cable rakh do. Fast charging aur data sync bhi hai. Ab tension khatam!",
             "loot_reason": "Typically ₹1199 ka set milta hai, abhi 79% off mein ₹249 mein loot lo!",
             "category": "Ladies Fashion"
-        },
-        {
-            "name": "StudySmart Multipurpose Wooden Desk Organizer with Pen Holder",
-            "price": "₹299",
-            "mrp": "₹1099",
-            "discount_percent": "73%",
-            "rating": 4.4,
-            "link": "https://www.amazon.in/dp/B0B6L5N5T2?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71i-GjBqV5L._AC_SL1500_.jpg",
-            "hook": "Yaar, ye mess waali desk se kitna pareshan hoga?",
-            "pain": "Books, pens, charger, sab idhar udhar pada rehta hai? Kuch milta hi nahi time pe?",
-            "fix": "Ye multipurpose organizer dekh, sab set ho jayega, ek jagah pe. Padhne mein bhi focus badhega aur kya, sasta bhi hai. Ekdum practical deal hai!",
-            "loot_reason": "Real price ₹1099 hai, ₹299 mein mil raha hai. Ye deal baar-baar nahi aati, pakka useful hai.",
-            "category": "Electronics"
-        },
-        {
-            "name": "CoolBreeze Portable Mini USB Desk Fan for Hostel & Study Table",
-            "price": "₹179",
-            "mrp": "₹699",
-            "discount_percent": "74%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0C6M6X5F3?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71jY3l7CjJL._AC_SL1500_.jpg",
-            "hook": "Pura hostel garmi se mar raha hai aur tu AC mein baitha hai? 🤯",
-            "pain": "Garmi mein padhai nahi ho paati? Hostel ka cooler bhi dhokha de gaya?",
-            "fix": "Ye mini USB fan dekh, power bank se bhi chalega, table pe rakh ya bed pe. Itna sasta mil raha hai, le le bhai, garmi se aaram milega!",
-            "loot_reason": "MRP ₹699 hai, par abhi ₹179 mein mil raha hai, deal khatam hone se pehle order kar!",
-            "category": "Electronics"
-        },
-        {
-            "name": "Gadgets Guru USB RGB LED Strip Light with Remote | Mood Light for Desk/Room",
-            "price": "₹249",
-            "mrp": "₹999",
-            "discount_percent": "75%",
-            "rating": 4.3,
-            "link": "https://www.amazon.in/dp/B0CK1Y7Y5Q?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71u92qE33KL._AC_SL1500_.jpg",
-            "hook": "Bhai ye price glitch hai ya kya? 😱 Hostel room ko disco bana dega!",
-            "pain": "Tera room bore lagta hai? Vibe nahi aati padhai mein ya chill karne mein?",
-            "fix": "Ye RGB strip light le, USB se chal jaati hai, remote se color change kar. Pura mood set! Aur 75% off mein mil rahi hai, abhi loot le!",
-            "loot_reason": "Usually ₹999 ka milta hai, abhi sirf ₹249 mein mil raha hai, pakka limited stock hai!",
-            "category": "Electronics"
         }
     ]
 }
