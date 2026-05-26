@@ -4,7 +4,11 @@ export default async (request, context) => {
   const url = new URL(request.url);
   const targetUrl = url.searchParams.get("url");
   const action = url.searchParams.get("action");
-  const id = url.pathname.split("/").pop();
+  // Netlify rewrites the path to /.netlify/functions/go?id=abcde, so read from searchParams first
+  let id = url.searchParams.get("id");
+  if (!id) {
+    id = url.pathname.split("/").pop();
+  }
 
   const store = getStore("click-stats");
 
