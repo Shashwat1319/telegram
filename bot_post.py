@@ -153,7 +153,7 @@ def generate_message(product, post_count=0):
         f"✅ <b>Solution:</b> {safe_name[:50]}\n"
         f"💸 <b>Price:</b> {price}\n"
         f"✔️ {fix}\n"
-        f"⏰ <b>Grab it before price hike!\n",
+        f"⏰ <b>Grab it before price hike!</b>\n",
 
         # Format C: Review style
         f"{badge}"
