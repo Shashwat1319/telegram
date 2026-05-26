@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Portable USB Rechargeable LED Study Lamp with Clip",
+            "price": "₹249",
+            "mrp": "₹999",
+            "discount_percent": "75%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0BPX92T7F?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41-DHAwVkNL.jpg",
+            "hook": "Sunn, sach bol raha hu, ye lamp tere bohot kaam aayega. Aur price dekh ke toh shock ho jaayega.",
+            "pain": "Hostel mein raat ko padhna mushkil hota hai jab roommates so jaate hain? Ya power cut ho jaaye toh pura room andhera ho jaata hai?",
+            "fix": "Ye chhota sa powerhouse! USB se charge hota hai, aur isme clip bhi hai, toh bed pe, table pe, ya book pe bhi laga sakte ho. 3 light modes hain, apni aankhon ke hisaab se adjust kar. Ab koi disturbance nahi, aur padhai bhi puri! Ek baar le le, tension free ho jaayega.",
+            "loot_reason": "Ye quality lamp ₹1000 se kam mein nahi milta, but abhi sirf ₹249 mein hai. Best investment for hostel life!",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Foldable Mobile & Tablet Stand with Pen/Stylus Holder",
+            "price": "₹149",
+            "mrp": "₹600",
+            "discount_percent": "75%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0B2YJ8Q1N?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41tzCDchN6L.jpg",
+            "hook": "OMG! Ye wala stand sirf ₹149 mein?! 🤯 Matlab loot macha rakhi hai Amazon ne!",
+            "pain": "Online lectures dekhte hue phone haath mein pakad ke thak jaate ho? Ya table pe kabhi pen nahin milta?",
+            "fix": "Ye compact foldable stand. Phone ko perfect angle pe rakho, aur side mein pen/stylus ke liye slot bhi hai! Lectures dekho, notes banao, video calls karo, sab hassle-free. Fold karke pocket mein rakh lo, kahi bhi carry karo. It's a game-changer!",
+            "loot_reason": "Iska regular price ₹500-₹600 hota hai, but abhi ye ₹149 mein mil raha hai. Grab it before it's gone!",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Smart USB RGB LED Strip Light (1 Meter)",
+            "price": "₹199",
+            "mrp": "₹899",
+            "discount_percent": "78%",
+            "rating": 4.5,
+            "link": "https://www.amazon.in/dp/B0B5DJM9P7?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71b2d9lq1CL._AC_SL1500_.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 Hostel room ko disco bana dega! 🔥",
+            "pain": "Raat bhar padhai kar ke mood off ho jaata hai? Ya roommates ke bore lighting se tang ho?",
+            "fix": "Ye 1-meter RGB strip! USB se power, remote se control. Sirf ₹199 mein! Study vibe ho ya party mood, sab set. Table ke peeche laga, monitor pe, ya bed ke niche – room ka look hi badal jaayega! It's an instant upgrade, bro!",
+            "loot_reason": "Usually ₹800+ ka milta hai, abhi ₹199 mein mil raha hai! Ye deal haath se mat jaane de!",
+            "category": "Kitchen"
+        },
+        {
             "name": "USB Powered RGB LED Strip Lights with Remote (5M)",
             "price": "₹449",
             "mrp": "₹1699",
@@ -1357,48 +1399,6 @@
             "fix": "Ye RGB strip light le, USB se chal jaati hai, remote se color change kar. Pura mood set! Aur 75% off mein mil rahi hai, abhi loot le!",
             "loot_reason": "Usually ₹999 ka milta hai, abhi sirf ₹249 mein mil raha hai, pakka limited stock hai!",
             "category": "Electronics"
-        },
-        {
-            "name": "boAt Stone 190 T Bluetooth Speaker with 5W RMS Immersive Sound, IPX7 Water Resistant, Up to 4 HRS Playtime, TWS Feature(Charcoal Black)",
-            "price": "₹499",
-            "mrp": "₹1999",
-            "discount_percent": "75%",
-            "rating": 4.2,
-            "link": "https://www.amazon.in/dp/B09D81H9D4?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61jY+qj-zEL._AC_UL320_.jpg",
-            "hook": "Bhai, hostel mein bass chahiye? boAt ka speaker ₹499 mein, chal utha le! Perfect deal hai!",
-            "pain": "Roommates ka lame speaker hai ya phone ki chhoti awaaz se gaane sunne padhte hain? Ya library mein group study ke liye halka music chahiye?",
-            "fix": "Ye boAt Stone 190 T speaker tere hostel life ko soundtrack dega. Powerful sound, IPX7 waterproof (shower mein bhi chalega ya agar galti se paani gir gaya toh tension nahi), aur 4 ghante ka playtime. Best part? Budget mein mast item. Bina soche le le!",
-            "loot_reason": "boAt ke speakers ₹2000 tak jaate hain. ₹499 mein 75% off, matlab free jaisa hi hai, practical deal!",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Wipro 9-Watt B22 Wi-Fi Smart LED Bulb with Music Sync, 16 Million Colours and Dimmable (Compatible with Amazon Alexa and Google Assistant)",
-            "price": "₹479",
-            "mrp": "₹2100",
-            "discount_percent": "77%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B07XYN96K1?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/416G3S9lWHL._AC_UL320_.jpg",
-            "hook": "OMG! Wipro Smart Bulb pe 77% off?! Hostel room ko party zone banao ya study cave! 🤯 Ye chance miss mat karna!",
-            "pain": "Hostel mein boring white light se mood nahi banta? Ya raat bhar padhne ke liye right ambiance chahiye, jo roommates switch off kar dete hain?",
-            "fix": "Ye Wipro smart bulb tumhare room ka game change kar dega. Apne phone se color badlo, brightness adjust karo, music sync karo! Padhai bhi cool, party bhi cool. ₹2100 wali cheez ₹479 mein, believe nahi ho raha!",
-            "loot_reason": "Wipro ke smart gadgets itne kam mein rarely milte hain. ₹2100 ka bulb ab ₹479 mein, ye to chori hai, jaldi pakad lo!",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "JQR Type C Charger Cable, 65W Super VOOC/Dart/Wrap/Dash Fast Charging Cable for OnePlus, Oppo, Vivo, Realme, Samsung, Xiaomi Smartphones, Laptops, Earbuds & Headphones (Black)",
-            "price": "₹199",
-            "mrp": "₹999",
-            "discount_percent": "80%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0C3236R6P?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41r2gXN2wDL._AC_UL320_.jpg",
-            "hook": "Bhai ye price glitch hai ya kya? 😱 Type-C cable sirf ₹199 mein?! Lelo, Lelo, Lelo!",
-            "pain": "Exam time mein phone dead ho gaya? Ya last minute ppt banani hai aur laptop charge nahi? Slow charger ne poora din waste kar diya?",
-            "fix": "Ye 65W Super VOOC/Dart/Wrap/Dash cable tumhara phone/laptop Rocket speed se charge kar dega. Hostel mein power cut bhi ho toh jaldi charge karke backup bana lo! Aur itna sasta, abhi loot lo, warna gayab ho jayega!",
-            "loot_reason": "Ye cables normally ₹800-₹1000 ke milte hain, abhi ₹199 mein mil raha hai! Ye asli loot hai, mistake price confirm!",
-            "category": "Ladies Fashion"
         }
     ]
 }
