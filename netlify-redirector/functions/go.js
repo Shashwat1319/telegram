@@ -61,7 +61,7 @@ export default async (request, context) => {
   if (asinMatch) {
     const asin = asinMatch[1].toUpperCase();
     finalAmazonUrl = `https://www.${domain}/dp/${asin}?tag=${myTag}`;
-  } else if (finalUrl.includes("amazon.")) {
+  } else if (finalUrl.includes("amazon.") || finalUrl.includes("amzn.")) {
     const sep = finalUrl.includes("?") ? "&" : "?";
     finalAmazonUrl = finalUrl.includes("tag=") ? finalUrl : `${finalUrl}${sep}tag=${myTag}`;
   } else {
