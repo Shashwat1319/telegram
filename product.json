@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Govee 5M Smart LED Strip Lights with App Control",
+            "price": "₹449",
+            "mrp": "₹1699",
+            "discount_percent": "73%",
+            "rating": 4.4,
+            "link": "https://www.amazon.in/dp/B09V7N4W8M?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71p009d6JEL._AC_SL1500_.jpg",
+            "hook": "Chal, hostel room ko thoda cool banate hain, budget mein!",
+            "pain": "Room dull lagta hai? Normal lights se boring feel hoti hai? Ya study ke liye mood setting light chahiye?",
+            "fix": "Ye Govee ke smart LED strip lights laga, room ekdum happening lagega! Phone se control kar, colors change kar, party mood bana ya chill zone. Padhai ke liye soft yellow bhi set kar sakta hai. 70% se zyada off hai, hostel life upgrade kar le abhi!",
+            "loot_reason": "Normally ₹1700 ka aata hai, abhi ₹449 mein mil raha hai, ekdum steal deal!",
+            "category": "Computers"
+        },
+        {
+            "name": "Zebronics \"Sound Blast\" Portable Bluetooth Speaker",
+            "price": "₹349",
+            "mrp": "₹1299",
+            "discount_percent": "73%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0B5P213D5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/31x6TKRWgUL.jpg",
+            "hook": "Yaar, ye price glitch hai ya kya? 😱 Itna sasta Zebronics ka speaker!",
+            "pain": "Roommates ke sath movie dekhni hai par phone ki awaaz kaan tak nahi pahunchti? Ya party mood banate ho par audio achha nahi?",
+            "fix": "Bhai, ye Zebronics ka portable speaker tere hostel life ko next level le jayega. Bass bhi solid hai aur sound bhi clear. Bluetooth se connect kar aur full on enjoy kar. Dekh le discount, 73% off, aisa offer baar baar nahi aata!",
+            "loot_reason": "Iski MRP ₹1299 hai, abhi sirf ₹349 mein mil raha hai, jaldi lele!",
+            "category": "Computers"
+        },
+        {
+            "name": "Portronics \"Cool Breeze\" Mini USB Desk Fan",
+            "price": "₹299",
+            "mrp": "₹999",
+            "discount_percent": "70%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0C399M2T9?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41lJ8x1yeIL.jpg",
+            "hook": "Bhai, garmi mein padhai ka mood off ho raha hai? Ye dekh! 🥵",
+            "pain": "Hostel mein AC nahi hai aur ceiling fan bhi slow chalta hai? Raat bhar pasina aata hai aur book pe girta hai?",
+            "fix": "Ye Portronics ka mini USB fan life-saver hai! Desk pe rakh, laptop se power de ya power bank se chala. Chhota packet bada dhamaka, ekdum thandi hawa. Aur bhai, 70% off pe hai, abhi ke abhi grab kar le!",
+            "loot_reason": "Usually ₹1000 ka milta hai, abhi sirf ₹299 mein loot lo!",
+            "category": "Computers"
+        },
+        {
             "name": "BlendItUp Portable USB Rechargeable Mini Blender",
             "price": "₹399",
             "mrp": "₹1599",
@@ -1357,48 +1399,6 @@
             "fix": "Ye 4-in-1 USB hub le, saath mein SD card reader bhi hai. Files transfer kar, sab devices jod, life sorted. Iss deal ko miss kiya toh royega!",
             "loot_reason": "Yeh ₹1300 wala hub abhi ₹349 mein mil raha hai – itna sasta kabhi nahi dekha!",
             "category": "Beauty"
-        },
-        {
-            "name": "Eveready Portable LED Desk Lamp with 3 Brightness Modes, Rechargeable",
-            "price": "₹249",
-            "mrp": "₹999",
-            "discount_percent": "75%",
-            "rating": 4.3,
-            "link": "https://www.amazon.in/dp/B0BP99QW1Z?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/718y6J1oXzL._AC_SL1500_.jpg",
-            "hook": "Bhai ye price glitch hai ya kya? 😱 Hostel waalon ka sapna, abhi poora ho gaya!",
-            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Ya library mein bhi proper light nahi milti?",
-            "fix": "Ye portable lamp le le, teen brightness modes hain, aur rechargeable hai! Kahin bhi le ja, koi tension nahi. 75% off mein, literally free jaisa hai!",
-            "loot_reason": "Usually ₹1000 ka milta hai, abhi sirf ₹249 mein hai, stock khatam hone se pehle lapak le!",
-            "category": "Beauty"
-        },
-        {
-            "name": "Zebronics ZEB-Thunder Wireless Bluetooth Headphone with 9 Hrs Playback, Bluetooth 5.0, AUX, Micro SD, Built-in FM & Call Function (Black)",
-            "price": "₹499",
-            "mrp": "₹1399",
-            "discount_percent": "64%",
-            "rating": 4.0,
-            "link": "https://www.amazon.in/dp/B08VGPX323?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61R-nUo9B8L._AC_UL320_.jpg",
-            "hook": "Sun, tera bhai bata raha hai, ye deal pakad le! Hostel life ka 'must-have' gadget!",
-            "pain": "Hostel mein sab chillate rehte hain, ya raat ko padhna hai par roommates light off kar dete hain? Concentration ban nahi paati?",
-            "fix": "Ye Zebronics ZEB-Thunder wireless headphones hain na, tera savior! Sirf ₹499 mein 9 ghante ki battery, Bluetooth, AUX, Micro SD aur FM bhi hai. Ab bina kisi disturbance ke apni padhai karo ya favorite music suno.",
-            "loot_reason": "₹1399 wala headphone itne kam price pe rare hai, mauka hai, lapak lo!",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "ZEBRONICS ZEB-BROADWAY USB Gaming Keyboard with RGB LED, 104 Keys with Braided Cable, Multi-media Keys, Laser Etched Keys and Gaming Mode (Black)",
-            "price": "₹499",
-            "mrp": "₹1499",
-            "discount_percent": "66%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0BN571S9L?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71R37nL8gHL._AC_UL320_.jpg",
-            "hook": "OMG! RGB Keyboard under ₹500?! Meri aankhon ko yakeen nahi ho raha! 🔥",
-            "pain": "Purane keyboard se bore ho gaye ho? Study table pe cool vibes chahiye par budget dekh ke lagta hai, 'Sapna hi reh gaya'?",
-            "fix": "Ye Zebronics ka ZEB-BROADWAY RGB Gaming Keyboard le lo! ₹499 mein proper gaming feel, mast RGB lights ke saath! Typing bhi smooth, gaming bhi dope, aur desk ka look toh next level ho jayega.",
-            "loot_reason": "Iska MRP ₹1499 hai, itna heavy discount pe toh kabhi nahi milta, abhi ₹499 mein fatfat grab karo!",
-            "category": "Ladies Fashion"
         }
     ]
 }
