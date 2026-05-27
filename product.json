@@ -1,6 +1,20 @@
 {
     "products": [
         {
+            "name": "BlendItUp Portable USB Rechargeable Mini Blender",
+            "price": "₹399",
+            "mrp": "₹1599",
+            "discount_percent": "75%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0C392Y1Q4?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71jIeS3j65L._SL1500_.jpg",
+            "hook": "Hain?! Fresh juice, protein shake hostel mein? Wo bhi itne saste mein? Ab mummy ko miss nahi karega! 🤯",
+            "pain": "Hostel mess ke food se bore ho gaya hai? Ya fir post-workout shake banane ke liye jugad karna padta hai?",
+            "fix": "Ye portable mini blender USB se charge hota hai, aur tu jahan chahe wahan fresh juice, smoothie, ya protein shake bana sakta hai. Small size, easy to clean, aur health ka khayal rakhne ke liye best hai. Hostel mein healthy rehna ab bohot easy hai!",
+            "loot_reason": "Aise portable blenders normally ₹1200-₹1600 ke milte hain, abhi ₹399 mein mil raha hai, jaldi grab kar!",
+            "category": "Kitchen"
+        },
+        {
             "name": "Portable Mini Fan USB Rechargeable Handheld & Desk Fan",
             "price": "₹249",
             "mrp": "₹999",
@@ -1384,20 +1398,6 @@
             "pain": "Purane keyboard se bore ho gaye ho? Study table pe cool vibes chahiye par budget dekh ke lagta hai, 'Sapna hi reh gaya'?",
             "fix": "Ye Zebronics ka ZEB-BROADWAY RGB Gaming Keyboard le lo! ₹499 mein proper gaming feel, mast RGB lights ke saath! Typing bhi smooth, gaming bhi dope, aur desk ka look toh next level ho jayega.",
             "loot_reason": "Iska MRP ₹1499 hai, itna heavy discount pe toh kabhi nahi milta, abhi ₹499 mein fatfat grab karo!",
-            "category": "Ladies Fashion"
-        },
-        {
-            "name": "Portronics Konnect L 1.2M Fast Charging 3A Type C Cable (3 pcs) with 480mbps Data Sync, Strong & Durable, for all Type C Enabled Devices (Grey)",
-            "price": "₹249",
-            "mrp": "₹1199",
-            "discount_percent": "79%",
-            "rating": 4.3,
-            "link": "https://www.amazon.in/dp/B0CDP3S42K?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61b7l427YFL._AC_UL320_.jpg",
-            "hook": "Bhai ye price glitch hai ya kya? 😱 3 Type-C cables sirf ₹249 mein?!",
-            "pain": "Hostel mein cable kabhi milti nahi, ya roommate leke bhaag jaata hai, ya jaldi toot jaati hai?",
-            "fix": "Ye Portronics ka 3-pack le lo, sirf ₹249 mein! Har jagah ek cable rakh do. Fast charging aur data sync bhi hai. Ab tension khatam!",
-            "loot_reason": "Typically ₹1199 ka set milta hai, abhi 79% off mein ₹249 mein loot lo!",
             "category": "Ladies Fashion"
         }
     ]
