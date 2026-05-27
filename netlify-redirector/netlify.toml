@@ -1,19 +1,14 @@
-[[redirects]]
-  from = "/"
-  to = "/.netlify/functions/go"
-  status = 200
-
 [build]
   functions = "functions"
 
 [[redirects]]
-  from = "/go"
-  to = "/.netlify/functions/go"
+  from = "/s/:id"
+  to = "/.netlify/functions/go?id=:id"
   status = 200
 
 [[redirects]]
-  from = "/s/:id"
-  to = "/.netlify/functions/go?id=:id"
+  from = "/go"
+  to = "/.netlify/functions/go"
   status = 200
 
 [[redirects]]
@@ -22,6 +17,6 @@
   status = 200
 
 [[redirects]]
-  from = "/s/*"
+  from = "/"
   to = "/.netlify/functions/go"
   status = 200
