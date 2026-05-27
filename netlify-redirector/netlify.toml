@@ -1,5 +1,6 @@
 [build]
   functions = "functions"
+  base = "netlify-redirector"
 
 [[redirects]]
   from = "/s/:id"
