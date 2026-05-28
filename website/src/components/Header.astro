@@ -1,5 +1,6 @@
 ---
 import { SITE_TITLE } from '../consts';
+import { TELEGRAM_CHANNEL_URL } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 ---
 
@@ -13,7 +14,7 @@ import HeaderLink from './HeaderLink.astro';
 			<HeaderLink href="/blog">Blog</HeaderLink>
 		</div>
 		<div class="social-links">
-			<a href="https://t.me/budgetdeals_india" class="telegram-btn" target="_blank">
+			<a href={TELEGRAM_CHANNEL_URL} class="telegram-btn" target="_blank">
 				<span>Join Telegram</span>
 			</a>
 		</div>

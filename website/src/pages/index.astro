@@ -2,7 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { SITE_DESCRIPTION, SITE_TITLE, TELEGRAM_CHANNEL_URL } from '../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 
@@ -85,7 +85,7 @@ const recentPosts = posts.slice(0, 3);
 				<span class="loot-tag">🔥 Trending Now</span>
 				<h1>Loot Deals & Extreme Discounts!</h1>
 				<p>{SITE_DESCRIPTION}</p>
-				<p>🚀 Join 15,000+ shoppers on <a href="https://t.me/budgetdeals_india">Telegram</a></p>
+				<p>🚀 Join 15,000+ shoppers on <a href={TELEGRAM_CHANNEL_URL}>Telegram</a></p>
 			</div>
 
 			<section>

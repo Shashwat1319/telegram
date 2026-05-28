@@ -1,11 +1,12 @@
 ---
+import { TELEGRAM_CHANNEL_URL } from '../consts';
 const today = new Date();
 ---
 
 <footer>
 	&copy; {today.getFullYear()} Budget Deals India. All rights reserved.
 	<div class="social-links">
-		<a href="https://t.me/budgetdeals_india" target="_blank">
+		<a href={TELEGRAM_CHANNEL_URL} target="_blank">
 			Join our Telegram Community for Daily Loot Alerts
 		</a>
 	</div>
