@@ -1,6 +1,10 @@
 import json
 import asyncio
 import os
+import re
+import time
+import random
+import requests
 from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
 from dotenv import load_dotenv
 
@@ -8,6 +12,40 @@ load_dotenv()
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
+
+def _safe_print(s: str):
+    try:
+        print(s)
+    except UnicodeEncodeError:
+        print(s.encode("ascii", "ignore").decode("ascii"))
+
+def download_image(url: str):
+    """Download image locally to avoid Telegram 'Failed to get http url content'."""
+    if not url:
+        return None
+    temp_dir = os.path.join(os.getcwd(), "temp_images")
+    os.makedirs(temp_dir, exist_ok=True)
+    local_filename = os.path.join(temp_dir, f"temp_{int(time.time())}_{random.randint(100,999)}.jpg")
+    headers = {"User-Agent": "Mozilla/5.0"}
+
+    urls_to_try = [url]
+    if "media-amazon.com" in url:
+        clean_url = re.sub(r"\._[A-Z0-9]+_\.", ".", url)
+        if clean_url != url:
+            urls_to_try.append(clean_url)
+
+    for target_url in urls_to_try:
+        try:
+            with requests.get(target_url, headers=headers, stream=True, timeout=15) as r:
+                if r.status_code == 200:
+                    with open(local_filename, "wb") as f:
+                        for chunk in r.iter_content(chunk_size=8192):
+                            if chunk:
+                                f.write(chunk)
+                    return local_filename
+        except Exception:
+            pass
+    return None
 
 async def test_single_post():
     if not BOT_TOKEN or not CHANNEL_ID:
@@ -60,18 +98,34 @@ async def test_single_post():
         ]
     ])
 
-    print(f"Attempting to post: {product.get('name')[:30]}...")
-    print(f"Direct Link: {link}")
+    _safe_print(f"Attempting to post: {str(product.get('name',''))[:30]}...")
+    _safe_print(f"Direct Link: {link}")
 
     try:
         if image_url:
-            await bot.send_photo(
-                chat_id=chat_id,
-                photo=image_url,
-                caption=msg,
-                parse_mode='HTML',
-                reply_markup=reply_markup
-            )
+            local_image = download_image(image_url)
+            if local_image:
+                with open(local_image, "rb") as f:
+                    await bot.send_photo(
+                        chat_id=chat_id,
+                        photo=f,
+                        caption=msg,
+                        parse_mode='HTML',
+                        reply_markup=reply_markup
+                    )
+                try:
+                    os.remove(local_image)
+                except Exception:
+                    pass
+            else:
+                # Fallback to text-only if image download fails
+                await bot.send_message(
+                    chat_id=chat_id,
+                    text=msg,
+                    parse_mode='HTML',
+                    reply_markup=reply_markup,
+                    disable_web_page_preview=False
+                )
         else:
             await bot.send_message(
                 chat_id=chat_id,
@@ -80,9 +134,9 @@ async def test_single_post():
                 reply_markup=reply_markup,
                 disable_web_page_preview=False
             )
-        print("✅ SUCCESS! Test post sent to your Telegram channel.")
+        _safe_print("SUCCESS! Test post sent to your Telegram channel.")
     except Exception as e:
-        print(f"❌ Failed to post: {e}")
+        _safe_print(f"FAILED to post: {e}")
 
 if __name__ == "__main__":
     asyncio.run(test_single_post())
