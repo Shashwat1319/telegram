@@ -1,6 +1,6 @@
 ---
-title: "Portronics "Cool Breeze" Portable Mini USB Desk Fan"
-description: "Epic Deal: Save 75% on Portronics "Cool Breeze" Portable Mini USB Desk Fan! Best price alert on Amazon India."
+title: 'Portronics "Cool Breeze" Portable Mini USB Desk Fan'
+description: 'Epic Deal: Save 75% on Portronics "Cool Breeze" Portable Mini USB Desk Fan! Best price alert on Amazon India.'
 pubDate: "2026-05-20"
 heroImage: "https://m.media-amazon.com/images/I/41GJpjvpd9L.jpg"
 buyLink: "https://www.amazon.in/dp/B0BVXXXXXX?tag=shashwat022-21"
