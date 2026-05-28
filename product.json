@@ -1,6 +1,20 @@
 {
     "products": [
         {
+            "name": "StudyLite USB Clip-on Reading Lamp",
+            "price": "₹349",
+            "mrp": "₹1299",
+            "discount_percent": "73%",
+            "rating": 4.5,
+            "link": "https://www.amazon.in/dp/B0BP7QG55K?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61kF9j32XgL.jpg",
+            "hook": "Seriously, ye cheez har student ke paas honi chahiye.",
+            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Ya bed pe book padhte huye aankhon pe zor padhta hai?",
+            "fix": "Ye USB clip-on lamp tera best friend banega. Book, table ya bed pe clip kar, light adjustable hai, aankhon pe strain nahi padega. Aur kya chahiye, bhai? Privacy se padhai, kisi ko disturb kiye bina. Productivity ka ultimate hack!",
+            "loot_reason": "Market mein aise lamps ₹1000+ ke milte hain, abhi ₹349 mein mil raha hai, which is a great price for the quality.",
+            "category": "Computers"
+        },
+        {
             "name": "Adjustable & Portable Foldable Laptop Stand for Desk",
             "price": "₹449",
             "mrp": "₹1600",
@@ -1384,20 +1398,6 @@
             "pain": "Roommate calls pe loud bolta hai? Online classes mein background noise se distraction? Ya late night web series dekhni hai bina kisi ko disturb kiye?",
             "fix": "Ye ZEB-SOUND BOMB 9 TWS earbuds tumhari har problem ka solution hain. 40 ghante ka playtime, gaming mode, aur splash proof! Padhai ke time quiet zone banayega, party ke time vibe set karega. Aur bhai, itna discount toh sapne mein bhi nahi milta. Jaldi grab kar le, warna out of stock ho jayega!",
             "loot_reason": "Original price ₹1899 hai, but abhi 73% se zyada off hai, sirf ₹499 mein! Fatafat le lo.",
-            "category": "Electronics"
-        },
-        {
-            "name": "Zebronics ZEB-FIT120CH Smart Fitness Band with Call Function, Customizable Watch Faces, IP67 Waterproof, Full Touch Color Display, Heart Rate, SpO2, Blood Pressure, Fitness Tracker (Black)",
-            "price": "₹399",
-            "mrp": "₹1599",
-            "discount_percent": "75%",
-            "rating": 4.0,
-            "link": "https://www.amazon.in/dp/B09D1V983J?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71p0WfB6uSL._AC_UL320_.jpg",
-            "hook": "Bhai, ye toh \"Hostel ka Ninja Gadget\" hai! Health aur Productivity, dono on point!",
-            "pain": "Subah uthna hai par alarm se roommate disturb ho jaate hain? Ya phir study ke chakkar mein health ka dhyaan hi nahi rehta?",
-            "fix": "Ye Smart Fitness Band silent alarm se uthayega, bina kisi ko disturb kiye. Saath mein heart rate, SpO2 tracking bhi karega, taaki padhai ke saath-saath health bhi fit rahe. Itna discount aur waterproof bhi hai! Hostel mein swag bhi badhayega aur productivity bhi!",
-            "loot_reason": "Normally ₹1600 ka aata hai, abhi sirf ₹399 mein, poora 75% off! Aisi deal phir nahi milegi.",
             "category": "Electronics"
         }
     ]
