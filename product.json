@@ -1,6 +1,34 @@
 {
     "products": [
         {
+            "name": "Adjustable & Portable Foldable Laptop Stand for Desk",
+            "price": "₹449",
+            "mrp": "₹1600",
+            "discount_percent": "72%",
+            "rating": 4.5,
+            "link": "https://www.amazon.in/dp/B09V9D3Q2P?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71XmJ471T3L._SL1500_.jpg",
+            "hook": "Yaar, sach bata raha hu, isse teri back-pain khatam ho jayegi. Practical deal hai!",
+            "pain": "Laptop pe jhuk-jhuk ke padhte-padhte kamar dard hota hai? Posture kharab ho raha hai aur neck pain bhi start ho gaya hai?",
+            "fix": "Ye adjustable laptop stand tere neck aur back ko relief dega. Aaraam se padhai kar, online classes attend kar ya movies dekh. Chhota hai, fold ho jaata hai, kahin bhi le jaa! Padhai aur health dono ke liye must-have hai, trust me!",
+            "loot_reason": "Is quality ka ergonomic stand ₹1600 se kam mein nahi milta, abhi ₹449 mein mil raha hai, mat chhodna!",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Portable Mini USB Rechargeable Fan with Power Bank Function",
+            "price": "₹349",
+            "mrp": "₹1500",
+            "discount_percent": "77%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0B2N7XW5Y?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61b7bF34k2L._SL1500_.jpg",
+            "hook": "OMG, ye deal kaise mil gayi?! Garmiyon ka best friend, aur power bank bhi! 🤯",
+            "pain": "Hostel mein light chali gayi aur garmi se haal bura hai? Phone ki battery bhi low ho gayi aur charger ka socket nahi mil raha?",
+            "fix": "Ye chhota sa fan double duty karta hai – thandi hawa bhi deta hai aur phone charge bhi kar deta hai. Ab na garmi lagegi na phone marega, emergency mein super useful! Jaldi grab kar le, stock limited hoga!",
+            "loot_reason": "Ye product normally ₹1500 se kam ka nahi milta, abhi bas ₹349 mein mil raha hai, shocking price hai!",
+            "category": "Kitchen"
+        },
+        {
             "name": "Govee 5M Smart LED Strip Lights with App Control",
             "price": "₹449",
             "mrp": "₹1699",
@@ -1371,34 +1399,6 @@
             "fix": "Ye Smart Fitness Band silent alarm se uthayega, bina kisi ko disturb kiye. Saath mein heart rate, SpO2 tracking bhi karega, taaki padhai ke saath-saath health bhi fit rahe. Itna discount aur waterproof bhi hai! Hostel mein swag bhi badhayega aur productivity bhi!",
             "loot_reason": "Normally ₹1600 ka aata hai, abhi sirf ₹399 mein, poora 75% off! Aisi deal phir nahi milegi.",
             "category": "Electronics"
-        },
-        {
-            "name": "Wipro Mini USB Portable Fan, Ultra-Quiet, Table Desk Fan for Hostel, Study",
-            "price": "₹199",
-            "mrp": "₹799",
-            "discount_percent": "75%",
-            "rating": 4.2,
-            "link": "https://www.amazon.in/dp/B0BDD8L7M1?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61vD7W4n6qL._AC_SL1500_.jpg",
-            "hook": "Garmi mein padhai mushkil lagti hai? Yeh chhota fan tera best friend banega, aur woh bhi budget mein.",
-            "pain": "Hostel ke AC band hain ya room mein garmi lagti hai padhte hue? Pura time paseene mein nikal jaata hai?",
-            "fix": "Simple solution! Ye mini USB fan le, laptop ya power bank se chala, aur shaanti se padhai kar. Chhota hai, par kaam bada karta hai aur price toh ekdum sahi hai.",
-            "loot_reason": "Aam taur par ₹800 ka hota hai, abhi ₹199 mein mil raha hai – practical choice for every student.",
-            "category": "Beauty"
-        },
-        {
-            "name": "Tukzer USB 3.0 Hub 4 Port with SD/TF Card Reader, SuperSpeed Data Transfer",
-            "price": "₹349",
-            "mrp": "₹1299",
-            "discount_percent": "73%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B09V7N6J8B?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61k3j-HjJTL._AC_SL1500_.jpg",
-            "hook": "Arre baap re! Itne saare ports aur card reader, sirf ₹349 mein?!🤯 Meri toh aankhein khuli reh gayi!",
-            "pain": "Laptop mein ports kam hain? Pen drive, phone, mouse, keyboard... sab ek saath connect karna hai?",
-            "fix": "Ye 4-in-1 USB hub le, saath mein SD card reader bhi hai. Files transfer kar, sab devices jod, life sorted. Iss deal ko miss kiya toh royega!",
-            "loot_reason": "Yeh ₹1300 wala hub abhi ₹349 mein mil raha hai – itna sasta kabhi nahi dekha!",
-            "category": "Beauty"
         }
     ]
 }
