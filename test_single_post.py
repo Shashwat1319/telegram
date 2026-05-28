@@ -12,6 +12,8 @@ load_dotenv()
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
+CLICK_TRACKER_URL = os.getenv("CLICK_TRACKER_URL", "")
+CLICK_TRACKER_FUNC = f"{CLICK_TRACKER_URL}/.netlify/functions/go" if CLICK_TRACKER_URL else ""
 
 def _safe_print(s: str):
     try:
@@ -70,6 +72,9 @@ async def test_single_post():
     discount = product.get('discount_percent', '')
     link = product.get('link', '#')
     image_url = product.get('image')
+    if CLICK_TRACKER_FUNC and CLICK_TRACKER_URL not in link:
+        from urllib.parse import quote
+        link = f"{CLICK_TRACKER_FUNC}?url={quote(link)}"
 
     bachat_str = f"❌ <b>MRP:</b> <strike>{mrp}</strike>\n✅ <b>Loot:</b> <b>{price}</b>"
     if discount:

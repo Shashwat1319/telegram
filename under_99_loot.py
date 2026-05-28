@@ -17,6 +17,7 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
 CLICK_TRACKER_URL = os.getenv("CLICK_TRACKER_URL")
+CLICK_TRACKER_FUNC = f"{CLICK_TRACKER_URL}/.netlify/functions/go" if CLICK_TRACKER_URL else ""
 AFFILIATE_ID_IN = os.getenv("AFFILIATE_ID_IN", "shashwat022-21")
 
 # ---------- Short Link Helper ----------
@@ -27,7 +28,7 @@ def get_short_url(target_url):
         
     try:
         # Register new short link
-        api_url = f"{CLICK_TRACKER_URL}/go?action=shorten&url={quote(target_url)}"
+        api_url = f"{CLICK_TRACKER_FUNC}?action=shorten&url={quote(target_url)}"
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) BudgetDealsBot/1.0"
         }
@@ -48,7 +49,7 @@ def get_short_url(target_url):
         print(f"Shortening request failed: {e}")
     
     # Fallback to direct tracker link
-    return f"{CLICK_TRACKER_URL}/go?url={quote(target_url)}"
+    return f"{CLICK_TRACKER_FUNC}?url={quote(target_url)}"
 
 def get_cheap_html(url):
     headers = {

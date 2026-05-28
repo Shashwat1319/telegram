@@ -51,7 +51,7 @@ async def send_stealth_promo(group, session_name, acc):
         price = product.get('price', 'Check Price')
         # Use the Netlify tracker for the link
         raw_link = product.get('link', 'https://www.amazon.in/')
-        short_link = f"https://budgetdeals-tracker-737523f4.netlify.app/go?url={raw_link}"
+        short_link = f"https://budgetdeals-tracker-737523f4.netlify.app/.netlify/functions/go?url={raw_link}"
         
         caption = f"🔥 **UNBELIEVABLE LOOT DETECTED!** 🔥\n\n🛍️ **{name}**\n💰 Price: **{price}**\n\n🏃‍♂️ *Price can increase anytime! Click below to grab it before anyone else!* 👇\n\n"
         
