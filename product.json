@@ -1,6 +1,20 @@
 {
     "products": [
         {
+            "name": "Mini Portable Bluetooth Speaker with Bass",
+            "price": "₹399",
+            "mrp": "₹1499",
+            "discount_percent": "73%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0B6L5N8QJ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61k1J-2v2+L._SL1500_.jpg",
+            "hook": "Sunn, sach bata raha hu, yeh deal miss mat karna. Bada kaam aayegi!",
+            "pain": "Hostel mein ya trip pe gaane sunne hain par phone ki awaaz kaafi nahi hai? Aur earphones share karna nahi pasand?",
+            "fix": "Ye mini portable Bluetooth speaker ₹399 mein! Compact size, mast sound quality aur decent bass. Apni playlist party mode mein chalao ya lectures suno bina headphones ke. Camping ho ya study break, ambiance set ho jayega. Budget-friendly aur solid performance.",
+            "loot_reason": "Aise speakers normally ₹1499 ke aate hain, abhi ₹399 mein mil raha hai, practical choice hai ye.",
+            "category": "Electronics"
+        },
+        {
             "name": "Portable Foldable Laptop Stand & Mobile Holder (Adjustable Angle)",
             "price": "₹199",
             "mrp": "₹699",
@@ -1384,20 +1398,6 @@
             "pain": "Online lectures sunne hain, music chill karna hai, ya late night calls pe baat karni hai bina roommates ko disturb kiye? Aur earphones baar baar toot jaate hain?",
             "fix": "BoAt BassHeads 100, legendary sound quality aur durable build ke saath aata hai. Mic bhi hai toh calls ya Google Assistant ke liye perfect. Is price range mein isse better wired earphones milna mushkil hai. Hostel life ki sabse basic aur zaroori cheez hai ye.",
             "loot_reason": "Ye earphones hamesha ₹600-₹700 ke milte hain, abhi ₹299 mein mil rahe hain – ekdum solid deal hai!",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Artis 10000mAh Power Bank with 20W Fast Charging | Type-C PD Input/Output | Dual USB Output | Made in India | BIS Certified | All Devices Compatible",
-            "price": "₹399",
-            "mrp": "₹1999",
-            "discount_percent": "80%",
-            "rating": 4.0,
-            "link": "https://www.amazon.in/dp/B0C95N1T6G?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/5131v3b9rZL.jpg",
-            "hook": "Arre baap re, 10000mAh power bank par 80% off?! Jaldi le lo, mauka phir nahi milega! 🚀",
-            "pain": "Hostel mein light gayi aur phone dead? Ya charging point ki jung mein tum hamesha haar jaate ho, apna number aane ka wait karte karte?",
-            "fix": "Ye Artis ka 10000mAh power bank hai, 20W fast charging ke saath, Type-C PD support bhi hai! Ek baar charge karo aur pura din tension free ghumo. Made in India aur BIS certified hai, toh quality ki bhi guarantee. Itni capacity is price mein dream deal hai!",
-            "loot_reason": "Is quality ka 10000mAh power bank normally ₹1500-₹2000 ka aata hai, abhi sirf ₹399 mein mil raha hai!",
             "category": "Kitchen"
         }
     ]
