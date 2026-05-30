@@ -1,6 +1,20 @@
 {
     "products": [
         {
+            "name": "Reusable Cable Organizer Straps with Velcro (50 Pcs)",
+            "price": "₹199",
+            "mrp": "₹899",
+            "discount_percent": "77%",
+            "rating": 4.5,
+            "link": "https://www.amazon.in/dp/B0CKZJ3194?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71u9s808tEL._AC_UL320_.jpg",
+            "hook": "Chal, ab practical baat karte hain. Hostels mein wires ka jaal toh sabko pata hai. Iska solution mil gaya hai.",
+            "pain": "Laptop charger, phone charger, power bank, headphones... sab ki wires aapas mein ulajh ke ek jungli jalebi ban jaati hain? Aur fir dhundo kaunsa kiski hai!",
+            "fix": "Ye 50 pcs wale cable organizers le le. Har wire ko neatly tie kar de. Table pe bhi neatness, aur bag mein bhi jab travel karega, toh wires uljhengi nahi. Chota sa investment, bada sa peace of mind, aur 77% off pe mil raha hai!",
+            "loot_reason": "₹899 ka pack abhi sirf ₹199 mein mil raha hai, hostel ke liye must-have item hai aur is price mein loot hai.",
+            "category": "Kitchen"
+        },
+        {
             "name": "Premium Universal Cable Organizer Kit (Self-Adhesive Clips & Sleeves)",
             "price": "₹149",
             "mrp": "₹599",
@@ -1385,20 +1399,6 @@
             "fix": "Ye 3 meter ki USB RGB strip lights with remote se apne room ya desk ko next level bana de. Mood lighting, party vibes ya chill study session, sab set hai. USB powered hai toh power bank se bhi chala le. Itna sasta aur itna cool, kaise miss karoge?",
             "loot_reason": "Same lights normally ₹1000 ke upar milti hain, abhi ₹299 mein, seedha 70% off! Grab karle, stock khatam ho jayega!",
             "category": "Computers"
-        },
-        {
-            "name": "Lapcare LWM-001 USB Wireless Mouse with 1600 DPI, 2.4Ghz Connectivity, Ergonomic Design, and Long Battery Life (Black)",
-            "price": "₹299",
-            "mrp": "₹999",
-            "discount_percent": "70%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0B554XN77?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61m6j3d3yFL._AC_UL320_.jpg",
-            "hook": "Are you kidding me?! 😱 Ek wireless mouse ₹299 mein? Bhai, ye toh price glitch hai!",
-            "pain": "Laptop pe kaam karte hue trackpad se haath dukh jaata hai? Ya purana wired mouse cable mein ulajh ke pareshaan kar deta hai?",
-            "fix": "Lapcare ka ye wireless mouse sirf ₹299 mein mil raha hai! Ergonomic design, 1600 DPI, aur koi wires ka jhanjhat nahi. Productivity badhani hai toh ye must-have hai. Laptop/PC dono ke liye perfect.",
-            "loot_reason": "₹999 waali cheez ₹299 mein mil rahi hai, seedha 70% discount. Aisi deal baar-baar nahi aati, jaldi le le!",
-            "category": "Loot"
         }
     ]
 }
