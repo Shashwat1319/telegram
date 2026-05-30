@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Premium Universal Cable Organizer Kit (Self-Adhesive Clips & Sleeves)",
+            "price": "₹149",
+            "mrp": "₹599",
+            "discount_percent": "75%",
+            "rating": 4.5,
+            "link": "https://www.amazon.in/dp/B0B5P2C8XJ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71R2o58sEAL._SL1500_.jpg",
+            "hook": "Dekh bhai, ye deal pakad le! Tera study space abhi tak mess hai toh ye sabse best aur sasta solution hai.",
+            "pain": "Laptop charger, phone cable, power bank wire... sab uljha hua rehta hai na? Charging ke time pe cable dhundhte dhundhte dimaag kharab ho jata hai?",
+            "fix": "Ismein saare cable clips aur sleeves hain jo tu kahin bhi stick kar sakta hai – desk pe, wall pe, bed ke side mein. Ab tera workspace ekdum clean aur organized dikhega. Choti cheez hai par productivity aur peace of mind dono badha degi.",
+            "loot_reason": "Itni useful cheez normally ₹600 se kam mein nahi milti. Abhi ₹149 mein mil rahi hai, toh jaldi le le, stock limited hota hai aise offers mein!",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Compact Mini USB Desktop Fan (Super Quiet & Powerful)",
+            "price": "₹199",
+            "mrp": "₹799",
+            "discount_percent": "75%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0C3Q2F2GZ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41ZL2thNKdL.jpg",
+            "hook": "OMG! Garmi mein padhai impossible? Ye fan toh pura hostel hila dega, literally thandi hawa se!",
+            "pain": "Hostel ke chote room mein AC toh hai nahi aur garmi se focus nahi banta? Lecture ya revision ke beech mein paseena tapak raha hai?",
+            "fix": "Ye chotu fan itna powerful hai ki personal space ko mast thanda kar dega. USB powered hai, laptop se chalao ya power bank se – koi socket ki tension nahi. Aur sabse best, bilkul shaant! Aisi deal toh sapne mein bhi nahi milti.",
+            "loot_reason": "Normal price ₹800 ke upar hota hai, abhi ₹199 mein mil raha hai. Lagta hai galti se itna sasta kar diya!",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Portable Rechargeable LED Desk Lamp with Pen Holder & Phone Stand",
+            "price": "₹299",
+            "mrp": "₹1299",
+            "discount_percent": "77%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0BPX4S1XJ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41-DHAwVkNL.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 Hostel ki lighting ka one-stop solution mil gaya!",
+            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Ya table pe phone rakhne ki jagah nahi milti, har jagah books ka raj hai?",
+            "fix": "Ye lamp portable hai, charge karo aur jahan chahe le jao! Pen holder bhi hai aur phone stand bhi – matlab ekdum multi-tasking gadget. Ab na light ki tension, na table mess ki. Aur iss price pe toh loot hi hai!",
+            "loot_reason": "Usually ₹1300 ka milta hai, abhi sirf ₹299 mein, seedha 77% off! Yeh offer jaldi khatam ho jayega, pakad le.",
+            "category": "Kitchen"
+        },
+        {
             "name": "Portable Foldable USB Rechargeable LED Desk Lamp (3 Modes)",
             "price": "₹299",
             "mrp": "₹1200",
@@ -1357,48 +1399,6 @@
             "fix": "Lapcare ka ye wireless mouse sirf ₹299 mein mil raha hai! Ergonomic design, 1600 DPI, aur koi wires ka jhanjhat nahi. Productivity badhani hai toh ye must-have hai. Laptop/PC dono ke liye perfect.",
             "loot_reason": "₹999 waali cheez ₹299 mein mil rahi hai, seedha 70% discount. Aisi deal baar-baar nahi aati, jaldi le le!",
             "category": "Loot"
-        },
-        {
-            "name": "WEICHA Portable Rechargeable Mini Fan, Powerful 3-in-1 Handheld Fan with Long Lasting Battery Operated | Desk Fan with Strong Airflow | Cooling Fan for Home, Office, Outdoor (Assorted Color)",
-            "price": "₹299",
-            "mrp": "₹999",
-            "discount_percent": "70%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0C39Y1G9Q?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51rP-oJ6f-L._AC_UL320_.jpg",
-            "hook": "Hostel ka garmi ka ultimate hack! Sirf ₹299 mein garmi ki chutti!",
-            "pain": "Garmi mein raat ko neend nahi aati? Power cut ho jaye toh haalat kharab ho jaati hai? Table fan ki jagah nahi hai room mein?",
-            "fix": "Ye chhota sa rechargeable fan tera saviour hai. Handheld, desk pe bhi rakh, aur battery life bhi badhiya hai. Padhai ke time ya sote waqt, mast hawa deta hai. Iss price mein itna useful gadget toh zaroor hona chahiye!",
-            "loot_reason": "₹999 ka fan ₹299 mein, isse sasta aur kahi nahi milega. Pure 70% off!",
-            "category": "Loot"
-        },
-        {
-            "name": "UBON BT-5680 Wireless Portable Speaker, 10W Sound Output, Hi-Fi Stereo Sound, Lightweight Design, USB Port, Micro SD Card Slot, AUX Input, TWS Feature, Built-in Mic & FM for Music and Calls (Black)",
-            "price": "₹499",
-            "mrp": "₹1799",
-            "discount_percent": "72%",
-            "rating": 4.0,
-            "link": "https://www.amazon.in/dp/B0B4J38M7Q?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/618g53F2bLL._AC_UL320_.jpg",
-            "hook": "Bhaiiiii, ye kya loot mach gayi hai! 🎉 72% off pe branded speaker?!!",
-            "pain": "Hostel mein mood banaane ke liye ek decent speaker chahiye, par budget tight hai aur saste wale bekaar sound karte hain?",
-            "fix": "Ye UBON ka 10W speaker bas ₹499 mein mil raha hai! Full party vibes, HD sound, TWS feature, aur FM bhi hai. Ab tera room DJ banega, woh bhi itne kam mein! Quality aur price dono set hain.",
-            "loot_reason": "Normal price iska ₹1799 hai, abhi ₹499 mein mil raha hai, jhatpat grab kar le warna out of stock ho jayega!",
-            "category": "Loot"
-        },
-        {
-            "name": "CALLIE Universal Foldable Mobile Phone Stand with Integrated Pen Holder",
-            "price": "₹179",
-            "mrp": "₹799",
-            "discount_percent": "77%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0C9545L4H?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/719hUvLqgDL._SL1500_.jpg",
-            "hook": "Pura din phone haath mein? Padhai karte time notification miss nahi karna? Solution aa gaya, aur woh bhi budget mein.",
-            "pain": "Study karte time phone kaise rakhoon? Pen kidhar gaya? Desk hamesha messy rehta hai?",
-            "fix": "Dekh, ye simple sa foldable mobile stand hai, par ismein pen holder bhi hai! Ab tera phone sahi angle pe rakha rahega, video calls, lectures ya series dekh, sab easy. Aur pens bhi ek jagah milenge. Desk organised rahega, aur tu distraction-free padh paega. Practical hai aur cheap bhi.",
-            "loot_reason": "Itna useful gadget usually ₹800 ka milta hai, abhi ₹179 mein mil raha hai. Ye toh seedha value for money hai!",
-            "category": "Electronics"
         }
     ]
 }
