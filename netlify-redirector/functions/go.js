@@ -69,6 +69,24 @@ export default async (request, context) => {
     finalAmazonUrl = `https://www.${domain}/gp/goldbox?tag=${myTag}`;
   }
 
+  // --- 4.5. Prevent Amazon "Page Not Found" (404) ---
+  if (finalAmazonUrl.includes("/dp/")) {
+    try {
+      const amzRes = await fetch(finalAmazonUrl, {
+        method: "HEAD",
+        headers: {
+          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        }
+      });
+      if (amzRes.status === 404) {
+        // Product is dead/removed, redirect to Today's Deals
+        finalAmazonUrl = `https://www.${domain}/gp/goldbox?tag=${myTag}`;
+      }
+    } catch (e) {
+      // Ignore fetch errors, let the redirect happen anyway
+    }
+  }
+
   // --- 5. Always fast-redirect (no interstitial) ---
   // Interstitial/bridge pages commonly reduce conversions in Telegram → Amazon flows.
   // We still track the click above, then do a clean 302 to the final Amazon URL.

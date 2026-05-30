@@ -18,6 +18,6 @@
   status = 200
 
 [[redirects]]
-  from = "/"
+  from = "/*"
   to = "/.netlify/functions/go"
   status = 200
