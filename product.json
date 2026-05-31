@@ -1,6 +1,34 @@
 {
     "products": [
         {
+            "name": "USB Powered RGB LED Strip Lights with Remote (2 Meters)",
+            "price": "₹349",
+            "mrp": "₹1299",
+            "discount_percent": "73%",
+            "rating": 4.2,
+            "link": "https://www.amazon.in/dp/B0B1D4Y5H8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Y+z41y8gL._SX679_.jpg",
+            "hook": "Dekh bhai, hostel room ko thoda cool banana hai, par budget tight hai? Ye deal tere liye hi hai.",
+            "pain": "Hostel room boring lagta hai? Koi vibe nahi aati? Ya fir raat ko padhte hue mood off ho jaata hai simple lights mein?",
+            "fix": "Ye RGB strip lights USB powered hain, kahin bhi laga de – desk ke peeche, bed ke neeche, ya TV ke around. Remote se colours badal, mood set kar, study vibes ya chill vibes. Practical bhi hai aur room ko ek naya look bhi deta hai. Itne high discount pe mil raha hai, toh why not try? Sab poochenge kahaan se liya!",
+            "loot_reason": "Same lights market mein ₹1000+ ki milti hain, abhi ₹349 mein mil rahi hain. Hostel room ko upgrade karne ka best aur sabse sasta tareeka hai.",
+            "category": "Kitchen"
+        },
+        {
+            "name": "3-in-1 Fast Charging Cable (Type-C, Micro USB, Lightning)",
+            "price": "₹179",
+            "mrp": "₹799",
+            "discount_percent": "77%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0B52F2GHC?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41ZL2thNKdL.jpg",
+            "hook": "Yeh kya chal raha hai Amazon pe? Ek cable mein teeno phone charge? Aur itna sasta? Mind blown! 🤯",
+            "pain": "Hamesha teen-teen cables leke ghoomna padta hai? Roommates ka phone Type-C, tera Micro USB, aur friend ka iPhone? Charger ke liye jungle raj chal raha hai hostel mein!",
+            "fix": "Ye ek cable sambhaal lega sab! Type-C, Micro USB, Lightning – all in one aur fast charging bhi. Hostel life ke liye ultimate hack hai ye. Soch, itne bade discount pe aisi utility? Loot machi hai bhai, time bacha, jagah bacha, aur paisa bhi!",
+            "loot_reason": "Market mein ek-ek cable ₹300-₹400 ki milti hai, yahan teeno adapters ke saath ₹179 mein, upar se fast charging. Seriously, grab it before it's gone!",
+            "category": "Kitchen"
+        },
+        {
             "name": "Universal 3-in-1 Multi-Charging Cable (Type C, Micro USB, Lightning)",
             "price": "₹249",
             "mrp": "₹900",
@@ -1371,34 +1399,6 @@
             "fix": "Ye le bhai, Amazon Basics ka 60W braided Type-C to C cable, 1.5m lamba! Tera phone bhi rocket speed pe charge hoga aur ye cable tootegi bhi nahi. Mast quality, top speed, aur itna discount ki kya bataun!",
             "loot_reason": "Usually ₹900 ka milta hai, abhi ₹199 mein mil raha hai, jaldi grab kar!",
             "category": "Computers"
-        },
-        {
-            "name": "PowerUp 4-in-1 Universal Travel Adapter with 3 USB Ports & Type-C",
-            "price": "₹349",
-            "mrp": "₹1299",
-            "discount_percent": "73%",
-            "rating": 4.4,
-            "link": "https://www.amazon.in/dp/B0B6PM3K2H?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71YvR0e2tCL._SL1500_.jpg",
-            "hook": "Sunn bhai, hostel ki sabse badi problem ka permanent solution mil gaya, aur wo bhi ekdum budget mein. 👌",
-            "pain": "Hostel mein ek hi socket hai aur charge karne ke liye phone, laptop, smartwatch, power bank sab line mein lage hain? Ya fir door ke socket tak cable chhoti pad jaati hai?",
-            "fix": "Ye multi-port charging hub le le, teri saari charging ki tension khatam. Ek saath multiple devices charge kar, aur usmein travel adapter bhi hai. Pura hostel hack! Kitna practical aur useful hai, is price mein toh pakka deal hai!",
-            "loot_reason": "Itna feature-rich charger usually ₹1000+ ka hota hai, abhi ₹349 mein! No brainer!",
-            "category": "Electronics"
-        },
-        {
-            "name": "CoolBreeze Mini Portable USB Rechargeable Fan with 3 Speeds & Stand",
-            "price": "₹249",
-            "mrp": "₹999",
-            "discount_percent": "75%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0BY2T5T7W?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61r5bB5Cj9L._SL1500_.jpg",
-            "hook": "Arre baap re! Garmi mein hostel survival kit ka sabse bada loot aa gaya! 🤯",
-            "pain": "Hostel mein AC nahi hai aur pankha bas naam ka hai? Raat ko neend nahi aati garmi se ya din mein padhne ka mann nahi karta?",
-            "fix": "Ye chhota sa fan teri jaan bachayega! USB rechargeable hai, foldable hai, pocket mein rakh ke ghoom. Teen speeds hain, kahin bhi rakh ke padhai kar ya chill kar. Is price mein toh bhai, ekdum shocker deal hai!",
-            "loot_reason": "Iska MRP ₹999 hai, itne kam mein toh kabhi nahi milta!",
-            "category": "Electronics"
         }
     ]
 }
