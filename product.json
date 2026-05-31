@@ -1,6 +1,20 @@
 {
     "products": [
         {
+            "name": "Universal 3-in-1 Multi-Charging Cable (Type C, Micro USB, Lightning)",
+            "price": "₹249",
+            "mrp": "₹900",
+            "discount_percent": "72%",
+            "rating": "4.5",
+            "link": "https://www.amazon.in/dp/B0CK117N3V?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Yv0H-tLML._SL1500_.jpg",
+            "hook": "Sach bol raha hun, ye hostel mein sabse kaam aane wali cheez hai. Kitni baar bola hai ki aisi cheezein pehle le lo!",
+            "pain": "Kitne saare chargers carry karne padte hain? Friends ke paas alag phone, mera alag... aur charging points bhi kam hain?",
+            "fix": "Ab ek hi cable se iPhone, Android type C aur Micro USB sab charge kar. Na zyada cables ka jhanjhat, na socket ki tension. Ek cable sab devices ke liye, hostel life ka ultimate hack! Budget mein itna useful gadget milna mushkil hai.",
+            "loot_reason": "Regular store mein ₹900 se kam mein nahi milega, abhi ₹249 mein mil raha hai, 72% se zyada discount! Must grab!",
+            "category": "Computers"
+        },
+        {
             "name": "Portable USB Mini Table Fan for Hostel & Office (High Speed)",
             "price": "₹199",
             "mrp": "₹750",
@@ -1384,20 +1398,6 @@
             "pain": "Hostel mein AC nahi hai aur pankha bas naam ka hai? Raat ko neend nahi aati garmi se ya din mein padhne ka mann nahi karta?",
             "fix": "Ye chhota sa fan teri jaan bachayega! USB rechargeable hai, foldable hai, pocket mein rakh ke ghoom. Teen speeds hain, kahin bhi rakh ke padhai kar ya chill kar. Is price mein toh bhai, ekdum shocker deal hai!",
             "loot_reason": "Iska MRP ₹999 hai, itne kam mein toh kabhi nahi milta!",
-            "category": "Electronics"
-        },
-        {
-            "name": "Tech-Glow RGB LED Strip Lights for Room Decor & Study Desk, USB Powered",
-            "price": "₹199",
-            "mrp": "₹899",
-            "discount_percent": "77%",
-            "rating": 4.3,
-            "link": "https://www.amazon.in/dp/B0CKD8J74S?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71Y+gL3QjVL._SL1500_.jpg",
-            "hook": "Bhai ye price glitch hai ya kya? 😱 RGB light strip bas ₹199 mein?!",
-            "pain": "Hostel room boring lagta hai? Padhne ka mood nahi banta? Ya fir reels mein cool setup dekha hai but budget tight hai?",
-            "fix": "Ye LED strip lights laga, poora room vibe change kar de! USB powered hai, kahin bhi laga le – desk pe, bed ke neeche. Study mood se party mood, sab set hai. Is price mein toh ekdum no-brainer deal hai!",
-            "loot_reason": "Normaly ₹899 ki milti hai, abhi ₹199 mein leke nikal!",
             "category": "Electronics"
         }
     ]
