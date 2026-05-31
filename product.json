@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Ambrane Unbreakable 3-in-1 Fast Charging Cable (1.2m)",
+            "price": "₹149",
+            "mrp": "₹599",
+            "discount_percent": "75%",
+            "rating": 4.2,
+            "link": "https://www.amazon.in/dp/B09G3F52G9?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Yy8+x9-BL._SL1500_.jpg",
+            "hook": "Kitne charger ghaseetega bhai? Ek cable, sab phone charge!",
+            "pain": "Hostel mein sabke paas alag-alag phone hain, aur charger bhi alag-alag! Kabhi Type-C nahi milta, kabhi iPhone wala. Upar se cables toot ti rehti hain.",
+            "fix": "Ye unbreakable 3-in-1 cable lele. Ek hi cable se Micro USB, Type-C aur Lightning, sab charge. Fast charging bhi support karta hai. Tera life ka clutter kam ho jayega aur charging ki tension khatam. Hostel ke liye toh boon hai yeh!",
+            "loot_reason": "Ye cable Ambrane ki hai aur iski MRP ₹600 hoti hai, abhi ₹149 mein mil rahi hai, must grab deal hai!",
+            "category": "Electronics"
+        },
+        {
+            "name": "Portable Mini USB Desk Fan with Clip (Silent, 3 Speeds)",
+            "price": "₹199",
+            "mrp": "₹799",
+            "discount_percent": "75%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0BF8XJ6D5?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71KkI4S84QL._SL1500_.jpg",
+            "hook": "Garmi mein hostel mein AC nahi hai? Koi tension nahi, ye wala fan dekh!",
+            "pain": "Hostel ki garmi ne toh band baja rakhi hai na? Fan bhi door hai ya slow hai. Padhai mein dhyan nahi lagta.",
+            "fix": "Ye mini USB fan laga apne bed ke paas ya desk pe. Clip-on hai, kahin bhi adjust kar. Type-C powered hai, power bank se bhi chalega. Garmi mein relief, matlab padhai mein focus double! Isse sasta aur useful kuch nahi.",
+            "loot_reason": "Aisa branded fan normally ₹800 ka milta hai, abhi ₹199 mein mil raha hai, big boss loot hai yeh!",
+            "category": "Electronics"
+        },
+        {
+            "name": "Portable USB Rechargeable LED Desk Lamp with 3 Brightness Modes",
+            "price": "₹249",
+            "mrp": "₹999",
+            "discount_percent": "75%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0B3FT6Y3Y?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61b7l3Nby8L._SL1500_.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 Itni kam mein itni useful cheez!",
+            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Ya table lamp nahi hai? Aankhon pe strain alag!",
+            "fix": "Ye compact, rechargeable LED lamp lele! 3 brightness modes hain, bed pe ya desk pe, jahan chahe laga. Roommates disturb nahi honge aur tu apni padhai peacefully karega. Is price pe toh koi soch bhi nahi sakta!",
+            "loot_reason": "Usually ₹1000 ki milti hai aisi quality wali, abhi ₹249 mein mil rahi hai, seedha 75% off!",
+            "category": "Electronics"
+        },
+        {
             "name": "Reusable Cable Organizer Straps with Velcro (50 Pcs)",
             "price": "₹199",
             "mrp": "₹899",
@@ -1357,48 +1399,6 @@
             "fix": "Ye chotu sa USB LED light, flexible neck ke saath, seedha laptop ya power bank mein lagao aur apni personal study zone banao. RGB wala option bhi mil raha hai! Aur itne kam mein? Loot lo yaar!",
             "loot_reason": "Usually ₹700-800 ka milta hai, abhi ₹149 mein mil raha hai! Seedha 80% se zyada off hai!",
             "category": "Loot"
-        },
-        {
-            "name": "Self-Adhesive Cable Clips Holder for Desk & Wall (Pack of 20)",
-            "price": "₹149",
-            "mrp": "₹599",
-            "discount_percent": "75%",
-            "rating": 4.3,
-            "link": "https://www.amazon.in/dp/B09D8H62P7?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71c+P+k72mL._SL1500_.jpg",
-            "hook": "Dekh bhai, ye chhoti cheez hai par hostel life ki sabse badi problem solve karti hai.",
-            "pain": "Charging cables, earphones, laptop wires... sab table pe uljhe pade rehte hain? Dhoondhna mushkil ho jaata hai aur mess alag dikhta hai.",
-            "fix": "Ye self-adhesive cable clips tere desk ko super organized rakhenge. Har cable ko uski jagah pe stick kar de, no more tangles, no more searching. Sirf ₹149 mein 20 clips, pura desk set ho jayega. Simple, effective, aur sasta!",
-            "loot_reason": "Aise pack ka price normally ₹600 tak hota hai, abhi ₹149 mein mil raha hai, 75% off! Daily use ka item hai, is price pe grab karna smart move hai.",
-            "category": "Computers"
-        },
-        {
-            "name": "Portable Rechargeable LED Desk Lamp with 3 Brightness Modes",
-            "price": "₹249",
-            "mrp": "₹899",
-            "discount_percent": "72%",
-            "rating": 4.5,
-            "link": "https://www.amazon.in/dp/B0BWJ3X2S7?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61r56mC6DmL._SL1500_.jpg",
-            "hook": "Arre baap re! ₹249 mein aisi lamp? Ye toh pakka Amazon ne galti se daal diya hai! 🤯",
-            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Ya power cut mein andhere mein ghusna padta hai?",
-            "fix": "Ye rechargeable LED desk lamp tere saare problems solve karegi. 3 brightness modes, adjustable neck aur portable. Hostel mein raat ko padhne ke liye best, aur power cut mein bhi kaam aayegi. Battery bhi kaafi chal jaati hai. Bhai, soch mat, bas le le!",
-            "loot_reason": "Iski original price ₹900 ke aaspaas hoti hai, abhi ₹249 mein hai, 72% se zyada off! Aisa deal phir nahi milega!",
-            "category": "Computers"
-        },
-        {
-            "name": "USB Powered RGB LED Strip Lights with Remote (3M)",
-            "price": "₹299",
-            "mrp": "₹999",
-            "discount_percent": "70%",
-            "rating": 4.2,
-            "link": "https://www.amazon.in/dp/B0BPXP483T?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/717hH1gG5GL._AC_SL1500_.jpg",
-            "hook": "Bhai, ye price glitch hai ya kya? Pure vibe ke liye ₹299 mein RGB lights? 😱",
-            "pain": "Terrible hostel room vibes se bore ho gaye ho? Ya study desk ko thoda cool dikhana hai?",
-            "fix": "Ye 3 meter ki USB RGB strip lights with remote se apne room ya desk ko next level bana de. Mood lighting, party vibes ya chill study session, sab set hai. USB powered hai toh power bank se bhi chala le. Itna sasta aur itna cool, kaise miss karoge?",
-            "loot_reason": "Same lights normally ₹1000 ke upar milti hain, abhi ₹299 mein, seedha 70% off! Grab karle, stock khatam ho jayega!",
-            "category": "Computers"
         }
     ]
 }
