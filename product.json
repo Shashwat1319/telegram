@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Universal Waterproof Phone Pouch with Lanyard",
+            "price": "₹179",
+            "mrp": "₹699",
+            "discount_percent": "74%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0B1LNN86C?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/613Jz5z+lUL._AC_SL1500_.jpg",
+            "hook": "Chalo bhai, practical baat karte hain! Phone ko hostel ke shower se bachana hai?",
+            "pain": "Hostel ke bathrooms mein phone le jaate ho aur girne ya bheegne ka darr rehta hai? Ya barish mein bahar nikle aur phone ki tension?",
+            "fix": "Ye high-quality waterproof pouch bas ₹179 mein tumhare phone ko poora secure rakhega. IPX8 certified hai, paani, dhool, sab se protection. Video call ya music sunte hue bhi safe! Hostel life ka ultimate hack.",
+            "loot_reason": "Aisi quality ke waterproof pouches ₹700 tak jaate hain, abhi ₹179 mein mil raha hai, toh smart choice hai!",
+            "category": "Electronics"
+        },
+        {
+            "name": "Ergonomic Foldable Laptop Stand with Heat Vent",
+            "price": "₹399",
+            "mrp": "₹1499",
+            "discount_percent": "73%",
+            "rating": 4.2,
+            "link": "https://www.amazon.in/dp/B0BP3FYYXQ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61M-J9VnJDL._AC_SL1500_.jpg",
+            "hook": "WTF! Itna sasta? 🤯 Laptop stand ₹399 mein? Kahi out of stock na ho jaye!",
+            "pain": "Laptop pe jhuk jhuk ke kamar dard ho gaya hai? Aur laptop garam hoke slow ho jata hai?",
+            "fix": "Ye aluminum alloy ka foldable laptop stand, ergonomic design ke saath, sirif ₹399 mein! Apni neck aur posture ko bachao, plus laptop ko overheat hone se roko. Study sessions lambe chalenge aur productivity double!",
+            "loot_reason": "Premium laptop stands ₹1500+ ke aate hain, ye ₹399 mein ekdam solid deal hai. Jaldi grab kar lo!",
+            "category": "Electronics"
+        },
+        {
+            "name": "Portable Rechargeable LED Desk Lamp",
+            "price": "₹249",
+            "mrp": "₹899",
+            "discount_percent": "72%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0B5DP3C5V?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61Kx6c0Tj2L._AC_SL1500_.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 Raat bhar padhne walon ke liye best deal!",
+            "pain": "Hostel mein late night padhna hai aur roommates light off kar dete hain? Ya table lamp ka switch door hai?",
+            "fix": "Ye compact, rechargeable lamp bas ₹249 mein! USB se charge karo, kahin bhi le jao. Teen light modes, dimmable bhi hai. Aankhon ko bhi aaram! Isse mast productivity boost aur kya milega?",
+            "loot_reason": "Aisa branded mini lamp usually ₹800+ ka milta hai, abhi ₹249 mein mil raha hai! Ye toh seedha loot hai yaar!",
+            "category": "Electronics"
+        },
+        {
             "name": "RGB USB LED Strip Light with Remote (5M)",
             "price": "₹349",
             "mrp": "₹1200",
@@ -1357,48 +1399,6 @@
             "fix": "Ye foldable laptop stand tere back-pain ka solution hai aur teri productivity boost karega. Upar se 85% off, matlab ekdum loot macha rakhi hai! Isse apni study setup ko next level pe le ja.",
             "loot_reason": "Usually ₹1999 ka milta hai, abhi ₹299 mein mil raha hai, aisa mauka mat chhodd!",
             "category": "Kitchen"
-        },
-        {
-            "name": "ChargeMaster 3-Port Fast USB Wall Charger Adapter for Mobiles & Tablets",
-            "price": "₹299",
-            "mrp": "₹1000",
-            "discount_percent": "70%",
-            "rating": 4.3,
-            "link": "https://www.amazon.in/dp/B0BYR4M0L8?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61M0N12345L._AC_UL320_.jpg",
-            "hook": "Sun, ye wala charger le le, hostel mein zindagi aasan ho jaegi. Bahut kaam aayega!",
-            "pain": "Hostel mein ek hi socket milta hai aur phone, tab, smartwatch, power bank sab charge karna hota hai? Subah late ho jaati hai kyunki devices charge nahi hue?",
-            "fix": "Ye 3-port fast charger tere saare masle hal kar dega. Ek hi socket mein teen devices ek saath charge kar. Fast charging support hai, to jaldi kaam ho jaega. Kitni bhi raat ho, roommates se socket maangne ki tension khatam. Har student ke paas hona hi chahiye!",
-            "loot_reason": "Ye quality charger normally ₹1000 se kam ka nahi milta, abhi ₹299 mein mil raha hai, pura 70% ka discount hai! Deal miss mat kariyo.",
-            "category": "Loot"
-        },
-        {
-            "name": "ErgoFlex Portable Foldable Laptop Stand with 7 Adjustable Angles",
-            "price": "₹399",
-            "mrp": "₹1500",
-            "discount_percent": "73%",
-            "rating": 4.5,
-            "link": "https://www.amazon.in/dp/B0BFD6N2T1?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/7123456789L._AC_UL320_.jpg",
-            "hook": "WHAT?! Laptop stand itne tucchi price mein? Mera to ₹1200 ka aaya tha! 🤯 Jaldi grab kar!",
-            "pain": "Online classes mein neck pain ho raha hai? Laptop garam ho ke slow ho jaata hai? Chote hostel table pe posture kharab ho raha hai?",
-            "fix": "Ye foldable laptop stand pakad! 7 levels pe adjust kar, apni height ke hisaab se. Ergonomic design, neck pain gayab. Plus, laptop overheat nahi hoga, airflow accha milega. Jab kaam ho jaaye, fold kar aur bag mein daal le. Hostel ke liye perfect productivity hack hai, aur itne kam mein to bas chura le!",
-            "loot_reason": "Iski real price ₹1500 hoti hai, lekin abhi sirf ₹399 mein mil raha hai, matlab 73% ka discount hai! Mauka mat chhod!",
-            "category": "Loot"
-        },
-        {
-            "name": "TechBros USB RGB LED Strip Light 2 Meter for Desk & Room Decor",
-            "price": "₹249",
-            "mrp": "₹999",
-            "discount_percent": "75%",
-            "rating": 4.2,
-            "link": "https://www.amazon.in/dp/B0BP7M5F3B?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71K6zJ8d1GL._AC_UL320_.jpg",
-            "hook": "Bhai ye price glitch hai ya kya? 😱 RGB light strip bas ₹249 mein?! Abhi utha le!",
-            "pain": "Hostel room boring lagta hai? Padhne ka mood nahi banta kyunki ambiance hi nahi hai? Ya phir late night movie ke liye cool lighting chahiye?",
-            "fix": "Ye USB powered RGB LED strip le le, 2 meter ki hai. Laptop, power bank ya charger se chala. Apne study table, bed ke peeche ya TV ke around laga ke poore room ka vibe badal de. Ab padhai bhi mast hogi aur party mood bhi set! Aur itne kam price mein, seedha loot hai!",
-            "loot_reason": "Yeh strip normally ₹999 ki milti hai, abhi ₹249 mein mil rahi hai – 75% off, matlab free jaisa hi hai!",
-            "category": "Loot"
         }
     ]
 }
