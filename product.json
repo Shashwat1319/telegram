@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "SmartStudy 5-in-1 Desk Organizer & Mobile Stand",
+            "price": "₹399",
+            "mrp": "₹1399",
+            "discount_percent": "71%",
+            "rating": 4.4,
+            "link": "https://www.amazon.in/dp/B0B6L5J9Z1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/414wEtgWfsL.jpg",
+            "hook": "Bhai practical baat bata raha hoon, ye table organizer teri life set kar dega hostel mein!",
+            "pain": "Pura study table mess rehta hai? Pen, copy, charger, phone sab idhar-udhar bikhra rehta hai?",
+            "fix": "Ye organizer pen holder bhi hai, file holder bhi, aur sabse acchi baat – phone stand bhi! Video lectures dekh ya call pe baat kar, phone perfect angle pe rahega. Teri study space ekdum neat ho jayegi, aur is deal mein toh must-have hai!",
+            "loot_reason": "Normal days mein ₹1400 tak bikta hai, abhi ₹399 mein mil raha hai. Paisa vasool deal hai ye!",
+            "category": "Electronics"
+        },
+        {
+            "name": "ChillBreeze Portable USB Mini Fan",
+            "price": "₹299",
+            "mrp": "₹1099",
+            "discount_percent": "73%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0C3R8Z6Y1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/414wEtgWfsL.jpg",
+            "hook": "Kya bolte ho! ₹1100 wala fan ₹299 mein? Amazon pagal ho gaya hai bhai!",
+            "pain": "Hostel mein garmi se neend nahi aati? AC nahi hai aur ceiling fan bhi poori hawa nahi deta?",
+            "fix": "Ye portable USB fan, apne laptop ya power bank se chalao, aur direct thandi hawa lo! Compact hai, kahin bhi adjust ho jata hai. Is price mein, ye toh hostel life ki sabse badi blessing hai!",
+            "loot_reason": "Iska original price ₹1099 hai, itna heavy discount pe toh pehli baar dekha hai. Stock khatam hone se pehle lapak lo!",
+            "category": "Electronics"
+        },
+        {
+            "name": "BlinkCharge Mini USB LED Reading Light",
+            "price": "₹199",
+            "mrp": "₹799",
+            "discount_percent": "75%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0BP7M6M4M?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/414wEtgWfsL.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 Raat ko padhai ka best solution, aur itna sasta!",
+            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Ya phir table lamp ki light se sab disturb hote hain?",
+            "fix": "Ye chotu sa USB LED light, seedha laptop ya power bank mein laga do! Sirf apni books pe light marega, kisi ko disturb nahi karega. Aur is price pe? Seedha hostel loot deal hai!",
+            "loot_reason": "Usually ₹800 ka milta hai aise branded light, abhi sirf ₹199 mein mil raha hai! Ye limited stock offer hai, jaldi le lo!",
+            "category": "Electronics"
+        },
+        {
             "name": "2-Meter Flexible USB RGB LED Strip Light with Remote Control",
             "price": "₹249",
             "mrp": "₹1200",
@@ -1357,48 +1399,6 @@
             "fix": "Ye le, sirf ₹149 mein 4-in-1 gadget! Pen, stylus, mobile stand aur emergency LED light – sab ek mein! Laptop pe notes banate hue phone pakadne ki tension khatam. Hostel mein toh gold hai ye!",
             "loot_reason": "Normal ₹999 ka milta hai, abhi 85% off mein ₹149 mein mil raha hai, jaldi le lo!",
             "category": "Electronics"
-        },
-        {
-            "name": "AmazonBasics 3.5mm Stereo Audio Extension Adapter Cable - 6 Feet",
-            "price": "₹229",
-            "mrp": "₹800",
-            "discount_percent": "71%",
-            "rating": 4.3,
-            "link": "https://www.amazon.in/dp/B00C4Q4SGC?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71y7B8k-GQL._AC_UL640_.jpg",
-            "hook": "Suno dosto, ye hai asli hostel life hack! Itni sasti, itni kaam ki cheez! 🚀",
-            "pain": "Roommates ke saath movie dekhni hai par speaker tak laptop ki wire chhoti pad gayi? Ya raat ko bed pe let ke phone pe kuch sunna hai par headphone wire bahut chhoti hai?",
-            "fix": "Ye 6 feet lambi audio extension cable tumhari saari audio problems solve kar degi. Phone/laptop se speaker tak, ya khud ke headphones ko extend karna ho. Hostel mein yeh sabse useful cheez hai jo hamesha kaam aati hai, aur Amazon Basics ki hai toh quality bhi milegi. ₹229 mein kya hi nuksan hai!",
-            "loot_reason": "Is cable ka normal price ₹800 hai, abhi 71% off pe ₹229 mein mil rahi hai, fauran le lo!",
-            "category": "Computers"
-        },
-        {
-            "name": "Amazon Basics DisplayPort to HDMI Cable - 6 Feet (1.8 Meters)",
-            "price": "₹449",
-            "mrp": "₹1500",
-            "discount_percent": "70%",
-            "rating": 4.2,
-            "link": "https://www.amazon.in/dp/B015OW3B1Q?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71K+nK+1gZL._AC_UL640_.jpg",
-            "hook": "OMG! Ye DisplayPort se HDMI cable itne mein? Ye toh sabka hidden hack hai! 🤯",
-            "pain": "Laptop pe presentation bana rahe ho, code likh rahe ho ya movies dekh rahe ho, chhoti screen pe aankhein thak jaati hain? Aur hostel mein TV toh hai par connect kaise karein?",
-            "fix": "Agar tumhare laptop mein DisplayPort hai, toh ye cable usko hostel ke TV ya monitor se connect kar degi HDMI ke through. Big screen pe padhai, movies ya gaming ka maza double! Aur Amazon Basics hai toh quality guaranteed. Is price pe itni useful cheez, miss mat karna.",
-            "loot_reason": "Normally ₹1500 se kam mein nahi milti aisi quality cable, abhi ₹449 mein 70% discount pe hai, jaldi grab karo!",
-            "category": "Computers"
-        },
-        {
-            "name": "Amazon Basics Lightning to USB A Cable (6ft, Black) - MFi Certified",
-            "price": "₹449",
-            "mrp": "₹1500",
-            "discount_percent": "70%",
-            "rating": 4.4,
-            "link": "https://www.amazon.in/dp/B07P73Q713?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61r5f8i9rRL._AC_UL640_.jpg",
-            "hook": "Bhai, iPhone user ho aur charging cable baar-baar tut jaati hai? Ye price glitch hai ya kya? 😱",
-            "pain": "Original Apple cables ₹2000 ke aate hain aur hostel mein toh pata nahi kab gayab ho jaayein ya dost maang le. Sasti waali 2 din mein toot jaati hai ya phone damage karti hai.",
-            "fix": "Ye Amazon Basics ki MFi Certified Lightning cable hai, matlab Apple se approved. 6 feet lambi hai, bed se charger tak perfect, aur ₹449 mein bhai, kya hi bolu! Durable bhi hai aur fast charge karegi, no tension for your iPhone.",
-            "loot_reason": "Yeh cable usually ₹1500 ki milti hai, abhi 70% off pe ₹449 mein mil rahi hai, seedha loot lo!",
-            "category": "Computers"
         }
     ]
 }
