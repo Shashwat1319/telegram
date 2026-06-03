@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "2-Meter Flexible USB RGB LED Strip Light with Remote Control",
+            "price": "₹249",
+            "mrp": "₹1200",
+            "discount_percent": "79%",
+            "rating": 4.2,
+            "link": "https://www.amazon.in/dp/B0C39K9S4S?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61tFhWwLgBL._SL1500_.jpg",
+            "hook": "Dekho bhai, padhai apni jagah par, vibe apni jagah! Hostel room ko cool banao, woh bhi itne kam mein!",
+            "pain": "Hostel ka room boring lagta hai? Ya game khelte waqt thoda extra ambience chahiye hota hai?",
+            "fix": "Ye 2-meter ki USB RGB light strip hai, remote ke saath. Laptop ya power bank se chalao, apne mood ke hisaab se colour badlo. Mood ban jayega, aur is price mein toh ye must-have hai.",
+            "loot_reason": "Aisi lights normally ₹1000-₹1200 ki aati hain, abhi ₹249 mein mil rahi hai, ekdum seedha discount hai, boss!",
+            "category": "Computers"
+        },
+        {
+            "name": "4-in-1 Multi-Port USB Fast Charger with Mobile Stand & Extension Cord",
+            "price": "₹449",
+            "mrp": "₹1800",
+            "discount_percent": "75%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0C39K9S4T?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61s85D109iL._SL1500_.jpg",
+            "hook": "Kya bolti public! 🤯 Hostels ki sabse badi problem ka permanent solution, aur woh bhi is price mein?! Pagal ho gaya hai Amazon!",
+            "pain": "Hostel mein ek hi socket milta hai aur phone, laptop, smartband sab charge karna hota hai? Aur phone rakhne ki jagah bhi nahi milti?",
+            "fix": "Ye combo charger hai, bhai! Multiple USB ports, ek extension aur upar se in-built phone stand! Ek socket se chaar cheezein chalao aur phone bhi adjust karo. 75% off mein, ye toh chori ka maal lag raha hai!",
+            "loot_reason": "Aisa premium charger ₹1800 ka aata hai usually, abhi ₹449 mein mil raha hai, matlab seedhe ₹1350 bach gaye!",
+            "category": "Computers"
+        },
+        {
+            "name": "Portable Rechargeable LED Desk Lamp with 3 Brightness Modes",
+            "price": "₹299",
+            "mrp": "₹999",
+            "discount_percent": "70%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0B5J1R34D?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Yy3pG2tYL._SL1500_.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 Raat mein padhne walo, ye deal pakad lo!",
+            "pain": "Roommates light off kar dete hain aur tumhara exam sir pe hai? Ya fir bed pe let ke padhna hai bina sabko disturb kiye?",
+            "fix": "Ye mini rechargeable lamp hai, teen brightness modes ke saath! Kahin bhi le jao, charge karo aur apni duniya mein padho. Ab 70% off mein mil raha hai, isse sasta aur kya milega!",
+            "loot_reason": "Normally ₹1000 ki aati hai aisi light, abhi ₹299 mein mil rahi hai – pura ₹700 ka seedha loot hai!",
+            "category": "Computers"
+        },
+        {
             "name": "Universal Waterproof Phone Pouch with Lanyard",
             "price": "₹179",
             "mrp": "₹699",
@@ -1357,48 +1399,6 @@
             "fix": "Ye Amazon Basics ki MFi Certified Lightning cable hai, matlab Apple se approved. 6 feet lambi hai, bed se charger tak perfect, aur ₹449 mein bhai, kya hi bolu! Durable bhi hai aur fast charge karegi, no tension for your iPhone.",
             "loot_reason": "Yeh cable usually ₹1500 ki milti hai, abhi 70% off pe ₹449 mein mil rahi hai, seedha loot lo!",
             "category": "Computers"
-        },
-        {
-            "name": "Portronics Konnect L 1.2M Fast Charging 3A Type C Cable with 480mbps Data Sync & Durable PVC Material for Android Smartphones, Tablets, Power Banks, PC & More(Black)",
-            "price": "₹99",
-            "mrp": "₹399",
-            "discount_percent": "75%",
-            "rating": "4.1 out of 5 stars",
-            "link": "https://www.amazon.in/dp/B0BRSPQ78R?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51g742QW5vL._SL500_.jpg",
-            "hook": "Dekh, ye sabse basic aur sabse zaroori cheez hai jo hostel mein chahiye hoti hai.",
-            "pain": "Phone ki battery low, aur charging cable kab tak chalegi, pata hi nahi? Dost ka cable maangte maangte thak gaya hai?",
-            "fix": "Fast charging Type C cable, sirf ₹99 mein! Tough material hai, jaldi kharab nahi hoga. Har student ke paas extra hona hi chahiye, taaki emergency mein kaam aaye. Abhi le le!",
-            "loot_reason": "₹399 wala cable ₹99 mein, isse sasta aur durable Type C cable milna mushkil hai market mein!",
-            "category": "Kitchen"
-        },
-        {
-            "name": "pTron Tangent Lite Bluetooth 5.3 Wireless Neckband, 60Hrs Playtime, 13mm Driver, HD Mic, Made in India, Fast Charging, IPX4 Water Resistant, Voice Assistant, Magnetic Buds (Black)",
-            "price": "₹399",
-            "mrp": "₹2499",
-            "discount_percent": "84%",
-            "rating": "4.0 out of 5 stars",
-            "link": "https://www.amazon.in/dp/B0B4J38C3X?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51r2XG5XFQL._SL500_.jpg",
-            "hook": "Abe yaar, ₹2499 waale neckband pe 84% off? Is this for real? 🤯",
-            "pain": "Hostel mein sab chillate rehte hain, ya library mein gane sunne hain bina disturb kiye? Wired earphones roz tang karte hain?",
-            "fix": "60 ghante ki battery, HD mic, aur IPX4 water resistant. Lectures sun, calls kar, gane baja – bina kisi jhanjhat ke. Iss price mein wireless neckband milna toh dream hai! Jaldi le, stock limited hai.",
-            "loot_reason": "Amazon pagal ho gaya hai ya Diwali aa gayi jaldi? 2500 ka neckband ₹399 mein de rahe hain!",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Portronics \"My Buddy K5\" Portable, Adjustable & Foldable Laptop Stand with Ergonomic Design, Upto 15.6 Inch Laptops, Tablet & Mobile Phone (Black)",
-            "price": "₹299",
-            "mrp": "₹1999",
-            "discount_percent": "85%",
-            "rating": "4.2 out of 5 stars",
-            "link": "https://www.amazon.in/dp/B0C392YGB6?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61D8zD5TmdL._SL500_.jpg",
-            "hook": "Bhai, ye deal pakka price glitch hai ya kya? 😱 Itni zyaada discount?",
-            "pain": "Laptop pe jhuk ke kamar aur gardan dono toot rahe hain? Hostel desk pe jagah bhi kam padti hai?",
-            "fix": "Ye foldable laptop stand tere back-pain ka solution hai aur teri productivity boost karega. Upar se 85% off, matlab ekdum loot macha rakhi hai! Isse apni study setup ko next level pe le ja.",
-            "loot_reason": "Usually ₹1999 ka milta hai, abhi ₹299 mein mil raha hai, aisa mauka mat chhodd!",
-            "category": "Kitchen"
         }
     ]
 }
