@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "All-in-One Global Travel Adapter with Dual USB Ports",
+            "price": "₹349",
+            "mrp": "₹1500",
+            "discount_percent": "77%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0BR7J3X5T?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61r5fM9h6ZL._SX522_.jpg",
+            "hook": "Sunn bhai, ye ek cheez rakh le, hostel life mein kabhi regret nahi karega. Trust me!",
+            "pain": "Hostel mein sockets kam pad jaate hain? Phone charge karna hai, laptop bhi, aur power bank bhi? Aur bahar travel kiya toh alag-alag sockets ka jhanjhat?",
+            "fix": "Ye universal travel adapter hai, saare type ke plugs mein fit ho jaayega. Upar se do USB ports bhi hain, seedha phone ya smart band charge kar lo. Ek hi device mein sab jhanjhat khatam. Bohat practical cheez hai, aur ₹349 mein toh kamaal hai!",
+            "loot_reason": "Common problem ka solid solution, ₹1500 waala adapter ₹349 mein mil raha hai, must-have deal!",
+            "category": "Computers"
+        },
+        {
+            "name": "Mini USB Personal Desk Fan for Hostel",
+            "price": "₹249",
+            "mrp": "₹1200",
+            "discount_percent": "79%",
+            "rating": 4.2,
+            "link": "https://www.amazon.in/dp/B0CHH8B4K6?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71XmUqgT-GL._SX522_.jpg",
+            "hook": "OMG! Garmi mein hostel mein AC nahi? Ye deal miss kiya toh bohot pachtaoge! 🤯",
+            "pain": "Hostel ki garmi mein dimag garam ho jaata hai, padhai toh door ki baat hai? Fan ki hawa sabko nahi milti ya pura fan hi nahi hota?",
+            "fix": "Chhote size ka, USB se chalne wala personal fan! Apne desk pe rakho, laptop se power do, aur thandi hawa lo. Bass ₹249 mein, itni garmi mein ye toh gold hai bhai!",
+            "loot_reason": "₹1200 ka fan ₹249 mein? Matlab ₹950 bach gaye, ye toh total steal hai!",
+            "category": "Computers"
+        },
+        {
+            "name": "UltraBright Clip-on LED Reading Lamp for Study",
+            "price": "₹199",
+            "mrp": "₹999",
+            "discount_percent": "80%",
+            "rating": 4.5,
+            "link": "https://www.amazon.in/dp/B0CKD99H9S?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/718yPqgJ9uL._SX522_.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 Raat bhar padhne walo, tumhara savior aa gaya!",
+            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Ya library mein bhi akeli corner light chahiye? Aankhein dukhti hain phone ki light se?",
+            "fix": "Ye compact, rechargeable, clip-on LED lamp hai na, directly book pe ya table pe clip kar lo. Teen light modes, adjustable brightness. Pure ₹999 wali quality, ab bas ₹199 mein! No more excuses for not studying!",
+            "loot_reason": "Usually ₹900+ ka milta hai, abhi ₹199 mein mil raha hai, seedha 80% off! Grab kar lo!",
+            "category": "Computers"
+        },
+        {
             "name": "Self-Adhesive Desktop Cable Organizer Clips (Pack of 10)",
             "price": "₹149",
             "mrp": "₹599",
@@ -1357,48 +1399,6 @@
             "fix": "Ye XERGY mini RGB strip tere desk ya monitor ke peeche laga, remote se colors badal, aur dekh room ka vibe kaise instant change hota hai! Rechargeable hai, USB powered, matlab jahan chaho wahan use karo. Full paisa vasool deal!",
             "loot_reason": "Normally ₹1000 ki aati hai, abhi ₹199 mein mil rahi hai. Jaldi grab kar, stock khatam ho jayega!",
             "category": "Electronics"
-        },
-        {
-            "name": "Universal 3-in-1 Fast Charging Cable (Type C, Micro USB, Lightning) for All Devices",
-            "price": "₹149",
-            "mrp": "₹600",
-            "discount_percent": "75%",
-            "rating": 4.2,
-            "link": "https://www.amazon.in/dp/B0BNP71N7R?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/711qC8oFHSL._AC_SL1500_.jpg",
-            "hook": "Sunn bhai, ye ek cable tere saare jhamelay khatam kar degi, pakka bol raha hoon.",
-            "pain": "Har device ke liye alag charger dhoondhna, ya roommates se Type-C, Micro USB, Lightning cable maangna? Kitna irritating hai na?",
-            "fix": "Ye universal 3-in-1 cable le le, ek hi wire se tera phone, tab, power bank sab charge hoga. Aur sirf ₹149 mein, har hostel ke liye must-have hai!",
-            "loot_reason": "Yeh cable usually ₹600 ki milti hai, par abhi ₹149 mein 75% discount mil raha hai, mat chhodna!",
-            "category": "Computers"
-        },
-        {
-            "name": "CoolBreeze Portable USB Rechargeable Foldable Mini Fan for Hostel & Study",
-            "price": "₹199",
-            "mrp": "₹850",
-            "discount_percent": "76%",
-            "rating": 4.5,
-            "link": "https://www.amazon.in/dp/B0BDL4G1B1?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61kM29D81bL._AC_SL1500_.jpg",
-            "hook": "OMG! Garmi mein hostel wale AC nahi lagate, par ye fan sirf ₹199 mein? 🤯",
-            "pain": "Hostels ki garmi mein padhna mushkil, aur power cut mein toh aur buri haalat hoti hai? Raat bhar paseene mein nahate ho?",
-            "fix": "Ye portable USB fan teri jaan bachayega! Kahin bhi laga, laptop se charge kar, aur mast thandi hawa le. Is price pe toh soch mat, seedha add to cart!",
-            "loot_reason": "Original price ₹850 hai, par abhi ₹199 mein 76% discount! Loot machi hai!",
-            "category": "Computers"
-        },
-        {
-            "name": "Gadgets Zone USB Powered RGB LED Strip Light for Desk Setup & Ambiance",
-            "price": "₹299",
-            "mrp": "₹1200",
-            "discount_percent": "75%",
-            "rating": 4.3,
-            "link": "https://www.amazon.in/dp/B0CK1Y7F6Q?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71x4i143xmL._AC_SL1500_.jpg",
-            "hook": "Bhai ye price glitch hai ya kya? 😱 Apne room ko club bana dega!",
-            "pain": "Tera boring study table dekh ke mood off ho jata hai na? Hostels mein lights bhi dull hoti hain.",
-            "fix": "Ye USB RGB strip light laga! Poore desk ka vibe change ho jayega, aur bas ₹299 mein? Mood bhi fresh aur padhai mein bhi maza! Aisi deal phir nahi milegi!",
-            "loot_reason": "Normally ₹1200 ka milta hai, abhi 75% off pe ₹299 mein loot le!",
-            "category": "Computers"
         }
     ]
 }
