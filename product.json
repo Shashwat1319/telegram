@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Zebronics 3-Port Fast USB Wall Charger Adapter (3.4A)",
+            "price": "₹349",
+            "mrp": "₹1499",
+            "discount_percent": "77%",
+            "rating": 4.2,
+            "link": "https://www.amazon.in/dp/B0BNW1R954?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/614WzY9s+DL._SX679_.jpg",
+            "hook": "Sun, ye hostel survival kit ka sabse underrated item hai, aur abhi mast discount pe mila hai!",
+            "pain": "Ek hi socket hai room mein aur phone, smartwatch, power bank sab charge karna hai? Roommates se charger mangte thak gaya?",
+            "fix": "Ye Zebronics ka 3-port USB charger, ek sath teen devices charge karega, aur fast charging bhi support karta hai. Subah-subah phone, earphone aur power bank sab ready. No more fighting for sockets, bhai! Itna useful gadget itne kum mein milna mushkil hai.",
+            "loot_reason": "Brand new 3-port fast charger ₹1500 MRP se seedha ₹349 pe, ye 'must-have' item hai jo har student ko chahiye!",
+            "category": "Electronics"
+        },
+        {
+            "name": "Portronics Chime II Mini USB Fan (Rechargeable & Portable)",
+            "price": "₹299",
+            "mrp": "₹1199",
+            "discount_percent": "75%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B08V81D1T8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41GJpjvpd9L.jpg",
+            "hook": "OMG! Garmi mein hostel torture se bachne ka secret weapon! 🥵 ₹299 mein bhai, serious deal hai!",
+            "pain": "Hostel mein AC ka sapna, table fan ka bill high? Raat mein padhte waqt paseene se halat kharab ho jaati hai?",
+            "fix": "Ye mini portable USB fan na sirf compact hai, balki rechargeable bhi hai! Apne laptop se charge kar, power cut mein bhi hawa le. Class mein le ja, library mein rakh, kahin bhi thandi hawa milegi. Aur price dekh, 75% off hai!",
+            "loot_reason": "Aisa branded portable fan normally ₹1200+ ka hota hai, abhi ₹299 mein mil raha hai, mistake price lag raha hai!",
+            "category": "Electronics"
+        },
+        {
+            "name": "USB Powered RGB LED Strip Light for Desk Setup (5M)",
+            "price": "₹449",
+            "mrp": "₹1999",
+            "discount_percent": "78%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B08QW1T1M1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61+9fK-sMGL._SX679_.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 Hostel room ko cyber-punk den bana dega!",
+            "pain": "Tera sad-sada LED light ab bore karta hai? Chahie kuch next-level vibe apne study space ke liye?",
+            "fix": "Ye 5 meter ka USB RGB LED Strip light, sirf ₹449 mein! Remote control se colors badlo, brightness adjust karo. Apni desk, bed ya almari ke peeche laga, mast setup dikhega. Party vibes ya chill studying, sab possible hai!",
+            "loot_reason": "Usually ₹2000 ka milta hai minimum, abhi 78% off pe ₹449 mein mil raha hai, jaldi lele warna stock khatam!",
+            "category": "Electronics"
+        },
+        {
             "name": "All-in-One Global Travel Adapter with Dual USB Ports",
             "price": "₹349",
             "mrp": "₹1500",
@@ -1357,48 +1399,6 @@
             "fix": "Ye RGB LED strip light lagao, aur dekho kaise tumhari study setup lit ho jaati hai! Mood light, party light, sab ek mein. Aur is price pe? Seedha wallet kholo!",
             "loot_reason": "Normal ₹1299 ka milta hai, abhi ₹299 mein, bhai ye to prime day se bhi sasta hai!",
             "category": "Computers"
-        },
-        {
-            "name": "STRIFF Wireless Mouse, 2.4G Wireless Optical Mouse with USB Receiver, 3 Adjustable DPI, Ergonomic Mouse for Laptop, PC, Mac, MacBook (Black)",
-            "price": "₹249",
-            "mrp": "₹999",
-            "discount_percent": "75%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0C9SMG651?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41K0jW7p-0L._SX300_SY300_QL70_FMwebp_.jpg",
-            "hook": "Suno bhai, ye koi flashy gadget nahi, but sabse zaroori cheez hai! 🖱️ Wireless mouse, woh bhi itne saste mein?",
-            "pain": "Laptop ka trackpad use kar kar ke haath dukhte hain? Ya presentation banate waqt precision chahiye aur mouse budget se bahar hai?",
-            "fix": "Ye STRIFF wireless mouse tere saare assignments aur browsing ko super smooth bana dega. Ergonomic design, adjustable DPI, aur cable ka jhanjhat nahi. Hostel desk pe space bhi kam lega, aur kaam fatafat hoga. Pure student life ka best friend!",
-            "loot_reason": "Iski original price ₹1000 hai, abhi ₹249 mein mil raha hai. Ye toh seedha practical loot hai, soch mat!",
-            "category": "Electronics"
-        },
-        {
-            "name": "XERGY 10 Meter LED Strip Lights for Room Decoration, RGB Lighting Strip with Music Sync, Remote & App Control, USB Powered, Color Changing LED Lights for Bedroom, Living Room, Gaming Room",
-            "price": "₹449",
-            "mrp": "₹1999",
-            "discount_percent": "77%",
-            "rating": 4.2,
-            "link": "https://www.amazon.in/dp/B0CN6L8L4G?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71rQ1HnL0DL._SX300_SY300_QL70_FMwebp_.jpg",
-            "hook": "OMG! 10 meter RGB strip with Music Sync? 🤯 Is price pe toh koi soch bhi nahi sakta!",
-            "pain": "Roommates ke taane sun-sun ke thak gaya hai ki tera room 'shandaar' nahi? Ya party vibe chahiye without breaking the bank?",
-            "fix": "Ye 10 meter ki LED strip poore room ko club bana degi! Music ke saath sync hoti hai, remote aur app se control kar. ₹449 mein pura hostel room 'lit' kar dega! Jaldi le, warna koi aur le jayega!",
-            "loot_reason": "Bhai, ₹2000 waali cheez ₹449 mein? Ye toh sidha-sidha Amazon ki galti hai!",
-            "category": "Electronics"
-        },
-        {
-            "name": "XERGY Rechargable RGB Portable Small Mini LED Light Strip with Remote Control 30cm, Multi color Light for Decoration/Gaming Setup/TV Back Light/Cupboard (USB Plugged)",
-            "price": "₹199",
-            "mrp": "₹999",
-            "discount_percent": "80%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0CJ7V735X?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41T-M6f-gBL._SX300_SY300_QL70_FMwebp_.jpg",
-            "hook": "Bhai ye price glitch hai ya kya? 😱 RGB light strip, woh bhi sirf ₹199 mein!",
-            "pain": "Hostel room boring lag raha hai? Ya gaming setup ko next level le jaana hai but budget ka rona hai?",
-            "fix": "Ye XERGY mini RGB strip tere desk ya monitor ke peeche laga, remote se colors badal, aur dekh room ka vibe kaise instant change hota hai! Rechargeable hai, USB powered, matlab jahan chaho wahan use karo. Full paisa vasool deal!",
-            "loot_reason": "Normally ₹1000 ki aati hai, abhi ₹199 mein mil rahi hai. Jaldi grab kar, stock khatam ho jayega!",
-            "category": "Electronics"
         }
     ]
 }
