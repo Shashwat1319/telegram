@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Mini Portable USB Rechargeable Desk Fan with Adjustable Speed",
+            "price": "₹189",
+            "mrp": "₹649",
+            "discount_percent": "71%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0CDY55K9D?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61eU9+xYJQL._SL1500_.jpg",
+            "hook": "Garmi mein 'suffocate' ho rahe ho? Chhote-mote jugaad se kaam chalao, par quality wala! 🌬️",
+            "pain": "Hostel mein AC nahi hai aur ceiling fan tak hawa nahi pahunchti? Garmi mein padhai kaise karein yaar, pura focus bigad jata hai!",
+            "fix": "Ye mini portable USB rechargeable fan bhai, lifeline hai! Laptop se power do ya power bank se, jahan baitho thandi hawa lo. Chhota sa hai, carry karna easy, aur adjustable speed hai. Garmi se focus nahi bigdega, aur battery backup bhi mil jaata hai!",
+            "loot_reason": "Simple fans bhi ₹500-600 ke milte hain, ye rechargeable bhi hai aur abhi sirf ₹189 mein loot lo! Aisi deal phir nahi milegi.",
+            "category": "Computers"
+        },
+        {
+            "name": "USB Powered RGB LED Strip Lights with Remote - 5 Meters",
+            "price": "₹399",
+            "mrp": "₹1299",
+            "discount_percent": "69%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0BNB2P327?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61E5+Qz5sUL._SL1500_.jpg",
+            "hook": "Hostel ka vibe next level pe le jaana hai? 😎 Isse sasta nahi milega, guaranteed!",
+            "pain": "Wahi boring hostel room ya study area dekh ke mood off ho jaata hai? Thoda cool lighting chahiye tha for parties ya gaming setup?",
+            "fix": "Bhai, ye RGB LED strip lights lagao apne desk ya bed ke peeche, seedha USB se power do. Mood set ho jayega instantly! Remote se colors change karo, dim karo, effects choose karo. Hostel ki shaan badha do itne saste mein!",
+            "loot_reason": "Aise viral RGB strips normally ₹1200-1500 mein bikte hain, ye abhi sirf ₹399 mein mil rahe hain. Limited stock hai pakka, jaldi grab karo!",
+            "category": "Computers"
+        },
+        {
+            "name": "Portable Flexible USB LED Desk Lamp",
+            "price": "₹249",
+            "mrp": "₹799",
+            "discount_percent": "69%",
+            "rating": 4.2,
+            "link": "https://www.amazon.in/dp/B0B7H1N1M1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61Gj6-YwXTL._SL1500_.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 Raat bhar padhne walo, ye loot lo!",
+            "pain": "Late night study karni hai par roommates light off kar dete hain? Ya table pe proper focused light nahi hai?",
+            "fix": "Ye flexible USB LED lamp hai na, seedha laptop ya power bank se chalao! Dim light mein bhi aankhein nahi dukhengi aur roomies ko bhi disturb nahi hoga. Compact hai, carry karna easy. Aur itne kam mein! Lagta hai Amazon ne galti se daal diya hai!",
+            "loot_reason": "Aisa branded flexible lamp usually ₹700-800 ka milta hai, abhi sirf ₹249 mein hai! Stock khatam hone se pehle le lo!",
+            "category": "Computers"
+        },
+        {
             "name": "Flexible USB LED Reading Light Clip-On",
             "price": "₹199",
             "mrp": "₹999",
@@ -1357,48 +1399,6 @@
             "fix": "Ye Rambo RGB LED Strip light lagao, remote se mood badlo! 16 colors, dimmable, aur ₹299 mein?! Pura room LIT ho jayega, study ho ya chill scene. Plus, remote se control karna kitna easy hai!",
             "loot_reason": "Usually ₹1300 ka milta hai, abhi ₹299 mein, 76% off! Price mistake lag raha hai jaldi pakad lo!",
             "category": "Computers"
-        },
-        {
-            "name": "ZEBRONICS ZEB-KM200L Wired USB Gaming Keyboard with RGB LED, 104 Keys, Multimedia Keys and 2-Step Stand (Black)",
-            "price": "₹499",
-            "mrp": "₹999",
-            "discount_percent": "50%",
-            "rating": 4.0,
-            "link": "https://www.amazon.in/dp/B0BQ78D54G?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/51gM9x-w-hL._SL500_.jpg",
-            "hook": "Dekh bhai, agar thoda style bhi chahiye aur budget bhi tight hai toh ye sahi deal hai.",
-            "pain": "College project report likhna hai, online classes mein type karna hai, ya bas raat ko gaming ka mood hai par keyboard boring sa hai ya laptop keyboard uncomfortable lagta hai?",
-            "fix": "Ye Zebronics ka RGB keyboard ₹500 ke andar mil raha hai, matlab bhai, tere desk setup mein thoda swag aa jayega. Raat bhar assignments bhi kar lega aur gaming bhi. Comfortable typing aur RGB light ka maza, abhi is price par pakad le!",
-            "loot_reason": "Ek RGB gaming keyboard ₹1000 ki jagah sirf ₹499 mein, bilkul practical aur solid deal!",
-            "category": "Kitchen"
-        },
-        {
-            "name": "ZEBRONICS ZEB-CM500 Type-C to Type-A OTG Adapter, Supports Data Transfer and Charging (Black)",
-            "price": "₹99",
-            "mrp": "₹249",
-            "discount_percent": "60%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0BQ75R91N?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41-i225NlPL._SL500_.jpg",
-            "hook": "Seriously? Bas ₹99 mein ye hostel superpower?!",
-            "pain": "Project submit karna hai, pen drive mein files hain, par laptop ka charger nahi hai ya dost ke paas laptop nahi? Ya phone mein movie dekhni hai jo pen drive mein hai?",
-            "fix": "Ye chhota sa OTG adapter tere Type-C phone ko almost mini-laptop bana dega! Pen drive lagao, mouse lagao, keyboard lagao, sab chalega. ₹99 mein itna useful gadget? Soch, kya kuch nahi kar sakta tu isse! Exam notes seedha pen drive se phone mein!",
-            "loot_reason": "₹250 ka product abhi sirf ₹99 mein, ye to 'hidden gem' wali deal hai!",
-            "category": "Kitchen"
-        },
-        {
-            "name": "Portronics Konnect L1 3.5Amp Fast Charging 3-in-1 Charging Cable with Lightning, Type-C & Micro USB Compatible with iPhone, Android & Type-C Devices, (Grey)",
-            "price": "₹199",
-            "mrp": "₹699",
-            "discount_percent": "71%",
-            "rating": 4.0,
-            "link": "https://www.amazon.in/dp/B0B9M978K9?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41sWqY5k7KL._SL500_.jpg",
-            "hook": "Bhai ye price glitch hai ya kya? 😱 Triple charging cable 70%+ off mein!?",
-            "pain": "Hostel mein sabke paas alag phone, alag charger pin, aur hamesha charging cable gum ho jaati hai? Upar se kabhi dost ka iPhone charge karna ho toh alag rona!",
-            "fix": "Iss ek cable se teeno type ke phone charge kar! Lightning, Type-C, Micro USB, sab ek hi cable mein! Portronics ki quality hai, fast charging support bhi. ₹699 waali cheez ₹199 mein mil rahi hai, ab nahi liya toh kya kiya?",
-            "loot_reason": "Usually ₹700 ka milta hai, abhi ₹199 mein mil raha hai, seedha 70% se zyada off!",
-            "category": "Kitchen"
         }
     ]
 }
