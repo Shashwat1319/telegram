@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Flexible USB LED Reading Light Clip-On",
+            "price": "₹199",
+            "mrp": "₹999",
+            "discount_percent": "80%",
+            "rating": 4.5,
+            "link": "https://www.amazon.in/dp/B09V11D3XJ?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61N+zJ625AL._SL1500_.jpg",
+            "hook": "Whaat?! Itni sasti reading light? Hostel mein toh iski sabse zyada zaroorat hoti hai!",
+            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Ya table lamp ka bulb fuse ho gaya aur naya lagane ka time nahi?",
+            "fix": "Ye clip-on USB reading light le, book pe laga ya desk pe clamp kar. Power bank ya laptop se chal jayegi. Ab koi nahi bolega light band kar. ₹1000 ki cheez ₹199 mein mil rahi hai, seedha 80% off, aur kya chahiye?",
+            "loot_reason": "Normally ₹999 ka milta hai, abhi ₹199 mein loot le, 80% ka discount hai!",
+            "category": "Electronics"
+        },
+        {
+            "name": "Silent Portable USB Mini Desk Fan",
+            "price": "₹349",
+            "mrp": "₹1499",
+            "discount_percent": "77%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0C3922S3Q?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41081KQik2L.jpg",
+            "hook": "Garmi mein padhai mushkil lagti hai na? Ye solution pakad, kaam aayega.",
+            "pain": "Hostel mein AC toh milta nahi, aur ceiling fan ki hawa sab tak pahunchti nahi? Padhai mein focus nahi lagta garmi ki wajah se?",
+            "fix": "Chota sa USB fan hai, apne laptop/power bank se chala, sidhi hawa tere muh pe! Silent hai toh roommates ko bhi disturb nahi karega. ₹1500 wala fan ₹349 mein! Must-have hai summer mein.",
+            "loot_reason": "Ye item ₹1499 ka bikta hai, abhi ₹349 mein 77% ki seedhi bachhat!",
+            "category": "Electronics"
+        },
+        {
+            "name": "Smart USB RGB LED Strip Light with Remote",
+            "price": "₹299",
+            "mrp": "₹1299",
+            "discount_percent": "77%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0BP7P75B7?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41GJpjvpd9L.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 Hostel room ko disco bana dega!",
+            "pain": "Terrible hostel room vibes se bore ho gaya hai? Ya studies ke liye thoda mood light chahiye jo budget mein ho?",
+            "fix": "Ye USB RGB LED strip le, remote se color change kar. ₹1300 wali cheez abhi sirf ₹299 mein mil rahi hai. Apne desk setup ko next level bana, video calls mein bhi cool lagega!",
+            "loot_reason": "Usually ₹1299 ka milta hai, abhi ₹299 mein 77% off hai, jaldi loot!",
+            "category": "Electronics"
+        },
+        {
             "name": "Zebronics 3-Port Fast USB Wall Charger Adapter (3.4A)",
             "price": "₹349",
             "mrp": "₹1499",
@@ -1357,48 +1399,6 @@
             "fix": "Iss ek cable se teeno type ke phone charge kar! Lightning, Type-C, Micro USB, sab ek hi cable mein! Portronics ki quality hai, fast charging support bhi. ₹699 waali cheez ₹199 mein mil rahi hai, ab nahi liya toh kya kiya?",
             "loot_reason": "Usually ₹700 ka milta hai, abhi ₹199 mein mil raha hai, seedha 70% se zyada off!",
             "category": "Kitchen"
-        },
-        {
-            "name": "PowerUp 3-Port Fast USB Wall Charger Adapter",
-            "price": "₹249",
-            "mrp": "₹999",
-            "discount_percent": "75%",
-            "rating": 4.3,
-            "link": "https://www.amazon.in/dp/B0C39K7BHP?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61t+W91X-0L._SL1500_.jpg",
-            "hook": "Sunn, ye cheez to har student ke liye mandatory hai.",
-            "pain": "Hostel mein limited sockets hote hain, aur phone, earphone, power bank sab charge karna hota hai. Ek-ek karke lagao, time waste!",
-            "fix": "Ye 3-port charger laga aur ek saath teeno devices ko juice de. Fast charging support bhi hai, toh lecture ke break mein bhi kaam ho jaayega. Bilkul hassle-free life!",
-            "loot_reason": "Usually achhe quality ke chargers ₹800-900 ke aate hain, ye ₹249 mein hai, seedha order maar!",
-            "category": "Computers"
-        },
-        {
-            "name": "CoolBreeze Mini USB Desk Fan with LED Light",
-            "price": "₹179",
-            "mrp": "₹799",
-            "discount_percent": "77%",
-            "rating": 4.2,
-            "link": "https://www.amazon.in/dp/B0B1G8R1S5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61r-b3uH-fL._SL1500_.jpg",
-            "hook": "OMG, ye kya mil gaya? ₹179 mein mini fan + emergency light?!",
-            "pain": "Hostel mein garmi se neend nahi aati ya light chali gayi toh andhere mein haath paon maarte ho?",
-            "fix": "Ye chhota sa gadget garmi bhagaayega aur light jaane par roshni bhi dega. USB powered hai, laptop se bhi chal jaayega. Aur is price mein to bilkul chamatkar hai!",
-            "loot_reason": "Iska MRP ₹799 hai yaar, abhi ₹179 mein grab kar lo, aisa mauka fir nahi milega!",
-            "category": "Computers"
-        },
-        {
-            "name": "Gadgetron RGB LED Strip Light for Desk Setup",
-            "price": "₹299",
-            "mrp": "₹1299",
-            "discount_percent": "77%",
-            "rating": 4.5,
-            "link": "https://www.amazon.in/dp/B0CKD4N769?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71rB62Y7cSL._SL1500_.jpg",
-            "hook": "Bhai, ye deal nahi, to kya hai?! Apne study table ko next-level bana! 😱",
-            "pain": "Puri raat boring study karte-karte mood off ho jaata hai? Ya hostel room mein vibe nahi hai?",
-            "fix": "Ye RGB LED strip light lagao, aur dekho kaise tumhari study setup lit ho jaati hai! Mood light, party light, sab ek mein. Aur is price pe? Seedha wallet kholo!",
-            "loot_reason": "Normal ₹1299 ka milta hai, abhi ₹299 mein, bhai ye to prime day se bhi sasta hai!",
-            "category": "Computers"
         }
     ]
 }
