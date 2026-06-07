@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Self-Adhesive Silicone Cable Organizer Clips (Pack of 10)",
+            "price": "₹179",
+            "mrp": "₹799",
+            "discount_percent": "77%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0BNW17G5Y?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61b7fB6F07L._AC_SL1500_.jpg",
+            "hook": "Hostel desk pe saare wires uljhe rehte hain? Ye le, kaam ki cheez hai aur sasti bhi.",
+            "pain": "Charger cables, earphone wires... sab ek-doosre mein ghuse rehte hain? Phone gir jata hai wire kheenchne se?",
+            "fix": "Simple sa solution, saare cables ko neatly organize kar de. Desk, bed side, wall pe chipka de. Wires bhi safe, aur tera desk bhi clean. Padhne mein focus badhta hai aur time waste nahi hota. Is price mein toh investment hai yaar, hostel life easy bana!",
+            "loot_reason": "Ye high-quality silicone clips ka pack ₹800 ka hota hai, abhi ₹179 mein mil raha hai, sidha 77% ka fayda, must buy hai!",
+            "category": "Electronics"
+        },
+        {
+            "name": "Flexible USB LED Strip Light with Remote for Desk/Room Decor",
+            "price": "₹349",
+            "mrp": "₹1399",
+            "discount_percent": "75%",
+            "rating": 4.2,
+            "link": "https://www.amazon.in/dp/B0BDXW8Q9P?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41081KQik2L.jpg",
+            "hook": "Abe yaar! ₹349 mein remote wali RGB strip light? Kya ho raha hai Amazon pe? 🤯",
+            "pain": "Hostel room boring lagta hai? Vibe nahi aati? Ya fir raat ko padhte waqt mood light chahiye?",
+            "fix": "Ye flexible LED strip lights room ka poora vibe change kar dengi! Remote se colors change kar, brightness adjust kar. Study mood ho ya party, sab set hai. Is price pe toh lena banta hai, hostel ko cool bana!",
+            "loot_reason": "Aisi quality ki remote wali strip lights usually ₹1400 se kam nahi aati, abhi ₹349 mein mil rahi hai, 75% se zyada off, shocking deal hai!",
+            "category": "Electronics"
+        },
+        {
+            "name": "Portable USB Rechargeable Mini Fan with Stand for Hostel/Desk",
+            "price": "₹299",
+            "mrp": "₹1200",
+            "discount_percent": "75%",
+            "rating": 4.4,
+            "link": "https://www.amazon.in/dp/B08XJ3M9R7?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41GJpjvpd9L.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 Garmi mein hostel ka sabse bada hack!",
+            "pain": "Garmi mein padhai nahi ho paati? Hostel mein AC ki aadat hai par yahan toh bas fan chalta hai ya wo bhi nahi?",
+            "fix": "Ye chhota sa fan poori garmi ka ilaaj hai! USB rechargeable, compact, aur silent. Desk pe rakh, bed pe laga, jaha marzi le ja. Itna sasta ki soch bhi nahi sakte! Ab garmi se distraction nahi!",
+            "loot_reason": "Normally ₹1200 ka milta hai, abhi ₹299 mein mil raha hai, pura 75% off, loot lo jaldi!",
+            "category": "Electronics"
+        },
+        {
             "name": "ChillZone Portable Mini USB Desk Fan",
             "price": "₹199",
             "mrp": "₹899",
@@ -1356,48 +1398,6 @@
             "pain": "Raat bhar padhna hai, par roommates light off kar dete hain aur mood bhi nahi banta? Bas boring study room lagta hai?",
             "fix": "Ye USB RGB strip light laga! Apne desk pe ya bed ke peeche laga, mood light on kar, aur padhai ko next level pe le ja. Remote se color change kar, brightness adjust kar. Kya feel aayegi, bro! Aur sirf ₹299 mein, ye to steal hai!",
             "loot_reason": "Usually ₹1000 ka milta hai, abhi ₹299 mein mil raha hai, jaldi loot lo!",
-            "category": "Electronics"
-        },
-        {
-            "name": "USB Rechargeable LED Study Lamp with Pen Holder",
-            "price": "₹349",
-            "mrp": "₹1499",
-            "discount_percent": "77%",
-            "rating": 4.5,
-            "link": "https://www.amazon.in/dp/B0B5Z8Z6M7?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61NlUoQ-NQL._SL1500_.jpg",
-            "hook": "Dekh bhai, bina light ke padhai nahi hoti. Ye kaam ki cheez hai, aur abhi mast price pe hai.",
-            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Ya table pe pen aur highlighters scattered rehte hain?",
-            "fix": "Ye rechargeable study lamp tere liye best hai. Apna focus light rahegi, aur pen holder se table bhi organized. ₹1500 ki light sirf ₹349 mein mil rahi hai, matlab practically free! Must-have hai hostel life ke liye.",
-            "loot_reason": "Iski original price ₹1499 hai, abhi ₹349 mein mil rahi hai, seedha 77% ka fayda, bilkul miss mat karna!",
-            "category": "Computers"
-        },
-        {
-            "name": "Mi \"Night Owl\" Flexible USB LED Reading Light",
-            "price": "₹199",
-            "mrp": "₹799",
-            "discount_percent": "75%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0CCYYYYYY?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41GljVEEkxL.jpg",
-            "hook": "Raat bhar padhne walon, tumhare liye secret weapon!",
-            "pain": "Roommates ki light off karne ki demand ya phir khud ki aankhon pe strain pad raha hai raat bhar padhte hue? Har baar phone ki torch use karni padti hai?",
-            "fix": "Ye flexible USB light mast hai! Laptop, power bank, ya kisi bhi USB adapter mein laga do, aur apni book pe hi focus karo. Roommates ko disturb nahi hoga aur tumhari aankhen bhi safe rahengi. ₹199 mein bilkul worth it deal hai, ekdum practical!",
-            "loot_reason": "Is quality ki light normally ₹799+ ki milti hai, abhi ₹199 mein mil rahi hai, ekdum genuine deal. Price drop hai!",
-            "category": "Electronics"
-        },
-        {
-            "name": "Portronics \"Cool Breeze\" Portable Mini USB Desk Fan",
-            "price": "₹249",
-            "mrp": "₹999",
-            "discount_percent": "75%",
-            "rating": 4.3,
-            "link": "https://www.amazon.in/dp/B0BVXXXXXX?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41GJpjvpd9L.jpg",
-            "hook": "Bhai garmi se fat rahi hai? Ye loot dekh! 😱",
-            "pain": "Hostel mein AC nahi hai aur table fan chalao toh bill alag se? Raat bhar padhte hue paseena chhut raha hai?",
-            "fix": "Chhote se USB fan se apni study desk pe private AC zone bana! Laptop se power de, power bank se bhi chalta hai, compact hai, aur hawa itni tez ki papers ud jaayein. Abhi sirf ₹249 mein mil raha hai, jaldi le!",
-            "loot_reason": "Usually ₹999 ka milta hai, ye ₹249 ka price glitch lag raha hai! 75% off, miss mat karna.",
             "category": "Electronics"
         }
     ]
