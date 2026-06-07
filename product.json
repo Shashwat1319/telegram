@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "ChillZone Portable Mini USB Desk Fan",
+            "price": "₹199",
+            "mrp": "₹899",
+            "discount_percent": "78%",
+            "rating": 4.2,
+            "link": "https://www.amazon.in/dp/B0B55K3W2D?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/611Yl+2LzFL._SL1500_.jpg",
+            "hook": "Garmi mein hawa chahiye? Ye mini fan kaam ka hai, aur price bhi decent hai.",
+            "pain": "Hostel mein AC nahi hai, aur ceiling fan ki hawa tum tak pahunchti nahi? Padhai ke time pasina aa raha hai?",
+            "fix": "Ye chhota sa USB fan seedha laptop ya power bank se chal jaata hai. Apne desk pe rakho, aur direct hawa lo. Chhote room ya desk ke liye perfect hai, aur abhi itna sasta mil raha hai, le lo.",
+            "loot_reason": "Normaly aise fans ₹600-700 ke milte hain, abhi ₹199 mein, for students who want a simple solution.",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Hostel Hub 3-in-1 Fast Charging Cable (Type-C, Micro USB, Lightning)",
+            "price": "₹149",
+            "mrp": "₹799",
+            "discount_percent": "81%",
+            "rating": 4.1,
+            "link": "https://www.amazon.in/dp/B0BPYV9F5D?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61-R-rC03XL._SL1500_.jpg",
+            "hook": "Arre baap re! Ye 3-in-1 cable itna sasta? Meri aankhon ko yakeen nahi ho raha!",
+            "pain": "Kitne cables carry karoge bhai? Phone, power bank, earphone, sab ke alag-alag? Aur charging point ek hi hota hai hostel mein!",
+            "fix": "Ek cable mein Type-C, Micro USB, aur iPhone charger! Teen devices ek saath charge karo ya ek cable se sabka kaam chalao. Aur quality bhi tagdi hai. Hostel ki life save kar dega!",
+            "loot_reason": "Market mein ek single cable ₹300 ka milta hai, ye toh teen devices wala ₹149 mein mil raha hai! Ye toh scam hai bhai!",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Study Buddy Mini Rechargeable LED Desk Lamp",
+            "price": "₹299",
+            "mrp": "₹1299",
+            "discount_percent": "77%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0B1H4T61L?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61S3yB3C4FL._SL1500_.jpg",
+            "hook": "Bhai, ye price glitch hai ya kya? 😱 Raat bhar padhne walo, tumhara hero aa gaya hai!",
+            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Ya library mein dim light hai aur aankhon pe zor padh raha hai?",
+            "fix": "Ye compact, rechargeable LED lamp tumhara personal sun hai! Teen brightness levels, flexible neck. Ab koi disturbance nahi! Aur price dekh, aise deals toh Diwali pe bhi nahi milte!",
+            "loot_reason": "Usually ₹1200+ ka milta hai, abhi sirf ₹299 mein, poora 77% off! Loot lo jaldi!",
+            "category": "Kitchen"
+        },
+        {
             "name": "Mini Portable USB Rechargeable Desk Fan with Adjustable Speed",
             "price": "₹189",
             "mrp": "₹649",
@@ -1357,48 +1399,6 @@
             "fix": "Chhote se USB fan se apni study desk pe private AC zone bana! Laptop se power de, power bank se bhi chalta hai, compact hai, aur hawa itni tez ki papers ud jaayein. Abhi sirf ₹249 mein mil raha hai, jaldi le!",
             "loot_reason": "Usually ₹999 ka milta hai, ye ₹249 ka price glitch lag raha hai! 75% off, miss mat karna.",
             "category": "Electronics"
-        },
-        {
-            "name": "Hostel Boss Foldable Study Table/Laptop Stand",
-            "price": "₹399",
-            "mrp": "₹1499",
-            "discount_percent": "73%",
-            "rating": 4.0,
-            "link": "https://www.amazon.in/dp/B0BZR4DGPX?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61S-r5iJmYL._SX679_.jpg",
-            "hook": "Dekh bhai, ye basic hai par iske bina hostel life adhoori hai.",
-            "pain": "Bed pe tedha-medha baith ke padhai karte ho ya laptop chalaate ho, kamar toot jaati hai na?",
-            "fix": "Ye Hostel Boss foldable table pakad. Aram se bed pe baith ke padho, laptop rakho ya khaana khao. Fold ho jata hai toh space bhi nahi leta. Simple, practical aur game-changer hai for comfort!",
-            "loot_reason": "Aise tables usually ₹1500 tak jaate hain, abhi ₹399 mein, 73% off! Zaroori cheez hai, best price pe lele.",
-            "category": "Computers"
-        },
-        {
-            "name": "Pocket Rocket Rechargeable Mini Fan with LED",
-            "price": "₹249",
-            "mrp": "₹899",
-            "discount_percent": "72%",
-            "rating": 4.5,
-            "link": "https://www.amazon.in/dp/B0C39C4W25?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/41lJ8x1yeIL.jpg",
-            "hook": "OMG, ye deal toh seedha jholi mein daal! 🤩 Hostel ke garmi aur andhere ka permanent solution!",
-            "pain": "Raat bhar padhna hai par roommates light off kar dete hain aur garmi se neend nahi aati?",
-            "fix": "Ye Pocket Rocket mini fan lele, rechargeable hai, toh light jaane ka tension nahi. Saath mein LED light bhi hai padhne ke liye! Compact hai, bag mein fit ho jayega aur charging pe bhi chalta hai. Kya mast combo hai bhai!",
-            "loot_reason": "Ye multi-utility gadget ₹900 ka hota hai, abhi bas ₹249 mein mil raha hai, 72% discount! Fatafat grab kar!",
-            "category": "Computers"
-        },
-        {
-            "name": "Rambo RGB LED Strip Light with Remote",
-            "price": "₹299",
-            "mrp": "₹1299",
-            "discount_percent": "76%",
-            "rating": 4.3,
-            "link": "https://www.amazon.in/dp/B0BNW68L7Q?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/31x6TKRWgUL.jpg",
-            "hook": "Bhai ye price glitch hai ya kya? 😱 hostel room ko mast party zone bana dega!",
-            "pain": "Terrible hostel room vibes? Ya fir boring study setup se mood off ho jata hai?",
-            "fix": "Ye Rambo RGB LED Strip light lagao, remote se mood badlo! 16 colors, dimmable, aur ₹299 mein?! Pura room LIT ho jayega, study ho ya chill scene. Plus, remote se control karna kitna easy hai!",
-            "loot_reason": "Usually ₹1300 ka milta hai, abhi ₹299 mein, 76% off! Price mistake lag raha hai jaldi pakad lo!",
-            "category": "Computers"
         }
     ]
 }
