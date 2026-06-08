@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Portronics Toad 27 Wireless Optical Mouse with 2.4GHz Connectivity, 1200 DPI, USB Receiver, Ergonomic Design, Upto 6 Months Battery Life, Plug and Play, for PC, Mac, Laptop (Black)",
+            "price": "₹249",
+            "mrp": "₹699",
+            "discount_percent": "64%",
+            "rating": 4.0,
+            "link": "https://www.amazon.in/dp/B09S9ZJ1G1?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61b7l4Wz7GL._SL1500_.jpg",
+            "hook": "Bhai, trackpad chhod, life easy bana! Wireless mouse bas ₹249 mein!",
+            "pain": "Laptop ka trackpad kitna irritate karta hai, especially jab assignments ya presentations bana rahe ho? Mouse ke bina lagta hai kuch missing hai?",
+            "fix": "Iss Portronics wireless mouse se apni problem solve kar. Ergonomic design hai, haath nahi dukhenge, aur 6 mahine tak battery chal jaati hai. ₹249 mein, ye ek must-have upgrade hai jo tere kaam ko fast aur smooth bana dega. Aur look bhi achha hai!",
+            "loot_reason": "₹700 waala mouse abhi ₹249 mein mil raha hai, 64% off – itni sasti deal baar-baar nahi aati.",
+            "category": "Computers"
+        },
+        {
+            "name": "ZEBRONICS Zeb-Companion 107 Wireless Keyboard and Mouse Combo, Plug and Play, USB Nano Receiver, Rupee Key, Compact Design, 10M Wireless Range",
+            "price": "₹499",
+            "mrp": "₹1599",
+            "discount_percent": "68%",
+            "rating": 4.0,
+            "link": "https://www.amazon.in/dp/B0BJL9LGBW?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/4129V8t6--L.jpg",
+            "hook": "Pura wireless keyboard-mouse combo ₹500 ke andar? Ye deal chhodna paap hai!",
+            "pain": "Laptop ka chhota keyboard ya trackpad pe kaam kar-kar ke haath dukh gaye? Project banate huye speed slow ho jaati hai?",
+            "fix": "Apne laptop ko workstation bana de bhai! Ye Zebronics ka wireless combo ₹499 mein mil raha hai. Plug and play hai, typing speed badhegi, mouse se precision milegi. Hostel mein space kam hai toh compact design perfect hai. Productivity level up ho jayega!",
+            "loot_reason": "Normally aise combos ₹1200-₹1500 ke milte hain, but abhi Zebronics ka ye set ₹499 mein 69% off par hai.",
+            "category": "Computers"
+        },
+        {
+            "name": "STRIFF Multi-Angle Adjustable Mobile Phone Holder Stand for Desk, Foldable Portable Tablet Stand Cradle, Compatible with All Mobile Phones (Black)",
+            "price": "₹149",
+            "mrp": "₹999",
+            "discount_percent": "85%",
+            "rating": 4.0,
+            "link": "https://www.amazon.in/dp/B09V7N6S4W?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71Yx6+eN0GL._SL1500_.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 ₹1000 ki cheez ₹149 mein? Jaldi loot lo!",
+            "pain": "Online class mein phone haath mein pakad ke dukh gaye ya movie dekhte waqt गर्दन दुखने लगी? Table pe book ke sahare tikana padta hai?",
+            "fix": "Ab nahi! Ye multi-angle phone stand le le. Adjustable hai, foldable hai, pocket mein aa jayega. Online lectures, video calls, Netflix binge – sab hands-free! Aur ₹149 mein, ye to bas daan hai Amazon ka!",
+            "loot_reason": "₹999 ka product abhi only ₹149 mein mil raha hai, seedha 85% off! Aisi deal phir kabhi nahi milegi.",
+            "category": "Computers"
+        },
+        {
             "name": "4-in-1 Multi-Port USB Hub with Cable Organizer",
             "price": "₹299",
             "mrp": "₹1500",
@@ -1356,48 +1398,6 @@
             "pain": "Bed pe baith ke padhne mein back pain hota hai, desk pe space nahi hai, ya fir chai-coffee girne ka darr? Comfort se padhai hoti hi nahi!",
             "fix": "Ye foldable table le le. Bed pe, floor pe, kahin bhi use kar. Laptop rakh, kitaabein rakh, breakfast kar le. Space bhi nahi lega jab fold karega. Aur itne discount mein, investment nahi, life hack hai! Padhai mein focus badhega!",
             "loot_reason": "Aisi tables ₹1000 se upar hi milti hain, ₹449 mein mil rahi hai, practicality ke liye best deal hai!",
-            "category": "Electronics"
-        },
-        {
-            "name": "Portronics Adapto 4-Port Fast Charger (3.4A, Universal)",
-            "price": "₹349",
-            "mrp": "₹1499",
-            "discount_percent": "76%",
-            "rating": 4.1,
-            "link": "https://www.amazon.in/dp/B0BLGG8D3L?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61M6E5q56LL._AC_SL1500_.jpg",
-            "hook": "Arre baap re! ₹1500 wala charger ₹349 mein?! Ye toh scam hai, matlab legit loot! 🤯",
-            "pain": "Hostel mein ek hi socket milta hai aur phone, laptop, power bank, smartwatch sab charge karna hai? Roommates bhi line lagaye rehte hain!",
-            "fix": "Ye le bhai, 4-in-1 fast charger! Ek hi socket se chaar devices charge kar, aur woh bhi fast. Ab na jhagda na charging ka wait. Power sockets ki tension khatam. Iss price mein toh blind buy hai!",
-            "loot_reason": "Normally iske liye ₹1200-₹1500 dene padte hain, aaj ₹349 mein mil raha hai, kal tak stock khatam ho jayega!",
-            "category": "Electronics"
-        },
-        {
-            "name": "Mi RGB LED Strip Light with USB (5 Meter)",
-            "price": "₹199",
-            "mrp": "₹899",
-            "discount_percent": "77%",
-            "rating": 4.3,
-            "link": "https://www.amazon.in/dp/B0BP3W44J1?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/610tq+P-h+L._AC_SL1500_.jpg",
-            "hook": "Bhai ye price glitch hai ya kya? 😱 Meri hostel wali life ko next level bana dega!",
-            "pain": "Pura din lecture mein bore hote ho, raat ko room mein bhi wahi dull light? Mood hi nahi banta na padhne ka ya chill karne ka!",
-            "fix": "Ye RGB strip light laga! USB se power do, remote se colors badlo. Kabhi party vibe, kabhi chill study mode. Hostel room ko ekdum LIT bana de! Aur sirf ₹199 mein? Bhai, soch mat, grab kar!",
-            "loot_reason": "Same cheez bahar ₹800-₹900 ki milti hai, abhi ₹199 mein loot lo, it's a steal!",
-            "category": "Electronics"
-        },
-        {
-            "name": "Waterproof Travel Gadget Organizer Pouch for Cables, Chargers & Power Bank",
-            "price": "₹249",
-            "mrp": "₹899",
-            "discount_percent": "72%",
-            "rating": "4.5",
-            "link": "https://www.amazon.in/dp/B0B69K25L5?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71v1d49V17L._SL1500_.jpg",
-            "hook": "Sach bolun, ye cheez har student ke paas honi chahiye, especially hostel waalon ke! Absolutely essential.",
-            "pain": "Saare chargers, cables, power banks idhar-udhar bikhre rehte hain? Dosto ke cables mix ho jaate hain aur time pe milte hi nahi? Ya travel karte time sab ulajh jaata hai?",
-            "fix": "Ye waterproof gadget organizer pouch! Saare tech essentials ek jagah rakh, neatly packed. Phone charger, laptop charger, power bank, pen drive... sabki apni jagah. Travel mein bhi mast, hostel mein bhi shanti. Aur itne kam mein to bas le lo aur tension free ho jao.",
-            "loot_reason": "Normally ₹900 ka milta hai, abhi ₹249 mein mil raha hai, paisa vasool deal!",
             "category": "Electronics"
         }
     ]
