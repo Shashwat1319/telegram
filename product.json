@@ -1,6 +1,34 @@
 {
     "products": [
         {
+            "name": "4-in-1 Multi-Port USB Hub with Cable Organizer",
+            "price": "₹299",
+            "mrp": "₹1500",
+            "discount_percent": "80%",
+            "rating": 4.3,
+            "link": "https://www.amazon.in/dp/B0BQJ54C6X?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/71YyM9lSj2L._SL1500_.jpg",
+            "hook": "Hostel life ka ultimate hack! Sirf ₹299 mein, saare gadgets ko ek jagah set kar.",
+            "pain": "Laptop pe USB ports kam pad jaate hain? Phone charge karna hai, earbuds bhi lagane hain, aur mouse ka dongle bhi? Cables ka jaal dekh ke stress hota hai?",
+            "fix": "Ye 4-in-1 USB hub cum cable organizer tumhari saari tension door kar dega. Ek saath 4 devices connect karo aur cables bhi neatly manage kar lo. Padhai ke time clutter free desk, kya hi chahiye!",
+            "loot_reason": "Ye multi-functional hubs aksar ₹1000-1500 tak jaate hain, abhi ₹299 mein 'must-have' deal hai, jaldi pakad!",
+            "category": "Computers"
+        },
+        {
+            "name": "Flexible USB LED Study Lamp",
+            "price": "₹149",
+            "mrp": "₹750",
+            "discount_percent": "80%",
+            "rating": 4.2,
+            "link": "https://www.amazon.in/dp/B0B6V1F1F8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/41owF7N6FqL.jpg",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 Raat bhar padhne walo, ye to le lo!",
+            "pain": "Hostel mein sab jaldi so jaate hain aur tumko project complete karna hai? Ya fir bed pe let ke bina kisi ko disturb kiye padhna hai?",
+            "fix": "Ye flexible USB LED light, seedha laptop ya power bank mein laga do! Jitni marzi bend karo, sirf tumhare area mein light degi. Itne kam mein, aisa deal kahaan milega!",
+            "loot_reason": "Aise flexible lamps normally ₹700-800 ke aate hain, abhi ₹149 mein mil raha hai! Ye to instant grab hai.",
+            "category": "Computers"
+        },
+        {
             "name": "Self-Adhesive Silicone Cable Organizer Clips (Pack of 10)",
             "price": "₹179",
             "mrp": "₹799",
@@ -1370,34 +1398,6 @@
             "pain": "Saare chargers, cables, power banks idhar-udhar bikhre rehte hain? Dosto ke cables mix ho jaate hain aur time pe milte hi nahi? Ya travel karte time sab ulajh jaata hai?",
             "fix": "Ye waterproof gadget organizer pouch! Saare tech essentials ek jagah rakh, neatly packed. Phone charger, laptop charger, power bank, pen drive... sabki apni jagah. Travel mein bhi mast, hostel mein bhi shanti. Aur itne kam mein to bas le lo aur tension free ho jao.",
             "loot_reason": "Normally ₹900 ka milta hai, abhi ₹249 mein mil raha hai, paisa vasool deal!",
-            "category": "Electronics"
-        },
-        {
-            "name": "Mini Portable Rechargeable Neck Fan, Hands-Free Personal Fan",
-            "price": "₹399",
-            "mrp": "₹1499",
-            "discount_percent": "73%",
-            "rating": "4.1",
-            "link": "https://www.amazon.in/dp/B0C3FG9R7L?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/61NlP-uL4dL._SL1500_.jpg",
-            "hook": "OMG, ye deal pakadna zaroori hai! Garmi ka tod, hostel mein life saver! 🤯",
-            "pain": "Hostel mein AC nahi hai, pankha bhi upar aur seedha hawa nahi lagti? Padhai karte time paseene chut rahe hain aur focus nahi ban raha?",
-            "fix": "Ye mini portable neck fan! Kaan pe laga aur hawa kha. Rechargeable hai, lightweight hai aur hands-free! Classes mein le ja ya library mein, koi tension nahi! Ab garmi se pareshan nahi hona padega. Is price mein milna to चमत्कार hai!",
-            "loot_reason": "Aise fans ₹1500 tak jaate hain, abhi ₹399 mein, bhai ye toh fatafat le le!",
-            "category": "Electronics"
-        },
-        {
-            "name": "RGB USB LED Strip Light with Remote for Desk & TV",
-            "price": "₹299",
-            "mrp": "₹999",
-            "discount_percent": "70%",
-            "rating": "4.3",
-            "link": "https://www.amazon.in/dp/B0B6L5Q9R7?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71R2o58vCFL._SL1500_.jpg",
-            "hook": "Bhai, ye price glitch hai ya kya? 😱 Hostel room ko club bana dega!",
-            "pain": "Raat bhar padhna hai, par roommates light off kar dete hain aur mood bhi nahi banta? Bas boring study room lagta hai?",
-            "fix": "Ye USB RGB strip light laga! Apne desk pe ya bed ke peeche laga, mood light on kar, aur padhai ko next level pe le ja. Remote se color change kar, brightness adjust kar. Kya feel aayegi, bro! Aur sirf ₹299 mein, ye to steal hai!",
-            "loot_reason": "Usually ₹1000 ka milta hai, abhi ₹299 mein mil raha hai, jaldi loot lo!",
             "category": "Electronics"
         }
     ]
