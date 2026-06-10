@@ -61,30 +61,20 @@ export default async (request, context) => {
   if (asinMatch) {
     const asin = asinMatch[1].toUpperCase();
     finalAmazonUrl = `https://www.${domain}/dp/${asin}?tag=${myTag}`;
-  } else if (finalUrl.includes("amazon.") || finalUrl.includes("amzn.")) {
+  } else if (finalUrl.includes("amzn.in") || finalUrl.includes("amzn.to")) {
+    // Do not append query parameters to Amazon shortlinks, it breaks them
+    finalAmazonUrl = finalUrl;
+  } else if (finalUrl.includes("amazon.")) {
     const sep = finalUrl.includes("?") ? "&" : "?";
     finalAmazonUrl = finalUrl.includes("tag=") ? finalUrl : `${finalUrl}${sep}tag=${myTag}`;
   } else {
-    // Fallback: drop affiliate cookie on Today's Deals page
-    finalAmazonUrl = `https://www.${domain}/gp/goldbox?tag=${myTag}`;
+    // Fallback: drop affiliate cookie on Deals page (goldbox is deprecated)
+    finalAmazonUrl = `https://www.${domain}/deals?tag=${myTag}`;
   }
 
-  // --- 4.5. Prevent Amazon "Page Not Found" (404) ---
-  if (finalAmazonUrl.includes("/dp/")) {
-    try {
-      const amzRes = await fetch(finalAmazonUrl, {
-        headers: {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-        }
-      });
-      if (amzRes.status === 404) {
-        // Product is dead/removed, redirect to Today's Deals
-        finalAmazonUrl = `https://www.${domain}/gp/goldbox?tag=${myTag}`;
-      }
-    } catch (e) {
-      // Ignore fetch errors, let the redirect happen anyway
-    }
-  }
+  // Note: Server-side fetching from Netlify to check for 404s is removed.
+  // Amazon's WAF often returns 404/503 for datacenter IPs, which incorrectly 
+  // triggered the fallback redirect and sent users to a broken page.
 
   // --- 5. Always fast-redirect (no interstitial) ---
   // Interstitial/bridge pages commonly reduce conversions in Telegram → Amazon flows.
