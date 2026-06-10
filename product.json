@@ -1,6 +1,20 @@
 {
     "products": [
         {
+            "name": "Portable Mini USB Fan with Stand",
+            "price": "₹249",
+            "mrp": "₹999",
+            "discount_percent": "75%",
+            "rating": 4.4,
+            "link": "https://www.amazon.in/dp/B0B5D982N8?tag=shashwat022-21",
+            "image": "https://m.media-amazon.com/images/I/61N+p8M8S5L._SL1500_.jpg",
+            "hook": "Garmi se pareshan ho ya bas ek chhota, useful gadget chahiye? Ye le lo, kaam aayega!",
+            "pain": "Hostel mein garmi se padhai nahi ho paati? Ceiling fan ki hawa tum tak pahunchti nahi ya AC nahi hai?",
+            "fix": "Ye compact mini USB fan tumhari study desk ya bed ke paas rakhne ke liye perfect hai. Laptop ya power bank se chal jayega, aur chhoti si jagah mein bhi thandi hawa dega. ₹249 mein, ye ek practical investment hai.",
+            "loot_reason": "Bahar market mein log iske ₹1000 tak lete hain, online ₹249 mein mil raha hai, bas lelo aur chill karo!",
+            "category": "Computers"
+        },
+        {
             "name": "Portronics Toad 27 Wireless Optical Mouse with 2.4GHz Connectivity, 1200 DPI, USB Receiver, Ergonomic Design, Upto 6 Months Battery Life, Plug and Play, for PC, Mac, Laptop (Black)",
             "price": "₹249",
             "mrp": "₹699",
@@ -1385,20 +1399,6 @@
             "fix": "Ye rechargeable clip light कहीं भी लगा लो, अपनी स्टडी ज़ोन बनाओ! Aankhon ko bhi stress nahi hota. Plus, battery backup mast hai, poori raat nikaal degi. Itni sasti mein to milta hi nahi bhai!",
             "loot_reason": "Normally ₹1000 ki aati hai, abhi sirf ₹199 mein mil rahi hai, seedha 80% off!",
             "category": "Computers"
-        },
-        {
-            "name": "Callas Multipurpose Foldable Laptop Table/Study Desk",
-            "price": "₹449",
-            "mrp": "₹1699",
-            "discount_percent": "73%",
-            "rating": 4.5,
-            "link": "https://www.amazon.in/dp/B08V32P84V?tag=shashwat022-21",
-            "image": "https://m.media-amazon.com/images/I/71o30T25bKL._AC_SL1500_.jpg",
-            "hook": "Dekh bhai, ye wali cheez sach mein kaam aati hai hostel mein. Trust me, it's a lifesaver! 👍",
-            "pain": "Bed pe baith ke padhne mein back pain hota hai, desk pe space nahi hai, ya fir chai-coffee girne ka darr? Comfort se padhai hoti hi nahi!",
-            "fix": "Ye foldable table le le. Bed pe, floor pe, kahin bhi use kar. Laptop rakh, kitaabein rakh, breakfast kar le. Space bhi nahi lega jab fold karega. Aur itne discount mein, investment nahi, life hack hai! Padhai mein focus badhega!",
-            "loot_reason": "Aisi tables ₹1000 se upar hi milti hain, ₹449 mein mil rahi hai, practicality ke liye best deal hai!",
-            "category": "Electronics"
         }
     ]
 }
