@@ -54,8 +54,13 @@ export default async (request, context) => {
     } catch (err) {}
   }
 
-  // --- 4. Build Clean Affiliate URL ---
-  const myTag = "shashwat022-21";
+  // Direct redirect for already‑clean Amazon URLs (including affiliate tag)
+  if (finalUrl.startsWith('https://www.amazon.')) {
+    return new Response(null, {
+      status: 302,
+      headers: { "Location": finalUrl }
+    });
+  }
   const domain = finalUrl.includes("amazon.com") ? "amazon.com" : "amazon.in";
 
   const asinMatch = finalUrl.match(/(?:dp|gp\/product|asin|d|product)\/([A-Z0-9]{10})/i);
