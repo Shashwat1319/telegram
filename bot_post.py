@@ -271,6 +271,9 @@ def get_short_url(target_url):
     """Call the Netlify tracker to get a shortened, obfuscated link."""
     if not CLICK_TRACKER_URL:
         return target_url
+    
+    if "amazon." in target_url:
+        return target_url
         
     try:
         # Check cache first
