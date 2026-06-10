@@ -29,9 +29,12 @@ export default async (request, context) => {
   }
 
   if (!finalUrl) {
-    return new Response(null, {
-      status: 302,
-      headers: { "Location": "https://t.me/budgetdeals_india" }
+    // Load custom error page with affiliate links
+    const errorPath = path.resolve(__dirname, '..', 'error_page.html');
+    const errorHtml = fs.readFileSync(errorPath, 'utf8');
+    return new Response(errorHtml, {
+      status: 200,
+      headers: { "Content-Type": "text/html" }
     });
   }
 
