@@ -210,7 +210,7 @@ async def main():
                 print(f"[FOUND] {p.get('name')} | Price: {p.get('price')}")
                 
                 # Post live
-                await post_to_telegram(p)
+                # await post_to_telegram(p)
                 await asyncio.sleep(15) # Safety gap
     
     # Save/Merge to product.json for bot_post.py to use as well
