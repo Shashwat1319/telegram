@@ -54,7 +54,7 @@ def preprocess_html(html_content):
         soup = BeautifulSoup(html_content, 'html.parser')
         wrappers = soup.select('div[id^="gridItemRoot"]') or soup.select('.p13n-sc-uncentered-wrapper') or soup.select('.a-list-item') or soup.select('.s-result-item')
         
-        extracted_text = ""
+        extracted_products = []
         for i, wrap in enumerate(wrappers[:15]):
             name = wrap.select_one('.p13n-sc-truncate, .a-size-base-plus, h2, ._cDEzb_p13n-sc-css-line-clamp-3_g3dy1')
             price = wrap.select_one('.a-price-whole, .p13n-sc-price, ._cDEzb_p13n-sc-price_3mJ9Z')
@@ -94,11 +94,17 @@ def preprocess_html(html_content):
             p_link = link['href'] if link and 'href' in link.attrs else "#"
             p_rating = rating_element.get_text(strip=True) if rating_element else "Not specified"
             
-            item_summary = f"ITEM {i+1}: {p_name} | PRICE: {p_price} | MRP: {p_mrp} | RATING: {p_rating} | IMAGE: {p_image} | LINK: {p_link}\n"
-            extracted_text += item_summary
+            extracted_products.append({
+                "name": p_name,
+                "price": p_price,
+                "mrp": p_mrp,
+                "rating": p_rating,
+                "image": p_image,
+                "link": p_link
+            })
             
-        print(f"Preprocessed into structured text. Length: {len(extracted_text)}")
-        return extracted_text
+        print(f"Preprocessed into structured JSON. Count: {len(extracted_products)}")
+        return json.dumps(extracted_products, ensure_ascii=False)
     except Exception as e:
         print(f"Preprocessing error: {e}")
         return ""
@@ -114,22 +120,23 @@ def extract_products_with_ai(html_text, retry_count=0):
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={GEMINI_API_KEY}"
     
     prompt = f"""
-    Below is a list of Amazon products. Your mission is to find the absolute BEST deals for our specific niche: "Student productivity tools & Hostel life hacks under ₹500".
+    Below is a JSON array of Amazon products. Your mission is to find the absolute BEST deals for our specific niche: "Student productivity tools & Hostel life hacks under ₹500".
     
     Pick the TOP 3 products that are currently VIRAL or highly useful for students (e.g., RGB desk gadgets, hidden hostel hacks, budget tech, study organization).
     
-    Return ONLY a valid JSON array of objects with keys: "name", "price", "mrp", "discount_percent", "rating", "link", "image", "hook", "pain", "fix", "loot_reason".
+    Return ONLY a valid JSON array of objects.
     
     CRITICAL RULES:
     1. BUYING MINDSET & URGENCY: Select products that look like a 'mistake price' or 'limited time loot' (e.g. 70%+ off).
     2. RATING: ONLY pick products with 4.0+ stars. Skip everything else.
     3. PRICE RANGE: ₹99 to ₹499 (Impulse zone).
-    4. CONTENT FORMAT: Use aggressive Hinglish. Sound like a hostel senior sharing a secret.
+    4. STRICT DATA PRESERVATION: DO NOT change the "name", "price", "mrp", "rating", "image", or "link" fields. Copy them EXACTLY as they appear in the input JSON.
+    5. Add these new fields to each selected product:
+       - "discount_percent": String (e.g. "75%")
        - "hook": Catchy, FOMO-driven (e.g., "Bhai ye price glitch hai ya kya? 😱")
        - "pain": Relatable student struggle (e.g., "Raat bhar padhna hai par roommates light off kar dete hain?")
        - "fix": How this solves it + why it's a steal.
        - "loot_reason": One sentence on why this is the lowest price (e.g., "Usually ₹800 ka milta hai, abhi ₹249 hai!").
-    5. IMAGE: Ensure it's a high-quality main image URL.
     6. TONE VARIETY: 1 Excited, 1 Shocked, 1 Honest/Practical.
     
     DATA:
