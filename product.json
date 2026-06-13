@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Self-Adhesive Cable Organizer Clips, Desktop Wire Holder, Pack of 10",
+            "price": "₹149",
+            "mrp": "₹500",
+            "rating": "4.3 out of 5 stars",
+            "image": "https://m.media-amazon.com/images/I/61r5fM9cK-L._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B09VPH7K1X?tag=shashwat022-21",
+            "discount_percent": "70%",
+            "hook": "Simple but effective, and at this price, it's a no-brainer!",
+            "pain": "Laptop charger, phone charger, power bank cable... tumhara desk wires se bhara rehta hai?",
+            "fix": "Ye cable clips tumhare desk ko instant clean aur organized bana denge. Choti cheez hai par productivity boost karti hai. ₹149 mein, ye ek practical investment hai.",
+            "loot_reason": "Commonly priced around ₹500, this ₹149 deal is a great functional grab for every student.",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Portable USB Rechargeable Mini Fan, 3 Speed, Handheld & Desk Fan",
+            "price": "₹199",
+            "mrp": "₹800",
+            "rating": "4.2 out of 5 stars",
+            "image": "https://m.media-amazon.com/images/I/611N5355KXL._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B0BP7M61J1?tag=shashwat022-21",
+            "discount_percent": "75%",
+            "hook": "WAIT, WHAT?! Is this even real? 🤯",
+            "pain": "Hostel ki garmi mein padhna mushkil ho jaata hai? Power cut mein hawa nahi milti?",
+            "fix": "Ye compact fan tumhari jaan bacha lega garmiyon mein! USB rechargeable hai, toh power cut mein bhi tension nahi. 75% off pe, ye deal miss mat karna!",
+            "loot_reason": "Generally ₹800 mein bikta hai, but abhi ₹199 ka mil raha hai – it's a steal!",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Portable LED Desk Lamp with Pen Holder & Phone Stand, USB Rechargeable",
+            "price": "₹299",
+            "mrp": "₹1200",
+            "rating": "4.4 out of 5 stars",
+            "image": "https://m.media-amazon.com/images/I/71rJ-EwzQOL._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B0BDR9N1S1?tag=shashwat022-21",
+            "discount_percent": "75%",
+            "hook": "🚨 LOOT ALERT! Bhai ye price glitch hai ya kya? 😱",
+            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Desk cluttered rehta hai?",
+            "fix": "Ye multi-functional lamp na sirf tumhari study light ki problem solve karega, balki pen holder aur phone stand se desk bhi organized rakhega! 75% off pe, abhi grab karo!",
+            "loot_reason": "Usually ₹1200 ka milta hai, abhi sirf ₹299 mein mil raha hai, limited stock!",
+            "category": "Kitchen"
+        },
+        {
             "name": "StudySmart Portable Adjustable Book Reading Stand & Document Holder",
             "price": "₹349",
             "mrp": "₹1299",
