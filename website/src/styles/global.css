@@ -4,29 +4,39 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 :root {
-	--accent: #ff9900;
-	--accent-dark: #cc7a00;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 240, 242, 245;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(240, 242, 245, 50%), #fff;
-	--box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  /* Primary palette */
+  --color-primary: #ff9900;
+  --color-primary-dark: #e68a00;
+  --color-accent: #e41e31;
+  --color-bg: #fdf2f2;
+  --color-bg-dark: #2b2b2b;
+  --color-card: #fff;
+  --color-card-dark: #1e1e1e;
+  --color-text: #111;
+  --color-text-dark: #ddd;
+  /* Spacing */
+  --sp-1: 0.5rem;
+  --sp-2: 1rem;
+  --sp-3: 1.5rem;
+  --sp-4: 2rem;
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.35s ease;
 }
 
 body {
-	font-family: 'Outfit', sans-serif;
+	font-family: 'Inter', sans-serif;
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
+	background: var(--color-bg) no-repeat;
 	background-size: 100% 600px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
+	color: var(--color-text);
 	font-size: 20px;
 	line-height: 1.7;
 }
@@ -69,7 +79,7 @@ a {
 	color: var(--accent);
 }
 a:hover {
-	color: var(--accent);
+	color: var(--color-accent);
 }
 p {
 	margin-bottom: 1em;
@@ -170,4 +180,21 @@ hr {
 .mega-buy-btn:active {
 	transform: translateY(1px);
 	box-shadow: 0 4px 10px rgba(255, 153, 0, 0.4);
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: var(--color-bg-dark);
+    color: var(--color-text-dark);
+  }
+  .hero-banner { background: var(--color-bg-dark); }
+  .deal-card { background: var(--color-card-dark); border-color: #444; }
+  .deal-info h3 { color: var(--color-text-dark); }
+  .buy-btn {
+    background: var(--color-primary-dark);
+    border: 1px solid #444;
+    color: #fff;
+  }
+  .loot-tag { background: #c41b28; }
 }

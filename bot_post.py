@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import json
 import time
 import random
@@ -5,7 +6,8 @@ import asyncio
 import os
 import re
 import requests
-from urllib.parse import quote
+import socket
+from urllib.parse import urlparse, quote
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
@@ -22,27 +24,35 @@ def get_price_value(price_str):
 load_dotenv()
 
 # ---------- Image Downloader ----------
+def is_url_accessible(url):
+    try:
+        response = requests.head(url, allow_redirects=True, timeout=5)
+        return response.status_code == 200
+    except:
+        return False
+
 def download_image(url):
-    """Download image to a local file for reliable Telegram upload with 404 fallback."""
-    if not url: return None
-    
+    """Download image to a local file for reliable Telegram upload with 404 fallback and URL validation."""
+    if not url:
+        return None
+    if not is_url_accessible(url):
+        print(f"[WARN] Image URL unreachable, skipping download: {url}")
+        return None
     temp_dir = os.path.join(os.getcwd(), "temp_images")
     if not os.path.exists(temp_dir):
-        try: os.makedirs(temp_dir)
-        except: pass
-        
+        try:
+            os.makedirs(temp_dir)
+        except Exception:
+            pass
     local_filename = os.path.join(temp_dir, f"temp_{int(time.time())}_{random.randint(100,999)}.jpg")
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36"
     }
-    
     urls_to_try = [url]
-    # Amazon image CDN suffix cleaner fallback
     if "media-amazon.com" in url:
         clean_url = re.sub(r'\._[A-Z0-9]+_\.', '.', url)
         if clean_url != url:
             urls_to_try.append(clean_url)
-            
     for target_url in urls_to_try:
         try:
             with requests.get(target_url, headers=headers, stream=True, timeout=15) as r:
@@ -52,10 +62,9 @@ def download_image(url):
                             f.write(chunk)
                     return local_filename
                 else:
-                    print(f"[RETRY-INFO] Target URL failed with status {r.status_code}: {target_url}")
+                    print(f"[RETRY-INFO] Image URL failed {r.status_code}: {target_url}")
         except Exception as e:
-            print(f"[RETRY-INFO] Error downloading from {target_url}: {e}")
-            
+            print(f"[RETRY-INFO] Error downloading image {target_url}: {e}")
     return None
 
 # ---------- Environment variables ----------
@@ -64,6 +73,11 @@ CHANNEL_ID = os.getenv("CHANNEL_ID")
 CLEAN_ID = CHANNEL_ID.replace('@', '') if CHANNEL_ID else "channel"
 CLICK_TRACKER_URL = os.getenv("CLICK_TRACKER_URL", "")
 CLICK_TRACKER_FUNC = f"{CLICK_TRACKER_URL}/.netlify/functions/go" if CLICK_TRACKER_URL else ""
+# New configuration variables
+POST_INTERVAL_MINUTES = int(os.getenv("POST_INTERVAL_MINUTES", "30"))
+VIP_CHANNEL_ID = os.getenv("VIP_CHANNEL_ID")  # optional
+DYNAMIC_GAP_MIN = int(os.getenv("DYNAMIC_GAP_MIN", "12"))
+DYNAMIC_GAP_MAX = int(os.getenv("DYNAMIC_GAP_MAX", "24"))
 
 # ---------- Constants & Counter ----------
 COUNTER_FILE = "post_count.txt"
@@ -93,12 +107,15 @@ def load_products():
         return json.load(f)["products"]
 
 # ---------- Message Templates ----------
+POST_TEMPLATES = [
+    lambda product, count=0: generate_message(product, post_count=count),
+    # Placeholder for future A/B variants
+]
+
 def generate_message(product, post_count=0):
     name = product.get('name', 'Great Deal!')
-    
     # Robust price formatting
     raw_price = str(product.get('price', 'Check Link'))
-    
     def format_price(p):
         if not p or 'Check' in p: return ""
         ascii_p = p.encode('ascii', 'ignore').decode('ascii').strip()
@@ -108,74 +125,48 @@ def generate_message(product, post_count=0):
             l, r = ascii_p.split(' - ', 1)
             return f"₹{l.strip().strip(',.')} - ₹{r.strip().strip(',.')}"
         return f"₹{ascii_p.strip().strip(',.')}"
-
     price = format_price(raw_price) or "Check Link"
     link = product.get('link', '#')
-    # Guard: only wrap if not already tracked (prevents double-encoding)
     if CLICK_TRACKER_URL and CLICK_TRACKER_URL not in link:
         link = f"{CLICK_TRACKER_FUNC}?url={quote(link)}"
-        
     safe_name = name.replace('<', '&lt;').replace('>', '&gt;')
-    # Extract AI-generated content
     hook = product.get('hook', 'Bhai ye loot miss mat karna! 😱')
     pain = product.get('pain', 'Hostel me aisi cheeze roz roz nahi milti.')
     fix = product.get('fix', f"Ye solid deal hai, abhi order kar lo.")
     loot_reason = product.get('loot_reason', '')
     rating = product.get('rating', '')
-    
     proof_str = f"⭐ <b>Rating:</b> {rating}" if rating and rating != "Not specified" else ""
     loot_block = f"📉 <b>Loot Reason:</b> {loot_reason}\n" if loot_reason else ""
-    
     # Calculate price drop %
     try:
         p_val = get_price_value(product.get('price', '0'))
         m_val = get_price_value(product.get('mrp', '0'))
         if m_val > p_val:
             drop = int(((m_val - p_val) / m_val) * 100)
-            badge = f"🔥 <b>PRICE DROP: {drop}% OFF</b> 🔥\n\n"
+            badge = f"🔥 <b>PRICE DROP: {drop}% OFF</b>\n\n"
         else:
-            badge = "🚀 <b>LIMITED TIME DEAL</b> 🚀\n\n"
+            badge = "🚀 <b>LIMITED TIME DEAL</b>\n\n"
     except:
-        badge = "⚡ <b>HOT DEAL</b> ⚡\n\n"
-
-    # Clean Pipeline Format: Product → Price → Why → Deal → Link
-    # Rotating hooks for variety without spam feel
+        badge = "⚡ <b>HOT DEAL</b>\n\n"
     templates = [
         # Format A: Direct deal
-        f"{badge}"
-        f"🔥 <b>{safe_name[:60]}</b>\n\n"
-        f"💸 <b>Price:</b> {price}\n"
-        f"✔️ <b>Why:</b> {fix}\n"
-        f"⏰ <b>Deal:</b> Limited stock — price can go up anytime!\n",
-
+        f"{badge}" f"🔥 <b>{safe_name[:60]}</b>\n\n" f"💸 <b>Price:</b> {price}\n" f"✔️ <b>Why:</b> {fix}\n" f"⏰ <b>Deal:</b> Limited stock — price can go up anytime!\n",
         # Format B: Pain → Solution
-        f"{badge}"
-        f"😤 {pain}\n\n"
-        f"✅ <b>Solution:</b> {safe_name[:50]}\n"
-        f"💸 <b>Price:</b> {price}\n"
-        f"✔️ {fix}\n"
-        f"⏰ <b>Grab it before price hike!</b>\n",
-
+        f"{badge}" f"😤 {pain}\n\n" f"✅ <b>Solution:</b> {safe_name[:50]}\n" f"💸 <b>Price:</b> {price}\n" f"✔️ {fix}\n" f"⏰ <b>Grab it before price hike!</b>\n",
         # Format C: Review style
-        f"{badge}"
-        f"⭐ <b>Today's Best Deal</b>\n\n"
-        f"📦 <b>{safe_name[:55]}</b>\n"
-        f"💸 <b>Price:</b> {price}\n"
-        f"✔️ {fix}\n"
-        f"⏰ Limited time offer!\n",
+        f"{badge}" f"⭐ <b>Today's Best Deal</b>\n\n" f"📦 <b>{safe_name[:55]}</b>\n" f"💸 <b>Price:</b> {price}\n" f"✔️ {fix}\n" f"⏰ Limited time offer!\n",
     ]
     msg = templates[post_count % len(templates)]
-
     if proof_str:
         msg += f"{proof_str}\n\n"
     else:
         msg += "\n"
-
     current_time = datetime.now().strftime('%I:%M %p')
-    msg += f"🔗 <a href='{link}'><b>BUY BEFORE PRICE GOES UP 👇</b></a>\n\n" \
-           f"✅ <i>Verified Active at {current_time} IST</i>\n" \
-           f"📢 <i>Join @{CLEAN_ID} for more secret student loots!</i>"
-    
+    msg += (
+        f"🔗 <a href='{link}'><b>BUY BEFORE PRICE GOES UP 👇</b></a>\n\n"
+        f"✅ <i>Verified Active at {current_time} IST</i>\n"
+        f"📢 <i>Join @{CLEAN_ID} for more secret student loots!</i>"
+    )
     seo_block = (
         "\n\n<tg-spoiler>"
         "🏷️ #LootDeals #StudentHacks #AmazonSale #BudgetFinds"
@@ -187,8 +178,7 @@ def generate_message(product, post_count=0):
 def generate_viral_message():
     tg_link = f"https://t.me/{CLEAN_ID}"
     share_text = "Bhai%20jaldi%20dekh%2C%20lagta%20hai%20Amazon%20par%20massive%20sale%20aaya%20hai%21%20Sab%20bohot%20saste%20mein%20mil%20raha%20hai.%20Link%20band%20hone%20se%20pehle%20join%20karke%20loot%20le%21%20%F0%9F%98%B1%F0%9F%9A%A8"
-    share_url = f"https://t.me/share/url?url={tg_link}&text={share_text}"
-
+    share_url = f"https://t.me/share/url?url=https://t.me/{CHANNEL_ID.replace('@', '')}&text={share_text}"
     templates = [
         f"🔥 <b>MEMBERS ONLY MEGA LOOT UNLOCKED!</b> 🔥\n\n"
         f"Bhaiyo, agla <b>Top Discount Deal</b> aane wala hai, lekin ye sirf unhe dikhega jo hamare active supportive members hain! 😍\n\n"
@@ -196,7 +186,6 @@ def generate_viral_message():
         f"👇 <b>CLICK TO SHARE & GET ACCESS</b> 👇\n"
         f"🚀 <a href='{share_url}'>Click here to Share with Friends</a>\n\n"
         f"🤫 <i>1000 members hote hi Mega Price Drop activate hoga!</i>",
-
         f"🎁 <b>EXCLUSIVE GIVEAWAY & LOOT ALERT!</b> 🎁\n\n"
         f"Amazon par massive price crash detected! Hum iska direct loot link tabhi post karenge jab channel mein <b>1000 Members</b> pure honge! 🏃‍♂️\n\n"
         f"📢 <b>Helping Hand:</b> Jaldi se 5 dosto ko ye channel share karo taaki hum turant link de sakein!\n\n"
@@ -232,7 +221,7 @@ async def send_automated_poll(bot, chat_id):
 # ---------- Authority Posts (Non-Selling) ----------
 def generate_authority_post():
     posts = [
-        "📚 <b>3 cheeze jo hostel me avoid karo padhai ke time:</b>\n\n1. Bed pe padhna (Neend aayegi 100%)\n2. Dosto ke samne room khula rakhna\n3. Mess jane ke theek baad padhne baithna (Food coma)\n\n<i>Table aur chair pe focus double hota hai. Try karke dekho.</i>",
+        "📚 <b>3 cheeze jo hostel me avoid karo padhai ke time:</b>\n\n1. Bed pe padhna (Neend aayegi 100%)\n2. Dosto ke samne room khula rakhna\n3. Mess jane ke turant baad padhna baithna (Food coma)\n\n<i>Table aur chair pe focus double hota hai. Try karke dekho.</i>",
         "💡 <b>Quick Hack:</b> Agar phone bohot distract kar raha hai, toh screen ko 'Grayscale' (Black & White) mode me daal do. \n\nInsta/Reels ka dopamine 50% gir jayega aur phone use karne ka mann kam karega. Try it right now!",
         "💸 <b>Budgeting Rule for Students: 50-30-20</b>\n\n- 50% zaroori kharcha (Rent, Mess)\n- 30% wants (Movie, Bahar ka khana)\n- 20% save karo (Emergencies ke liye)\n\n<i>Pocket money kitni bhi ho, saving aadat se aati hai.</i>"
     ]
@@ -241,7 +230,6 @@ def generate_authority_post():
 # ---------- Amazon Bounties ----------
 def generate_bounty_message():
     aff_id = os.getenv("AFFILIATE_ID_IN", "shashwat022-21")
-    
     bounties = [
         {
             "name": "Amazon Prime FREE Trial",
@@ -260,41 +248,40 @@ def generate_bounty_message():
         }
     ]
     selected = random.choice(bounties)
-    # Track the bounty link
     tracked_link = get_short_url(selected["url"])
     return selected["desc"].format(link=tracked_link)
 
-
-
 # ---------- Short Link Helper ----------
+def is_url_accessible(url: str) -> bool:
+    """Check if a URL is reachable (status < 400)."""
+    try:
+        resp = requests.head(url, allow_redirects=True, timeout=5)
+        return resp.status_code < 400
+    except Exception:
+        return False
+
 def get_short_url(target_url):
-    """Call the Netlify tracker to get a shortened, obfuscated link."""
     if not CLICK_TRACKER_URL:
         return target_url
-    
     if "amazon." in target_url:
         return target_url
-        
+    if not is_url_accessible(target_url):
+        print(f"[WARN] Target URL unreachable, using original: {target_url}")
+        return target_url
     try:
-        # Check cache first
         cache_file = "short_links_cache.json"
         cache = {}
         if os.path.exists(cache_file):
             try:
                 with open(cache_file, "r") as f:
                     cache = json.load(f)
-            except: pass
-        
+            except Exception:
+                pass
         if target_url in cache:
             return cache[target_url]
-            
-        # Register new short link
         api_url = f"{CLICK_TRACKER_FUNC}?action=shorten&url={quote(target_url)}"
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) BudgetDealsBot/1.0"
-        }
+        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) BudgetDealsBot/1.0"}
         response = requests.get(api_url, headers=headers, timeout=15)
-        
         if response.status_code == 200:
             try:
                 data = response.json()
@@ -308,14 +295,22 @@ def get_short_url(target_url):
                 print(f"JSON Parse Error: {json_e} | Response: {response.text[:100]}")
         else:
             print(f"API Error: {response.status_code} | Response: {response.text[:100]}")
-            
     except Exception as e:
         print(f"Shortening request failed: {e}")
-    
-    # Fallback to direct tracker link
     return f"{CLICK_TRACKER_FUNC}?url={quote(target_url)}"
 
-# ---------- Post deals ----------
+import referral_manager
+
+# ---------- Referral Integration ----------
+async def broadcast_referral(bot, chat_id, admin_user_id):
+    try:
+        link = referral_manager.generate_referral_link(admin_user_id)
+        msg = f"Join the channel using my referral link and earn rewards!\n{link}"
+        await bot.send_message(chat_id=chat_id, text=msg, parse_mode='HTML')
+    except Exception as e:
+        print(f"Failed to broadcast referral: {e}")
+
+# ---------- Main Posting Logic ----------
 async def post_deals():
     chat_id = f"@{CHANNEL_ID}" if not CHANNEL_ID.startswith("@") else CHANNEL_ID
     async with Bot(token=BOT_TOKEN) as bot:
@@ -327,12 +322,8 @@ async def post_deals():
             await bot.send_message(chat_id=chat_id, text=bounty_msg, parse_mode='HTML')
             await bot.shutdown()
             return
-
         try:
-            import sys
-            random_mode = len(sys.argv) > 1 and sys.argv[1] == "--random"
-            
-            # [NEW] Multi-post Duplicate Shield
+            # Duplicate shield
             POSTED_LOG = "posted_products.json"
             posted_history = {}
             if os.path.exists(POSTED_LOG):
@@ -340,39 +331,34 @@ async def post_deals():
                     with open(POSTED_LOG, "r") as f:
                         posted_history = json.load(f)
                 except: pass
-            
-            # Filter products
-            now = datetime.now()
-            now_str = now.isoformat()
-            
-            # Convert old string format to object format if necessary
+            # Convert old format
             for key in list(posted_history.keys()):
                 if isinstance(posted_history[key], str):
                     posted_history[key] = {"last_posted": posted_history[key], "count": 1}
-
+            now = datetime.now()
+            now_str = now.isoformat()
             eligible = []
             for p in products:
                 name = p.get('name')
-                if not name: continue
+                if not name:
+                    continue
                 if name not in posted_history:
                     eligible.append(p)
                 else:
                     history = posted_history[name]
-                    # Dynamic gap: between 20 to 36 hours
-                    dynamic_gap = random.randint(20, 36)
+                    dynamic_gap = random.randint(DYNAMIC_GAP_MIN, DYNAMIC_GAP_MAX)
                     gap_time = (now - timedelta(hours=dynamic_gap)).isoformat()
-                    
                     if history.get("count", 0) < 3 and history.get("last_posted", "") < gap_time:
-                        # 20% chance to drop the product early to avoid robotic repetition
                         if history.get("count", 0) == 2 and random.random() < 0.2:
                             continue
                         eligible.append(p)
-
             if not eligible:
-                print("All available products already posted recently or maxed out. Skipping cycle.")
+                print("All products posted recently or maxed out. Skipping.")
                 await bot.shutdown()
                 return
-
+            # Mode selection
+            import sys
+            random_mode = len(sys.argv) > 1 and sys.argv[1] == "--random"
             if random_mode:
                 num_to_post = min(2, len(eligible))
                 products_to_post = random.sample(eligible, num_to_post)
@@ -381,8 +367,7 @@ async def post_deals():
                 num_to_post = min(3, len(eligible))
                 products_to_post = eligible[:num_to_post]
                 print(f"Normal mode: Selected {num_to_post} products.")
-
-            # Save to history immediately
+            # Update history
             for p in products_to_post:
                 name = p.get('name')
                 if name in posted_history:
@@ -392,19 +377,14 @@ async def post_deals():
                     posted_history[name] = {"last_posted": now_str, "count": 1}
             with open(POSTED_LOG, "w") as f:
                 json.dump(posted_history, f)
-
-            # Check for Interval Tasks (Viral Hooks / Bounties / Polls)
             current_count = increment_post_count()
-            
-            # Poll triggering (Every 15 posts)
+            # Poll triggering
             if current_count % 15 == 0:
                 await send_automated_poll(bot, chat_id)
-
-            # Viral/Bounty/Authority Interval (Every 10-15 posts to maintain trust)
+            # Viral/Authority/Bounty interval
             viral_interval = random.randint(10, 15)
             if current_count >= viral_interval:
                 print(f"Post count: {current_count}. Triggering Growth/Authority Cycle!")
-                # Pick between Authority (40%), Viral Message (30%) or Bounty (30%)
                 rand_val = random.random()
                 if rand_val < 0.4:
                     growth_msg = generate_authority_post()
@@ -412,107 +392,110 @@ async def post_deals():
                     growth_msg = generate_viral_message()
                 else:
                     growth_msg = generate_bounty_message()
-                    
                 try:
-                    await bot.send_message(
-                        chat_id=chat_id,
-                        text=growth_msg,
-                        parse_mode='HTML',
-                        disable_web_page_preview=True
-                    )
-                    reset_post_count() # Reset main interval counter
+                    await bot.send_message(chat_id=chat_id, text=growth_msg, parse_mode='HTML', disable_web_page_preview=True)
+                    reset_post_count()
                 except Exception as growth_e:
                     print(f"Failed to post growth hook: {growth_e}")
-
-            # Identify the cheapest item in this batch to be the "Lightning Deal"
+            # Determine cheapest product for lightning deal
             cheapest_product = None
             if products_to_post:
                 cheapest_product = min(products_to_post, key=lambda p: get_price_value(p.get('price', '999999')))
-
+            # VIP channel handling
+            if VIP_CHANNEL_ID:
+                vip_chat = f"@{VIP_CHANNEL_ID}" if not VIP_CHANNEL_ID.startswith("@") else VIP_CHANNEL_ID
+                for vip_product in products_to_post[:2]:
+                    # Reuse existing posting logic for VIP (simplified version)
+                    name = vip_product.get('name', 'Product')
+                    msg = generate_message(vip_product, post_count=current_count)
+                    link = vip_product.get('link', '#')
+                    # Validate link
+                    if not is_url_accessible(link):
+                        with open('skipped_invalid_links.log', 'a', encoding='utf-8') as log_f:
+                            log_f.write(f"{datetime.now().isoformat()} - Skipped VIP product with unreachable link: {link}\n")
+                        continue
+                    short_link = get_short_url(link)
+                    reply_markup = InlineKeyboardMarkup([
+                        [InlineKeyboardButton("🛒 BUY NOW (Amazon)", url=short_link)],
+                        [InlineKeyboardButton("🔥 Share with Friends", url=f"https://t.me/share/url?url=https://t.me/{CHANNEL_ID.replace('@', '')}&text=Check%20this%20deal"),
+                         InlineKeyboardButton("💰 Join Channel", url=f"https://t.me/{CHANNEL_ID.replace('@', '')}")]
+                    ])
+                    try:
+                        await bot.send_message(chat_id=vip_chat, text=msg, parse_mode='HTML', reply_markup=reply_markup)
+                    except Exception as e:
+                        print(f"Failed VIP post for {name}: {e}")
+            # Main channel posting
+            posted = 0
             for product in products_to_post:
                 product_name = product.get('name', 'Product').encode('ascii', 'ignore').decode('ascii')
                 is_lightning = (product == cheapest_product)
-                
-                # [NEW] Generate Short Link
                 raw_link = product.get('link', '#')
+                if not is_url_accessible(raw_link):
+                    with open('skipped_invalid_links.log', 'a', encoding='utf-8') as log_f:
+                        log_f.write(f"{datetime.now().isoformat()} - Skipped product with unreachable link: {raw_link}\n")
+                    continue
                 link = get_short_url(raw_link)
-                
-                # Temporarily update product link for message generation
-                product['link'] = link
-                current_post_count = posted_history.get(product.get('name'), {}).get('count', 1) - 1
-                msg = generate_message(product, post_count=max(0, current_post_count))
+                if not is_url_accessible(link):
+                    print(f"[WARN] Shortened link unreachable, using original: {raw_link}")
+                    link = raw_link
                 image_url = product.get('image')
-                
-                # Using balanced Hindi text context designed for viral sharing!
-                share_text = "Bhai%20jaldi%20dekh%2C%20lagta%20hai%20Amazon%20par%20massive%20sale%20aaya%20hai%21%20Sab%20bohot%20saste%20mein%20mil%20raha%20hai.%20Link%20band%20hone%20se%20pehle%20join%20karke%20loot%20le%21%20%F0%9F%98%B1%F0%9F%9A%A8"
-                share_url = f"https://t.me/share/url?url=https://t.me/{CHANNEL_ID.replace('@', '')}&text={share_text}"
-                
+                msg = generate_message(product, post_count=current_count)
                 reply_markup = InlineKeyboardMarkup([
-                    [
-                        InlineKeyboardButton("🛒 BUY NOW (Amazon)", url=link)
-                    ],
-                    [
-                        InlineKeyboardButton("🔥 Share with Friends", url=share_url),
-                        InlineKeyboardButton("💰 Join Channel", url=f"https://t.me/{CHANNEL_ID.replace('@', '')}")
-                    ]
+                    [InlineKeyboardButton("🛒 BUY NOW (Amazon)", url=link)],
+                    [InlineKeyboardButton("🔥 Share with Friends", url=f"https://t.me/share/url?url=https://t.me/{CHANNEL_ID.replace('@', '')}&text=Check%20this%20deal"),
+                     InlineKeyboardButton("💰 Join Channel", url=f"https://t.me/{CHANNEL_ID.replace('@', '')}")]
                 ])
-                
                 try:
-                    sent_msg = None
                     if image_url:
                         local_image = download_image(image_url)
-                        try:
-                            if local_image:
-                                with open(local_image, 'rb') as photo_file:
-                                    sent_msg = await bot.send_photo(
-                                        chat_id=chat_id,
-                                        photo=photo_file,
-                                        caption=msg,
-                                        parse_mode='HTML',
-                                        reply_markup=reply_markup
-                                    )
-                                # Cleanup
-                                os.remove(local_image)
-                            else:
-                                raise Exception("Could not download image")
-                        except Exception as photo_e:
-                            print(f"Photo upload failed ({photo_e}). Falling back to Text-only message...")
-                            sent_msg = await bot.send_message(
-                                chat_id=chat_id,
-                                text=msg,
-                                parse_mode='HTML',
-                                reply_markup=reply_markup,
-                                disable_web_page_preview=False
-                            )
+                        if local_image:
+                            with open(local_image, 'rb') as photo_file:
+                                                    sent_msg = await bot.send_photo(chat_id=chat_id, photo=photo_file, caption=msg, parse_mode='HTML', reply_markup=reply_markup)
+                            os.remove(local_image)
+                        else:
+                            raise Exception("Could not download image")
                     else:
-                        sent_msg = await bot.send_message(
-                            chat_id=chat_id,
-                            text=msg,
-                            parse_mode='HTML',
-                            reply_markup=reply_markup,
-                            disable_web_page_preview=False
-                        )
-                    
+                                            sent_msg = await bot.send_message(chat_id=chat_id, text=msg, parse_mode='HTML', reply_markup=reply_markup)
+                    posted += 1
                     print(f"Posted: {product_name}")
-                    
-                    # Auto-pin the lightning deal
-                    if is_lightning and sent_msg:
+                    if is_lightning:
                         try:
                             await bot.pin_chat_message(chat_id=chat_id, message_id=sent_msg.message_id, disable_notification=False)
                             print(f"Pinned lightning deal: {product_name}")
                         except Exception as pin_err:
-                            print(f"Could not pin message (check admin rights): {str(pin_err).encode('ascii', 'ignore').decode('ascii')}")
-                            
+                            print(f"Could not pin message: {str(pin_err)}")
                     await asyncio.sleep(5)
                 except Exception as e:
                     err_msg = str(e).encode('ascii', 'ignore').decode('ascii')
                     print(f"Failed to post {product_name}: {err_msg}")
-            
+            # Summary message
+            try:
+                summary_text = f"🗞️ Posted {posted} deals this round."
+                # Placeholder for total clicks – could be fetched from tracker if needed
+                await bot.send_message(chat_id=chat_id, text=summary_text, parse_mode='HTML')
+            except Exception as sum_err:
+                print(f"Failed to send summary: {sum_err}")
+            # Broadcast referral invitation
+            admin_user_id = int(os.getenv('BOT_ADMIN_ID', '0'))
+            if admin_user_id:
+                await broadcast_referral(bot, chat_id, admin_user_id)
             await bot.shutdown()
-                    
         except Exception as e:
             err_msg = str(e).encode('ascii', 'ignore').decode('ascii')
             print(f"Error in posting: {err_msg}")
 
 if __name__ == "__main__":
-    asyncio.run(post_deals())
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--dry-run', action='store_true', help='Run post_deals once and exit')
+    args = parser.parse_args()
+
+    async def _run():
+        if args.dry_run:
+            await post_deals()
+        else:
+            while True:
+                await post_deals()
+                await asyncio.sleep(POST_INTERVAL_MINUTES * 60)
+
+    asyncio.run(_run())

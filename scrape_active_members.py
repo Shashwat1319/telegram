@@ -39,26 +39,54 @@ async def get_active_members(client, group_username):
             await client(functions.channels.JoinChannelRequest(channel=entity))
         except Exception as e:
             print(f"[-] Could not join/resolve {group_username}: {e}")
+            # Skip this group if we cannot join
+            return []
 
         active_users = []
         # Get recent messages to find people who are ACTUALLY chatting (High Intent)
-        async for message in client.iter_messages(group_username, limit=300):
-            if message.sender_id and not message.out:
-                sender = await message.get_sender()
-                if sender and not sender.bot and not sender.deleted:
-                    if sender.username:
-                        active_users.append(f"@{sender.username}")
-                    elif sender.phone:
-                        active_users.append(f"+{sender.phone}")
-        
-        # Remove duplicates
-        active_users = list(set(active_users))
-        
-        print(f"[OK] Found {len(active_users)} highly active chatters in {group_username}")
-        return active_users
-    except Exception as e:
-        print(f"[ERROR] Failed to scrape {group_username}: {e}")
-        return []
+        try:
+            async for message in client.iter_messages(group_username, limit=300):
+                if message.sender_id and not message.out:
+                    sender = await message.get_sender()
+                    if sender and not sender.bot and not sender.deleted:
+                        if sender.username:
+                            active_users.append(f"@{sender.username}")
+                        elif sender.phone:
+    for attempt in range(3):
+        try:
+            # Resolve entity first to make sure it's a channel/group
+            try:
+                entity = await client.get_entity(group_username)
+                await client(functions.channels.JoinChannelRequest(channel=entity))
+            except Exception as e:
+                print(f"[-] Could not join/resolve {group_username}: {e}")
+                return []
+
+            active_users = []
+            # Get recent messages to find people who are ACTUALLY chatting (High Intent)
+            try:
+                async for message in client.iter_messages(group_username, limit=300):
+                    if message.sender_id and not message.out:
+                        sender = await message.get_sender()
+                        if sender and not sender.bot and not sender.deleted:
+                            if sender.username:
+                                active_users.append(f"@{sender.username}")
+                            elif sender.phone:
+                                active_users.append(f"+{sender.phone}")
+            except Exception as e:
+                print(f"[ERROR] Attempt {attempt+1}: Failed while iterating messages in {group_username}: {e}")
+                await asyncio.sleep(2)
+                continue
+            
+            # Remove duplicates
+            active_users = list(set(active_users))
+            
+            print(f"[OK] Found {len(active_users)} highly active chatters in {group_username}")
+            return active_users
+        except Exception as e:
+            print(f"[ERROR] Attempt {attempt+1}: Failed to scrape {group_username}: {e}")
+            await asyncio.sleep(5)
+    return []
 
 def load_history():
     if os.path.exists(HISTORY_FILE):
