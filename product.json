@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Waterproof Electronic Travel Organizer Pouch (Set of 3)",
+            "price": "₹199",
+            "mrp": "₹750",
+            "rating": "4.1 out of 5 stars",
+            "image": "https://m.media-amazon.com/images/I/71hUfF4c2SL._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B09V7N4W7Z?tag=shashwat022-21",
+            "discount_percent": "73%",
+            "hook": "Hostel life mein sabse zaroori cheez! Practical deal hai, grab kar lo!",
+            "pain": "Charger, earphones, cables, toiletries... sab bag mein ghuma rehta hai? Dhundhne mein time waste hota hai?",
+            "fix": "Yeh waterproof organizer set tumhare saare chote-mote samaan ko neatly rakhega. Cables, stationery, medicines – sab organized. ₹750 wali deal ₹199 mein, bhaiyya, ye toh value for money hai aur must-have hostel hack hai!",
+            "loot_reason": "₹750 ki asli कीमत वाला product, abhi special offer mein ₹199 mein mil raha hai.",
+            "category": "Computers"
+        },
+        {
+            "name": "Foldable LED Desk Lamp with Pen Holder & Mobile Stand",
+            "price": "₹299",
+            "mrp": "₹1200",
+            "rating": "4.2 out of 5 stars",
+            "image": "https://m.media-amazon.com/images/I/71g0S8Y1z4L._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B0BNB3Q7G1?tag=shashwat022-21",
+            "discount_percent": "75%",
+            "hook": "OMG! Itna discount? Sach mein? 🤯 Desk lamp aur pen holder, dono sirf ₹299 mein?",
+            "pain": "Raat bhar padhna hai par roommates light off kar dete hain? Ya table pe pen-pencil idhar-udhar bikhre rehte hain?",
+            "fix": "Yeh foldable LED lamp tumhe personal light dega, plus isme pen holder aur mobile stand bhi hai! Tumhara study area super organized aur bright. ₹1200 ka product abhi ₹299 mein, ye deal miss mat karna!",
+            "loot_reason": "Usually ₹1200 ka bikta hai, ye flash sale mein ₹299 mein mil raha hai, stock khatam hone wala hai!",
+            "category": "Computers"
+        },
+        {
+            "name": "RGB Mini USB Portable Fan for Desk",
+            "price": "₹149",
+            "mrp": "₹600",
+            "rating": "4.5 out of 5 stars",
+            "image": "https://m.media-amazon.com/images/I/71u9uW6mBML._AC_UF1000,1000_QL80_.jpg",
+            "link": "https://www.amazon.in/dp/B0B7Q3J3R9?tag=shashwat022-21",
+            "discount_percent": "75%",
+            "hook": "Bhai ye price glitch hai ya kya? 😱 Har student ka dream gadget, abhi le lo!",
+            "pain": "Garmi se dimaag garam ho jata hai padhte-padhte? Ya roommates AC chalane nahi dete?",
+            "fix": "Yeh cute RGB fan na sirf tumhe thandi hawa dega, balki tumhare study desk ko lit bhi karega! USB powered hai, laptop se chalao ya power bank se. ₹600 wala fan sirf ₹149 mein, ye toh full on loot hai!",
+            "loot_reason": "Normal price ₹600 hai, abhi limited stock discount mein ₹149 mein mil raha hai!",
+            "category": "Computers"
+        },
+        {
             "name": "Self-Adhesive Cable Organizer Clips, Desktop Wire Holder, Pack of 10",
             "price": "₹149",
             "mrp": "₹500",
