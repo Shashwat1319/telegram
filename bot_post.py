@@ -25,10 +25,14 @@ load_dotenv()
 
 # ---------- Image Downloader ----------
 def is_url_accessible(url):
+    """Check if a URL is reachable."""
+    if "amazon." in url:
+        return True
     try:
-        response = requests.head(url, allow_redirects=True, timeout=5)
-        return response.status_code == 200
-    except:
+        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
+        response = requests.get(url, headers=headers, stream=True, timeout=5)
+        return response.status_code < 400 or response.status_code in (403, 405, 503)
+    except Exception:
         return False
 
 def download_image(url):
@@ -253,10 +257,13 @@ def generate_bounty_message():
 
 # ---------- Short Link Helper ----------
 def is_url_accessible(url: str) -> bool:
-    """Check if a URL is reachable (status < 400)."""
+    """Check if a URL is reachable."""
+    if "amazon." in url:
+        return True
     try:
-        resp = requests.head(url, allow_redirects=True, timeout=5)
-        return resp.status_code < 400
+        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
+        resp = requests.get(url, headers=headers, stream=True, timeout=5)
+        return resp.status_code < 400 or resp.status_code in (403, 405, 503)
     except Exception:
         return False
 
@@ -450,12 +457,13 @@ async def post_deals():
                         local_image = download_image(image_url)
                         if local_image:
                             with open(local_image, 'rb') as photo_file:
-                                                    sent_msg = await bot.send_photo(chat_id=chat_id, photo=photo_file, caption=msg, parse_mode='HTML', reply_markup=reply_markup)
+                                sent_msg = await bot.send_photo(chat_id=chat_id, photo=photo_file, caption=msg, parse_mode='HTML', reply_markup=reply_markup)
                             os.remove(local_image)
                         else:
-                            raise Exception("Could not download image")
+                            print(f"[WARN] Could not download image for {product_name}, falling back to text post.")
+                            sent_msg = await bot.send_message(chat_id=chat_id, text=msg, parse_mode='HTML', reply_markup=reply_markup)
                     else:
-                                            sent_msg = await bot.send_message(chat_id=chat_id, text=msg, parse_mode='HTML', reply_markup=reply_markup)
+                        sent_msg = await bot.send_message(chat_id=chat_id, text=msg, parse_mode='HTML', reply_markup=reply_markup)
                     posted += 1
                     print(f"Posted: {product_name}")
                     if is_lightning:
@@ -468,13 +476,7 @@ async def post_deals():
                 except Exception as e:
                     err_msg = str(e).encode('ascii', 'ignore').decode('ascii')
                     print(f"Failed to post {product_name}: {err_msg}")
-            # Summary message
-            try:
-                summary_text = f"🗞️ Posted {posted} deals this round."
-                # Placeholder for total clicks – could be fetched from tracker if needed
-                await bot.send_message(chat_id=chat_id, text=summary_text, parse_mode='HTML')
-            except Exception as sum_err:
-                print(f"Failed to send summary: {sum_err}")
+            # Summary message removed as requested.
             # Broadcast referral invitation
             admin_user_id = int(os.getenv('BOT_ADMIN_ID', '0'))
             if admin_user_id:
