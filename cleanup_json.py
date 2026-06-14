@@ -3,13 +3,23 @@ import re
 
 def clean_amazon_link(link, tag):
     """Convert any Amazon link to a clean canonical DP link with affiliate tag."""
-    # Extract ASIN (10-character alphanumeric starting with B or numeric)
-    asin_match = re.search(r'/(?:dp|gp/product)/([A-Z0-9]{10})', link)
+    # Attempt to extract ASIN from various Amazon URL patterns
+    asin_match = re.search(
+        r'/(?:dp|gp/product|gp/aw/d|dp|gp/aw)/[^\"]*?([A-Z0-9]{10})',
+        link,
+        re.IGNORECASE,
+    )
+    if not asin_match:
+        from urllib.parse import urlparse, parse_qs
+        qs = parse_qs(urlparse(link).query)
+        asin = qs.get("ASIN", [None])[0] or qs.get("asin", [None])[0]
+        if asin and re.fullmatch(r"[A-Z0-9]{10}", asin, re.IGNORECASE):
+            asin_match = type("obj", (object,), {"group": lambda _: asin.upper()})()
     if asin_match:
-        asin = asin_match.group(1)
+        asin = asin_match.group(1).upper()
         domain = "amazon.in" if "amazon.in" in link else "amazon.com"
         return f"https://www.{domain}/dp/{asin}?tag={tag}"
-    return None # Return None if ASIN not found
+    return None
 
 def cleanup():
     file_path = "product.json"
