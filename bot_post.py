@@ -131,8 +131,8 @@ def generate_message(product, post_count=0):
         return f"₹{ascii_p.strip().strip(',.')}"
     price = format_price(raw_price) or "Check Link"
     link = product.get('link', '#')
-    if CLICK_TRACKER_URL and CLICK_TRACKER_URL not in link:
-        link = f"{CLICK_TRACKER_FUNC}?url={quote(link)}"
+    if CLICK_TRACKER_URL and "amazon." not in link.lower():
+    link = f"{CLICK_TRACKER_FUNC}?url={quote(link)}"
     safe_name = name.replace('<', '&lt;').replace('>', '&gt;')
     hook = product.get('hook', 'Bhai ye loot miss mat karna! 😱')
     pain = product.get('pain', 'Hostel me aisi cheeze roz roz nahi milti.')
