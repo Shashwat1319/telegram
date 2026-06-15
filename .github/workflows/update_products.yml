@@ -1,8 +1,8 @@
 name: AI Trending Products Sync
 
 on:
-  schedule:
-    - cron: '0 4,6,8,10,12,14,16,18 * * *'  # Every 2 hours (9:30 AM to 11:30 PM IST)
+  # schedule:
+  #   - cron: '0 4,6,8,10,12,14,16,18 * * *'  # Disabled to keep product.json static
   workflow_dispatch:
 
 jobs:

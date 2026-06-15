@@ -75,8 +75,8 @@ def main():
     print("[*] Entering Hybrid Loop...")
     try:
         while True:
-            # Sync with Cloud to get latest verified products
-            git_sync()
+            # Sync with Cloud disabled to keep product.json static
+            # git_sync()
 
             # Check if hijacker died, restart it
             if hijacker_process and hijacker_process.poll() is not None:
