@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 API_ID = int(os.getenv('API_ID'))
 API_HASH = os.getenv('API_HASH')
-SESSION = os.getenv('TELEGRAM_SESSION_2')  # worker with admin rights on the channel
+SESSION = os.getenv('TELEGRAM_SESSION_1')  # Admin session for the channel
 CHANNEL_ID = os.getenv('CHANNEL_ID').replace('@', '')
 
 # Optional: list of your own groups to forward top deals (comma‑separated)
@@ -41,20 +41,28 @@ async def _post_viral_comments(client: TelegramClient, invite_link: str):
             await client.send_message(ch, msg)
             print(f"[PROMO] Commented in {ch}")
         except Exception as e:
-            print(f"[PROMO‑ERR] {ch}: {e}")
+            print(f"[PROMO-ERR] {ch}: {e}")
         await asyncio.sleep(random.randint(2, 5))
 
 async def _dm_random_members(client: TelegramClient, invite_link: str):
     """Pick a handful of recent channel participants and DM them the invite.
     Also generate a personal referral link for each.
     """
-    participants = await client.get_participants(CHANNEL_ID, limit=200)
+    try:
+        participants = await client.get_participants(CHANNEL_ID, limit=200)
+    except Exception as e:
+        print(f"Failed to fetch participants: {e}")
+        return
+
     random.shuffle(participants)
     for user in participants[:10]:
         try:
             # Generate referral link natively with Telethon to avoid asyncio.run() crash
-            result = await client(ExportChatInviteRequest(peer=CHANNEL_ID, usage_limit=0))
-            personal_link = result.link
+            try:
+                result = await client(ExportChatInviteRequest(peer=CHANNEL_ID, usage_limit=0))
+                personal_link = result.link
+            except Exception:
+                personal_link = invite_link
             
             # Save it to referrals.json manually
             referral_file = 'referrals.json'
@@ -80,7 +88,7 @@ async def _dm_random_members(client: TelegramClient, invite_link: str):
             await client.send_message(user.id, msg)
             print(f"[DM] Sent invite to {user.id}")
         except Exception as e:
-            print(f"[DM‑ERR] {user.id}: {e}")
+            print(f"[DM-ERR] {user.id}: {e}")
         await asyncio.sleep(random.randint(2, 5))
 
 async def run():
@@ -88,7 +96,8 @@ async def run():
     await client.start()
     try:
         invite_link = await _get_invite_link(client)
-        await _post_viral_comments(client, invite_link)
+        # Skip viral comments here as traffic_hijacker.py handles commenting on other channels
+        # await _post_viral_comments(client, invite_link)
         await _dm_random_members(client, invite_link)
         # Optionally forward top‑deal to your own groups (if any)
         if GROWTH_TARGET_GROUPS:
