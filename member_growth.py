@@ -18,12 +18,17 @@ GROWTH_TARGET_GROUPS = [g.strip() for g in os.getenv('GROWTH_TARGET_GROUPS', '')
 from bot_post import generate_viral_message  # re‑use the viral template function
 from referral_manager import generate_referral_link
 
+from telethon.tl.functions.messages import ExportChatInviteRequest
+import json
+
 async def _get_invite_link(client: TelegramClient) -> str:
-    """Export a permanent invite link for the main channel.
-    Requires the client to be an admin of the channel.
-    """
-    link = await client.export_chat_invite_link(CHANNEL_ID)
-    return link
+    """Export a permanent invite link for the main channel."""
+    try:
+        result = await client(ExportChatInviteRequest(peer=CHANNEL_ID))
+        return result.link
+    except Exception as e:
+        print(f"Failed to get invite link: {e}")
+        return f"https://t.me/{CHANNEL_ID}"
 
 async def _post_viral_comments(client: TelegramClient, invite_link: str):
     """Send a short promotional comment (the viral template) to each big channel.
@@ -47,8 +52,25 @@ async def _dm_random_members(client: TelegramClient, invite_link: str):
     random.shuffle(participants)
     for user in participants[:10]:
         try:
-            # each user gets a unique referral link
-            personal_link = generate_referral_link(user.id)
+            # Generate referral link natively with Telethon to avoid asyncio.run() crash
+            result = await client(ExportChatInviteRequest(peer=CHANNEL_ID, usage_limit=0))
+            personal_link = result.link
+            
+            # Save it to referrals.json manually
+            referral_file = 'referrals.json'
+            if os.path.exists(referral_file):
+                with open(referral_file, 'r', encoding='utf-8') as f:
+                    referrals = json.load(f)
+            else:
+                referrals = {}
+            referrals[personal_link] = {
+                'creator': user.id,
+                'created_at': datetime.utcnow().isoformat(),
+                'joined': []
+            }
+            with open(referral_file, 'w', encoding='utf-8') as f:
+                json.dump(referrals, f, ensure_ascii=False, indent=2)
+
             msg = (
                 f"Hey {user.first_name or ''}! 🙏 Join our deals channel for exclusive loot.\n"
                 f"Your personal invite (you get credit for any friends you bring):\n{personal_link}\n"
