@@ -371,7 +371,7 @@ async def post_deals():
                 products_to_post = random.sample(eligible, num_to_post)
                 print(f"Random mode: Selected {num_to_post} products.")
             else:
-                num_to_post = min(3, len(eligible))
+                num_to_post = 1  # limited to one product for testing
                 products_to_post = eligible[:num_to_post]
                 print(f"Normal mode: Selected {num_to_post} products.")
             # Update history
