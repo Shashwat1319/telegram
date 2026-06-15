@@ -5,12 +5,12 @@ import random
 import asyncio
 import os
 import re
-import requests
-import socket
+import aiohttp
 from urllib.parse import urlparse, quote
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
+from functools import lru_cache
 
 # ---------- Helper for Price Parsing ----------
 def get_price_value(price_str):
@@ -24,51 +24,55 @@ def get_price_value(price_str):
 load_dotenv()
 
 # ---------- Image Downloader ----------
-def is_url_accessible(url):
-    """Check if a URL is reachable."""
+async def is_url_accessible(url: str) -> bool:
+    """Check if a URL is reachable using aiohttp.
+    Amazon URLs are assumed reachable.
+    """
     if "amazon." in url:
         return True
     try:
-        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-        response = requests.get(url, headers=headers, stream=True, timeout=5)
-        return response.status_code < 400 or response.status_code in (403, 405, 503)
+        async with aiohttp.ClientSession() as session:
+            async with session.head(url, timeout=5) as resp:
+                return resp.status < 400 or resp.status in (403, 405, 503)
     except Exception:
         return False
 
-def download_image(url):
-    """Download image to a local file for reliable Telegram upload with 404 fallback and URL validation."""
+async def download_image(url: str) -> str | None:
+    """Download image asynchronously and cache it.
+    Returns the local file path or None.
+    """
     if not url:
         return None
-    if not is_url_accessible(url):
+    if not await is_url_accessible(url):
         print(f"[WARN] Image URL unreachable, skipping download: {url}")
         return None
-    temp_dir = os.path.join(os.getcwd(), "temp_images")
-    if not os.path.exists(temp_dir):
-        try:
-            os.makedirs(temp_dir)
-        except Exception:
-            pass
-    local_filename = os.path.join(temp_dir, f"temp_{int(time.time())}_{random.randint(100,999)}.jpg")
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36"
-    }
+    cache_dir = os.path.join(os.getcwd(), "image_cache")
+    os.makedirs(cache_dir, exist_ok=True)
+    # Use SHA1 hash of URL as filename
+    import hashlib
+    filename = hashlib.sha1(url.encode('utf-8')).hexdigest() + ".jpg"
+    local_path = os.path.join(cache_dir, filename)
+    if os.path.exists(local_path):
+        return local_path
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36"}
     urls_to_try = [url]
     if "media-amazon.com" in url:
         clean_url = re.sub(r'\._[A-Z0-9]+_\.', '.', url)
         if clean_url != url:
             urls_to_try.append(clean_url)
-    for target_url in urls_to_try:
-        try:
-            with requests.get(target_url, headers=headers, stream=True, timeout=15) as r:
-                if r.status_code == 200:
-                    with open(local_filename, 'wb') as f:
-                        for chunk in r.iter_content(chunk_size=8192):
-                            f.write(chunk)
-                    return local_filename
-                else:
-                    print(f"[RETRY-INFO] Image URL failed {r.status_code}: {target_url}")
-        except Exception as e:
-            print(f"[RETRY-INFO] Error downloading image {target_url}: {e}")
+    async with aiohttp.ClientSession(headers=headers) as session:
+        for target_url in urls_to_try:
+            try:
+                async with session.get(target_url, timeout=15) as resp:
+                    if resp.status == 200:
+                        with open(local_path, 'wb') as f:
+                            async for chunk in resp.content.iter_chunked(8192):
+                                f.write(chunk)
+                        return local_path
+                    else:
+                        print(f"[RETRY-INFO] Image URL failed {resp.status}: {target_url}")
+            except Exception as e:
+                print(f"[RETRY-INFO] Error downloading image {target_url}: {e}")
     return None
 
 # ---------- Environment variables ----------
@@ -106,6 +110,7 @@ def reset_post_count():
         f.write("0")
 
 # ---------- Load products ----------
+@lru_cache(maxsize=1)
 def load_products():
     with open("product.json", "r", encoding="utf-8") as f:
         return json.load(f)["products"]
@@ -252,58 +257,47 @@ def generate_bounty_message():
         }
     ]
     selected = random.choice(bounties)
-    tracked_link = get_short_url(selected["url"])
-    return selected["desc"].format(link=tracked_link)
+    return selected["desc"].format(link=selected["url"])
 
 # ---------- Short Link Helper ----------
-def is_url_accessible(url: str) -> bool:
-    """Check if a URL is reachable."""
-    if "amazon." in url:
-        return True
-    try:
-        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
-        resp = requests.get(url, headers=headers, stream=True, timeout=5)
-        return resp.status_code < 400 or resp.status_code in (403, 405, 503)
-    except Exception:
-        return False
-
-def get_short_url(target_url):
-    if not CLICK_TRACKER_URL:
+async def get_short_url(target_url: str) -> str:
+    """Return a cached short URL or generate a new one via CLICK_TRACKER.
+    If CLICK_TRACKER is not configured or the URL is an Amazon link, return the original.
+    """
+    if not CLICK_TRACKER_URL or "amazon." in target_url:
         return target_url
-    if "amazon." in target_url:
-        return target_url
-    if not is_url_accessible(target_url):
+    if not await is_url_accessible(target_url):
         print(f"[WARN] Target URL unreachable, using original: {target_url}")
         return target_url
-    try:
-        cache_file = "short_links_cache.json"
-        cache = {}
-        if os.path.exists(cache_file):
-            try:
-                with open(cache_file, "r") as f:
-                    cache = json.load(f)
-            except Exception:
-                pass
-        if target_url in cache:
-            return cache[target_url]
-        api_url = f"{CLICK_TRACKER_FUNC}?action=shorten&url={quote(target_url)}"
-        headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) BudgetDealsBot/1.0"}
-        response = requests.get(api_url, headers=headers, timeout=15)
-        if response.status_code == 200:
-            try:
-                data = response.json()
-                short_url = data.get("shortUrl")
-                if short_url:
-                    cache[target_url] = short_url
-                    with open(cache_file, "w") as f:
-                        json.dump(cache, f)
-                    return short_url
-            except Exception as json_e:
-                print(f"JSON Parse Error: {json_e} | Response: {response.text[:100]}")
-        else:
-            print(f"API Error: {response.status_code} | Response: {response.text[:100]}")
-    except Exception as e:
-        print(f"Shortening request failed: {e}")
+    cache_file = "short_links_cache.json"
+    cache = {}
+    if os.path.exists(cache_file):
+        try:
+            with open(cache_file, "r") as f:
+                cache = json.load(f)
+        except Exception:
+            pass
+    if target_url in cache:
+        return cache[target_url]
+    api_url = f"{CLICK_TRACKER_FUNC}?action=shorten&url={quote(target_url)}"
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) BudgetDealsBot/1.0"}
+    async with aiohttp.ClientSession(headers=headers) as session:
+        async with session.get(api_url, timeout=15) as response:
+            if response.status == 200:
+                try:
+                    data = await response.json()
+                    short_url = data.get("shortUrl")
+                    if short_url:
+                        cache[target_url] = short_url
+                        with open(cache_file, "w") as f:
+                            json.dump(cache, f)
+                        return short_url
+                except Exception as json_e:
+                    text = await response.text()
+                    print(f"JSON Parse Error: {json_e} | Response: {text[:100]}")
+            else:
+                text = await response.text()
+                print(f"API Error: {response.status} | Response: {text[:100]}")
     return f"{CLICK_TRACKER_FUNC}?url={quote(target_url)}"
 
 import referral_manager
@@ -417,11 +411,11 @@ async def post_deals():
                     msg = generate_message(vip_product, post_count=current_count)
                     link = vip_product.get('link', '#')
                     # Validate link
-                    if not is_url_accessible(link):
+                    if not await is_url_accessible(link):
                         with open('skipped_invalid_links.log', 'a', encoding='utf-8') as log_f:
                             log_f.write(f"{datetime.now().isoformat()} - Skipped VIP product with unreachable link: {link}\n")
                         continue
-                    short_link = get_short_url(link)
+                    short_link = await get_short_url(link)
                     reply_markup = InlineKeyboardMarkup([
                         [InlineKeyboardButton("🛒 BUY NOW (Amazon)", url=short_link)],
                         [InlineKeyboardButton("🔥 Share with Friends", url=f"https://t.me/share/url?url=https://t.me/{CHANNEL_ID.replace('@', '')}&text=Check%20this%20deal"),
@@ -437,12 +431,12 @@ async def post_deals():
                 product_name = product.get('name', 'Product').encode('ascii', 'ignore').decode('ascii')
                 is_lightning = (product == cheapest_product)
                 raw_link = product.get('link', '#')
-                if not is_url_accessible(raw_link):
+                if not await is_url_accessible(raw_link):
                     with open('skipped_invalid_links.log', 'a', encoding='utf-8') as log_f:
                         log_f.write(f"{datetime.now().isoformat()} - Skipped product with unreachable link: {raw_link}\n")
                     continue
-                link = get_short_url(raw_link)
-                if not is_url_accessible(link):
+                link = await get_short_url(raw_link)
+                if not await is_url_accessible(link):
                     print(f"[WARN] Shortened link unreachable, using original: {raw_link}")
                     link = raw_link
                 image_url = product.get('image')
@@ -454,10 +448,10 @@ async def post_deals():
                 ])
                 try:
                     if image_url:
-                        local_image = download_image(image_url)
+                        local_image = await download_image(image_url)
                         if local_image:
-                            with open(local_image, 'rb') as photo_file:
-                                sent_msg = await bot.send_photo(chat_id=chat_id, photo=photo_file, caption=msg, parse_mode='HTML', reply_markup=reply_markup)
+                            async with aiofiles.open(local_image, 'rb') as photo_file:
+                                sent_msg = await bot.send_photo(chat_id=chat_id, photo=await photo_file.read(), caption=msg, parse_mode='HTML', reply_markup=reply_markup)
                             os.remove(local_image)
                         else:
                             print(f"[WARN] Could not download image for {product_name}, falling back to text post.")
