@@ -52,6 +52,7 @@ const categories = [...new Set(allDeals.map(d => d.data.category))].sort();
                   category={deal.data.category}
                   rating={deal.data.rating}
                   description={deal.data.description}
+                  slug={deal.id || deal.slug}
                 />
               ))}
             </div>

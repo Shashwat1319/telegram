@@ -9,9 +9,10 @@ interface Props {
   category: string;
   rating?: string;
   description?: string;
+  slug?: string;
 }
 
-const { title, price, mrp, discount, image, buyLink, category, rating, description } = Astro.props;
+const { title, price, mrp, discount, image, buyLink, category, rating, description, slug } = Astro.props;
 ---
 
 <article class="deal-card group bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 flex flex-col h-full">
@@ -48,24 +49,40 @@ const { title, price, mrp, discount, image, buyLink, category, rating, descripti
   </div>
   
   <div class="p-4 flex flex-col flex-1">
-    <h3 class="font-semibold text-gray-900 line-clamp-2 mb-2 group-hover:text-orange-600 transition-colors">{title}</h3>
+    {slug ? (
+      <a href={`/deal/${slug}/`} class="no-underline">
+        <h3 class="font-semibold text-gray-900 line-clamp-2 mb-2 group-hover:text-orange-600 transition-colors">{title}</h3>
+      </a>
+    ) : (
+      <h3 class="font-semibold text-gray-900 line-clamp-2 mb-2">{title}</h3>
+    )}
     
     {description && (
       <p class="text-sm text-gray-500 line-clamp-2 mb-3 flex-1">{description}</p>
     )}
     
-    <div class="flex items-baseline gap-2 mb-4">
+    <div class="flex items-baseline gap-2 mb-3">
       <span class="text-xl font-bold text-orange-600">{price}</span>
       <span class="text-sm text-gray-400 line-through">{mrp}</span>
     </div>
-    
-    <a 
-      href={buyLink} 
-      target="_blank" 
-      rel="noopener sponsored"
-      class="block w-full bg-orange-600 text-white text-center font-semibold py-3 rounded-lg hover:bg-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
-    >
-      Grab Deal →
-    </a>
+
+    <div class="flex gap-2 mt-auto">
+      <a 
+        href={buyLink} 
+        target="_blank" 
+        rel="noopener sponsored"
+        class="flex-1 bg-orange-600 text-white text-center font-semibold py-3 rounded-lg hover:bg-orange-700 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 text-sm"
+      >
+        Grab Deal →
+      </a>
+      {slug && (
+        <a 
+          href={`/deal/${slug}/`}
+          class="px-3 py-3 border border-gray-200 text-gray-600 text-center font-medium rounded-lg hover:border-orange-300 hover:text-orange-600 transition-colors text-sm"
+        >
+          Details
+        </a>
+      )}
+    </div>
   </div>
 </article>

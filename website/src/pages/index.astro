@@ -2,86 +2,142 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import DealCard from '../components/DealCard.astro';
+import BlogPostCard from '../components/BlogPostCard.astro';
 import { SITE_DESCRIPTION, SITE_TITLE, TELEGRAM_CHANNEL_URL } from '../consts';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../components/FormattedDate.astro';
-import '../styles/home.css';
+
+const allDeals = (await getCollection('deals')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const latestDeals = allDeals.slice(0, 4);
 
 const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
-const recentPosts = posts.slice(0, 3);
+const latestPosts = posts.slice(0, 3);
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  <!-- Product JSON‑LD for rich results -->
-  <script type="application/ld+json">
-  {`
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Loot Deals",
-      "description": "AI‑verified discount deals from Amazon",
-      "brand": { "@type": "Brand", "name": "Budget Deals" },
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "INR",
-        "price": "0",
-        "availability": "https://schema.org/InStock",
-        "url": "${TELEGRAM_CHANNEL_URL}"
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "BudgetDeals India",
+        "url": "https://budgetdealsindia.com",
+        "description": "Best budget deals for Indian students - Amazon loot, price drops & hostel hacks"
       }
-    }
-  `}
-  </script>
-
-	</head>
-	<body>
-		<Header />
-		<main>
-			<div class="hero-banner">
-				<span class="loot-tag">🔥 Trending Now</span>
-				<h1>Loot Deals & Extreme Discounts!</h1>
-				<p>{SITE_DESCRIPTION}</p>
-				<p>🚀 Join 15,000+ shoppers on <a href={TELEGRAM_CHANNEL_URL}>Telegram</a> | <a href="https://amzn.to/your_aff_id" target="_blank" rel="nofollow">Shop on Amazon</a></p>
-			</div>
-      <!-- Newsletter capture -->
-      <section class="newsletter" style="margin-top:2rem; text-align:center;">
-        <h3>Get Fresh Deals in Your Inbox</h3>
-        <form action="https://example.com/subscribe" method="POST" style="display:inline-block;">
-          <input type="email" name="email" placeholder="you@example.com" required style="padding:0.5rem;border-radius:4px;border:1px solid #ccc;" />
-          <button type="submit" style="margin-left:0.5rem;padding:0.5rem 1rem;background:#ff9900;color:#fff;border:none;border-radius:4px;cursor:pointer;">Subscribe</button>
-        </form>
+    </script>
+  </head>
+  <body>
+    <Header />
+    
+    <main>
+      <section class="bg-gradient-to-br from-orange-50 to-white py-16 px-4 -mx-4 text-center">
+        <div class="max-w-4xl mx-auto">
+          <span class="inline-block bg-orange-600 text-white text-sm font-bold px-4 py-1 rounded-full mb-4">#1 Student Deals Platform</span>
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Best Budget Deals for<br />
+            <span class="text-orange-600">Indian Students</span>
+          </h1>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+            {SITE_DESCRIPTION}
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="/deals" class="bg-orange-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-orange-700 transition-colors">
+              Browse Latest Deals
+            </a>
+            <a href={TELEGRAM_CHANNEL_URL} target="_blank" rel="noopener" class="bg-gray-100 text-gray-700 font-semibold px-8 py-3 rounded-lg hover:bg-gray-200 transition-colors">
+              Join Telegram Channel
+            </a>
+          </div>
+        </div>
       </section>
 
-			<section>
-				<h2>🔥 Latest Loot Verified by AI</h2>
-				<div class="deals-grid">
-					{recentPosts.map((post) => (
-						<div class="deal-card">
-							<a href={`/blog/${post.id}/`}>
-								<img src={post.data.heroImage} alt={post.data.title} loading="lazy" />
-								<div class="deal-info">
-									<h3>{post.data.title}</h3>
-									<span class="buy-btn" data-variant="A">View Detailed Review</span>
-								</div>
-							</a>
-						</div>
-					))}
-				</div>
-			</section>
+      {latestDeals.length > 0 && (
+        <section class="py-12">
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h2 class="text-2xl font-bold text-gray-900">Latest Verified Deals</h2>
+              <p class="text-gray-500">Handpicked Amazon loot deals updated daily</p>
+            </div>
+            <a href="/deals" class="text-orange-600 font-medium hover:text-orange-700 hidden sm:inline-block">
+              View All →
+            </a>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {latestDeals.map(deal => (
+              <DealCard
+                title={deal.data.title}
+                price={deal.data.price}
+                mrp={deal.data.mrp}
+                discount={deal.data.discount}
+                image={deal.data.image || '/hero.png'}
+                buyLink={deal.data.buyLink}
+                category={deal.data.category}
+                rating={deal.data.rating}
+                description={deal.data.description}
+                slug={deal.id || deal.slug}
+              />
+            ))}
+          </div>
+          <div class="mt-6 text-center sm:hidden">
+            <a href="/deals" class="text-orange-600 font-medium hover:text-orange-700">View All Deals →</a>
+          </div>
+        </section>
+      )}
 
-			<section style="margin-top: 4rem;">
-				<h2>About Budget Deals India</h2>
-				<p>
-					We are India's #1 AI-powered deals curator. We scan thousands of Amazon products every hour
-					to find genuine price drops and loot offers. From electronics to daily essentials, we bring you 
-					the best prices verified for quality and trust.
-				</p>
-			</section>
-		</main>
-		<Footer />
-	</body>
+      {latestPosts.length > 0 && (
+        <section class="py-12">
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h2 class="text-2xl font-bold text-gray-900">Latest from Blog</h2>
+              <p class="text-gray-500">In-depth reviews, price analysis & buying guides</p>
+            </div>
+            <a href="/blog" class="text-orange-600 font-medium hover:text-orange-700 hidden sm:inline-block">
+              Read All →
+            </a>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {latestPosts.map(post => (
+              <BlogPostCard
+                title={post.data.title}
+                description={post.data.description}
+                link={`/blog/${post.slug}/`}
+                heroImage={post.data.heroImage}
+                pubDate={post.data.pubDate}
+                buyLink={post.data.buyLink}
+              />
+            ))}
+          </div>
+          <div class="mt-6 text-center sm:hidden">
+            <a href="/blog" class="text-orange-600 font-medium hover:text-orange-700">Read All Blogs →</a>
+          </div>
+        </section>
+      )}
+
+      <section class="bg-gray-50 rounded-xl p-8 md:p-12 text-center my-12 -mx-4">
+        <div class="max-w-2xl mx-auto">
+          <h2 class="text-2xl font-bold text-gray-900 mb-3">Never Miss a Deal</h2>
+          <p class="text-gray-600 mb-6">
+            Join 15,000+ students who get instant deal alerts on Telegram. We handpick the best Amazon discounts so you don't have to.
+          </p>
+          <div class="flex flex-wrap justify-center gap-3">
+            <a href={TELEGRAM_CHANNEL_URL} target="_blank" rel="noopener" class="bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors inline-flex items-center gap-2">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+              Join Telegram
+            </a>
+            <a href="/categories" class="bg-gray-100 text-gray-700 font-semibold px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors">
+              Browse Categories
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
 </html>
