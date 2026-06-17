@@ -1,4 +1,6 @@
 import { getStore } from "@netlify/blobs";
+import path from "path";
+import fs from "fs";
 
 export default async (request, context) => {
   const url = new URL(request.url);
