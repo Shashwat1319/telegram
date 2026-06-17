@@ -12,6 +12,7 @@ on:
 jobs:
   run-poster:
     runs-on: ubuntu-latest
+    environment: telegram
     defaults:
       run:
         working-directory: ./
