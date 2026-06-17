@@ -1,0 +1,56 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  heroImage?: string;
+  buyLink?: string;
+  slug: string;
+}
+
+const { title, description, pubDate, heroImage, buyLink, slug } = Astro.props;
+const formattedDate = new Date(pubDate).toLocaleDateString('en-IN', {
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric'
+});
+---
+
+<article class="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-full">
+  {heroImage && (
+    <div class="relative aspect-video bg-gray-100 overflow-hidden">
+      <img 
+        src={heroImage} 
+        alt={title} 
+        class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  )}
+  
+  <div class="p-5 flex flex-col flex-1">
+    <time class="text-xs text-gray-500 mb-2 block">{formattedDate}</time>
+    <h3 class="font-semibold text-gray-900 line-clamp-2 mb-2 group-hover:text-orange-600 transition-colors">{title}</h3>
+    <p class="text-sm text-gray-600 line-clamp-3 mb-4 flex-1">{description}</p>
+    
+    <div class="flex items-center gap-3 pt-2 border-t border-gray-100">
+      <a 
+        href={`/blog/${slug}/`} 
+        class="text-sm font-medium text-orange-600 hover:text-orange-700 flex-1 text-center"
+      >
+        Read More
+      </a>
+      {buyLink && (
+        <a 
+          href={buyLink} 
+          target="_blank" 
+          rel="noopener sponsored"
+          class="text-sm font-semibold text-white bg-orange-600 px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors whitespace-nowrap"
+        >
+          View Deal
+        </a>
+      )}
+    </div>
+  </div>
+</article>

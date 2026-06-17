@@ -1,0 +1,56 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { getCollection } from 'astro:content';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const allDeals = await getCollection('deals');
+const categories = [...new Set(allDeals.map(d => d.data.category))].sort();
+
+const categoryStats = categories.map(cat => {
+  const deals = allDeals.filter(d => d.data.category === cat);
+  return {
+    name: cat,
+    count: deals.length,
+    avgPrice: deals.reduce((sum, d) => sum + parseInt(d.data.price.replace(/[^\d]/g, '')), 0) / deals.length || 0
+  };
+});
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="Categories - BudgetDeals India" description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    
+    <main class="min-h-screen bg-gray-50">
+      <section class="bg-white border-b border-gray-200 py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Deal Categories</h1>
+          <p class="text-gray-500 max-w-2xl">Browse deals by category - all verified and updated daily.</p>
+        </div>
+      </section>
+
+      <section class="py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {categoryStats.map(cat => (
+              <a href={`/deals?category=${encodeURIComponent(cat.name)}`} class="group bg-white rounded-xl border border-gray-200 p-6 hover:border-orange-300 hover:shadow-lg transition-all duration-300">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-2xl font-bold text-gray-900 group-hover:text-orange-600 transition">{cat.count}</span>
+                  <span class="text-sm text-gray-500">deals</span>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-1 capitalize">{cat.name}</h3>
+                <p class="text-sm text-gray-500">Avg: ₹{Math.round(cat.avgPrice)}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

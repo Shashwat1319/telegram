@@ -1,0 +1,73 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import DealCard from '../components/DealCard.astro';
+import { getCollection } from 'astro:content';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+const allDeals = await getCollection('deals');
+const sortedDeals = allDeals.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
+
+// Get unique categories
+const categories = [...new Set(allDeals.map(d => d.data.category))].sort();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title="All Deals - BudgetDeals India" description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    
+    <main class="min-h-screen bg-gray-50">
+      <section class="bg-white border-b border-gray-200 py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">All Verified Deals</h1>
+          <p class="text-gray-500 max-w-2xl">Handpicked Amazon loot deals under ₹500. Updated daily with price verification.</p>
+          
+          <!-- Category Filter -->
+          <div class="mt-6 flex flex-wrap gap-2" role="group" aria-label="Filter by category">
+            <a href="/deals" class="px-4 py-2 rounded-full text-sm font-medium bg-orange-600 text-white">All</a>
+            {categories.map(cat => (
+              <a href={`/deals?category=${encodeURIComponent(cat)}`} class="px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition">{cat}</a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+          {sortedDeals.length > 0 ? (
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {sortedDeals.map((deal) => (
+                <DealCard 
+                  title={deal.data.title}
+                  price={deal.data.price}
+                  mrp={deal.data.mrp}
+                  discount={deal.data.discount}
+                  image={deal.data.image || '/hero.png'}
+                  buyLink={deal.data.buyLink}
+                  category={deal.data.category}
+                  rating={deal.data.rating}
+                  description={deal.data.description}
+                />
+              ))}
+            </div>
+          ) : (
+            <div class="text-center py-20">
+              <svg class="w-16 h-16 mx-auto text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+              </svg>
+              <h2 class="text-xl font-semibold text-gray-900 mb-2">No deals yet</h2>
+              <p class="text-gray-500 mb-6">Check back soon for fresh loot deals!</p>
+              <a href="https://t.me/budgetdeals_india" target="_blank" rel="noopener" class="text-orange-600 font-medium">Join Telegram for instant updates →</a>
+            </div>
+          )}
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

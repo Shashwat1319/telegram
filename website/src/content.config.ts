@@ -13,4 +13,20 @@ const blog = defineCollection({
 	}),
 });
 
-export const collections = { blog };
+const deals = defineCollection({
+	loader: glob({ pattern: "**/*.md", base: "./src/content/deals" }),
+	schema: z.object({
+		title: z.string(),
+		description: z.string(),
+		pubDate: z.coerce.date(),
+		price: z.string(),
+		mrp: z.string(),
+		discount: z.string(),
+		image: z.string().optional(),
+		buyLink: z.string().url(),
+		category: z.string(),
+		rating: z.string().optional(),
+	}),
+});
+
+export const collections = { blog, deals };
