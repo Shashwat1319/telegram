@@ -1,0 +1,178 @@
+name: Growth Automation (Cloud)
+
+on:
+  schedule:
+    # Scrape leads every 6 hours
+    - cron: '0 */6 * * *'
+    # Promo DMs every 3 hours
+    - cron: '0 */3 * * *'
+    # Member growth every 4 hours
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
+
+jobs:
+  scrape-leads:
+    runs-on: ubuntu-latest
+    environment: telegram
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Scrape Active Members
+        env:
+          API_ID: ${{ secrets.API_ID }}
+          API_HASH: ${{ secrets.API_HASH }}
+          TELEGRAM_SESSION_1: ${{ secrets.TELEGRAM_SESSION_1 }}
+        run: |
+          python scrape_active_members.py
+          echo "SCRAPED_LEADS=$(wc -l < scraped_leads.txt)" >> $GITHUB_ENV
+
+      - name: Commit new leads
+        if: env.SCRAPED_LEADS > 0
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add scraped_leads.txt promo_history.json
+          git commit -m "Auto-update: New scraped leads [skip ci]" || echo "No changes"
+          git push origin main || echo "Push failed"
+
+  promo-dms:
+    runs-on: ubuntu-latest
+    environment: telegram
+    timeout-minutes: 55
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Run Promo DMs (Optimized)
+        env:
+          API_ID: ${{ secrets.API_ID }}
+          API_HASH: ${{ secrets.API_HASH }}
+          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
+          TELEGRAM_SESSION_1: ${{ secrets.TELEGRAM_SESSION_1 }}
+          TELEGRAM_SESSION_2: ${{ secrets.TELEGRAM_SESSION_2 }}
+          TELEGRAM_SESSION_3: ${{ secrets.TELEGRAM_SESSION_3 }}
+        run: |
+          python promo_contacts_optimized.py
+
+      - name: Commit promo history
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add promo_history.json
+          git commit -m "Auto-update: Promo history [skip ci]" || echo "No changes"
+          git push origin main || echo "Push failed"
+
+  member-growth:
+    runs-on: ubuntu-latest
+    environment: telegram
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Run Member Growth
+        env:
+          API_ID: ${{ secrets.API_ID }}
+          API_HASH: ${{ secrets.API_HASH }}
+          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
+          TELEGRAM_SESSION_1: ${{ secrets.TELEGRAM_SESSION_1 }}
+          GROWTH_TARGET_GROUPS: ${{ secrets.GROWTH_TARGET_GROUPS }}
+        run: |
+          python member_growth.py
+
+      - name: Commit referrals
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add referrals.json
+          git commit -m "Auto-update: Referral links [skip ci]" || echo "No changes"
+          git push origin main || echo "Push failed"
+
+  referral-tracker:
+    runs-on: ubuntu-latest
+    environment: telegram
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Run Referral Tracker (One-shot check)
+        env:
+          API_ID: ${{ secrets.API_ID }}
+          API_HASH: ${{ secrets.API_HASH }}
+          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
+          TELEGRAM_SESSION_1: ${{ secrets.TELEGRAM_SESSION_1 }}
+        run: |
+          # Quick check for new joins via recent participants
+          python -c "
+import asyncio, os, json
+from telethon import TelegramClient
+from telethon.sessions import StringSession
+from datetime import datetime, timedelta
+
+async def check():
+    client = TelegramClient(StringSession(os.getenv('TELEGRAM_SESSION_1')), int(os.getenv('API_ID')), os.getenv('API_HASH'))
+    await client.connect()
+    channel = os.getenv('CHANNEL_ID').replace('@', '')
+    try:
+        participants = await client.get_participants(channel, limit=500)
+        refs = {}
+        if os.path.exists('referrals.json'):
+            with open('referrals.json') as f: refs = json.load(f)
+        
+        for p in participants:
+            if not p.bot:
+                for link, info in refs.items():
+                    if p.id not in info.get('joined', []):
+                        info.setdefault('joined', []).append(p.id)
+                        info['last_join'] = {'user_id': p.id, 'username': p.username, 'timestamp': datetime.utcnow().isoformat()}
+        
+        with open('referrals.json', 'w') as f: json.dump(refs, f, indent=2)
+        print(f'Checked {len(participants)} participants')
+    finally:
+        await client.disconnect()
+
+asyncio.run(check())
+          "
+
+      - name: Commit referral updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add referrals.json
+          git commit -m "Auto-update: Referral joins [skip ci]" || echo "No changes"
+          git push origin main || echo "Push failed"
