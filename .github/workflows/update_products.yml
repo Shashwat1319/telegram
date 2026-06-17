@@ -1,12 +1,13 @@
-name: AI Trending Products Sync
+name: Post from product.json & Deploy Website
 
 on:
-  # schedule:
-  #   - cron: '0 4,6,8,10,12,14,16,18 * * *'  # Disabled to keep product.json static
+  schedule:
+    # Daily at 07:00 UTC (12:30 IST) - posts deals, generates blogs, deploys site
+    - cron: '0 7 * * *'
   workflow_dispatch:
 
 jobs:
-  cloud_orchestrator:
+  post-and-deploy:
     runs-on: ubuntu-latest
     environment: telegram
     permissions:
@@ -14,6 +15,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -29,22 +32,18 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Run Trending Updater (Deals + Website Sync)
+      - name: Post to Telegram (from product.json)
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          AFFILIATE_ID_IN: ${{ secrets.AFFILIATE_ID_IN }}
-          AFFILIATE_ID_COM: ${{ secrets.AFFILIATE_ID_COM }}
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
           CLICK_TRACKER_URL: ${{ secrets.CLICK_TRACKER_URL }}
-          # FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}          # DISABLED until credentials provided
-          # FB_ACCESS_TOKEN: ${{ secrets.FB_ACCESS_TOKEN }}  # DISABLED until credentials provided
+          POST_INTERVAL_MINUTES: "30"
+          VIP_CHANNEL_ID: ${{ secrets.VIP_CHANNEL_ID }}
+          DYNAMIC_GAP_MIN: "12"
+          DYNAMIC_GAP_MAX: "24"
+          AFFILIATE_ID_IN: ${{ secrets.AFFILIATE_ID_IN }}
         run: |
-          python trending_updater.py
-          git add .
-          git commit -m "Auto-sync May Sprint: New Budget Deals & Trackers" || echo "No changes to commit"
-          git pull --rebase origin main || (git rebase --abort && git pull --no-rebase origin main -X theirs)
-          git push origin main || echo "Push failed"
+          python bot_post.py --dry-run
 
       - name: Run Promo Report
         env:
@@ -52,23 +51,14 @@ jobs:
           ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
         run: python promo_report.py
 
-      # YouTube Auto Shorts Uploader - DISABLED until credentials provided
-      # - name: Run YouTube Auto Shorts Uploader
-      #   env:
-      #     YOUTUBE_CLIENT_SECRETS: ${{ secrets.YOUTUBE_CLIENT_SECRETS }}
-      #     YOUTUBE_TOKEN: ${{ secrets.YOUTUBE_TOKEN }}
-      #   if:   if: ${{ env.YOUTUBE_CLIENT_SECRETS != '' && env.YOUTUBE_TOKEN != '' }}
-      #   run: python youtube_auto_upload.py || echo "YouTube upload skipped or failed"
-
       - name: Run Daily Report
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
           CLICK_TRACKER_URL: ${{ secrets.CLICK_TRACKER_URL }}
-        if: github.event_name == 'schedule' && (github.event.schedule == '0 2 * * *' || github.event.schedule == '0 14 * * *' || true)
         run: python daily_report.py || echo "Daily report skipped"
 
-      - name: Run auto blogger (generate blog posts & deal pages)
+      - name: Run auto blogger (generate blog posts & deal pages from product.json)
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           CLICK_TRACKER_URL: ${{ secrets.CLICK_TRACKER_URL }}
@@ -99,7 +89,7 @@ jobs:
           publish-dir: './agency-portfolio/dist'
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Deploy from Trending Updater - ${{ github.sha }}"
+          deploy-message: "Deploy from product.json - ${{ github.sha }}"
           enable-pull-request-comment: false
           enable-commit-comment: true
           overwrites-pull-request-comment: true
@@ -110,14 +100,7 @@ jobs:
 
       - name: Commit generated content (blog posts, deal pages)
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main || true
           git add agency-portfolio/src/content/blog/ agency-portfolio/src/content/deals/
           git commit -m "Auto-generate blog posts & deal pages [skip ci]" || echo "No new content to commit"
           git push origin main || echo "Push failed"
-
-      # Facebook & YouTube posting - DISABLED until credentials provided
-      # To re-enable:
-      # 1. Uncomment FB_PAGE_ID, FB_ACCESS_TOKEN in "Run Trending Updater" step
-      # 2. Uncomment "Run YouTube Auto Shorts Uploader" step
-      # 3. Add NETLIFY_AUTH_TOKEN, NETLIFY_SITE_ID for auto-deploy
