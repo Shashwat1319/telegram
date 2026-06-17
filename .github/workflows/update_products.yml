@@ -36,9 +36,9 @@ jobs:
           AFFILIATE_ID_COM: ${{ secrets.AFFILIATE_ID_COM }}
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
-          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
-          FB_ACCESS_TOKEN: ${{ secrets.FB_ACCESS_TOKEN }}
           CLICK_TRACKER_URL: ${{ secrets.CLICK_TRACKER_URL }}
+          # FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}          # DISABLED until credentials provided
+          # FB_ACCESS_TOKEN: ${{ secrets.FB_ACCESS_TOKEN }}  # DISABLED until credentials provided
         run: |
           python trending_updater.py
           git add .
@@ -52,12 +52,13 @@ jobs:
           ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
         run: python promo_report.py
 
-      - name: Run YouTube Auto Shorts Uploader
-        env:
-          YOUTUBE_CLIENT_SECRETS: ${{ secrets.YOUTUBE_CLIENT_SECRETS }}
-          YOUTUBE_TOKEN: ${{ secrets.YOUTUBE_TOKEN }}
-        if: ${{ env.YOUTUBE_CLIENT_SECRETS != '' && env.YOUTUBE_TOKEN != '' }}
-        run: python youtube_auto_upload.py || echo "YouTube upload skipped or failed"
+      # YouTube Auto Shorts Uploader - DISABLED until credentials provided
+      # - name: Run YouTube Auto Shorts Uploader
+      #   env:
+      #     YOUTUBE_CLIENT_SECRETS: ${{ secrets.YOUTUBE_CLIENT_SECRETS }}
+      #     YOUTUBE_TOKEN: ${{ secrets.YOUTUBE_TOKEN }}
+      #   if:   if: ${{ env.YOUTUBE_CLIENT_SECRETS != '' && env.YOUTUBE_TOKEN != '' }}
+      #   run: python youtube_auto_upload.py || echo "YouTube upload skipped or failed"
 
       - name: Run Daily Report
         env:
@@ -114,3 +115,9 @@ jobs:
           git add agency-portfolio/src/content/blog/ agency-portfolio/src/content/deals/
           git commit -m "Auto-generate blog posts & deal pages [skip ci]" || echo "No new content to commit"
           git push origin main || echo "Push failed"
+
+      # Facebook & YouTube posting - DISABLED until credentials provided
+      # To re-enable:
+      # 1. Uncomment FB_PAGE_ID, FB_ACCESS_TOKEN in "Run Trending Updater" step
+      # 2. Uncomment "Run YouTube Auto Shorts Uploader" step
+      # 3. Add NETLIFY_AUTH_TOKEN, NETLIFY_SITE_ID for auto-deploy
