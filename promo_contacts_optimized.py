@@ -5,6 +5,7 @@ import json
 from datetime import datetime, timedelta
 from telethon import TelegramClient
 from telethon.sessions import StringSession
+from telethon.errors import FloodWaitError
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -36,10 +37,11 @@ ACCOUNTS = [
 HISTORY_FILE = "promo_history.json"
 LEADS_FILE = "scraped_leads.txt"
 
-MAX_CONCURRENT = 2  # Max parallel sends per account
-DELAY_BETWEEN_BATCHES = 30  # seconds
-DELAY_ON_ERROR = 60
+MAX_CONCURRENT_PER_ACCOUNT = 1  # 1 at a time per account (Telegram limit)
+DELAY_BETWEEN_SENDS = 30  # seconds between sends per account
+DELAY_ON_FLOOD = 60
 WEEKLY_COOLDOWN_DAYS = 7
+MAX_RETRIES = 3
 
 def load_history():
     if os.path.exists(HISTORY_FILE):
@@ -59,51 +61,67 @@ def get_client(session_env):
         return TelegramClient(StringSession(session_data), int(API_ID), API_HASH)
     return None
 
-async def send_promo_semaphore(semaphore, session_env, contact, history, results):
-    async with semaphore:
-        client = get_client(session_env)
-        if not client:
-            results.append((contact, False, "No session"))
-            return
-        
+async def send_with_retry(client, contact, retries=MAX_RETRIES):
+    for attempt in range(retries):
         try:
-            await asyncio.wait_for(client.connect(), timeout=30)
-            
-            if not await client.is_user_authorized():
-                results.append((contact, False, "Not authorized"))
-                return
-            
-            print(f"[*] Sending to {contact} via {session_env}...")
             await client.send_message(contact, PROMO_MESSAGE, link_preview=False)
-            
-            history[contact] = {
-                "time": datetime.now().isoformat(),
-                "account": session_env
-            }
-            results.append((contact, True, "Sent"))
-            print(f"[OK] Sent to {contact}")
-            
+            return True, "Sent"
+        except FloodWaitError as e:
+            wait_time = e.seconds + random.randint(5, 15)
+            print(f"[FLOOD] Account waiting {wait_time}s (attempt {attempt+1}/{retries})")
+            await asyncio.sleep(wait_time)
         except Exception as e:
             err = str(e).lower()
             if "flood" in err or "wait" in err:
-                wait = random.randint(60, 120)
-                print(f"[FLOOD] Waiting {wait}s...")
-                await asyncio.sleep(wait)
-            results.append((contact, False, str(e)[:100]))
-            print(f"[ERROR] {contact}: {e}")
-        finally:
-            try:
-                await client.disconnect()
-            except: pass
+                wait_time = random.randint(60, 120)
+                print(f"[FLOOD] Generic wait {wait_time}s")
+                await asyncio.sleep(wait_time)
+            elif "peer" in err or "user" in err or "chat" in err:
+                return False, f"Invalid contact: {e}"
+            else:
+                print(f"[ERROR] {contact}: {e}")
+                await asyncio.sleep(DELAY_ON_FLOOD)
+    return False, f"Max retries exceeded"
 
-async def process_batch(contacts_batch, session_env, history, semaphore):
-    tasks = []
-    for contact in contacts_batch:
-        task = asyncio.create_task(send_promo_semaphore(semaphore, session_env, contact, history, []))
-        tasks.append(task)
+async def process_account_queue(account_env, contacts, history, results_queue):
+    """Process contacts for a single account sequentially."""
+    client = get_client(account_env)
+    if not client:
+        for contact in contacts:
+            await results_queue.put((contact, False, "No session"))
+        return
     
-    results = await asyncio.gather(*tasks, return_exceptions=True)
-    return results
+    try:
+        await asyncio.wait_for(client.connect(), timeout=30)
+        
+        if not await client.is_user_authorized():
+            print(f"[SKIP] {account_env}: Not authorized")
+            for contact in contacts:
+                await results_queue.put((contact, False, "Not authorized"))
+            return
+        
+        print(f"[*] {account_env}: Processing {len(contacts)} contacts")
+        
+        for contact in contacts:
+            success, msg = await send_with_retry(client, contact)
+            if success:
+                history[contact] = {
+                    "time": datetime.now().isoformat(),
+                    "account": account_env
+                }
+            await results_queue.put((contact, success, msg))
+            
+            # Delay between sends to avoid rate limits
+            await asyncio.sleep(DELAY_BETWEEN_SENDS + random.randint(0, 10))
+            
+    except Exception as e:
+        print(f"[ACCOUNT ERROR] {account_env}: {e}")
+        for contact in contacts:
+            await results_queue.put((contact, False, str(e)[:100]))
+    finally:
+        try:
+            await client.disconnect()
+        except: pass
 
 async def main():
     history = load_history()
@@ -138,9 +156,12 @@ async def main():
         last_sent = history.get(contact)
         if last_sent:
             ts = last_sent["time"] if isinstance(last_sent, dict) else last_sent
-            last_sent_dt = datetime.fromisoformat(ts)
-            if now - last_sent_dt < timedelta(days=WEEKLY_COOLDOWN_DAYS):
-                continue
+            try:
+                last_sent_dt = datetime.fromisoformat(ts)
+                if now - last_sent_dt < timedelta(days=WEEKLY_COOLDOWN_DAYS):
+                    continue
+            except:
+                pass
         eligible.append(contact)
     
     print(f"[*] Eligible after cooldown: {len(eligible)} / {len(all_contacts)}")
@@ -149,45 +170,37 @@ async def main():
         print("[!] All leads in cooldown.")
         return
     
-    # Process with multiple accounts in parallel
-    semaphore = asyncio.Semaphore(MAX_CONCURRENT)
+    # Distribute contacts across accounts
+    account_queues = [[] for _ in ACCOUNTS]
+    for idx, contact in enumerate(eligible):
+        account_queues[idx % len(ACCOUNTS)].append(contact)
     
-    for i in range(0, len(eligible), MAX_CONCURRENT * len(ACCOUNTS)):
-        batch = eligible[i:i + MAX_CONCURRENT * len(ACCOUNTS)]
-        print(f"\n[*] Processing batch {i//(MAX_CONCURRENT*len(ACCOUNTS)) + 1}: {len(batch)} contacts")
-        
-        # Distribute across accounts
-        account_batches = [[] for _ in ACCOUNTS]
-        for idx, contact in enumerate(batch):
-            account_batches[idx % len(ACCOUNTS)].append(contact)
-        
-        # Run all accounts in parallel
-        tasks = []
-        for acc_idx, acc_batch in enumerate(account_batches):
-            if acc_batch:
-                task = asyncio.create_task(
-                    process_batch(acc_batch, ACCOUNTS[acc_idx]["env"], history, semaphore)
-                )
-                tasks.append(task)
-        
-        all_results = await asyncio.gather(*tasks, return_exceptions=True)
-        
-        # Flatten results and update history
-        sent_count = 0
-        for result_list in all_results:
-            if isinstance(result_list, list):
-                for contact, success, msg in result_list:
-                    if success:
-                        sent_count += 1
-        
-        save_history(history)
-        print(f"[*] Batch done. Sent: {sent_count}")
-        
-        if i + MAX_CONCURRENT * len(ACCOUNTS) < len(eligible):
-            print(f"[*] Waiting {DELAY_BETWEEN_BATCHES}s before next batch...")
-            await asyncio.sleep(DELAY_BETWEEN_BATCHES)
+    # Process all accounts in parallel
+    results_queue = asyncio.Queue()
+    tasks = []
     
-    print(f"\n[DONE] Total sent this run: Check history file")
+    for acc_idx, acc_contacts in enumerate(account_queues):
+        if acc_contacts:
+            task = asyncio.create_task(
+                process_account_queue(ACCOUNTS[acc_idx]["env"], acc_contacts, history, results_queue)
+            )
+            tasks.append(task)
+    
+    # Wait for all accounts to finish
+    await asyncio.gather(*tasks, return_exceptions=True)
+    
+    # Collect results
+    sent_count = 0
+    failed_count = 0
+    while not results_queue.empty():
+        contact, success, msg = await results_queue.get()
+        if success:
+            sent_count += 1
+        else:
+            failed_count += 1
+    
+    save_history(history)
+    print(f"\n[DONE] Sent: {sent_count}, Failed: {failed_count}, Total eligible: {len(eligible)}")
 
 if __name__ == "__main__":
     asyncio.run(main())

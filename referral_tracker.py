@@ -1,9 +1,9 @@
 import asyncio
 import os
 import json
+import argparse
 from telethon import TelegramClient, events
 from telethon.sessions import StringSession
-from telethon.tl.types import UpdateBotCallbackQuery, ChatInviteImporter
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -30,7 +30,6 @@ def record_join(invite_link: str, user_id: int, username: str = None):
     """Record that a user joined via a specific invite link."""
     referrals = load_referrals()
     
-    # Find the referral link (handle both full and partial matches)
     matched_link = None
     for link in referrals:
         if invite_link in link or link in invite_link:
@@ -38,7 +37,6 @@ def record_join(invite_link: str, user_id: int, username: str = None):
             break
     
     if not matched_link:
-        # Fallback: check if any link matches the channel
         for link in referrals:
             if CHANNEL_ID.replace('@', '') in link:
                 matched_link = link
@@ -60,7 +58,46 @@ def record_join(invite_link: str, user_id: int, username: str = None):
 
 from datetime import datetime
 
-async def main():
+async def oneshot_check():
+    """One-shot check for new joins - used by GitHub Actions."""
+    client = TelegramClient(StringSession(SESSION), API_ID, API_HASH)
+    await client.connect()
+    
+    if not await client.is_user_authorized():
+        print("[ERROR] Session not authorized")
+        return
+    
+    channel = CHANNEL_ID.replace('@', '')
+    try:
+        participants = await client.get_participants(channel, limit=500)
+        refs = load_referrals()
+        
+        new_joins = 0
+        for p in participants:
+            if not p.bot and not p.deleted:
+                for link, info in refs.items():
+                    if p.id not in info.get('joined', []):
+                        info.setdefault('joined', []).append(p.id)
+                        info['last_join'] = {
+                            'user_id': p.id,
+                            'username': p.username,
+                            'timestamp': datetime.utcnow().isoformat()
+                        }
+                        new_joins += 1
+        
+        if new_joins > 0:
+            save_referrals(refs)
+            print(f"[ONESHOT] Found {new_joins} new referral joins")
+        else:
+            print("[ONESHOT] No new referral joins found")
+            
+    except Exception as e:
+        print(f"[ONESHOT ERROR] {e}")
+    finally:
+        await client.disconnect()
+
+async def event_listener():
+    """Continuous event listener - run on laptop/server."""
     client = TelegramClient(StringSession(SESSION), API_ID, API_HASH)
     await client.start()
     
@@ -69,32 +106,32 @@ async def main():
     
     @client.on(events.ChatAction)
     async def handler(event):
-        # Handle user joining via invite link
         if event.user_joined or event.user_added:
             user = await event.get_user()
-            if user and not user.bot:
-                # Try to get the invite link used
+            if user and not user.bot and not user.deleted:
                 invite_link = None
                 if hasattr(event.action, 'invite') and event.action.invite:
                     invite_link = event.action.invite.link
-                
-                # If no invite link in event, check recent referrals
-                if not invite_link:
-                    referrals = load_referrals()
-                    if referrals:
-                        invite_link = list(referrals.keys())[0]  # fallback
-                
                 record_join(invite_link or '', user.id, user.username)
     
     @client.on(events.Raw)
     async def raw_handler(update):
-        # Handle chat_join_request (for channels with join requests enabled)
         if hasattr(update, 'user_id') and hasattr(update, 'invite'):
             invite_link = update.invite.link if update.invite else None
             record_join(invite_link or '', update.user_id)
     
     print("[*] Listening for join events... (Ctrl+C to stop)")
     await client.run_until_disconnected()
+
+async def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--oneshot', action='store_true', help='Run one-shot check and exit')
+    args = parser.parse_args()
+    
+    if args.oneshot:
+        await oneshot_check()
+    else:
+        await event_listener()
 
 if __name__ == '__main__':
     asyncio.run(main())

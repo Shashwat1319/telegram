@@ -25,10 +25,13 @@ def run_script(script_name, timeout=1800):
             capture_output=False
         )
         print(f"[*] {script_name} finished (Exit Code: {result.returncode})")
+        return result.returncode == 0
     except subprocess.TimeoutExpired:
         print(f"[!] {script_name} timed out after {timeout}s")
+        return False
     except Exception as e:
         print(f"[CRITICAL] Could not run {script_name}: {e}")
+        return False
 
 def git_sync():
     print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Syncing with Cloud (GitHub)...")
@@ -47,7 +50,7 @@ def git_sync():
 
 def main():
     print("="*50)
-    print(" ARZI HYBRID ORCHESTRATOR v3.2 - LAPTOP MODE ")
+    print(" ARZI HYBRID ORCHESTRATOR v3.3 - LAPTOP MODE ")
     print("="*50)
     print("Cloud handles: Scraping, Member Growth, Referral Tracking, Trending Updates")
     print("Laptop handles: Forwarder (15min), Promo DMs (3hr), Reports (12hr)")
@@ -79,8 +82,9 @@ def main():
             # 2. Promo Engine (DM Growth) - Best run from Laptop (Local IP)
             if now - last_promo > INTERVAL_PROMO:
                 if os.path.exists("scraped_leads.txt"):
-                    run_script("promo_contacts_optimized.py", timeout=3600)
-                    run_script("promo_report.py", timeout=300)
+                    success = run_script("promo_contacts_optimized.py", timeout=3600)
+                    if success:
+                        run_script("promo_report.py", timeout=300)
                 else:
                     print("[!] No leads found. Cloud scraper will run later.")
                 last_promo = now
