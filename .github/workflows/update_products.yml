@@ -1,106 +1,87 @@
-name: Post from product.json & Deploy Website
+name: Daily Deal Posting & Deploy
 
 on:
   schedule:
-    # Daily at 07:00 UTC (12:30 IST) - posts deals, generates blogs, deploys site
-    - cron: '0 7 * * *'
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 
 jobs:
-  post-and-deploy:
+  content-cycle:
     runs-on: ubuntu-latest
     environment: telegram
     permissions:
       contents: write
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
+      - name: Install Python deps
+        run: pip install -r requirements.txt
 
       - name: Configure Git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Post to Telegram (from product.json)
+      - name: Sync Trending Products
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          AFFILIATE_ID_IN: ${{ secrets.AFFILIATE_ID_IN }}
+        run: python trending_updater.py
+
+      - name: Post Deals to Telegram
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
           CLICK_TRACKER_URL: ${{ secrets.CLICK_TRACKER_URL }}
-          POST_INTERVAL_MINUTES: "30"
-          VIP_CHANNEL_ID: ${{ secrets.VIP_CHANNEL_ID }}
-          DYNAMIC_GAP_MIN: "12"
-          DYNAMIC_GAP_MAX: "24"
           AFFILIATE_ID_IN: ${{ secrets.AFFILIATE_ID_IN }}
-        run: |
-          python bot_post.py --dry-run
+        run: python bot_post.py --dry-run
 
-      - name: Run Promo Report
-        env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
-        run: python promo_report.py
-
-      - name: Run Daily Report
-        env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
-          CLICK_TRACKER_URL: ${{ secrets.CLICK_TRACKER_URL }}
-        run: python daily_report.py || echo "Daily report skipped"
-
-      - name: Run auto blogger (generate blog posts & deal pages from product.json)
+      - name: Generate Blogs & Deal Pages
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          CLICK_TRACKER_URL: ${{ secrets.CLICK_TRACKER_URL }}
-        run: |
-          python auto_blogger.py
+        run: python auto_blogger.py
 
-      - name: Set up Node.js for Astro build
+      - name: Daily Report
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
+          CLICK_TRACKER_URL: ${{ secrets.CLICK_TRACKER_URL }}
+        run: python daily_report.py || true
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: agency-portfolio/package-lock.json
+          cache-dependency-path: website/package-lock.json
 
-      - name: Install Astro dependencies
+      - name: Build Astro Website
         run: |
-          cd agency-portfolio
+          cd website
           npm ci
-
-      - name: Build Astro website
-        run: |
-          cd agency-portfolio
           npm run build
 
       - name: Deploy to Netlify
-        if: env.NETLIFY_AUTH_TOKEN != '' && env.NETLIFY_SITE_ID != ''
         uses: nwtgck/actions-netlify@v2.1
         with:
-          publish-dir: './agency-portfolio/dist'
+          publish-dir: './website/dist'
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Deploy from product.json - ${{ github.sha }}"
-          enable-pull-request-comment: false
-          enable-commit-comment: true
-          overwrites-pull-request-comment: true
+          deploy-message: "Auto-deploy ${{ github.sha }}"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 5
 
-      - name: Commit generated content (blog posts, deal pages)
+      - name: Commit generated content
         run: |
           git pull --rebase origin main || true
-          git add agency-portfolio/src/content/blog/ agency-portfolio/src/content/deals/
-          git commit -m "Auto-generate blog posts & deal pages [skip ci]" || echo "No new content to commit"
+          git add website/src/content/blog/ website/src/content/deals/ product.json
+          git commit -m "Auto-update: deals & content [skip ci]" || echo "No changes"
           git push origin main || echo "Push failed"

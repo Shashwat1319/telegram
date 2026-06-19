@@ -1,173 +1,73 @@
-import json
-import random
-import asyncio
-import os
-import re
-import requests
-import time
-import sys
-import datetime
+import json, random, os, requests, sys
 from dotenv import load_dotenv
-
-# Load environment variables
 load_dotenv()
 
-# ---------- Environment variables ----------
 FB_PAGE_ID = os.getenv("FB_PAGE_ID")
 FB_ACCESS_TOKEN = os.getenv("FB_ACCESS_TOKEN")
-FB_POST_STATE_FILE = "last_fb_post.txt"
+FB_API = "v21.0"
 
-# Agar inme se koi nahi hai, toh aage nahi badhenge
 if not FB_PAGE_ID or not FB_ACCESS_TOKEN:
-    print("[FB] Skipping: FB_PAGE_ID or FB_ACCESS_TOKEN missing in .env. This is expected if FB is not configured.")
-    exit(0)  # Clean exit, not crash
+    print("[FB] Skipping: credentials missing"); exit(0)
 
-# ---------- Daily & Peak Hour Logic ----------
-def can_post_to_fb():
-    # Check for --force flag in command line
-    if "--force" in sys.argv:
-        print("[!] Force mode active. Bypassing time window checks.")
-        return True
-
-    now = datetime.datetime.now()
-    
-    # 1. Check Peak Hour Windows (India Buying Time)
-    # Window 1: Morning (10 AM - 1 PM) | Window 2: Evening (6 PM - 10 PM)
-    morning_window = (10 <= now.hour < 13)
-    evening_window = (18 <= now.hour < 22)
-    
-    if not (morning_window or evening_window):
-        print(f"[*] Skipping FB: Outside peak hours (Current: {now.strftime('%H:%M')}). Windows: 10:00-13:00, 18:00-22:00")
-        return False
-        
-    # 2. Check Window-wise Limit (Allow 1 post per window: Morning / Evening)
-    current_window = "morning" if (10 <= now.hour < 13) else "evening"
-    state_key = f"{now.strftime('%Y-%m-%d')}_{current_window}"
-    
-    if os.path.exists(FB_POST_STATE_FILE):
-        try:
-            with open(FB_POST_STATE_FILE, "r") as f:
-                last_state = f.read().strip()
-                if last_state == state_key:
-                    print(f"[*] Skipping FB: Already posted for {current_window} window today.")
-                    return False
-        except: pass
-    
-    return True
-
-def mark_fb_posted():
-    now = datetime.datetime.now()
-    current_window = "morning" if (10 <= now.hour < 13) else "evening"
-    state_key = f"{now.strftime('%Y-%m-%d')}_{current_window}"
-    with open(FB_POST_STATE_FILE, "w") as f:
-        f.write(state_key)
-
-# ---------- Load products ----------
 def load_products():
-    with open("product.json", "r", encoding="utf-8") as f:
-        return json.load(f)["products"]
+    return json.load(open("product.json", encoding="utf-8"))["products"]
 
-# ---------- Message Templates (Facebook Format) ----------
-def generate_fb_message(product):
-    name = product.get('name', 'Great Deal!')
-    price = product.get('price', 'Check Link')
+def generate_msg(product):
+    name = product.get('name', 'Deal!')
+    price = product.get('price', 'Check')
     link = product.get('link', '#')
-    
-    # Extract AI-generated content
-    hook = product.get('hook', 'Padhai me distract hote ho baar baar?')
-    pain = product.get('pain', 'Hostel me focus karna waise hi mushkil hai.')
-    fix = product.get('fix', f"Ye {price} ka item use karke dekho, kaafi helpful hai.")
-    
-    tg_link = "https://t.me/budgetdeals_india"
-    
-    templates = [
-        # 1. Value + Soft Plug (Student Problem)
-        f"💡 {hook}\n\n"
-        f"Mera bhi same issue tha. {pain}\n\n"
-        f"Ek solution mila hai: {fix}\n\n"
-        f"👉 Check it out here: {link}\n\n"
-        f"📌 Aise aur bhi hostel/student hacks ke liye Telegram join karo:\n{tg_link}",
-    
-        # 2. Honest Review Style
-        f"📝 Quick Honest Review:\n\n"
-        f"{pain} Toh maine try kiya isko fix karne ka.\n\n"
-        f"{fix}\n\n"
-        f"Price chal raha hai: {price} abhi.\n"
-        f"🔗 Link: {link}\n\n"
-        f"💡 Daily aise useful tools ke liye Telegram join kar lo:\n{tg_link}",
-    
-        # 3. Urgency/Exam Focus
-        f"⏳ Exams pass aa rahe hain aur same problem face kar rahe ho? \n\n"
-        f"👉 {hook}\n\n"
-        f"{pain}\n"
-        f"Ye try karke dekho, kaafi budget-friendly ({price}) aur effective hai: {fix}\n\n"
-        f"🛒 Amazon Link: {link}\n\n"
-        f"📲 Join our Telegram for more tips: {tg_link}"
+    hook = product.get('hook', 'Great deal!')
+    fix = product.get('fix', 'Amazing value.')
+    tg = "https://t.me/budgetdeals_india"
+    tpl = [
+        f"🔥 {hook}\n\n{fix}\n\n👉 {link}\n\n📌 Join Telegram: {tg}",
+        f"💥 {product.get('discount_percent', '')} OFF - {name}\n💸 {price}\n✅ {fix}\n🛒 {link}\n\n📲 More deals: {tg}",
+        f"📢 Deal!\n📦 {name[:60]}\n💸 {price}\n{fix}\n👉 {link}",
     ]
-    msg = random.choice(templates)
-    
-    # Facebook Hashtags
-    seo_block = "\n\n#StudentLife #HostelHacks #StudyTips #BudgetFinds #StudentProblems"
-    return msg + seo_block
+    return random.choice(tpl) + "\n\n#DealsIndia #AmazonDeals #BudgetFinds"
 
-# ---------- Post to Facebook ----------
+def post_photo(product, msg):
+    """Try posting as photo. Falls back to feed post if image fails."""
+    url = product.get('image')
+    if not url:
+        return False
+    r = requests.post(
+        f"https://graph.facebook.com/{FB_API}/{FB_PAGE_ID}/photos",
+        params={"access_token": FB_ACCESS_TOKEN, "url": url, "caption": msg, "share_to_instagram": True}
+    )
+    return r.json() if 'error' not in r.json() else None
+
+def post_feed(product, msg):
+    """Post as feed update with link."""
+    r = requests.post(
+        f"https://graph.facebook.com/{FB_API}/{FB_PAGE_ID}/feed",
+        params={"access_token": FB_ACCESS_TOKEN, "message": msg, "link": product.get('link', '#'), "share_to_instagram": True}
+    )
+    return r.json() if 'error' not in r.json() else None
+
 def post_to_facebook():
-    if not can_post_to_fb():
-        return
-
-    products = load_products()
-    fb_api_version = "v19.0"
-    
     try:
-        # Post only ONE (the newest) product found for Facebook (as requested)
-        if not products:
-            print("No products found to post on FB.")
-            return
+        products = load_products()
+        if not products: print("[FB] No products"); return
 
         product = products[0]
-        msg = generate_fb_message(product)
-        image_url = product.get('image')
-        product_name = product.get('name', 'Product').encode('ascii', 'ignore').decode('ascii')
-        
-        # Use Page Access Token from .env
-        params = {
-            "access_token": FB_ACCESS_TOKEN
-        }
-        
-        if image_url:
-            # FB Photos API use 'caption' for photo posts
-            url = f"https://graph.facebook.com/{fb_api_version}/{FB_PAGE_ID}/photos"
-            payload = {
-                "url": image_url,
-                "caption": msg
-            }
+        msg = generate_msg(product)
+        name = product.get('name', 'Product')[:50]
+
+        # Try photo first, fallback to feed
+        result = post_photo(product, msg)
+        if result:
+            print(f"[FB] POSTED (photo): {name} (ID: {result.get('id','ok')})")
+            return
+
+        feed_result = post_feed(product, msg)
+        if feed_result:
+            print(f"[FB] POSTED (feed): {name} (ID: {feed_result.get('id','ok')})")
         else:
-            # FB Feed API use 'message'
-            url = f"https://graph.facebook.com/{fb_api_version}/{FB_PAGE_ID}/feed"
-            payload = {
-                "message": msg,
-                "link": product.get('link', '')
-            }
-        
-        # Merge params and payload safely
-        response = requests.post(url, params=params, data=payload)
-        result = response.json()
-        
-        if 'error' in result:
-            error_msg = result['error'].get('message', 'Unknown Error')
-            error_code = result['error'].get('code', 'N/A')
-            # [FIX] Permission error is a known issue — log and skip gracefully
-            if error_code in [200, '200'] or 'pages_manage_posts' in error_msg or 'permission' in error_msg.lower():
-                print(f"[FB] SKIPPING: Facebook permission error [{error_code}]. Action needed: Resubmit app for Pages API review.")
-                print(f"[FB] FB posting is DISABLED until permissions are granted. All other systems continue normally.")
-            else:
-                print(f"[FB] Failed to post {product_name}: [{error_code}] {error_msg}")
-        else:
-            print(f"[FB] Successfully Posted: {product_name} (Post ID: {result.get('id')})")
-            mark_fb_posted() # Update state to prevent double-posting today
-            
+            print(f"[FB] FAILED: {name}")
+
     except Exception as e:
-        print(f"Error in FB posting: {str(e).encode('ascii', 'ignore').decode('ascii')}")
+        print(f"[FB] Error: {e}")
 
 if __name__ == "__main__":
     post_to_facebook()

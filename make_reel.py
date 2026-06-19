@@ -1,239 +1,128 @@
-import os
-import copy
-import json
-import requests
-import cv2
-import numpy as np
+import os, json, requests, cv2, numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 def get_latest_product():
-    """Load the first product from product.json that has a working image URL, limited to the first 10 products for speed."""
-    if not os.path.exists("product.json"):
-        print("product.json not found!")
-        return None
+    if not os.path.exists("product.json"): return None
     try:
-        with open("product.json", "r", encoding="utf-8") as f:
-            data = json.load(f)
-            if data and "products" in data and len(data["products"]) > 0:
-                print("Checking first 10 products for valid active images...")
-                checked = 0
-                for prod in data["products"]:
-                    if checked >= 10:
-                        break
-                    img_url = prod.get("image", "")
-                    if img_url:
-                        checked += 1
-                        # Fast request to verify image is not a 404
-                        try:
-                            r = requests.head(img_url, timeout=1.5)
-                            if r.status_code == 200:
-                                print(f"Loaded active product with working image: {prod['name']}")
-                                return prod
-                            else:
-                                print(f"Skipping product image {img_url} due to HTTP status: {r.status_code}")
-                        except Exception as ex:
-                            print(f"Skipping product image {img_url} due to request error: {ex}")
-                
-                # Fallback to first product if validation failed for all
-                print("Warning: No active product image passed the 200 check within the first 10. Falling back to first product.")
-                return data["products"][0]
-    except Exception as e:
-        print(f"Error loading product.json: {e}")
+        data = json.load(open("product.json", encoding="utf-8"))
+        for prod in data.get("products", []):
+            img = prod.get("image", "")
+            if img:
+                try:
+                    r = requests.head(img, timeout=2)
+                    if r.status_code == 200: return prod
+                except: pass
+        if data["products"]: return data["products"][0]
+    except: pass
     return None
 
-
 def download_image(url):
-    """Download image and return a PIL Image object."""
     try:
-        response = requests.get(url, stream=True)
-        response.raise_for_status()
-        img = Image.open(response.raw).convert("RGBA")
-        print(f"Successfully downloaded image from {url}")
-        return img
-    except Exception as e:
-        print(f"Error downloading image: {e}")
-        return None
+        r = requests.get(url, stream=True, timeout=10)
+        r.raise_for_status()
+        return Image.open(r.raw).convert("RGBA")
+    except: return None
 
 def get_font(size, bold=False):
-    """Utility to load a font, downloading a premium Google Font from CDN if standard system fonts are missing."""
-    font_name = "Oswald-Bold.ttf" if bold else "Oswald-Regular.ttf"
-    if not os.path.exists(font_name):
-        try:
-            print(f"Downloading premium font {font_name} from high-reliability CDN...")
-            url = "https://cdn.jsdelivr.net/fontsource/fonts/oswald@latest/latin-700-normal.ttf" if bold else "https://cdn.jsdelivr.net/fontsource/fonts/oswald@latest/latin-400-normal.ttf"
-            r = requests.get(url, timeout=10)
-            if r.status_code == 200:
-                with open(font_name, "wb") as f:
-                    f.write(r.content)
-                print(f"Successfully downloaded premium font {font_name}!")
-            else:
-                print(f"CDN download failed with status {r.status_code}, falling back to Arial.")
-                font_name = "arial.ttf"
-        except Exception as e:
-            print(f"Failed to download premium font: {e}")
-            font_name = "arial.ttf"
-            
-    try:
-        return ImageFont.truetype(font_name, size)
+    name = "Oswald-Bold.ttf" if bold else "Oswald-Regular.ttf"
+    if os.path.exists(name):
+        try: return ImageFont.truetype(name, size)
+        except: pass
+    try: return ImageFont.truetype("arial.ttf", size)
     except:
-        # Fallback to standard Windows font locations
-        try:
-            sys_font = "arialbd.ttf" if bold else "arial.ttf"
-            return ImageFont.truetype(sys_font, size)
-        except:
-            try:
-                return ImageFont.truetype("C:\\Windows\\Fonts\\arial.ttf", size)
-            except:
-                print("Defaulting to basic unstyled font.")
-                return ImageFont.load_default()
+        try: return ImageFont.truetype("C:\\Windows\\Fonts\\arial.ttf", size)
+        except: return ImageFont.load_default()
 
-def wrap_text(text, font, max_width, draw):
-    """Word wrapper for drawing long text."""
-    lines = []
-    words = text.split()
+def wrap_text(text, font, max_w, draw):
+    lines, words = [], text.split()
     while words:
         line = ''
-        while words and draw.textlength(line + words[0], font=font) <= max_width:
-            line = line + (words.pop(0) + ' ')
+        while words and draw.textlength(line + words[0], font=font) <= max_w:
+            line += words.pop(0) + ' '
         lines.append(line)
     return lines
 
 def create_video_frame(product):
-    """Create a 1080x1920 image combining text and the product photo."""
-    # 1. Create a dark premium red canvas
-    bg_color = (25, 0, 0, 255) # Dark Red
-    canvas = Image.new("RGBA", (1080, 1920), bg_color)
+    bg = (25, 0, 0, 255)
+    canvas = Image.new("RGBA", (1080, 1920), bg)
     draw = ImageDraw.Draw(canvas)
-    
-    # Draw a gradient or slightly lighter red box at the top
-    draw.rectangle([(0, 0), (1080, 400)], fill=(200, 20, 20, 255))
-    
-    # 2. Add Top Urgent Text
-    title_font = get_font(100, bold=True)
-    text = "🔥 LOOT DEAL ALERT! 🔥"
-    w = draw.textlength(text, font=title_font)
-    draw.text(((1080 - w) / 2, 80), text, fill="white", font=title_font)
-    
-    subtitle_font = get_font(70, bold=True)
-    sub_text = "Price Drop of the Month 😱"
-    w2 = draw.textlength(sub_text, font=subtitle_font)
-    draw.text(((1080 - w2) / 2, 220), sub_text, fill="yellow", font=subtitle_font)
 
-    # 3. Add Product Image
-    desc_y = 450 # Default start for text if no image
+    draw.rectangle([(0, 0), (1080, 350)], fill=(200, 20, 20, 255))
+    tf = get_font(90, bold=True)
+    t = "🔥 LOOT DEAL! 🔥"
+    draw.text(((1080 - draw.textlength(t, font=tf)) / 2, 60), t, fill="white", font=tf)
+
+    sf = get_font(60, bold=True)
+    st = product.get('discount_percent', '60% OFF')
+    draw.text(((1080 - draw.textlength(st, font=sf)) / 2, 200), st, fill="yellow", font=sf)
+
+    desc_y = 420
     img_url = product.get("image", "")
     if img_url:
-        prod_img = download_image(img_url)
-        if prod_img:
-            # Resize appropriately
-            prod_img.thumbnail((800, 800), Image.Resampling.LANCZOS)
-            img_w, img_h = prod_img.size
-            # Create a white background box for aesthetic
-            box_margin = 40
-            box_x1 = (1080 - img_w) // 2 - box_margin
-            box_y1 = 450 - box_margin
-            box_x2 = box_x1 + img_w + box_margin * 2
-            box_y2 = 450 + img_h + box_margin * 2
-            
-            draw.rounded_rectangle([box_x1, box_y1, box_x2, box_y2], radius=40, fill="white")
-            canvas.paste(prod_img, ((1080 - img_w) // 2, 450), prod_img)
-            
-            # Update Y position for product desc
-            desc_y = box_y2 + 80
-        
-    # 4. Add Product Name
-    name_font = get_font(55, bold=False)
-    raw_name = product.get("name", "Amazing Deal")
-    # Clean up name if it's too long
-    if len(raw_name) > 80:
-        raw_name = raw_name[:77] + "..."
-        
-    wrapped_name_lines = wrap_text(raw_name, name_font, 900, draw)
-    for line in wrapped_name_lines:
-        w = draw.textlength(line, font=name_font)
-        draw.text(((1080 - w) / 2, desc_y), line, fill="white", font=name_font)
-        desc_y += 70
+        img = download_image(img_url)
+        if img:
+            img.thumbnail((700, 700), Image.Resampling.LANCZOS)
+            iw, ih = img.size
+            bx1 = (1080 - iw) // 2 - 30
+            by1 = 400 - 30
+            draw.rounded_rectangle([bx1, by1, bx1 + iw + 60, by1 + ih + 60], radius=30, fill="white")
+            canvas.paste(img, ((1080 - iw) // 2, 400), img)
+            desc_y = by1 + ih + 70
 
-    # 5. Add call to action
-    cta_y_offset = max(desc_y + 150, 1450)
-    
-    price_text = f"Get it at: {product.get('price', 'CHECK LINK')}!"
-    price_font = get_font(80, bold=True)
-    w_p = draw.textlength(price_text, font=price_font)
-    draw.text(((1080 - w_p) / 2, cta_y_offset), price_text, fill="#00FF00", font=price_font)
-    
-    cta_font = get_font(60, bold=True)
-    cta_bottom = get_font(80, bold=True)
-    
-    t1 = "👇 Click the link in description 👇"
-    w_t1 = draw.textlength(t1, font=cta_font)
-    draw.text(((1080 - w_t1) / 2, 1650), t1, fill="white", font=cta_font)
-    
-    t2 = "Join Telegram: @budgetdeals_india 🚀"
-    w_t2 = draw.textlength(t2, font=cta_bottom)
-    draw.text(((1080 - w_t2) / 2, 1750), t2, fill="#00BFFF", font=cta_bottom)
-    
+    nf = get_font(50)
+    name = product.get("name", "Amazing Deal")[:80]
+    for line in wrap_text(name, nf, 900, draw):
+        draw.text(((1080 - draw.textlength(line, font=nf)) / 2, desc_y), line, fill="white", font=nf)
+        desc_y += 65
+
+    cy = max(desc_y + 100, 1400)
+    pf = get_font(80, bold=True)
+    pt = f"Just {product.get('price', 'CHECK')}!"
+    draw.text(((1080 - draw.textlength(pt, font=pf)) / 2, cy), pt, fill="#00FF00", font=pf)
+
+    cf = get_font(55, bold=True)
+    c1 = "👇 Link in Description 👇"
+    draw.text(((1080 - draw.textlength(c1, font=cf)) / 2, cy + 130), c1, fill="white", font=cf)
+
+    c2f = get_font(70, bold=True)
+    c2 = "📢 @budgetdeals_india"
+    draw.text(((1080 - draw.textlength(c2, font=c2f)) / 2, cy + 220), c2, fill="#00BFFF", font=c2f)
+
     return canvas.convert("RGB")
 
-def generate_video(frame_image, output_filename="shorts_deal.mp4", duration_sec=5, fps=30):
-    """Turn the static PIL Frame Image into an MP4 video."""
-    print("Generating Video File... This may take a few seconds.")
-    # Convert PIL image to cv2 numpy array (BGR instead of RGB)
-    open_cv_image = np.array(frame_image) 
-    open_cv_image = open_cv_image[:, :, ::-1].copy() 
-
-    height, width, layers = open_cv_image.shape
-    
-    # Try using 'mp4v' for MP4
+def generate_video(frame, output="shorts_deal.mp4", duration=5, fps=30):
+    arr = np.array(frame)[:, :, ::-1].copy()
+    h, w = arr.shape[:2]
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-    video = cv2.VideoWriter(output_filename, fourcc, fps, (width, height))
-    
-    total_frames = duration_sec * fps
-    for _ in range(total_frames):
-        video.write(open_cv_image)
-
+    video = cv2.VideoWriter(output, fourcc, fps, (w, h))
+    for _ in range(duration * fps): video.write(arr)
     video.release()
-    print(f"Video saved successfully as: {output_filename}")
+    print(f"Video saved: {output}")
 
-def write_video_metadata(product):
-    """Generate Title, Description and Tags for YouTube Shorts algorithm."""
-    name = product.get("name", "Amazing Deal")
-    short_name = name[:50] + "..." if len(name) > 50 else name
-    
-    title = f"Secret Amazon Glitch 🚨 {short_name} #shorts #amazonfinds"
-    
-    description = f"""🔥 AMAZING LOOT DEAL DETECTED! 🔥
+def write_metadata(product):
+    name = product.get("name", "Amazing Deal")[:50]
+    title = f"Secret Amazon Glitch 🚨 {name} #shorts"
+    desc = f"""🔥 AMAZING LOOT DEAL! 🔥
 
-Product: {name}
-Price: {product.get('price', 'Check Link')}
+Product: {product.get('name', '')}
+Price: {product.get('price', 'Check')}
+Discount: {product.get('discount_percent', '')}
 
-👇 GET THIS DEAL HERE BEFORE IT EXPIRES 👇
-Join Our Official Telegram Channel: https://t.me/budgetdeals_india
-Click the link above, we drop these 90% OFF deals directly in Telegram daily!
+👇 GET THIS DEAL:
+Join Telegram: https://t.me/budgetdeals_india
 
-(Search "@budgetdeals_india" on Telegram to join free!)
-
-Keywords / SEO Tags:
-amazon gadgets, super cheap amazon finds, amazon glitch today, loot deals india, lowest price online, amazon loot tricks, electronic sales 2026, free products online, flipkart sale hack
-"""
+Keywords: amazon deals, budget finds india, student deals, loot deals, amazon price drop"""
     with open("youtube_details.txt", "w", encoding="utf-8") as f:
-        f.write("--- YOUTUBE TITLE ---\n")
-        f.write(title + "\n\n")
-        f.write("--- YOUTUBE DESCRIPTION ---\n")
-        f.write(description)
-        
-    print("Generated SEO Metadata: youtube_details.txt")
+        f.write(f"--- YOUTUBE TITLE ---\n{title}\n\n--- YOUTUBE DESCRIPTION ---\n{desc}")
+    print("Metadata written.")
 
 def main():
     product = get_latest_product()
-    if not product:
-        print("Exiting, no product found.")
-        return
-
+    if not product: print("No product found."); return
     frame = create_video_frame(product)
     generate_video(frame)
-    write_video_metadata(product)
-    print("Done! You can now upload 'shorts_deal.mp4' to YouTube with a trending song.")
+    write_metadata(product)
+    print("Done! Ready for upload.")
 
 if __name__ == "__main__":
     main()

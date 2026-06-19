@@ -1,30 +1,58 @@
+# Credentials
 .env
+
+# Python
 __pycache__/
 *.pyc
-.ipynb_checkpoints/
+*.pyo
+
+# Node
 node_modules/
 dist/
 build/
 .next/
 out/
+
+# OS
 .DS_Store
 
-# Telegram session files (CRITICAL: Do not remove)
+# Telegram session files
 *.session
 *.session-journal
-forwarder_log.txt
-last_forwarded_id.txt
 
-# Documentation & Artifacts
-# !README.md - was already not ignored
-# *.md  <-- This was the culprit! Fixed below:
-!website/content/**/*.md
-!website/src/content/**/*.md
-# Local Data & State
+# Data & state files (runtime generated)
 contacts_*.txt
-discovered_groups.txt
 promo_history.json
 promo_counter.txt
+product.json
+posted_products.json
+referrals.json
+sales_counter.json
+short_links_cache.json
+
+# Temp & artifacts
+temp_images/
 *.vbs
 *.bat
 *.png
+*.mp4
+*.log
+forwarder_log.txt
+last_forwarded_id.txt
+discovered_groups.txt
+scraped_*.txt
+verified_promo_groups.txt
+promo_groups_list.txt
+new_20_groups.txt
+youtube_details.txt
+
+# Website build
+website/node_modules/
+website/dist/
+website/.astro/
+website/src/content/blog/*.md
+website/src/content/deals/*.md
+
+# IDE
+.idea/
+.vscode/

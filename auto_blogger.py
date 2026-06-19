@@ -1,182 +1,134 @@
-import os
-import json
-import requests
-import re
+import os, json, re, requests
 from datetime import datetime
+from urllib.parse import quote
 from dotenv import load_dotenv
 
 load_dotenv()
-
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 CLICK_TRACKER_URL = os.getenv("CLICK_TRACKER_URL", "")
 
-def get_tracked_link(target_url):
-    """Wrap link with Netlify tracker for deep-linking and stats."""
-    if not CLICK_TRACKER_URL:
-        return target_url
-    from urllib.parse import quote
-    return f"{CLICK_TRACKER_URL}/go?url={quote(target_url)}"
+BLOG_DIR = "website/src/content/blog"
+DEAL_DIR = "website/src/content/deals"
 
-def generate_blog_content(product):
-    """Use Gemini to write a 150-200 word SEO-optimized blog post."""
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}"
-    
-    # Calculate discount if not present
-    price_val = int(re.sub(r'[^\d]', '', str(product.get('price', '0'))))
-    mrp_val = int(re.sub(r'[^\d]', '', str(product.get('mrp', '0'))))
-    discount_pct = int(((mrp_val - price_val) / mrp_val) * 100) if mrp_val > price_val else 0
-    
-    prompt = f"""
-    Write a 150-200 word SEO-optimized blog post for this product found on Amazon India.
-    Tone: Friendly, catchy, and helpful (Hinglish/English mix).
-    Target Audience: Budget-conscious shoppers in India.
-    
-    Product Details:
-    Name: {product['name']}
-    Price: {product['price']}
-    MRP: {product['mrp']}
-    Discount: {discount_pct}%
-    Link: {product['link']}
-    
-    Requirements:
-    1. Start with an exciting title.
-    2. Explain why this deal is a 'Loot'.
-    3. Include 3-4 bullet points on features or why to buy.
-    4. MUST end with an exciting closing statement, but DO NOT include the actual URL in your text (I will append the button).
-    5. Optimize for keywords like 'budget deals', 'amazon loot', 'price drop'.
-    
-    Format: Return ONLY the blog text. No markdown blocks like ```. Just raw text.
-    """
-    
-    payload = {"contents": [{"parts": [{"text": prompt}]}]}
+def tracked_link(url):
+    if not CLICK_TRACKER_URL: return url
+    return f"{CLICK_TRACKER_URL}/go?url={quote(url)}"
+
+def slugify(name):
+    s = re.sub(r'[^\w\s-]', '', name.lower().replace("&", "and"))
+    return re.sub(r'[-\s]+', '-', s).strip('-')[:80]
+
+def generate_deal_page(product):
+    asin = re.search(r'/dp/([A-Z0-9]{10})', product.get('link',''))
+    asin = asin.group(1).lower() if asin else slugify(product['name'])[:20]
+    fp = os.path.join(DEAL_DIR, f"{asin}.md")
+    if os.path.exists(fp): return False
+
+    pv = int(re.sub(r'[^\d]', '', str(product.get('price','0')))) or 0
+    mv = int(re.sub(r'[^\d]', '', str(product.get('mrp','0')))) or 0
+    disc = int(((mv - pv) / mv) * 100) if mv > pv else 0
+    name = product['name'].replace('"', "'")
+    img = product.get('image', '')
+    link = tracked_link(product['link'])
+    cat = product.get('category', 'Deals')
+    rating = product.get('rating', '')
+
+    with open(fp, "w", encoding="utf-8") as f:
+        f.write(f"""---
+title: "{name}"
+description: "Get {name} at just {product.get('price','')} - Save {disc}%! Verified Amazon deal."
+pubDate: "{datetime.now().strftime('%Y-%m-%d')}"
+price: "{product.get('price','')}"
+mrp: "{product.get('mrp','')}"
+discount: "{disc}%"
+image: "{img}"
+buyLink: "{link}"
+category: "{cat}"
+rating: "{rating}"
+---
+
+🔥 **{disc}% OFF** on {name}
+
+💸 **Price**: ~~{product.get('mrp','')}~~ → **{product.get('price','')}**
+⭐ **Rating**: {rating}
+
+👉 **[Buy Now on Amazon]({link})**
+
+### Why this deal?
+{product.get('loot_reason', f'Amazing {disc}% discount. Grab it before price goes up!')}
+
+### More deals?
+Join **[@budgetdeals_india](https://t.me/budgetdeals_india)** on Telegram for daily loot!
+""")
+    return True
+
+def generate_blog_post(product):
+    if not GEMINI_API_KEY: return None
+    asin = re.search(r'/dp/([A-Z0-9]{10})', product.get('link',''))
+    asin = asin.group(1).lower() if asin else slugify(product['name'])[:20]
+    fp = os.path.join(BLOG_DIR, f"{asin}.md")
+    if os.path.exists(fp): return False
+
+    name = product['name'].replace('"', "'")
+    pv = int(re.sub(r'[^\d]', '', str(product.get('price','0')))) or 0
+    mv = int(re.sub(r'[^\d]', '', str(product.get('mrp','0')))) or 0
+    disc = int(((mv - pv) / mv) * 100) if mv > pv else 0
+    link = tracked_link(product['link'])
+    img = product.get('image', '')
+
+    prompt = f"""Write a 200-300 word SEO blog post about this product for Indian shoppers.
+Title: {name}
+Price: {product.get('price','')}
+MRP: {product.get('mrp','')}
+Discount: {disc}%
+Target keywords: best deals India, {name[:30]}, Amazon price drop, budget shopping
+
+Write Hinglish-English. Include: catchy opening, 3 selling points, why this is a steal, CTA to join @budgetdeals_india on Telegram.
+
+Return ONLY the blog text."""
+
     try:
-        r = requests.post(url, json=payload, timeout=30)
-        res_json = r.json()
-        if "candidates" not in res_json:
-            print(f"[!] API Error: {res_json}")
-            return None
-        return res_json['candidates'][0]['content']['parts'][0]['text'].strip()
-    except Exception as e:
-        print(f"Error generating blog: {e}")
-        return None
+        r = requests.post(
+            f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}",
+            json={"contents": [{"parts": [{"text": prompt}]}]}, timeout=30
+        )
+        content = r.json()['candidates'][0]['content']['parts'][0]['text'].strip()
+    except:
+        content = f"Looking for {name} at the best price? Get it for just {product.get('price','')} - {disc}% off! This is a verified Amazon India deal with fast shipping. Join @budgetdeals_india on Telegram for daily deals!"
 
-def create_blog_file(product, content):
-    """Save the blog content as an Astro-compatible markdown file."""
-    asin_match = re.search(r'/dp/([A-Z0-9]{10})', product['link'])
-    asin = asin_match.group(1) if asin_match else str(hash(product['name']))[:8]
-    
-    # Calculate discount
-    price_val = int(re.sub(r'[^\d]', '', str(product.get('price', '0'))))
-    mrp_val = int(re.sub(r'[^\d]', '', str(product.get('mrp', '0'))))
-    discount_pct = int(((mrp_val - price_val) / mrp_val) * 100) if mrp_val > price_val else 0
-    
-    blog_dir = "agency-portfolio/src/content/blog"
-    if not os.path.exists(blog_dir):
-        os.makedirs(blog_dir, exist_ok=True)
-    
-    filename = f"{asin.lower()}.md"
-    file_path = os.path.join(blog_dir, filename)
-    
-    if os.path.exists(file_path):
-        print(f"[*] Blog for {asin} already exists. Skipping.")
-        return False
-
-    date_str = datetime.now().strftime("%Y-%m-%dT%H:%M:%S.000Z")
-    
-    frontmatter = f"""---
-title: "{product['name']}"
-description: "Epic Deal: Save {discount_pct}% on {product['name']}! Best price alert on Amazon India."
-pubDate: "{date_str}"
-heroImage: "{product['image']}"
-buyLink: "{get_tracked_link(product['link'])}"
+    with open(fp, "w", encoding="utf-8") as f:
+        f.write(f"""---
+title: "{name} @ Just {product.get('price','')} - Save {disc}%!"
+description: "{name} at {disc}% off! Only {product.get('price','')}. Verified Amazon India deal."
+pubDate: "{datetime.now().strftime('%Y-%m-%dT%H:%M:%S.000Z')}"
+heroImage: "{img}"
+buyLink: "{link}"
 ---
 
 {content}
-"""
-    
-    with open(file_path, "w", encoding="utf-8") as f:
-        f.write(frontmatter)
-    
-    print(f"[SUCCESS] Created blog: {filename}")
-    return True
 
-def create_deal_file(product):
-    """Save the deal as an Astro-compatible markdown file for the deals collection."""
-    asin_match = re.search(r'/dp/([A-Z0-9]{10})', product['link'])
-    asin = asin_match.group(1) if asin_match else str(hash(product['name']))[:8]
-    
-    deals_dir = "agency-portfolio/src/content/deals"
-    if not os.path.exists(deals_dir):
-        os.makedirs(deals_dir, exist_ok=True)
-    
-    filename = f"{asin.lower()}.md"
-    file_path = os.path.join(deals_dir, filename)
-    
-    if os.path.exists(file_path):
-        return False
+👉 **[Buy Now on Amazon]({link})**
 
-    date_str = datetime.now().strftime("%Y-%m-%d")
-    
-    # Calculate discount percentage
-    price_val = int(re.sub(r'[^\d]', '', str(product.get('price', '0'))))
-    mrp_val = int(re.sub(r'[^\d]', '', str(product.get('mrp', '0'))))
-    discount_pct = int(((mrp_val - price_val) / mrp_val) * 100) if mrp_val > price_val else 0
-    
-    frontmatter = f"""---
-title: "{product['name']}"
-description: "Save {discount_pct}% on {product['name']} - verified Amazon deal for students."
-pubDate: "{date_str}"
-price: "{product['price']}"
-mrp: "{product['mrp']}"
-discount: "{discount_pct}%"
-image: "{product['image']}"
-buyLink: "{get_tracked_link(product['link'])}"
-category: "{product.get('category', 'General')}"
-rating: "{product.get('rating', 'Not specified')}"
----
-
-{product.get('fix', 'Great value for money deal for students!')}
-"""
-    
-    with open(file_path, "w", encoding="utf-8") as f:
-        f.write(frontmatter)
-    
-    print(f"[SUCCESS] Created deal page: {filename}")
+📢 **Join [@budgetdeals_india](https://t.me/budgetdeals_india)** for daily deals!
+""")
     return True
 
 def main():
-    print("--- Starting Automated Content Generation ---")
-    product_file = "product.json"
-    if not os.path.exists(product_file):
-        print("[!] No product.json found.")
-        return
+    os.makedirs(BLOG_DIR, exist_ok=True); os.makedirs(DEAL_DIR, exist_ok=True)
+    if not os.path.exists("product.json"): print("No product.json"); return
+    products = json.load(open("product.json", encoding="utf-8"))["products"]
+    if not products: print("No products"); return
 
-    with open(product_file, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    
-    products = data.get("products", [])
-    if not products:
-        print("[!] No products to process.")
-        return
+    print(f"Generating content for {len(products)} products...")
+    blogs = deals = 0
+    for i, p in enumerate(products):
+        if generate_deal_page(p): deals += 1
+        if i < 5 and generate_blog_post(p): blogs += 1
 
-    new_blogs = 0
-    new_deals = 0
-    
-    # Process latest 5 products for deals (auto-generated pages)
-    for product in products[:5]:
-        print(f"[*] Creating deal page: {product['name'][:30]}...")
-        if create_deal_file(product):
-            new_deals += 1
-    
-    # Process latest 3 products for full blog posts (AI-generated)
-    for product in products[:3]:
-        print(f"[*] Generating blog post: {product['name'][:30]}...")
-        content = generate_blog_content(product)
-        if content:
-            if create_blog_file(product, content):
-                new_blogs += 1
-    
-    print(f"\n[DONE] Generated {new_blogs} blog posts + {new_deals} deal pages!")
+    bcount = len(os.listdir(BLOG_DIR)) if os.path.isdir(BLOG_DIR) else 0
+    dcount = len(os.listdir(DEAL_DIR)) if os.path.isdir(DEAL_DIR) else 0
+    print(f"✅ New: {deals} deals + {blogs} blogs")
+    print(f"📊 Total site: {bcount} blogs + {dcount} deals")
 
 if __name__ == "__main__":
     main()

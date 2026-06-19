@@ -4,8 +4,7 @@
 import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
-import { SITE_TITLE } from '../consts';
-import { Font } from 'astro:assets';
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_KEYWORDS } from '../consts';
 
 interface Props {
 	title: string;
@@ -14,56 +13,46 @@ interface Props {
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
 const { title, description, image = FallbackImage } = Astro.props;
+const fullTitle = title.includes(SITE_TITLE) ? title : `${title} | ${SITE_TITLE}`;
 ---
 
-<!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="google-site-verification" content="kDpUhMVkIw8yo4plaH4RPhK0HuJbo_boNpSStxonc34" />
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CGWTN5XJM3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-CGWTN5XJM3');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-CGWTN5XJM3')</script>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" href="/favicon.ico" />
-<link rel="sitemap" href="/sitemap-index.xml" />
-<link
-	rel="alternate"
-	type="application/rss+xml"
-	title={SITE_TITLE}
-	href={new URL('rss.xml', Astro.site)}
-/>
+<link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL('rss.xml', Astro.site)} />
 <meta name="generator" content={Astro.generator} />
-
-<Font cssVariable="--font-atkinson" preload />
-
-<!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
-<!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
+<title>{fullTitle}</title>
+<meta name="title" content={fullTitle} />
 <meta name="description" content={description} />
+<meta name="keywords" content={SITE_KEYWORDS} />
 <meta name="robots" content="index, follow" />
-<meta name="language" content="English" />
 <meta name="author" content="Budget Deals India" />
 
-<!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
+<meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image.src, Astro.url)} />
+<meta property="og:site_name" content={SITE_TITLE} />
 
-<!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
-<meta property="twitter:title" content={title} />
+<meta property="twitter:title" content={fullTitle} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image.src, Astro.url)} />
+
+<script type="application/ld+json" set:html={JSON.stringify({
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	"name": SITE_TITLE,
+	"url": Astro.site?.toString(),
+	"description": SITE_DESCRIPTION,
+	"potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": `${Astro.site?.toString()}/search?q={search_term_string}` }, "query-input": "required name=search_term_string" }
+})} />
