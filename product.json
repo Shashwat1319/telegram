@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "Mi Smart Band 6 with AMOLED Display",
+            "price": "₹1999",
+            "mrp": "₹3499",
+            "rating": 4.3,
+            "image": "https://m.media-amazon.com/images/I/61y43q-mPZL._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B095F57M6Q?tag=shashwat022-21",
+            "discount_percent": "43%",
+            "hook": "OMG! Mi Band 6 ki price crash! Fitness tracking ab super easy!",
+            "pain": "Want to track fitness but fancy smartwatches are too bulky/expensive.",
+            "fix": "Track every step, sleep cycle, and notification with this stylish, feature-packed smart band.",
+            "loot_reason": "Mi ka iconic smart band itne bade discount par, mauka haath se na jaane do!",
+            "category": "Electronics"
+        },
+        {
+            "name": "pTron Bassbuds Duo in-Ear True Wireless Headphones",
+            "price": "₹499",
+            "mrp": "₹1999",
+            "rating": 4.0,
+            "image": "https://m.media-amazon.com/images/I/51+e-Y7lOFL._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B09V7S1D9J?tag=shashwat022-21",
+            "discount_percent": "75%",
+            "hook": "Sabse saste TWS! pTron Bassbuds Duo, daily use ke liye best!",
+            "pain": "Expensive earbuds out of budget? Need reliable audio for calls and music.",
+            "fix": "Get crystal-clear audio and hassle-free wireless convenience without overspending.",
+            "loot_reason": "₹499 mein reliable TWS? Market mein isse sasta aur accha nahi milega!",
+            "category": "Electronics"
+        },
+        {
+            "name": "boAt Rockerz 255 Pro+ Bluetooth Earphones",
+            "price": "₹799",
+            "mrp": "₹2999",
+            "rating": 4.2,
+            "image": "https://m.media-amazon.com/images/I/61jG2j4W-oL._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B08V5Q3Q2B?tag=shashwat022-21",
+            "discount_percent": "73%",
+            "hook": "boAt Rockerz 73% OFF! Sirf aaj, jaldi grab karo!",
+            "pain": "Poor sound, tangled wires, charging woes for your daily music.",
+            "fix": "Upgrade to boAt's powerful, long-lasting wireless sound at an unbelievable price.",
+            "loot_reason": "Is price pe boAt ke top-selling earphones! Don't miss this one-day deal.",
+            "category": "Electronics"
+        },
+        {
             "name": "Pigeon by Stovekraft Amaze Plus Induction Base Aluminium Pressure Cooker, 3 Litre",
             "price": "₹799",
             "mrp": "₹2095",
