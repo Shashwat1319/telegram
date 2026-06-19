@@ -106,7 +106,7 @@ const latestPosts = posts.slice(0, 3);
               <BlogPostCard
                 title={post.data.title}
                 description={post.data.description}
-                link={`/blog/${post.slug}/`}
+                slug={post.id}
                 heroImage={post.data.heroImage}
                 pubDate={post.data.pubDate}
                 buyLink={post.data.buyLink}
