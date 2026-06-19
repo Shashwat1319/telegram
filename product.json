@@ -1,6 +1,20 @@
 {
     "products": [
         {
+            "name": "Pigeon by Stovekraft Amaze Plus Induction Base Non-Stick Aluminium Kadai",
+            "price": "₹549",
+            "mrp": "₹1595",
+            "rating": 4.5,
+            "image": "https://m.media-amazon.com/images/I/61vY+WqMwuL._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B073R4L28M?tag=shashwat022-21",
+            "discount_percent": "65%",
+            "hook": "Kitchen upgrade? Non-stick Kadai, perfect deal aayi hai!",
+            "pain": "Khana chipak jaata hai ya zyada tel lagta hai pakane mein?",
+            "fix": "Healthy cooking ke liye ideal, induction friendly non-stick kadai ab pocket-friendly price par.",
+            "loot_reason": "Rozmarra ke istemal ke liye shandaar deal, itne kam mein kahin nahi milega!",
+            "category": "Shoes & Fashion"
+        },
+        {
             "name": "Mi Smart Band 6 with AMOLED Display",
             "price": "₹1999",
             "mrp": "₹3499",
