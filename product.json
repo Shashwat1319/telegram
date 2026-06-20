@@ -1,6 +1,34 @@
 {
     "products": [
         {
+            "name": "Logitech B170 Wireless Mouse",
+            "price": "₹449",
+            "mrp": "₹795",
+            "rating": 4.4,
+            "image": "https://m.media-amazon.com/images/I/61AAhC89sDL._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B01JA6Z1X0?tag=shashwat022-21",
+            "discount_percent": "44%",
+            "hook": "Wireless Mouse chahie? Logitech pe 44% OFF! Best Buy!",
+            "pain": "Laptop ke saath wired mouse se ho pareshan?",
+            "fix": "Logitech ka reliable wireless mouse, smooth control aur ergonomic design ke saath.",
+            "loot_reason": "Branded wireless mouse, is price mein superb value hai.",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Story@Home 144 TC 100% Cotton Double Bedsheet",
+            "price": "₹499",
+            "mrp": "₹1200",
+            "rating": 4.0,
+            "image": "https://m.media-amazon.com/images/I/71Y-tL-P5xL._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B0BJ61L7L9?tag=shashwat022-21",
+            "discount_percent": "58%",
+            "hook": "Ghar ke liye best! Cotton Bedsheet, 58% discount pe!",
+            "pain": "Purani bedsheet phati ya uncomfortable hai?",
+            "fix": "Soft 100% cotton ki bedsheet se bedroom ko do naya look aur aaram.",
+            "loot_reason": "Daily use ki cheez pe itna discount, paisa vasool deal!",
+            "category": "Kitchen"
+        },
+        {
             "name": "Pigeon by Stovekraft Amaze Plus Induction Base Non-Stick Aluminium Kadai",
             "price": "₹549",
             "mrp": "₹1595",
