@@ -1,6 +1,34 @@
 {
     "products": [
         {
+            "name": "Pigeon by Stovekraft Favourite Induction Base Non-Stick Kadai with Glass Lid, 24cm",
+            "price": "₹799",
+            "mrp": "₹1995",
+            "rating": 4.0,
+            "image": "https://m.media-amazon.com/images/I/6132C71J8oL._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B00LI0S5UG?tag=shashwat022-21",
+            "discount_percent": "60%",
+            "hook": "Kitchen King! Pigeon Kadai 60% off! Cooking ko easy banao!",
+            "pain": "खाना अक्सर जल जाता है या चिपक जाता है? नया Kadai खरीदना महंगा लग रहा है?",
+            "fix": "Non-stick coating aur induction compatibility ke saath, cooking bane zabardast.",
+            "loot_reason": "Ek branded kadai itne bade discount par, ghar ke liye best investment!",
+            "category": "Kitchen"
+        },
+        {
+            "name": "boAt Wave Lite Smartwatch",
+            "price": "₹1499",
+            "mrp": "₹5999",
+            "rating": 4.2,
+            "image": "https://m.media-amazon.com/images/I/61NlV4EaO0L._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B09T5Q762S?tag=shashwat022-21",
+            "discount_percent": "75%",
+            "hook": "🚨 Loot Alert! boAt Smartwatch 75% OFF! Abhi buy karo, gaayab!",
+            "pain": "पुराने घड़ी से बोर हो गए? अपनी फिटनेस ट्रैक नहीं कर पाते?",
+            "fix": "Stylish design, long battery, and all smart features at an unbelievable price.",
+            "loot_reason": "Iss price mein boAt smartwatch milna impossible hai! Lifetime deal!",
+            "category": "Kitchen"
+        },
+        {
             "name": "JBL Go 2 Portable Bluetooth Speaker",
             "price": "₹1399",
             "mrp": "₹2999",
