@@ -1,6 +1,62 @@
 {
     "products": [
         {
+            "name": "JBL Go 2 Portable Bluetooth Speaker",
+            "price": "₹1399",
+            "mrp": "₹2999",
+            "rating": 4.4,
+            "image": "https://m.media-amazon.com/images/I/71Xm3z896XL._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B07R454Q9C?tag=shashwat022-21",
+            "discount_percent": "53%",
+            "hook": "Party ready! JBL Speaker pe 53% discount – ghar le jao!",
+            "pain": "Music sunne ka maza kam hai? Party mein atmosphere nahi banta?",
+            "fix": "Powerful JBL sound, portable design, kahin bhi le jao music ka magic!",
+            "loot_reason": "Original JBL speaker is price mein, sound quality unbeatable!",
+            "category": "Kitchen"
+        },
+        {
+            "name": "Noise ColorFit Pulse 3 Smartwatch",
+            "price": "₹1299",
+            "mrp": "₹3499",
+            "rating": 4.1,
+            "image": "https://m.media-amazon.com/images/I/71u9c6+wXzL._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B0BP3F62T3?tag=shashwat022-21",
+            "discount_percent": "63%",
+            "hook": "Smartwatch under ₹1300! Style aur fitness, ek deal mein!",
+            "pain": "Mehngi smartwatches ka budget nahi, par upgrade karna hai?",
+            "fix": "Track your fitness and stay connected with this feature-rich smartwatch.",
+            "loot_reason": "Features itne, price itna kam! Yeh deal miss mat karna!",
+            "category": "Shoes & Fashion"
+        },
+        {
+            "name": "Bajaj Rex Mixer Grinder, 500W",
+            "price": "₹1699",
+            "mrp": "₹3800",
+            "rating": 4.3,
+            "image": "https://m.media-amazon.com/images/I/61p-2uG3LgL._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B07R451W27?tag=shashwat022-21",
+            "discount_percent": "55%",
+            "hook": "Bajaj Mixer Grinder! Kitchen ka har kaam ab aasaan!",
+            "pain": "Roj ki cooking mein mehnat aur time barbaad hota hai?",
+            "fix": "Powerful mixer grinder for all your kitchen needs at a practical price.",
+            "loot_reason": "Daily utility item, itne bade discount par baar baar nahi milega!",
+            "category": "Shoes & Fashion"
+        },
+        {
+            "name": "boAt Airdopes 131 Pro TWS Earbuds",
+            "price": "₹999",
+            "mrp": "₹2999",
+            "rating": 4.2,
+            "image": "https://m.media-amazon.com/images/I/61KNJBWzG-L._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B0B7K87X4D?tag=shashwat022-21",
+            "discount_percent": "67%",
+            "hook": "Airdopes 131 Pro! Itni sasti, loot lo abhi!",
+            "pain": "Purane earphones tang kar rahe ya battery jaldi khatam ho jaati hai?",
+            "fix": "Long-lasting TWS earbuds with boAt signature sound at an unbelievable discount.",
+            "loot_reason": "Ab tak ka lowest price! Stock limited, jaldi karo!",
+            "category": "Shoes & Fashion"
+        },
+        {
             "name": "WSL 5M LED Strip Lights with Remote",
             "price": "₹299",
             "mrp": "₹999",
