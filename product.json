@@ -1,6 +1,48 @@
 {
     "products": [
         {
+            "name": "KENT Crystal Water Purifier",
+            "price": "₹1699",
+            "mrp": "₹2999",
+            "rating": 4.3,
+            "image": "https://m.media-amazon.com/images/I/51r2XG5W3BL._SL1000_.jpg",
+            "link": "https://www.amazon.in/dp/B00J6S6G8U?tag=shashwat022-21",
+            "discount_percent": "43%",
+            "hook": "Ghar ke liye best deal! Pure paani ki tension ab khatam.",
+            "pain": "Paani ki purity ko lekar chinta rehti hai aur expensive purifiers ka budget nahi?",
+            "fix": "Trusted brand ka water purifier ab mil raha hai 43% off par, sehat aur bachat dono!",
+            "loot_reason": "Health investment itne kam daam mein, bahut rare deal hai!",
+            "category": "Automotive"
+        },
+        {
+            "name": "boAt Rockerz 450 Bluetooth On-Ear Headphones with Mic",
+            "price": "₹999",
+            "mrp": "₹2490",
+            "rating": 4.3,
+            "image": "https://m.media-amazon.com/images/I/61KNJBWzG-L._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B08GP32L9M?tag=shashwat022-21",
+            "discount_percent": "60%",
+            "hook": "Bass Boosted! boAt Headphones, ₹999 में धमाका!",
+            "pain": "सस्ते हेडफोन में क्वालिटी नहीं, महंगे में बजट नहीं?",
+            "fix": "boAt के बेस्टसेलिंग हेडफोन 60% की भारी छूट पर मिल रहे हैं, म्यूजिक लवर्स के लिए मस्ट-हैव डील!",
+            "loot_reason": "अपनी फेवरेट बीट्स को महसूस करो, इतनी कम कीमत पर!",
+            "category": "Home Improvement"
+        },
+        {
+            "name": "AmazonBasics 3-in-1 Charging Cable (USB-C, Micro-USB, Lightning)",
+            "price": "₹399",
+            "mrp": "₹999",
+            "rating": 4.1,
+            "image": "https://m.media-amazon.com/images/I/71wLpWvMhSL._SL1500_.jpg",
+            "link": "https://www.amazon.in/dp/B08F9C3C2P?tag=shashwat022-21",
+            "discount_percent": "60%",
+            "hook": "One Cable, All Devices! 3-in-1 चार्जिंग केबल सिर्फ ₹399!",
+            "pain": "हर डिवाइस के लिए अलग चार्जर ढूंढने की झंझट?",
+            "fix": "यह मल्टी-पर्पस केबल 60% ऑफ पर आपके चार्जिंग की सारी प्रॉब्लम सॉल्व कर देगा।",
+            "loot_reason": "हर घर की जरूरत, अब तक का सबसे प्रैक्टिकल ऑफर!",
+            "category": "Home Improvement"
+        },
+        {
             "name": "Pigeon by Stovekraft Favourite Induction Base Non-Stick Kadai with Glass Lid, 24cm",
             "price": "₹799",
             "mrp": "₹1995",
