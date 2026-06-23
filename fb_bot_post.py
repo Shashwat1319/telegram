@@ -40,11 +40,11 @@ def post_photo(product, msg):
     return j if 'error' not in j else None
 
 def post_feed(product, msg):
-    """Post as feed update with link."""
-    r = requests.post(
-        f"https://graph.facebook.com/{FB_API}/{FB_PAGE_ID}/feed",
-        params={"access_token": FB_ACCESS_TOKEN, "message": msg, "link": product.get('link', '#'), "share_to_instagram": True}
-    )
+    """Post as feed update with optional link."""
+    link = product.get('link', '').strip()
+    params = {"access_token": FB_ACCESS_TOKEN, "message": msg, "share_to_instagram": True}
+    if link: params["link"] = link
+    r = requests.post(f"https://graph.facebook.com/{FB_API}/{FB_PAGE_ID}/feed", params=params)
     if not r.ok: return None
     j = r.json()
     return j if 'error' not in j else None
@@ -54,14 +54,8 @@ def post_to_facebook():
         products = load_products()
         if not products: print("[FB] No products"); return
 
-        # Pick first product that has a link
-        product = None
-        for p in products:
-            if p.get('link', '').strip():
-                product = p
-                break
-        if not product:
-            print("[FB] No products with links"); return
+        # Pick first product
+        product = products[0]
 
         msg = generate_msg(product)
         name = product.get('name', 'Product')[:50]
