@@ -30,12 +30,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Sync Trending Products
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          AFFILIATE_ID_IN: ${{ secrets.AFFILIATE_ID_IN }}
-        run: python trending_updater.py
-
       - name: Post Deals to Telegram
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
