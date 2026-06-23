@@ -54,7 +54,15 @@ def post_to_facebook():
         products = load_products()
         if not products: print("[FB] No products"); return
 
-        product = products[0]
+        # Pick first product that has a link
+        product = None
+        for p in products:
+            if p.get('link', '').strip():
+                product = p
+                break
+        if not product:
+            print("[FB] No products with links"); return
+
         msg = generate_msg(product)
         name = product.get('name', 'Product')[:50]
 
