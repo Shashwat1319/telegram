@@ -35,7 +35,9 @@ def post_photo(product, msg):
         f"https://graph.facebook.com/{FB_API}/{FB_PAGE_ID}/photos",
         params={"access_token": FB_ACCESS_TOKEN, "url": url, "caption": msg, "share_to_instagram": True}
     )
-    return r.json() if 'error' not in r.json() else None
+    if not r.ok: return None
+    j = r.json()
+    return j if 'error' not in j else None
 
 def post_feed(product, msg):
     """Post as feed update with link."""
@@ -43,7 +45,9 @@ def post_feed(product, msg):
         f"https://graph.facebook.com/{FB_API}/{FB_PAGE_ID}/feed",
         params={"access_token": FB_ACCESS_TOKEN, "message": msg, "link": product.get('link', '#'), "share_to_instagram": True}
     )
-    return r.json() if 'error' not in r.json() else None
+    if not r.ok: return None
+    j = r.json()
+    return j if 'error' not in j else None
 
 def post_to_facebook():
     try:

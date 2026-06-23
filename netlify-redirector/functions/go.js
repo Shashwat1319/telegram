@@ -65,21 +65,20 @@ export default async (request, context) => {
   }
   const domain = finalUrl.includes("amazon.com") ? "amazon.com" : "amazon.in";
 
+  const TAG = "shashwat022-21";
   const asinMatch = finalUrl.match(/(?:dp|gp\/product|asin|d|product)\/([A-Z0-9]{10})/i);
   let finalAmazonUrl;
 
   if (asinMatch) {
     const asin = asinMatch[1].toUpperCase();
-    finalAmazonUrl = `https://www.${domain}/dp/${asin}?tag=${myTag}`;
+    finalAmazonUrl = `https://www.${domain}/dp/${asin}?tag=${TAG}`;
   } else if (finalUrl.includes("amzn.in") || finalUrl.includes("amzn.to")) {
-    // Do not append query parameters to Amazon shortlinks, it breaks them
     finalAmazonUrl = finalUrl;
   } else if (finalUrl.includes("amazon.")) {
     const sep = finalUrl.includes("?") ? "&" : "?";
-    finalAmazonUrl = finalUrl.includes("tag=") ? finalUrl : `${finalUrl}${sep}tag=${myTag}`;
+    finalAmazonUrl = finalUrl.includes("tag=") ? finalUrl : `${finalUrl}${sep}tag=${TAG}`;
   } else {
-    // Fallback: drop affiliate cookie on Deals page (goldbox is deprecated)
-    finalAmazonUrl = `https://www.${domain}/deals?tag=${myTag}`;
+    finalAmazonUrl = `https://www.${domain}/deals?tag=${TAG}`;
   }
 
   // Note: Server-side fetching from Netlify to check for 404s is removed.

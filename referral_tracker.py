@@ -2,6 +2,7 @@ import asyncio
 import os
 import json
 import argparse
+from datetime import datetime
 from telethon import TelegramClient, events
 from telethon.sessions import StringSession
 from dotenv import load_dotenv
@@ -55,8 +56,6 @@ def record_join(invite_link: str, user_id: int, username: str = None):
             print(f"[REFERRAL] User {user_id} (@{username}) joined via {matched_link[:50]}... Total: {len(info['joined'])}")
             return True
     return False
-
-from datetime import datetime
 
 async def oneshot_check():
     """One-shot check for new joins - used by GitHub Actions."""

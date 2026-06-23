@@ -62,7 +62,7 @@ def main():
 
 ---
 *Target: ₹3000/day ≈ 600 clicks/day*
-*Run 'py -3 trending_updater.py' to refresh deals with images*"""
+*Add new deals via link_adder.py or edit product.json directly*"""
     print(report)
     send_telegram(report)
 

@@ -27,9 +27,9 @@ def generate_deal_page(product):
     pv = int(re.sub(r'[^\d]', '', str(product.get('price','0')))) or 0
     mv = int(re.sub(r'[^\d]', '', str(product.get('mrp','0')))) or 0
     disc = int(((mv - pv) / mv) * 100) if mv > pv else 0
-    name = product['name'].replace('"', "'")
+    name = product.get('name', 'Product').replace('"', "'")
     img = product.get('image', '')
-    link = tracked_link(product['link'])
+    link = tracked_link(product.get('link', ''))
     cat = product.get('category', 'Deals')
     rating = product.get('rating', '')
 
@@ -65,15 +65,15 @@ Join **[@budgetdeals_india](https://t.me/budgetdeals_india)** on Telegram for da
 def generate_blog_post(product):
     if not GEMINI_API_KEY: return None
     asin = re.search(r'/dp/([A-Z0-9]{10})', product.get('link',''))
-    asin = asin.group(1).lower() if asin else slugify(product['name'])[:20]
+    asin = asin.group(1).lower() if asin else slugify(product.get('name', 'product'))[:20]
     fp = os.path.join(BLOG_DIR, f"{asin}.md")
     if os.path.exists(fp): return False
 
-    name = product['name'].replace('"', "'")
+    name = product.get('name', 'Product').replace('"', "'")
     pv = int(re.sub(r'[^\d]', '', str(product.get('price','0')))) or 0
     mv = int(re.sub(r'[^\d]', '', str(product.get('mrp','0')))) or 0
     disc = int(((mv - pv) / mv) * 100) if mv > pv else 0
-    link = tracked_link(product['link'])
+    link = tracked_link(product.get('link', ''))
     img = product.get('image', '')
 
     prompt = f"""Write a 200-300 word SEO blog post about this product for Indian shoppers.

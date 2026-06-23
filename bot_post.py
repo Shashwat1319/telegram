@@ -62,7 +62,6 @@ def increment_post_count():
     open(COUNTER_FILE, "w").write(str(c))
     return c
 
-@lru_cache(maxsize=1)
 def load_products():
     return json.load(open("product.json", encoding="utf-8"))["products"]
 
@@ -84,7 +83,7 @@ def generate_message(product, post_count=0):
     mv = get_price_value(product.get('mrp', '0'))
     drop = int(((mv - pv) / mv) * 100) if mv > pv else 0
 
-    badge = f"🔥 PRICE DROP: {drop}% OFF" if drop >= 30 else ("📉 PRICE DROP: {drop}%" if drop > 0 else "⚡ HOT DEAL")
+    badge = f"🔥 PRICE DROP: {drop}% OFF" if drop >= 30 else (f"📉 PRICE DROP: {drop}%" if drop > 0 else "⚡ HOT DEAL")
     templates = [
         f"🔥 <b>{badge}</b> 🔥\n\n<b>{name[:60]}</b>\n\n💸 <b>Price:</b> <s>{product.get('mrp', '')}</s> → <b>{price}</b>\n✅ {fix}\n⏰ Limited stock — price can go up anytime!",
         f"😤 {pain}\n\n✅ <b>Solution:</b> {name[:50]}\n💸 <b>Price:</b> {price}\n✔️ {fix}\n⏰ Grab it before price hikes!",

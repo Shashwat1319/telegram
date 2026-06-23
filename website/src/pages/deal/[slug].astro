@@ -27,29 +27,24 @@ const { Content } = await render(post);
       {
         "@context": "https://schema.org",
         "@type": "Product",
-        "name": {title},
-        "description": {description},
-        "image": {image || "/hero.png"},
+        "name": "{title}",
+        "description": "{description}",
+        "image": "{image || '/hero.png'}",
         "brand": {
           "@type": "Brand",
           "name": "BudgetDeals India"
         },
         "offers": {
           "@type": "Offer",
-          "url": {buyLink},
+          "url": "{buyLink}",
           "priceCurrency": "INR",
-          "price": {price.replace(/[^\d]/g, '')},
-          "priceValidUntil": "2024-12-31",
+          "price": "{price ? price.replace(/[^\d]/g, '') : '0'}",
+          "priceValidUntil": "{new Date(pubDate).toISOString().split('T')[0]}",
           "availability": "https://schema.org/InStock",
           "seller": {
             "@type": "Organization",
             "name": "Amazon India"
           }
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.5",
-          "reviewCount": "100"
         }
       }
     </script>

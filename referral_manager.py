@@ -1,9 +1,10 @@
 import os
 import json
 from datetime import datetime
+from dotenv import load_dotenv
 from telegram import Bot, ChatInviteLink
 
-# Load environment variables
+load_dotenv()
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 CHANNEL_ID = os.getenv('CHANNEL_ID')
 REFERRAL_REWARD_BASE = int(os.getenv('REFERRAL_REWARD_BASE', '10'))  # base points per referral

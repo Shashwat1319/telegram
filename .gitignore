@@ -24,7 +24,6 @@ out/
 contacts_*.txt
 promo_history.json
 promo_counter.txt
-product.json
 posted_products.json
 referrals.json
 sales_counter.json
@@ -32,6 +31,9 @@ short_links_cache.json
 
 # Temp & artifacts
 temp_images/
+image_cache/
+post_count.txt
+.link_adder_expiry
 *.vbs
 *.bat
 *.png
