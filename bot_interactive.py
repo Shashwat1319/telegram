@@ -1,7 +1,7 @@
 import os, json, random, logging, asyncio
-from datetime import datetime
+from datetime import datetime, timedelta
 from dotenv import load_dotenv
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, Bot
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 
 from utils import get_price_value, format_price, calc_discount
@@ -180,7 +180,7 @@ async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     log.error("Update %s caused error: %s", update, context.error)
 
 
-async def referral_reminder(context: ContextTypes.DEFAULT_TYPE):
+async def referral_reminder(bot: Bot):
     kb = InlineKeyboardMarkup([
         [InlineKeyboardButton("🎯 Get Your Referral Link", url=f"https://t.me/{BOT_USERNAME}")],
         [InlineKeyboardButton("📤 Share Channel", url=f"https://t.me/share/url?url=https://t.me/{CLEAN_ID}&text=Join%20%40{CLEAN_ID}%20for%20daily%20Amazon%20deals%21")]
@@ -196,14 +196,28 @@ async def referral_reminder(context: ContextTypes.DEFAULT_TYPE):
     )
     try:
         chat_id = f"@{CLEAN_ID}"
-        await context.bot.send_message(chat_id=chat_id, text=msg, parse_mode="Markdown", reply_markup=kb)
+        await bot.send_message(chat_id=chat_id, text=msg, parse_mode="Markdown", reply_markup=kb)
         log.info("Referral reminder sent to channel")
     except Exception as e:
         log.error("Failed to send referral reminder: %s", e)
 
 
+async def reminder_loop(app: Application):
+    await asyncio.sleep(10)
+    while True:
+        try:
+            await referral_reminder(app.bot)
+        except Exception as e:
+            log.error("Reminder error: %s", e)
+        await asyncio.sleep(14400)
+
+
+async def post_init(app: Application):
+    asyncio.create_task(reminder_loop(app))
+
+
 def main():
-    app = Application.builder().token(BOT_TOKEN).build()
+    app = Application.builder().token(BOT_TOKEN).post_init(post_init).build()
 
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("deal", deal))
@@ -211,9 +225,6 @@ def main():
     app.add_handler(CommandHandler("stats", stats))
     app.add_handler(CallbackQueryHandler(button_callback))
     app.add_error_handler(error_handler)
-
-    job_queue = app.job_queue
-    job_queue.run_repeating(referral_reminder, interval=14400, first=10)
 
     log.info("Bot started. Commands: /start /deal /referral /stats | Referral reminder every 4h")
     app.run_polling(allowed_updates=Update.ALL_TYPES)
