@@ -1,8 +1,11 @@
-import os, json, re, time
+import os, json, re, time, logging
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
 from google.oauth2.credentials import Credentials
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+log = logging.getLogger(__name__)
 
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
 MAX_RETRIES = 5
@@ -12,14 +15,14 @@ def setup_credentials():
     cs = os.getenv("YOUTUBE_CLIENT_SECRETS")
     tk = os.getenv("YOUTUBE_TOKEN")
     if not cs or not tk:
-        print("Missing YOUTUBE_CLIENT_SECRETS or YOUTUBE_TOKEN")
+        log.error("Missing YOUTUBE_CLIENT_SECRETS or YOUTUBE_TOKEN")
         return None
     try:
         json.dump(json.loads(cs), open("client_secrets.json", "w"))
         json.dump(json.loads(tk), open("token.json", "w"))
         return Credentials.from_authorized_user_file("token.json", SCOPES)
     except Exception as e:
-        print(f"Credential error: {e}")
+        log.error("Credential error: %s", e)
         return None
 
 def get_metadata():
@@ -43,24 +46,27 @@ def upload_video(path, meta, creds):
         "status": {"privacyStatus": "public"}
     }
     media = MediaFileUpload(path, chunksize=1024*1024, resumable=True, mimetype="video/*")
-    print(f"Uploading: {meta['title']}")
+    log.info("Uploading: %s", meta['title'])
     request = youtube.videos().insert(part="snippet,status", body=body, media_body=media)
     response, error, retry = None, None, 0
     while response is None:
         try:
             status, response = request.next_chunk()
-            if status: print(f"Progress: {int(status.progress() * 100)}%")
+            if status:
+                log.info("Upload progress: %d%%", int(status.progress() * 100))
         except HttpError as e:
             if e.resp.status in RETRIABLE:
                 error, retry = e, retry + 1
-            else: raise e
+            else:
+                raise e
         except (IOError, OSError) as e:
             error, retry = e, retry + 1
         if error:
-            if retry > MAX_RETRIES: raise Exception(f"Failed after {retry} attempts")
+            if retry > MAX_RETRIES:
+                raise Exception(f"Failed after {retry} attempts")
             time.sleep(2 ** retry)
             error = None
-    print(f"Uploaded! Video ID: {response['id']}")
+    log.info("Uploaded! Video ID: %s", response['id'])
     return response['id']
 
 def main():
@@ -68,12 +74,17 @@ def main():
     if not creds: return
     import make_reel
     make_reel.main()
-    if not os.path.exists("shorts_deal.mp4"): print("Video not generated."); return
+    if not os.path.exists("shorts_deal.mp4"):
+        log.error("Video not generated.")
+        return
     meta = get_metadata()
-    if not meta: print("No metadata."); return
+    if not meta:
+        log.error("No metadata found.")
+        return
     try:
         upload_video("shorts_deal.mp4", meta, creds)
-    except Exception as e: print(f"Upload failed: {e}")
+    except Exception as e:
+        log.error("Upload failed: %s", e)
     finally:
         for f in ["client_secrets.json", "token.json", "shorts_deal.mp4", "youtube_details.txt"]:
             if os.path.exists(f):

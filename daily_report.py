@@ -1,8 +1,11 @@
-import requests, os, json
+import requests, os, json, logging
 from datetime import datetime
 from dotenv import load_dotenv
 
 load_dotenv()
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+log = logging.getLogger(__name__)
 CLICK_TRACKER_URL = os.getenv("CLICK_TRACKER_URL")
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 ADMIN_CHAT_ID = os.getenv("ADMIN_CHAT_ID")
@@ -63,7 +66,7 @@ def main():
 ---
 *Target: ₹3000/day ≈ 600 clicks/day*
 *Add new deals via link_adder.py or edit product.json directly*"""
-    print(report)
+    log.info("Report sent: members=%s, clicks=%d", members, clicks_today)
     send_telegram(report)
 
 if __name__ == "__main__":

@@ -1,5 +1,8 @@
-import os, json, requests, cv2, numpy as np
+import os, json, requests, cv2, numpy as np, logging
 from PIL import Image, ImageDraw, ImageFont
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+log = logging.getLogger(__name__)
 
 def get_latest_product():
     if not os.path.exists("product.json"): return None
@@ -97,7 +100,7 @@ def generate_video(frame, output="shorts_deal.mp4", duration=5, fps=30):
     video = cv2.VideoWriter(output, fourcc, fps, (w, h))
     for _ in range(duration * fps): video.write(arr)
     video.release()
-    print(f"Video saved: {output}")
+    log.info("Video saved: %s", output)
 
 def write_metadata(product):
     name = product.get("name", "Amazing Deal")[:50]
@@ -114,15 +117,17 @@ Join Telegram: https://t.me/budgetdeals_india
 Keywords: amazon deals, budget finds india, student deals, loot deals, amazon price drop"""
     with open("youtube_details.txt", "w", encoding="utf-8") as f:
         f.write(f"--- YOUTUBE TITLE ---\n{title}\n\n--- YOUTUBE DESCRIPTION ---\n{desc}")
-    print("Metadata written.")
+    log.info("Metadata written.")
 
 def main():
     product = get_latest_product()
-    if not product: print("No product found."); return
+    if not product:
+        log.error("No product found.")
+        return
     frame = create_video_frame(product)
     generate_video(frame)
     write_metadata(product)
-    print("Done! Ready for upload.")
+    log.info("Done! Ready for upload.")
 
 if __name__ == "__main__":
     main()

@@ -1,10 +1,11 @@
-import requests
-import os
-import json
+import requests, os, json, logging
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 
 load_dotenv()
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+log = logging.getLogger(__name__)
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 ADMIN_CHAT_ID = os.getenv("ADMIN_CHAT_ID")
@@ -21,13 +22,13 @@ def send_telegram(message):
     }
     response = requests.post(url, json=payload)
     if response.status_code != 200:
-        print(f"[ERROR] Telegram API failed: {response.text}")
+        log.error("Telegram API failed: %s", response.text)
     else:
-        print(f"[SUCCESS] Report sent to Admin.")
+        log.info("Report sent to Admin.")
 
 def main():
     if not os.path.exists(HISTORY_FILE):
-        print("No history file found.")
+        log.warning("No history file found.")
         return
 
     with open(HISTORY_FILE, "r") as f:

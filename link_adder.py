@@ -1,7 +1,10 @@
-import json, os, threading, webbrowser
+import json, os, threading, webbrowser, logging
 from datetime import datetime, timedelta
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+log = logging.getLogger(__name__)
 
 PRODUCT_FILE = "product.json"
 EXPIRY_FILE = ".link_adder_expiry"
@@ -28,10 +31,10 @@ def get_or_create_expiry():
 
 expiry_date, remaining = get_or_create_expiry()
 if remaining.total_seconds() <= 0:
-    print("This tool has expired. Deleting itself...")
+    log.warning("This tool has expired. Deleting itself...")
     os.remove(EXPIRY_FILE)
     os.remove(__file__)
-    print("Deleted. Thank you!")
+    log.info("Deleted. Thank you!")
     exit()
 
 products = json.load(open(PRODUCT_FILE, encoding="utf-8"))["products"]
@@ -42,7 +45,7 @@ class Handler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-Type', 'text/html; charset=utf-8')
             self.end_headers()
-            self.wfile.write(HTML.encode('utf-8'))
+            self.wfile.write(read_html().encode('utf-8'))
         elif self.path == '/api/products':
             self.send_response(200)
             self.send_header('Content-Type', 'application/json')
@@ -82,171 +85,10 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Access-Control-Allow-Headers', 'Content-Type')
         self.end_headers()
 
-HTML = r"""<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Link Adder - Budget Deals India</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
-body{background:#0f172a;color:#e2e8f0;padding:20px}
-h1{text-align:center;margin-bottom:5px;font-size:28px;color:#22d3ee}
-.sub{text-align:center;margin-bottom:20px;color:#94a3b8;font-size:14px}
-.expiry{text-align:center;background:#1e293b;padding:10px;border-radius:10px;margin-bottom:20px;font-size:15px}
-.expiry span{color:#fbbf24;font-weight:bold}
-.stats{display:flex;gap:15px;justify-content:center;margin-bottom:20px;flex-wrap:wrap}
-.stat{background:#1e293b;padding:10px 20px;border-radius:10px;text-align:center}
-.stat .num{font-size:24px;font-weight:bold;color:#22d3ee}
-.stat .label{font-size:12px;color:#94a3b8}
-table{width:100%;border-collapse:collapse;background:#1e293b;border-radius:10px;overflow:hidden}
-th{background:#334155;padding:10px 8px;text-align:left;font-size:13px;position:sticky;top:0}
-td{padding:8px;border-bottom:1px solid #334155;font-size:13px;vertical-align:middle}
-tr:hover{background:#1a2639}
-.name{max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.price{color:#22d3ee;font-weight:bold;white-space:nowrap}
-.discount{color:#fbbf24;font-size:12px;white-space:nowrap}
-input{width:100%;padding:6px 8px;border:1px solid #475569;border-radius:6px;background:#0f172a;color:#e2e8f0;font-size:12px;outline:none;transition:border .2s}
-input:focus{border-color:#22d3ee}
-.status{font-size:18px;text-align:center}
-.status.done{color:#22c55e}
-.status.pending{color:#f59e0b}
-.btn{background:#22d3ee;color:#0f172a;border:none;padding:12px 30px;border-radius:10px;font-size:16px;font-weight:bold;cursor:pointer;transition:transform .2s;margin:20px auto;display:block}
-.btn:hover{transform:scale(1.03)}
-.footer{text-align:center;margin-top:20px;color:#475569;font-size:12px}
-.page-wrap{max-width:1200px;margin:0 auto}
-@media(max-width:768px){table,thead,tbody,th,td,tr{display:block}thead{display:none}td{padding:8px 10px;border:none}tr{margin-bottom:10px;border-radius:10px;overflow:hidden;border:1px solid #334155}td::before{content:attr(data-label);display:block;font-weight:bold;color:#94a3b8;font-size:11px;margin-bottom:2px}.name{max-width:none;white-space:normal}}
-</style>
-</head>
-<body>
-<div class="page-wrap">
-<h1>🔗 Link Adder</h1>
-<p class="sub">Har product ke liye Image URL aur Amazon Link daalo — data browser mein auto-save hota hai</p>
-<div class="expiry">⏰ Ye page <span id="expiryDate"></span> tak active hai · <span id="countdown"></span></div>
-<div class="stats">
-<div class="stat"><div class="num" id="totalCount">0</div><div class="label">Total Products</div></div>
-<div class="stat"><div class="num" id="linkCount">0</div><div class="label">Links Added</div></div>
-<div class="stat"><div class="num" id="imgCount">0</div><div class="label">Images Added</div></div>
-<div class="stat"><div class="num" id="doneCount">0</div><div class="label">Complete</div></div>
-</div>
-<button class="btn" id="saveBtn" onclick="saveToServer()">💾 Save All to product.json</button>
-<button class="btn" onclick="downloadJSON()">⬇ Download product.json</button>
-<table id="productTable">
-<thead>
-<tr><th>#</th><th>Product Name</th><th>Price</th><th>Discount</th><th>Image URL</th><th>Amazon Link</th><th>Status</th></tr>
-</thead>
-<tbody id="tbody"></tbody>
-</table>
-<button class="btn" onclick="downloadJSON()">⬇ Download product.json</button>
-<div class="footer">Auto-saves to browser localStorage · Click "Save All" to write directly to product.json</div>
-</div>
-<script>
-const STORAGE_KEY = 'link_adder_data';
-let products = [];
-let linkData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-
-async function loadProducts() {
-    const res = await fetch('/api/products');
-    products = await res.json();
-    render();
-}
-async function loadExpiry() {
-    const res = await fetch('/api/expiry');
-    const data = await res.json();
-    const d = new Date(data.expiry);
-    document.getElementById('expiryDate').textContent = d.toLocaleDateString('en-IN', {day:'numeric', month:'long', year:'numeric', hour:'2-digit', minute:'2-digit'});
-}
-function render() {
-    const tbody = document.getElementById('tbody');
-    let links = 0, imgs = 0, done = 0;
-    tbody.innerHTML = products.map((p, i) => {
-        const data = linkData[i] || {};
-        if (data.link && data.link.trim()) links++;
-        if (data.image && data.image.trim()) imgs++;
-        if ((data.link && data.link.trim()) && (data.image && data.image.trim())) done++;
-        const cls = (data.link && data.image) ? 'done' : 'pending';
-        const name = (p.name || '').substring(0, 50);
-        return `<tr>
-            <td data-label="#">${i+1}</td>
-            <td data-label="Product" class="name" title="${(p.name||'').replace(/"/g,'&quot;')}">${name}</td>
-            <td data-label="Price" class="price">${p.price||''}</td>
-            <td data-label="Discount" class="discount">${p.discount_percent||''}</td>
-            <td data-label="Image URL"><input type="url" class="img-input" data-idx="${i}" value="${(data.image||'').replace(/"/g,'&quot;')}" placeholder="https://m.media-amazon.com/images/..."></td>
-            <td data-label="Amazon Link"><input type="url" class="link-input" data-idx="${i}" value="${(data.link||'').replace(/"/g,'&quot;')}" placeholder="https://www.amazon.in/dp/...?tag=..."></td>
-            <td data-label="Status" class="status ${cls}">${cls === 'done' ? '✅' : '⏳'}</td>
-        </tr>`;
-    }).join('');
-    document.getElementById('totalCount').textContent = products.length;
-    document.getElementById('linkCount').textContent = links;
-    document.getElementById('imgCount').textContent = imgs;
-    document.getElementById('doneCount').textContent = done;
-}
-function save(idx, field, value) {
-    if (!linkData[idx]) linkData[idx] = {};
-    linkData[idx][field] = value;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(linkData));
-    render();
-}
-document.addEventListener('input', e => {
-    const el = e.target;
-    if (el.classList.contains('img-input')) save(parseInt(el.dataset.idx), 'image', el.value);
-    if (el.classList.contains('link-input')) save(parseInt(el.dataset.idx), 'link', el.value);
-});
-async function saveToServer() {
-    const btn = document.getElementById('saveBtn');
-    btn.textContent = '⏳ Saving...';
-    btn.disabled = true;
-    const updated = products.map((p, i) => {
-        const d = linkData[i] || {};
-        return {...p, image: (d.image || '').trim(), link: (d.link || '').trim()};
-    });
-    try {
-        const res = await fetch('/api/save', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({products: updated})
-        });
-        if (res.ok) {
-            btn.textContent = '✅ Saved to product.json!';
-            setTimeout(() => { btn.textContent = '💾 Save All to product.json'; btn.disabled = false; }, 2000);
-        } else {
-            btn.textContent = '❌ Error saving';
-            btn.disabled = false;
-        }
-    } catch(e) {
-        btn.textContent = '❌ Error: ' + e.message;
-        btn.disabled = false;
-    }
-}
-function downloadJSON() {
-    const updated = products.map((p, i) => {
-        const d = linkData[i] || {};
-        return {...p, image: (d.image || '').trim(), link: (d.link || '').trim()};
-    });
-    const blob = new Blob([JSON.stringify({products: updated}, null, 4)], {type: 'application/json'});
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'product.json';
-    a.click();
-}
-function countdown() {
-    fetch('/api/expiry').then(r=>r.json()).then(data => {
-        const diff = new Date(data.expiry) - new Date();
-        if (diff <= 0) { document.getElementById('countdown').textContent = 'Expired'; return; }
-        const d = Math.floor(diff / 86400000);
-        const h = Math.floor((diff % 86400000) / 3600000);
-        const m = Math.floor((diff % 3600000) / 60000);
-        const s = Math.floor((diff % 60000) / 1000);
-        document.getElementById('countdown').textContent = d + 'd ' + h + 'h ' + m + 'm ' + s + 's';
-    });
-}
-loadProducts();
-loadExpiry();
-setInterval(countdown, 1000);
-countdown();
-</script>
-</body>
-</html>"""
+def read_html():
+    html_path = os.path.join(os.path.dirname(__file__), "link_adder.html")
+    with open(html_path, encoding="utf-8") as f:
+        return f.read()
 
 def auto_delete():
     import time, sys
@@ -258,20 +100,14 @@ def auto_delete():
             os.remove(__file__)
         except:
             pass
-        print("Tool expired and deleted itself.")
+        log.info("Tool expired and deleted itself.")
         os._exit(0)
 
 threading.Thread(target=auto_delete, daemon=True).start()
-server = HTTPServer(('0.0.0.0', PORT), Handler)
-print(f"\n  🔗 Link Adder is running!")
-print(f"  -----------------------------------")
-print(f"  🌐 Open: http://localhost:{PORT}")
-print(f"  📅 Expires: {expiry_date.strftime('%d %B %Y, %I:%M %p')}")
-print(f"  ⏰ Time left: {remaining.days} days, {remaining.seconds//3600} hours")
-print(f"\n  • Add image URLs and Amazon links for each product")
-print(f"  • Data auto-saves in browser")
-print(f"  • Click 'Save All' to write directly to product.json")
-print(f"  • Or click 'Download' to get the file")
-print(f"  • Close this window to stop.\n")
+server = HTTPServer(('127.0.0.1', PORT), Handler)
+log.info("Link Adder is running!")
+log.info("Open http://localhost:%d", PORT)
+log.info("Expires: %s", expiry_date.strftime('%d %B %Y, %I:%M %p'))
+log.info("Time left: %d days, %d hours", remaining.days, remaining.seconds // 3600)
 webbrowser.open(f'http://localhost:{PORT}')
 server.serve_forever()

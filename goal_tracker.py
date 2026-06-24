@@ -1,11 +1,12 @@
-import asyncio
-import os
-import json
+import asyncio, os, json, logging
 from telegram import Bot
 from dotenv import load_dotenv
 
-# Load configuration
 load_dotenv()
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+log = logging.getLogger(__name__)
+
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
 ADMIN_CHAT_ID = os.getenv("ADMIN_CHAT_ID")
@@ -27,18 +28,16 @@ def save_state(state):
 
 async def check_goal():
     if not BOT_TOKEN or not CHANNEL_ID or not ADMIN_CHAT_ID:
-        print("[ERROR] Missing configuration in .env")
+        log.error("Missing configuration in .env")
         return
 
     bot = Bot(token=BOT_TOKEN)
     state = load_state()
-    
+
     try:
-        # Get Current Subscriber Count
         count = await bot.get_chat_member_count(CHANNEL_ID)
-        print(f"Current Subscriber Count: {count}")
-        
-        # Check for 100 Members Goal
+        log.info("Current subscriber count: %d", count)
+
         if count >= 100 and not state.get("goal_100_notified", False):
             msg = (
                 "🎊 *MUBARAK HO!* 🎊\n\n"
@@ -48,14 +47,13 @@ async def check_goal():
             )
             await bot.send_message(chat_id=ADMIN_CHAT_ID, text=msg, parse_mode="Markdown")
             state["goal_100_notified"] = True
-            print("[OK] Goal 100 Notified!")
-            
-        # Optional: Track current count in state for history
+            log.info("Goal 100 notified!")
+
         state["last_checked_count"] = count
         save_state(state)
-        
+
     except Exception as e:
-        print(f"[!] Error tracking goal: {e}")
+        log.error("Error tracking goal: %s", e)
 
 if __name__ == "__main__":
     asyncio.run(check_goal())

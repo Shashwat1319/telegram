@@ -49,6 +49,15 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python auto_blogger.py
 
+      - name: Track Referrals
+        env:
+          API_ID: ${{ secrets.API_ID }}
+          API_HASH: ${{ secrets.API_HASH }}
+          TELEGRAM_SESSION_1: ${{ secrets.TELEGRAM_SESSION_1 }}
+          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+        run: python referral_tracker.py --oneshot || true
+
       - name: Daily Report
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}

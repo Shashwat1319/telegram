@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
-import json, time, random, asyncio, os, re, aiohttp, aiofiles, hashlib
+import json, time, random, asyncio, os, sys, re, aiohttp, aiofiles, hashlib, logging
 from urllib.parse import quote
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
 from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
 from functools import lru_cache
+
+from utils import get_price_value, format_price, calc_discount
 
 load_dotenv()
 
@@ -17,12 +19,8 @@ POST_INTERVAL_MINUTES = int(os.getenv("POST_INTERVAL_MINUTES", "30"))
 VIP_CHANNEL_ID = os.getenv("VIP_CHANNEL_ID")
 POSTED_LOG = "posted_products.json"
 
-def get_price_value(price_str):
-    try:
-        c = re.sub(r'[^\d.]', '', str(price_str))
-        return float(c) if c else 999999.0
-    except:
-        return 999999.0
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+log = logging.getLogger(__name__)
 
 async def is_url_accessible(url):
     if "amazon." in url: return True
@@ -67,21 +65,14 @@ def load_products():
 
 def generate_message(product, post_count=0):
     name = product.get('name', 'Deal!')
-    raw_price = str(product.get('price', 'Check'))
-    price = raw_price
-    try:
-        ascii_p = re.sub(r'[^\d.,\- ]', '', raw_price).strip()
-        if ascii_p: price = f"₹{ascii_p.strip().strip(',.')}"
-    except: pass
+    price = format_price(product.get('price', 'Check'))
 
     hook = product.get('hook', 'Bhai ye loot miss mat karna!')
     pain = product.get('pain', '')
     fix = product.get('fix', 'Solid deal hai abhi order karo.')
     loot_reason = product.get('loot_reason', '')
     rating = product.get('rating', '')
-    pv = get_price_value(product.get('price', '0'))
-    mv = get_price_value(product.get('mrp', '0'))
-    drop = int(((mv - pv) / mv) * 100) if mv > pv else 0
+    drop = calc_discount(product.get('price', '0'), product.get('mrp', '0'))
 
     badge = f"🔥 PRICE DROP: {drop}% OFF" if drop >= 30 else (f"📉 PRICE DROP: {drop}%" if drop > 0 else "⚡ HOT DEAL")
     templates = [
@@ -98,7 +89,7 @@ def generate_message(product, post_count=0):
     return msg
 
 async def get_short_url(target_url):
-    if not CLICK_TRACKER_URL or "amazon." in target_url: return target_url
+    if not CLICK_TRACKER_URL: return target_url
     cache_file = "short_links_cache.json"
     cache = {}
     if os.path.exists(cache_file):
@@ -125,7 +116,7 @@ async def post_deals():
         await bot.initialize()
         products = load_products()
         if not products:
-            print("No products to post.")
+            log.info("No products to post.")
             await bot.shutdown()
             return
 
@@ -150,17 +141,14 @@ async def post_deals():
                 if h.get("count", 0) < 3 and h.get("last", "") < (now - timedelta(hours=gap)).isoformat():
                     eligible.append(p)
         if not eligible:
-            print("All products posted recently. Skipping.")
+            log.info("All products posted recently. Skipping.")
             await bot.shutdown()
             return
 
-        random_mode = False
-        import sys as _sys
-        if len(_sys.argv) > 1 and "--random" in _sys.argv: random_mode = True
-
+        random_mode = "--random" in sys.argv
         num = min(3, len(eligible))
         to_post = random.sample(eligible, num) if random_mode else eligible[:num]
-        print(f"Posting {len(to_post)} products.")
+        log.info("Posting %d products.", len(to_post))
 
         for p in to_post:
             posted[p['name']] = {"last": now_str, "count": posted.get(p['name'], {}).get("count", 0) + 1 if p['name'] in posted else 1}
@@ -201,7 +189,7 @@ async def post_deals():
                     except: pass
                 await asyncio.sleep(5)
             except Exception as e:
-                print(f"Failed to post {name}: {e}")
+                log.error("Failed to post %s: %s", name, e)
 
         await bot.shutdown()
 

@@ -1,32 +1,24 @@
-import os, json, re, requests
+import os, json, re, requests, logging
 from datetime import datetime
-from urllib.parse import quote
 from dotenv import load_dotenv
+
+from utils import tracked_link, slugify, calc_discount, extract_asin
 
 load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-CLICK_TRACKER_URL = os.getenv("CLICK_TRACKER_URL", "")
 
 BLOG_DIR = "website/src/content/blog"
 DEAL_DIR = "website/src/content/deals"
 
-def tracked_link(url):
-    if not CLICK_TRACKER_URL: return url
-    return f"{CLICK_TRACKER_URL}/go?url={quote(url)}"
-
-def slugify(name):
-    s = re.sub(r'[^\w\s-]', '', name.lower().replace("&", "and"))
-    return re.sub(r'[-\s]+', '-', s).strip('-')[:80]
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+log = logging.getLogger(__name__)
 
 def generate_deal_page(product):
-    asin = re.search(r'/dp/([A-Z0-9]{10})', product.get('link',''))
-    asin = asin.group(1).lower() if asin else slugify(product['name'])[:20]
+    asin = extract_asin(product.get('link', '')) or slugify(product.get('name', ''))[:20]
     fp = os.path.join(DEAL_DIR, f"{asin}.md")
     if os.path.exists(fp): return False
 
-    pv = int(re.sub(r'[^\d]', '', str(product.get('price','0')))) or 0
-    mv = int(re.sub(r'[^\d]', '', str(product.get('mrp','0')))) or 0
-    disc = int(((mv - pv) / mv) * 100) if mv > pv else 0
+    disc = calc_discount(product.get('price', '0'), product.get('mrp', '0'))
     name = product.get('name', 'Product').replace('"', "'")
     img = product.get('image', '')
     link = tracked_link(product.get('link', ''))
@@ -64,15 +56,12 @@ Join **[@budgetdeals_india](https://t.me/budgetdeals_india)** on Telegram for da
 
 def generate_blog_post(product):
     if not GEMINI_API_KEY: return None
-    asin = re.search(r'/dp/([A-Z0-9]{10})', product.get('link',''))
-    asin = asin.group(1).lower() if asin else slugify(product.get('name', 'product'))[:20]
+    asin = extract_asin(product.get('link', '')) or slugify(product.get('name', 'product'))[:20]
     fp = os.path.join(BLOG_DIR, f"{asin}.md")
     if os.path.exists(fp): return False
 
     name = product.get('name', 'Product').replace('"', "'")
-    pv = int(re.sub(r'[^\d]', '', str(product.get('price','0')))) or 0
-    mv = int(re.sub(r'[^\d]', '', str(product.get('mrp','0')))) or 0
-    disc = int(((mv - pv) / mv) * 100) if mv > pv else 0
+    disc = calc_discount(product.get('price', '0'), product.get('mrp', '0'))
     link = tracked_link(product.get('link', ''))
     img = product.get('image', '')
 
@@ -115,11 +104,11 @@ buyLink: "{link}"
 
 def main():
     os.makedirs(BLOG_DIR, exist_ok=True); os.makedirs(DEAL_DIR, exist_ok=True)
-    if not os.path.exists("product.json"): print("No product.json"); return
+    if not os.path.exists("product.json"): log.warning("No product.json found"); return
     products = json.load(open("product.json", encoding="utf-8"))["products"]
-    if not products: print("No products"); return
+    if not products: log.warning("No products in product.json"); return
 
-    print(f"Generating content for {len(products)} products...")
+    log.info("Generating content for %d products...", len(products))
     blogs = deals = 0
     for i, p in enumerate(products):
         if generate_deal_page(p): deals += 1
@@ -127,8 +116,8 @@ def main():
 
     bcount = len(os.listdir(BLOG_DIR)) if os.path.isdir(BLOG_DIR) else 0
     dcount = len(os.listdir(DEAL_DIR)) if os.path.isdir(DEAL_DIR) else 0
-    print(f"✅ New: {deals} deals + {blogs} blogs")
-    print(f"📊 Total site: {bcount} blogs + {dcount} deals")
+    log.info("New: %d deals + %d blogs", deals, blogs)
+    log.info("Total site: %d blogs + %d deals", bcount, dcount)
 
 if __name__ == "__main__":
     main()

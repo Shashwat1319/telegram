@@ -119,12 +119,25 @@ const latestPosts = posts.slice(0, 3);
         </section>
       )}
 
-      <section class="bg-gray-50 rounded-xl p-8 md:p-12 text-center my-12 -mx-4">
+      <section class="bg-gradient-to-r from-orange-50 to-white rounded-xl p-8 md:p-12 text-center my-12 -mx-4 border border-orange-100">
         <div class="max-w-2xl mx-auto">
           <h2 class="text-2xl font-bold text-gray-900 mb-3">Never Miss a Deal</h2>
           <p class="text-gray-600 mb-6">
             Join 15,000+ students who get instant deal alerts on Telegram. We handpick the best Amazon discounts so you don't have to.
           </p>
+
+          <div class="max-w-md mx-auto mb-8">
+            <form id="emailForm" class="flex gap-2" onsubmit="handleSubscribe(event)">
+              <input type="email" id="emailInput" required placeholder="your@email.com"
+                class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none text-sm">
+              <button type="submit"
+                class="bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors text-sm whitespace-nowrap">
+                Get Alerts
+              </button>
+            </form>
+            <p id="emailStatus" class="text-sm mt-2 hidden"></p>
+          </div>
+
           <div class="flex flex-wrap justify-center gap-3">
             <a href={TELEGRAM_CHANNEL_URL} target="_blank" rel="noopener" class="bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors inline-flex items-center gap-2">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
@@ -136,6 +149,40 @@ const latestPosts = posts.slice(0, 3);
           </div>
         </div>
       </section>
+
+      <script>
+        async function handleSubscribe(e) {
+          e.preventDefault();
+          const email = document.getElementById('emailInput').value;
+          const status = document.getElementById('emailStatus');
+          const btn = e.target.querySelector('button');
+          btn.textContent = 'Subscribing...';
+          btn.disabled = true;
+          status.className = 'text-sm mt-2';
+          try {
+            const res = await fetch('/.netlify/functions/subscribe', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email })
+            });
+            const data = await res.json();
+            if (res.ok) {
+              status.className = 'text-sm mt-2 text-green-600';
+              status.textContent = '✅ Subscribed! Check your inbox for deals.';
+              document.getElementById('emailInput').value = '';
+            } else {
+              status.className = 'text-sm mt-2 text-red-600';
+              status.textContent = data.error || 'Something went wrong.';
+            }
+          } catch {
+            status.className = 'text-sm mt-2 text-red-600';
+            status.textContent = 'Network error. Try again.';
+          }
+          btn.textContent = 'Get Alerts';
+          btn.disabled = false;
+          status.classList.remove('hidden');
+        }
+      </script>
     </main>
 
     <Footer />
