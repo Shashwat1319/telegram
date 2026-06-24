@@ -46,6 +46,8 @@ verified_promo_groups.txt
 promo_groups_list.txt
 new_20_groups.txt
 youtube_details.txt
+orchestrator.pid
+orchestrator_state.json
 
 # Website build
 website/node_modules/
