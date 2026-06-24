@@ -14,7 +14,11 @@ log = logging.getLogger(__name__)
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
 CLEAN_ID = CHANNEL_ID.replace("@", "") if CHANNEL_ID else "budgetdeals_india"
-BOT_USERNAME = os.getenv("BOT_USERNAME", "your_bot_username")
+BOT_USERNAME = os.getenv("BOT_USERNAME", "Ffzon_bot")
+
+
+def esc_md(text):
+    return text.replace("_", "\\_")
 
 
 def load_products():
@@ -46,12 +50,12 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     msg = (
         f"👋 *Welcome {user.first_name}!*\n\n"
         f"I'm the *Budget Deals India* bot. I send handpicked Amazon deals "
-        f"to @{CLEAN_ID} daily.\n\n"
+        f"to @{esc_md(CLEAN_ID)} daily.\n\n"
         f"📌 *What you can do:*\n"
         f"• /deal — Get today's hottest deal\n"
         f"• /referral — Get your invite link & earn rewards\n"
         f"• /stats — Channel growth stats\n\n"
-        f"Join @{CLEAN_ID} and never overpay on Amazon again! 🚀\n\n"
+        f"Join @{esc_md(CLEAN_ID)} and never overpay on Amazon again! 🚀\n\n"
         f"💡 *Refer 5 friends → 1.5x points | Refer 10 → 2x points*"
     )
     kb = InlineKeyboardMarkup([
@@ -83,7 +87,7 @@ async def deal(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
     if rating:
         msg += f"⭐ Rating: {rating}\n"
-    msg += f"\n👉 [Buy on Amazon]({link})\n\n📢 Join @{CLEAN_ID} for more!"
+    msg += f"\n👉 [Buy on Amazon]({link})\n\n📢 Join @{esc_md(CLEAN_ID)} for more!"
 
     kb = InlineKeyboardMarkup([
         [InlineKeyboardButton("🛒 Buy Now", url=link)],
@@ -159,7 +163,7 @@ async def stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"👥 *Members:* {members}\n"
         f"📦 *Deals in Queue:* {product_count}\n"
         f"👆 *Total Clicks:* {total_clicks}\n"
-        f"📢 *Channel:* @{CLEAN_ID}\n\n"
+        f"📢 *Channel:* @{esc_md(CLEAN_ID)}\n\n"
         f"Keep sharing your referral link to earn rewards!"
     )
     await update.message.reply_text(msg, parse_mode="Markdown")
@@ -188,7 +192,7 @@ async def referral_reminder(context: ContextTypes.DEFAULT_TYPE):
         f"▫️ Refer 5 friends → 1.5x points (15 each)\n"
         f"▫️ Refer 10 friends → 2x points (20 each)\n\n"
         f"👇 *Get your link:*\n"
-        f"👉 @{BOT_USERNAME} and type /referral"
+        f"👉 @{esc_md(BOT_USERNAME)} and type /referral"
     )
     try:
         chat_id = f"@{CLEAN_ID}"

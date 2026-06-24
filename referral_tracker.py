@@ -38,9 +38,9 @@ async def send_welcome(user_id: int, username: str = None):
     try:
         async with Bot(token=BOT_TOKEN) as bot:
             await bot.initialize()
-            mention = f"@{username}" if username else f"User"
+            mention = username.replace("_", "\\_") if username else "User"
             msg = (
-                f"🎉 *Welcome to Budget Deals India, {mention}!*\n\n"
+                f"🎉 *Welcome to Budget Deals India, @{mention}!*\n\n"
                 f"We post handpicked *Amazon India deals* with up to 70% OFF "
                 f"on electronics, fashion, home & more.\n\n"
                 f"🔹 New deals posted every 30 mins\n"
@@ -50,7 +50,7 @@ async def send_welcome(user_id: int, username: str = None):
                 f"• /deal — See today's hottest deal\n"
                 f"• /referral — Earn rewards by inviting friends\n"
                 f"• /stats — Check channel growth\n\n"
-                f"📢 Join the discussion: @{CLEAN_ID}"
+                f"📢 Join the discussion: @{CLEAN_ID.replace('_', '\\_')}"
             )
             await bot.send_message(chat_id=user_id, text=msg, parse_mode="Markdown")
             await bot.shutdown()
