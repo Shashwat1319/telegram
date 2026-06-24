@@ -173,14 +173,15 @@ async def post_deals():
             ])
 
             try:
-                sent = None
                 if image_url:
                     local = await download_image(image_url)
                     if local:
                         async with aiofiles.open(local, 'rb') as f:
                             sent = await bot.send_photo(chat_id=chat_id, photo=await f.read(), caption=msg, parse_mode='HTML', reply_markup=kb)
                         os.remove(local)
-                if not sent:
+                    else:
+                        sent = await bot.send_message(chat_id=chat_id, text=msg, parse_mode='HTML', reply_markup=kb)
+                else:
                     sent = await bot.send_message(chat_id=chat_id, text=msg, parse_mode='HTML', reply_markup=kb)
 
                 if is_cheapest:
