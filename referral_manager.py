@@ -69,7 +69,7 @@ def record_joined_user(invite_link: str, new_user_id: int):
 
 def get_user_stats(user_id: int):
     referrals = load_referrals()
-    for link, info in referrals.values():
+    for link, info in referrals.items():
         if info.get('creator') == user_id:
             total_joined = len(info.get('joined', []))
             points = total_joined * REFERRAL_REWARD_BASE

@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, Bot
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 
-from utils import get_price_value, format_price, calc_discount
+from utils import get_price_value, format_price, calc_discount, tracked_link
 from referral_manager import generate_referral_link, get_user_stats
 
 load_dotenv()
@@ -76,7 +76,7 @@ async def deal(update: Update, context: ContextTypes.DEFAULT_TYPE):
     price = format_price(product.get("price", "Check"))
     mrp = product.get("mrp", "")
     drop = calc_discount(product.get("price", "0"), product.get("mrp", "0"))
-    link = product.get("link", f"https://t.me/{CLEAN_ID}")
+    link = tracked_link(product.get("link", f"https://t.me/{CLEAN_ID}"))
     rating = product.get("rating", "")
     img = product.get("image", "")
 

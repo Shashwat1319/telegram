@@ -6,7 +6,7 @@ from telethon.tl.functions.messages import SendMessageRequest
 from telethon.sessions import StringSession
 from dotenv import load_dotenv
 
-from utils import get_price_value, format_price, calc_discount
+from utils import get_price_value, format_price, calc_discount, tracked_link
 
 load_dotenv()
 
@@ -61,7 +61,7 @@ def build_message(product):
     price = format_price(product.get("price", "Check"))
     mrp = product.get("mrp", "")
     drop = calc_discount(product.get("price", "0"), product.get("mrp", "0"))
-    link = product.get("link", f"https://t.me/{CLEAN_ID}")
+    link = tracked_link(product.get("link", f"https://t.me/{CLEAN_ID}"))
     fix = product.get("fix", "Amazing value!")
 
     templates = [
