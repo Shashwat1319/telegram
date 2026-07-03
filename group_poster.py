@@ -64,10 +64,19 @@ def build_message(product):
     link = tracked_link(product.get("link", f"https://t.me/{CLEAN_ID}"))
     fix = product.get("fix", "Amazing value!")
 
+    urgency_lines = [
+        "⏰ Ends tonight at 11:59 PM",
+        "🔥 Only few left at this price",
+        "⚡ Flash deal - expires in hours",
+        "📉 Lowest price in 30 days",
+        "🎯 Limited stock - grab now",
+    ]
+
     templates = [
-        f"🔥 {name}\n💸 {mrp} → {price} ({drop}% OFF)\n✅ {fix}\n🛒 {link}\n\n📢 Join @{CLEAN_ID} for daily deals!",
-        f"💥 PRICE DROP: {drop}% OFF\n📦 {name[:50]}\n💸 Price: {price}\n{fix}\n👉 {link}\n\n📲 @{CLEAN_ID}",
-        f"⚡ DEAL ALERT!\n{name[:50]}\n💸 Just {price}\n✅ {fix}\n🛒 {link}\n\n💰 @{CLEAN_ID}",
+        f"🔥 {name}\n💸 {mrp} → {price} ({drop}% OFF)\n✅ {fix}\n{random.choice(urgency_lines)}\n🛒 {link}\n\n📢 Join @{CLEAN_ID} for daily deals!",
+        f"💥 PRICE DROP: {drop}% OFF\n📦 {name[:50]}\n💸 Price: {price}\n{fix}\n{random.choice(urgency_lines)}\n👉 {link}\n\n📲 @{CLEAN_ID}",
+        f"⚡ DEAL ALERT!\n{name[:50]}\n💸 Just {price}\n✅ {fix}\n{random.choice(urgency_lines)}\n🛒 {link}\n\n💰 @{CLEAN_ID}",
+        f"🚨 LOOT DEAL: {drop}% OFF!\n{name[:50]}\n{mrp} → {price}\n{random.choice(urgency_lines)}\n🔗 {link}\n\n📢 @{CLEAN_ID}",
     ]
     return random.choice(templates)
 

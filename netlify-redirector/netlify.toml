@@ -1,5 +1,7 @@
 [build]
   functions = "functions"
+  publish = "."
+
 [[redirects]]
   from = "/s/:id"
   to = "/.netlify/functions/go?id=:id"
@@ -15,7 +17,11 @@
   to = "/.netlify/functions/stats"
   status = 200
 
-
+# Serve static files (og-image.jpg, etc.) before catch-all
+[[redirects]]
+  from = "/og-image.jpg"
+  to = "/og-image.jpg"
+  status = 200
 
 [[redirects]]
   from = "/*"

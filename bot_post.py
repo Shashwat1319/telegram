@@ -74,11 +74,20 @@ def generate_message(product, post_count=0):
     rating = product.get('rating', '')
     drop = calc_discount(product.get('price', '0'), product.get('mrp', '0'))
 
-    badge = f"🔥 PRICE DROP: {drop}% OFF" if drop >= 30 else (f"📉 PRICE DROP: {drop}%" if drop > 0 else "⚡ HOT DEAL")
+badge = f"🔥 PRICE DROP: {drop}% OFF" if drop >= 30 else (f"📉 PRICE DROP: {drop}%" if drop > 0 else "⚡ HOT DEALER HOT DEAL")
+    urgency_lines = [
+        "⏰ Ends tonight 11:59 PM — don't miss out",
+        "🔥 Only few units left at this price",
+        "⚡ Flash deal — expires in hours",
+        "📉 Lowest price in 30 days",
+        "🎯 Limited stock — grab before sold out",
+        "🚨 Price hike expected soon",
+    ]
+    urgency = random.choice(urgency_lines)
     templates = [
-        f"🔥 <b>{badge}</b> 🔥\n\n<b>{name[:60]}</b>\n\n💸 <b>Price:</b> <s>{product.get('mrp', '')}</s> → <b>{price}</b>\n✅ {fix}\n⏰ Limited stock — price can go up anytime!",
-        f"😤 {pain}\n\n✅ <b>Solution:</b> {name[:50]}\n💸 <b>Price:</b> {price}\n✔️ {fix}\n⏰ Grab it before price hikes!",
-        f"⭐ <b>Today's Best Deal</b>\n\n📦 <b>{name[:55]}</b>\n💸 <b>Price:</b> {price} (Save {drop}%)\n✔️ {fix}\n📉 {loot_reason}\n⏰ Limited time!",
+        f"🔥 <b>{badge}</b> 🔥\n\n<b>{name[:60]}</b>\n\n💸 <b>Price:</b> <s>{product.get('mrp', '')} → <b>{price}</b>\n✅ {fix}\n{urgency}",
+        f"😤 {pain}\n\n✅ <b>Solution:</b> {name[:50]}\n💸 <b>Price:</b> {price}\n✔️ {fix}\n{urgency}",
+        f"⭐ <b>Today's Best Deal</b>\n\n📦 <b>{name[:55]}</b>\n💸 <b>Price:</b> {price} (Save {drop}%)\n✔️ {fix}\n📉 {loot_reason}\n{urgency}",
     ]
     msg = templates[post_count % len(templates)]
     if rating and rating != "Not specified":

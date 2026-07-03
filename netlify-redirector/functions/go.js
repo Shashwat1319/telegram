@@ -85,9 +85,36 @@ export default async (request, context) => {
   // Amazon's WAF often returns 404/503 for datacenter IPs, which incorrectly 
   // triggered the fallback redirect and sent users to a broken page.
 
-  // --- 5. Always fast-redirect (no interstitial) ---
-  // Interstitial/bridge pages commonly reduce conversions in Telegram → Amazon flows.
-  // We still track the click above, then do a clean 302 to the final Amazon URL.
+  // --- 5. Preview bots → serve OG-rich HTML page that redirects ---
+  // Real users → fast 302 redirect
+  if (isBot) {
+    const ogImage = "https://budgetdeals-tracker-737523f4.netlify.app/og-image.jpg";
+    const html = `<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <title>Budget Deals India - Best Amazon Deals</title>
+  <meta property="og:title" content="🔥 Hot Deal on Amazon - Budget Deals India">
+  <meta property="og:description" content="Grab this limited-time offer before it's gone! Verified price drop.">
+  <meta property="og:image" content="${ogImage}">
+  <meta property="og:url" content="${finalAmazonUrl}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Budget Deals India">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="🔥 Hot Deal on Amazon - Budget Deals India">
+  <meta name="twitter:description" content="Grab this limited-time offer before it's gone! Verified price drop.">
+  <meta name="twitter:image" content="${ogImage}">
+  <meta http-equiv="refresh" content="2;url=${finalAmazonUrl}">
+</head><body>
+  <p>Redirecting to Amazon deal... <a href="${finalAmazonUrl}">Click here if not redirected</a></p>
+  <script>setTimeout(() => { window.location.href = "${finalAmazonUrl}"; }, 2000);</script>
+</body></html>`;
+    return new Response(html, {
+      status: 200,
+      headers: { "Content-Type": "text/html; charset=utf-8" }
+    });
+  }
+
+  // --- 6. Real users → fast 302 redirect ---
   return new Response(null, {
     status: 302,
     headers: {
