@@ -1,9 +1,13 @@
-import os, json
+import os, json, logging, asyncio
 from datetime import datetime
 from dotenv import load_dotenv
 from telegram import Bot
+from telegram.error import TelegramError
 
 load_dotenv()
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+log = logging.getLogger(__name__)
+
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 CHANNEL_ID = os.getenv('CHANNEL_ID')
 REFERRAL_REWARD_BASE = int(os.getenv('REFERRAL_REWARD_BASE', '10'))
@@ -11,6 +15,8 @@ REFERRAL_TIER_1_THRESHOLD = int(os.getenv('REFERRAL_TIER_1_THRESHOLD', '5'))
 REFERRAL_TIER_2_THRESHOLD = int(os.getenv('REFERRAL_TIER_2_THRESHOLD', '10'))
 
 REFERRAL_FILE = 'referrals.json'
+_LINK_CACHE = {}
+_CACHE_LOCK = asyncio.Lock()
 
 
 def load_referrals():
@@ -29,30 +35,45 @@ def save_referrals(data):
 
 
 async def generate_referral_link(user_id: int) -> str:
-    referrals = load_referrals()
-    for link, info in referrals.items():
-        if info.get('creator') == user_id:
-            return link
+    """Generate or retrieve referral link for user. Uses cache to avoid API calls."""
+    async with _CACHE_LOCK:
+        referrals = load_referrals()
+        for link, info in referrals.items():
+            if info.get('creator') == user_id:
+                return link
 
-    async with Bot(token=BOT_TOKEN) as bot:
-        await bot.initialize()
-        inv = await bot.create_chat_invite_link(
-            chat_id=CHANNEL_ID,
-            name=f"referral_{user_id}_{datetime.utcnow().timestamp()}",
-            creates_join_request=False,
-            expire_date=None,
-            member_limit=0
-        )
-        await bot.shutdown()
-        link = inv.invite_link
+        # Not found - create new
+        for attempt in range(3):
+            try:
+                async with Bot(token=BOT_TOKEN) as bot:
+                    await bot.initialize()
+                    inv = await bot.create_chat_invite_link(
+                        chat_id=CHANNEL_ID,
+                        name=f"referral_{user_id}_{datetime.utcnow().timestamp()}",
+                        creates_join_request=False,
+                        expire_date=None,
+                        member_limit=0
+                    )
+                    await bot.shutdown()
+                    link = inv.invite_link
 
-    referrals[link] = {
-        'creator': user_id,
-        'created_at': datetime.utcnow().isoformat(),
-        'joined': []
-    }
-    save_referrals(referrals)
-    return link
+                referrals[link] = {
+                    'creator': user_id,
+                    'created_at': datetime.utcnow().isoformat(),
+                    'joined': []
+                }
+                save_referrals(referrals)
+                log.info("Created referral link for user %d", user_id)
+                return link
+
+            except TelegramError as e:
+                log.warning("Attempt %d failed creating invite link: %s", attempt + 1, e)
+                if attempt == 2:
+                    raise
+                await asyncio.sleep(2 ** attempt)
+            except Exception as e:
+                log.error("Unexpected error creating invite link: %s", e)
+                raise
 
 
 def record_joined_user(invite_link: str, new_user_id: int):
@@ -94,7 +115,6 @@ def calculate_rewards() -> dict:
 
 
 if __name__ == '__main__':
-    import asyncio
     demo_user = 123456789
     link = asyncio.run(generate_referral_link(demo_user))
     print(f'Referral link for user {demo_user}: {link}')

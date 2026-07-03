@@ -2,11 +2,8 @@ import asyncio, os, json, random, logging
 from datetime import datetime
 from telethon import TelegramClient
 from telethon.errors import FloodWaitError, ChatWriteForbiddenError
-from telethon.tl.functions.messages import SendMessageRequest
 from telethon.sessions import StringSession
 from dotenv import load_dotenv
-
-from utils import get_price_value, format_price, calc_discount, tracked_link
 
 load_dotenv()
 
@@ -36,22 +33,27 @@ def load_groups():
     return groups
 
 
+def load_posted():
+    if os.path.exists(POSTED_FILE):
+        try:
+            return json.load(open(POSTED_FILE, encoding="utf-8"))
+        except:
+            return {}
+    return {}
+
+
+def save_posted(posted):
+    with open(POSTED_FILE, 'w', encoding='utf-8') as f:
+        json.dump(posted, f, indent=2, ensure_ascii=False)
+
+
 def load_latest_product():
     if not os.path.exists("product.json"):
         return None
     try:
         data = json.load(open("product.json", encoding="utf-8"))
         products = data.get("products", [])
-        posted = {}
-        if os.path.exists(POSTED_FILE):
-            try:
-                posted = json.load(open(POSTED_FILE))
-            except:
-                pass
-
-        unposted = [p for p in products if p.get("name") and p.get("name") not in posted]
-        pool = unposted if unposted else products
-        return random.choice(pool) if pool else None
+        return random.choice(products) if products else None
     except:
         return None
 
@@ -112,6 +114,8 @@ async def main():
     log.info("Loaded %d groups", len(groups))
     random.shuffle(groups)
 
+    posted = load_posted()
+
     client = TelegramClient(StringSession(SESSION_STR), API_ID, API_HASH)
     await client.connect()
 
@@ -131,10 +135,17 @@ async def main():
             log.warning("No product available to post")
             break
 
+        product_key = f"{group}:{product.get('name', '')}"
+        if product_key in posted:
+            log.info("Already posted this product to %s, skipping", group)
+            continue
+
         msg = build_message(product)
         success = await post_to_group(client, group, msg, product.get("name", ""))
         if success:
             posted_count += 1
+            posted[product_key] = datetime.utcnow().isoformat()
+            save_posted(posted)
 
         if i < len(groups) - 1:
             delay = random.randint(*DELAY_BETWEEN_POSTS)

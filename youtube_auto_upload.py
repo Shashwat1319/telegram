@@ -11,6 +11,7 @@ SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
 MAX_RETRIES = 5
 RETRIABLE = [500, 502, 503, 504]
 
+
 def setup_credentials():
     cs = os.getenv("YOUTUBE_CLIENT_SECRETS")
     tk = os.getenv("YOUTUBE_TOKEN")
@@ -18,15 +19,19 @@ def setup_credentials():
         log.error("Missing YOUTUBE_CLIENT_SECRETS or YOUTUBE_TOKEN")
         return None
     try:
-        json.dump(json.loads(cs), open("client_secrets.json", "w"))
-        json.dump(json.loads(tk), open("token.json", "w"))
+        with open("client_secrets.json", "w") as f:
+            json.dump(json.loads(cs), f)
+        with open("token.json", "w") as f:
+            json.dump(json.loads(tk), f)
         return Credentials.from_authorized_user_file("token.json", SCOPES)
     except Exception as e:
         log.error("Credential error: %s", e)
         return None
 
+
 def get_metadata():
-    if not os.path.exists("youtube_details.txt"): return None
+    if not os.path.exists("youtube_details.txt"):
+        return None
     try:
         content = open("youtube_details.txt", encoding="utf-8").read()
         t = re.search(r"--- YOUTUBE TITLE ---\n(.*?)\n", content, re.DOTALL)
@@ -37,10 +42,18 @@ def get_metadata():
             "tags": ["amazon deals", "india", "loot", "budget"],
             "category_id": "22"
         }
-    except: return None
+    except Exception as e:
+        log.error("Failed to parse metadata: %s", e)
+        return None
+
 
 def upload_video(path, meta, creds):
-    youtube = build("youtube", "v3", credentials=creds)
+    try:
+        youtube = build("youtube", "v3", credentials=creds)
+    except Exception as e:
+        log.error("Failed to build YouTube client: %s", e)
+        return None
+
     body = {
         "snippet": {k: meta[k] for k in ["title", "description", "tags", "category_id"]},
         "status": {"privacyStatus": "public"}
@@ -69,9 +82,11 @@ def upload_video(path, meta, creds):
     log.info("Uploaded! Video ID: %s", response['id'])
     return response['id']
 
+
 def main():
     creds = setup_credentials()
-    if not creds: return
+    if not creds:
+        return
     import make_reel
     make_reel.main()
     if not os.path.exists("shorts_deal.mp4"):
@@ -88,8 +103,11 @@ def main():
     finally:
         for f in ["client_secrets.json", "token.json", "shorts_deal.mp4", "youtube_details.txt"]:
             if os.path.exists(f):
-                try: os.remove(f)
-                except: pass
+                try:
+                    os.remove(f)
+                except:
+                    pass
+
 
 if __name__ == "__main__":
     main()

@@ -10,6 +10,8 @@ CLICK_TRACKER_URL = os.getenv("CLICK_TRACKER_URL", "")
 
 def get_price_value(price_str):
     try:
+        if price_str is None:
+            return 999999.0
         c = re.sub(r'[^\d.]', '', str(price_str))
         return float(c) if c else 999999.0
     except:
@@ -21,7 +23,7 @@ def format_price(raw_price):
     try:
         ascii_p = re.sub(r'[^\d.,\- ]', '', price).strip()
         if ascii_p:
-            return f"\u20b9{ascii_p.strip().strip(',.')}"
+            return f"\u20b9{ascii_p.strip().strip(',')}"
     except:
         pass
     return price
@@ -30,7 +32,7 @@ def format_price(raw_price):
 def calc_discount(price, mrp):
     pv = get_price_value(price)
     mv = get_price_value(mrp)
-    if mv > pv:
+    if mv > pv > 0:
         return int(((mv - pv) / mv) * 100)
     return 0
 

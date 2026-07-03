@@ -13,18 +13,25 @@ ADMIN_CHAT_ID = os.getenv("ADMIN_CHAT_ID")
 
 STATE_FILE = "goal_state.json"
 
+
 def load_state():
     if os.path.exists(STATE_FILE):
         try:
             with open(STATE_FILE, "r") as f:
                 return json.load(f)
-        except:
+        except Exception as e:
+            log.warning("Failed to load state: %s", e)
             return {}
     return {}
 
+
 def save_state(state):
-    with open(STATE_FILE, "w") as f:
-        json.dump(state, f, indent=4)
+    try:
+        with open(STATE_FILE, "w") as f:
+            json.dump(state, f, indent=4)
+    except Exception as e:
+        log.error("Failed to save state: %s", e)
+
 
 async def check_goal():
     if not BOT_TOKEN or not CHANNEL_ID or not ADMIN_CHAT_ID:
@@ -49,11 +56,25 @@ async def check_goal():
             state["goal_100_notified"] = True
             log.info("Goal 100 notified!")
 
+        if count >= 500 and not state.get("goal_500_notified", False):
+            msg = (
+                "🎊 *INCREDIBLE!* 🎊\n\n"
+                f"Aapne *500 Subscribers* cross kar diye! 🚀\n"
+                f"Current Count: *{count}*\n\n"
+                "Community badh rahi hai! Agla target: 1000! 🔥"
+            )
+            await bot.send_message(chat_id=ADMIN_CHAT_ID, text=msg, parse_mode="Markdown")
+            state["goal_500_notified"] = True
+            log.info("Goal 500 notified!")
+
         state["last_checked_count"] = count
         save_state(state)
 
     except Exception as e:
         log.error("Error tracking goal: %s", e)
+    finally:
+        await bot.shutdown()
+
 
 if __name__ == "__main__":
     asyncio.run(check_goal())

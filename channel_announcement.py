@@ -12,6 +12,12 @@ CHANNEL_ID = os.getenv("CHANNEL_ID")
 CLEAN_ID = CHANNEL_ID.replace("@", "") if CHANNEL_ID else "budgetdeals_india"
 BOT_USERNAME = os.getenv("BOT_USERNAME", "Ffzon_bot")
 
+
+def esc_md(text):
+    """Escape markdown special characters."""
+    return text.replace("_", "\\_").replace("*", "\\*").replace("[", "\\[").replace("]", "\\]").replace("`", "\\`")
+
+
 REFERRAL_MSG = (
     "🎯 *Earn Rewards by Inviting Friends!*\n\n"
     "Share your unique referral link and earn points when friends join.\n\n"
@@ -19,7 +25,7 @@ REFERRAL_MSG = (
     "▫️ Refer 5 friends → 1.5x points (15 each)\n"
     "▫️ Refer 10 friends → 2x points (20 each)\n\n"
     "👇 *Get your link:*\n"
-    f"👉 @{BOT_USERNAME.replace('_', '\\_')} and type /referral\n\n"
+    f"👉 @{esc_md(BOT_USERNAME)} and type /referral\n\n"
     "Let's grow this community together! 🚀"
 )
 
@@ -30,7 +36,7 @@ WELCOME_MSG = (
     "🔹 Verified prices & direct buy links\n"
     "🔹 Price drops you won't find elsewhere\n\n"
     "👇 *Get started:*\n"
-    f"🤖 @{BOT_USERNAME.replace('_', '\\_')} → /start\n"
+    f"🤖 @{esc_md(BOT_USERNAME)} → /start\n"
     "📢 Share with friends → earn /referral\n\n"
     "Let's save money together! 💰"
 )

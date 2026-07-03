@@ -13,10 +13,12 @@ DEAL_DIR = "website/src/content/deals"
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 log = logging.getLogger(__name__)
 
+
 def generate_deal_page(product):
     asin = extract_asin(product.get('link', '')) or slugify(product.get('name', ''))[:20]
     fp = os.path.join(DEAL_DIR, f"{asin}.md")
-    if os.path.exists(fp): return False
+    if os.path.exists(fp):
+        return False
 
     disc = calc_discount(product.get('price', '0'), product.get('mrp', '0'))
     name = product.get('name', 'Product').replace('"', "'")
@@ -25,8 +27,9 @@ def generate_deal_page(product):
     cat = product.get('category', 'Deals')
     rating = product.get('rating', '')
 
-    with open(fp, "w", encoding="utf-8") as f:
-        f.write(f"""---
+    try:
+        with open(fp, "w", encoding="utf-8") as f:
+            f.write(f"""---
 title: "{name}"
 description: "Get {name} at just {product.get('price','')} - Save {disc}%! Verified Amazon deal."
 pubDate: "{datetime.now().strftime('%Y-%m-%d')}"
@@ -52,13 +55,20 @@ rating: "{rating}"
 ### More deals?
 Join **[@budgetdeals_india](https://t.me/budgetdeals_india)** on Telegram for daily loot!
 """)
-    return True
+        return True
+    except Exception as e:
+        log.error("Failed to write deal page: %s", e)
+        return False
+
 
 def generate_blog_post(product):
-    if not GEMINI_API_KEY: return None
+    if not GEMINI_API_KEY:
+        log.warning("No GEMINI_API_KEY, skipping blog post")
+        return None
     asin = extract_asin(product.get('link', '')) or slugify(product.get('name', 'product'))[:20]
     fp = os.path.join(BLOG_DIR, f"{asin}.md")
-    if os.path.exists(fp): return False
+    if os.path.exists(fp):
+        return False
 
     name = product.get('name', 'Product').replace('"', "'")
     disc = calc_discount(product.get('price', '0'), product.get('mrp', '0'))
@@ -81,12 +91,18 @@ Return ONLY the blog text."""
             f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={GEMINI_API_KEY}",
             json={"contents": [{"parts": [{"text": prompt}]}]}, timeout=30
         )
-        content = r.json()['candidates'][0]['content']['parts'][0]['text'].strip()
-    except:
+        if r.status_code == 200:
+            content = r.json()['candidates'][0]['content']['parts'][0]['text'].strip()
+        else:
+            log.warning("Gemini API returned %d: %s", r.status_code, r.text)
+            content = f"Looking for {name} at the best price? Get it for just {product.get('price','')} - {disc}% off! This is a verified Amazon India deal with fast shipping. Join @budgetdeals_india on Telegram for daily deals!"
+    except Exception as e:
+        log.warning("Gemini API error: %s", e)
         content = f"Looking for {name} at the best price? Get it for just {product.get('price','')} - {disc}% off! This is a verified Amazon India deal with fast shipping. Join @budgetdeals_india on Telegram for daily deals!"
 
-    with open(fp, "w", encoding="utf-8") as f:
-        f.write(f"""---
+    try:
+        with open(fp, "w", encoding="utf-8") as f:
+            f.write(f"""---
 title: "{name} @ Just {product.get('price','')} - Save {disc}%!"
 description: "{name} at {disc}% off! Only {product.get('price','')}. Verified Amazon India deal."
 pubDate: "{datetime.now().strftime('%Y-%m-%dT%H:%M:%S.000Z')}"
@@ -100,24 +116,40 @@ buyLink: "{link}"
 
 📢 **Join [@budgetdeals_india](https://t.me/budgetdeals_india)** for daily deals!
 """)
-    return True
+        return True
+    except Exception as e:
+        log.error("Failed to write blog post: %s", e)
+        return False
+
 
 def main():
-    os.makedirs(BLOG_DIR, exist_ok=True); os.makedirs(DEAL_DIR, exist_ok=True)
-    if not os.path.exists("product.json"): log.warning("No product.json found"); return
-    products = json.load(open("product.json", encoding="utf-8"))["products"]
-    if not products: log.warning("No products in product.json"); return
+    os.makedirs(BLOG_DIR, exist_ok=True)
+    os.makedirs(DEAL_DIR, exist_ok=True)
+    if not os.path.exists("product.json"):
+        log.warning("No product.json found")
+        return
+    try:
+        products = json.load(open("product.json", encoding="utf-8")).get("products", [])
+    except Exception as e:
+        log.error("Failed to load product.json: %s", e)
+        return
+    if not products:
+        log.warning("No products in product.json")
+        return
 
     log.info("Generating content for %d products...", len(products))
     blogs = deals = 0
     for i, p in enumerate(products):
-        if generate_deal_page(p): deals += 1
-        if i < 5 and generate_blog_post(p): blogs += 1
+        if generate_deal_page(p):
+            deals += 1
+        if i < 5 and generate_blog_post(p):
+            blogs += 1
 
     bcount = len(os.listdir(BLOG_DIR)) if os.path.isdir(BLOG_DIR) else 0
     dcount = len(os.listdir(DEAL_DIR)) if os.path.isdir(DEAL_DIR) else 0
     log.info("New: %d deals + %d blogs", deals, blogs)
     log.info("Total site: %d blogs + %d deals", bcount, dcount)
+
 
 if __name__ == "__main__":
     main()

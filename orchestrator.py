@@ -25,14 +25,20 @@ STATE = {
     "started_at": datetime.now(timezone.utc).isoformat(),
 }
 
+_thread_health = {"bot": True, "referral": True}
+_thread_lock = threading.Lock()
+
+
 def utcnow():
     return datetime.now(timezone.utc).replace(tzinfo=None)
+
 
 def parse_dt(s):
     dt = datetime.fromisoformat(s)
     if dt.tzinfo is not None:
         dt = dt.replace(tzinfo=None)
     return dt
+
 
 def load_state():
     global STATE
@@ -44,10 +50,12 @@ def load_state():
         except Exception as e:
             log.warning("Could not load state: %s", e)
 
+
 def save_state():
     STATE["last_updated"] = utcnow().isoformat()
     with open(STATE_FILE, "w", encoding="utf-8") as f:
         json.dump(STATE, f, indent=2)
+
 
 def should_run(task_name, interval_hours):
     last_key = f"last_{task_name}"
@@ -57,97 +65,122 @@ def should_run(task_name, interval_hours):
     elapsed = (utcnow() - parse_dt(last_run)).total_seconds()
     return elapsed >= interval_hours * 3600
 
+
 def mark_run(task_name):
     STATE[f"last_{task_name}"] = utcnow().isoformat()
     save_state()
 
 
+def set_thread_health(name, healthy):
+    with _thread_lock:
+        _thread_health[name] = healthy
+
+
+def check_thread_health():
+    with _thread_lock:
+        return _thread_health.copy()
+
+
+def run_subprocess_safe(cmd, timeout, task_name):
+    """Run subprocess with proper timeout handling and logging."""
+    try:
+        result = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            timeout=timeout,
+            encoding='utf-8',
+            errors='replace'
+        )
+        if result.returncode == 0:
+            log.info("[TASK] %s success: %s", task_name, result.stdout.strip()[-200:])
+        else:
+            log.error("[TASK] %s failed (code %d): %s", task_name, result.returncode, result.stderr.strip()[-300:])
+        return result.returncode == 0
+    except subprocess.TimeoutExpired:
+        log.error("[TASK] %s timed out after %ds", task_name, timeout)
+        return False
+    except Exception as e:
+        log.error("[TASK] %s exception: %s", task_name, e)
+        return False
+
+
 def run_bot():
     log.info("[THREAD] Starting interactive bot...")
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-    import bot_interactive
-    try:
-        bot_interactive.main()
-    except Exception as e:
-        log.error("[THREAD] Bot crashed: %s", e)
+    while True:
+        try:
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            import bot_interactive
+            bot_interactive.main()
+        except Exception as e:
+            log.error("[THREAD] Bot crashed: %s", e)
+            set_thread_health("bot", False)
+        log.info("[THREAD] Bot thread restarting in 10s...")
+        set_thread_health("bot", True)
+        time.sleep(10)
 
 
 def run_referral_tracker():
     log.info("[THREAD] Starting referral tracker...")
-    sys.argv = [sys.argv[0]]
-    from referral_tracker import event_listener
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-    try:
-        loop.run_until_complete(event_listener())
-    except Exception as e:
-        log.error("[THREAD] Referral tracker crashed: %s", e)
+    while True:
+        try:
+            sys.argv = [sys.argv[0]]
+            from referral_tracker import event_listener
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            loop.run_until_complete(event_listener())
+        except Exception as e:
+            log.error("[THREAD] Referral tracker crashed: %s", e)
+            set_thread_health("referral", False)
+        log.info("[THREAD] Referral tracker restarting in 10s...")
+        set_thread_health("referral", True)
+        time.sleep(10)
 
 
 def run_group_post():
     log.info("[TASK] Starting group cross-post...")
-    result = subprocess.run(
-        [sys.executable, "group_poster.py"],
-        capture_output=True, text=True, timeout=600
-    )
-    if result.returncode == 0:
-        log.info("[TASK] Group post success: %s", result.stdout.strip()[-200:])
-    else:
-        log.error("[TASK] Group post failed: %s", result.stderr.strip()[-300:])
+    run_subprocess_safe([sys.executable, "group_poster.py"], 600, "group_post")
+    mark_run("group_post")
 
 
 def run_promo():
     log.info("[TASK] Starting promo sender...")
-    result = subprocess.run(
-        [sys.executable, "promo_sender.py"],
-        capture_output=True, text=True, timeout=1800
-    )
-    if result.returncode == 0:
-        log.info("[TASK] Promo sender success: %s", result.stdout.strip()[-200:])
-    else:
-        log.error("[TASK] Promo sender failed: %s", result.stderr.strip()[-300:])
+    run_subprocess_safe([sys.executable, "promo_sender.py"], 1800, "promo_run")
+    mark_run("promo_run")
 
 
 def run_daily_report():
     log.info("[TASK] Starting daily report...")
-    result = subprocess.run(
-        [sys.executable, "daily_report.py"],
-        capture_output=True, text=True, timeout=60
-    )
-    if result.returncode == 0:
-        log.info("[TASK] Daily report success")
-    else:
-        log.error("[TASK] Daily report failed: %s", result.stderr.strip()[-300:])
+    run_subprocess_safe([sys.executable, "daily_report.py"], 60, "daily_report")
+    mark_run("daily_report")
 
 
 async def periodic_tasks():
     log.info("Periodic task loop started")
 
     while True:
-        if should_run("group_post", 2):
-            log.info("--- Group post due ---")
-            mark_run("group_post")
-            try:
+        try:
+            if should_run("group_post", 2):
+                log.info("--- Group post due ---")
                 run_group_post()
-            except Exception as e:
-                log.error("Group post error: %s", e)
 
-        if should_run("promo_run", 6):
-            log.info("--- Promo sender due ---")
-            mark_run("promo_run")
-            try:
+            if should_run("promo_run", 6):
+                log.info("--- Promo sender due ---")
                 run_promo()
-            except Exception as e:
-                log.error("Promo error: %s", e)
 
-        if should_run("daily_report", 24):
-            log.info("--- Daily report due ---")
-            mark_run("daily_report")
-            try:
+            if should_run("daily_report", 24):
+                log.info("--- Daily report due ---")
                 run_daily_report()
-            except Exception as e:
-                log.error("Report error: %s", e)
+
+            # Health check
+            health = check_thread_health()
+            for name, healthy in health.items():
+                if not healthy:
+                    log.warning("[HEALTH] Thread %s is unhealthy!", name)
+
+        except Exception as e:
+            log.error("Periodic loop error: %s", e)
 
         next_check = utcnow() + timedelta(minutes=30)
         log.info("Next periodic check at %s", next_check.strftime("%H:%M"))
