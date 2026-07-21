@@ -66,5 +66,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add content_home.json content_home_posted.json post_count.txt referral_tracker_state.json
+          for f in content_home.json content_home_posted.json; do
+            [ -f "$f" ] && git add "$f" || true
+          done
           git diff --staged --quiet || (git commit -m "Auto: CI cycle [skip ci]" && git push)
