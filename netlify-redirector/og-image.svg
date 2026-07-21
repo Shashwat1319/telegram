@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1b2a"/>
+      <stop offset="100%" style="stop-color:#1b263b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Pattern circles -->
+  <circle cx="100" cy="100" r="80" fill="#e63946" opacity="0.1"/>
+  <circle cx="1100" cy="530" r="120" fill="#e63946" opacity="0.1"/>
+  <circle cx="600" cy="315" r="200" fill="#e63946" opacity="0.05"/>
+  
+  <!-- Main text -->
+  <text x="600" y="250" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#f1faee" text-anchor="middle">🔥 HOT DEAL</text>
+  <text x="600" y="320" font-family="Arial, sans-serif" font-size="28" fill="#a8dadc" text-anchor="middle">Verified Price Drop on Amazon</text>
+  <text x="600" y="370" font-family="Arial, sans-serif" font-size="22" fill="#e63946" text-anchor="middle">Limited Time • Limited Stock</text>
+  
+  <!-- Badge -->
+  <rect x="450" y="420" width="300" height="60" rx="30" fill="#e63946" opacity="0.9"/>
+  <text x="600" y="462" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#f1faee" text-anchor="middle">Budget Deals India</text>
+  
+  <!-- Arrow -->
+  <text x="600" y="540" font-family="Arial, sans-serif" font-size="32" fill="#a8dadc" text-anchor="middle">▼  Tap to View Deal  ▼</text>
+  
+  <!-- Channel tag -->
+  <text x="600" y="585" font-family="Arial, sans-serif" font-size="16" fill="#457b9d" text-anchor="middle">@budgetdeals_india</text>
+</svg>

@@ -1,0 +1,11 @@
+{
+  "bot": {
+    "username": "Coaching_bot",
+    "description": "Coaching center updates & course info.",
+    "channel_id": "@coaching_channel",
+    "channel_handle": "coaching_channel"
+  },
+  "content": {
+    "source_file": "content_coaching.json"
+  }
+}

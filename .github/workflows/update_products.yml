@@ -1,98 +1,70 @@
-name: Daily Deal Posting & Deploy
+name: SmartGahr — Full Auto
 
 on:
   push:
     branches: [main]
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '0 */4 * * *'
   workflow_dispatch:
 
 jobs:
-  content-cycle:
+  full-cycle:
     runs-on: ubuntu-latest
     environment: telegram
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.12'
 
-      - name: Install Python deps
+      - name: Install deps
         run: pip install -r requirements.txt
 
-      - name: Configure Git
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+      # ── Content ──
+      - name: Generate fresh content from products
+        run: python feeder.py --source product_home.json --output content_home.json
 
-      - name: Post to Facebook
-        env:
-          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
-          FB_ACCESS_TOKEN: ${{ secrets.FB_ACCESS_TOKEN }}
-        run: python fb_bot_post.py
-
-      - name: Post Deals to Telegram
+      # ── Posting ──
+      - name: Post deal to @smartgahr
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
-          CLICK_TRACKER_URL: ${{ secrets.CLICK_TRACKER_URL }}
-          AFFILIATE_ID_IN: ${{ secrets.AFFILIATE_ID_IN }}
-        run: python bot_post.py --dry-run
+        run: python poster.py
 
-      - name: Generate Blogs & Deal Pages
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python auto_blogger.py
-
-      - name: Track Referrals
+      # ── Referrals (one-shot stats) ──
+      - name: Referral summary
         env:
           API_ID: ${{ secrets.API_ID }}
           API_HASH: ${{ secrets.API_HASH }}
           TELEGRAM_SESSION_1: ${{ secrets.TELEGRAM_SESSION_1 }}
-          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-        run: python referral_tracker.py --oneshot || true
+        run: python referral.py --oneshot || true
 
-      - name: Daily Report
+      # ── Report ──
+      - name: Admin report
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
-          CLICK_TRACKER_URL: ${{ secrets.CLICK_TRACKER_URL }}
-        run: python daily_report.py || true
+        run: python reporting.py --daily || true
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'npm'
-          cache-dependency-path: website/package-lock.json
-
-      - name: Build Astro Website
-        run: |
-          cd website
-          npm ci
-          npm run build
-
-      - name: Deploy to Netlify
+      # ── Deploy ──
+      - name: Deploy Netlify redirector
         uses: nwtgck/actions-netlify@v2.1
         with:
-          publish-dir: './website/dist'
+          publish-dir: './netlify-redirector'
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Auto-deploy ${{ github.sha }}"
+          deploy-message: "Auto ${{ github.sha }}"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 5
 
-      - name: Commit generated content
+      # ── Commit state ──
+      - name: Commit updated state
         run: |
-          git pull --rebase origin main || true
-          git add website/src/content/blog/ website/src/content/deals/ product.json
-          git commit -m "Auto-update: deals & content [skip ci]" || echo "No changes"
-          git push origin main || echo "Push failed"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content_home.json content_home_posted.json post_count.txt referral_tracker_state.json
+          git diff --staged --quiet || (git commit -m "Auto: CI cycle [skip ci]" && git push)

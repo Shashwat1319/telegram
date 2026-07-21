@@ -6,7 +6,7 @@ export default async (request, context) => {
   const url = new URL(request.url);
   const targetUrl = url.searchParams.get("url");
   const action = url.searchParams.get("action");
-  // Netlify rewrites the path to /.netlify/functions/go?id=abcde, so read from searchParams first
+  const productId = url.searchParams.get("product") || "unknown";
   let id = url.searchParams.get("id");
   if (!id) {
     id = url.pathname.split("/").pop();
@@ -31,7 +31,6 @@ export default async (request, context) => {
   }
 
   if (!finalUrl) {
-    // Load custom error page with affiliate links
     const errorPath = path.resolve(__dirname, '..', 'error_page.html');
     const errorHtml = fs.readFileSync(errorPath, 'utf8');
     return new Response(errorHtml, {
@@ -40,19 +39,24 @@ export default async (request, context) => {
     });
   }
 
-  // --- 3. Track Stats (non-blocking) ---
+  // --- 3. Track Stats per product + daily totals ---
   const ua = request.headers.get("user-agent") || "";
   const isBot = /bot|spider|crawler|preview|facebookexternalhit|telegrambot|whatsapp|slack|twitter|discord|google/i.test(ua);
 
   if (!isBot) {
     try {
       const today = new Date().toISOString().split("T")[0];
-      const key = `clicks:${today}`;
-      let currentCount = (await store.get(key, { type: "json" })) || 0;
-      await store.setJSON(key, currentCount + 1);
-
+      // Daily total
+      const dayKey = `clicks:${today}`;
+      let dayCount = (await store.get(dayKey, { type: "json" })) || 0;
+      await store.setJSON(dayKey, dayCount + 1);
+      // Grand total
       let totalClicks = (await store.get("total_clicks", { type: "json" })) || 0;
       await store.setJSON("total_clicks", totalClicks + 1);
+      // Per‑product clicks (lifetime)
+      const prodKey = `product:${productId}`;
+      let prodCount = (await store.get(prodKey, { type: "json" })) || 0;
+      await store.setJSON(prodKey, prodCount + 1);
     } catch (err) {}
   }
 

@@ -1,0 +1,11 @@
+{
+  "products": [
+    {
+      "name": "Complete Coaching Course Package",
+      "price": "₹4,999",
+      "mrp": "₹9,999",
+      "link": "https://example.com/course",
+      "category": "Coaching"
+    }
+  ]
+}

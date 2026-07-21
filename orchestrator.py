@@ -1,60 +1,80 @@
-import os, sys, json, time, random, logging, asyncio, threading, subprocess
-from datetime import datetime, timedelta, timezone
+import os
+import sys
+import time
+import logging
+import asyncio
+import threading
+import signal
+from datetime import datetime, timezone
 from dotenv import load_dotenv
+
+from config_loader import load_config
+from data import load_json, save_json
 
 load_dotenv()
 
-LOG_FILE = "orchestrator.log"
-STATE_FILE = "orchestrator_state.json"
-
+# Logging setup
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler(LOG_FILE, encoding="utf-8"),
+        logging.FileHandler("orchestrator.log", encoding="utf-8"),
         logging.StreamHandler()
     ]
 )
 log = logging.getLogger("orchestrator")
 
+_shutdown = threading.Event()
+PID_FILE = "orchestrator.pid"
+STATE_FILE = "orchestrator_state.json"
+
 STATE = {
-    "last_group_post": None,
-    "last_promo_run": None,
-    "last_daily_report": None,
-    "last_referral_reminder": None,
     "started_at": datetime.now(timezone.utc).isoformat(),
+    "last_product_feed": None,
+    "last_channel_post": None,
+    "last_group_post": None,
+    "last_daily_report": None,
 }
 
-_thread_health = {"bot": True, "referral": True}
-_thread_lock = threading.Lock()
+
+def acquire_pid_lock():
+    if os.path.exists(PID_FILE):
+        try:
+            with open(PID_FILE, "r") as f:
+                old_pid = int(f.read().strip())
+            try:
+                os.kill(old_pid, 0)
+                log.error("Another orchestrator instance is running (PID: %d). Exiting.", old_pid)
+                return False
+            except (ProcessLookupError, SystemError):
+                log.warning("Stale PID file found (PID %d is dead). Overwriting.", old_pid)
+            except OSError:
+                pass
+        except (ValueError, OSError):
+            pass
+    with open(PID_FILE, "w") as f:
+        f.write(str(os.getpid()))
+    return True
 
 
-def utcnow():
-    return datetime.now(timezone.utc).replace(tzinfo=None)
-
-
-def parse_dt(s):
-    dt = datetime.fromisoformat(s)
-    if dt.tzinfo is not None:
-        dt = dt.replace(tzinfo=None)
-    return dt
+def release_pid_lock():
+    if os.path.exists(PID_FILE):
+        try:
+            os.remove(PID_FILE)
+        except OSError:
+            pass
 
 
 def load_state():
     global STATE
-    if os.path.exists(STATE_FILE):
-        try:
-            with open(STATE_FILE, encoding="utf-8") as f:
-                STATE.update(json.load(f))
-            log.info("State loaded: %s", STATE_FILE)
-        except Exception as e:
-            log.warning("Could not load state: %s", e)
+    loaded = load_json(STATE_FILE, default=None)
+    if loaded:
+        STATE.update(loaded)
 
 
 def save_state():
-    STATE["last_updated"] = utcnow().isoformat()
-    with open(STATE_FILE, "w", encoding="utf-8") as f:
-        json.dump(STATE, f, indent=2)
+    STATE["last_updated"] = datetime.now(timezone.utc).isoformat()
+    save_json(STATE_FILE, STATE)
 
 
 def should_run(task_name, interval_hours):
@@ -62,161 +82,130 @@ def should_run(task_name, interval_hours):
     last_run = STATE.get(last_key)
     if not last_run:
         return True
-    elapsed = (utcnow() - parse_dt(last_run)).total_seconds()
-    return elapsed >= interval_hours * 3600
+    try:
+        dt = datetime.fromisoformat(last_run)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        elapsed = (datetime.now(timezone.utc) - dt).total_seconds()
+        return elapsed >= interval_hours * 3600
+    except Exception:
+        return True
 
 
 def mark_run(task_name):
-    STATE[f"last_{task_name}"] = utcnow().isoformat()
+    STATE[f"last_{task_name}"] = datetime.now(timezone.utc).isoformat()
     save_state()
 
 
-def set_thread_health(name, healthy):
-    with _thread_lock:
-        _thread_health[name] = healthy
-
-
-def check_thread_health():
-    with _thread_lock:
-        return _thread_health.copy()
-
-
-def run_subprocess_safe(cmd, timeout, task_name):
-    """Run subprocess with proper timeout handling and logging."""
+def run_bot_thread():
+    log.info("[THREAD] Starting Telegram Bot...")
     try:
-        result = subprocess.run(
-            cmd,
-            capture_output=True,
-            text=True,
-            timeout=timeout,
-            encoding='utf-8',
-            errors='replace'
-        )
-        if result.returncode == 0:
-            log.info("[TASK] %s success: %s", task_name, result.stdout.strip()[-200:])
-        else:
-            log.error("[TASK] %s failed (code %d): %s", task_name, result.returncode, result.stderr.strip()[-300:])
-        return result.returncode == 0
-    except subprocess.TimeoutExpired:
-        log.error("[TASK] %s timed out after %ds", task_name, timeout)
-        return False
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        from bot import run_bot
+        run_bot()
     except Exception as e:
-        log.error("[TASK] %s exception: %s", task_name, e)
-        return False
+        log.error("[THREAD] Bot error: %s", e)
+        log.warning("Bot daemon will respawn in 30s...")
+        _shutdown.wait(timeout=30)
+        if not _shutdown.is_set():
+            run_bot_thread()
 
 
-def run_bot():
-    log.info("[THREAD] Starting interactive bot...")
-    while True:
-        try:
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-            import bot_interactive
-            bot_interactive.main()
-        except Exception as e:
-            log.error("[THREAD] Bot crashed: %s", e)
-            set_thread_health("bot", False)
-        log.info("[THREAD] Bot thread restarting in 10s...")
-        set_thread_health("bot", True)
-        time.sleep(10)
+def run_referral_thread():
+    log.info("[THREAD] Starting Referral Tracker...")
+    try:
+        from referral import event_listener
+        asyncio.run(event_listener())
+    except Exception as e:
+        log.error("[THREAD] Referral tracker error: %s", e)
 
 
-def run_referral_tracker():
-    log.info("[THREAD] Starting referral tracker...")
-    while True:
-        try:
-            sys.argv = [sys.argv[0]]
-            from referral_tracker import event_listener
-            loop = asyncio.new_event_loop()
-            asyncio.set_event_loop(loop)
-            loop.run_until_complete(event_listener())
-        except Exception as e:
-            log.error("[THREAD] Referral tracker crashed: %s", e)
-            set_thread_health("referral", False)
-        log.info("[THREAD] Referral tracker restarting in 10s...")
-        set_thread_health("referral", True)
-        time.sleep(10)
+def run_task_safely(func, task_name):
+    try:
+        log.info("[TASK] Executing %s...", task_name)
+        func()
+        mark_run(task_name)
+        log.info("[TASK] %s completed successfully.", task_name)
+    except Exception as e:
+        log.error("[TASK] %s failed: %s", task_name, e)
 
 
-def run_group_post():
-    log.info("[TASK] Starting group cross-post...")
-    run_subprocess_safe([sys.executable, "group_poster.py"], 600, "group_post")
-    mark_run("group_post")
+def task_product_feed():
+    try:
+        from feeder import feed
+        feed(limit=50)
+    except ImportError as e:
+        log.error("[FEED] feeder module missing or broken: %s", e)
 
 
-def run_promo():
-    log.info("[TASK] Starting promo sender...")
-    run_subprocess_safe([sys.executable, "promo_sender.py"], 1800, "promo_run")
-    mark_run("promo_run")
+def task_channel_post():
+    from poster import post_next_deal
+    post_next_deal()
 
 
-def run_daily_report():
-    log.info("[TASK] Starting daily report...")
-    run_subprocess_safe([sys.executable, "daily_report.py"], 60, "daily_report")
-    mark_run("daily_report")
+def task_group_post():
+    from group_poster import post_to_groups
+    asyncio.run(post_to_groups())
 
 
-async def periodic_tasks():
-    log.info("Periodic task loop started")
-
-    while True:
-        try:
-            if should_run("group_post", 2):
-                log.info("--- Group post due ---")
-                run_group_post()
-
-            if should_run("promo_run", 6):
-                log.info("--- Promo sender due ---")
-                run_promo()
-
-            if should_run("daily_report", 24):
-                log.info("--- Daily report due ---")
-                run_daily_report()
-
-            # Health check
-            health = check_thread_health()
-            for name, healthy in health.items():
-                if not healthy:
-                    log.warning("[HEALTH] Thread %s is unhealthy!", name)
-
-        except Exception as e:
-            log.error("Periodic loop error: %s", e)
-
-        next_check = utcnow() + timedelta(minutes=30)
-        log.info("Next periodic check at %s", next_check.strftime("%H:%M"))
-        await asyncio.sleep(1800)
+def task_daily_report():
+    from reporting import daily_report
+    asyncio.run(daily_report())
 
 
 def main():
+    if not acquire_pid_lock():
+        sys.exit(1)
+
     load_state()
 
-    pid = os.getpid()
-    log.info("=" * 50)
-    log.info("ORCHESTRATOR STARTED (PID: %d)", pid)
-    log.info("=" * 50)
+    def handle_signal(sig, frame):
+        log.info("Shutdown signal received (%s). Stopping...", sig)
+        _shutdown.set()
 
-    threads = []
+    signal.signal(signal.SIGINT, handle_signal)
+    signal.signal(signal.SIGTERM, handle_signal)
 
-    bot_thread = threading.Thread(target=run_bot, name="bot", daemon=True)
-    threads.append(bot_thread)
+    # Start background bot & referral threads
+    bot_thread = threading.Thread(target=run_bot_thread, daemon=True)
+    ref_thread = threading.Thread(target=run_referral_thread, daemon=True)
     bot_thread.start()
-    log.info("[MAIN] Bot thread started")
-
-    ref_thread = threading.Thread(target=run_referral_tracker, name="referral", daemon=True)
-    threads.append(ref_thread)
     ref_thread.start()
-    log.info("[MAIN] Referral tracker thread started")
 
-    log.info("[MAIN] Starting periodic task loop...")
+    log.info("Orchestrator running. Press Ctrl+C to stop.")
+
     try:
-        asyncio.run(periodic_tasks())
-    except KeyboardInterrupt:
-        log.info("Shutting down...")
-    except Exception as e:
-        log.error("Periodic loop crashed: %s", e)
+        while not _shutdown.is_set():
+            config = load_config()
+            tasks_cfg = config.get("tasks", {})
+
+            if tasks_cfg.get("product_feed", {}).get("enabled", True):
+                hours = tasks_cfg.get("product_feed", {}).get("interval_hours", 12)
+                if should_run("product_feed", hours):
+                    run_task_safely(task_product_feed, "product_feed")
+
+            if tasks_cfg.get("channel_posting", {}).get("enabled", True):
+                hours = tasks_cfg.get("channel_posting", {}).get("interval_hours", 0.5)
+                if should_run("channel_post", hours):
+                    run_task_safely(task_channel_post, "channel_post")
+
+            if tasks_cfg.get("group_posting", {}).get("enabled", False):
+                hours = tasks_cfg.get("group_posting", {}).get("interval_hours", 2)
+                if should_run("group_post", hours):
+                    run_task_safely(task_group_post, "group_post")
+
+            if tasks_cfg.get("daily_report", {}).get("enabled", True):
+                hours = tasks_cfg.get("daily_report", {}).get("interval_hours", 24)
+                if should_run("daily_report", hours):
+                    run_task_safely(task_daily_report, "daily_report")
+
+            _shutdown.wait(timeout=60)
+
     finally:
         save_state()
-        log.info("Orchestrator stopped. State saved.")
+        release_pid_lock()
+        log.info("Orchestrator clean exit.")
 
 
 if __name__ == "__main__":

@@ -1,11 +1,34 @@
 import re
+import os
+import logging
 from urllib.parse import quote
 from dotenv import load_dotenv
-import os
+from data import load_json
+from config_loader import load_config
 
 load_dotenv()
 
+log = logging.getLogger(__name__)
+
 CLICK_TRACKER_URL = os.getenv("CLICK_TRACKER_URL", "")
+
+_MD_CHARS = "\\_*[]()~`>#+-=|{}.!"
+
+def esc_md(text):
+    s = str(text)
+    for c in _MD_CHARS:
+        s = s.replace(c, "\\" + c)
+    return s
+
+def load_content_items(source_file=None):
+    if source_file is None:
+        source_file = load_config().get("content", {}).get("source_file", "content.json")
+    data = load_json(source_file, default={})
+    items = data.get("items", [])
+    if not isinstance(items, list):
+        log.warning("items is not a list, got %s", type(items).__name__)
+        return []
+    return [i for i in items if isinstance(i, dict) and i.get("title")]
 
 
 def get_price_value(price_str):
@@ -29,23 +52,13 @@ def format_price(raw_price):
     return price
 
 
-def calc_discount(price, mrp):
-    pv = get_price_value(price)
-    mv = get_price_value(mrp)
-    if mv > pv > 0:
-        return int(((mv - pv) / mv) * 100)
-    return 0
-
-
-def tracked_link(url):
+def tracked_url(url, product_id=None):
     if not CLICK_TRACKER_URL:
         return url
-    return f"{CLICK_TRACKER_URL}/go?url={quote(url)}"
-
-
-def slugify(name):
-    s = re.sub(r'[^\w\s-]', '', name.lower().replace("&", "and"))
-    return re.sub(r'[-\s]+', '-', s).strip('-')[:80]
+    base = f"{CLICK_TRACKER_URL}/go?url={quote(url)}"
+    if product_id:
+        base += f"&product={quote(product_id)}"
+    return base
 
 
 def extract_asin(link):

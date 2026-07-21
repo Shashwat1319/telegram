@@ -19,6 +19,27 @@ GROUPS_FILE = "verified_promo_groups.txt"
 POSTED_FILE = "posted_products.json"
 DELAY_BETWEEN_POSTS = (300, 600)
 
+def format_price(p):
+    return f"₹{p}" if p and not str(p).startswith("₹") else str(p or "Check")
+
+def calc_discount(price_str, mrp_str):
+    import re
+    try:
+        p = float(re.sub(r"[^\d.]", "", str(price_str)))
+        m = float(re.sub(r"[^\d.]", "", str(mrp_str)))
+        if m > 0:
+            return str(int((1 - p / m) * 100))
+    except Exception:
+        pass
+    return "0"
+
+def tracked_link(url):
+    tag = os.getenv("AFFILIATE_ID_IN", "shashwat022-21")
+    if not url:
+        return f"https://t.me/{CLEAN_ID}"
+    sep = "&" if "?" in url else "?"
+    return f"{url}{sep}tag={tag}"
+
 
 def load_groups():
     if not os.path.exists(GROUPS_FILE):
