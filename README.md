@@ -1,112 +1,115 @@
-# 🤖 Budget Deals India — Telegram Automation System
-**Channel:** `@budgetdeals_india` | **Bot:** `@Ffzon_bot` | **Goal:** 43 → 5,000+ members + affiliate revenue
+# SmartGahr — Telegram Affiliate Automation
+
+**Channel:** `@smartgahr` | **Bot:** `@Ffzon_bot` | **Website:** budgetdealsindia.netlify.app
 
 ---
 
-## 🛠️ System Architecture
+## What It Does
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│  orchestrator.py  (single entrypoint — pythonw, auto-start) │
-│  ├── bot_interactive.py     — @Ffzon_bot /start /deal /referral /stats │
-│  ├── referral_tracker.py    — detects joins, sends welcome DM      │
-│  ├── group_poster.py        — cross-posts deals to 11 groups/2h    │
-│  ├── promo_sender.py        — DMs scraped leads every 6h           │
-│  ├── channel_announcement.py — pins referral announcement          │
-│  ├── daily_report.py        — posts daily stats to channel         │
-│  ├── referral_manager.py    — referral links + reward points       │
-│  └── bot_post.py            — scheduled channel posts (30 min)     │
-└─────────────────────────────────────────────────────────────┘
-        │
-        ▼
-┌─────────────────────────────────────────────────────────────┐
-│  Netlify Functions (budgetdeals-tracker.netlify.app)        │
-│  ├── go        — click tracking redirect with affiliate tag │
-│  └── subscribe — email capture for newsletter               │
-└─────────────────────────────────────────────────────────────┘
-```
+A fully automated Amazon affiliate marketing platform that discovers products, generates promotional content in Hinglish, posts deals to Telegram channels, tracks affiliate clicks, runs an interactive bot, manages referrals, and emails newsletters — all running on GitHub Actions CI/CD and Netlify serverless.
 
 ---
 
-## 📂 Current Project Structure
+## Architecture
 
 ```
-D:\Telegram\telegram\
-├── orchestrator.py           # Main loop — runs bot + all periodic tasks
-├── orchestrator_state.json   # Checkpoint for auto-resume after reboot
-├── orchestrator.log          # Runtime logs
-├── bot_interactive.py        # @Ffzon_bot handlers
-├── referral_tracker.py       # Join detection + welcome DM
-├── group_poster.py           # Cross-post to verified_promo_groups.txt
-├── promo_sender.py           # DM outreach to leads
-├── channel_announcement.py   # Post/pin referral announcement
-├── daily_report.py           # Daily stats to channel
-├── referral_manager.py       # Referral link gen + tiered rewards
-├── bot_post.py               # Scheduled channel deal posts
-├── utils.py                  # Shared helpers (tracked_link, prices, etc.)
-├── verified_promo_groups.txt # 11 target groups for cross-posting
-├── product.json              # Scraped Amazon deals (source of truth)
-├── posted_products.json      # Deduplication log
-├── referrals.json            # Referral links + join tracking (committed)
-├── link_adder.html           # Local UI to add deals
-├── netlify-redirector/
-│   └── functions/
-│       ├── go.js             # Click tracker + affiliate redirect
-│       └── subscribe.js      # Email signup endpoint
-└── .env                      # All secrets (rotated manually)
+GitHub Actions (every 4h)
+│
+├── feeder.py          Product JSON → 3 content variants (pain-fix, deal-alert, short-urgency)
+├── poster.py          Posts formatted deal to Telegram channel with inline buttons
+├── referral.py        One-shot referral stats
+├── reporting.py       Daily admin report with member count
+└── Netlify Deploy     Deploys redirector functions
+
+Local Orchestrator (pythonw.exe, auto-start at login)
+│
+├── bot.py             @Ffzon_bot — /deal /topdeal /search /referral /about /contact
+└── referral.py        Event listener — detects joins via Telethon, sends welcome DMs
+
+Netlify Edge Functions
+│
+├── go.js              Click tracker → 302 redirect + Amazon affiliate tag + per-product analytics
+├── stats.js           Daily/grand total click statistics
+└── subscribe.js       Email newsletter with Telegram admin notification
+
+Static Website (Astro v6)
+│
+├── Landing page with deal grid, blog, email signup, Telegram CTA
+├── Blog + deal content collections (MDX)
+├── RSS feed, XML sitemap, JSON-LD structured data
+└── Deployed to budgetdealsindia.netlify.app
 ```
 
 ---
 
-## ⚙️ Tech Stack
+## Modules
 
-| Layer | Tech |
-|-------|------|
-| Runtime | Python 3.12, Telethon, python-telegram-bot v20 |
-| Scheduler | Built-in asyncio loops (no external deps) |
-| Click Tracking | Netlify Serverless Functions + Blobs |
-| Affiliate | Amazon IN (`shashwat022-21`) / US (`shashwat01-20`) |
-| AI Extraction | Gemini API (via `auto_blogger.py` for deal scraping) |
-| Persistence | JSON files + Netlify Blobs |
-| Auto-start | Windows Startup shortcut → `pythonw.exe orchestrator.py` |
-
----
-
-## 🔁 Automated Loops (orchestrator.py)
-
-| Task | Interval | Purpose |
-|------|----------|---------|
-| Bot polling | Continuous | Handle /start /deal /referral /stats |
-| Referral tracker | Event-driven | Detect joins, send welcome DM, award points |
-| Group poster | Every 2h | Cross-post 1 deal to 11 groups |
-| Promo sender | Every 6h | DM scraped leads with deals |
-| Daily report | 24h | Post member count, top referrers, clicks |
-| Channel post | Every 30m | Auto-post deals to @budgetdeals_india |
-| Referral reminder | 4h | Pin reminder in channel |
+| Module | Lines | Role |
+|--------|-------|------|
+| `orchestrator.py` | 212 | Main loop — runs bot + referral threads with PID locking |
+| `bot.py` | 282 | Telegram bot with 7 commands |
+| `poster.py` | 198 | Automated channel poster with HTML formatting + dedup |
+| `feeder.py` | 197 | Product-to-content converter (3 format variants) |
+| `referral.py` | 156 | Referral links + join detection + tiered rewards |
+| `reporting.py` | 89 | Daily admin reports + milestone goals |
+| `group_poster.py` | 181 | Cross-post deals to Telegram groups |
+| `utils.py` | 68 | Shared helpers (tracked_url, esc_md, ASIN extract) |
+| `data.py` | 39 | Atomic JSON file I/O |
+| `config_loader.py` | 17 | Config with mtime caching |
 
 ---
 
-## 📊 Day 2 Baseline (Jun 25)
+## Tech Stack
+
+| Category | Technologies |
+|----------|-------------|
+| **Languages** | Python 3.12, JavaScript, TypeScript |
+| **Frameworks** | python-telegram-bot v20, Telethon, Astro v6 |
+| **APIs** | Telegram Bot API, Telegram MTProto, Amazon Affiliate (IN) |
+| **Cloud** | Netlify (Edge Functions, Blob Store), GitHub Actions CI/CD |
+| **Python** | asyncio, aiohttp, pillow, python-dotenv, requests |
+| **Storage** | Netlify Blobs, JSON files |
+
+---
+
+## CI/CD Pipeline (GitHub Actions)
+
+Triggered every 4 hours + on push + manually:
+
+1. `feeder.py --source product_home.json` → generates 57 content items
+2. `python poster.py` → posts 1 deal to @smartgahr
+3. `referral.py --oneshot` → logs referral stats
+4. `reporting.py --daily` → sends admin report
+5. Netlify deploy → click tracker stays live
+6. Commits updated state back to repo
+
+---
+
+## Bot Commands
+
+| Command | Description |
+|---------|-------------|
+| `/start` | Welcome message with channel link |
+| `/deal` | Random unposted deal |
+| `/topdeal` | Highest discount deal |
+| `/search <keyword>` | Search deals by title/category |
+| `/referral` | Generate invite link + stats |
+| `/about` | Bot description |
+| `/contact` | Channel link |
+
+---
+
+## Channel Profile
 
 | Metric | Value |
 |--------|-------|
-| Channel members | 43 |
-| Referral links created | 104 |
-| Referral joins | 0 |
-| Groups in rotation | 11 |
-| Orchestrator uptime | ~1h (restarted for fixes) |
+| Name | SmartGahr - Home & Kitchen Deals Under ₹999 |
+| Handle | @smartgahr |
+| Hashtags | #SmartGahr #HomeUnder999 #KitchenDeals #AmazonHome #GharKiDeal #BudgetHome |
+| Content | 57 items (19 products × 3 formats) |
+| Posting | Every 4 hours (CI) |
+| Click tracking | Per-product via Netlify redirector |
 
 ---
 
-## 🚀 Next Level Checklist
-
-- [ ] Post referral CTA in channel daily (Task 1)
-- [ ] Add 2 groups/day to `verified_promo_groups.txt`
-- [ ] Wire `auto_blogger.py` → cron to refresh `product.json` daily
-- [ ] Build `goal_tracker.py` → show progress bar in daily report
-- [ ] Set up Netlify Blobs dashboard for click analytics
-- [ ] Add UTM params to tracked links for Google Analytics
-
----
-
-*Built by Shashwat — automation that earns while you sleep.*
+*Built by Shashwat — fully automated affiliate marketing.*
