@@ -90,7 +90,7 @@ def record_join(invite_link: str, user_id: int, username: str = None):
     return False
 
 async def send_welcome(user_id: int, username: str = None):
-    from telegram import Bot
+    from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
     try:
         async with Bot(token=BOT_TOKEN) as bot:
             await bot.initialize()
@@ -99,10 +99,17 @@ async def send_welcome(user_id: int, username: str = None):
                 f"🎉 *Welcome, @{mention}!*\n\n{WELCOME_MSG}\n\n"
                 f"👇 *Get started:*\n"
                 f"• /{CONTENT_CMD} — See what's new\n"
-                f"• /referral — Earn rewards by inviting friends\n\n"
+                f"• /referral — Get your invite link & earn rewards\n\n"
+                f"🎯 *Referral Rewards:*\n"
+                f"  5 friends → 1.5x points\n"
+                f"  10 friends → 2x points\n\n"
                 f"📢 Join @{esc_md(CHANNEL_HANDLE)}"
             )
-            await bot.send_message(chat_id=user_id, text=msg, parse_mode="Markdown")
+            kb = InlineKeyboardMarkup([
+                [InlineKeyboardButton("🎯 Get Referral Link", url=f"https://t.me/{BOT_USERNAME}?start=ref")],
+                [InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{CHANNEL_HANDLE}")]
+            ])
+            await bot.send_message(chat_id=user_id, text=msg, parse_mode="Markdown", reply_markup=kb)
     except Exception as e:
         log.warning("Could not send welcome to user %d: %s", user_id, e)
 

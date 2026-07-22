@@ -49,7 +49,27 @@ async def daily_report():
         except Exception as e:
             log.warning("Member count error: %s", e)
     item_count = len(load_content_items(CONTENT_SOURCE))
-    report = f"📊 **DAILY REPORT** ({today})\n\n👥 **Members**: {members}\n📦 **Content Items**: {item_count}\n📢 **Channel**: @{CHANNEL_HANDLE}\n\n---\n*Your bot is running.*"
+    referrals = load_json("referrals.json", default={})
+    ref_count = len(referrals)
+    join_count = sum(len(r.get("joined", [])) for r in referrals.values())
+    top = sorted(referrals.values(), key=lambda r: len(r.get("joined", [])), reverse=True)[:3]
+    top_lines = []
+    for r in top:
+        c = len(r.get("joined", []))
+        uid = r.get("creator", "?")
+        top_lines.append(f"  • User `{uid}` → {c} joins")
+    top_str = "\n".join(top_lines) if top_lines else "  • No referrals yet"
+    report = (
+        f"📊 **DAILY REPORT** ({today})\n\n"
+        f"👥 **Members**: {members}/100 🎯\n"
+        f"📦 **Content Items**: {item_count}\n"
+        f"📢 **Channel**: @{CHANNEL_HANDLE}\n\n"
+        f"🔗 **Referral Stats:**\n"
+        f"  • Links created: {ref_count}\n"
+        f"  • Total joins: {join_count}\n\n"
+        f"🏆 **Top Referrers:**\n{top_str}\n\n"
+        f"---\n*{30 - int(today[-2:])} days left in July — keep growing! 🚀*"
+    )
     await send_telegram(report)
     log.info("Daily report sent: members=%s, items=%d", members, item_count)
 

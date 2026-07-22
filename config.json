@@ -25,7 +25,7 @@
     "channel_posting": { "enabled": false },
     "group_posting": { "enabled": false },
     "referral_tracker": { "enabled": true },
-    "daily_report": { "enabled": false },
+    "daily_report": { "enabled": true },
     "goal_tracker": { "enabled": true, "interval_hours": 6 }
   },
   "paths": {

@@ -44,11 +44,15 @@ async def start(update, context):
         f"👋 *Welcome {user.first_name}!*\n\n{esc_md(WELCOME_MSG)}\n\n"
         f"📌 *Commands:*\n"
         f"• /{CONTENT_CMD} — {CONTENT_CMD_LABEL}\n"
-        f"• /referral — Get your invite link\n\n"
-        f"Join @{esc_md(CHANNEL_HANDLE)} for more! 🚀"
+        f"• /referral — Invite friends & earn rewards\n"
+        f"• /topdeal — Best discount deal\n"
+        f"• /search <kw> — Search deals\n\n"
+        f"🎯 *Refer 5 friends → 1.5x points | Refer 10 → 2x points*\n\n"
+        f"Join @{esc_md(CHANNEL_HANDLE)} for daily deals! 🚀"
     )
     kb = InlineKeyboardMarkup([
         [InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{CHANNEL_HANDLE}")],
+        [InlineKeyboardButton("🎯 Get Referral Link", url=f"https://t.me/{BOT_USERNAME}?start=ref")],
         [InlineKeyboardButton(f"🔥 {CONTENT_CMD_LABEL}", callback_data=CONTENT_CMD)],
     ])
     await update.message.reply_text(msg, parse_mode="Markdown", reply_markup=kb)
@@ -100,6 +104,9 @@ async def referral(update, context):
         log.error("Referral error for user %d: %s", user.id, e)
         await update.message.reply_text("❌ Could not generate referral link right now. Make sure the bot is admin in the channel. Try again later.")
         return
+    progress_5 = "▓" * min(count, 5) + "░" * (5 - min(count, 5))
+    progress_10 = "▓" * max(0, min(count - 5, 5)) + "░" * max(0, 5 - max(0, count - 5))
+    next_tier = "2x points" if count >= 10 else "1.5x points" if count >= 5 else "1.5x points (at 5)"
     msg = (
         f"🎯 *Your Referral Link*\n\n"
         f"Share this link with friends — when they join, you earn points!\n\n"
@@ -107,7 +114,11 @@ async def referral(update, context):
         f"📊 *Your Stats:*\n"
         f"• People referred: *{count}*\n"
         f"• Points earned: *{points}*\n\n"
-        f"👥 Refer 5 → 1.5x points | Refer 10 → 2x points!"
+        f"👥 *Tier Progress:*\n"
+        f"  Tier 1 (5 refs): `{progress_5}` {count}/5\n"
+        f"  Tier 2 (10 refs): `{progress_10}` {count}/10\n"
+        f"  Current rate: {next_tier}\n\n"
+        f"Keep sharing — more referrals = bigger rewards!"
     )
     kb = InlineKeyboardMarkup([
         [InlineKeyboardButton("📤 Share Link", url=f"https://t.me/share/url?url={link}&text=Join%20%40{CHANNEL_HANDLE}%21")],
@@ -196,8 +207,13 @@ async def error_handler(update, context):
     log.error("Update %s caused error: %s", update, context.error)
 
 async def post_referral_reminder(bot: Bot, pin=False):
+    try:
+        count = await bot.get_chat_member_count(CHANNEL_ID)
+    except Exception:
+        count = "N/A"
     msg = (
-        "🎯 *Earn Rewards by Inviting Friends!*\n\n"
+        f"🎯 *Help @{CHANNEL_HANDLE} Reach 100 Members!*\n\n"
+        f"👥 Current: *{count}* | Goal: *100*\n\n"
         f"{esc_md(REFERRAL_REMINDER_MSG)}\n\n"
         "▫️ Refer 1 friend → 10 points\n"
         "▫️ Refer 5 friends → 1.5x points (15 each)\n"
