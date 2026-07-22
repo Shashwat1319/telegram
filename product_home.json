@@ -265,6 +265,76 @@
       "fix": "3 compartment set, leakproof, BPA free, cartoon designs, microwave safe!",
       "loot_reason": "Parents ke liye must-buy! Lunch packing ab sorted!",
       "category": "Home & Kitchen"
+    },
+    {
+      "name": "Wipro 10W Smart RGBW LED Bulb WiFi",
+      "price": "₹599",
+      "mrp": "₹1799",
+      "rating": 4,
+      "image": "",
+      "link": "https://amzn.to/3R67ogO",
+      "discount_percent": "67%",
+      "hook": "Smart bulb 67% OFF! Voice control, 16M colours!",
+      "pain": "Baar baar uthke switch press karna? Mood lighting chahiye?",
+      "fix": "WiFi smart bulb, Alexa/Google compatible, 16M colour options, dimmable!",
+      "loot_reason": "₹599 mein smart bulb — ghar ko smart banane ka cheapest way!",
+      "category": "Home Improvement"
+    },
+    {
+      "name": "Syska 9W LED Bulb Cool White Pack of 3",
+      "price": "₹199",
+      "mrp": "₹597",
+      "rating": 4.1,
+      "image": "",
+      "link": "https://amzn.to/44vauho",
+      "discount_percent": "67%",
+      "hook": "3 LED bulbs ₹199! Bijli bachao, paisa bachao!",
+      "pain": "Purane CFL bulbs zyada bijli kha rahe hain?",
+      "fix": "9W LED, bright cool white, 3 pack, energy saving up to 80%!",
+      "loot_reason": "₹66 per bulb — cheapest LED upgrade for entire home!",
+      "category": "Home Improvement"
+    },
+    {
+      "name": "RO Metal Clothes Drying Stand Foldable with Wheels 3-Tier",
+      "price": "₹999",
+      "mrp": "₹2999",
+      "rating": 4.2,
+      "image": "",
+      "link": "https://amzn.to/4g253O9",
+      "discount_percent": "67%",
+      "hook": "Clothes drying stand 67% OFF! Balcony space bachao!",
+      "pain": "Kapde sukhane ki jagah nahi hai? Rassi pe tapka kar floor ganda?",
+      "fix": "3-tier large space, foldable, wheels for movement, heavy duty, no rust!",
+      "loot_reason": "₹999 mein clothes drying tower — apartment dwellers ke liye must!",
+      "category": "Home Improvement"
+    },
+    {
+      "name": "Classic Mosquito Net King Size Double Bed Foldable",
+      "price": "₹699",
+      "mrp": "₹1999",
+      "rating": 4.1,
+      "image": "",
+      "link": "https://amzn.to/4xKQ0Pb",
+      "discount_percent": "65%",
+      "hook": "Mosquito net 65% OFF! Dengue se bachao!",
+      "pain": "AC mein bhi machhar? Dengue/malaria ka dar hai?",
+      "fix": "King size, foldable, strong polyester net, PVC coated steel wire, easy setup!",
+      "loot_reason": "Double bed net itne mein! Family safety priority!",
+      "category": "Home Improvement"
+    },
+    {
+      "name": "Mortein SmartPlus Mosquito Repellent Refill 45ml x 6",
+      "price": "₹399",
+      "mrp": "₹899",
+      "rating": 4.3,
+      "image": "",
+      "link": "https://amzn.to/43WAimE",
+      "discount_percent": "56%",
+      "hook": "6 mosquito refills ₹399! Poora season cover!",
+      "pain": "Har raat mosquito se jungle safari? Dengue ka dar?",
+      "fix": "100% protection, 6 refills last 180 nights, fits all machines!",
+      "loot_reason": "Bulk buy — dengue season mein shield, family ke liye safety!",
+      "category": "Home Improvement"
     }
   ]
 }
