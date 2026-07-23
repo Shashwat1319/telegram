@@ -1,12 +1,19 @@
-# SmartGahr — Telegram Affiliate Automation
+# Telegram Affiliate Automation System
 
-**Channel:** `@smartgahr` | **Bot:** `@Ffzon_bot` | **Website:** budgetdealsindia.netlify.app
+**A fully automated pipeline that generates promotional content, posts to Telegram, tracks affiliate clicks, runs an interactive bot, and manages referrals — all on autopilot via GitHub Actions CI/CD and Netlify serverless.**
 
 ---
 
 ## What It Does
 
-A fully automated Amazon affiliate marketing platform that discovers products, generates promotional content in Hinglish, posts deals to Telegram channels, tracks affiliate clicks, runs an interactive bot, manages referrals, and emails newsletters — all running on GitHub Actions CI/CD and Netlify serverless.
+This system converts a JSON product feed into a complete Telegram affiliate marketing operation. No manual work after setup.
+
+1. **Content Generation** — Each product becomes 3 promotional variants: pain-fix, deal-alert, short-urgency
+2. **Automated Posting** — GitHub Actions posts deals to your Telegram channel every 4 hours
+3. **Interactive Bot** — 7 commands: /deal /topdeal /search /referral /about /contact
+4. **Click Tracking** — Netlify Edge Functions redirect through affiliate links with per-product analytics
+5. **Referral System** — Tiered rewards with real-time join detection
+6. **Daily Reports** — Member count, content stats, top referrers delivered to admin
 
 ---
 
@@ -15,30 +22,48 @@ A fully automated Amazon affiliate marketing platform that discovers products, g
 ```
 GitHub Actions (every 4h)
 │
-├── feeder.py          Product JSON → 3 content variants (pain-fix, deal-alert, short-urgency)
-├── poster.py          Posts formatted deal to Telegram channel with inline buttons
-├── referral.py        One-shot referral stats
-├── reporting.py       Daily admin report with member count
-└── Netlify Deploy     Deploys redirector functions
+├── feeder.py          Products → 3 content variants
+├── poster.py          Posts to Telegram with inline buttons
+├── referral.py        Referral stats (one-shot)
+├── reporting.py       Admin daily report
+└── Netlify Deploy     Click tracker functions
 
-Local Orchestrator (pythonw.exe, auto-start at login)
+Local Orchestrator (auto-start at login)
 │
-├── bot.py             @Ffzon_bot — /deal /topdeal /search /referral /about /contact
-└── referral.py        Event listener — detects joins via Telethon, sends welcome DMs
+├── bot.py             Interactive Telegram bot
+└── referral.py        Join detection + welcome DMs
 
 Netlify Edge Functions
 │
-├── go.js              Click tracker → 302 redirect + Amazon affiliate tag + per-product analytics
-├── stats.js           Daily/grand total click statistics
-└── subscribe.js       Email newsletter with Telegram admin notification
-
-Static Website (Astro v6)
-│
-├── Landing page with deal grid, blog, email signup, Telegram CTA
-├── Blog + deal content collections (MDX)
-├── RSS feed, XML sitemap, JSON-LD structured data
-└── Deployed to budgetdealsindia.netlify.app
+├── go.js              Click tracker → affiliate redirect + analytics
+├── stats.js           Click statistics
+└── subscribe.js       Email newsletter signup
 ```
+
+---
+
+## Quick Start
+
+```
+# 1. Copy config template
+cp config.example.json config.json
+
+# 2. Create .env
+cp .env.example .env
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Generate content
+python feeder.py --source product_home.json --output content_home.json
+
+# 5. Post a deal
+python poster.py
+
+# 6. Push to GitHub → CI takes over
+```
+
+**Full step-by-step setup → [SETUP.md](SETUP.md)**
 
 ---
 
@@ -46,15 +71,15 @@ Static Website (Astro v6)
 
 | Module | Lines | Role |
 |--------|-------|------|
-| `orchestrator.py` | 212 | Main loop — runs bot + referral threads with PID locking |
+| `orchestrator.py` | 212 | Main loop — bot + referral threads + PID lock |
 | `bot.py` | 282 | Telegram bot with 7 commands |
-| `poster.py` | 198 | Automated channel poster with HTML formatting + dedup |
-| `feeder.py` | 197 | Product-to-content converter (3 format variants) |
+| `poster.py` | 198 | Channel poster with HTML formatting + dedup |
+| `feeder.py` | 197 | Product-to-content converter (3 formats) |
 | `referral.py` | 156 | Referral links + join detection + tiered rewards |
-| `reporting.py` | 89 | Daily admin reports + milestone goals |
+| `reporting.py` | 89 | Daily reports + milestone goals |
 | `group_poster.py` | 181 | Cross-post deals to Telegram groups |
-| `utils.py` | 68 | Shared helpers (tracked_url, esc_md, ASIN extract) |
-| `data.py` | 39 | Atomic JSON file I/O |
+| `utils.py` | 68 | Tracked URLs, markdown escaping, ASIN extraction |
+| `data.py` | 39 | JSON file I/O with locking |
 | `config_loader.py` | 17 | Config with mtime caching |
 
 ---
@@ -63,25 +88,12 @@ Static Website (Astro v6)
 
 | Category | Technologies |
 |----------|-------------|
-| **Languages** | Python 3.12, JavaScript, TypeScript |
-| **Frameworks** | python-telegram-bot v20, Telethon, Astro v6 |
-| **APIs** | Telegram Bot API, Telegram MTProto, Amazon Affiliate (IN) |
-| **Cloud** | Netlify (Edge Functions, Blob Store), GitHub Actions CI/CD |
-| **Python** | asyncio, aiohttp, pillow, python-dotenv, requests |
-| **Storage** | Netlify Blobs, JSON files |
-
----
-
-## CI/CD Pipeline (GitHub Actions)
-
-Triggered every 4 hours + on push + manually:
-
-1. `feeder.py --source product_home.json` → generates 57 content items
-2. `python poster.py` → posts 1 deal to @smartgahr
-3. `referral.py --oneshot` → logs referral stats
-4. `reporting.py --daily` → sends admin report
-5. Netlify deploy → click tracker stays live
-6. Commits updated state back to repo
+| Languages | Python 3.12, JavaScript |
+| Frameworks | python-telegram-bot v20, Telethon |
+| APIs | Telegram Bot API, Telegram MTProto, Amazon Associates |
+| Cloud | Netlify (Edge Functions, Blob Store), GitHub Actions |
+| Python | asyncio, aiohttp, pillow, python-dotenv, requests |
+| Storage | Netlify Blobs, JSON files |
 
 ---
 
@@ -99,17 +111,41 @@ Triggered every 4 hours + on push + manually:
 
 ---
 
-## Channel Profile
+## CI/CD Pipeline
 
-| Metric | Value |
-|--------|-------|
-| Name | SmartGahr - Home & Kitchen Deals Under ₹999 |
-| Handle | @smartgahr |
-| Hashtags | #SmartGahr #HomeUnder999 #KitchenDeals #AmazonHome #GharKiDeal #BudgetHome |
-| Content | 57 items (19 products × 3 formats) |
-| Posting | Every 4 hours (CI) |
-| Click tracking | Per-product via Netlify redirector |
+Triggered every 4 hours + on push + manually:
+
+1. `feeder.py` → generate content from products
+2. `poster.py` → post 1 deal to channel
+3. `referral.py --oneshot` → log referral stats
+4. `reporting.py --daily` → admin report
+5. Netlify deploy → click tracker update
+6. Commit updated state back to repo
 
 ---
 
-*Built by Shashwat — fully automated affiliate marketing.*
+## Product Format
+
+Add products to `product_home.json`:
+```json
+{
+  "products": [
+    {
+      "name": "Product Name",
+      "price": "₹499",
+      "mrp": "₹999",
+      "discount_percent": "50%",
+      "link": "https://amzn.to/your-link",
+      "category": "Home & Kitchen",
+      "image": "https://images.amazon.in/...jpg",
+      "rating": "4.2"
+    }
+  ]
+}
+```
+
+Run `python feeder.py` to regenerate 3 promotional formats per product.
+
+---
+
+*Full setup guide: [SETUP.md](SETUP.md)*
