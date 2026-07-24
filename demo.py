@@ -5,14 +5,15 @@ Run: python demo.py
 import sys, os, json
 sys.path.insert(0, '.')
 os.chdir('.')
-from feeder import load_products
+from data import load_json
 from utils import tracked_url
 
 SOURCE = 'product_home.json'
 print("=" * 60)
 print("  TELEGRAM AFFILIATE AUTOMATION SYSTEM — DEMO")
 print("=" * 60)
-products = load_products(SOURCE)
+data = load_json(SOURCE, default={"products": []})
+products = data.get("products", [])
 print(f"\n[1/4] Products loaded: {len(products)}")
 print(f"      First product: {products[0]['name'][:50]}...")
 content_file = 'content_home.json'

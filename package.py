@@ -4,7 +4,9 @@ import zipfile, os, sys
 FILES = [
     'bot.py','feeder.py','poster.py','referral.py','reporting.py',
     'orchestrator.py','group_poster.py','utils.py','data.py','config_loader.py',
-    'demo.py','product_home.json','content_home.json',
+    'demo.py','setup.bat','setup.sh',
+    'product_home.json','content_home.json',
+    '.env.example','config.example.json',
     'README.md','SETUP.md','requirements.txt','.gitignore',
 ]
 for root, dirs, files in os.walk('netlify-redirector'):
