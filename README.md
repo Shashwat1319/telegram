@@ -2,6 +2,8 @@
 
 **A fully automated pipeline that generates promotional content, posts to Telegram, tracks affiliate clicks, runs an interactive bot, and manages referrals — all on autopilot via GitHub Actions CI/CD and Netlify serverless.**
 
+> 📖 Read the full story: [How I Built a Telegram Affiliate Bot That Posts Deals 24/7 — Dev.to](https://dev.to/shashwat1319/how-i-built-a-telegram-affiliate-bot-that-posts-deals-247-full-python-source-1an3)
+
 ---
 
 ## What It Does

@@ -10,35 +10,6 @@
 | 4 | 🔍 **SEO** | Agent | Product page, discoverability, tags, content optimization |
 | 5 | 🧠 **Owner / Strategy Lead** | **Shashwat** | Vision, final decisions, brand direction |
 
-## Day 2 — July 23, 2026 — Accomplishments
-
-### ✅ Completed
-- **5 products added** to product_home.json (24 total → 72 content items)
-- **Organic deal posted** to @smartgahr (Wipro LED Bulb, 67% off)
-- **Top 5 deals pinned** to channel — welcome mat for new visitors
-- **Growth push code deployed**:
-  - /start shows referral rewards upfront
-  - /referral has progress bars for tier tracking
-  - Welcome DM includes referral CTA button
-  - Reminder shows "X/100 members" goal
-- **Reporting.py updated** — daily report now has referral leaderboard
-- **Gumroad product published**: https://shaswat7.gumroad.com/l/tg-affiliate-system
-- **SETUP.md created** — 6-step deploy guide for buyers
-- **README.md rewritten** — product-agnostic, sale-ready
-- **.env.example cleaned** — coaching references removed
-- **Cover + thumbnail images generated** for Gumroad
-
-### 📊 Current Metrics
-| Metric | Value |
-|--------|-------|
-| Channel members | 2 (0 real + 1 bot + 1 admin) |
-| Products | 24 |
-| Content items | 72 |
-| Content formats | 3 (pain_fix, deal_alert, short_urgency) |
-| CI Pipeline | Green (last run 09:24) |
-| Gumroad price | $79 / ₹7,648 |
-| Gumroad views | 0 (just published) |
-
 ## Day 3 — July 24, 2026 — Full Report
 
 ### ✅ Completed
