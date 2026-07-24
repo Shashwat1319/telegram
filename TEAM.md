@@ -1,14 +1,14 @@
 # SmartGahr — Team Charter
 
-## The 5 Members
+## Team Structure
 
-| Role | Member | Focus |
-|------|--------|-------|
-| 👨‍💼 Engineer | Agent | Code, CI/CD, deployment, bug fixes, architecture |
-| 📊 Researcher | Agent | Market data, competitor analysis, content gaps, metrics |
-| 📈 Affiliate | Shashwat | Growth, sharing, sales, outreach, channel members |
-| 🔍 SEO | Agent | Product page SEO, GitHub topics, hashtags, discoverability |
-| 🧠 Strategy Lead | Agent | Roadmap, prioritization, risk, final decisions |
+| # | Role | Persona | Experience |
+|---|------|---------|------------|
+| 1 | 👨‍💼 **Engineer** | Agent | Full-stack Python, CI/CD, serverless |
+| 2 | 📊 **Researcher** | Agent | Market analysis, competitor intel, data |
+| 3 | 📈 **Affiliate Marketer** | Agent | **15 years** — Amazon, Flipkart, Telegram, influencer partnerships |
+| 4 | 🔍 **SEO** | Agent | Product page, discoverability, tags, content optimization |
+| 5 | 🧠 **Owner / Strategy Lead** | **Shashwat** | Vision, final decisions, brand direction |
 
 ## Day 2 — July 23, 2026 — Accomplishments
 
