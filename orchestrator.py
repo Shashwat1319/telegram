@@ -120,6 +120,10 @@ def run_referral_thread():
         asyncio.run(event_listener())
     except Exception as e:
         log.error("[THREAD] Referral tracker error: %s", e)
+        log.warning("Referral tracker will respawn in 30s...")
+        _shutdown.wait(timeout=30)
+        if not _shutdown.is_set():
+            run_referral_thread()
 
 
 def run_task_safely(func, task_name):

@@ -30,8 +30,8 @@ export default async (request, context) => {
     await store.setJSON("list", subscribers);
 
     try {
-      const TELEGRAM_BOT_TOKEN = Netlify.env.get("BOT_TOKEN");
-      const ADMIN_CHAT_ID = Netlify.env.get("ADMIN_CHAT_ID");
+      const TELEGRAM_BOT_TOKEN = process.env.BOT_TOKEN;
+      const ADMIN_CHAT_ID = process.env.ADMIN_CHAT_ID;
       if (TELEGRAM_BOT_TOKEN && ADMIN_CHAT_ID) {
         const msg = `🎉 New subscriber: ${email} (Total: ${subscribers.length})`;
         await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
