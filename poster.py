@@ -50,13 +50,13 @@ def _pick_eligible(items, posted):
     now = datetime.now()
     eligible = []
     for item in items:
-        title = item.get("title")
-        if not title:
+        item_id = item.get("id") or item.get("title")
+        if not item_id:
             continue
-        if title not in posted:
+        if item_id not in posted:
             eligible.append(item)
         else:
-            h = posted[title]
+            h = posted[item_id]
             gap = random.randint(8, 16)
             if h.get("count", 0) < MAX_REPOSTS and h.get("last", "") < (now - timedelta(hours=gap)).isoformat():
                 eligible.append(item)
@@ -150,10 +150,10 @@ async def post_content():
             
             now_str = datetime.now().isoformat()
             for item in to_post:
-                title = item.get("title", "")
-                posted[title] = {
+                item_id = item.get("id") or item.get("title", "")
+                posted[item_id] = {
                     "last": now_str,
-                    "count": posted.get(title, {}).get("count", 0) + 1 if title in posted else 1
+                    "count": posted.get(item_id, {}).get("count", 0) + 1 if item_id in posted else 1
                 }
             _save_posted(posted)
 

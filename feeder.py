@@ -124,9 +124,11 @@ def to_content_items(prod):
     for fmt in CONTENT_FORMATS:
         formatter = _FORMATTERS[fmt]
         body = formatter(prod)
+        fmt_labels = {"pain_fix": "💡 Problem Solved", "deal_alert": "⚡ Deal Alert", "short_urgency": "🔥 Flash Deal"}
+        fmt_title = f"{name[:75]} — {fmt_labels.get(fmt, fmt.replace('_',' ').title())}"
         items.append({
             "id": f"{base_id}-{fmt}" if base_id else f"prod-{fmt}-{hash(name) % 10000}",
-            "title": name[:90],
+            "title": fmt_title,
             "body": body,
             "format": fmt,
             "price": price,

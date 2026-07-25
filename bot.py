@@ -35,7 +35,7 @@ def get_random_item():
         return None
     posted_path = CONTENT_SOURCE.replace(".json", "_posted.json")
     posted = load_json(posted_path, default={})
-    unposted = [it for it in items if it.get("title") not in posted]
+    unposted = [it for it in items if (it.get("id") or it.get("title")) not in posted]
     return random.choice(unposted if unposted else items)
 
 async def start(update, context):
