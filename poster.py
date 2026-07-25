@@ -22,6 +22,7 @@ bot_cfg = config.get("bot", {})
 content_cfg = config.get("content", {})
 
 CHANNEL_ID = bot_cfg.get("channel_id", os.getenv("CHANNEL_ID", "@channel"))
+CHAT_ID_INPUT = CHANNEL_ID
 CLEAN_ID = CHANNEL_ID.replace("@", "") if CHANNEL_ID else "channel"
 SOURCE_FILE = content_cfg.get("source_file", "content.json")
 POSTS_PER_BATCH = content_cfg.get("posts_per_batch", 3)
@@ -124,7 +125,10 @@ def generate_high_converting_message(item, post_count=0):
 
 
 async def post_content():
-    chat_id = f"@{CHANNEL_ID}" if not CHANNEL_ID.startswith("@") else CHANNEL_ID
+    if CHAT_ID_INPUT.startswith("@") or CHAT_ID_INPUT.lstrip("-").isdigit():
+        chat_id = CHAT_ID_INPUT
+    else:
+        chat_id = f"@{CHAT_ID_INPUT}"
     try:
         async with Bot(token=BOT_TOKEN) as bot:
             await bot.initialize()

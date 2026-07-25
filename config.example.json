@@ -16,7 +16,6 @@
     "max_reposts": 50,
     "has_links": true,
     "link_tracking_enabled": false,
-    "link_tracker_url": "",
     "pin_posts": false,
     "hashtags": ["#YourTag"]
   },

@@ -16,7 +16,6 @@
     "max_reposts": 20,
     "has_links": true,
     "link_tracking_enabled": true,
-    "link_tracker_url": "https://budgetdeals-tracker-737523f4.netlify.app",
     "pin_posts": false,
     "hashtags": ["#SmartGahr", "#HomeUnder999", "#KitchenDeals", "#AmazonHome", "#GharKiDeal", "#BudgetHome"]
   },

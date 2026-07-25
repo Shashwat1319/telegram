@@ -35,8 +35,10 @@ export default async (request, context) => {
   }
 
   if (!finalUrl) {
+    const channelHandle = process.env.CHANNEL_HANDLE || "your_channel";
     const errorPath = path.resolve(__dirname, '..', 'error_page.html');
-    const errorHtml = fs.readFileSync(errorPath, 'utf8');
+    let errorHtml = fs.readFileSync(errorPath, 'utf8');
+    errorHtml = errorHtml.replace(/your_channel/g, channelHandle);
     return new Response(errorHtml, {
       status: 200,
       headers: { "Content-Type": "text/html" }
@@ -95,7 +97,7 @@ export default async (request, context) => {
   // --- 5. Preview bots → serve OG-rich HTML page that redirects ---
   // Real users → fast 302 redirect
   if (isBot) {
-    const ogImage = "https://budgetdeals-tracker-737523f4.netlify.app/og-image.jpg";
+    const ogImage = `${url.origin}/og-image.jpg`;
     const html = `<!DOCTYPE html>
 <html><head>
   <meta charset="utf-8">

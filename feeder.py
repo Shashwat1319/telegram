@@ -7,8 +7,8 @@ from data import load_json, save_json
 
 log = logging.getLogger("feeder")
 
-PRODUCT_FILE = "product.json"
-CONTENT_FILE = "content.json"
+PRODUCT_FILE = "product_home.json"
+CONTENT_FILE = "content_home.json"
 
 
 def slugify(text):
