@@ -279,18 +279,18 @@ async def main():
     parser.add_argument("--loop", action="store_true", help="Run reminder loop every 4 hours")
     args = parser.parse_args()
     if any([args.pin, args.welcome, args.reminder, args.loop]):
-        bot = Bot(token=BOT_TOKEN)
-        if args.pin:
-            await post_referral_reminder(bot, pin=True)
-        if args.welcome:
-            await send_channel_welcome(bot)
-        if args.reminder:
-            await post_referral_reminder(bot)
-        if args.loop:
-            log.info("Starting reminder loop...")
-            while True:
+        async with Bot(token=BOT_TOKEN) as bot:
+            if args.pin:
+                await post_referral_reminder(bot, pin=True)
+            if args.welcome:
+                await send_channel_welcome(bot)
+            if args.reminder:
                 await post_referral_reminder(bot)
-                await asyncio.sleep(14400)
+            if args.loop:
+                log.info("Starting reminder loop...")
+                while True:
+                    await post_referral_reminder(bot)
+                    await asyncio.sleep(14400)
     else:
         run_bot()
 
