@@ -9,8 +9,6 @@ log = logging.getLogger("feeder")
 
 PRODUCT_FILE = "product.json"
 CONTENT_FILE = "content.json"
-POSTED_FILE = "content_posted.json"
-OLD_POSTED_FILE = "posted_products.json"
 
 
 def slugify(text):
@@ -148,12 +146,15 @@ def to_content_items(prod):
     return items
 
 
-def merge_posted_history():
-    if not os.path.exists(OLD_POSTED_FILE):
+def merge_posted_history(output_path=None):
+    old_file = "posted_products.json"
+    new_file = (output_path or CONTENT_FILE).replace(".json", "_posted.json")
+
+    if not os.path.exists(old_file):
         return
 
-    old = load_json(OLD_POSTED_FILE, default={})
-    new = load_json(POSTED_FILE, default={})
+    old = load_json(old_file, default={})
+    new = load_json(new_file, default={})
 
     merged = dict(new)
     for title, data in old.items():
@@ -164,7 +165,7 @@ def merge_posted_history():
                 "count": count,
             }
 
-    save_json(POSTED_FILE, merged)
+    save_json(new_file, merged)
 
 
 def feed(limit=100, source=None, output=None):
@@ -184,7 +185,7 @@ def feed(limit=100, source=None, output=None):
     log.info("Generated %d content items from %d products (%d variants each) → %s",
              len(all_items), min(len(products), limit), len(CONTENT_FORMATS), out_path)
 
-    merge_posted_history()
+    merge_posted_history(output_path=out_path)
 
 
 if __name__ == "__main__":

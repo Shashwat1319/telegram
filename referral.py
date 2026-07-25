@@ -9,12 +9,8 @@ load_dotenv()
 log = logging.getLogger(__name__)
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-API_ID_VAR = os.getenv("API_ID")
-if not API_ID_VAR:
-    raise RuntimeError("API_ID environment variable is required")
-API_ID = int(API_ID_VAR)
-API_HASH = os.getenv("API_HASH")
-SESSION = os.getenv("TELEGRAM_SESSION_1")
+# Telethon credentials only needed for event_listener (not --oneshot)
+# Lazy-loaded inside event_listener() to avoid crash on --oneshot
 config = load_config().get("bot", {})
 CHANNEL_HANDLE = config.get("channel_handle", "channel")
 CHANNEL_ID = config.get("channel_id", os.getenv("CHANNEL_ID", "@channel"))
@@ -114,9 +110,19 @@ async def send_welcome(user_id: int, username: str = None):
         log.warning("Could not send welcome to user %d: %s", user_id, e)
 
 async def event_listener():
+    api_id_var = os.getenv("API_ID")
+    if not api_id_var:
+        log.error("API_ID environment variable is required for referral tracker")
+        return
+    api_id = int(api_id_var)
+    api_hash = os.getenv("API_HASH")
+    session_str = os.getenv("TELEGRAM_SESSION_1")
+    if not api_hash or not session_str:
+        log.error("API_HASH and TELEGRAM_SESSION_1 are required for referral tracker")
+        return
     from telethon import TelegramClient, events
     from telethon.sessions import StringSession
-    client = TelegramClient(StringSession(SESSION), API_ID, API_HASH)
+    client = TelegramClient(StringSession(session_str), api_id, api_hash)
     await client.start()
     me = await client.get_me()
     log.info("Referral tracker started as %s (@%s)", me.first_name, me.username)

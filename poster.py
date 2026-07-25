@@ -4,6 +4,7 @@ import re
 import asyncio
 import logging
 from datetime import datetime, timedelta
+from urllib.parse import quote
 from dotenv import load_dotenv
 from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.error import TelegramError
@@ -166,7 +167,7 @@ async def post_content():
                     buttons.append([InlineKeyboardButton(btn_label, url=link)])
                 
                 buttons.append([
-                    InlineKeyboardButton("🚀 Share Deal", url=f"https://t.me/share/url?url={link or 'https://t.me/' + CLEAN_ID}&text={title[:60]}"),
+                    InlineKeyboardButton("🚀 Share Deal", url=f"https://t.me/share/url?url={quote(link or 'https://t.me/' + CLEAN_ID)}&text={quote(title[:60])}"),
                     InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{CLEAN_ID}")
                 ])
                 

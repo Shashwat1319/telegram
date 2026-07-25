@@ -69,14 +69,15 @@ def save_posted(posted):
 
 
 def load_latest_product():
-    if not os.path.exists("product.json"):
-        return None
-    try:
-        data = json.load(open("product.json", encoding="utf-8"))
-        products = data.get("products", [])
-        return random.choice(products) if products else None
-    except:
-        return None
+    for path in ("product_home.json", "product.json"):
+        if os.path.exists(path):
+            try:
+                data = json.load(open(path, encoding="utf-8"))
+                products = data.get("products", [])
+                return random.choice(products) if products else None
+            except:
+                pass
+    return None
 
 
 def build_message(product):

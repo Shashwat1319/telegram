@@ -1,14 +1,7 @@
 python-telegram-bot==20.3
-google-genai
-requests
-beautifulsoup4
 python-dotenv
 telethon
-opencv-python-headless
-numpy
-pillow
-google-api-python-client
-google-auth-oauthlib
-google-auth-httplib2
+requests
+beautifulsoup4
 aiohttp
 aiofiles

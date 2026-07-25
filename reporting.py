@@ -59,6 +59,9 @@ async def daily_report():
         uid = r.get("creator", "?")
         top_lines.append(f"  • User `{uid}` → {c} joins")
     top_str = "\n".join(top_lines) if top_lines else "  • No referrals yet"
+    from calendar import monthrange
+    _, last_day = monthrange(datetime.now().year, datetime.now().month)
+    remaining = last_day - datetime.now().day
     report = (
         f"📊 **DAILY REPORT** ({today})\n\n"
         f"👥 **Members**: {members}/100 🎯\n"
@@ -68,7 +71,7 @@ async def daily_report():
         f"  • Links created: {ref_count}\n"
         f"  • Total joins: {join_count}\n\n"
         f"🏆 **Top Referrers:**\n{top_str}\n\n"
-        f"---\n*{30 - int(today[-2:])} days left in July — keep growing! 🚀*"
+        f"---\n*{remaining} days left in {datetime.now().strftime('%B')} — keep growing! 🚀*"
     )
     await send_telegram(report)
     log.info("Daily report sent: members=%s, items=%d", members, item_count)

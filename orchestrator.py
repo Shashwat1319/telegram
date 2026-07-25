@@ -42,14 +42,15 @@ def acquire_pid_lock():
         try:
             with open(PID_FILE, "r") as f:
                 old_pid = int(f.read().strip())
-            try:
-                os.kill(old_pid, 0)
-                log.error("Another orchestrator instance is running (PID: %d). Exiting.", old_pid)
-                return False
-            except (ProcessLookupError, SystemError):
-                log.warning("Stale PID file found (PID %d is dead). Overwriting.", old_pid)
-            except OSError:
-                pass
+            if sys.platform != "win32":
+                try:
+                    os.kill(old_pid, 0)
+                    log.error("Another orchestrator instance is running (PID: %d). Exiting.", old_pid)
+                    return False
+                except (ProcessLookupError, SystemError):
+                    log.warning("Stale PID file found (PID %d is dead). Overwriting.", old_pid)
+                except OSError:
+                    pass
         except (ValueError, OSError):
             pass
     with open(PID_FILE, "w") as f:
@@ -145,8 +146,8 @@ def task_channel_post():
 
 
 def task_group_post():
-    from group_poster import post_to_groups
-    asyncio.run(post_to_groups())
+    from group_poster import main as group_post_main
+    asyncio.run(group_post_main())
 
 
 def task_daily_report():
@@ -165,7 +166,10 @@ def main():
         _shutdown.set()
 
     signal.signal(signal.SIGINT, handle_signal)
-    signal.signal(signal.SIGTERM, handle_signal)
+    try:
+        signal.signal(signal.SIGTERM, handle_signal)
+    except AttributeError:
+        pass  # SIGTERM not available on Windows
 
     # Start background bot & referral threads
     bot_thread = threading.Thread(target=run_bot_thread, daemon=True)

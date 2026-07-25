@@ -2,6 +2,10 @@ import { getStore } from "@netlify/blobs";
 import path from "path";
 import fs from "fs";
 
+const TAG = process.env.AMAZON_AFFILIATE_TAG || "shashwat022-21";
+// NOTE: Buyers — set AMAZON_AFFILIATE_TAG in Netlify env vars to use your own tag
+// Leave unset to keep the default (shashwat022-21) while testing
+
 export default async (request, context) => {
   const url = new URL(request.url);
   const targetUrl = url.searchParams.get("url");
@@ -69,7 +73,6 @@ export default async (request, context) => {
   }
   const domain = finalUrl.includes("amazon.com") ? "amazon.com" : "amazon.in";
 
-  const TAG = "shashwat022-21";
   const asinMatch = finalUrl.match(/(?:dp|gp\/product|asin|d|product)\/([A-Z0-9]{10})/i);
   let finalAmazonUrl;
 
