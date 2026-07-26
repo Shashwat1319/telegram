@@ -66,7 +66,7 @@ async def random_item(update, context):
     body = str(item.get("body", ""))[:200]
     link = item.get("link", "")
     image = item.get("image", "")
-    tracked = tracked_url(link) if link else ""
+    tracked = tracked_url(link, title=item.get("title"), price=item.get("price"), discount=item.get("discount"), image=item.get("image")) if link else ""
     msg = f"*{title}*\n\n{body}"
     if tracked:
         msg += f"\n\n👉 [Learn More]({tracked})"
@@ -136,7 +136,7 @@ async def topdeal(update, context):
     title = top.get("title", "Deal")[:60]
     body = top.get("body", "")[:200]
     link = top.get("link", "")
-    tracked = tracked_url(link, top.get("product_id")) if link else ""
+    tracked = tracked_url(link, top.get("product_id"), title=top.get("title"), price=top.get("price"), discount=top.get("discount"), image=top.get("image")) if link else ""
     msg = f"🏆 *TOP DEAL TODAY*\n\n*{title}*\n\n{body}"
     if tracked:
         msg += f"\n\n👉 [Grab Deal]({tracked})"
@@ -192,7 +192,7 @@ async def button_callback(update, context):
         title = item.get("title", "Item")
         body = item.get("body", "")
         link = item.get("link", "")
-        tracked = tracked_url(link) if link else ""
+        tracked = tracked_url(link, title=item.get("title"), price=item.get("price"), discount=item.get("discount"), image=item.get("image")) if link else ""
         msg = f"*{title[:60]}*\n\n{body[:200]}"
         if tracked:
             msg += f"\n\n👉 [Learn More]({tracked})"

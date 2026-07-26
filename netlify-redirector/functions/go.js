@@ -97,21 +97,26 @@ export default async (request, context) => {
   // --- 5. Preview bots → serve OG-rich HTML page that redirects ---
   // Real users → fast 302 redirect
   if (isBot) {
-    const ogImage = `${url.origin}/og-image.jpg`;
+    const productTitle = url.searchParams.get("title") || "🔥 Hot Deal on Amazon";
+    const productPrice = url.searchParams.get("price") || "";
+    const productDiscount = url.searchParams.get("discount") || "";
+    const productImage = url.searchParams.get("img") || `${url.origin}/og-image.jpg`;
+    const displayTitle = productDiscount ? `${productDiscount} OFF — ${productTitle}` : productTitle;
+    const displayDesc = productPrice ? `${productTitle} — now at ${productPrice}${productDiscount ? ` (${productDiscount} off)` : ""}. Limited-time deal!` : `Grab this limited-time offer before it's gone! Verified price drop.`;
     const html = `<!DOCTYPE html>
 <html><head>
   <meta charset="utf-8">
-  <title>Budget Deals India - Best Amazon Deals</title>
-  <meta property="og:title" content="🔥 Hot Deal on Amazon - Budget Deals India">
-  <meta property="og:description" content="Grab this limited-time offer before it's gone! Verified price drop.">
-  <meta property="og:image" content="${ogImage}">
+  <title>${displayTitle}</title>
+  <meta property="og:title" content="${displayTitle}">
+  <meta property="og:description" content="${displayDesc}">
+  <meta property="og:image" content="${productImage}">
   <meta property="og:url" content="${finalAmazonUrl}">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Budget Deals India">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="🔥 Hot Deal on Amazon - Budget Deals India">
-  <meta name="twitter:description" content="Grab this limited-time offer before it's gone! Verified price drop.">
-  <meta name="twitter:image" content="${ogImage}">
+  <meta name="twitter:title" content="${displayTitle}">
+  <meta name="twitter:description" content="${displayDesc}">
+  <meta name="twitter:image" content="${productImage}">
   <meta http-equiv="refresh" content="2;url=${finalAmazonUrl}">
 </head><body>
   <p>Redirecting to Amazon deal... <a href="${finalAmazonUrl}">Click here if not redirected</a></p>

@@ -52,12 +52,20 @@ def format_price(raw_price):
     return price
 
 
-def tracked_url(url, product_id=None):
+def tracked_url(url, product_id=None, title=None, price=None, discount=None, image=None):
     if not CLICK_TRACKER_URL:
         return url
     base = f"{CLICK_TRACKER_URL}/go?url={quote(url)}"
     if product_id:
         base += f"&product={quote(product_id)}"
+    if title:
+        base += f"&title={quote(title[:80])}"
+    if price:
+        base += f"&price={quote(price)}"
+    if discount:
+        base += f"&discount={quote(discount)}"
+    if image:
+        base += f"&img={quote(image)}"
     return base
 
 

@@ -162,7 +162,7 @@ async def post_content():
                 title = item.get("title", "Deal")
                 raw_link = item.get("link", "") if HAS_LINKS else ""
                 product_id = item.get("product_id", "")
-                link = tracked_url(raw_link, product_id) if raw_link and LINK_TRACKING else raw_link
+                link = tracked_url(raw_link, product_id, title=item.get("title"), price=item.get("price"), discount=item.get("discount"), image=item.get("image")) if raw_link and LINK_TRACKING else raw_link
                 msg = generate_high_converting_message(item, current_count)
 
                 buttons = []
