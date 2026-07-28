@@ -13,7 +13,7 @@
     "source_file": "content_home.json",
     "schedule_interval_minutes": 240,
     "posts_per_batch": 1,
-    "max_reposts": 0,
+    "max_reposts": 50,
     "has_links": true,
     "link_tracking_enabled": true,
     "pin_posts": false,
