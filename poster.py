@@ -48,19 +48,26 @@ def _save_posted(data):
 
 def _pick_eligible(items, posted):
     now = datetime.now()
-    eligible = []
+    unposted = []
+    repostable = []
     for item in items:
         item_id = item.get("id") or item.get("title")
         if not item_id:
             continue
         if item_id not in posted:
-            eligible.append(item)
+            unposted.append(item)
         else:
             h = posted[item_id]
             gap = random.randint(8, 16)
             if h.get("count", 0) < MAX_REPOSTS and h.get("last", "") < (now - timedelta(hours=gap)).isoformat():
-                eligible.append(item)
-    return eligible
+                repostable.append(item)
+    # Never repost while fresh items remain (prevents discount-sorted
+    # top items from crowding out the sequence)
+    if unposted:
+        return unposted
+    # All posted → cycle in order, oldest-last first
+    repostable.sort(key=lambda i: posted.get(i.get("id") or i.get("title"), {}).get("last", ""))
+    return repostable
 
 
 def _get_post_count():
