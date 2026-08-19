@@ -17,6 +17,8 @@ CHANNEL_ID = config.get("channel_id", os.getenv("CHANNEL_ID", "@channel"))
 BOT_USERNAME = config.get("username", os.getenv("BOT_USERNAME", "YourBot"))
 WELCOME_MSG = config.get("welcome_message", "Welcome!")
 CONTENT_CMD = config.get("content_command", "random")
+PREMIUM_CHANNEL = config.get("premium_channel_handle", "smartgahrpremium")
+PREMIUM_UNLOCK = int(config.get("premium_unlock_referrals", 2))
 
 REFERRAL_FILE = "referrals.json"
 REFERRAL_REWARD_BASE = int(os.getenv("REFERRAL_REWARD_BASE", "10"))
@@ -95,10 +97,9 @@ async def send_welcome(user_id: int, username: str = None):
                 f"🎉 *Welcome, @{mention}!*\n\n{WELCOME_MSG}\n\n"
                 f"👇 *Get started:*\n"
                 f"• /{CONTENT_CMD} — See what's new\n"
-                f"• /referral — Get your invite link & earn rewards\n\n"
-                f"🎯 *Referral Rewards:*\n"
-                f"  5 friends → 1.5x points\n"
-                f"  10 friends → 2x points\n\n"
+                f"• /referral — Get your invite link\n\n"
+                f"🎁 *FREE PREMIUM ACCESS*\n"
+                f"Refer {PREMIUM_UNLOCK} friends → unlock secret deals channel @{esc_md(PREMIUM_CHANNEL)}!\n\n"
                 f"📢 Join @{esc_md(CHANNEL_HANDLE)}"
             )
             kb = InlineKeyboardMarkup([

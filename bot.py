@@ -22,6 +22,8 @@ REFERRAL_REMINDER_MSG = bot_cfg.get("referral_reminder_message", "Invite friends
 CONTENT_CMD = bot_cfg.get("content_command", "random")
 CONTENT_CMD_LABEL = bot_cfg.get("content_command_label", "Get Content")
 CONTENT_SOURCE = config.get("content", {}).get("source_file", "content.json")
+PREMIUM_CHANNEL = bot_cfg.get("premium_channel_handle", "smartgahrpremium")
+PREMIUM_UNLOCK = int(bot_cfg.get("premium_unlock_referrals", 2))
 
 _content_cache = {"items": None, "ts": 0.0}
 
@@ -44,10 +46,10 @@ async def start(update, context):
         f"👋 *Welcome {user.first_name}!*\n\n{esc_md(WELCOME_MSG)}\n\n"
         f"📌 *Commands:*\n"
         f"• /{CONTENT_CMD} — {CONTENT_CMD_LABEL}\n"
-        f"• /referral — Invite friends & earn rewards\n"
+        f"• /referral — Invite friends & unlock premium\n"
         f"• /topdeal — Best discount deal\n"
         f"• /search <kw> — Search deals\n\n"
-        f"🎯 *Refer 5 friends → 1.5x points | Refer 10 → 2x points*\n\n"
+        f"🎁 *Refer {PREMIUM_UNLOCK} friends → FREE Premium Access* (secret extra deals channel)\n\n"
         f"Join @{esc_md(CHANNEL_HANDLE)} for daily deals! 🚀"
     )
     kb = InlineKeyboardMarkup([
@@ -104,27 +106,34 @@ async def referral(update, context):
         log.error("Referral error for user %d: %s", user.id, e)
         await update.message.reply_text("❌ Could not generate referral link right now. Make sure the bot is admin in the channel. Try again later.")
         return
-    progress_5 = "▓" * min(count, 5) + "░" * (5 - min(count, 5))
-    progress_10 = "▓" * max(0, min(count - 5, 5)) + "░" * max(0, 5 - max(0, count - 5))
-    next_tier = "2x points" if count >= 10 else "1.5x points" if count >= 5 else "1.5x points (at 5)"
-    msg = (
-        f"🎯 *Your Referral Link*\n\n"
-        f"Share this link with friends — when they join, you earn points!\n\n"
-        f"🔗 `{link}`\n\n"
-        f"📊 *Your Stats:*\n"
-        f"• People referred: *{count}*\n"
-        f"• Points earned: *{points}*\n\n"
-        f"👥 *Tier Progress:*\n"
-        f"  Tier 1 (5 refs): `{progress_5}` {count}/5\n"
-        f"  Tier 2 (10 refs): `{progress_10}` {count}/10\n"
-        f"  Current rate: {next_tier}\n\n"
-        f"Keep sharing — more referrals = bigger rewards!"
-    )
+    remaining = max(0, PREMIUM_UNLOCK - count)
+    progress_filled = min(count, PREMIUM_UNLOCK)
+    progress = "▓" * progress_filled + "░" * max(0, PREMIUM_UNLOCK - progress_filled)
+    if count >= PREMIUM_UNLOCK:
+        status_line = (
+            f"🎖️ *PREMIUM UNLOCKED!*\n\n"
+            f"✅ Aapne {count} friends join karwaye hain!\n\n"
+            f"🔓 Ab aapke liye *secret premium deals channel* khol diya hai.\n\n"
+            f"👉 Join: @{esc_md(PREMIUM_CHANNEL)}\n\n"
+            f"Keep sharing — har naye join par aur rewards! 🎁"
+        )
+    else:
+        status_line = (
+            f"🎯 *Your Referral Link*\n\n"
+            f"Share this link with friends — jab wo join karenge, aap premium unlock karenge!\n\n"
+            f"🔗 `{link}`\n\n"
+            f"📊 *Progress:*\n"
+            f"`{progress}` {count}/{PREMIUM_UNLOCK} friends\n\n"
+            f"🎁 *{remaining} aur friend join karo → FREE Premium Access* (secret deals channel @{esc_md(PREMIUM_CHANNEL)})\n\n"
+            f"💰 Points earned so far: *{points}*"
+        )
     kb = InlineKeyboardMarkup([
         [InlineKeyboardButton("📤 Share Link", url=f"https://t.me/share/url?url={link}&text=Join%20%40{CHANNEL_HANDLE}%21")],
-        [InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{CHANNEL_HANDLE}")]
+        [InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{CHANNEL_HANDLE}")],
     ])
-    await update.message.reply_text(msg, parse_mode="Markdown", reply_markup=kb)
+    if count >= PREMIUM_UNLOCK:
+        kb.inline_keyboard.insert(0, [InlineKeyboardButton("🔓 Premium Deals", url=f"https://t.me/{PREMIUM_CHANNEL}")])
+    await update.message.reply_text(status_line, parse_mode="Markdown", reply_markup=kb)
 
 async def topdeal(update, context):
     items = load_content_items(CONTENT_SOURCE)
@@ -215,10 +224,10 @@ async def post_referral_reminder(bot: Bot, pin=False):
         f"🎯 *Help @{CHANNEL_HANDLE} Reach 100 Members!*\n\n"
         f"👥 Current: *{count}* | Goal: *100*\n\n"
         f"{esc_md(REFERRAL_REMINDER_MSG)}\n\n"
-        "▫️ Refer 1 friend → 10 points\n"
-        "▫️ Refer 5 friends → 1.5x points (15 each)\n"
-        "▫️ Refer 10 friends → 2x points (20 each)\n\n"
-        "👇 *Get your link:*\n"
+        f"🎁 *FREE PREMIUM ACCESS*\n"
+        f"Refer {PREMIUM_UNLOCK} friends → unlock our *secret extra-deals channel*!\n"
+        f"→ @{esc_md(PREMIUM_CHANNEL)} — hidden deals jo sabko nahi milte.\n\n"
+        f"👇 *Get your link:*\n"
         f"👉 @{esc_md(BOT_USERNAME)} and type /referral"
     )
     kb = InlineKeyboardMarkup([

@@ -7,7 +7,9 @@
     "welcome_message": "Welcome to SmartGahr! Get the best home & kitchen deals under ₹999 — handpicked from Amazon India.",
     "referral_reminder_message": "Invite your friends and both get rewards! Use /referral to get your link.",
     "content_command": "deal",
-    "content_command_label": "Today's Home Deal"
+    "content_command_label": "Today's Home Deal",
+    "premium_channel_handle": "smartgahrpremium",
+    "premium_unlock_referrals": 2
   },
   "content": {
     "source_file": "content_home.json",
@@ -17,7 +19,9 @@
     "has_links": true,
     "link_tracking_enabled": true,
     "pin_posts": false,
-    "hashtags": ["#SmartGahr", "#HomeUnder999", "#KitchenDeals", "#AmazonHome", "#GharKiDeal", "#BudgetHome"]
+    "hashtags": ["#SmartGahr", "#HomeUnder999", "#KitchenDeals", "#AmazonHome", "#GharKiDeal", "#BudgetHome"],
+    "max_price": 999,
+    "include_categories": ["Home & Kitchen", "Home Improvement"]
   },
   "tasks": {
     "product_feed": { "enabled": false, "note": "Handled by GitHub Actions every 4h" },
