@@ -54,3 +54,100 @@ Aaj ka best find: [Product name] — ₹[price] (MRP ₹[mrp], [disc]% off), [ra
 - Uske baad 1 post channel link ke saath
 - Reply to comments — engagement algorithm ko boost karta hai
 - Groups: "India Deals", "Amazon India Deals", "Flipkart/Amazon Deal Groups", local city groups, student groups, "Budget Shopping India"
+
+---
+
+# PROMO PACK V2 — Week 2 & 3 Content (Retention + Referral)
+
+## Week 2: Hook Set Karo (Retention)
+
+### 11. Daily Poll Post (channel pe)
+🗳️ *Aaj ka Poll!* — Kal ki deals me se kaunsi best thi?
+1. [Product A] ₹[price]
+2. [Product B] ₹[price]
+3. [Product C] ₹[price]
+Vote karo — sabse zyada votes wali deal kal repeat hogi! 🔥
+(Group me share karo: "Roz aisi polls aati hain, join karo: t.me/smartgahr")
+
+### 12. Giveaway Announcement
+🎁 *SmartGahr Weekly Giveaway!* 🎁
+Is hafte 1 lucky member ko ₹100 Amazon voucher milega!
+Kaise jeeto:
+1. Roz ki deal post pe comment karo "CLAIM"
+2. Jitna zyada CLAIM, utni zyada chance
+3. Winner every Sunday announced 🔥
+Join karo aur participate karo: t.me/smartgahr
+(Members abhi 22 hain — jab 100+ honge tab start karna. Abhi announcement + "jaldi aa raha hai" hype banao.)
+
+### 13. Engagement Post (controversy angle)
+Maine kal ₹215 ka kitchen scale order kiya. Kuch log bol rahe hain "3 mahine me kharab ho jata hai". 
+Sach kya hai? Maine review check kiye: 4/5 rating, 2000+ reviews.
+Mera verdict: Is price pe best hai. Expensive wala ₹800 ka bhi utna hi deta hai.
+Aapka kya khayal hai? Comment karo 👇
+Roz aisi honest baatein: t.me/smartgahr
+
+### 14. Poll Post (group engagement)
+Sawaal: Amazon India me sabse FAKE deals kis category me?
+🧊 Kitchen
+💡 Electronics
+👕 Fashion
+📱 Gadgets
+Reply karo — main results kal share karunga with real data!
+(Roz aise polls + analysis: t.me/smartgahr)
+
+### 15. Trust Content (Week 2 special)
+"Deal check: Ye 70% OFF wala kitchen set sach me deal hai?"
+MRP: ₹2000 (hamesha aisa hi tha?)
+Price: ₹600
+Verdict: ❌ FAKE — MRP ₹2000 kabhi tha hi nahi, ₹900 ka product hai.
+Isliye hum sirf 40%+ VERIFIED deals hi dikhate hain.
+Roz asli deals: t.me/smartgahr
+
+## Week 3: Referral Engine (250 → 500)
+
+### 16. Referral CTA Post (channel)
+🎁 *FREE PREMIUM — 2 friends ka!* 🎁
+@smartgahrpremium = SECRET deals channel (roz 2x deals, price-drop alerts, pehle aap!)
+Kaise unlock karo:
+1. Bot kholo: @Ffzon_bot
+2. /referral → apna link lo
+3. 2 doston ko bhejo → jo join kare, unhe bhi premium milega!
+Sirf 30 din ka offer — share karte raho, premium badhta rahega! 🚀
+
+### 17. Referral Push Post (group)
+Bhai, maine ek channel join kiya jahan roz sachchi deals aati hain — ₹215 ka weighing scale, ₹250 me 3 LED bulbs. 
+Sabse best: 2 friends ko invite karo toh SECRET premium channel unlock hota hai (aur bhi sasti deals!).
+Mera link: [apna referral link]
+Try karo: t.me/smartgahr
+
+### 18. Premium Teaser Post (channel)
+🔒 *Kya hai @smartgahrpremium?*
+- Roz 2x deals (main channel se zyada)
+- Price-drop ALERTS (price kam hote hi notification)
+- Exclusive "mat lo ye" analysis
+- Sirf premium members ke liye
+Unlock: @Ffzon_bot → /referral → 2 friends!
+Abhi 3 log premium pe hain — tu 4th ban! 👑
+
+### 19. Testimonial-Style Post
+"Bhai ye channel legit hai ya scam?" — kisi ne poocha.
+Sach: 90+ deals post ho chuki hain, sab verified. Koi fake discount nahi. 
+Jo deal galat lagti hai, hum khud bolte hain "MAT LO YE" (trust > commission).
+Aaj hi join karo, 1 hafte me khud judge karna: t.me/smartgahr
+
+### 20. Milestone Announcement (jab 100 members)
+🎉 *SMARTGAHR REACHED 100 MEMBERS!* 🎉
+Thank you sabko! Celebrate karne ke liye:
+🎁 Is hafte 2 winners ko ₹100 Amazon voucher
+🔒 Ab se premium referral = 1 friend se bhi unlock ho sakta hai (limited time!)
+Aage ka target: 250 → 500 → 1000! 
+Growth me participate karo: t.me/smartgahr
+
+---
+
+## 30-Day Roadmap (Channel Announcement Sequence)
+- Day 1-7: Deal posts + trust format zyada (W1)
+- Day 8-14: Polls + giveaway hype + CTA posts (W2)
+- Day 15-21: Premium referral push + teaser (W3)
+- Day 22-30: Milestone + testimonial + referral blitz
+- Har din 1 poll + 1 trust post + 1 regular deal

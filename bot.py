@@ -49,7 +49,7 @@ async def start(update, context):
         f"• /referral — Invite friends & unlock premium\n"
         f"• /topdeal — Best discount deal\n"
         f"• /search <kw> — Search deals\n\n"
-        f"🎁 *Refer {PREMIUM_UNLOCK} friends → FREE Premium Access* (secret extra deals channel)\n\n"
+        f"🎁 *Refer {PREMIUM_UNLOCK} friends → 30 din FREE Premium* (secret extra deals channel)\n\n"
         f"Join @{esc_md(CHANNEL_HANDLE)} for daily deals! 🚀"
     )
     kb = InlineKeyboardMarkup([
@@ -99,9 +99,12 @@ async def referral(update, context):
             return
         _referral_cooldowns[user.id] = now
     try:
-        from referral import generate_referral_link, get_user_stats
+        from referral import generate_referral_link, get_user_stats, get_premium_status, ensure_premium_expiry, PREMIUM_REFERRALS_NEEDED
         link = await generate_referral_link(user.id)
         _, count, points = get_user_stats(user.id)
+        active, _, expires = get_premium_status(user.id)
+        if count >= PREMIUM_REFERRALS_NEEDED:
+            ensure_premium_expiry(user.id)
     except Exception as e:
         log.error("Referral error for user %d: %s", user.id, e)
         await update.message.reply_text("❌ Could not generate referral link right now. Make sure the bot is admin in the channel. Try again later.")
@@ -109,13 +112,21 @@ async def referral(update, context):
     remaining = max(0, PREMIUM_UNLOCK - count)
     progress_filled = min(count, PREMIUM_UNLOCK)
     progress = "▓" * progress_filled + "░" * max(0, PREMIUM_UNLOCK - progress_filled)
-    if count >= PREMIUM_UNLOCK:
+    if count >= PREMIUM_UNLOCK and active:
+        exp_line = f"\n⏳ *Expires:* {expires[:10]}\n\nRefer {PREMIUM_UNLOCK} aur friends → *renew* kar ke premium badhao!" if expires else ""
         status_line = (
-            f"🎖️ *PREMIUM UNLOCKED!*\n\n"
-            f"✅ Aapne {count} friends join karwaye hain!\n\n"
-            f"🔓 Ab aapke liye *secret premium deals channel* khol diya hai.\n\n"
-            f"👉 Join: @{esc_md(PREMIUM_CHANNEL)}\n\n"
-            f"Keep sharing — har naye join par aur rewards! 🎁"
+            f"🎖️ *PREMIUM ACTIVE!*\n\n"
+            f"✅ Aapne {count} friends join karwaye hain — 30 din ka FREE Premium active hai!{exp_line}\n\n"
+            f"🔓 Secret deals channel: @{esc_md(PREMIUM_CHANNEL)}\n\n"
+            f"Renew karo: share karte raho — har {PREMIUM_UNLOCK} naye join pe premium dobara unlock hota hai! 🎁"
+        )
+    elif count >= PREMIUM_UNLOCK and not active:
+        status_line = (
+            f"⏰ *PREMIUM EXPIRED*\n\n"
+            f"Aapka 30-din premium khatam ho gaya hai. 🥲\n\n"
+            f"✅ *Renew karo:* {PREMIUM_UNLOCK} aur naye friends ko join karwao → premium turant 30 din ke liye wapas!\n\n"
+            f"🔗 `{link}`\n\n"
+            f"`{progress}` {count}/{PREMIUM_UNLOCK} + renew"
         )
     else:
         status_line = (
@@ -124,7 +135,7 @@ async def referral(update, context):
             f"🔗 `{link}`\n\n"
             f"📊 *Progress:*\n"
             f"`{progress}` {count}/{PREMIUM_UNLOCK} friends\n\n"
-            f"🎁 *{remaining} aur friend join karo → FREE Premium Access* (secret deals channel @{esc_md(PREMIUM_CHANNEL)})\n\n"
+            f"🎁 *{remaining} aur friend join karo → 30 din FREE Premium* (secret deals channel @{esc_md(PREMIUM_CHANNEL)})\n\n"
             f"💰 Points earned so far: *{points}*"
         )
     kb = InlineKeyboardMarkup([
@@ -133,7 +144,35 @@ async def referral(update, context):
     ])
     if count >= PREMIUM_UNLOCK:
         kb.inline_keyboard.insert(0, [InlineKeyboardButton("🔓 Premium Deals", url=f"https://t.me/{PREMIUM_CHANNEL}")])
+    share_text = f"Mujhe roz sachchi deals milti hain — @{CHANNEL_HANDLE} join karo! 🛒🔥"
+    kb.inline_keyboard.insert(0, [InlineKeyboardButton("📤 Share with Friends", url=f"https://t.me/share/url?url={link}&text={share_text}")])
     await update.message.reply_text(status_line, parse_mode="Markdown", reply_markup=kb)
+
+async def premium_cmd(update, context):
+    user = update.effective_user
+    try:
+        from referral import get_premium_status, generate_referral_link, PREMIUM_REFERRALS_NEEDED, PREMIUM_DURATION_DAYS
+        active, count, expires = get_premium_status(user.id)
+    except Exception as e:
+        log.error("Premium status error for user %d: %s", user.id, e)
+        await update.message.reply_text("❌ Could not check premium status. Try again later.")
+        return
+    if active:
+        msg = (
+            f"🎖️ *Premium Status: ACTIVE*\n\n"
+            f"✅ Aapke paas {PREMIUM_DURATION_DAYS}-din premium access hai!\n"
+            f"⏳ Expires: *{expires[:10]}* (agar set hai)\n\n"
+            f"🔓 Join: @{esc_md(PREMIUM_CHANNEL)}\n\n"
+            f"Renew: {PREMIUM_REFERRALS_NEEDED} aur friends join karwao → dobara premium!"
+        )
+    else:
+        msg = (
+            f"🎖️ *Premium Status: NOT ACTIVE*\n\n"
+            f"Abhi {count}/{PREMIUM_REFERRALS_NEEDED} friends join karwaye hain.\n\n"
+            f"🎁 {PREMIUM_REFERRALS_NEEDED} dosto ko invite karo → {PREMIUM_DURATION_DAYS} din FREE premium!\n\n"
+            f"👉 /referral se apna link lo aur share karo!"
+        )
+    await update.message.reply_text(msg, parse_mode="Markdown")
 
 async def topdeal(update, context):
     items = load_content_items(CONTENT_SOURCE)
@@ -268,6 +307,7 @@ def run_bot():
     app.job_queue.run_repeating(_reminder_job, interval=14400, first=10)
 
     app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("premium", premium_cmd))
     app.add_handler(CommandHandler(CONTENT_CMD, random_item))
     app.add_handler(CommandHandler("referral", referral))
     app.add_handler(CommandHandler("topdeal", topdeal))

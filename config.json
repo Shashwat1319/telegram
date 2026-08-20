@@ -19,6 +19,9 @@
     "has_links": true,
     "link_tracking_enabled": true,
     "pin_posts": false,
+    "daily_poll": true,
+    "post_to_premium": true,
+    "premium_channel_id": "@smartgahrpremium",
     "hashtags": ["#SmartGahr", "#HomeUnder999", "#KitchenDeals", "#AmazonHome", "#GharKiDeal", "#BudgetHome"],
     "max_price": 999,
     "include_categories": ["Home & Kitchen", "Home Improvement"]

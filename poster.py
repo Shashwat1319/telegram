@@ -31,7 +31,19 @@ HAS_LINKS = content_cfg.get("has_links", True)
 LINK_TRACKING = content_cfg.get("link_tracking_enabled", False)
 PIN_POSTS = content_cfg.get("pin_posts", False)
 HASHTAGS = " ".join(content_cfg.get("hashtags", ["#AmazonDeals", "#LootOffer", "#PriceDrop"]))
+DAILY_POLL = content_cfg.get("daily_poll", False)
+POST_TO_PREMIUM = content_cfg.get("post_to_premium", False)
+PREMIUM_CHANNEL_ID = content_cfg.get("premium_channel_id", bot_cfg.get("premium_channel_handle", "@smartgahrpremium"))
 COUNTER_FILE = "post_count.txt"
+
+CTA_OPTIONS = [
+    "💬 Isse sasta kahin mila? Comment karo 👇",
+    "🗳️ Aaj ki deal kaunsi best lagi? Reply me batao!",
+    "📝 Is product ki review chahiye? Comment me bolo — hum test karke batayenge",
+    "🔄 Apne group me share karo — sabko bachao paise!",
+    "👍 Deal achhi lagi? Reaction do — kal aur aisi hi deal aayegi",
+    "❓ Is price pe khareedna chahiye ya wait karein? Comment karo",
+]
 
 
 def _posted_path():
@@ -58,7 +70,11 @@ def _pick_eligible(items, posted):
             unposted.append(item)
         else:
             h = posted[item_id]
-            gap = random.randint(8, 16)
+            # Trust formats cycle faster (2x weight): shorter repost window
+            if item.get("format") in ("trust_check", "personal_review"):
+                gap = random.randint(2, 4)
+            else:
+                gap = random.randint(8, 16)
             if h.get("count", 0) < MAX_REPOSTS and h.get("last", "") < (now - timedelta(hours=gap)).isoformat():
                 repostable.append(item)
     # Never repost while fresh items remain (prevents discount-sorted
@@ -128,6 +144,7 @@ def generate_high_converting_message(item, post_count=0):
     msg += f"\n\n📢 <b>Join</b> @{CLEAN_ID} for daily loots!"
     if HASHTAGS:
         msg += f"\n{HASHTAGS}"
+    msg += f"\n\n{random.choice(CTA_OPTIONS)}"
     return msg
 
 
@@ -201,9 +218,71 @@ async def post_content():
                 except Exception as e:
                     log.error("Failed to post %s: %s", title, e)
 
+            if POST_TO_PREMIUM and to_post:
+                premium_item = to_post[0]
+                try:
+                    await bot.send_message(
+                        chat_id=PREMIUM_CHANNEL_ID,
+                        text=f'<a href="{tracked_url(premium_item.get("link", ""), premium_item.get("product_id"), title=premium_item.get("title"), price=premium_item.get("price"), discount=premium_item.get("discount"), image=premium_item.get("image")) if premium_item.get("link") and LINK_TRACKING else premium_item.get("link", "")}">&#8203;</a>'
+                        f"🔒 <b>PREMIUM EXCLUSIVE</b>\n\n📦 <b>{premium_item.get('title', 'Deal')}</b>\n\n"
+                        f"{premium_item.get('body', '')[:300]}\n\n"
+                        f"🔗 <a href=\"{tracked_url(premium_item.get('link', ''), premium_item.get('product_id')) if premium_item.get('link') and LINK_TRACKING else premium_item.get('link', '')}\">🛒 Buy on Amazon</a>",
+                        parse_mode="HTML",
+                        reply_markup=InlineKeyboardMarkup([[
+                            InlineKeyboardButton("🛒 BUY NOW", url=tracked_url(premium_item.get("link", ""), premium_item.get("product_id")) if premium_item.get("link") and LINK_TRACKING else premium_item.get("link", "")),
+                        ]]),
+                    )
+                    log.info("Posted premium deal to %s", PREMIUM_CHANNEL_ID)
+                except Exception as e:
+                    log.error("Premium posting failed: %s", e)
+
+            if DAILY_POLL:
+                try:
+                    await post_daily_poll(bot, chat_id, items, posted)
+                except Exception as e:
+                    log.error("Poll posting failed: %s", e)
+
             await bot.shutdown()
     except Exception as e:
         log.error("post_content fatal error: %s", e)
+
+
+async def post_daily_poll(bot, chat_id, items, posted):
+    """Posts a daily engagement poll with the last few posted deals as options."""
+    if not items:
+        return
+    recent = []
+    for item in items:
+        item_id = item.get("id") or item.get("title", "")
+        h = posted.get(item_id)
+        if h and item_id in posted:
+            recent.append((h.get("last", ""), item))
+    recent.sort(key=lambda x: x[0], reverse=True)
+    recent = [item for _, item in recent[:4]]
+    if len(recent) < 2:
+        recent = items[:min(4, len(items))]
+    options = []
+    for item in recent:
+        price = item.get("price", "")
+        title = item.get("title", "Deal")
+        short = title[:60]
+        if len(short) > 58:
+            short = short[:57] + "…"
+        options.append(f"{short}")
+    while len(options) > 4:
+        options.pop()
+    question = "🔥 Aaj ki best deal kaunsi lagi?"
+    try:
+        await bot.send_poll(
+            chat_id=chat_id,
+            question=question,
+            options=options[:4],
+            is_anonymous=False,
+            allows_multiple_answers=False,
+        )
+        log.info("Daily poll posted with %d options", len(options))
+    except TelegramError as e:
+        log.error("Poll send error: %s", e)
 
 
 def post_next_deal():

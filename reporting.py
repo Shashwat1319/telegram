@@ -62,9 +62,21 @@ async def daily_report():
     from calendar import monthrange
     _, last_day = monthrange(datetime.now().year, datetime.now().month)
     remaining = last_day - datetime.now().day
+    try:
+        m = int(members)
+    except (ValueError, TypeError):
+        m = 0
+    milestones = [100, 250, 500, 1000, 2500, 5000]
+    next_m = next((x for x in milestones if x > m), milestones[-1])
+    done = min(m, next_m)
+    bar_len = 10
+    filled = int(done / next_m * bar_len)
+    bar = "▓" * filled + "░" * (bar_len - filled)
     report = (
         f"📊 **DAILY REPORT** ({today})\n\n"
-        f"👥 **Members**: {members}/100 🎯\n"
+        f"👥 **Members**: {members} 🎯\n"
+        f"📊 **Roadmap**: `{bar}` {m}/{next_m}\n"
+        f"   (100 → 250 → 500 → 1000 → 2500 → 5000)\n"
         f"📦 **Content Items**: {item_count}\n"
         f"📢 **Channel**: @{CHANNEL_HANDLE}\n\n"
         f"🔗 **Referral Stats:**\n"
@@ -86,7 +98,7 @@ async def check_goal():
             await bot.initialize()
             count = await bot.get_chat_member_count(CHANNEL_ID)
             log.info("Current subscriber count: %d", count)
-            milestones = [(100, "goal_100_notified"), (500, "goal_500_notified"), (1000, "goal_1000_notified")]
+            milestones = [(100, "goal_100_notified"), (250, "goal_250_notified"), (500, "goal_500_notified"), (1000, "goal_1000_notified"), (2500, "goal_2500_notified"), (5000, "goal_5000_notified")]
             for milestone, key in milestones:
                 if count >= milestone and not state.get(key, False):
                     msg = f"🎊 *{milestone} Subscribers!* 🎊\n\nYour channel has reached *{milestone} subscribers*! 🚀\nCurrent: *{count}*"

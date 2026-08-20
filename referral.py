@@ -1,5 +1,5 @@
 import os, asyncio, logging
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from dotenv import load_dotenv
 from config_loader import load_config
 from data import load_json, save_json
@@ -24,6 +24,8 @@ REFERRAL_FILE = "referrals.json"
 REFERRAL_REWARD_BASE = int(os.getenv("REFERRAL_REWARD_BASE", "10"))
 REFERRAL_TIER_1_THRESHOLD = int(os.getenv("REFERRAL_TIER_1_THRESHOLD", "5"))
 REFERRAL_TIER_2_THRESHOLD = int(os.getenv("REFERRAL_TIER_2_THRESHOLD", "10"))
+PREMIUM_REFERRALS_NEEDED = int(os.getenv("PREMIUM_REFERRALS_NEEDED", "2"))
+PREMIUM_DURATION_DAYS = int(os.getenv("PREMIUM_DURATION_DAYS", "30"))
 
 _LOCK = asyncio.Lock()
 
@@ -73,6 +75,44 @@ def get_user_stats(user_id: int):
             return link, total_joined, total_joined * REFERRAL_REWARD_BASE
     return None, 0, 0
 
+
+def get_premium_status(user_id: int):
+    """Returns (active, joined_count, expires_at_iso). Active = count >= needed and not expired."""
+    referrals = load_referrals()
+    for link, info in referrals.items():
+        if info.get("creator") == user_id:
+            count = len(info.get("joined", []))
+            expires = info.get("premium_expires_at")
+            active = False
+            if count >= PREMIUM_REFERRALS_NEEDED:
+                if expires:
+                    try:
+                        exp_dt = datetime.fromisoformat(expires)
+                        if exp_dt.tzinfo is None:
+                            exp_dt = exp_dt.replace(tzinfo=timezone.utc)
+                        active = exp_dt > datetime.now(timezone.utc)
+                    except Exception:
+                        active = True
+                else:
+                    # First unlock: set expiry for the first time
+                    active = True
+            return active, count, expires
+    return False, 0, None
+
+
+def ensure_premium_expiry(user_id: int, force=False):
+    """Sets premium_expires_at when a user crosses the threshold (now + duration)."""
+    referrals = load_referrals()
+    for link, info in referrals.items():
+        if info.get("creator") == user_id:
+            count = len(info.get("joined", []))
+            if count >= PREMIUM_REFERRALS_NEEDED and (not info.get("premium_expires_at") or force):
+                info["premium_expires_at"] = (datetime.now(timezone.utc) + timedelta(days=PREMIUM_DURATION_DAYS)).isoformat()
+                save_referrals(referrals)
+                log.info("Premium expiry set for user %d: %s", user_id, info["premium_expires_at"])
+            return
+    return
+
 def record_join(invite_link: str, user_id: int, username: str = None):
     referrals = load_referrals()
     for link in referrals:
@@ -81,6 +121,9 @@ def record_join(invite_link: str, user_id: int, username: str = None):
             if user_id not in info.get("joined", []):
                 info.setdefault("joined", []).append(user_id)
                 info["last_join"] = {"user_id": user_id, "username": username, "timestamp": datetime.now(timezone.utc).isoformat()}
+                # Renew premium if threshold met
+                if len(info["joined"]) >= PREMIUM_REFERRALS_NEEDED:
+                    info["premium_expires_at"] = (datetime.now(timezone.utc) + timedelta(days=PREMIUM_DURATION_DAYS)).isoformat()
                 save_referrals(referrals)
                 log.info("Referral: user %d (@%s) joined via %s... Total: %d", user_id, username, link[:50], len(info["joined"]))
                 return True
