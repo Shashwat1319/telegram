@@ -6,7 +6,7 @@ price: "₹349"
 mrp: "₹699"
 discount: "50%"
 image: ""
-buyLink: "https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4aoMzUt&product=shadow-gecko-lizard-repellent-spray-220m&title=Shadow%20Gecko%20Lizard%20Repellent%20Spray%20220ml&price=%E2%82%B9349&discount=50%25"
+buyLink: "https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4aoMzUt&product=shadow-gecko-lizard-repellent-spray-220m&title=Shadow%20Gecko%20Lizard%20Repellent%20Spray%20220ml&price=%E2%82%B9349&discount=50%25"
 category: "Home Improvement"
 rating: "4"
 ---
@@ -16,7 +16,7 @@ rating: "4"
 💸 **Price**: ~~₹699~~ → **₹349**
 ⭐ **Rating**: 4
 
-👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4aoMzUt&product=shadow-gecko-lizard-repellent-spray-220m&title=Shadow%20Gecko%20Lizard%20Repellent%20Spray%20220ml&price=%E2%82%B9349&discount=50%25)**
+👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4aoMzUt&product=shadow-gecko-lizard-repellent-spray-220m&title=Shadow%20Gecko%20Lizard%20Repellent%20Spray%20220ml&price=%E2%82%B9349&discount=50%25)**
 
 ### Why this deal?
 

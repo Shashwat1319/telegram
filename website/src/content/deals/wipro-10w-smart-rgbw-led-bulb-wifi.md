@@ -6,7 +6,7 @@ price: "₹599"
 mrp: "₹1799"
 discount: "67%"
 image: ""
-buyLink: "https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/3R67ogO&product=wipro-10w-smart-rgbw-led-bulb-wifi&title=Wipro%2010W%20Smart%20RGBW%20LED%20Bulb%20WiFi&price=%E2%82%B9599&discount=67%25"
+buyLink: "https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/3R67ogO&product=wipro-10w-smart-rgbw-led-bulb-wifi&title=Wipro%2010W%20Smart%20RGBW%20LED%20Bulb%20WiFi&price=%E2%82%B9599&discount=67%25"
 category: "Home Improvement"
 rating: "4"
 ---
@@ -16,7 +16,7 @@ rating: "4"
 💸 **Price**: ~~₹1799~~ → **₹599**
 ⭐ **Rating**: 4
 
-👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/3R67ogO&product=wipro-10w-smart-rgbw-led-bulb-wifi&title=Wipro%2010W%20Smart%20RGBW%20LED%20Bulb%20WiFi&price=%E2%82%B9599&discount=67%25)**
+👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/3R67ogO&product=wipro-10w-smart-rgbw-led-bulb-wifi&title=Wipro%2010W%20Smart%20RGBW%20LED%20Bulb%20WiFi&price=%E2%82%B9599&discount=67%25)**
 
 ### Why this deal?
 

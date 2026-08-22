@@ -6,7 +6,7 @@ price: "₹999"
 mrp: "₹2999"
 discount: "67%"
 image: ""
-buyLink: "https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4wfun8k&product=lifelong-4-slice-sandwich-toaster-850w&title=Lifelong%204%20Slice%20Sandwich%20Toaster%20850W&price=%E2%82%B9999&discount=67%25"
+buyLink: "https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4wfun8k&product=lifelong-4-slice-sandwich-toaster-850w&title=Lifelong%204%20Slice%20Sandwich%20Toaster%20850W&price=%E2%82%B9999&discount=67%25"
 category: "Home & Kitchen"
 rating: "4"
 ---
@@ -16,7 +16,7 @@ rating: "4"
 💸 **Price**: ~~₹2999~~ → **₹999**
 ⭐ **Rating**: 4
 
-👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4wfun8k&product=lifelong-4-slice-sandwich-toaster-850w&title=Lifelong%204%20Slice%20Sandwich%20Toaster%20850W&price=%E2%82%B9999&discount=67%25)**
+👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4wfun8k&product=lifelong-4-slice-sandwich-toaster-850w&title=Lifelong%204%20Slice%20Sandwich%20Toaster%20850W&price=%E2%82%B9999&discount=67%25)**
 
 ### Why this deal?
 

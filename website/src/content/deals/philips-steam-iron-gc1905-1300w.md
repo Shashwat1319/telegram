@@ -6,7 +6,7 @@ price: "₹999"
 mrp: "₹2495"
 discount: "60%"
 image: ""
-buyLink: "https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4gEX1ee&product=philips-steam-iron-gc1905-1300w&title=Philips%20Steam%20Iron%20GC1905%201300W&price=%E2%82%B9999&discount=60%25"
+buyLink: "https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4gEX1ee&product=philips-steam-iron-gc1905-1300w&title=Philips%20Steam%20Iron%20GC1905%201300W&price=%E2%82%B9999&discount=60%25"
 category: "Home & Kitchen"
 rating: "4.2"
 ---
@@ -16,7 +16,7 @@ rating: "4.2"
 💸 **Price**: ~~₹2495~~ → **₹999**
 ⭐ **Rating**: 4.2
 
-👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4gEX1ee&product=philips-steam-iron-gc1905-1300w&title=Philips%20Steam%20Iron%20GC1905%201300W&price=%E2%82%B9999&discount=60%25)**
+👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4gEX1ee&product=philips-steam-iron-gc1905-1300w&title=Philips%20Steam%20Iron%20GC1905%201300W&price=%E2%82%B9999&discount=60%25)**
 
 ### Why this deal?
 

@@ -6,7 +6,7 @@ price: "₹249"
 mrp: "₹549"
 discount: "55%"
 image: ""
-buyLink: "https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4xQlgfG&product=havells-6a-switch-board-modular-4-module&title=Havells%206A%20Switch%20Board%20Modular%204%20Module%20White&price=%E2%82%B9249&discount=55%25"
+buyLink: "https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4xQlgfG&product=havells-6a-switch-board-modular-4-module&title=Havells%206A%20Switch%20Board%20Modular%204%20Module%20White&price=%E2%82%B9249&discount=55%25"
 category: "Home Improvement"
 rating: "4"
 ---
@@ -16,7 +16,7 @@ rating: "4"
 💸 **Price**: ~~₹549~~ → **₹249**
 ⭐ **Rating**: 4
 
-👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4xQlgfG&product=havells-6a-switch-board-modular-4-module&title=Havells%206A%20Switch%20Board%20Modular%204%20Module%20White&price=%E2%82%B9249&discount=55%25)**
+👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4xQlgfG&product=havells-6a-switch-board-modular-4-module&title=Havells%206A%20Switch%20Board%20Modular%204%20Module%20White&price=%E2%82%B9249&discount=55%25)**
 
 ### Why this deal?
 

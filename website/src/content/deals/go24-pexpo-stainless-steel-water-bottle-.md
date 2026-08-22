@@ -6,7 +6,7 @@ price: "₹349"
 mrp: "₹999"
 discount: "65%"
 image: ""
-buyLink: "https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4v2oVUZ&product=go24-pexpo-stainless-steel-water-bottle-&title=Go24%20Pexpo%20Stainless%20Steel%20Water%20Bottle%201L&price=%E2%82%B9349&discount=65%25"
+buyLink: "https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4v2oVUZ&product=go24-pexpo-stainless-steel-water-bottle-&title=Go24%20Pexpo%20Stainless%20Steel%20Water%20Bottle%201L&price=%E2%82%B9349&discount=65%25"
 category: "Home & Kitchen"
 rating: "4.1"
 ---
@@ -16,7 +16,7 @@ rating: "4.1"
 💸 **Price**: ~~₹999~~ → **₹349**
 ⭐ **Rating**: 4.1
 
-👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4v2oVUZ&product=go24-pexpo-stainless-steel-water-bottle-&title=Go24%20Pexpo%20Stainless%20Steel%20Water%20Bottle%201L&price=%E2%82%B9349&discount=65%25)**
+👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4v2oVUZ&product=go24-pexpo-stainless-steel-water-bottle-&title=Go24%20Pexpo%20Stainless%20Steel%20Water%20Bottle%201L&price=%E2%82%B9349&discount=65%25)**
 
 ### Why this deal?
 

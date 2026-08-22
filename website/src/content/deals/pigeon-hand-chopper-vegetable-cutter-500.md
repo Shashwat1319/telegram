@@ -6,7 +6,7 @@ price: "₹349"
 mrp: "₹995"
 discount: "65%"
 image: ""
-buyLink: "https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4wfbRwP&product=pigeon-hand-chopper-vegetable-cutter-500&title=Pigeon%20Hand%20Chopper%20Vegetable%20Cutter%20500ml&price=%E2%82%B9349&discount=65%25"
+buyLink: "https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4wfbRwP&product=pigeon-hand-chopper-vegetable-cutter-500&title=Pigeon%20Hand%20Chopper%20Vegetable%20Cutter%20500ml&price=%E2%82%B9349&discount=65%25"
 category: "Home & Kitchen"
 rating: "4"
 ---
@@ -16,7 +16,7 @@ rating: "4"
 💸 **Price**: ~~₹995~~ → **₹349**
 ⭐ **Rating**: 4
 
-👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4wfbRwP&product=pigeon-hand-chopper-vegetable-cutter-500&title=Pigeon%20Hand%20Chopper%20Vegetable%20Cutter%20500ml&price=%E2%82%B9349&discount=65%25)**
+👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4wfbRwP&product=pigeon-hand-chopper-vegetable-cutter-500&title=Pigeon%20Hand%20Chopper%20Vegetable%20Cutter%20500ml&price=%E2%82%B9349&discount=65%25)**
 
 ### Why this deal?
 

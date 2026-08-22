@@ -6,7 +6,7 @@ price: "₹999"
 mrp: "₹2999"
 discount: "67%"
 image: ""
-buyLink: "https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4g253O9&product=ro-metal-clothes-drying-stand-foldable-w&title=RO%20Metal%20Clothes%20Drying%20Stand%20Foldable%20with%20Wheels%203-Tier&price=%E2%82%B9999&discount=67%25"
+buyLink: "https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4g253O9&product=ro-metal-clothes-drying-stand-foldable-w&title=RO%20Metal%20Clothes%20Drying%20Stand%20Foldable%20with%20Wheels%203-Tier&price=%E2%82%B9999&discount=67%25"
 category: "Home Improvement"
 rating: "4.2"
 ---
@@ -16,7 +16,7 @@ rating: "4.2"
 💸 **Price**: ~~₹2999~~ → **₹999**
 ⭐ **Rating**: 4.2
 
-👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4g253O9&product=ro-metal-clothes-drying-stand-foldable-w&title=RO%20Metal%20Clothes%20Drying%20Stand%20Foldable%20with%20Wheels%203-Tier&price=%E2%82%B9999&discount=67%25)**
+👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4g253O9&product=ro-metal-clothes-drying-stand-foldable-w&title=RO%20Metal%20Clothes%20Drying%20Stand%20Foldable%20with%20Wheels%203-Tier&price=%E2%82%B9999&discount=67%25)**
 
 ### Why this deal?
 

@@ -6,7 +6,7 @@ price: "₹449"
 mrp: "₹1395"
 discount: "68%"
 image: ""
-buyLink: "https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4eEWPco&product=prestige-non-stick-tawa-26cm-dosa-tawa&title=Prestige%20Non%20Stick%20Tawa%2026cm%20Dosa%20Tawa&price=%E2%82%B9449&discount=68%25"
+buyLink: "https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4eEWPco&product=prestige-non-stick-tawa-26cm-dosa-tawa&title=Prestige%20Non%20Stick%20Tawa%2026cm%20Dosa%20Tawa&price=%E2%82%B9449&discount=68%25"
 category: "Home & Kitchen"
 rating: "4.1"
 ---
@@ -16,7 +16,7 @@ rating: "4.1"
 💸 **Price**: ~~₹1395~~ → **₹449**
 ⭐ **Rating**: 4.1
 
-👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4eEWPco&product=prestige-non-stick-tawa-26cm-dosa-tawa&title=Prestige%20Non%20Stick%20Tawa%2026cm%20Dosa%20Tawa&price=%E2%82%B9449&discount=68%25)**
+👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4eEWPco&product=prestige-non-stick-tawa-26cm-dosa-tawa&title=Prestige%20Non%20Stick%20Tawa%2026cm%20Dosa%20Tawa&price=%E2%82%B9449&discount=68%25)**
 
 ### Why this deal?
 

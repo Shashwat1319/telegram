@@ -6,7 +6,7 @@ price: "₹699"
 mrp: "₹1795"
 discount: "61%"
 image: ""
-buyLink: "https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4eLYPzI&product=milton-electric-kettle-1-8l-1500w&title=Milton%20Electric%20Kettle%201.8L%201500W&price=%E2%82%B9699&discount=61%25"
+buyLink: "https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4eLYPzI&product=milton-electric-kettle-1-8l-1500w&title=Milton%20Electric%20Kettle%201.8L%201500W&price=%E2%82%B9699&discount=61%25"
 category: "Home & Kitchen"
 rating: "4.3"
 ---
@@ -16,7 +16,7 @@ rating: "4.3"
 💸 **Price**: ~~₹1795~~ → **₹699**
 ⭐ **Rating**: 4.3
 
-👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4eLYPzI&product=milton-electric-kettle-1-8l-1500w&title=Milton%20Electric%20Kettle%201.8L%201500W&price=%E2%82%B9699&discount=61%25)**
+👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4eLYPzI&product=milton-electric-kettle-1-8l-1500w&title=Milton%20Electric%20Kettle%201.8L%201500W&price=%E2%82%B9699&discount=61%25)**
 
 ### Why this deal?
 

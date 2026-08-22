@@ -6,7 +6,7 @@ price: "₹399"
 mrp: "₹999"
 discount: "60%"
 image: ""
-buyLink: "https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/44AByMc&product=storio-kids-plastic-tiffin-box-set-3-pcs&title=Storio%20Kids%20Plastic%20Tiffin%20Box%20Set%203%20Pcs&price=%E2%82%B9399&discount=60%25"
+buyLink: "https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/44AByMc&product=storio-kids-plastic-tiffin-box-set-3-pcs&title=Storio%20Kids%20Plastic%20Tiffin%20Box%20Set%203%20Pcs&price=%E2%82%B9399&discount=60%25"
 category: "Home & Kitchen"
 rating: "4.2"
 ---
@@ -16,7 +16,7 @@ rating: "4.2"
 💸 **Price**: ~~₹999~~ → **₹399**
 ⭐ **Rating**: 4.2
 
-👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/44AByMc&product=storio-kids-plastic-tiffin-box-set-3-pcs&title=Storio%20Kids%20Plastic%20Tiffin%20Box%20Set%203%20Pcs&price=%E2%82%B9399&discount=60%25)**
+👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/44AByMc&product=storio-kids-plastic-tiffin-box-set-3-pcs&title=Storio%20Kids%20Plastic%20Tiffin%20Box%20Set%203%20Pcs&price=%E2%82%B9399&discount=60%25)**
 
 ### Why this deal?
 
