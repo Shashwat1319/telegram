@@ -1,12 +1,12 @@
 ---
 title: "Syska 9W LED Bulb Cool White Pack of 3 @ Just ₹199 - Save 67%!"
 description: "Get Syska 9W LED Bulb Cool White Pack of 3 at just ₹199 - Save 67%! Verified Amazon deal."
-pubDate: "2026-08-20"
+pubDate: "2026-08-22"
 price: "₹199"
 mrp: "₹597"
 discount: "67%"
 image: ""
-buyLink: "https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/44vauho&product=syska-9w-led-bulb-cool-white-pack-of-3&title=Syska%209W%20LED%20Bulb%20Cool%20White%20Pack%20of%203&price=%E2%82%B9199&discount=67%25"
+buyLink: "https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/44vauho&product=syska-9w-led-bulb-cool-white-pack-of-3&title=Syska%209W%20LED%20Bulb%20Cool%20White%20Pack%20of%203&price=%E2%82%B9199&discount=67%25"
 category: "Home Improvement"
 rating: "4.1"
 ---
@@ -16,7 +16,7 @@ rating: "4.1"
 💸 **Price**: ~~₹597~~ → **₹199**
 ⭐ **Rating**: 4.1
 
-👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/44vauho&product=syska-9w-led-bulb-cool-white-pack-of-3&title=Syska%209W%20LED%20Bulb%20Cool%20White%20Pack%20of%203&price=%E2%82%B9199&discount=67%25)**
+👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/44vauho&product=syska-9w-led-bulb-cool-white-pack-of-3&title=Syska%209W%20LED%20Bulb%20Cool%20White%20Pack%20of%203&price=%E2%82%B9199&discount=67%25)**
 
 ### Why this deal?
 

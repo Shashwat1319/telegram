@@ -33,6 +33,8 @@ jobs:
 
       # ── Website deals ──
       - name: Generate website deal pages
+        env:
+          CLICK_TRACKER_URL: https://budgetdeals-tracker-737523f4.netlify.app
         run: python website_gen.py --source product_home.json --out website/src/content/deals
 
       # ── Validate links ──
@@ -43,6 +45,7 @@ jobs:
       - name: Post deal to @smartgahr
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CLICK_TRACKER_URL: https://budgetdeals-tracker-737523f4.netlify.app
         run: python poster.py
 
       # ── Referrals (one-shot stats) ──

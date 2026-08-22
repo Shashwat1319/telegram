@@ -1,12 +1,12 @@
 ---
 title: "Mortein SmartPlus Mosquito Repellent Refill 45ml x 6 @ Just ₹399 - Save 56%!"
 description: "Get Mortein SmartPlus Mosquito Repellent Refill 45ml x 6 at just ₹399 - Save 56%! Verified Amazon deal."
-pubDate: "2026-08-20"
+pubDate: "2026-08-22"
 price: "₹399"
 mrp: "₹899"
 discount: "56%"
 image: ""
-buyLink: "https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/43WAimE&product=mortein-smartplus-mosquito-repellent-ref&title=Mortein%20SmartPlus%20Mosquito%20Repellent%20Refill%2045ml%20x%206&price=%E2%82%B9399&discount=56%25"
+buyLink: "https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/43WAimE&product=mortein-smartplus-mosquito-repellent-ref&title=Mortein%20SmartPlus%20Mosquito%20Repellent%20Refill%2045ml%20x%206&price=%E2%82%B9399&discount=56%25"
 category: "Home Improvement"
 rating: "4.3"
 ---
@@ -16,7 +16,7 @@ rating: "4.3"
 💸 **Price**: ~~₹899~~ → **₹399**
 ⭐ **Rating**: 4.3
 
-👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/43WAimE&product=mortein-smartplus-mosquito-repellent-ref&title=Mortein%20SmartPlus%20Mosquito%20Repellent%20Refill%2045ml%20x%206&price=%E2%82%B9399&discount=56%25)**
+👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/43WAimE&product=mortein-smartplus-mosquito-repellent-ref&title=Mortein%20SmartPlus%20Mosquito%20Repellent%20Refill%2045ml%20x%206&price=%E2%82%B9399&discount=56%25)**
 
 ### Why this deal?
 

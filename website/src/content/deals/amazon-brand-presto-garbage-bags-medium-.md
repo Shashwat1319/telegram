@@ -1,12 +1,12 @@
 ---
 title: "Amazon Brand Presto Garbage Bags Medium 180 Count @ Just ₹335 - Save 52%!"
 description: "Get Amazon Brand Presto Garbage Bags Medium 180 Count at just ₹335 - Save 52%! Verified Amazon deal."
-pubDate: "2026-08-20"
+pubDate: "2026-08-22"
 price: "₹335"
 mrp: "₹699"
 discount: "52%"
 image: ""
-buyLink: "https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4ex3tmb&product=amazon-brand-presto-garbage-bags-medium-&title=Amazon%20Brand%20Presto%20Garbage%20Bags%20Medium%20180%20Count&price=%E2%82%B9335&discount=52%25"
+buyLink: "https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4ex3tmb&product=amazon-brand-presto-garbage-bags-medium-&title=Amazon%20Brand%20Presto%20Garbage%20Bags%20Medium%20180%20Count&price=%E2%82%B9335&discount=52%25"
 category: "Home & Kitchen"
 rating: "4.4"
 ---
@@ -16,7 +16,7 @@ rating: "4.4"
 💸 **Price**: ~~₹699~~ → **₹335**
 ⭐ **Rating**: 4.4
 
-👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app/go?url=https%3A//amzn.to/4ex3tmb&product=amazon-brand-presto-garbage-bags-medium-&title=Amazon%20Brand%20Presto%20Garbage%20Bags%20Medium%20180%20Count&price=%E2%82%B9335&discount=52%25)**
+👉 **[Buy Now on Amazon](https://budgetdeals-tracker-737523f4.netlify.app /go?url=https%3A//amzn.to/4ex3tmb&product=amazon-brand-presto-garbage-bags-medium-&title=Amazon%20Brand%20Presto%20Garbage%20Bags%20Medium%20180%20Count&price=%E2%82%B9335&discount=52%25)**
 
 ### Why this deal?
 
