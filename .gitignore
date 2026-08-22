@@ -23,6 +23,8 @@ out/
 # Data & state files (runtime generated)
 contacts_*.txt
 promo_history.json
+promo_queue.md
+promo_state.json
 promo_counter.txt
 posted_products.json
 sales_counter.json
@@ -53,8 +55,6 @@ orchestrator_state.json
 website/node_modules/
 website/dist/
 website/.astro/
-website/src/content/blog/*.md
-website/src/content/deals/*.md
 
 # IDE
 .idea/

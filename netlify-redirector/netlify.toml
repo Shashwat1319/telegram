@@ -17,11 +17,8 @@
   to = "/.netlify/functions/stats"
   status = 200
 
-# Serve static files (og-image.jpg, etc.) before catch-all
-[[redirects]]
-  from = "/og-image.jpg"
-  to = "/og-image.jpg"
-  status = 200
+# Static files (og-image.jpg, error_page.html) are served automatically —
+# no explicit rule needed; a self-redirect would loop and return 502.
 
 [[redirects]]
   from = "/*"

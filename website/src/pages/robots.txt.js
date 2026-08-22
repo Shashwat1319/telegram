@@ -1,5 +1,5 @@
 export async function GET({ site }) {
-  const baseUrl = site?.toString().replace(/\/$/, '') || 'https://budgetdealsindia.com';
+  const baseUrl = site?.toString().replace(/\/$/, '') || 'https://budgetdealsindia.netlify.app';
   
   const robots = `User-agent: *
 Allow: /

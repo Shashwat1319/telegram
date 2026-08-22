@@ -23,31 +23,23 @@ const { Content } = await render(post);
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} image={image} />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "{title}",
-        "description": "{description}",
-        "image": "{image || '/hero.png'}",
-        "brand": {
-          "@type": "Brand",
-          "name": "BudgetDeals India"
-        },
-        "offers": {
-          "@type": "Offer",
-          "url": "{buyLink}",
-          "priceCurrency": "INR",
-          "price": "{price ? price.replace(/[^\d]/g, '') : '0'}",
-          "priceValidUntil": "{new Date(pubDate).toISOString().split('T')[0]}",
-          "availability": "https://schema.org/InStock",
-          "seller": {
-            "@type": "Organization",
-            "name": "Amazon India"
-          }
-        }
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": title,
+      "description": description,
+      "image": image || '/logo.png',
+      "brand": { "@type": "Brand", "name": "Budget Deals India" },
+      "offers": {
+        "@type": "Offer",
+        "url": buyLink,
+        "priceCurrency": "INR",
+        "price": price ? price.replace(/[^\d]/g, '') : '0',
+        "priceValidUntil": new Date(pubDate).toISOString().split('T')[0],
+        "availability": "https://schema.org/InStock",
+        "seller": { "@type": "Organization", "name": "Amazon India" }
       }
-    </script>
+    })} />
   </head>
   <body>
     <Header />

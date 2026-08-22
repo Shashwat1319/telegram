@@ -27,7 +27,7 @@ const latestPosts = posts.slice(0, 3);
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "BudgetDeals India",
-        "url": "https://budgetdealsindia.com",
+        "url": "https://budgetdealsindia.netlify.app",
         "description": "Best budget deals for Indian students - Amazon loot, price drops & hostel hacks"
       }
     </script>
@@ -75,7 +75,7 @@ const latestPosts = posts.slice(0, 3);
                 price={deal.data.price}
                 mrp={deal.data.mrp}
                 discount={deal.data.discount}
-                image={deal.data.image || '/hero.png'}
+                image={deal.data.image || ''}
                 buyLink={deal.data.buyLink}
                 category={deal.data.category}
                 rating={deal.data.rating}
@@ -123,7 +123,7 @@ const latestPosts = posts.slice(0, 3);
         <div class="max-w-2xl mx-auto">
           <h2 class="text-2xl font-bold text-gray-900 mb-3">Never Miss a Deal</h2>
           <p class="text-gray-600 mb-6">
-            Join 15,000+ students who get instant deal alerts on Telegram. We handpick the best Amazon discounts so you don't have to.
+            Join smart shoppers who get instant deal alerts on Telegram. We handpick the best Amazon discounts so you don't have to.
           </p>
 
           <div class="max-w-md mx-auto mb-8">

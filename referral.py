@@ -1,5 +1,6 @@
 import os, asyncio, logging
 from datetime import datetime, timezone, timedelta
+from typing import Optional
 from dotenv import load_dotenv
 from config_loader import load_config
 from data import load_json, save_json
@@ -66,6 +67,7 @@ async def generate_referral_link(user_id: int) -> str:
             except Exception as e:
                 log.error("Unexpected error: %s", e)
                 raise
+        raise RuntimeError("Failed to create referral link")  # pragma: no cover
 
 def get_user_stats(user_id: int):
     referrals = load_referrals()
@@ -113,7 +115,7 @@ def ensure_premium_expiry(user_id: int, force=False):
             return
     return
 
-def record_join(invite_link: str, user_id: int, username: str = None):
+def record_join(invite_link: str, user_id: int, username: Optional[str] = None) -> bool:
     referrals = load_referrals()
     for link in referrals:
         if invite_link and invite_link.strip() == link.strip():
@@ -130,7 +132,7 @@ def record_join(invite_link: str, user_id: int, username: str = None):
             return False
     return False
 
-async def send_welcome(user_id: int, username: str = None):
+async def send_welcome(user_id: int, username: Optional[str] = None):
     from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
     try:
         async with Bot(token=BOT_TOKEN) as bot:

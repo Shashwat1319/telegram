@@ -23,9 +23,21 @@ jobs:
       - name: Install deps
         run: pip install -r requirements.txt
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       # ── Content ──
       - name: Generate fresh content from products
         run: python feeder.py --source product_home.json --output content_home.json
+
+      # ── Website deals ──
+      - name: Generate website deal pages
+        run: python website_gen.py --source product_home.json --out website/src/content/deals
+
+      # ── Validate links ──
+      - name: Validate all links
+        run: python validate_links.py
 
       # ── Posting ──
       - name: Post deal to @smartgahr
@@ -61,12 +73,32 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 5
 
+      - name: Build website
+        if: ${{ secrets.WEBSITE_NETLIFY_SITE_ID != '' }}
+        run: |
+          cd website
+          npm ci
+          npm run build
+
+      - name: Deploy Netlify website
+        if: ${{ secrets.WEBSITE_NETLIFY_SITE_ID != '' }}
+        uses: nwtgck/actions-netlify@v2.1
+        with:
+          publish-dir: './website/dist'
+          production-branch: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Auto ${{ github.sha }}"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.WEBSITE_NETLIFY_SITE_ID }}
+        timeout-minutes: 10
+
       # ── Commit state ──
       - name: Commit updated state
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          for f in content_home.json content_home_posted.json; do
+          for f in content_home.json content_home_posted.json website/src/content/deals/*.md; do
             [ -f "$f" ] && git add "$f" || true
           done
           git diff --staged --quiet || (git commit -m "Auto: CI cycle [skip ci]" && git push)

@@ -25,7 +25,7 @@ const categories = [...new Set(allDeals.map(d => d.data.category))].sort();
       <section class="bg-white border-b border-gray-200 py-12 px-4">
         <div class="max-w-7xl mx-auto">
           <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">All Verified Deals</h1>
-          <p class="text-gray-500 max-w-2xl">Handpicked Amazon loot deals under ₹500. Updated daily with price verification.</p>
+          <p class="text-gray-500 max-w-2xl">Handpicked Amazon loot deals under ₹999. Updated daily with price verification.</p>
           
           <!-- Category Filter -->
           <div class="mt-6 flex flex-wrap gap-2" role="group" aria-label="Filter by category">
@@ -47,7 +47,7 @@ const categories = [...new Set(allDeals.map(d => d.data.category))].sort();
                   price={deal.data.price}
                   mrp={deal.data.mrp}
                   discount={deal.data.discount}
-                  image={deal.data.image || '/hero.png'}
+                  image={deal.data.image || ''}
                   buyLink={deal.data.buyLink}
                   category={deal.data.category}
                   rating={deal.data.rating}
@@ -63,7 +63,7 @@ const categories = [...new Set(allDeals.map(d => d.data.category))].sort();
               </svg>
               <h2 class="text-xl font-semibold text-gray-900 mb-2">No deals yet</h2>
               <p class="text-gray-500 mb-6">Check back soon for fresh loot deals!</p>
-              <a href="https://t.me/budgetdeals_india" target="_blank" rel="noopener" class="text-orange-600 font-medium">Join Telegram for instant updates →</a>
+              <a href="https://t.me/smartgahr" target="_blank" rel="noopener" class="text-orange-600 font-medium">Join Telegram for instant updates →</a>
             </div>
           )}
         </div>

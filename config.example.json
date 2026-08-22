@@ -7,7 +7,9 @@
     "welcome_message": "Welcome! This bot helps you with [your service].",
     "referral_reminder_message": "Invite your friends and earn rewards! Use /referral to get your link.",
     "content_command": "random",
-    "content_command_label": "Get Content"
+    "content_command_label": "Get Content",
+    "premium_channel_handle": "your_premium_channel",
+    "premium_unlock_referrals": 2
   },
   "content": {
     "source_file": "content.json",
@@ -15,9 +17,14 @@
     "posts_per_batch": 3,
     "max_reposts": 50,
     "has_links": true,
-    "link_tracking_enabled": false,
+    "link_tracking_enabled": true,
     "pin_posts": false,
-    "hashtags": ["#YourTag"]
+    "daily_poll": true,
+    "post_to_premium": true,
+    "premium_channel_id": "@your_premium_channel",
+    "hashtags": ["#YourTag"],
+    "max_price": 999,
+    "include_categories": []
   },
   "tasks": {
     "product_feed": { "enabled": true, "interval_hours": 12 },

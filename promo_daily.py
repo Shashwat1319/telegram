@@ -113,10 +113,9 @@ def generate_post(day_index=None, force=False):
 
 if __name__ == "__main__":
     import argparse
-    try:
-        sys.stdout.reconfigure(encoding="utf-8")
-    except Exception:
-        pass
+    reconfigure = getattr(sys.stdout, "reconfigure", None)
+    if callable(reconfigure):
+        reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser(description="Generate daily promo post")
     parser.add_argument("--force", action="store_true", help="Regenerate even if today exists")
     parser.add_argument("--day", type=int, help="Day index for testing")

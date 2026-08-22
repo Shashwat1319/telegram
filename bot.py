@@ -161,7 +161,7 @@ async def premium_cmd(update, context):
         msg = (
             f"🎖️ *Premium Status: ACTIVE*\n\n"
             f"✅ Aapke paas {PREMIUM_DURATION_DAYS}-din premium access hai!\n"
-            f"⏳ Expires: *{expires[:10]}* (agar set hai)\n\n"
+            f"⏳ Expires: *{(expires or 'N/A')[:10]}* (agar set hai)\n\n"
             f"🔓 Join: @{esc_md(PREMIUM_CHANNEL)}\n\n"
             f"Renew: {PREMIUM_REFERRALS_NEEDED} aur friends join karwao → dobara premium!"
         )

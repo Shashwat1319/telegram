@@ -1,10 +1,71 @@
 import { getStore } from "@netlify/blobs";
-import path from "path";
-import fs from "fs";
 
 const TAG = process.env.AMAZON_AFFILIATE_TAG || "shashwat022-21";
 // NOTE: Buyers — set AMAZON_AFFILIATE_TAG in Netlify env vars to use your own tag
 // Leave unset to keep the default (shashwat022-21) while testing
+
+const ERROR_PAGE = (channelHandle) => `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oops! Something went wrong</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #333;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+      padding: 1.5rem;
+      margin: 1rem 0;
+      width: 100%;
+      max-width: 480px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+    h1 {
+      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+      color: #d9534f;
+    }
+    p { margin-bottom: 1rem; }
+    .link-btn {
+      display: block;
+      margin: 0.6rem auto;
+      padding: 0.8rem 1.2rem;
+      width: 90%;
+      max-width: 300px;
+      background: #28a745;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .link-btn:hover {
+      background: #218838;
+      transform: translateY(-2px);
+    }
+    .footer { margin-top: 2rem; font-size: 0.9rem; color: #666; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Oops! Something went wrong 😅</h1>
+    <p>Looks like the product link didn't work. Join the channel for more deals!</p>
+    <a class="link-btn" href="https://t.me/${channelHandle}" target="_blank">📢 Join Channel</a>
+  </div>
+  <div class="footer">Automated deal bot — always hunting the best discounts.</div>
+</body>
+</html>`;
 
 export default async (request, context) => {
   const url = new URL(request.url);
@@ -35,11 +96,8 @@ export default async (request, context) => {
   }
 
   if (!finalUrl) {
-    const channelHandle = process.env.CHANNEL_HANDLE || "your_channel";
-    const errorPath = path.resolve(__dirname, '..', 'error_page.html');
-    let errorHtml = fs.readFileSync(errorPath, 'utf8');
-    errorHtml = errorHtml.replace(/your_channel/g, channelHandle);
-    return new Response(errorHtml, {
+    const channelHandle = process.env.CHANNEL_HANDLE || "smartgahr";
+    return new Response(ERROR_PAGE(channelHandle), {
       status: 200,
       headers: { "Content-Type": "text/html" }
     });
