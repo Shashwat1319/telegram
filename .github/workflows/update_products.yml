@@ -74,23 +74,26 @@ jobs:
         timeout-minutes: 5
 
       - name: Build website
-        if: ${{ secrets.WEBSITE_NETLIFY_SITE_ID != '' }}
+        if: ${{ env.WEBSITE_ID != '' }}
+        env:
+          WEBSITE_ID: ${{ secrets.WEBSITE_NETLIFY_SITE_ID }}
         run: |
           cd website
           npm ci
           npm run build
 
       - name: Deploy Netlify website
-        if: ${{ secrets.WEBSITE_NETLIFY_SITE_ID != '' }}
+        if: ${{ env.WEBSITE_ID != '' }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.WEBSITE_NETLIFY_SITE_ID }}
+          WEBSITE_ID: ${{ secrets.WEBSITE_NETLIFY_SITE_ID }}
         uses: nwtgck/actions-netlify@v2.1
         with:
           publish-dir: './website/dist'
           production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: "Auto ${{ github.sha }}"
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.WEBSITE_NETLIFY_SITE_ID }}
         timeout-minutes: 10
 
       # ── Commit state ──
