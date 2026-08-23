@@ -1,7 +1,7 @@
 ---
 title: "Pigeon Hand Chopper Vegetable Cutter 500ml @ Just ₹349 - Save 65%!"
 description: "Get Pigeon Hand Chopper Vegetable Cutter 500ml at just ₹349 - Save 65%! Verified Amazon deal."
-pubDate: "2026-08-22"
+pubDate: "2026-08-23"
 price: "₹349"
 mrp: "₹995"
 discount: "65%"
