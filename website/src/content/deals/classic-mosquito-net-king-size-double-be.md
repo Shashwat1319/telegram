@@ -1,7 +1,7 @@
 ---
 title: "Classic Mosquito Net King Size Double Bed Foldable @ Just ₹699 - Save 65%!"
 description: "Get Classic Mosquito Net King Size Double Bed Foldable at just ₹699 - Save 65%! Verified Amazon deal."
-pubDate: "2026-08-23"
+pubDate: "2026-08-24"
 price: "₹699"
 mrp: "₹1999"
 discount: "65%"
