@@ -1,7 +1,7 @@
 ---
 title: "Wipro 10W Smart RGBW LED Bulb WiFi @ Just ₹599 - Save 67%!"
 description: "Get Wipro 10W Smart RGBW LED Bulb WiFi at just ₹599 - Save 67%! Verified Amazon deal."
-pubDate: "2026-08-24"
+pubDate: "2026-08-25"
 price: "₹599"
 mrp: "₹1799"
 discount: "67%"

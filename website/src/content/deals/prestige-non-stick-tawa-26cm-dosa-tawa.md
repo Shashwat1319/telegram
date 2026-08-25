@@ -1,7 +1,7 @@
 ---
 title: "Prestige Non Stick Tawa 26cm Dosa Tawa @ Just ₹449 - Save 68%!"
 description: "Get Prestige Non Stick Tawa 26cm Dosa Tawa at just ₹449 - Save 68%! Verified Amazon deal."
-pubDate: "2026-08-24"
+pubDate: "2026-08-25"
 price: "₹449"
 mrp: "₹1395"
 discount: "68%"
