@@ -1,7 +1,7 @@
 ---
 title: "Shadow Gecko Lizard Repellent Spray 220ml @ Just ₹349 - Save 50%!"
 description: "Get Shadow Gecko Lizard Repellent Spray 220ml at just ₹349 - Save 50%! Verified Amazon deal."
-pubDate: "2026-08-25"
+pubDate: "2026-08-26"
 price: "₹349"
 mrp: "₹699"
 discount: "50%"

@@ -1,7 +1,7 @@
 ---
 title: "Lifelong 4 Slice Sandwich Toaster 850W @ Just ₹999 - Save 67%!"
 description: "Get Lifelong 4 Slice Sandwich Toaster 850W at just ₹999 - Save 67%! Verified Amazon deal."
-pubDate: "2026-08-25"
+pubDate: "2026-08-26"
 price: "₹999"
 mrp: "₹2999"
 discount: "67%"
