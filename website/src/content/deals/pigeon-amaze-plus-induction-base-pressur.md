@@ -1,7 +1,7 @@
 ---
 title: "Pigeon Amaze Plus Induction Base Pressure Cooker 3L @ Just ₹799 - Save 62%!"
 description: "Get Pigeon Amaze Plus Induction Base Pressure Cooker 3L at just ₹799 - Save 62%! Verified Amazon deal."
-pubDate: "2026-08-26"
+pubDate: "2026-08-27"
 price: "₹799"
 mrp: "₹2095"
 discount: "62%"

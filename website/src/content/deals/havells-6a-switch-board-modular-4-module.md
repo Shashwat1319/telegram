@@ -1,7 +1,7 @@
 ---
 title: "Havells 6A Switch Board Modular 4 Module White @ Just ₹249 - Save 55%!"
 description: "Get Havells 6A Switch Board Modular 4 Module White at just ₹249 - Save 55%! Verified Amazon deal."
-pubDate: "2026-08-26"
+pubDate: "2026-08-27"
 price: "₹249"
 mrp: "₹549"
 discount: "55%"
