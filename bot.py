@@ -130,21 +130,25 @@ async def referral(update, context):
         )
     else:
         status_line = (
-            f"🎯 *Your Referral Link*\n\n"
-            f"Share this link with friends — jab wo join karenge, aap premium unlock karenge!\n\n"
+            f"🎯 *Aapka Referral Link*\n\n"
+            f"2 friends ko invite karo → *30 din FREE Premium* unlock! 🔓\n"
+            f"Premium me milega: secret deals, early access, exclusive discounts.\n\n"
             f"🔗 `{link}`\n\n"
             f"📊 *Progress:*\n"
-            f"`{progress}` {count}/{PREMIUM_UNLOCK} friends\n\n"
-            f"🎁 *{remaining} aur friend join karo → 30 din FREE Premium* (secret deals channel @{esc_md(PREMIUM_CHANNEL)})\n\n"
-            f"💰 Points earned so far: *{points}*"
+            f"`{progress}` {count}/{PREMIUM_UNLOCK} friends joined\n\n"
+            f"{'🎉 Bas ' + str(remaining) + ' aur friend! Premium unlock karne wale hain aap!' if remaining <= 2 else '👉 Abhi share karo — ' + str(remaining) + ' aur chahiye!'}\n\n"
+            f"💡 *Kaise kaam karta hai:*\n"
+            f"1. Ye link share karo WhatsApp/Telegram pe\n"
+            f"2. Friends is link se channel join karein\n"
+            f"3. {PREMIUM_UNLOCK} joins = 30 din FREE premium access"
         )
     kb = InlineKeyboardMarkup([
-        [InlineKeyboardButton("📤 Share Link", url=f"https://t.me/share/url?url={link}&text=Join%20%40{CHANNEL_HANDLE}%21")],
+        [InlineKeyboardButton("📤 Share Link", url=f"https://t.me/share/url?url={link}&text=Join%20SmartGahr%20for%20daily%20verified%20Amazon%20deals%20under%20%E2%82%B9999%20%E2%80%94%2040%25%2B%20discounts%20only!%20%F0%9F%94%A5")],
         [InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{CHANNEL_HANDLE}")],
     ])
     if count >= PREMIUM_UNLOCK:
         kb.inline_keyboard.insert(0, [InlineKeyboardButton("🔓 Premium Deals", url=f"https://t.me/{PREMIUM_CHANNEL}")])
-    share_text = f"Mujhe roz sachchi deals milti hain — @{CHANNEL_HANDLE} join karo! 🛒🔥"
+    share_text = f"Roz verified Amazon deals milti hain — 40%25+ off only! SmartGahr join karo %F0%9F%94%A5 t.me/{CHANNEL_HANDLE}"
     kb.inline_keyboard.insert(0, [InlineKeyboardButton("📤 Share with Friends", url=f"https://t.me/share/url?url={link}&text={share_text}")])
     await update.message.reply_text(status_line, parse_mode="Markdown", reply_markup=kb)
 
@@ -260,14 +264,16 @@ async def post_referral_reminder(bot: Bot, pin=False):
     except Exception:
         count = "N/A"
     msg = (
-        f"🎯 *Help @{CHANNEL_HANDLE} Reach 100 Members!*\n\n"
+        f"🎯 *Help SmartGahr Reach 100 Members!*\n\n"
         f"👥 Current: *{count}* | Goal: *100*\n\n"
-        f"{esc_md(REFERRAL_REMINDER_MSG)}\n\n"
-        f"🎁 *FREE PREMIUM ACCESS*\n"
-        f"Refer {PREMIUM_UNLOCK} friends → unlock our *secret extra-deals channel*!\n"
-        f"→ @{esc_md(PREMIUM_CHANNEL)} — hidden deals jo sabko nahi milte.\n\n"
+        f"🎯 *FREE PREMIUM ACCESS*\n"
+        f"2 friends ko invite karo → *30 din FREE premium* unlock! 🔓\n"
+        f"Premium me milega:\n"
+        f"• Secret deals jo sabko nahi milte\n"
+        f"• Early access to loot offers\n"
+        f"• Exclusive 50%+ discounts\n\n"
         f"👇 *Get your link:*\n"
-        f"👉 @{esc_md(BOT_USERNAME)} and type /referral"
+        f"👉 @{esc_md(BOT_USERNAME)} pe jao aur /referral type karo"
     )
     kb = InlineKeyboardMarkup([
         [InlineKeyboardButton("🎯 Get Your Referral Link", url=f"https://t.me/{BOT_USERNAME}?start=ref")],

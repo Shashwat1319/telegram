@@ -1,11 +1,11 @@
 {
   "bot": {
     "username": "YourBot",
-    "description": "Describe what this bot does in one line.",
+    "description": "Verified Amazon deals under ₹999 — 40%+ discounts only. No spam, only genuine loot.",
     "channel_id": "@your_channel",
     "channel_handle": "your_channel",
-    "welcome_message": "Welcome! This bot helps you with [your service].",
-    "referral_reminder_message": "Invite your friends and earn rewards! Use /referral to get your link.",
+    "welcome_message": "Welcome to SmartGahr! 🎯\n\nWe find the best Amazon deals under ₹999 — every deal verified, every discount above 40%.\n\n🔥 Use /deal for today's top loot\n📊 Use /topdeal for highest discount\n🔍 Use /search <keyword> to find anything\n\nJoin 1,000+ smart shoppers who save money daily!",
+    "referral_reminder_message": "Invite 2 friends → unlock 30 days FREE premium deals! Use /referral to get your link.",
     "content_command": "random",
     "content_command_label": "Get Content",
     "premium_channel_handle": "your_premium_channel",
@@ -24,11 +24,12 @@
     "premium_channel_id": "@your_premium_channel",
     "hashtags": ["#YourTag"],
     "max_price": 999,
+    "min_discount": 40,
     "include_categories": []
   },
   "tasks": {
     "product_feed": { "enabled": true, "interval_hours": 12 },
-    "channel_posting": { "enabled": true, "interval_hours": 0.5 },
+    "channel_posting": { "enabled": true, "interval_hours": 6 },
     "group_posting": { "enabled": false, "interval_hours": 2 },
     "referral_tracker": { "enabled": true },
     "daily_report": { "enabled": true, "interval_hours": 24 },

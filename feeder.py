@@ -38,10 +38,11 @@ def clean_product_file(source=None):
 
 
 def apply_niche_filter(products):
-    """Keep only products matching the channel's niche promise (under ₹999, allowed categories)."""
+    """Keep only products matching the channel's niche promise (under ₹999, 40%+ discount, allowed categories)."""
     from config_loader import load_config
     cfg = load_config().get("content", {})
     max_price = cfg.get("max_price", 0)
+    min_discount = cfg.get("min_discount", 0)
     categories = set(cfg.get("include_categories", []))
 
     def _price(p):
@@ -56,20 +57,27 @@ def apply_niche_filter(products):
             continue
         if categories and p.get("category") not in categories:
             continue
+        if min_discount:
+            disc = calc_discount(p.get("price", ""), p.get("mrp", ""))
+            if disc < min_discount:
+                continue
         filtered.append(p)
     dropped = len(products) - len(filtered)
     if dropped:
-        log.info("Niche filter dropped %d products (max_price=%s, cats=%s)", dropped, max_price, categories)
+        log.info("Niche filter dropped %d products (max_price=%s, min_disc=%s, cats=%s)", dropped, max_price, min_discount, categories)
     return filtered
 
 
-CONTENT_FORMATS = ["pain_fix", "deal_alert", "short_urgency", "trust_check", "price_history", "personal_review"]
+CONTENT_FORMATS = ["pain_fix", "deal_alert", "short_urgency", "trust_check", "price_history", "amazon_verified"]
 
 HINGLISH_CTA = "लो लो ⚡ Limited stock hai — jaldi karo!"
 HINGLISH_HOOKS = [
     f"🔥 {HINGLISH_CTA}",
     f"⚡ Ghar ke liye best deal! {HINGLISH_CTA}",
     f"🏡 Ghar ka budget bachao! {HINGLISH_CTA}",
+    "📢 Join @smartgahr for daily loot deals!",
+    "💡 Share this with someone who needs it!",
+    "🏷️ Budget deals, verified discounts — @smartgahr",
 ]
 
 def _body_pain_fix(prod):
@@ -185,30 +193,34 @@ def _body_price_history(prod):
     parts.append(random.choice(HINGLISH_HOOKS))
     return "\n\n".join(parts)
 
-def _body_personal_review(prod):
-    """'Maine khareeda' — personal review style, builds trust."""
+def _body_amazon_verified(prod):
+    """'Amazon Verified' — uses real Amazon buyer data for trust (no fake personal claims)."""
     name = prod.get("name", "Product")
     price = str(prod.get("price", "")).strip()
     mrp = str(prod.get("mrp", "")).strip()
     disc = prod.get("discount_percent", "")
-    pain = prod.get("pain", "")
-    fix = prod.get("fix", "")
     rating = prod.get("rating", "")
+    fix = prod.get("fix", "")
     import random
-    personal = [
-        f"🗣️ **Maine khud ye khareeda hai — honest review:**\n\n"
-        f"{name} {price} me liya ({disc} off).\n\n"
-        f"✅ Kya achha laga: kaam kaam ke bajaye asli me value deta hai.\n"
-        f"⚠️ Kya dhyan rakhna: packaging kharab aati hai kabhi kabhi — check karke lo.\n\n"
-        f"👉 1 hafte se use kar raha hoon, no regret. {rating}/5 recommend!",
-        f"👨‍🍳 **SmartGahr team ka real usage review:**\n\n"
-        f"{name} — {price} (MRP {mrp}).\n\n"
-        f"Hamne khud test kiya: \n"
-        f"✅ {fix or 'Kaam bina kisi dikkat ke karta hai.'}\n"
-        f"✅ Quality is price ke hisaab se sahi hai.\n\n"
-        f"Rating: {rating}/5 — le sakte ho bina soch ke.",
+    templates = [
+        f"✅ **Amazon Verified Deal**\n\n"
+        f"{name} — {price} (MRP {mrp}, {disc} OFF)\n\n"
+        f"Amazon buyers rate this {rating}/5. "
+        f"{'Verified — real buyers are happy with this product.' if rating and float(rating or '0') >= 4 else 'Check reviews before buying.'}\n\n"
+        f"👉 Price kabhi bhi badal sakta hai — aaj ka price, kal ka nahi.",
+        f"📊 **Amazon Pe Kya Bol Rahe Hain Log?**\n\n"
+        f"{name}\n"
+        f"MRP ~~{mrp}~~ → **{price}** ({disc} OFF)\n\n"
+        f"⭐ {rating}/5 on Amazon — buyers ne approve kiya hai.\n"
+        f"{'✅ ' + fix if fix else '✅ Value for money — price ke hisaab se achha product.'}\n\n"
+        f"👉 Deal verify kar ke dekh lo — link niche hai.",
+        f"🔍 **SmartGahr Deal Check**\n\n"
+        f"{name} at {price} — {disc} off from {mrp}.\n\n"
+        f"Amazon rating: {rating}/5.\n"
+        f"{'SmartGahr verdict: ye deal genuine hai — 40%+ discount verified. 🟢' if disc and int(disc.replace('%','').strip() or '0') >= 40 else 'SmartGahr verdict: discount thoda kam hai, but still worth it at this price. 🟡'}\n\n"
+        f"👉 Price drop hai toh jaldi lo — stock limited rehta hai.",
     ]
-    parts = [random.choice(personal)]
+    parts = [random.choice(templates)]
     parts.append(random.choice(HINGLISH_HOOKS))
     return "\n\n".join(parts)
 
@@ -218,7 +230,7 @@ _FORMATTERS = {
     "short_urgency": _body_short_urgency,
     "trust_check": _body_trust_check,
     "price_history": _body_price_history,
-    "personal_review": _body_personal_review,
+    "amazon_verified": _body_amazon_verified,
 }
 
 def to_content_items(prod):

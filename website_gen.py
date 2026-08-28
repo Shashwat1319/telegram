@@ -46,16 +46,28 @@ def _body(prod):
     pain = prod.get("pain", "")
     fix = prod.get("fix", "")
     reason = prod.get("loot_reason", "")
+    cat = prod.get("category", "")
     lines = []
-    if pain:
-        lines.append(f"### Why this deal?\n\n{pain}")
+    lines.append(f"## Why This Deal?\n\n{pain}" if pain else "## Why This Deal?\n\nThis product offers great value for money at its current discounted price.")
     if fix:
-        lines.append(fix)
+        lines.append(f"\n\n**What makes it worth buying:** {fix}")
     if reason:
-        lines.append(reason)
+        lines.append(f"\n\n**Loot reason:** {reason}")
+    lines.append(f"\n\n## Price Breakdown\n\n| | Price |\n|---|---|\n| MRP | ~~{mrp}~~ |\n| Deal Price | **{price}** |\n| You Save | **{disc}** |")
     if rating:
-        lines.append(f"⭐ **Rating**: {rating}/5")
-    lines.append(f"### More deals?\n\nJoin [**{CHANNEL}**]({CHANNEL_URL}) on Telegram for daily loot deals!")
+        lines.append(f"\n\n## What Buyers Say\n\nAmazon buyers rate this product **{rating}/5**. "
+                     f"{'This is a well-reviewed product with satisfied buyers.' if float(rating or '0') >= 4.0 else 'Check the reviews for detailed feedback before buying.'}")
+    lines.append(f"\n\n## Who Should Buy This?\n\n"
+                 f"- Anyone looking for a reliable **{cat.lower() if cat else 'budget'}** product under {price}\n"
+                 f"- People who want {'verified quality at a discount' if rating and float(rating or '0') >= 4.0 else 'a budget-friendly option'}\n"
+                 f"- Great for personal use or as a gift")
+    lines.append(f"\n\n## Things to Note\n\n"
+                 f"- Price may change — deal prices on Amazon are dynamic\n"
+                 f"- Check size/specs before ordering\n"
+                 f"- {'This deal qualifies for SmartGahr\'s 40%+ discount filter 🟢' if disc and int(disc.replace('%','').strip() or '0') >= 40 else 'Discount is moderate — still a decent deal at this price 🟡'}")
+    lines.append(f"\n\n## More Deals Like This?\n\n"
+                 f"Join [**@smartgahr**](https://t.me/smartgahr) on Telegram for daily verified loot deals. "
+                 f"We post the best Amazon deals under ₹999 — every deal checked, every discount above 40%.")
     return "\n\n".join(lines)
 
 

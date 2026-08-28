@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: '0 */4 * * *'
+    - cron: '0 8,20 * * *'  # 2 posts/day: 8 AM + 8 PM IST
   workflow_dispatch:
 
 jobs:
