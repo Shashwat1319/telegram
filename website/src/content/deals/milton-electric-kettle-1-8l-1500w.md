@@ -1,7 +1,7 @@
 ---
 title: "Milton Electric Kettle 1.8L 1500W @ Just ₹699 - Save 61%!"
 description: "Get Milton Electric Kettle 1.8L 1500W at just ₹699 - Save 61%! Verified Amazon deal."
-pubDate: "2026-08-28"
+pubDate: "2026-08-29"
 price: "₹699"
 mrp: "₹1795"
 discount: "61%"

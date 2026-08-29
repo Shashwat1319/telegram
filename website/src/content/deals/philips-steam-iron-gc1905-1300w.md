@@ -1,7 +1,7 @@
 ---
 title: "Philips Steam Iron GC1905 1300W @ Just ₹999 - Save 60%!"
 description: "Get Philips Steam Iron GC1905 1300W at just ₹999 - Save 60%! Verified Amazon deal."
-pubDate: "2026-08-28"
+pubDate: "2026-08-29"
 price: "₹999"
 mrp: "₹2495"
 discount: "60%"

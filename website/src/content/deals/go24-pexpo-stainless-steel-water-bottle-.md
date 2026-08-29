@@ -1,7 +1,7 @@
 ---
 title: "Go24 Pexpo Stainless Steel Water Bottle 1L @ Just ₹349 - Save 65%!"
 description: "Get Go24 Pexpo Stainless Steel Water Bottle 1L at just ₹349 - Save 65%! Verified Amazon deal."
-pubDate: "2026-08-28"
+pubDate: "2026-08-29"
 price: "₹349"
 mrp: "₹999"
 discount: "65%"
