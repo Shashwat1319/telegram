@@ -1,7 +1,7 @@
 ---
 title: "Mortein Advanced Mosquito Racquet Rechargeable @ Just ₹449 - Save 55%!"
 description: "Get Mortein Advanced Mosquito Racquet Rechargeable at just ₹449 - Save 55%! Verified Amazon deal."
-pubDate: "2026-08-29"
+pubDate: "2026-08-30"
 price: "₹449"
 mrp: "₹999"
 discount: "55%"
