@@ -1,7 +1,7 @@
 ---
 title: "Milton Thermosteel Flask 1L Hot & Cold @ Just ₹899 - Save 64%!"
 description: "Get Milton Thermosteel Flask 1L Hot & Cold at just ₹899 - Save 64%! Verified Amazon deal."
-pubDate: "2026-08-30"
+pubDate: "2026-08-31"
 price: "₹899"
 mrp: "₹2495"
 discount: "64%"

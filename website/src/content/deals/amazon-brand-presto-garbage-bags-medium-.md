@@ -1,7 +1,7 @@
 ---
 title: "Amazon Brand Presto Garbage Bags Medium 180 Count @ Just ₹335 - Save 52%!"
 description: "Get Amazon Brand Presto Garbage Bags Medium 180 Count at just ₹335 - Save 52%! Verified Amazon deal."
-pubDate: "2026-08-30"
+pubDate: "2026-08-31"
 price: "₹335"
 mrp: "₹699"
 discount: "52%"
