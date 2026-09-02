@@ -1,7 +1,7 @@
 ---
 title: "Mortein SmartPlus Mosquito Repellent Refill 45ml x 6 @ Just ₹399 - Save 56%!"
 description: "Get Mortein SmartPlus Mosquito Repellent Refill 45ml x 6 at just ₹399 - Save 56%! Verified Amazon deal."
-pubDate: "2026-09-01"
+pubDate: "2026-09-02"
 price: "₹399"
 mrp: "₹899"
 discount: "56%"

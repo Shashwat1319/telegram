@@ -1,7 +1,7 @@
 ---
 title: "Storio Kids Plastic Tiffin Box Set 3 Pcs @ Just ₹399 - Save 60%!"
 description: "Get Storio Kids Plastic Tiffin Box Set 3 Pcs at just ₹399 - Save 60%! Verified Amazon deal."
-pubDate: "2026-09-01"
+pubDate: "2026-09-02"
 price: "₹399"
 mrp: "₹999"
 discount: "60%"
