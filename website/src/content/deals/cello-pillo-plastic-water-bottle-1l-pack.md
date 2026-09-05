@@ -1,7 +1,7 @@
 ---
 title: "Cello Pillo Plastic Water Bottle 1L Pack of 3 @ Just ₹299 - Save 67%!"
 description: "Get Cello Pillo Plastic Water Bottle 1L Pack of 3 at just ₹299 - Save 67%! Verified Amazon deal."
-pubDate: "2026-09-02"
+pubDate: "2026-09-05"
 price: "₹299"
 mrp: "₹897"
 discount: "67%"
