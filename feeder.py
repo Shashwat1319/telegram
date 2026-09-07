@@ -251,6 +251,8 @@ def to_content_items(prod):
         calculated = calc_discount(price, mrp)
         if calculated > 0:
             disc = f"{calculated}%"
+    elif isinstance(disc, (int, float)):
+        disc = f"{int(disc)}%" if disc else ""
     link = prod.get("link", "")
     img = prod.get("image", "")
     cat = prod.get("category", "Deals")
@@ -263,7 +265,9 @@ def to_content_items(prod):
     for fmt in CONTENT_FORMATS:
         formatter = _FORMATTERS[fmt]
         body = formatter(prod)
-        fmt_labels = {"pain_fix": "💡 Problem Solved", "deal_alert": "⚡ Deal Alert", "short_urgency": "🔥 Flash Deal", "trust_check": "🧐 Deal Check", "price_history": "📈 Price History", "personal_review": "🗣️ Real Review"}
+        if len(body) > 800:
+            body = body[:800] + "..."
+        fmt_labels = {"pain_fix": "💡 Problem Solved", "deal_alert": "⚡ Deal Alert", "short_urgency": "🔥 Flash Deal", "trust_check": "🧐 Deal Check", "price_history": "📈 Price History", "amazon_verified": "✅ Amazon Verified"}
         fmt_title = f"{name[:75]} — {fmt_labels.get(fmt, fmt.replace('_',' ').title())}"
         items.append({
             "id": f"{base_id}-{fmt}" if base_id else f"prod-{fmt}-{hash(name) % 10000}",

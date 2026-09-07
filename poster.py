@@ -281,6 +281,9 @@ async def post_daily_poll(bot, chat_id, items, posted):
         options.append(f"{short}")
     while len(options) > 4:
         options.pop()
+    if len(options) < 2:
+        log.info("Not enough options for poll, skipping")
+        return
     question = "🔥 Aaj ki best deal kaunsi lagi?"
     try:
         await bot.send_poll(

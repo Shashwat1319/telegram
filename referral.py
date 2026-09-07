@@ -174,31 +174,35 @@ async def event_listener():
     from telethon import TelegramClient, events
     from telethon.sessions import StringSession
     client = TelegramClient(StringSession(session_str), api_id, api_hash)
-    await client.start()
-    me = await client.get_me()
-    log.info("Referral tracker started as %s (@%s)", me.first_name, me.username)
+    try:
+        await client.start()
+        me = await client.get_me()
+        log.info("Referral tracker started as %s (@%s)", me.first_name, me.username)
 
-    @client.on(events.ChatAction)
-    async def handler(event):
-        if event.user_joined or event.user_added:
-            user = await event.get_user()
-            if user and not user.bot and not user.deleted:
-                invite_link = getattr(getattr(event.action, "invite", None), "link", None)
-                if await record_join(invite_link or "", user.id, user.username):
-                    await send_welcome(user.id, user.username)
+        @client.on(events.ChatAction)
+        async def handler(event):
+            if event.user_joined or event.user_added:
+                user = await event.get_user()
+                if user and not user.bot and not user.deleted:
+                    invite_link = getattr(getattr(event.action, "invite", None), "link", None)
+                    if await record_join(invite_link or "", user.id, user.username):
+                        await send_welcome(user.id, user.username)
 
-    @client.on(events.Raw)
-    async def raw_handler(update):
-        try:
-            if hasattr(update, "user_id") and hasattr(update, "invite"):
-                invite_link = getattr(update.invite, "link", None)
-                if await record_join(invite_link or "", update.user_id):
-                    await send_welcome(update.user_id)
-        except Exception as e:
-            log.debug("raw_handler skip: %s", e)
+        @client.on(events.Raw)
+        async def raw_handler(update):
+            try:
+                if hasattr(update, "user_id") and hasattr(update, "invite"):
+                    invite_link = getattr(update.invite, "link", None)
+                    if await record_join(invite_link or "", update.user_id):
+                        await send_welcome(update.user_id)
+            except Exception as e:
+                log.debug("raw_handler skip: %s", e)
 
-    log.info("Listening for join events...")
-    await client.run_until_disconnected()
+        log.info("Listening for join events...")
+        await client.run_until_disconnected()
+    finally:
+        if client.is_connected():
+            await client.disconnect()
 
 def calculate_rewards() -> dict:
     referrals = load_referrals()
