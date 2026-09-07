@@ -1,4 +1,4 @@
-import asyncio, os, json, random, logging
+import asyncio, os, json, random, logging, sys
 from datetime import datetime
 from telethon import TelegramClient
 from telethon.errors import FloodWaitError, ChatWriteForbiddenError
@@ -10,10 +10,14 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 log = logging.getLogger(__name__)
 
-API_ID = int(os.getenv("API_ID"))
+API_ID = os.getenv("API_ID")
 API_HASH = os.getenv("API_HASH")
 SESSION_STR = os.getenv("TELEGRAM_SESSION_1")
 CLEAN_ID = os.getenv("CHANNEL_ID", "@budgetdeals_india").replace("@", "")
+
+if not API_ID or not API_HASH:
+    log.error("API_ID and API_HASH environment variables are required for group poster")
+    sys.exit(1)
 
 GROUPS_FILE = "verified_promo_groups.txt"
 POSTED_FILE = "posted_products.json"
@@ -138,7 +142,7 @@ async def main():
 
     posted = load_posted()
 
-    client = TelegramClient(StringSession(SESSION_STR), API_ID, API_HASH)
+    client = TelegramClient(StringSession(SESSION_STR), int(API_ID), API_HASH)
     await client.connect()
 
     if not await client.is_user_authorized():

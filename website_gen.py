@@ -47,6 +47,11 @@ def _body(prod):
     fix = prod.get("fix", "")
     reason = prod.get("loot_reason", "")
     cat = prod.get("category", "")
+    try:
+        rating_num = float(re.sub(r"[^\d.]", "", str(rating)) or "0")
+    except (ValueError, TypeError):
+        rating_num = 0.0
+    disc_num = calc_discount(price, mrp)
     lines = []
     lines.append(f"## Why This Deal?\n\n{pain}" if pain else "## Why This Deal?\n\nThis product offers great value for money at its current discounted price.")
     if fix:
@@ -56,15 +61,15 @@ def _body(prod):
     lines.append(f"\n\n## Price Breakdown\n\n| | Price |\n|---|---|\n| MRP | ~~{mrp}~~ |\n| Deal Price | **{price}** |\n| You Save | **{disc}** |")
     if rating:
         lines.append(f"\n\n## What Buyers Say\n\nAmazon buyers rate this product **{rating}/5**. "
-                     f"{'This is a well-reviewed product with satisfied buyers.' if float(rating or '0') >= 4.0 else 'Check the reviews for detailed feedback before buying.'}")
+                     f"{'This is a well-reviewed product with satisfied buyers.' if rating_num >= 4.0 else 'Check the reviews for detailed feedback before buying.'}")
     lines.append(f"\n\n## Who Should Buy This?\n\n"
                  f"- Anyone looking for a reliable **{cat.lower() if cat else 'budget'}** product under {price}\n"
-                 f"- People who want {'verified quality at a discount' if rating and float(rating or '0') >= 4.0 else 'a budget-friendly option'}\n"
+                 f"- People who want {'verified quality at a discount' if rating_num >= 4.0 else 'a budget-friendly option'}\n"
                  f"- Great for personal use or as a gift")
     lines.append(f"\n\n## Things to Note\n\n"
                  f"- Price may change — deal prices on Amazon are dynamic\n"
                  f"- Check size/specs before ordering\n"
-                 f"- {'This deal qualifies for SmartGahr\'s 40%+ discount filter 🟢' if disc and int(disc.replace('%','').strip() or '0') >= 40 else 'Discount is moderate — still a decent deal at this price 🟡'}")
+                 f"- {'This deal qualifies for SmartGahr\'s 40%+ discount filter 🟢' if disc_num >= 40 else 'Discount is moderate — still a decent deal at this price 🟡'}")
     lines.append(f"\n\n## More Deals Like This?\n\n"
                  f"Join [**@smartgahr**](https://t.me/smartgahr) on Telegram for daily verified loot deals. "
                  f"We post the best Amazon deals under ₹999 — every deal checked, every discount above 40%.")

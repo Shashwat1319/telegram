@@ -99,31 +99,35 @@ def mark_run(task_name):
 
 
 def run_bot_thread():
-    log.info("[THREAD] Starting Telegram Bot...")
-    try:
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        from bot import run_bot
-        run_bot()
-    except Exception as e:
-        log.error("[THREAD] Bot error: %s", e)
-        log.warning("Bot daemon will respawn in 30s...")
-        _shutdown.wait(timeout=30)
-        if not _shutdown.is_set():
-            run_bot_thread()
+    while not _shutdown.is_set():
+        log.info("[THREAD] Starting Telegram Bot...")
+        try:
+            loop = asyncio.new_event_loop()
+            asyncio.set_event_loop(loop)
+            from bot import run_bot
+            run_bot()
+            break
+        except Exception as e:
+            log.error("[THREAD] Bot error: %s", e)
+            if _shutdown.is_set():
+                break
+            log.warning("Bot daemon will respawn in 30s...")
+            _shutdown.wait(timeout=30)
 
 
 def run_referral_thread():
-    log.info("[THREAD] Starting Referral Tracker...")
-    try:
-        from referral import event_listener
-        asyncio.run(event_listener())
-    except Exception as e:
-        log.error("[THREAD] Referral tracker error: %s", e)
-        log.warning("Referral tracker will respawn in 30s...")
-        _shutdown.wait(timeout=30)
-        if not _shutdown.is_set():
-            run_referral_thread()
+    while not _shutdown.is_set():
+        log.info("[THREAD] Starting Referral Tracker...")
+        try:
+            from referral import event_listener
+            asyncio.run(event_listener())
+            break
+        except Exception as e:
+            log.error("[THREAD] Referral tracker error: %s", e)
+            if _shutdown.is_set():
+                break
+            log.warning("Referral tracker will respawn in 30s...")
+            _shutdown.wait(timeout=30)
 
 
 def run_task_safely(func, task_name):

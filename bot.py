@@ -2,6 +2,7 @@ import os, random, logging, asyncio, argparse, time
 from dotenv import load_dotenv
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, Bot
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
+from telegram.error import BadRequest
 from config_loader import load_config
 from utils import esc_md, tracked_url, load_content_items
 from data import load_json
@@ -235,25 +236,33 @@ async def contact(update, context):
 
 async def button_callback(update, context):
     query = update.callback_query
-    await query.answer()
-    if query.data == CONTENT_CMD:
-        item = get_random_item()
-        if not item:
-            await query.edit_message_text("No content available right now. Check back soon!")
-            return
-        title = item.get("title", "Item")
-        body = item.get("body", "")
-        link = item.get("link", "")
-        tracked = tracked_url(link, title=item.get("title"), price=item.get("price"), discount=item.get("discount"), image=item.get("image")) if link else ""
-        msg = f"*{title[:60]}*\n\n{body[:200]}"
-        if tracked:
-            msg += f"\n\n👉 [Learn More]({tracked})"
-        msg += f"\n\n📢 Join @{esc_md(CHANNEL_HANDLE)} for more!"
-        kb = InlineKeyboardMarkup([
-            [InlineKeyboardButton("🔗 Open", url=tracked or link)],
-            [InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{CHANNEL_HANDLE}")]
-        ])
-        await query.edit_message_text(msg, parse_mode="Markdown", reply_markup=kb)
+    try:
+        await query.answer()
+    except Exception:
+        pass
+    try:
+        if query.data == CONTENT_CMD:
+            item = get_random_item()
+            if not item:
+                await query.edit_message_text("No content available right now. Check back soon!")
+                return
+            title = item.get("title", "Item")
+            body = item.get("body", "")
+            link = item.get("link", "")
+            tracked = tracked_url(link, title=item.get("title"), price=item.get("price"), discount=item.get("discount"), image=item.get("image")) if link else ""
+            msg = f"*{title[:60]}*\n\n{body[:200]}"
+            if tracked:
+                msg += f"\n\n👉 [Learn More]({tracked})"
+            msg += f"\n\n📢 Join @{esc_md(CHANNEL_HANDLE)} for more!"
+            kb = InlineKeyboardMarkup([
+                [InlineKeyboardButton("🔗 Open", url=tracked or link)],
+                [InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{CHANNEL_HANDLE}")]
+            ])
+            await query.edit_message_text(msg, parse_mode="Markdown", reply_markup=kb)
+    except BadRequest as e:
+        log.warning("Button callback failed (message may be unchanged): %s", e)
+    except Exception as e:
+        log.warning("Button callback error: %s", e)
 
 async def error_handler(update, context):
     log.error("Update %s caused error: %s", update, context.error)

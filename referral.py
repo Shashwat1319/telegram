@@ -115,22 +115,23 @@ def ensure_premium_expiry(user_id: int, force=False):
             return
     return
 
-def record_join(invite_link: str, user_id: int, username: Optional[str] = None) -> bool:
-    referrals = load_referrals()
-    for link in referrals:
-        if invite_link and invite_link.strip() == link.strip():
-            info = referrals[link]
-            if user_id not in info.get("joined", []):
-                info.setdefault("joined", []).append(user_id)
-                info["last_join"] = {"user_id": user_id, "username": username, "timestamp": datetime.now(timezone.utc).isoformat()}
-                # Renew premium if threshold met
-                if len(info["joined"]) >= PREMIUM_REFERRALS_NEEDED:
-                    info["premium_expires_at"] = (datetime.now(timezone.utc) + timedelta(days=PREMIUM_DURATION_DAYS)).isoformat()
-                save_referrals(referrals)
-                log.info("Referral: user %d (@%s) joined via %s... Total: %d", user_id, username, link[:50], len(info["joined"]))
-                return True
-            return False
-    return False
+async def record_join(invite_link: str, user_id: int, username: Optional[str] = None) -> bool:
+    async with _LOCK:
+        referrals = load_referrals()
+        for link in referrals:
+            if invite_link and invite_link.strip() == link.strip():
+                info = referrals[link]
+                if user_id not in info.get("joined", []):
+                    info.setdefault("joined", []).append(user_id)
+                    info["last_join"] = {"user_id": user_id, "username": username, "timestamp": datetime.now(timezone.utc).isoformat()}
+                    # Renew premium if threshold met
+                    if len(info["joined"]) >= PREMIUM_REFERRALS_NEEDED:
+                        info["premium_expires_at"] = (datetime.now(timezone.utc) + timedelta(days=PREMIUM_DURATION_DAYS)).isoformat()
+                    save_referrals(referrals)
+                    log.info("Referral: user %d (@%s) joined via %s... Total: %d", user_id, username, link[:50], len(info["joined"]))
+                    return True
+                return False
+        return False
 
 async def send_welcome(user_id: int, username: Optional[str] = None):
     from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
@@ -179,15 +180,18 @@ async def event_listener():
             user = await event.get_user()
             if user and not user.bot and not user.deleted:
                 invite_link = getattr(getattr(event.action, "invite", None), "link", None)
-                if record_join(invite_link or "", user.id, user.username):
+                if await record_join(invite_link or "", user.id, user.username):
                     await send_welcome(user.id, user.username)
 
     @client.on(events.Raw)
     async def raw_handler(update):
-        if hasattr(update, "user_id") and hasattr(update, "invite"):
-            invite_link = getattr(update.invite, "link", None)
-            if record_join(invite_link or "", update.user_id):
-                await send_welcome(update.user_id)
+        try:
+            if hasattr(update, "user_id") and hasattr(update, "invite"):
+                invite_link = getattr(update.invite, "link", None)
+                if await record_join(invite_link or "", update.user_id):
+                    await send_welcome(update.user_id)
+        except Exception as e:
+            log.debug("raw_handler skip: %s", e)
 
     log.info("Listening for join events...")
     await client.run_until_disconnected()

@@ -202,11 +202,15 @@ def _body_amazon_verified(prod):
     rating = prod.get("rating", "")
     fix = prod.get("fix", "")
     import random
+    try:
+        rating_num = float(re.sub(r"[^\d.]", "", str(rating)) or "0")
+    except (ValueError, TypeError):
+        rating_num = 0.0
     templates = [
         f"✅ **Amazon Verified Deal**\n\n"
         f"{name} — {price} (MRP {mrp}, {disc} OFF)\n\n"
         f"Amazon buyers rate this {rating}/5. "
-        f"{'Verified — real buyers are happy with this product.' if rating and float(rating or '0') >= 4 else 'Check reviews before buying.'}\n\n"
+        f"{'Verified — real buyers are happy with this product.' if rating and rating_num >= 4 else 'Check reviews before buying.'}\n\n"
         f"👉 Price kabhi bhi badal sakta hai — aaj ka price, kal ka nahi.",
         f"📊 **Amazon Pe Kya Bol Rahe Hain Log?**\n\n"
         f"{name}\n"
@@ -217,7 +221,7 @@ def _body_amazon_verified(prod):
         f"🔍 **SmartGahr Deal Check**\n\n"
         f"{name} at {price} — {disc} off from {mrp}.\n\n"
         f"Amazon rating: {rating}/5.\n"
-        f"{'SmartGahr verdict: ye deal genuine hai — 40%+ discount verified. 🟢' if disc and int(disc.replace('%','').strip() or '0') >= 40 else 'SmartGahr verdict: discount thoda kam hai, but still worth it at this price. 🟡'}\n\n"
+        f"{'SmartGahr verdict: ye deal genuine hai — 40%+ discount verified. 🟢' if disc and calc_discount(price, mrp) >= 40 else 'SmartGahr verdict: discount thoda kam hai, but still worth it at this price. 🟡'}\n\n"
         f"👉 Price drop hai toh jaldi lo — stock limited rehta hai.",
     ]
     parts = [random.choice(templates)]

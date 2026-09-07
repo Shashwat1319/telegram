@@ -98,8 +98,10 @@ def _get_post_count():
 
 def _increment_post_count():
     c = _get_post_count() + 1
-    with open(COUNTER_FILE, "w") as f:
+    tmp = COUNTER_FILE + ".tmp"
+    with open(tmp, "w") as f:
         f.write(str(c))
+    os.replace(tmp, COUNTER_FILE)
     return c
 
 
