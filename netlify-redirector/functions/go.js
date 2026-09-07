@@ -4,6 +4,10 @@ const TAG = process.env.AMAZON_AFFILIATE_TAG || "shashwat022-21";
 // NOTE: Buyers — set AMAZON_AFFILIATE_TAG in Netlify env vars to use your own tag
 // Leave unset to keep the default (shashwat022-21) while testing
 
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
+const ALLOWED_DOMAINS = ["amazon.", "amzn.to", "amzn.in"];
+
 const ERROR_PAGE = (channelHandle) => `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +65,7 @@ const ERROR_PAGE = (channelHandle) => `<!DOCTYPE html>
   <div class="card">
     <h1>Oops! Something went wrong 😅</h1>
     <p>Looks like the product link didn't work. Join the channel for more deals!</p>
-    <a class="link-btn" href="https://t.me/${channelHandle}" target="_blank">📢 Join Channel</a>
+    <a class="link-btn" href="https://t.me/${esc(channelHandle)}" target="_blank">📢 Join Channel</a>
   </div>
   <div class="footer">Automated deal bot — always hunting the best discounts.</div>
 </body>
@@ -100,6 +104,15 @@ export default async (request, context) => {
     return new Response(ERROR_PAGE(channelHandle), {
       status: 200,
       headers: { "Content-Type": "text/html" }
+    });
+  }
+
+  // --- C4: Validate URL is Amazon only (prevent open redirect) ---
+  const isAmazon = ALLOWED_DOMAINS.some(d => finalUrl.includes(d));
+  if (!isAmazon) {
+    return new Response("Invalid URL: only Amazon links are allowed", {
+      status: 400,
+      headers: { "Content-Type": "text/plain" }
     });
   }
 
@@ -155,10 +168,11 @@ export default async (request, context) => {
   // --- 5. Preview bots → serve OG-rich HTML page that redirects ---
   // Real users → fast 302 redirect
   if (isBot) {
-    const productTitle = url.searchParams.get("title") || "🔥 Hot Deal on Amazon";
-    const productPrice = url.searchParams.get("price") || "";
-    const productDiscount = url.searchParams.get("discount") || "";
-    const productImage = url.searchParams.get("img") || `${url.origin}/og-image.jpg`;
+    const productTitle = esc(url.searchParams.get("title") || "🔥 Hot Deal on Amazon");
+    const productPrice = esc(url.searchParams.get("price") || "");
+    const productDiscount = esc(url.searchParams.get("discount") || "");
+    const productImage = esc(url.searchParams.get("img") || `${url.origin}/og-image.jpg`);
+    const safeUrl = esc(finalAmazonUrl);
     const displayTitle = productDiscount ? `${productDiscount} OFF — ${productTitle}` : productTitle;
     const displayDesc = productPrice ? `${productTitle} — now at ${productPrice}${productDiscount ? ` (${productDiscount} off)` : ""}. Limited-time deal!` : `Grab this limited-time offer before it's gone! Verified price drop.`;
     const html = `<!DOCTYPE html>
@@ -168,17 +182,17 @@ export default async (request, context) => {
   <meta property="og:title" content="${displayTitle}">
   <meta property="og:description" content="${displayDesc}">
   <meta property="og:image" content="${productImage}">
-  <meta property="og:url" content="${finalAmazonUrl}">
+  <meta property="og:url" content="${safeUrl}">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Budget Deals India">
+  <meta property="og:site_name" content="SmartGahr">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${displayTitle}">
   <meta name="twitter:description" content="${displayDesc}">
   <meta name="twitter:image" content="${productImage}">
-  <meta http-equiv="refresh" content="2;url=${finalAmazonUrl}">
+  <meta http-equiv="refresh" content="2;url=${safeUrl}">
 </head><body>
-  <p>Redirecting to Amazon deal... <a href="${finalAmazonUrl}">Click here if not redirected</a></p>
-  <script>setTimeout(() => { window.location.href = "${finalAmazonUrl}"; }, 2000);</script>
+  <p>Redirecting to Amazon deal... <a href="${safeUrl}">Click here if not redirected</a></p>
+  <script>setTimeout(() => { window.location.href = "${safeUrl}"; }, 2000);</script>
 </body></html>`;
     return new Response(html, {
       status: 200,
