@@ -1,5 +1,5 @@
 import asyncio, os, json, random, logging, sys
-from datetime import datetime
+from datetime import datetime, timezone
 from telethon import TelegramClient
 from telethon.errors import FloodWaitError, ChatWriteForbiddenError
 from telethon.sessions import StringSession
@@ -180,7 +180,7 @@ async def main():
         success = await post_to_group(client, group, msg, product.get("name", ""))
         if success:
             posted_count += 1
-            posted[product_key] = datetime.utcnow().isoformat()
+            posted[product_key] = datetime.now(timezone.utc).isoformat()
             save_posted(posted)
 
         if i < len(groups) - 1:

@@ -90,7 +90,7 @@ def should_run(task_name, interval_hours):
         elapsed = (datetime.now(timezone.utc) - dt).total_seconds()
         return elapsed >= interval_hours * 3600
     except Exception:
-        return True
+        return False
 
 
 def mark_run(task_name):
@@ -101,6 +101,7 @@ def mark_run(task_name):
 def run_bot_thread():
     while not _shutdown.is_set():
         log.info("[THREAD] Starting Telegram Bot...")
+        loop = None
         try:
             loop = asyncio.new_event_loop()
             asyncio.set_event_loop(loop)
@@ -113,6 +114,9 @@ def run_bot_thread():
                 break
             log.warning("Bot daemon will respawn in 30s...")
             _shutdown.wait(timeout=30)
+        finally:
+            if loop and not loop.is_closed():
+                loop.close()
 
 
 def run_referral_thread():

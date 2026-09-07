@@ -94,7 +94,7 @@ def get_premium_status(user_id: int):
                             exp_dt = exp_dt.replace(tzinfo=timezone.utc)
                         active = exp_dt > datetime.now(timezone.utc)
                     except Exception:
-                        active = True
+                        active = False
                 else:
                     # First unlock: set expiry for the first time
                     active = True

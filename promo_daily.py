@@ -1,7 +1,6 @@
 import os
 import sys
 import random
-import json
 import logging
 from datetime import datetime, date
 from data import load_json, save_json
@@ -47,6 +46,10 @@ WEEK_TEMPLATES = {
 }
 
 WEEK_BY_DAY = ["W1", "W1", "W1", "W1", "W2", "W2", "W2", "W2", "W3", "W3", "W3", "W3", "W3", "W2", "W1", "W2", "W3", "W2", "W3", "W1", "W3", "W2", "W1", "W3", "W2", "W3", "W1", "W3", "W2", "W1"]
+
+class _SafeDict(dict):
+    def __missing__(self, key):
+        return f"{{{key}}}"
 
 
 def load_state():
@@ -102,7 +105,7 @@ def generate_post(day_index=None, force=False):
     disc = product.get("discount", "")
     rating = product.get("rating", "4.5★")
 
-    post = template.format_map({
+    post = template.format_map(_SafeDict({
         "link": _get_channel_link(),
         "bot": _get_bot_handle(),
         "premium": _get_premium_handle(),
@@ -111,7 +114,7 @@ def generate_post(day_index=None, force=False):
         "mrp": mrp,
         "disc": disc,
         "rating": rating,
-    })
+    }))
 
     state["last_date"] = today
     used.append(pick)

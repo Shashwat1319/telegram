@@ -12,8 +12,11 @@ def load_config():
         raise FileNotFoundError(f"Neither {CONFIG_FILE} nor {EXAMPLE_FILE} found. Copy config.example.json to config.json.")
 
     if current_mtime != _cache["mtime"]:
-        with open(path, encoding="utf-8") as f:
-            _cache["data"] = json.load(f)
+        try:
+            with open(path, encoding="utf-8") as f:
+                _cache["data"] = json.load(f)
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Malformed JSON in {path}: {e}") from e
         _cache["mtime"] = current_mtime
 
     return _cache["data"]

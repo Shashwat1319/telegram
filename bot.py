@@ -25,6 +25,7 @@ CONTENT_CMD_LABEL = bot_cfg.get("content_command_label", "Get Content")
 CONTENT_SOURCE = config.get("content", {}).get("source_file", "content.json")
 PREMIUM_CHANNEL = bot_cfg.get("premium_channel_handle", "smartgahrpremium")
 PREMIUM_UNLOCK = int(bot_cfg.get("premium_unlock_referrals", 2))
+PREMIUM_DURATION_DAYS = int(os.getenv("PREMIUM_DURATION_DAYS", "30"))
 
 _content_cache = {"items": None, "ts": 0.0}
 
@@ -52,7 +53,7 @@ async def start(update, context):
         f"• /referral — Invite friends & unlock premium\n"
         f"• /topdeal — Best discount deal\n"
         f"• /search <kw> — Search deals\n\n"
-        f"🎁 *Refer {PREMIUM_UNLOCK} friends → 30 din FREE Premium* (secret extra deals channel)\n\n"
+        f"🎁 *Refer {PREMIUM_UNLOCK} friends → {PREMIUM_DURATION_DAYS} din FREE Premium* (secret extra deals channel)\n\n"
         f"Join @{esc_md(CHANNEL_HANDLE)} for daily deals! 🚀"
     )
     kb = InlineKeyboardMarkup([
@@ -106,7 +107,7 @@ async def referral(update, context):
             return
         _referral_cooldowns[user.id] = now
     try:
-        from referral import generate_referral_link, get_user_stats, get_premium_status, ensure_premium_expiry, PREMIUM_REFERRALS_NEEDED
+        from referral import generate_referral_link, get_user_stats, get_premium_status, ensure_premium_expiry, PREMIUM_REFERRALS_NEEDED, PREMIUM_DURATION_DAYS
         link = await generate_referral_link(user.id)
         _, count, points = get_user_stats(user.id)
         active, _, expires = get_premium_status(user.id)
@@ -123,7 +124,7 @@ async def referral(update, context):
         exp_line = f"\n⏳ *Expires:* {expires[:10]}\n\nRefer {PREMIUM_UNLOCK} aur friends → *renew* kar ke premium badhao!" if expires else ""
         status_line = (
             f"🎖️ *PREMIUM ACTIVE!*\n\n"
-            f"✅ Aapne {count} friends join karwaye hain — 30 din ka FREE Premium active hai!{exp_line}\n\n"
+            f"✅ Aapne {count} friends join karwaye hain — {PREMIUM_DURATION_DAYS} din ka FREE Premium active hai!{exp_line}\n\n"
             f"🔓 Secret deals channel: @{esc_md(PREMIUM_CHANNEL)}\n\n"
             f"Renew karo: share karte raho — har {PREMIUM_UNLOCK} naye join pe premium dobara unlock hota hai! 🎁"
         )
@@ -131,14 +132,14 @@ async def referral(update, context):
         status_line = (
             f"⏰ *PREMIUM EXPIRED*\n\n"
             f"Aapka 30-din premium khatam ho gaya hai. 🥲\n\n"
-            f"✅ *Renew karo:* {PREMIUM_UNLOCK} aur naye friends ko join karwao → premium turant 30 din ke liye wapas!\n\n"
+            f"✅ *Renew karo:* {PREMIUM_UNLOCK} aur naye friends ko join karwao → premium turant {PREMIUM_DURATION_DAYS} din ke liye wapas!\n\n"
             f"🔗 `{link}`\n\n"
             f"`{progress}` {count}/{PREMIUM_UNLOCK} + renew"
         )
     else:
         status_line = (
             f"🎯 *Aapka Referral Link*\n\n"
-            f"2 friends ko invite karo → *30 din FREE Premium* unlock! 🔓\n"
+            f"2 friends ko invite karo → *{PREMIUM_DURATION_DAYS} din FREE Premium* unlock! 🔓\n"
             f"Premium me milega: secret deals, early access, exclusive discounts.\n\n"
             f"🔗 `{link}`\n\n"
             f"📊 *Progress:*\n"
@@ -147,7 +148,7 @@ async def referral(update, context):
             f"💡 *Kaise kaam karta hai:*\n"
             f"1. Ye link share karo WhatsApp/Telegram pe\n"
             f"2. Friends is link se channel join karein\n"
-            f"3. {PREMIUM_UNLOCK} joins = 30 din FREE premium access"
+            f"3. {PREMIUM_UNLOCK} joins = {PREMIUM_DURATION_DAYS} din FREE premium access"
         )
     kb = InlineKeyboardMarkup([
         [InlineKeyboardButton("📤 Share Link", url=f"https://t.me/share/url?url={link}&text=Join%20SmartGahr%20for%20daily%20verified%20Amazon%20deals%20under%20%E2%82%B9999%20%E2%80%94%2040%25%2B%20discounts%20only!%20%F0%9F%94%A5")],
@@ -286,7 +287,7 @@ async def post_referral_reminder(bot: Bot, pin=False):
         f"🎯 *Help SmartGahr Reach 100 Members!*\n\n"
         f"👥 Current: *{count}* | Goal: *100*\n\n"
         f"🎯 *FREE PREMIUM ACCESS*\n"
-        f"2 friends ko invite karo → *30 din FREE premium* unlock! 🔓\n"
+        f"2 friends ko invite karo → *{PREMIUM_DURATION_DAYS} din FREE premium* unlock! 🔓\n"
         f"Premium me milega:\n"
         f"• Secret deals jo sabko nahi milte\n"
         f"• Early access to loot offers\n"

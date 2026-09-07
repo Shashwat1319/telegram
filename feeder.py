@@ -270,7 +270,7 @@ def to_content_items(prod):
         fmt_labels = {"pain_fix": "💡 Problem Solved", "deal_alert": "⚡ Deal Alert", "short_urgency": "🔥 Flash Deal", "trust_check": "🧐 Deal Check", "price_history": "📈 Price History", "amazon_verified": "✅ Amazon Verified"}
         fmt_title = f"{name[:75]} — {fmt_labels.get(fmt, fmt.replace('_',' ').title())}"
         items.append({
-            "id": f"{base_id}-{fmt}" if base_id else f"prod-{fmt}-{hash(name) % 10000}",
+            "id": f"{base_id}-{fmt}" if base_id else f"prod-{fmt}-{slugify(name)[:8]}",
             "title": fmt_title,
             "body": body,
             "format": fmt,
