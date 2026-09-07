@@ -1,5 +1,6 @@
 # Credentials
 .env
+config.json
 
 # Python
 __pycache__/
