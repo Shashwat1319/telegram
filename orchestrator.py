@@ -189,6 +189,15 @@ def main():
 
     try:
         while not _shutdown.is_set():
+            if not bot_thread.is_alive():
+                log.warning("Bot thread died — restarting...")
+                bot_thread = threading.Thread(target=run_bot_thread, daemon=True)
+                bot_thread.start()
+            if not ref_thread.is_alive():
+                log.warning("Referral thread died — restarting...")
+                ref_thread = threading.Thread(target=run_referral_thread, daemon=True)
+                ref_thread.start()
+
             config = load_config()
             tasks_cfg = config.get("tasks", {})
 

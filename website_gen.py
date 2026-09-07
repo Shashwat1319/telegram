@@ -15,9 +15,16 @@ log = logging.getLogger("website_gen")
 
 DEALS_DIR = "website/src/content/deals"
 SOURCE = "product_home.json"
-CHANNEL = "@smartgahr"
-CHANNEL_URL = "https://t.me/smartgahr"
-TRACKER = "https://budgetdeals-tracker-737523f4.netlify.app"
+
+def _cfg():
+    from config_loader import load_config
+    cfg = load_config()
+    ch = cfg.get("bot", {}).get("channel_handle", "smartgahr")
+    return {
+        "channel": f"@{ch}",
+        "channel_url": f"https://t.me/{ch}",
+        "tracker": os.getenv("CLICK_TRACKER_URL", "").strip() or "https://budgetdeals-tracker-737523f4.netlify.app",
+    }
 
 
 def _price(prod):

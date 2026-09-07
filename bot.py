@@ -86,8 +86,8 @@ async def random_item(update, context):
         try:
             await update.message.reply_photo(photo=image, caption=msg, parse_mode="Markdown", reply_markup=kb)
             return
-        except Exception:
-            pass
+        except Exception as e:
+            log.debug("Photo send failed, falling back to text: %s", e)
     await update.message.reply_text(msg, parse_mode="Markdown", reply_markup=kb)
 
 _referral_cooldowns = {}

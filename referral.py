@@ -1,4 +1,4 @@
-import os, asyncio, logging
+import os, re, asyncio, logging
 from datetime import datetime, timezone, timedelta
 from typing import Optional
 from dotenv import load_dotenv
@@ -137,8 +137,8 @@ async def send_welcome(user_id: int, username: Optional[str] = None):
     from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
     try:
         async with Bot(token=BOT_TOKEN) as bot:
-            await bot.initialize()
-            mention = esc_md(username) if username else "User"
+            safe_user = re.sub(r"[^\w]", "", str(username)) if username else "User"
+            mention = esc_md(safe_user) if safe_user != "User" else "User"
             msg = (
                 f"🎉 *Welcome, @{mention}!*\n\n{WELCOME_MSG}\n\n"
                 f"👇 *Get started:*\n"
@@ -161,7 +161,11 @@ async def event_listener():
     if not api_id_var:
         log.error("API_ID environment variable is required for referral tracker")
         return
-    api_id = int(api_id_var)
+    try:
+        api_id = int(api_id_var)
+    except ValueError:
+        log.error("API_ID must be a numeric value, got: %s", api_id_var)
+        return
     api_hash = os.getenv("API_HASH")
     session_str = os.getenv("TELEGRAM_SESSION_1")
     if not api_hash or not session_str:

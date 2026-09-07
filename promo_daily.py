@@ -11,7 +11,19 @@ log = logging.getLogger("promo_daily")
 QUEUE_FILE = "promo_queue.md"
 STATE_FILE = "promo_state.json"
 CONTENT_FILE = "content_home.json"
-CHANNEL_LINK = "t.me/smartgahr"
+
+def _get_channel_link():
+    from config_loader import load_config
+    cfg = load_config().get("bot", {})
+    return f"t.me/{cfg.get('channel_handle', 'smartgahr')}"
+
+def _get_bot_handle():
+    from config_loader import load_config
+    return load_config().get("bot", {}).get("username", "Ffzon_bot")
+
+def _get_premium_handle():
+    from config_loader import load_config
+    return load_config().get("bot", {}).get("premium_channel_handle", "smartgahrpremium")
 
 WEEK_TEMPLATES = {
     "W1": [
@@ -27,8 +39,8 @@ WEEK_TEMPLATES = {
         "🗣️ *Review Post:*\nMaine {title} order kiya tha ({price}).\n1 hafte use kar raha hoon — quality {rating}/5.\nIs price pe best hai, expensive wala utna hi deta hai.\nRoz honest reviews: {link}",
     ],
     "W3": [
-        "🔒 *Premium Teaser:*\nKya hai @smartgahrpremium?\n• Roz 2x deals (main channel se zyada)\n• Price-drop ALERTS\n• Exclusive 'mat lo ye' analysis\nUnlock: @Ffzon_bot → /referral → 2 friends!\nMain channel: {link}",
-        "🎁 *Referral CTA:*\nFREE PREMIUM — 2 friends ka!\nSecret deals channel + price alerts.\nKaise: @Ffzon_bot → /referral → link share karo → 2 friends join → PREMIUM!\n30 din ka access, share karte raho: {link}",
+        "🔒 *Premium Teaser:*\nKya hai @{premium}?\n• Roz 2x deals (main channel se zyada)\n• Price-drop ALERTS\n• Exclusive 'mat lo ye' analysis\nUnlock: @{bot} → /referral → 2 friends!\nMain channel: {link}",
+        "🎁 *Referral CTA:*\nFREE PREMIUM — 2 friends ka!\nSecret deals channel + price alerts.\nKaise: @{bot} → /referral → link share karo → 2 friends join → PREMIUM!\n30 din ka access, share karte raho: {link}",
         "🤝 *Share Post:*\nBhai, maine ek channel join kiya jahan roz sachchi deals aati hain.\nBest part: 2 friends invite karo toh SECRET premium channel unlock!\nJoin karo: {link}",
         "🏆 *Growth Post:*\nSmartGahr daily grow ho raha hai!\nJoin karo early — free premium offers tab tak valid hain jab tak channel chhota hai.\nJaldi aao: {link}",
     ],
@@ -90,14 +102,16 @@ def generate_post(day_index=None, force=False):
     disc = product.get("discount", "")
     rating = product.get("rating", "4.5★")
 
-    post = template.format(
-        link=CHANNEL_LINK,
-        title=title,
-        price=price,
-        mrp=mrp,
-        disc=disc,
-        rating=rating,
-    )
+    post = template.format_map({
+        "link": _get_channel_link(),
+        "bot": _get_bot_handle(),
+        "premium": _get_premium_handle(),
+        "title": title,
+        "price": price,
+        "mrp": mrp,
+        "disc": disc,
+        "rating": rating,
+    })
 
     state["last_date"] = today
     used.append(pick)
@@ -105,9 +119,11 @@ def generate_post(day_index=None, force=False):
     state["last_post"] = {"date": today, "week": week, "template": pick}
     save_state(state)
 
-    # Append to queue file (user copy-pastes)
-    with open(QUEUE_FILE, "a", encoding="utf-8") as f:
-        f.write(f"\n## {today} — {week} — Post #{pick + 1}\n\n{post}\n\n---\n")
+    try:
+        with open(QUEUE_FILE, "a", encoding="utf-8") as f:
+            f.write(f"\n## {today} — {week} — Post #{pick + 1}\n\n{post}\n\n---\n")
+    except OSError as e:
+        log.warning("Could not write to %s: %s", QUEUE_FILE, e)
     return post
 
 

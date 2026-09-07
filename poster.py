@@ -162,18 +162,15 @@ async def post_content():
         chat_id = f"@{CHAT_ID_INPUT}"
     try:
         async with Bot(token=BOT_TOKEN) as bot:
-            await bot.initialize()
             items = load_content_items(SOURCE_FILE)
             if not items:
                 log.info("No items available to post.")
-                await bot.shutdown()
                 return
 
             posted = _load_posted()
             eligible = _pick_eligible(items, posted)
             if not eligible:
                 log.info("All items posted recently. Skipping cycle.")
-                await bot.shutdown()
                 return
 
             num = min(POSTS_PER_BATCH, len(eligible))
