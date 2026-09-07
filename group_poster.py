@@ -21,7 +21,13 @@ if not API_ID or not API_HASH:
 
 GROUPS_FILE = "verified_promo_groups.txt"
 POSTED_FILE = "posted_products.json"
-DELAY_BETWEEN_POSTS = (300, 600)
+
+def _get_delay():
+    from config_loader import load_config
+    cfg = load_config().get("content", {})
+    min_s = cfg.get("group_post_delay_min", 300)
+    max_s = cfg.get("group_post_delay_max", 600)
+    return (min_s, max_s)
 
 def format_price(p):
     return f"₹{p}" if p and not str(p).startswith("₹") else str(p or "Check")
@@ -178,7 +184,7 @@ async def main():
             save_posted(posted)
 
         if i < len(groups) - 1:
-            delay = random.randint(*DELAY_BETWEEN_POSTS)
+            delay = random.randint(*_get_delay())
             log.info("Waiting %d seconds before next post...", delay)
             await asyncio.sleep(delay)
 

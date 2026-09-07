@@ -130,8 +130,13 @@ rating: "{y(rating_str)}"
 {_body(prod)}
 """
     path = os.path.join(out_dir, f"{slug}.md")
-    with open(path, "w", encoding="utf-8") as f:
-        f.write(md)
+    try:
+        os.makedirs(out_dir, exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(md)
+    except OSError as e:
+        log.error("Failed to write %s: %s", path, e)
+        return None
     return path
 
 

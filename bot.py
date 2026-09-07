@@ -329,7 +329,8 @@ async def _reminder_job(context: ContextTypes.DEFAULT_TYPE):
 
 def run_bot():
     app = Application.builder().token(BOT_TOKEN).build()
-    app.job_queue.run_repeating(_reminder_job, interval=14400, first=10)
+    reminder_interval = load_config().get("tasks", {}).get("daily_report", {}).get("interval_hours", 4) * 3600
+    app.job_queue.run_repeating(_reminder_job, interval=reminder_interval, first=10)
 
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("premium", premium_cmd))

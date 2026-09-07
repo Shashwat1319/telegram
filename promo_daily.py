@@ -71,7 +71,7 @@ def get_random_product():
 
     items = [i for i in items if 0 < _price(i) <= 999]
     # Prefer pain_fix + trust formats for promo value
-    prefs = [i for i in items if i.get("format") in ("pain_fix", "trust_check", "personal_review")]
+    prefs = [i for i in items if i.get("format") in ("pain_fix", "trust_check", "amazon_verified")]
     pool = prefs or items
     return random.choice(pool) if pool else {}
 

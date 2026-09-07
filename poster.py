@@ -218,7 +218,8 @@ async def post_content():
                             await bot.pin_chat_message(chat_id=chat_id, message_id=sent.message_id)
                         except TelegramError:
                             pass
-                    await asyncio.sleep(3)
+                    post_delay = content_cfg.get("post_delay_seconds", 3)
+                    await asyncio.sleep(post_delay)
                 except TelegramError as e:
                     log.error("Telegram posting error for %s: %s", title, e)
                 except Exception as e:
