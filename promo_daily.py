@@ -30,7 +30,7 @@ WEEK_TEMPLATES = {
         "🔒 *Premium Teaser:*\nKya hai @smartgahrpremium?\n• Roz 2x deals (main channel se zyada)\n• Price-drop ALERTS\n• Exclusive 'mat lo ye' analysis\nUnlock: @Ffzon_bot → /referral → 2 friends!\nMain channel: {link}",
         "🎁 *Referral CTA:*\nFREE PREMIUM — 2 friends ka!\nSecret deals channel + price alerts.\nKaise: @Ffzon_bot → /referral → link share karo → 2 friends join → PREMIUM!\n30 din ka access, share karte raho: {link}",
         "🤝 *Share Post:*\nBhai, maine ek channel join kiya jahan roz sachchi deals aati hain.\nBest part: 2 friends invite karo toh SECRET premium channel unlock!\nJoin karo: {link}",
-        "🏆 *Growth Post:*\nChannel 22 → 500 members tak ja raha hai!\nJoin karo early — free premium offers tab tak valid hain jab tak channel chhota hai.\nJaldi aao: {link}",
+        "🏆 *Growth Post:*\nSmartGahr daily grow ho raha hai!\nJoin karo early — free premium offers tab tak valid hain jab tak channel chhota hai.\nJaldi aao: {link}",
     ],
 }
 

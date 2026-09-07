@@ -43,6 +43,8 @@ def get_random_item():
 
 async def start(update, context):
     user = update.effective_user
+    if not user:
+        return
     msg = (
         f"👋 *Welcome {user.first_name}!*\n\n{esc_md(WELCOME_MSG)}\n\n"
         f"📌 *Commands:*\n"
@@ -61,6 +63,8 @@ async def start(update, context):
     await update.message.reply_text(msg, parse_mode="Markdown", reply_markup=kb)
 
 async def random_item(update, context):
+    if not update.effective_user or not update.message:
+        return
     item = get_random_item()
     if not item or not isinstance(item, dict):
         await update.message.reply_text("No content available right now. Check back soon!")
@@ -91,6 +95,8 @@ _referral_cooldown_lock = asyncio.Lock()
 
 async def referral(update, context):
     user = update.effective_user
+    if not user or not update.message:
+        return
     now = time.monotonic()
     async with _referral_cooldown_lock:
         last = _referral_cooldowns.get(user.id, 0)
@@ -151,6 +157,8 @@ async def referral(update, context):
         kb.inline_keyboard.insert(0, [InlineKeyboardButton("🔓 Premium Deals", url=f"https://t.me/{PREMIUM_CHANNEL}")])
     share_text = f"Roz verified Amazon deals milti hain — 40%25+ off only! SmartGahr join karo %F0%9F%94%A5 t.me/{CHANNEL_HANDLE}"
     kb.inline_keyboard.insert(0, [InlineKeyboardButton("📤 Share with Friends", url=f"https://t.me/share/url?url={link}&text={share_text}")])
+    if len(status_line) > 4000:
+        status_line = status_line[:4000] + "\n\n⚠️ Some details truncated."
     await update.message.reply_text(status_line, parse_mode="Markdown", reply_markup=kb)
 
 async def premium_cmd(update, context):
@@ -223,6 +231,8 @@ async def search(update, context):
                 break
     msg = f"🔍 *Search Results for '{keyword}'*\n\n" + "\n".join(result)
     msg += f"\n\n📢 Join @{esc_md(CHANNEL_HANDLE)} for more!"
+    if len(msg) > 4000:
+        msg = msg[:4000] + "\n\n⚠️ Results truncated. Try a more specific search."
     await update.message.reply_text(msg, parse_mode="Markdown")
 
 async def about(update, context):

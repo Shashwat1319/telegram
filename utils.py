@@ -37,7 +37,7 @@ def get_price_value(price_str):
             return 999999.0
         c = re.sub(r'[^\d.]', '', str(price_str))
         return float(c) if c else 999999.0
-    except:
+    except Exception:
         return 999999.0
 
 
@@ -47,7 +47,7 @@ def format_price(raw_price):
         ascii_p = re.sub(r'[^\d.,\- ]', '', price).strip()
         if ascii_p:
             return f"\u20b9{ascii_p.strip().strip(',')}"
-    except:
+    except Exception:
         pass
     return price
 

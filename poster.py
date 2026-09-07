@@ -1,8 +1,10 @@
 import os
+import sys
 import random
 import re
 import asyncio
 import logging
+import html
 from datetime import datetime, timedelta
 from urllib.parse import quote
 from dotenv import load_dotenv
@@ -17,6 +19,9 @@ load_dotenv()
 log = logging.getLogger(__name__)
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
+if not BOT_TOKEN:
+    log.error("BOT_TOKEN environment variable is required for poster")
+    sys.exit(1)
 config = load_config()
 bot_cfg = config.get("bot", {})
 content_cfg = config.get("content", {})
@@ -107,13 +112,13 @@ def _increment_post_count():
 
 def generate_high_converting_message(item, post_count=0):
     """Generates high-converting copywriting templates for affiliate posts."""
-    title = item.get("title", "Amazon Deal")
-    price = item.get("price", "")
-    mrp = item.get("mrp", "")
-    disc = item.get("discount", "")
-    rating = item.get("rating", "4.5★")
+    title = html.escape(str(item.get("title", "Amazon Deal")))[:60]
+    price = html.escape(str(item.get("price", "")))
+    mrp = html.escape(str(item.get("mrp", "")))
+    disc = html.escape(str(item.get("discount", "")))
+    rating = html.escape(str(item.get("rating", "4.5★")))
     is_loot = item.get("is_loot", False)
-    body = item.get("body", "")
+    body = html.escape(str(item.get("body", "")))[:300]
 
     badge = "🚨 <b>BIGGEST PRICE DROP LOOT</b>" if is_loot else "⚡ <b>VERIFIED AMAZON DEAL</b>"
     
@@ -207,6 +212,8 @@ async def post_content():
                 
                 kb = InlineKeyboardMarkup(buttons)
                 try:
+                    if len(msg) > 4000:
+                        msg = msg[:4000] + "\n\n⚠️ Truncated. Join channel for full details."
                     sent = await bot.send_message(chat_id=chat_id, text=msg, parse_mode="HTML", reply_markup=kb)
                     log.info("Posted deal to channel: %s", title[:40])
                     if PIN_POSTS:
@@ -223,12 +230,16 @@ async def post_content():
             if POST_TO_PREMIUM and to_post:
                 premium_item = to_post[0]
                 try:
+                    p_title = html.escape(str(premium_item.get('title', 'Deal')))
+                    p_body = html.escape(str(premium_item.get('body', '')))[:300]
+                    p_link = premium_item.get('link', '')
+                    p_tracked = tracked_url(p_link, premium_item.get("product_id"), title=premium_item.get("title"), price=premium_item.get("price"), discount=premium_item.get("discount"), image=premium_item.get("image")) if p_link and LINK_TRACKING else p_link
+                    premium_msg = f'🔒 <b>PREMIUM EXCLUSIVE</b>\n\n📦 <b>{p_title}</b>\n\n{p_body}\n\n🔗 <a href="{p_tracked}">🛒 Buy on Amazon</a>'
+                    if len(premium_msg) > 4000:
+                        premium_msg = premium_msg[:4000] + "\n\n⚠️ Truncated."
                     await bot.send_message(
                         chat_id=PREMIUM_CHANNEL_ID,
-                        text=f'<a href="{tracked_url(premium_item.get("link", ""), premium_item.get("product_id"), title=premium_item.get("title"), price=premium_item.get("price"), discount=premium_item.get("discount"), image=premium_item.get("image")) if premium_item.get("link") and LINK_TRACKING else premium_item.get("link", "")}">&#8203;</a>'
-                        f"🔒 <b>PREMIUM EXCLUSIVE</b>\n\n📦 <b>{premium_item.get('title', 'Deal')}</b>\n\n"
-                        f"{premium_item.get('body', '')[:300]}\n\n"
-                        f"🔗 <a href=\"{tracked_url(premium_item.get('link', ''), premium_item.get('product_id')) if premium_item.get('link') and LINK_TRACKING else premium_item.get('link', '')}\">🛒 Buy on Amazon</a>",
+                        text=premium_msg,
                         parse_mode="HTML",
                         reply_markup=InlineKeyboardMarkup([[
                             InlineKeyboardButton("🛒 BUY NOW", url=tracked_url(premium_item.get("link", ""), premium_item.get("product_id")) if premium_item.get("link") and LINK_TRACKING else premium_item.get("link", "")),

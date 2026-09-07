@@ -2,6 +2,7 @@ import os
 import sys
 import logging
 import re
+import random
 from datetime import datetime
 from data import load_json, save_json
 
@@ -71,14 +72,18 @@ def apply_niche_filter(products):
 CONTENT_FORMATS = ["pain_fix", "deal_alert", "short_urgency", "trust_check", "price_history", "amazon_verified"]
 
 HINGLISH_CTA = "लो लो ⚡ Limited stock hai — jaldi karo!"
-HINGLISH_HOOKS = [
-    f"🔥 {HINGLISH_CTA}",
-    f"⚡ Ghar ke liye best deal! {HINGLISH_CTA}",
-    f"🏡 Ghar ka budget bachao! {HINGLISH_CTA}",
-    "📢 Join @smartgahr for daily loot deals!",
-    "💡 Share this with someone who needs it!",
-    "🏷️ Budget deals, verified discounts — @smartgahr",
-]
+
+def _get_hinglish_hooks():
+    from config_loader import load_config
+    ch = load_config().get("bot", {}).get("channel_handle", "smartgahr")
+    return [
+        f"🔥 {HINGLISH_CTA}",
+        f"⚡ Ghar ke liye best deal! {HINGLISH_CTA}",
+        f"🏡 Ghar ka budget bachao! {HINGLISH_CTA}",
+        f"📢 Join @{ch} for daily loot deals!",
+        "💡 Share this with someone who needs it!",
+        f"🏷️ Budget deals, verified discounts — @{ch}",
+    ]
 
 def _body_pain_fix(prod):
     pain = prod.get("pain", "")
@@ -87,7 +92,7 @@ def _body_pain_fix(prod):
     mrp = str(prod.get("mrp", "")).strip()
     disc = prod.get("discount_percent", "")
     hook = prod.get("hook", "Grab this deal!")
-    import random
+
     parts = []
     if pain:
         parts.append(f"😣 {pain}")
@@ -97,7 +102,7 @@ def _body_pain_fix(prod):
         parts.append(f"💰 ~~{mrp}~~ → **{price}** ({disc} OFF)")
     elif price:
         parts.append(f"💰 **{price}**")
-    parts.append(random.choice(HINGLISH_HOOKS))
+    parts.append(random.choice(_get_hinglish_hooks()))
     return "\n\n".join(parts)
 
 def _body_deal_alert(prod):
@@ -112,8 +117,8 @@ def _body_deal_alert(prod):
         parts.append(f"💰 ~~{mrp}~~ → **{price}**")
     elif price:
         parts.append(f"💰 **{price}**")
-    import random
-    parts.append(random.choice(HINGLISH_HOOKS))
+
+    parts.append(random.choice(_get_hinglish_hooks()))
     return "\n\n".join(parts)
 
 def _body_short_urgency(prod):
@@ -122,13 +127,13 @@ def _body_short_urgency(prod):
     mrp = str(prod.get("mrp", "")).strip()
     disc = prod.get("discount_percent", "")
     hook = prod.get("hook", "")
-    import random
+
     parts = [f"🚨 Sasta deal alert!\n{name}"]
     if price and mrp:
         parts.append(f"💰 ~~{mrp}~~ → **{price}** (Bachao {disc})")
     elif price:
         parts.append(f"💰 **{price}**")
-    parts.append(random.choice(HINGLISH_HOOKS))
+    parts.append(random.choice(_get_hinglish_hooks()))
     return "\n\n".join(parts)
 
 def _body_trust_check(prod):
@@ -139,7 +144,7 @@ def _body_trust_check(prod):
     disc = prod.get("discount_percent", "")
     rating = prod.get("rating", "")
     disc_val = calc_discount(price, mrp)
-    import random
+
     if disc_val < 15:
         verdict = (
             f"❌ Ye deal MAT lo.\n\n"
@@ -164,7 +169,7 @@ def _body_trust_check(prod):
     parts = [f"🧐 **SmartGahr Deal Check**\n\n{verdict}"]
     if rating:
         parts.append(f"⭐ Rating: {rating}/5")
-    parts.append(random.choice(HINGLISH_HOOKS))
+    parts.append(random.choice(_get_hinglish_hooks()))
     return "\n\n".join(parts)
 
 def _body_price_history(prod):
@@ -174,7 +179,7 @@ def _body_price_history(prod):
     mrp = str(prod.get("mrp", "")).strip()
     disc = prod.get("discount_percent", "")
     rating = prod.get("rating", "")
-    import random
+
     verdicts = [
         f"📈 **Price History Check: {name}**\n\n"
         f"MRP: ~~{mrp}~~\nAaj ka price: **{price}** ({disc} OFF)\n\n"
@@ -190,7 +195,7 @@ def _body_price_history(prod):
     parts = [random.choice(verdicts)]
     if rating:
         parts.append(f"⭐ {rating}/5 rating — buyers khush hain")
-    parts.append(random.choice(HINGLISH_HOOKS))
+    parts.append(random.choice(_get_hinglish_hooks()))
     return "\n\n".join(parts)
 
 def _body_amazon_verified(prod):
@@ -201,7 +206,7 @@ def _body_amazon_verified(prod):
     disc = prod.get("discount_percent", "")
     rating = prod.get("rating", "")
     fix = prod.get("fix", "")
-    import random
+
     try:
         rating_num = float(re.sub(r"[^\d.]", "", str(rating)) or "0")
     except (ValueError, TypeError):
@@ -225,7 +230,7 @@ def _body_amazon_verified(prod):
         f"👉 Price drop hai toh jaldi lo — stock limited rehta hai.",
     ]
     parts = [random.choice(templates)]
-    parts.append(random.choice(HINGLISH_HOOKS))
+    parts.append(random.choice(_get_hinglish_hooks()))
     return "\n\n".join(parts)
 
 _FORMATTERS = {

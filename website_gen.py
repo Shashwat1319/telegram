@@ -98,17 +98,19 @@ def generate_deal_file(prod, out_dir=DEALS_DIR):
         image=img,
     )
     rating_str = str(rating) if rating else "4.0"
+    def y(v):
+        return str(v).replace('"', '\\"')
     md = f"""---
-title: "{name} @ Just {price} - Save {disc}!"
-description: "{_description(prod)}"
+title: "{y(name)} @ Just {y(price)} - Save {y(disc)}!"
+description: "{y(_description(prod))}"
 pubDate: "{datetime.now().strftime('%Y-%m-%d')}"
-price: "{price}"
-mrp: "{mrp}"
-discount: "{disc}"
-image: "{img}"
-buyLink: "{buy_link}"
-category: "{cat}"
-rating: "{rating_str}"
+price: "{y(price)}"
+mrp: "{y(mrp)}"
+discount: "{y(disc)}"
+image: "{y(img)}"
+buyLink: "{y(buy_link)}"
+category: "{y(cat)}"
+rating: "{y(rating_str)}"
 ---
 
 🔥 **{disc} OFF** on {name}
