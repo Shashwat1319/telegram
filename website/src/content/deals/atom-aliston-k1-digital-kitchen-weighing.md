@@ -1,7 +1,7 @@
 ---
 title: "ATOM Aliston K1 Digital Kitchen Weighing Scale 10kg @ Just ₹215 - Save 73%!"
 description: "Get ATOM Aliston K1 Digital Kitchen Weighing Scale 10kg at just ₹215 - Save 73%! Verified Amazon deal."
-pubDate: "2026-09-07"
+pubDate: "2026-09-08"
 price: "₹215"
 mrp: "₹799"
 discount: "73%"
