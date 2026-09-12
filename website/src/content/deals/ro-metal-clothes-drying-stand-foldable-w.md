@@ -1,7 +1,7 @@
 ---
 title: "RO Metal Clothes Drying Stand Foldable with Wheels 3-Tier @ Just ₹999 - Save 67%!"
 description: "Get RO Metal Clothes Drying Stand Foldable with Wheels 3-Tier at just ₹999 - Save 67%! Verified Amazon deal."
-pubDate: "2026-09-11"
+pubDate: "2026-09-12"
 price: "₹999"
 mrp: "₹2999"
 discount: "67%"
