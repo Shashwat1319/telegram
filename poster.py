@@ -31,12 +31,12 @@ CHAT_ID_INPUT = CHANNEL_ID
 CLEAN_ID = CHANNEL_ID.replace("@", "") if CHANNEL_ID else "channel"
 SOURCE_FILE = content_cfg.get("source_file", "content.json")
 POSTS_PER_BATCH = content_cfg.get("posts_per_batch", 3)
-MAX_REPOSTS = content_cfg.get("max_reposts", 50)
+MAX_REPOSTS = content_cfg.get("max_reposts", 10)
 HAS_LINKS = content_cfg.get("has_links", True)
 LINK_TRACKING = content_cfg.get("link_tracking_enabled", False)
 PIN_POSTS = content_cfg.get("pin_posts", False)
 HASHTAGS = " ".join(content_cfg.get("hashtags", ["#AmazonDeals", "#LootOffer", "#PriceDrop"]))
-DAILY_POLL = content_cfg.get("daily_poll", False)
+DAILY_POLL = content_cfg.get("daily_poll", True)
 POST_TO_PREMIUM = content_cfg.get("post_to_premium", False)
 PREMIUM_CHANNEL_ID = content_cfg.get("premium_channel_id", bot_cfg.get("premium_channel_handle", "@smartgahrpremium"))
 COUNTER_FILE = "post_count.txt"
@@ -48,6 +48,10 @@ CTA_OPTIONS = [
     "🔄 Apne group me share karo — sabko bachao paise!",
     "👍 Deal achhi lagi? Reaction do — kal aur aisi hi deal aayegi",
     "❓ Is price pe khareedna chahiye ya wait karein? Comment karo",
+    "🏷️ Kisi aur cheez ka deal chahiye? Comment me batao — dhundh ke layenge!",
+    "🔥 Ye deal 24 ghante mein expire ho sakti hai — jaldi karo!",
+    "📦 Maine khud ye order kiya hai — quality guaranteed! 💯",
+    "🎯 Budget under ₹999 me aur kya chahiye? Comment karo!",
 ]
 
 
@@ -75,19 +79,21 @@ def _pick_eligible(items, posted):
             unposted.append(item)
         else:
             h = posted[item_id]
-            # Trust formats cycle faster (2x weight): shorter repost window
-            if item.get("format") in ("trust_check", "personal_review"):
+            if item.get("format") in ("trust_check", "amazon_verified"):
                 gap = random.randint(2, 4)
             else:
                 gap = random.randint(8, 16)
             if h.get("count", 0) < MAX_REPOSTS and h.get("last", "") < (now - timedelta(hours=gap)).isoformat():
                 repostable.append(item)
-    # Never repost while fresh items remain (prevents discount-sorted
-    # top items from crowding out the sequence)
     if unposted:
+        random.shuffle(unposted)
         return unposted
-    # All posted → cycle in order, oldest-last first
     repostable.sort(key=lambda i: posted.get(i.get("id") or i.get("title"), {}).get("last", ""))
+    if len(repostable) > 3:
+        top = repostable[:3]
+        rest = repostable[3:]
+        random.shuffle(rest)
+        repostable = top + rest
     return repostable
 
 
@@ -174,18 +180,10 @@ async def post_content():
                 return
 
             num = min(POSTS_PER_BATCH, len(eligible))
-            to_post = eligible[:num]  # Picks highest discount eligible items first
+            to_post = eligible[:num]
             
-            now_str = datetime.now().isoformat()
-            for item in to_post:
-                item_id = item.get("id") or item.get("title", "")
-                posted[item_id] = {
-                    "last": now_str,
-                    "count": posted.get(item_id, {}).get("count", 0) + 1 if item_id in posted else 1
-                }
-            _save_posted(posted)
-
             current_count = _increment_post_count()
+            posted_now = []
             for item in to_post:
                 title = item.get("title", "Deal")
                 raw_link = item.get("link", "") if HAS_LINKS else ""
@@ -193,8 +191,6 @@ async def post_content():
                 link = tracked_url(raw_link, product_id, title=item.get("title"), price=item.get("price"), discount=item.get("discount"), image=item.get("image")) if raw_link and LINK_TRACKING else raw_link
                 msg = generate_high_converting_message(item, current_count)
                 if link:
-                    # Prepend a zero-width space linked to the URL.
-                    # This tells Telegram to fetch the link preview (with image) without displaying the link in the message body.
                     msg = f'<a href="{link}">&#8203;</a>{msg}'
 
                 buttons = []
@@ -204,26 +200,50 @@ async def post_content():
                 
                 buttons.append([
                     InlineKeyboardButton("🚀 Share Deal", url=f"https://t.me/share/url?url={quote(link or 'https://t.me/' + CLEAN_ID)}&text={quote(title[:60])}"),
-                    InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{CLEAN_ID}")
+                ])
+                buttons.append([
+                    InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{CLEAN_ID}"),
+                    InlineKeyboardButton("🔥 More Deals", url=f"https://t.me/{CLEAN_ID}"),
                 ])
                 
                 kb = InlineKeyboardMarkup(buttons)
-                try:
-                    if len(msg) > 4000:
-                        msg = msg[:4000] + "\n\n⚠️ Truncated. Join channel for full details."
-                    sent = await bot.send_message(chat_id=chat_id, text=msg, parse_mode="HTML", reply_markup=kb)
-                    log.info("Posted deal to channel: %s", title[:40])
-                    if PIN_POSTS:
-                        try:
-                            await bot.pin_chat_message(chat_id=chat_id, message_id=sent.message_id)
-                        except TelegramError:
-                            pass
+                success = False
+                for attempt in range(3):
+                    try:
+                        if len(msg) > 4000:
+                            msg = msg[:4000] + "\n\n⚠️ Truncated. Join channel for full details."
+                        sent = await bot.send_message(chat_id=chat_id, text=msg, parse_mode="HTML", reply_markup=kb)
+                        log.info("Posted deal to channel: %s", title[:40])
+                        if PIN_POSTS:
+                            try:
+                                await bot.pin_chat_message(chat_id=chat_id, message_id=sent.message_id)
+                            except TelegramError:
+                                pass
+                        success = True
+                        break
+                    except TelegramError as e:
+                        if attempt < 2:
+                            wait = (attempt + 1) * 5
+                            log.warning("Telegram error for %s (attempt %d/3): %s — retrying in %ds", title[:30], attempt + 1, e, wait)
+                            await asyncio.sleep(wait)
+                        else:
+                            log.error("Failed to post %s after 3 attempts: %s", title[:30], e)
+                    except Exception as e:
+                        log.error("Failed to post %s: %s", title[:30], e)
+                        break
+
+                if success:
+                    item_id = item.get("id") or item.get("title", "")
+                    posted[item_id] = {
+                        "last": datetime.now().isoformat(),
+                        "count": posted.get(item_id, {}).get("count", 0) + 1 if item_id in posted else 1
+                    }
+                    posted_now.append(item)
                     post_delay = content_cfg.get("post_delay_seconds", 3)
                     await asyncio.sleep(post_delay)
-                except TelegramError as e:
-                    log.error("Telegram posting error for %s: %s", title, e)
-                except Exception as e:
-                    log.error("Failed to post %s: %s", title, e)
+
+            if posted_now:
+                _save_posted(posted)
 
             if POST_TO_PREMIUM and to_post:
                 premium_item = to_post[0]

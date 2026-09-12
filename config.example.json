@@ -15,7 +15,7 @@
     "source_file": "content.json",
     "schedule_interval_minutes": 30,
     "posts_per_batch": 3,
-    "max_reposts": 50,
+    "max_reposts": 10,
     "has_links": true,
     "link_tracking_enabled": true,
     "pin_posts": false,

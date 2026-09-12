@@ -265,8 +265,8 @@ def to_content_items(prod):
     for fmt in CONTENT_FORMATS:
         formatter = _FORMATTERS[fmt]
         body = formatter(prod)
-        if len(body) > 800:
-            body = body[:800] + "..."
+        if len(body) > 1200:
+            body = body[:1200] + "..."
         fmt_labels = {"pain_fix": "💡 Problem Solved", "deal_alert": "⚡ Deal Alert", "short_urgency": "🔥 Flash Deal", "trust_check": "🧐 Deal Check", "price_history": "📈 Price History", "amazon_verified": "✅ Amazon Verified"}
         fmt_title = f"{name[:75]} — {fmt_labels.get(fmt, fmt.replace('_',' ').title())}"
         items.append({
@@ -313,6 +313,20 @@ def merge_posted_history(output_path=None):
     save_json(new_file, merged)
 
 
+def prune_posted_history(valid_ids, output_path=None):
+    """Remove orphaned entries from posted history for products no longer in feed."""
+    new_file = (output_path or CONTENT_FILE).replace(".json", "_posted.json")
+    if not os.path.exists(new_file):
+        return 0
+    posted = load_json(new_file, default={})
+    before = len(posted)
+    pruned = {k: v for k, v in posted.items() if any(k.startswith(vid) for vid in valid_ids)}
+    if len(pruned) < before:
+        save_json(new_file, pruned)
+        log.info("Pruned posted history: %d → %d entries", before, len(pruned))
+    return before - len(pruned)
+
+
 def feed(limit=100, source=None, output=None):
     products = clean_product_file(source=source)
     if not products:
@@ -332,6 +346,8 @@ def feed(limit=100, source=None, output=None):
              len(all_items), min(len(products), limit), len(CONTENT_FORMATS), out_path)
 
     merge_posted_history(output_path=out_path)
+    valid_ids = {p.get("id", "") for p in all_items}
+    prune_posted_history(valid_ids, output_path=out_path)
 
 
 if __name__ == "__main__":
