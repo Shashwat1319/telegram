@@ -152,13 +152,10 @@ def generate_high_converting_message(item, post_count=0):
 
     if body:
         body_html = body.replace("\n\n", "\n")
+        body_html = html.escape(body_html, quote=False)
         body_html = re.sub(r"~~(.+?)~~", r"<s>\1</s>", body_html)
         body_html = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", body_html)
         body_html = re.sub(r"__(.+?)__", r"<i>\1</i>", body_html)
-        body_html = html.escape(body_html, quote=False)
-        body_html = re.sub(r'<s>(.+?)</s>', r'<s>\1</s>', body_html)
-        body_html = re.sub(r'<b>(.+?)</b>', r'<b>\1</b>', body_html)
-        body_html = re.sub(r'<i>(.+?)</i>', r'<i>\1</i>', body_html)
         msg = f"{badge}\n\n📦 <b>{html.escape(title)}</b>\n\n{body_html}\n\n{random.choice(urgency_options)}"
     else:
         hook = item.get("hook", "Grab this deal before price goes up!")
@@ -211,7 +208,7 @@ async def post_content():
                 link = tracked_url(raw_link, product_id, title=item.get("title"), price=item.get("price"), discount=item.get("discount"), image=item.get("image")) if raw_link and LINK_TRACKING else raw_link
                 msg = generate_high_converting_message(item, current_count)
                 if link:
-                    msg = f'<a href="{link}">&#8203;</a>{msg}'
+                    msg = f'<a href="{html.escape(link, quote=True)}">&#8203;</a>{msg}'
 
                 buttons = []
                 if link:
@@ -272,7 +269,9 @@ async def post_content():
                     p_body = html.escape(str(premium_item.get('body', '')))[:300]
                     p_link = premium_item.get('link', '')
                     p_tracked = tracked_url(p_link, premium_item.get("product_id"), title=premium_item.get("title"), price=premium_item.get("price"), discount=premium_item.get("discount"), image=premium_item.get("image")) if p_link and LINK_TRACKING else p_link
-                    premium_msg = f'🔒 <b>PREMIUM EXCLUSIVE</b>\n\n📦 <b>{p_title}</b>\n\n{p_body}\n\n🔗 <a href="{p_tracked}">🛒 Buy on Amazon</a>'
+                    if not p_tracked:
+                        p_tracked = f"https://t.me/{CLEAN_ID}"
+                    premium_msg = f'🔒 <b>PREMIUM EXCLUSIVE</b>\n\n📦 <b>{p_title}</b>\n\n{p_body}\n\n🔗 <a href="{html.escape(p_tracked, quote=True)}">🛒 Buy on Amazon</a>'
                     if len(premium_msg) > 4000:
                         premium_msg = _safe_truncate(premium_msg, 3950) + "\n\n⚠️ Truncated."
                     await bot.send_message(

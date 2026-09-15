@@ -75,8 +75,10 @@ def load_posted():
 
 
 def save_posted(posted):
-    with open(POSTED_FILE, 'w', encoding='utf-8') as f:
+    tmp = POSTED_FILE + ".tmp"
+    with open(tmp, 'w', encoding='utf-8') as f:
         json.dump(posted, f, indent=2, ensure_ascii=False)
+    os.replace(tmp, POSTED_FILE)
 
 
 def load_latest_product():
@@ -154,42 +156,42 @@ async def main():
 
     client = TelegramClient(StringSession(SESSION_STR), int(API_ID), API_HASH)
     await client.connect()
+    try:
+        if not await client.is_user_authorized():
+            log.error("Session not authorized")
+            return
 
-    if not await client.is_user_authorized():
-        log.error("Session not authorized")
+        me = await client.get_me()
+        log.info("Logged in as %s", me.first_name or me.phone)
+
+        posted_count = 0
+
+        for i, group in enumerate(groups):
+            product = load_latest_product()
+            if not product:
+                log.warning("No product available to post")
+                break
+
+            product_key = f"{group}:{product.get('name', '')}"
+            if product_key in posted:
+                log.info("Already posted this product to %s, skipping", group)
+                continue
+
+            msg = build_message(product)
+            success = await post_to_group(client, group, msg, product.get("name", ""))
+            if success:
+                posted_count += 1
+                posted[product_key] = datetime.now(timezone.utc).isoformat()
+                save_posted(posted)
+
+            if i < len(groups) - 1:
+                delay = random.randint(*_get_delay())
+                log.info("Waiting %d seconds before next post...", delay)
+                await asyncio.sleep(delay)
+
+        log.info("Done. Posted to %d groups", posted_count)
+    finally:
         await client.disconnect()
-        return
-
-    me = await client.get_me()
-    log.info("Logged in as %s", me.first_name or me.phone)
-
-    posted_count = 0
-
-    for i, group in enumerate(groups):
-        product = load_latest_product()
-        if not product:
-            log.warning("No product available to post")
-            break
-
-        product_key = f"{group}:{product.get('name', '')}"
-        if product_key in posted:
-            log.info("Already posted this product to %s, skipping", group)
-            continue
-
-        msg = build_message(product)
-        success = await post_to_group(client, group, msg, product.get("name", ""))
-        if success:
-            posted_count += 1
-            posted[product_key] = datetime.now(timezone.utc).isoformat()
-            save_posted(posted)
-
-        if i < len(groups) - 1:
-            delay = random.randint(*_get_delay())
-            log.info("Waiting %d seconds before next post...", delay)
-            await asyncio.sleep(delay)
-
-    await client.disconnect()
-    log.info("Done. Posted to %d groups", posted_count)
 
 
 if __name__ == "__main__":

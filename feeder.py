@@ -54,7 +54,7 @@ def apply_niche_filter(products):
 
     filtered = []
     for p in products:
-        if max_price and 0 < _price(p) > max_price:
+        if max_price and _price(p) > max_price:
             continue
         if categories and p.get("category") not in categories:
             continue
@@ -266,7 +266,12 @@ def to_content_items(prod):
         formatter = _FORMATTERS[fmt]
         body = formatter(prod)
         if len(body) > 1200:
-            body = body[:1200] + "..."
+            truncated = body[:1200]
+            # Don't break markdown tags
+            for tag in ["**", "~~", "__"]:
+                if truncated.count(tag) % 2 != 0:
+                    truncated = truncated[:truncated.rfind(tag)]
+            body = truncated + "..."
         fmt_labels = {"pain_fix": "💡 Problem Solved", "deal_alert": "⚡ Deal Alert", "short_urgency": "🔥 Flash Deal", "trust_check": "🧐 Deal Check", "price_history": "📈 Price History", "amazon_verified": "✅ Amazon Verified"}
         fmt_title = f"{name[:75]} — {fmt_labels.get(fmt, fmt.replace('_',' ').title())}"
         items.append({
