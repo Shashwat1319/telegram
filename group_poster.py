@@ -37,11 +37,11 @@ def calc_discount(price_str, mrp_str):
     try:
         p = float(re.sub(r"[^\d.]", "", str(price_str)))
         m = float(re.sub(r"[^\d.]", "", str(mrp_str)))
-        if m > 0:
-            return str(int((1 - p / m) * 100))
+        if m > 0 and p < m:
+            return int((1 - p / m) * 100)
     except Exception:
         pass
-    return "0"
+    return 0
 
 def tracked_link(url):
     tag = os.getenv("AFFILIATE_ID_IN", "shashwat022-21")

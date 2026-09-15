@@ -116,15 +116,30 @@ def _increment_post_count():
     return c
 
 
+def _safe_truncate(text, max_len):
+    """Truncate text without breaking HTML tags."""
+    if len(text) <= max_len:
+        return text
+    cut = text[:max_len]
+    # Count unclosed tags
+    opens = len(re.findall(r'<[bius]>', cut))
+    closes = len(re.findall(r'</[bius]>', cut))
+    while opens > closes and cut:
+        cut = cut[:cut.rfind('<')]
+        opens = len(re.findall(r'<[bius]>', cut))
+        closes = len(re.findall(r'</[bius]>', cut))
+    return cut + "..."
+
+
 def generate_high_converting_message(item, post_count=0):
     """Generates high-converting copywriting templates for affiliate posts."""
-    title = html.escape(str(item.get("title", "Amazon Deal")))[:60]
-    price = html.escape(str(item.get("price", "")))
-    mrp = html.escape(str(item.get("mrp", "")))
-    disc = html.escape(str(item.get("discount", "")))
-    rating = html.escape(str(item.get("rating", "4.5★")))
+    title = str(item.get("title", "Amazon Deal"))[:60]
+    price = str(item.get("price", ""))
+    mrp = str(item.get("mrp", ""))
+    disc = str(item.get("discount", ""))
+    rating = str(item.get("rating", "4.5★"))
     is_loot = item.get("is_loot", False)
-    body = html.escape(str(item.get("body", "")))[:300]
+    body = str(item.get("body", ""))[:400]
 
     badge = "🚨 <b>BIGGEST PRICE DROP LOOT</b>" if is_loot else "⚡ <b>VERIFIED AMAZON DEAL</b>"
     
@@ -137,24 +152,29 @@ def generate_high_converting_message(item, post_count=0):
 
     if body:
         body_html = body.replace("\n\n", "\n")
+        body_html = re.sub(r"~~(.+?)~~", r"<s>\1</s>", body_html)
         body_html = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", body_html)
         body_html = re.sub(r"__(.+?)__", r"<i>\1</i>", body_html)
-        msg = f"{badge}\n\n📦 <b>{title}</b>\n\n{body_html}\n\n{random.choice(urgency_options)}"
+        body_html = html.escape(body_html, quote=False)
+        body_html = re.sub(r'<s>(.+?)</s>', r'<s>\1</s>', body_html)
+        body_html = re.sub(r'<b>(.+?)</b>', r'<b>\1</b>', body_html)
+        body_html = re.sub(r'<i>(.+?)</i>', r'<i>\1</i>', body_html)
+        msg = f"{badge}\n\n📦 <b>{html.escape(title)}</b>\n\n{body_html}\n\n{random.choice(urgency_options)}"
     else:
         hook = item.get("hook", "Grab this deal before price goes up!")
         price_line = ""
         if price and mrp:
-            price_line = f"💰 <b>Price</b>: <s>{mrp}</s> → <b>{price}</b> ({disc} OFF)"
+            price_line = f"💰 <b>Price</b>: <s>{html.escape(mrp)}</s> → <b>{html.escape(price)}</b> ({html.escape(disc)} OFF)"
         elif price:
-            price_line = f"💰 <b>Deal Price</b>: <b>{price}</b>"
+            price_line = f"💰 <b>Deal Price</b>: <b>{html.escape(price)}</b>"
         templates = [
-            f"{badge}\n\n📦 <b>{title}</b>\n\n{price_line}\n⭐ <b>Rating</b>: {rating}\n\n🔥 <i>{hook}</i>\n\n{random.choice(urgency_options)}",
-            f"🔥 <b>LOOT ALERT ({disc} OFF)</b>\n\n📦 <b>{title}</b>\n\n{price_line}\n\n✅ Verified Amazon India Deal\n{random.choice(urgency_options)}",
-            f"⚡ <b>FLASH SALE ITEM</b>\n\n📦 <b>{title}</b>\n\n{price_line}\n⭐ <b>User Rating</b>: {rating}\n\n{random.choice(urgency_options)}",
+            f"{badge}\n\n📦 <b>{html.escape(title)}</b>\n\n{price_line}\n⭐ <b>Rating</b>: {html.escape(rating)}\n\n🔥 <i>{html.escape(hook)}</i>\n\n{random.choice(urgency_options)}",
+            f"🔥 <b>LOOT ALERT ({html.escape(disc)} OFF)</b>\n\n📦 <b>{html.escape(title)}</b>\n\n{price_line}\n\n✅ Verified Amazon India Deal\n{random.choice(urgency_options)}",
+            f"⚡ <b>FLASH SALE ITEM</b>\n\n📦 <b>{html.escape(title)}</b>\n\n{price_line}\n⭐ <b>User Rating</b>: {html.escape(rating)}\n\n{random.choice(urgency_options)}",
         ]
         msg = templates[post_count % len(templates)]
 
-    msg += f"\n\n📢 <b>Join</b> @{CLEAN_ID} for daily loots!"
+    msg += f"\n\n📢 <b>Join</b> @{html.escape(CLEAN_ID)} for daily loots!"
     if HASHTAGS:
         msg += f"\n{HASHTAGS}"
     msg += f"\n\n{random.choice(CTA_OPTIONS)}"
@@ -211,7 +231,7 @@ async def post_content():
                 for attempt in range(3):
                     try:
                         if len(msg) > 4000:
-                            msg = msg[:4000] + "\n\n⚠️ Truncated. Join channel for full details."
+                            msg = _safe_truncate(msg, 3950) + "\n\n⚠️ Truncated. Join channel for full details."
                         sent = await bot.send_message(chat_id=chat_id, text=msg, parse_mode="HTML", reply_markup=kb)
                         log.info("Posted deal to channel: %s", title[:40])
                         if PIN_POSTS:
@@ -245,7 +265,7 @@ async def post_content():
             if posted_now:
                 _save_posted(posted)
 
-            if POST_TO_PREMIUM and to_post:
+            if POST_TO_PREMIUM and posted_now:
                 premium_item = to_post[0]
                 try:
                     p_title = html.escape(str(premium_item.get('title', 'Deal')))
@@ -254,7 +274,7 @@ async def post_content():
                     p_tracked = tracked_url(p_link, premium_item.get("product_id"), title=premium_item.get("title"), price=premium_item.get("price"), discount=premium_item.get("discount"), image=premium_item.get("image")) if p_link and LINK_TRACKING else p_link
                     premium_msg = f'🔒 <b>PREMIUM EXCLUSIVE</b>\n\n📦 <b>{p_title}</b>\n\n{p_body}\n\n🔗 <a href="{p_tracked}">🛒 Buy on Amazon</a>'
                     if len(premium_msg) > 4000:
-                        premium_msg = premium_msg[:4000] + "\n\n⚠️ Truncated."
+                        premium_msg = _safe_truncate(premium_msg, 3950) + "\n\n⚠️ Truncated."
                     await bot.send_message(
                         chat_id=PREMIUM_CHANNEL_ID,
                         text=premium_msg,
@@ -273,7 +293,6 @@ async def post_content():
                 except Exception as e:
                     log.error("Poll posting failed: %s", e)
 
-            await bot.shutdown()
     except Exception as e:
         log.error("post_content fatal error: %s", e)
 
