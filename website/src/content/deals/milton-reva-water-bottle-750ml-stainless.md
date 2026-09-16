@@ -1,7 +1,7 @@
 ---
 title: "Milton Reva Water Bottle 750ml Stainless Steel @ Just ₹449 - Save 62%!"
 description: "Get Milton Reva Water Bottle 750ml Stainless Steel at just ₹449 - Save 62%! Verified Amazon deal."
-pubDate: "2026-09-15"
+pubDate: "2026-09-16"
 price: "₹449"
 mrp: "₹1195"
 discount: "62%"
