@@ -31,7 +31,7 @@
   "tasks": {
     "product_feed": { "enabled": true, "interval_hours": 12 },
     "channel_posting": { "enabled": true, "interval_hours": 6 },
-    "group_posting": { "enabled": false, "interval_hours": 2 },
+    "group_posting": { "enabled": true, "interval_hours": 2 },
     "referral_tracker": { "enabled": true },
     "daily_report": { "enabled": true, "interval_hours": 24 },
     "goal_tracker": { "enabled": true, "interval_hours": 6 }
