@@ -1,18 +1,18 @@
 {
   "bot": {
-    "username": "YourBot",
+    "username": "SmartGahr",
     "description": "Verified Amazon deals under ₹999 — 40%+ discounts only. No spam, only genuine loot.",
-    "channel_id": "@your_channel",
-    "channel_handle": "your_channel",
+    "channel_id": "@smartgahr",
+    "channel_handle": "smartgahr",
     "welcome_message": "Welcome to SmartGahr! 🎯\n\nWe find the best Amazon deals under ₹999 — every deal verified, every discount above 40%.\n\n🔥 Use /deal for today's top loot\n📊 Use /topdeal for highest discount\n🔍 Use /search <keyword> to find anything\n\nJoin 1,000+ smart shoppers who save money daily!",
     "referral_reminder_message": "Invite 2 friends → unlock 30 days FREE premium deals! Use /referral to get your link.",
     "content_command": "random",
     "content_command_label": "Get Content",
-    "premium_channel_handle": "your_premium_channel",
+    "premium_channel_handle": "smartgahrpremium",
     "premium_unlock_referrals": 2
   },
   "content": {
-    "source_file": "content.json",
+    "source_file": "content_home.json",
     "schedule_interval_minutes": 30,
     "posts_per_batch": 3,
     "max_reposts": 10,
@@ -20,12 +20,13 @@
     "link_tracking_enabled": true,
     "pin_posts": false,
     "daily_poll": true,
-    "post_to_premium": true,
-    "premium_channel_id": "@your_premium_channel",
-    "hashtags": ["#YourTag"],
+    "post_to_premium": false,
+    "premium_channel_id": "@smartgahrpremium",
+    "hashtags": ["#AmazonDeals", "#LootOffer", "#PriceDrop"],
     "max_price": 999,
     "min_discount": 40,
-    "include_categories": []
+    "include_categories": [],
+    "post_delay_seconds": 3
   },
   "tasks": {
     "product_feed": { "enabled": true, "interval_hours": 12 },
