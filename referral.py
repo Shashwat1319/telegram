@@ -1,4 +1,4 @@
-import os, re, asyncio, logging
+import os, re, asyncio, logging, urllib.parse
 from datetime import datetime, timezone, timedelta
 from typing import Optional
 from dotenv import load_dotenv
@@ -29,6 +29,41 @@ PREMIUM_REFERRALS_NEEDED = int(os.getenv("PREMIUM_REFERRALS_NEEDED", "2"))
 PREMIUM_DURATION_DAYS = int(os.getenv("PREMIUM_DURATION_DAYS", "30"))
 
 _LOCK = asyncio.Lock()
+
+def _extract_invite_token(link: str) -> str:
+    """Extract the invite token from a Telegram invite link.
+    e.g. 'https://t.me/+AbCdEf123' -> 'AbCdEf123'
+         'https://t.me/joinchat/AbCdEf123' -> 'AbCdEf123'
+    """
+    if not link:
+        return ""
+    link = link.strip().rstrip("/")
+    # Parse URL to get the path component
+    parsed = urllib.parse.urlparse(link)
+    path = parsed.path.lstrip("/")
+    # Remove known prefixes
+    for prefix in ("joinchat/", "+"):
+        if path.startswith(prefix):
+            return path[len(prefix):]
+    return path
+
+def _links_match(link_a: str, link_b: str) -> bool:
+    """Match two Telegram invite links even if URLs are normalized differently."""
+    if not link_a or not link_b:
+        return False
+    a, b = link_a.strip(), link_b.strip()
+    # Fast path: exact match
+    if a == b:
+        return True
+    # Normalize: strip trailing slashes, lowercase scheme/host
+    a_norm = a.rstrip("/").lower()
+    b_norm = b.rstrip("/").lower()
+    if a_norm == b_norm:
+        return True
+    # Fallback: compare invite tokens
+    tok_a = _extract_invite_token(a)
+    tok_b = _extract_invite_token(b)
+    return bool(tok_a and tok_b and tok_a == tok_b)
 
 def load_referrals():
     return load_json(REFERRAL_FILE, default={})
@@ -119,7 +154,7 @@ async def record_join(invite_link: str, user_id: int, username: Optional[str] = 
     async with _LOCK:
         referrals = load_referrals()
         for link in referrals:
-            if invite_link and invite_link.strip() == link.strip():
+            if invite_link and _links_match(invite_link, link):
                 info = referrals[link]
                 if user_id not in info.get("joined", []):
                     info.setdefault("joined", []).append(user_id)
@@ -131,6 +166,7 @@ async def record_join(invite_link: str, user_id: int, username: Optional[str] = 
                     log.info("Referral: user %d (@%s) joined via %s... Total: %d", user_id, username, link[:50], len(info["joined"]))
                     return True
                 return False
+        log.debug("No matching referral link for: %s", (invite_link or "")[:80])
         return False
 
 async def send_welcome(user_id: int, username: Optional[str] = None):
@@ -181,12 +217,15 @@ async def event_listener():
 
         @client.on(events.ChatAction)
         async def handler(event):
-            if event.user_joined or event.user_added:
-                user = await event.get_user()
-                if user and not user.bot and not user.deleted:
-                    invite_link = getattr(getattr(event.action, "invite", None), "link", None)
-                    if await record_join(invite_link or "", user.id, user.username):
-                        await send_welcome(user.id, user.username)
+            try:
+                if event.user_joined or event.user_added:
+                    user = await event.get_user()
+                    if user and not user.bot and not user.deleted:
+                        invite_link = getattr(getattr(event.action, "invite", None), "link", None)
+                        if await record_join(invite_link or "", user.id, user.username):
+                            await send_welcome(user.id, user.username)
+            except Exception as e:
+                log.warning("Join handler error: %s", e)
 
         @client.on(events.Raw)
         async def raw_handler(update):
@@ -215,6 +254,53 @@ def calculate_rewards() -> dict:
     return rewards
 
 
+STATE_FILE = "referrals_state.json"
+
+def _load_poll_state() -> dict:
+    return load_json(STATE_FILE, default={"last_member_count": 0})
+
+def _save_poll_state(state: dict):
+    save_json(STATE_FILE, state)
+
+async def member_count_poller(interval_minutes: int = 30):
+    """Fallback poller: track channel member count to detect joins/leaves.
+    Runs alongside the event listener to catch joins that events miss.
+    """
+    from telegram import Bot
+    if not BOT_TOKEN:
+        log.error("[POLLER] BOT_TOKEN not set, cannot poll member count")
+        return
+
+    state = _load_poll_state()
+    last_count = state.get("last_member_count", 0)
+    log.info("[POLLER] Starting member count poller (interval=%dm, last_count=%d)", interval_minutes, last_count)
+
+    while True:
+        try:
+            async with Bot(token=BOT_TOKEN) as bot:
+                await bot.initialize()
+                current_count = await bot.get_chat_member_count(chat_id=CHANNEL_ID)
+                await bot.shutdown()
+
+                if last_count > 0 and current_count > last_count:
+                    diff = current_count - last_count
+                    log.info("[POLLER] Member count increased: %d -> %d (+%d joins detected)", last_count, current_count, diff)
+                    state["last_join_detected"] = datetime.now(timezone.utc).isoformat()
+                    state["last_join_diff"] = diff
+                elif last_count > 0 and current_count < last_count:
+                    log.info("[POLLER] Member count decreased: %d -> %d (-%d leaves)", last_count, current_count, last_count - current_count)
+
+                last_count = current_count
+                state["last_member_count"] = current_count
+                state["last_poll"] = datetime.now(timezone.utc).isoformat()
+                _save_poll_state(state)
+
+        except Exception as e:
+            log.warning("[POLLER] Member count poll failed: %s", e)
+
+        await asyncio.sleep(interval_minutes * 60)
+
+
 if __name__ == "__main__":
     import sys
     if "--oneshot" in sys.argv:
@@ -223,5 +309,7 @@ if __name__ == "__main__":
         print(f"Referrals: {len(refs)} users, {sum(len(r.get('joined',[])) for r in refs.values())} joins")
         for uid, reward in rewards.items():
             print(f"  {uid}: ₹{reward}")
+    elif "--poll" in sys.argv:
+        asyncio.run(member_count_poller())
     else:
         asyncio.run(event_listener())

@@ -120,18 +120,38 @@ def run_bot_thread():
 
 
 def run_referral_thread():
+    retry_count = 0
     while not _shutdown.is_set():
         log.info("[THREAD] Starting Referral Tracker...")
         try:
             from referral import event_listener
             asyncio.run(event_listener())
+            retry_count = 0  # Reset on successful run (disconnected cleanly)
             break
         except Exception as e:
             log.error("[THREAD] Referral tracker error: %s", e)
             if _shutdown.is_set():
                 break
-            log.warning("Referral tracker will respawn in 30s...")
-            _shutdown.wait(timeout=30)
+            retry_count += 1
+            backoff = min(30 * (2 ** min(retry_count - 1, 4)), 300)  # 30, 60, 120, 240, 300s max
+            log.warning("Referral tracker will respawn in %ds (attempt %d)...", backoff, retry_count)
+            _shutdown.wait(timeout=backoff)
+
+
+def run_member_poller_thread():
+    """Fallback member count poller — catches joins that event listener misses."""
+    while not _shutdown.is_set():
+        log.info("[THREAD] Starting Member Count Poller...")
+        try:
+            from referral import member_count_poller
+            asyncio.run(member_count_poller(interval_minutes=30))
+            break
+        except Exception as e:
+            log.error("[THREAD] Member poller error: %s", e)
+            if _shutdown.is_set():
+                break
+            log.warning("Member poller will respawn in 60s...")
+            _shutdown.wait(timeout=60)
 
 
 def run_task_safely(func, task_name):
@@ -186,8 +206,10 @@ def main():
     # Start background bot & referral threads
     bot_thread = threading.Thread(target=run_bot_thread, daemon=True)
     ref_thread = threading.Thread(target=run_referral_thread, daemon=True)
+    poller_thread = threading.Thread(target=run_member_poller_thread, daemon=True)
     bot_thread.start()
     ref_thread.start()
+    poller_thread.start()
 
     log.info("Orchestrator running. Press Ctrl+C to stop.")
 
@@ -201,6 +223,10 @@ def main():
                 log.warning("Referral thread died — restarting...")
                 ref_thread = threading.Thread(target=run_referral_thread, daemon=True)
                 ref_thread.start()
+            if not poller_thread.is_alive():
+                log.warning("Member poller thread died — restarting...")
+                poller_thread = threading.Thread(target=run_member_poller_thread, daemon=True)
+                poller_thread.start()
 
             config = load_config()
             tasks_cfg = config.get("tasks", {})
