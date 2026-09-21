@@ -1,7 +1,7 @@
 ---
 title: "Syska 9W LED Bulb Cool White Pack of 10 @ Just ₹649 - Save 62%!"
 description: "Get Syska 9W LED Bulb Cool White Pack of 10 at just ₹649 - Save 62%! Verified Amazon deal."
-pubDate: "2026-09-20"
+pubDate: "2026-09-21"
 price: "₹649"
 mrp: "₹1699"
 discount: "62%"

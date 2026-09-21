@@ -1,7 +1,7 @@
 ---
 title: "Philips Air Purifier AC1259/20 Room 1-5 sqm @ Just ₹999 - Save 60%!"
 description: "Get Philips Air Purifier AC1259/20 Room 1-5 sqm at just ₹999 - Save 60%! Verified Amazon deal."
-pubDate: "2026-09-20"
+pubDate: "2026-09-21"
 price: "₹999"
 mrp: "₹2499"
 discount: "60%"

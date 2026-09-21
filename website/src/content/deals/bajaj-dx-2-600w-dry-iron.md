@@ -1,7 +1,7 @@
 ---
 title: "Bajaj DX-2 600W Dry Iron @ Just ₹625 - Save 55%!"
 description: "Get Bajaj DX-2 600W Dry Iron at just ₹625 - Save 55%! Verified Amazon deal."
-pubDate: "2026-09-20"
+pubDate: "2026-09-21"
 price: "₹625"
 mrp: "₹1399"
 discount: "55%"
