@@ -1,7 +1,7 @@
 ---
 title: "Amazon Basics AAA Batteries Pack of 40 @ Just ₹399 - Save 60%!"
 description: "Get Amazon Basics AAA Batteries Pack of 40 at just ₹399 - Save 60%! Verified Amazon deal."
-pubDate: "2026-09-23"
+pubDate: "2026-09-24"
 price: "₹399"
 mrp: "₹999"
 discount: "60%"
