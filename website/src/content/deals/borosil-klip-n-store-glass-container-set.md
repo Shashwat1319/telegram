@@ -1,7 +1,7 @@
 ---
 title: "Borosil Klip N Store Glass Container Set 3 Pcs @ Just ₹599 - Save 60%!"
 description: "Get Borosil Klip N Store Glass Container Set 3 Pcs at just ₹599 - Save 60%! Verified Amazon deal."
-pubDate: "2026-09-24"
+pubDate: "2026-09-25"
 price: "₹599"
 mrp: "₹1499"
 discount: "60%"

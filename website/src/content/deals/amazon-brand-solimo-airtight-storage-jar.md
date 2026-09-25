@@ -1,7 +1,7 @@
 ---
 title: "Amazon Brand Solimo Airtight Storage Jar Set 6 Pcs 750ml @ Just ₹349 - Save 68%!"
 description: "Get Amazon Brand Solimo Airtight Storage Jar Set 6 Pcs 750ml at just ₹349 - Save 68%! Verified Amazon deal."
-pubDate: "2026-09-24"
+pubDate: "2026-09-25"
 price: "₹349"
 mrp: "₹1099"
 discount: "68%"

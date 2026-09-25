@@ -1,7 +1,7 @@
 ---
 title: "Pigeon Bio Cast 3 Burner Gas Stove Stainless Steel @ Just ₹999 - Save 67%!"
 description: "Get Pigeon Bio Cast 3 Burner Gas Stove Stainless Steel at just ₹999 - Save 67%! Verified Amazon deal."
-pubDate: "2026-09-24"
+pubDate: "2026-09-25"
 price: "₹999"
 mrp: "₹2999"
 discount: "67%"
