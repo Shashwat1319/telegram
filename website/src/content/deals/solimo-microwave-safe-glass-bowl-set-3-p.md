@@ -1,7 +1,7 @@
 ---
 title: "Solimo Microwave Safe Glass Bowl Set 3 Pcs @ Just ₹399 - Save 60%!"
 description: "Get Solimo Microwave Safe Glass Bowl Set 3 Pcs at just ₹399 - Save 60%! Verified Amazon deal."
-pubDate: "2026-09-25"
+pubDate: "2026-09-26"
 price: "₹399"
 mrp: "₹999"
 discount: "60%"
