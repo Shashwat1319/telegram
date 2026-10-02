@@ -122,8 +122,8 @@ def build_message(product):
 async def post_to_group(client, group, message, product_name, retries=2):
     for attempt in range(retries + 1):
         try:
-            entity = await client.get_entity(group)
-            await client.send_message(entity, message)
+            entity = await asyncio.wait_for(client.get_entity(group), timeout=45)
+            await asyncio.wait_for(client.send_message(entity, message), timeout=45)
             log.info("Posted to %s: %s", group, product_name[:40])
             return True
         except FloodWaitError as e:
@@ -154,8 +154,8 @@ async def main():
 
     posted = load_posted()
 
-    client = TelegramClient(StringSession(SESSION_STR), int(API_ID), API_HASH)
-    await client.connect()
+    client = TelegramClient(StringSession(SESSION_STR), int(API_ID), API_HASH, timeout=30)
+    await asyncio.wait_for(client.connect(), timeout=45)
     try:
         if not await client.is_user_authorized():
             log.error("Session not authorized")

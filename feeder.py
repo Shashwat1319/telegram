@@ -309,11 +309,14 @@ def merge_posted_history(output_path=None):
     merged = dict(new)
     for title, data in old.items():
         if title not in merged:
-            count = data.get("count", data.get("posted_count", 1))
-            merged[title] = {
-                "last": data.get("last", data.get("last_posted", datetime.now().isoformat())),
-                "count": count,
-            }
+            if isinstance(data, str):
+                # group_poster writes plain ISO date strings as values
+                merged[title] = {"last": data, "count": 1}
+            elif isinstance(data, dict):
+                merged[title] = {
+                    "last": data.get("last", data.get("last_posted", datetime.now().isoformat())),
+                    "count": data.get("count", data.get("posted_count", 1)),
+                }
 
     save_json(new_file, merged)
 
