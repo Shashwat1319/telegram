@@ -180,7 +180,7 @@ def task_channel_post():
 def task_group_post():
     from group_poster import main as group_post_main
     async def _run():
-        await asyncio.wait_for(group_post_main(), timeout=1800)  # 30 min hard cap
+        await asyncio.wait_for(group_post_main(), timeout=5400)  # 90 min hard cap (12 groups x 5-10min delays)
     asyncio.run(_run())
 
 
