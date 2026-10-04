@@ -1,7 +1,7 @@
 import asyncio, os, json, random, logging, sys
 from datetime import datetime, timezone
 from telethon import TelegramClient
-from telethon.errors import FloodWaitError, ChatWriteForbiddenError
+from telethon.errors import FloodWaitError, ChatWriteForbiddenError, ChatGuestSendForbiddenError
 from telethon.sessions import StringSession
 from dotenv import load_dotenv
 
@@ -61,6 +61,22 @@ def load_groups():
             line = line.strip()
             if line and not line.startswith("#"):
                 groups.append(line)
+    # Skip chats we probed as non-writable (channels, banned, read-only)
+    state_path = "joined_groups_state.json"
+    if os.path.exists(state_path):
+        try:
+            with open(state_path, encoding="utf-8") as f:
+                state = json.load(f)
+            before = len(groups)
+            groups = [
+                g for g in groups
+                if state.get(g, {}).get("send") in (None, "writable", "unknown")
+            ]
+            skipped = before - len(groups)
+            if skipped:
+                log.info("Skipped %d non-writable chats (probe state)", skipped)
+        except Exception as e:
+            log.warning("Could not read probe state: %s", e)
     return groups
 
 
@@ -119,19 +135,40 @@ def build_message(product):
     return random.choice(templates)
 
 
+def mark_send_status(group, status):
+    """Record actual send outcome in probe state so future runs skip failures."""
+    state_path = "joined_groups_state.json"
+    try:
+        state = {}
+        if os.path.exists(state_path):
+            with open(state_path, encoding="utf-8") as f:
+                state = json.load(f)
+        entry = state.setdefault(group, {})
+        entry["send"] = status
+        entry["send_at"] = datetime.now(timezone.utc).isoformat()
+        tmp = state_path + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(state, f, indent=2, ensure_ascii=False)
+        os.replace(tmp, state_path)
+    except Exception as e:
+        log.debug("Could not update send status for %s: %s", group, e)
+
+
 async def post_to_group(client, group, message, product_name, retries=2):
     for attempt in range(retries + 1):
         try:
             entity = await asyncio.wait_for(client.get_entity(group), timeout=45)
             await asyncio.wait_for(client.send_message(entity, message), timeout=45)
             log.info("Posted to %s: %s", group, product_name[:40])
+            mark_send_status(group, "writable")
             return True
         except FloodWaitError as e:
             wait = e.seconds + random.randint(60, 300)
             log.warning("Flood wait %ds for %s (attempt %d/%d)", wait, group, attempt + 1, retries + 1)
             await asyncio.sleep(wait)
-        except ChatWriteForbiddenError:
+        except (ChatWriteForbiddenError, ChatGuestSendForbiddenError):
             log.warning("Cannot write in %s (blocked/no permission)", group)
+            mark_send_status(group, "blocked")
             return False
         except Exception as e:
             log.warning("Failed to post in %s: %s", group, type(e).__name__)
@@ -185,7 +222,12 @@ async def main():
                 save_posted(posted)
 
             if i < len(groups) - 1:
-                delay = random.randint(*_get_delay())
+                # Full delay only after a successful send (flood protection);
+                # blocked/failed sends need just a short breather
+                if success:
+                    delay = random.randint(*_get_delay())
+                else:
+                    delay = random.randint(15, 45)
                 log.info("Waiting %d seconds before next post...", delay)
                 await asyncio.sleep(delay)
 

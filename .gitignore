@@ -30,6 +30,11 @@ promo_counter.txt
 posted_products.json
 sales_counter.json
 short_links_cache.json
+joined_groups_state.json
+referrals_state.json
+
+# Editor / agent tooling
+.opencode/
 
 # Temp & artifacts
 temp_images/

@@ -46,6 +46,11 @@ async def start(update, context):
     user = update.effective_user
     if not user:
         return
+    if context.args and context.args[0] == "topdeal":
+        msg, kb = build_topdeal_msg()
+        if msg:
+            await update.message.reply_text(msg, parse_mode="Markdown", reply_markup=kb)
+            return
     msg = (
         f"👋 *Welcome {user.first_name}!*\n\n{esc_md(WELCOME_MSG)}\n\n"
         f"📌 *Commands:*\n"
@@ -57,6 +62,7 @@ async def start(update, context):
         f"Join @{esc_md(CHANNEL_HANDLE)} for daily deals! 🚀"
     )
     kb = InlineKeyboardMarkup([
+        [InlineKeyboardButton("🏆 Top Deal Today", callback_data="show_topdeal")],
         [InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{CHANNEL_HANDLE}")],
         [InlineKeyboardButton("🎯 Get Referral Link", url=f"https://t.me/{BOT_USERNAME}?start=ref")],
         [InlineKeyboardButton(f"🔥 {CONTENT_CMD_LABEL}", callback_data=CONTENT_CMD)],
@@ -188,18 +194,18 @@ async def premium_cmd(update, context):
         )
     await update.message.reply_text(msg, parse_mode="Markdown")
 
-async def topdeal(update, context):
+def build_topdeal_msg():
+    """Return (text, keyboard) for the single best-discount deal, or (None, None)."""
     items = load_content_items(CONTENT_SOURCE)
     if not items:
-        await update.message.reply_text("No deals available right now.")
-        return
+        return None, None
     sorted_items = sorted(items, key=lambda x: x.get("discount_val", 0), reverse=True)
     top = sorted_items[0]
     title = top.get("title", "Deal")[:60]
     body = top.get("body", "")[:200]
     link = top.get("link", "")
     tracked = tracked_url(link, top.get("product_id"), title=top.get("title"), price=top.get("price"), discount=top.get("discount"), image=top.get("image")) if link else ""
-    msg = f"🏆 *TOP DEAL TODAY*\n\n*{title}*\n\n{body}"
+    msg = f"🏆 *TOP DEAL TODAY*\n\n*{esc_md(title)}*\n\n{body}"
     if tracked:
         msg += f"\n\n👉 [Grab Deal]({tracked})"
     msg += f"\n\n📢 Join @{esc_md(CHANNEL_HANDLE)} for more!"
@@ -207,6 +213,13 @@ async def topdeal(update, context):
         [InlineKeyboardButton("🛒 Buy Now", url=tracked or link)],
         [InlineKeyboardButton("📢 Channel", url=f"https://t.me/{CHANNEL_HANDLE}")]
     ])
+    return msg, kb
+
+async def topdeal(update, context):
+    msg, kb = build_topdeal_msg()
+    if not msg:
+        await update.message.reply_text("No deals available right now.")
+        return
     await update.message.reply_text(msg, parse_mode="Markdown", reply_markup=kb)
 
 async def search(update, context):
@@ -252,6 +265,13 @@ async def button_callback(update, context):
     except Exception:
         pass
     try:
+        if query.data == "show_topdeal":
+            msg, kb = build_topdeal_msg()
+            if not msg:
+                await query.edit_message_text("No deals available right now.")
+                return
+            await query.edit_message_text(msg, parse_mode="Markdown", reply_markup=kb)
+            return
         if query.data == CONTENT_CMD:
             item = get_random_item()
             if not item:
@@ -310,6 +330,50 @@ async def post_referral_reminder(bot: Bot, pin=False):
     except Exception as e:
         log.error("Failed to send referral reminder: %s", e)
 
+async def post_top5(bot: Bot, pin=True):
+    """Post the top 5 deals by discount to the channel and pin it (B3 conversion boost)."""
+    items = load_content_items(CONTENT_SOURCE)
+    if not items:
+        log.error("Top5: no content items")
+        return
+    seen, top = set(), []
+    for it in sorted(items, key=lambda x: x.get("discount_val", 0), reverse=True):
+        pid = it.get("product_id") or it.get("title", "")
+        if pid in seen:
+            continue
+        seen.add(pid)
+        top.append(it)
+        if len(top) >= 5:
+            break
+    lines = ["🏆 *TOP 5 DEALS TODAY*\n"]
+    for i, it in enumerate(top, 1):
+        title = esc_md(str(it.get("title", "Deal"))[:60])
+        price = esc_md(str(it.get("price", "")))
+        disc = esc_md(str(it.get("discount", "")))
+        link = it.get("link", "")
+        tracked = tracked_url(link, it.get("product_id"), title=it.get("title"), price=it.get("price"), discount=it.get("discount"), image=it.get("image")) if link else ""
+        lines.append(f"*{i}. {title}*\n💸 {price} | 🔻 {disc}")
+        if tracked:
+            lines.append(f"👉 [Grab Deal]({tracked})")
+        lines.append("")
+    lines.append(f"🤖 @{esc_md(BOT_USERNAME)} → /topdeal for the best one!")
+    msg = "\n".join(lines)
+    kb = InlineKeyboardMarkup([
+        [InlineKeyboardButton("🤖 Open Bot (topdeal)", url=f"https://t.me/{BOT_USERNAME}?start=topdeal")],
+        [InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{CHANNEL_HANDLE}")],
+    ])
+    try:
+        sent = await bot.send_message(chat_id=CHANNEL_ID, text=msg, parse_mode="Markdown", reply_markup=kb, disable_web_page_preview=True)
+        log.info("Top5 posted to channel (msg %s)", sent.message_id)
+        if pin:
+            try:
+                await bot.pin_chat_message(chat_id=CHANNEL_ID, message_id=sent.message_id, disable_notification=True)
+                log.info("Top5 pinned")
+            except Exception as e:
+                log.warning("Pin failed: %s", e)
+    except Exception as e:
+        log.error("Failed to post top5: %s", e)
+
 async def send_channel_welcome(bot: Bot):
     msg = (
         f"🎉 *Welcome!*\n\n{esc_md(WELCOME_MSG)}\n\n"
@@ -350,14 +414,17 @@ def run_bot():
 async def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--pin", action="store_true", help="Post & pin referral announcement")
+    parser.add_argument("--top5", action="store_true", help="Post & pin Top 5 deals to channel")
     parser.add_argument("--welcome", action="store_true", help="Post welcome message to channel")
     parser.add_argument("--reminder", action="store_true", help="Post referral reminder once")
     parser.add_argument("--loop", action="store_true", help="Run reminder loop every 4 hours")
     args = parser.parse_args()
-    if any([args.pin, args.welcome, args.reminder, args.loop]):
+    if any([args.pin, args.top5, args.welcome, args.reminder, args.loop]):
         async with Bot(token=BOT_TOKEN) as bot:
             if args.pin:
                 await post_referral_reminder(bot, pin=True)
+            if args.top5:
+                await post_top5(bot)
             if args.welcome:
                 await send_channel_welcome(bot)
             if args.reminder:

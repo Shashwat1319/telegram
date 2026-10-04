@@ -158,10 +158,12 @@ def run_task_safely(func, task_name):
     try:
         log.info("[TASK] Executing %s...", task_name)
         func()
-        mark_run(task_name)
         log.info("[TASK] %s completed successfully.", task_name)
     except Exception as e:
         log.error("[TASK] %s failed: %s", task_name, e)
+    finally:
+        # Mark even on failure so a broken task doesn't retry every 60s tick
+        mark_run(task_name)
 
 
 def task_product_feed():
