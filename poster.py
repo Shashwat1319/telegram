@@ -5,7 +5,7 @@ import re
 import asyncio
 import logging
 import html
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from urllib.parse import quote
 from dotenv import load_dotenv
 from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
@@ -17,6 +17,9 @@ from data import load_json, save_json
 
 load_dotenv()
 log = logging.getLogger(__name__)
+
+IST = timezone(timedelta(hours=5, minutes=30))
+POLL_STATE_FILE = "daily_poll_state.json"
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 if not BOT_TOKEN:
@@ -40,6 +43,38 @@ DAILY_POLL = content_cfg.get("daily_poll", True)
 POST_TO_PREMIUM = content_cfg.get("post_to_premium", False)
 PREMIUM_CHANNEL_ID = content_cfg.get("premium_channel_id", bot_cfg.get("premium_channel_handle", "@smartgahrpremium"))
 COUNTER_FILE = "post_count.txt"
+
+PRIME_WINDOWS = content_cfg.get("prime_windows_ist", [[11, 14], [19, 22]])
+MAX_POSTS_PER_DAY = content_cfg.get("max_posts_per_day", 8)
+CHANNEL_SRC = "channel"
+
+
+def _now_ist():
+    return datetime.now(IST)
+
+
+def _in_prime_window(dt=None):
+    dt = dt or _now_ist()
+    hour = dt.hour + dt.minute / 60
+    return any(start <= hour < end for start, end in PRIME_WINDOWS)
+
+
+def _posts_today(posted):
+    today = _now_ist().date().isoformat()
+    n = 0
+    for h in posted.values():
+        if isinstance(h, dict) and str(h.get("last", "")).startswith(today):
+            n += 1
+    return n
+
+
+def _poll_due():
+    state = load_json(POLL_STATE_FILE, default={})
+    return state.get("last_date") != _now_ist().date().isoformat()
+
+
+def _mark_polled():
+    save_json(POLL_STATE_FILE, {"last_date": _now_ist().date().isoformat()})
 
 CTA_OPTIONS = [
     "💬 Isse sasta kahin mila? Comment karo 👇",
@@ -179,6 +214,12 @@ def generate_high_converting_message(item, post_count=0):
 
 
 async def post_content():
+    if not _in_prime_window():
+        log.info(
+            "Outside prime window %s IST — skipping this cycle (now %s)",
+            PRIME_WINDOWS, _now_ist().strftime("%H:%M"),
+        )
+        return
     if CHAT_ID_INPUT.startswith("@") or CHAT_ID_INPUT.lstrip("-").isdigit():
         chat_id = CHAT_ID_INPUT
     else:
@@ -191,12 +232,16 @@ async def post_content():
                 return
 
             posted = _load_posted()
+            already_today = _posts_today(posted)
+            if already_today >= MAX_POSTS_PER_DAY:
+                log.info("Daily cap reached (%d/%d) — skipping cycle.", already_today, MAX_POSTS_PER_DAY)
+                return
             eligible = _pick_eligible(items, posted)
             if not eligible:
                 log.info("All items posted recently. Skipping cycle.")
                 return
 
-            num = min(POSTS_PER_BATCH, len(eligible))
+            num = min(POSTS_PER_BATCH, len(eligible), MAX_POSTS_PER_DAY - already_today)
             to_post = eligible[:num]
             
             current_count = _increment_post_count()
@@ -205,7 +250,7 @@ async def post_content():
                 title = item.get("title", "Deal")
                 raw_link = item.get("link", "") if HAS_LINKS else ""
                 product_id = item.get("product_id", "")
-                link = tracked_url(raw_link, product_id, title=item.get("title"), price=item.get("price"), discount=item.get("discount"), image=item.get("image")) if raw_link and LINK_TRACKING else raw_link
+                link = tracked_url(raw_link, product_id, title=item.get("title"), price=item.get("price"), discount=item.get("discount"), image=item.get("image"), src=CHANNEL_SRC) if raw_link and LINK_TRACKING else raw_link
                 msg = generate_high_converting_message(item, current_count)
                 if link:
                     msg = f'<a href="{html.escape(link, quote=True)}">&#8203;</a>{msg}'
@@ -268,7 +313,7 @@ async def post_content():
                     p_title = html.escape(str(premium_item.get('title', 'Deal')))
                     p_body = html.escape(str(premium_item.get('body', '')))[:300]
                     p_link = premium_item.get('link', '')
-                    p_tracked = tracked_url(p_link, premium_item.get("product_id"), title=premium_item.get("title"), price=premium_item.get("price"), discount=premium_item.get("discount"), image=premium_item.get("image")) if p_link and LINK_TRACKING else p_link
+                    p_tracked = tracked_url(p_link, premium_item.get("product_id"), title=premium_item.get("title"), price=premium_item.get("price"), discount=premium_item.get("discount"), image=premium_item.get("image"), src=CHANNEL_SRC) if p_link and LINK_TRACKING else p_link
                     if not p_tracked:
                         p_tracked = f"https://t.me/{CLEAN_ID}"
                     premium_msg = f'🔒 <b>PREMIUM EXCLUSIVE</b>\n\n📦 <b>{p_title}</b>\n\n{p_body}\n\n🔗 <a href="{html.escape(p_tracked, quote=True)}">🛒 Buy on Amazon</a>'
@@ -279,16 +324,17 @@ async def post_content():
                         text=premium_msg,
                         parse_mode="HTML",
                         reply_markup=InlineKeyboardMarkup([[
-                            InlineKeyboardButton("🛒 BUY NOW", url=tracked_url(premium_item.get("link", ""), premium_item.get("product_id")) if premium_item.get("link") and LINK_TRACKING else premium_item.get("link", "")),
+                            InlineKeyboardButton("🛒 BUY NOW", url=tracked_url(premium_item.get("link", ""), premium_item.get("product_id"), src=CHANNEL_SRC) if premium_item.get("link") and LINK_TRACKING else premium_item.get("link", "")),
                         ]]),
                     )
                     log.info("Posted premium deal to %s", PREMIUM_CHANNEL_ID)
                 except Exception as e:
                     log.error("Premium posting failed: %s", e)
 
-            if DAILY_POLL:
+            if DAILY_POLL and _now_ist().hour >= 19 and _poll_due():
                 try:
                     await post_daily_poll(bot, chat_id, items, posted)
+                    _mark_polled()
                 except Exception as e:
                     log.error("Poll posting failed: %s", e)
 

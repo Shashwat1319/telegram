@@ -134,6 +134,20 @@ export default async (request, context) => {
       const prodKey = `product:${productId}`;
       let prodCount = (await store.get(prodKey, { type: "json" })) || 0;
       await store.setJSON(prodKey, prodCount + 1);
+      // Per‑source attribution (channel / group handle / website / direct)
+      const src = (url.searchParams.get("src") || "direct").slice(0, 40);
+      const srcDayKey = `srcdaily:${today}`;
+      let srcMap = (await store.get(srcDayKey, { type: "json" })) || {};
+      srcMap[src] = (srcMap[src] || 0) + 1;
+      await store.setJSON(srcDayKey, srcMap);
+      let srcIdx = (await store.get("src_index", { type: "json" })) || [];
+      if (!srcIdx.includes(src)) {
+        srcIdx.push(src);
+        await store.setJSON("src_index", srcIdx);
+      }
+      const srcTotKey = `srctotal:${src}`;
+      let srcTot = (await store.get(srcTotKey, { type: "json" })) || 0;
+      await store.setJSON(srcTotKey, srcTot + 1);
     } catch (err) {}
   }
 

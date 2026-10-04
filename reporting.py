@@ -1,5 +1,5 @@
-import asyncio, os, logging
-from datetime import datetime
+import asyncio, os, re, json, logging, urllib.request
+from datetime import datetime, timedelta, timezone
 from telegram import Bot
 from dotenv import load_dotenv
 from config_loader import load_config
@@ -37,17 +37,119 @@ async def send_telegram(msg):
         log.error("Failed to send message: %s", e)
 
 
+def _md_escape(text):
+    return str(text).replace("_", "\\_").replace("*", "\\*").replace("[", "\\[")
+
+
+def _fetch_tracker_stats():
+    tracker = os.getenv("CLICK_TRACKER_URL", "").strip()
+    if not tracker:
+        return None
+    try:
+        req = urllib.request.Request(tracker.rstrip("/") + "/stats", headers={"User-Agent": "smartgahr-report"})
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        return data if isinstance(data, dict) and data.get("status") == "success" else None
+    except Exception as e:
+        log.warning("Tracker stats fetch failed: %s", e)
+        return None
+
+
+def _parse_count(text):
+    m = re.match(r"^\s*([\d.]+)\s*([KMB])?", str(text), re.IGNORECASE)
+    if not m:
+        return None
+    try:
+        val = float(m.group(1))
+    except ValueError:
+        return None
+    mult = {"K": 1_000, "M": 1_000_000, "B": 1_000_000_000}
+    if m.group(2):
+        val *= mult[m.group(2).upper()]
+    return int(val)
+
+
+def _recent_channel_views(limit=5):
+    """Parse view counts from the public t.me/s preview (no API session needed)."""
+    handle = CHANNEL_HANDLE.lstrip("@")
+    try:
+        req = urllib.request.Request(
+            f"https://t.me/s/{handle}",
+            headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
+                "Accept": "text/html,application/xhtml+xml",
+                "Accept-Language": "en-US,en;q=0.9",
+            },
+        )
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            html = resp.read().decode("utf-8", errors="replace")
+        raw = re.findall(r'class="tgme_widget_message_views"[^>]*>([^<]+)<', html)
+        vals = [v for v in (_parse_count(x) for x in raw) if v is not None]
+        return vals[-limit:]
+    except Exception as e:
+        log.warning("Channel views fetch failed: %s", e)
+        return []
+
+
+def _creators_probe_line():
+    creds = os.getenv("CREATORS_CREDENTIALS_CSV", r"D:\Smartgahr-credentials.csv")
+    if not os.path.exists(creds):
+        return None
+    try:
+        from creators_api_check import check
+        r = check()
+    except Exception as e:
+        log.warning("Creators API probe failed: %s", e)
+        return None
+    status = r.get("status", "error")
+    if status == "eligible":
+        return "🔑 **Creators API**: ✅ LIVE — API unlocked!"
+    if status == "not_eligible":
+        return "🔑 **Creators API**: ⏳ waiting on sales (10 qualified sales / 30 days)"
+    return f"🔑 **Creators API**: ❌ {_md_escape(str(r.get('detail', 'error'))[:80])}"
+
+
+def _clicks_section():
+    stats = _fetch_tracker_stats()
+    if not stats:
+        return "🖱 **Clicks**: (tracker unavailable)\n"
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    hist = stats.get("history", {}) or {}
+    srcs = stats.get("sources", {}) or {}
+    totals = srcs.get("totals", {}) or {}
+    line = (
+        f"🖱 **Clicks**: today {hist.get(today, 0)} · "
+        f"7d {sum(hist.values())} · total {stats.get('total_clicks', 0)}\n"
+    )
+    top = sorted(totals.items(), key=lambda kv: kv[1], reverse=True)[:5]
+    if top:
+        parts = ", ".join(f"{_md_escape(s)}: {n}" for s, n in top)
+        line += f"📡 **Top sources** (lifetime): {parts}\n"
+    return line
+
+
 async def daily_report():
     today = datetime.now().strftime("%Y-%m-%d")
-    members = "N/A"
+    members = None
     if BOT_TOKEN and CHANNEL_ID:
         try:
             async with Bot(token=BOT_TOKEN) as bot:
                 await bot.initialize()
-                count = await bot.get_chat_member_count(CHANNEL_ID)
-                members = str(count)
+                members = await bot.get_chat_member_count(CHANNEL_ID)
         except Exception as e:
             log.warning("Member count error: %s", e)
+
+    gs = load_goal_state()
+    delta_str = ""
+    if isinstance(members, int):
+        prev = gs.get("report_members")
+        if isinstance(prev, int):
+            d = members - prev
+            delta_str = f" ({d:+d} vs last report)"
+        gs["report_members"] = members
+        save_goal_state(gs)
+    members_str = str(members) if members is not None else "N/A"
+
     item_count = len(load_content_items(CONTENT_SOURCE))
     referrals = load_json("referrals.json", default={})
     ref_count = len(referrals)
@@ -63,7 +165,7 @@ async def daily_report():
     _, last_day = monthrange(datetime.now().year, datetime.now().month)
     remaining = last_day - datetime.now().day
     try:
-        m = int(members)
+        m = int(members_str)
     except (ValueError, TypeError):
         m = 0
     milestones = [100, 250, 500, 1000, 2500, 5000]
@@ -72,13 +174,26 @@ async def daily_report():
     bar_len = 10
     filled = int(done / next_m * bar_len)
     bar = "▓" * filled + "░" * (bar_len - filled)
+
+    clicks_section = _clicks_section()
+    views = _recent_channel_views(5)
+    views_line = ""
+    if views:
+        avg = sum(views) // len(views)
+        views_line = f"👀 **Last {len(views)} post views**: {', '.join(str(v) for v in views)} (avg {avg})\n"
+    probe_line = _creators_probe_line()
+    probe_block = f"{probe_line}\n" if probe_line else ""
+
     report = (
         f"📊 **DAILY REPORT** ({today})\n\n"
-        f"👥 **Members**: {members} 🎯\n"
+        f"👥 **Members**: {members_str}{delta_str} 🎯\n"
         f"📊 **Roadmap**: `{bar}` {m}/{next_m}\n"
         f"   (100 → 250 → 500 → 1000 → 2500 → 5000)\n"
         f"📦 **Content Items**: {item_count}\n"
         f"📢 **Channel**: @{CHANNEL_HANDLE}\n\n"
+        f"{clicks_section}"
+        f"{views_line}"
+        f"{probe_block}\n"
         f"🔗 **Referral Stats:**\n"
         f"  • Links created: {ref_count}\n"
         f"  • Total joins: {join_count}\n\n"
@@ -86,7 +201,7 @@ async def daily_report():
         f"---\n*{remaining} days left in {datetime.now().strftime('%B')} — keep growing! 🚀*"
     )
     await send_telegram(report)
-    log.info("Daily report sent: members=%s, items=%d", members, item_count)
+    log.info("Daily report sent: members=%s, items=%d", members_str, item_count)
 
 async def check_goal():
     if not BOT_TOKEN or not CHANNEL_ID or not ADMIN_CHAT_ID:

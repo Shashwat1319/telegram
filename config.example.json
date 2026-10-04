@@ -14,7 +14,7 @@
   "content": {
     "source_file": "content_home.json",
     "schedule_interval_minutes": 30,
-    "posts_per_batch": 3,
+    "posts_per_batch": 1,
     "max_reposts": 10,
     "has_links": true,
     "link_tracking_enabled": true,
@@ -26,11 +26,15 @@
     "max_price": 999,
     "min_discount": 40,
     "include_categories": [],
-    "post_delay_seconds": 3
+    "post_delay_seconds": 3,
+    "prime_windows_ist": [[11, 14], [19, 22]],
+    "max_posts_per_day": 8,
+    "group_window_ist": [9, 22],
+    "group_repost_days": 7
   },
   "tasks": {
     "product_feed": { "enabled": true, "interval_hours": 12 },
-    "channel_posting": { "enabled": true, "interval_hours": 6 },
+    "channel_posting": { "enabled": true, "interval_hours": 1 },
     "group_posting": { "enabled": true, "interval_hours": 2 },
     "referral_tracker": { "enabled": true },
     "daily_report": { "enabled": true, "interval_hours": 24 },
