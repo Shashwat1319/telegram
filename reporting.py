@@ -18,6 +18,27 @@ bot_cfg = config.get("bot", {})
 CHANNEL_ID = bot_cfg.get("channel_id", os.getenv("CHANNEL_ID", "@channel"))
 CHANNEL_HANDLE = bot_cfg.get("channel_handle", "channel")
 CONTENT_SOURCE = config.get("content", {}).get("source_file", "content.json")
+
+
+def _channels():
+    out = []
+    for c in config.get("channels") or []:
+        cid = str(c.get("id") or "").strip()
+        if not cid:
+            continue
+        if not cid.startswith("@") and not cid.lstrip("-").isdigit():
+            cid = "@" + cid
+        out.append({
+            "id": cid,
+            "content_file": c.get("content_file") or CONTENT_SOURCE,
+            "handle": cid[1:] if cid.startswith("@") else cid,
+        })
+    if not out:
+        out = [{"id": CHANNEL_ID, "content_file": CONTENT_SOURCE, "handle": CHANNEL_HANDLE.lstrip("@")}]
+    return out
+
+
+CHANNELS = _channels()
 GOAL_STATE_FILE = "goal_state.json"
 
 def load_goal_state():
@@ -69,9 +90,9 @@ def _parse_count(text):
     return int(val)
 
 
-def _recent_channel_views(limit=5):
+def _recent_channel_views(limit=5, handle=None):
     """Parse view counts from the public t.me/s preview (no API session needed)."""
-    handle = CHANNEL_HANDLE.lstrip("@")
+    handle = (handle or CHANNEL_HANDLE).lstrip("@")
     try:
         req = urllib.request.Request(
             f"https://t.me/s/{handle}",
@@ -130,15 +151,21 @@ def _clicks_section():
 
 async def daily_report():
     today = datetime.now().strftime("%Y-%m-%d")
-    members = None
-    if BOT_TOKEN and CHANNEL_ID:
+    members_by = {}
+    if BOT_TOKEN:
         try:
             async with Bot(token=BOT_TOKEN) as bot:
                 await bot.initialize()
-                members = await bot.get_chat_member_count(CHANNEL_ID)
+                for ch in CHANNELS:
+                    try:
+                        members_by[ch["handle"]] = await bot.get_chat_member_count(ch["id"])
+                    except Exception as e:
+                        log.warning("Member count error for %s: %s", ch["id"], e)
         except Exception as e:
             log.warning("Member count error: %s", e)
 
+    primary_handle = CHANNEL_HANDLE.lstrip("@")
+    members = members_by.get(primary_handle)
     gs = load_goal_state()
     delta_str = ""
     if isinstance(members, int):
@@ -150,7 +177,14 @@ async def daily_report():
         save_goal_state(gs)
     members_str = str(members) if members is not None else "N/A"
 
-    item_count = len(load_content_items(CONTENT_SOURCE))
+    count_parts = []
+    for ch in CHANNELS:
+        try:
+            n = len(load_content_items(ch["content_file"]))
+        except Exception:
+            n = 0
+        count_parts.append(f"@{ch['handle']} {n}")
+
     referrals = load_json("referrals.json", default={})
     ref_count = len(referrals)
     join_count = sum(len(r.get("joined", [])) for r in referrals.values())
@@ -176,11 +210,17 @@ async def daily_report():
     bar = "▓" * filled + "░" * (bar_len - filled)
 
     clicks_section = _clicks_section()
-    views = _recent_channel_views(5)
-    views_line = ""
-    if views:
-        avg = sum(views) // len(views)
-        views_line = f"👀 **Last {len(views)} post views**: {', '.join(str(v) for v in views)} (avg {avg})\n"
+    ch_lines = []
+    for ch in CHANNELS:
+        mv = members_by.get(ch["handle"])
+        mv_str = str(mv) if isinstance(mv, int) else "N/A"
+        views = _recent_channel_views(5, handle=ch["handle"])
+        v_str = ""
+        if views:
+            avg = sum(views) // len(views)
+            v_str = f" · 👀 {', '.join(str(v) for v in views)} (avg {avg})"
+        ch_lines.append(f"  • @{ch['handle']}: {mv_str} members{v_str}")
+    channels_block = "\n".join(ch_lines)
     probe_line = _creators_probe_line()
     probe_block = f"{probe_line}\n" if probe_line else ""
 
@@ -189,10 +229,9 @@ async def daily_report():
         f"👥 **Members**: {members_str}{delta_str} 🎯\n"
         f"📊 **Roadmap**: `{bar}` {m}/{next_m}\n"
         f"   (100 → 250 → 500 → 1000 → 2500 → 5000)\n"
-        f"📦 **Content Items**: {item_count}\n"
-        f"📢 **Channel**: @{CHANNEL_HANDLE}\n\n"
+        f"📦 **Content Items**: {' · '.join(count_parts)}\n"
+        f"📢 **Channels:**\n{channels_block}\n\n"
         f"{clicks_section}"
-        f"{views_line}"
         f"{probe_block}\n"
         f"🔗 **Referral Stats:**\n"
         f"  • Links created: {ref_count}\n"
@@ -201,7 +240,7 @@ async def daily_report():
         f"---\n*{remaining} days left in {datetime.now().strftime('%B')} — keep growing! 🚀*"
     )
     await send_telegram(report)
-    log.info("Daily report sent: members=%s, items=%d", members_str, item_count)
+    log.info("Daily report sent: members=%s, items=%s", members_str, ", ".join(count_parts))
 
 async def check_goal():
     if not BOT_TOKEN or not CHANNEL_ID or not ADMIN_CHAT_ID:

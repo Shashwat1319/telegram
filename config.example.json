@@ -11,6 +11,10 @@
     "premium_channel_handle": "smartgahrpremium",
     "premium_unlock_referrals": 2
   },
+  "channels": [
+    { "id": "@smartgahr", "content_file": "content_home.json" },
+    { "id": "@budgetdeals_india", "content_file": "content_bdia.json" }
+  ],
   "content": {
     "source_file": "content_home.json",
     "schedule_interval_minutes": 30,

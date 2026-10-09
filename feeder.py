@@ -335,12 +335,13 @@ def prune_posted_history(valid_ids, output_path=None):
     return before - len(pruned)
 
 
-def feed(limit=100, source=None, output=None):
+def feed(limit=100, source=None, output=None, no_filter=False):
     products = clean_product_file(source=source)
     if not products:
         log.warning("No valid products found")
         return
-    products = apply_niche_filter(products)
+    if not no_filter:
+        products = apply_niche_filter(products)
 
     all_items = []
     for p in products[:limit]:
@@ -364,5 +365,6 @@ if __name__ == "__main__":
     parser.add_argument("--source", default=PRODUCT_FILE, help="Product JSON file (default: product.json)")
     parser.add_argument("--output", default=CONTENT_FILE, help="Output content JSON file (default: content.json)")
     parser.add_argument("--limit", type=int, default=100, help="Max products to process")
+    parser.add_argument("--no-filter", action="store_true", help="Skip niche filter (keep all categories/prices)")
     args = parser.parse_args()
-    feed(limit=args.limit, source=args.source, output=args.output)
+    feed(limit=args.limit, source=args.source, output=args.output, no_filter=args.no_filter)

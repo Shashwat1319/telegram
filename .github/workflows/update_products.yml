@@ -31,6 +31,9 @@ jobs:
       - name: Generate fresh content from products
         run: python feeder.py --source product_home.json --output content_home.json
 
+      - name: Generate content for budgetdeals_india
+        run: python feeder.py --source product.json --output content_bdia.json --no-filter
+
       # ── Website deals ──
       - name: Generate website deal pages
         env:
@@ -42,7 +45,7 @@ jobs:
         run: python validate_links.py
 
       # ── Posting ──
-      - name: Post deal to @smartgahr
+      - name: Post deals to channels
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           CLICK_TRACKER_URL: https://budgetdeals-tracker-737523f4.netlify.app
@@ -113,7 +116,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          for f in content_home.json content_home_posted.json website/src/content/deals/*.md; do
+          for f in content_home.json content_home_posted.json content_bdia.json content_bdia_posted.json website/src/content/deals/*.md; do
             [ -f "$f" ] && git add "$f" || true
           done
           git diff --staged --quiet || (git commit -m "Auto: CI cycle [skip ci]" && git push)

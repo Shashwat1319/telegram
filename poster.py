@@ -49,6 +49,28 @@ MAX_POSTS_PER_DAY = content_cfg.get("max_posts_per_day", 8)
 CHANNEL_SRC = "channel"
 
 
+def _channels():
+    out = []
+    for c in config.get("channels") or []:
+        cid = str(c.get("id") or "").strip()
+        if not cid:
+            continue
+        if not cid.startswith("@") and not cid.lstrip("-").isdigit():
+            cid = "@" + cid
+        out.append({
+            "id": cid,
+            "content_file": c.get("content_file") or SOURCE_FILE,
+            "clean": cid[1:] if cid.startswith("@") else cid,
+        })
+    if not out:
+        base = CHANNEL_ID if (CHANNEL_ID.startswith("@") or CHANNEL_ID.lstrip("-").isdigit()) else "@" + CHANNEL_ID
+        out = [{"id": base, "content_file": SOURCE_FILE, "clean": CLEAN_ID}]
+    return out
+
+
+CHANNELS = _channels()
+
+
 def _now_ist():
     return datetime.now(IST)
 
@@ -68,13 +90,17 @@ def _posts_today(posted):
     return n
 
 
-def _poll_due():
-    state = load_json(POLL_STATE_FILE, default={})
+def _poll_due(state_path=None):
+    state = load_json(state_path or POLL_STATE_FILE, default={})
     return state.get("last_date") != _now_ist().date().isoformat()
 
 
-def _mark_polled():
-    save_json(POLL_STATE_FILE, {"last_date": _now_ist().date().isoformat()})
+def _mark_polled(state_path=None):
+    save_json(state_path or POLL_STATE_FILE, {"last_date": _now_ist().date().isoformat()})
+
+
+def _poll_state_path(clean_id):
+    return POLL_STATE_FILE if clean_id == CLEAN_ID else f"daily_poll_state_{clean_id}.json"
 
 CTA_OPTIONS = [
     "💬 Isse sasta kahin mila? Comment karo 👇",
@@ -90,16 +116,16 @@ CTA_OPTIONS = [
 ]
 
 
-def _posted_path():
-    return SOURCE_FILE.replace(".json", "_posted.json")
+def _posted_path(source_file=None):
+    return (source_file or SOURCE_FILE).replace(".json", "_posted.json")
 
 
-def _load_posted():
-    return load_json(_posted_path(), default={})
+def _load_posted(source_file=None):
+    return load_json(_posted_path(source_file), default={})
 
 
-def _save_posted(data):
-    save_json(_posted_path(), data)
+def _save_posted(data, source_file=None):
+    save_json(_posted_path(source_file), data)
 
 
 def _pick_eligible(items, posted):
@@ -166,8 +192,9 @@ def _safe_truncate(text, max_len):
     return cut + "..."
 
 
-def generate_high_converting_message(item, post_count=0):
+def generate_high_converting_message(item, post_count=0, clean_id=None):
     """Generates high-converting copywriting templates for affiliate posts."""
+    clean_id = clean_id or CLEAN_ID
     title = str(item.get("title", "Amazon Deal"))[:60]
     price = str(item.get("price", ""))
     mrp = str(item.get("mrp", ""))
@@ -206,7 +233,7 @@ def generate_high_converting_message(item, post_count=0):
         ]
         msg = templates[post_count % len(templates)]
 
-    msg += f"\n\n📢 <b>Join</b> @{html.escape(CLEAN_ID)} for daily loots!"
+    msg += f"\n\n📢 <b>Join</b> @{html.escape(clean_id)} for daily loots!"
     if HASHTAGS:
         msg += f"\n{HASHTAGS}"
     msg += f"\n\n{random.choice(CTA_OPTIONS)}"
@@ -220,126 +247,133 @@ async def post_content():
             PRIME_WINDOWS, _now_ist().strftime("%H:%M"),
         )
         return
-    if CHAT_ID_INPUT.startswith("@") or CHAT_ID_INPUT.lstrip("-").isdigit():
-        chat_id = CHAT_ID_INPUT
-    else:
-        chat_id = f"@{CHAT_ID_INPUT}"
     try:
         async with Bot(token=BOT_TOKEN) as bot:
-            items = load_content_items(SOURCE_FILE)
-            if not items:
-                log.info("No items available to post.")
-                return
-
-            posted = _load_posted()
-            already_today = _posts_today(posted)
-            if already_today >= MAX_POSTS_PER_DAY:
-                log.info("Daily cap reached (%d/%d) — skipping cycle.", already_today, MAX_POSTS_PER_DAY)
-                return
-            eligible = _pick_eligible(items, posted)
-            if not eligible:
-                log.info("All items posted recently. Skipping cycle.")
-                return
-
-            num = min(POSTS_PER_BATCH, len(eligible), MAX_POSTS_PER_DAY - already_today)
-            to_post = eligible[:num]
-            
-            current_count = _increment_post_count()
-            posted_now = []
-            for item in to_post:
-                title = item.get("title", "Deal")
-                raw_link = item.get("link", "") if HAS_LINKS else ""
-                product_id = item.get("product_id", "")
-                link = tracked_url(raw_link, product_id, title=item.get("title"), price=item.get("price"), discount=item.get("discount"), image=item.get("image"), src=CHANNEL_SRC) if raw_link and LINK_TRACKING else raw_link
-                msg = generate_high_converting_message(item, current_count)
-                if link:
-                    msg = f'<a href="{html.escape(link, quote=True)}">&#8203;</a>{msg}'
-
-                buttons = []
-                if link:
-                    btn_label = f"🛒 BUY ON AMAZON ({item.get('discount', 'DEAL')})" if item.get('discount') else "🛒 BUY NOW ON AMAZON ⚡"
-                    buttons.append([InlineKeyboardButton(btn_label, url=link)])
-                
-                buttons.append([
-                    InlineKeyboardButton("🚀 Share Deal", url=f"https://t.me/share/url?url={quote(link or 'https://t.me/' + CLEAN_ID)}&text={quote(title[:60])}"),
-                ])
-                buttons.append([
-                    InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{CLEAN_ID}"),
-                    InlineKeyboardButton("🔥 More Deals", url=f"https://t.me/{CLEAN_ID}"),
-                ])
-                
-                kb = InlineKeyboardMarkup(buttons)
-                success = False
-                for attempt in range(3):
-                    try:
-                        if len(msg) > 4000:
-                            msg = _safe_truncate(msg, 3950) + "\n\n⚠️ Truncated. Join channel for full details."
-                        sent = await bot.send_message(chat_id=chat_id, text=msg, parse_mode="HTML", reply_markup=kb)
-                        log.info("Posted deal to channel: %s", title[:40])
-                        if PIN_POSTS:
-                            try:
-                                await bot.pin_chat_message(chat_id=chat_id, message_id=sent.message_id)
-                            except TelegramError:
-                                pass
-                        success = True
-                        break
-                    except TelegramError as e:
-                        if attempt < 2:
-                            wait = (attempt + 1) * 5
-                            log.warning("Telegram error for %s (attempt %d/3): %s — retrying in %ds", title[:30], attempt + 1, e, wait)
-                            await asyncio.sleep(wait)
-                        else:
-                            log.error("Failed to post %s after 3 attempts: %s", title[:30], e)
-                    except Exception as e:
-                        log.error("Failed to post %s: %s", title[:30], e)
-                        break
-
-                if success:
-                    item_id = item.get("id") or item.get("title", "")
-                    posted[item_id] = {
-                        "last": datetime.now().isoformat(),
-                        "count": posted.get(item_id, {}).get("count", 0) + 1 if item_id in posted else 1
-                    }
-                    posted_now.append(item)
-                    post_delay = content_cfg.get("post_delay_seconds", 3)
-                    await asyncio.sleep(post_delay)
-
-            if posted_now:
-                _save_posted(posted)
-
-            if POST_TO_PREMIUM and posted_now:
-                premium_item = to_post[0]
+            for ch in CHANNELS:
                 try:
-                    p_title = html.escape(str(premium_item.get('title', 'Deal')))
-                    p_body = html.escape(str(premium_item.get('body', '')))[:300]
-                    p_link = premium_item.get('link', '')
-                    p_tracked = tracked_url(p_link, premium_item.get("product_id"), title=premium_item.get("title"), price=premium_item.get("price"), discount=premium_item.get("discount"), image=premium_item.get("image"), src=CHANNEL_SRC) if p_link and LINK_TRACKING else p_link
-                    if not p_tracked:
-                        p_tracked = f"https://t.me/{CLEAN_ID}"
-                    premium_msg = f'🔒 <b>PREMIUM EXCLUSIVE</b>\n\n📦 <b>{p_title}</b>\n\n{p_body}\n\n🔗 <a href="{html.escape(p_tracked, quote=True)}">🛒 Buy on Amazon</a>'
-                    if len(premium_msg) > 4000:
-                        premium_msg = _safe_truncate(premium_msg, 3950) + "\n\n⚠️ Truncated."
-                    await bot.send_message(
-                        chat_id=PREMIUM_CHANNEL_ID,
-                        text=premium_msg,
-                        parse_mode="HTML",
-                        reply_markup=InlineKeyboardMarkup([[
-                            InlineKeyboardButton("🛒 BUY NOW", url=tracked_url(premium_item.get("link", ""), premium_item.get("product_id"), src=CHANNEL_SRC) if premium_item.get("link") and LINK_TRACKING else premium_item.get("link", "")),
-                        ]]),
-                    )
-                    log.info("Posted premium deal to %s", PREMIUM_CHANNEL_ID)
+                    await _post_to_channel(bot, ch)
                 except Exception as e:
-                    log.error("Premium posting failed: %s", e)
-
-            if DAILY_POLL and _now_ist().hour >= 19 and _poll_due():
-                try:
-                    await post_daily_poll(bot, chat_id, items, posted)
-                    _mark_polled()
-                except Exception as e:
-                    log.error("Poll posting failed: %s", e)
-
+                    log.error("Channel %s posting failed: %s", ch["id"], e)
     except Exception as e:
         log.error("post_content fatal error: %s", e)
+
+
+async def _post_to_channel(bot, ch):
+    chat_id = ch["id"]
+    source_file = ch["content_file"]
+    clean_id = ch["clean"]
+    items = load_content_items(source_file)
+    if not items:
+        log.info("No items available for %s (source %s).", chat_id, source_file)
+        return
+
+    posted = _load_posted(source_file)
+    already_today = _posts_today(posted)
+    if already_today >= MAX_POSTS_PER_DAY:
+        log.info("%s daily cap reached (%d/%d) — skipping cycle.", chat_id, already_today, MAX_POSTS_PER_DAY)
+        return
+    eligible = _pick_eligible(items, posted)
+    if not eligible:
+        log.info("%s: all items posted recently. Skipping cycle.", chat_id)
+        return
+
+    num = min(POSTS_PER_BATCH, len(eligible), MAX_POSTS_PER_DAY - already_today)
+    to_post = eligible[:num]
+
+    current_count = _increment_post_count()
+    posted_now = []
+    for item in to_post:
+        title = item.get("title", "Deal")
+        raw_link = item.get("link", "") if HAS_LINKS else ""
+        product_id = item.get("product_id", "")
+        link = tracked_url(raw_link, product_id, title=item.get("title"), price=item.get("price"), discount=item.get("discount"), image=item.get("image"), src=CHANNEL_SRC) if raw_link and LINK_TRACKING else raw_link
+        msg = generate_high_converting_message(item, current_count, clean_id)
+        if link:
+            msg = f'<a href="{html.escape(link, quote=True)}">&#8203;</a>{msg}'
+
+        buttons = []
+        if link:
+            btn_label = f"🛒 BUY ON AMAZON ({item.get('discount', 'DEAL')})" if item.get('discount') else "🛒 BUY NOW ON AMAZON ⚡"
+            buttons.append([InlineKeyboardButton(btn_label, url=link)])
+        
+        buttons.append([
+            InlineKeyboardButton("🚀 Share Deal", url=f"https://t.me/share/url?url={quote(link or 'https://t.me/' + clean_id)}&text={quote(title[:60])}"),
+        ])
+        buttons.append([
+            InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{clean_id}"),
+            InlineKeyboardButton("🔥 More Deals", url=f"https://t.me/{clean_id}"),
+        ])
+        
+        kb = InlineKeyboardMarkup(buttons)
+        success = False
+        for attempt in range(3):
+            try:
+                if len(msg) > 4000:
+                    msg = _safe_truncate(msg, 3950) + "\n\n⚠️ Truncated. Join channel for full details."
+                sent = await bot.send_message(chat_id=chat_id, text=msg, parse_mode="HTML", reply_markup=kb)
+                log.info("Posted deal to %s: %s", chat_id, title[:40])
+                if PIN_POSTS:
+                    try:
+                        await bot.pin_chat_message(chat_id=chat_id, message_id=sent.message_id)
+                    except TelegramError:
+                        pass
+                success = True
+                break
+            except TelegramError as e:
+                if attempt < 2:
+                    wait = (attempt + 1) * 5
+                    log.warning("Telegram error for %s (attempt %d/3): %s — retrying in %ds", title[:30], attempt + 1, e, wait)
+                    await asyncio.sleep(wait)
+                else:
+                    log.error("Failed to post %s after 3 attempts: %s", title[:30], e)
+            except Exception as e:
+                log.error("Failed to post %s: %s", title[:30], e)
+                break
+
+        if success:
+            item_id = item.get("id") or item.get("title", "")
+            posted[item_id] = {
+                "last": datetime.now().isoformat(),
+                "count": posted.get(item_id, {}).get("count", 0) + 1 if item_id in posted else 1
+            }
+            posted_now.append(item)
+            post_delay = content_cfg.get("post_delay_seconds", 3)
+            await asyncio.sleep(post_delay)
+
+    if posted_now:
+        _save_posted(posted, source_file)
+
+    if POST_TO_PREMIUM and posted_now and clean_id == CLEAN_ID:
+        premium_item = to_post[0]
+        try:
+            p_title = html.escape(str(premium_item.get('title', 'Deal')))
+            p_body = html.escape(str(premium_item.get('body', '')))[:300]
+            p_link = premium_item.get('link', '')
+            p_tracked = tracked_url(p_link, premium_item.get("product_id"), title=premium_item.get("title"), price=premium_item.get("price"), discount=premium_item.get("discount"), image=premium_item.get("image"), src=CHANNEL_SRC) if p_link and LINK_TRACKING else p_link
+            if not p_tracked:
+                p_tracked = f"https://t.me/{CLEAN_ID}"
+            premium_msg = f'🔒 <b>PREMIUM EXCLUSIVE</b>\n\n📦 <b>{p_title}</b>\n\n{p_body}\n\n🔗 <a href="{html.escape(p_tracked, quote=True)}">🛒 Buy on Amazon</a>'
+            if len(premium_msg) > 4000:
+                premium_msg = _safe_truncate(premium_msg, 3950) + "\n\n⚠️ Truncated."
+            await bot.send_message(
+                chat_id=PREMIUM_CHANNEL_ID,
+                text=premium_msg,
+                parse_mode="HTML",
+                reply_markup=InlineKeyboardMarkup([[
+                    InlineKeyboardButton("🛒 BUY NOW", url=tracked_url(premium_item.get("link", ""), premium_item.get("product_id"), src=CHANNEL_SRC) if premium_item.get("link", "") and LINK_TRACKING else premium_item.get("link", "")),
+                ]]),
+            )
+            log.info("Posted premium deal to %s", PREMIUM_CHANNEL_ID)
+        except Exception as e:
+            log.error("Premium posting failed: %s", e)
+
+    state_path = _poll_state_path(clean_id)
+    if DAILY_POLL and _now_ist().hour >= 19 and _poll_due(state_path):
+        try:
+            await post_daily_poll(bot, chat_id, items, posted)
+            _mark_polled(state_path)
+        except Exception as e:
+            log.error("Poll posting failed for %s: %s", chat_id, e)
 
 
 async def post_daily_poll(bot, chat_id, items, posted):
@@ -375,7 +409,7 @@ async def post_daily_poll(bot, chat_id, items, posted):
             chat_id=chat_id,
             question=question,
             options=options[:4],
-            is_anonymous=False,
+            is_anonymous=True,
             allows_multiple_answers=False,
         )
         log.info("Daily poll posted with %d options", len(options))

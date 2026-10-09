@@ -11,7 +11,7 @@ from urllib.parse import unquote
 
 log = logging.getLogger("validate_links")
 
-CONTENT_FILES = ["content_home.json", "content.json"]
+CONTENT_FILES = ["content_home.json", "content_bdia.json", "content.json"]
 DEALS_DIR = "website/src/content/deals"
 BLOG_DIR = "website/src/content/blog"
 MIN_ITEMS = 1
