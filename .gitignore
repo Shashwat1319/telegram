@@ -33,6 +33,7 @@ short_links_cache.json
 joined_groups_state.json
 referrals_state.json
 daily_poll_state*.json
+bounty_state.json
 creators_api_status.json
 goal_state.json
 

@@ -20,6 +20,8 @@ log = logging.getLogger(__name__)
 
 IST = timezone(timedelta(hours=5, minutes=30))
 POLL_STATE_FILE = "daily_poll_state.json"
+BOUNTIES_FILE = "bounties.json"
+BOUNTY_STATE_FILE = "bounty_state.json"
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 if not BOT_TOKEN:
@@ -104,6 +106,68 @@ def _mark_polled(state_path=None):
 
 def _poll_state_path(clean_id):
     return POLL_STATE_FILE if clean_id == CLEAN_ID else f"daily_poll_state_{clean_id}.json"
+
+
+def _bounty_daily():
+    try:
+        return max(0, int(content_cfg.get("bounty_posts_per_day", 1)))
+    except (TypeError, ValueError):
+        return 1
+
+
+def _load_bounties():
+    try:
+        data = load_json(BOUNTIES_FILE, default=[])
+        return [b for b in data if isinstance(b, dict) and b.get("url") and b.get("id")]
+    except Exception as e:
+        log.warning("Could not load bounties: %s", e)
+        return []
+
+
+async def _post_bounty(bot, ch):
+    """Post rotating bounty links (Prime/Audible/Business/Sell), daily quota per channel."""
+    daily = _bounty_daily()
+    if daily <= 0:
+        return None
+    bounties = _load_bounties()
+    if not bounties:
+        return None
+    clean_id = ch["clean"]
+    st = load_json(BOUNTY_STATE_FILE, default={})
+    today = _now_ist().date().isoformat()
+    e = st.get(clean_id) or {}
+    if e.get("date") != today:
+        e = {"date": today, "count": 0, "last_index": -1}
+    if int(e.get("count", 0) or 0) >= daily:
+        return None
+    idx = (int(e.get("last_index", -1) or -1) + 1) % len(bounties)
+    b = bounties[idx]
+    raw = str(b.get("url", ""))
+    link = tracked_url(raw, f"bounty-{b['id']}", title=b.get("title"), src=CHANNEL_SRC) if raw and LINK_TRACKING else raw
+    title = html.escape(str(b.get("title", "Special Offer")))
+    body = html.escape(str(b.get("body", "")))
+    msg = (
+        f"🎁 <b>SPECIAL: {title}</b>\n\n"
+        f"{body}\n\n"
+        f'🛒 <a href="{html.escape(link, quote=True)}">Abhi kholo →</a>\n\n'
+        f"📢 More daily deals: @{clean_id}"
+    )
+    kb = InlineKeyboardMarkup([
+        [InlineKeyboardButton(f"🎁 {b.get('title', 'OPEN')} →", url=link)],
+        [InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{clean_id}")],
+    ])
+    await bot.send_message(chat_id=ch["id"], text=msg, parse_mode="HTML", reply_markup=kb)
+    e.update({
+        "date": today,
+        "count": int(e.get("count", 0) or 0) + 1,
+        "last_index": idx,
+        "last_id": b["id"],
+        "last_posted": _now_ist().isoformat(),
+    })
+    st[clean_id] = e
+    save_json(BOUNTY_STATE_FILE, st)
+    log.info("Posted bounty '%s' to %s", b["id"], ch["id"])
+    return b
 
 CTA_OPTIONS = [
     "💬 Isse sasta kahin mila? Comment karo 👇",
@@ -264,6 +328,10 @@ async def _post_to_channel(bot, ch):
             chat_id, windows, _now_ist().strftime("%H:%M"),
         )
         return
+    try:
+        await _post_bounty(bot, ch)
+    except Exception as e:
+        log.warning("%s bounty post failed: %s", chat_id, e)
     max_day = ch.get("max_posts_per_day") or MAX_POSTS_PER_DAY
     source_file = ch["content_file"]
     clean_id = ch["clean"]

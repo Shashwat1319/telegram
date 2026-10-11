@@ -1,0 +1,26 @@
+[
+  {
+    "id": "prime",
+    "title": "Amazon Prime",
+    "url": "https://www.amazon.in/tryprime",
+    "body": "1-day unlimited delivery + Prime Video + Prime Music + early sale access. Shopping Edition sirf ₹399/saal se shuru!"
+  },
+  {
+    "id": "audible",
+    "title": "Audible Audiobooks",
+    "url": "https://www.amazon.in/audible",
+    "body": "1 mahine ka FREE trial — pehla audiobook credit free. Atomic Habits, Psychology of Money jaise bestsellers suno, padhne ka time na ho toh!"
+  },
+  {
+    "id": "business",
+    "title": "Amazon Business",
+    "url": "https://www.amazon.in/b2b",
+    "body": "Dukaan ya office ke liye FREE business account — GST invoice, bulk-order discounts aur extra savings. GSTIN waale sellers ke liye best!"
+  },
+  {
+    "id": "sell",
+    "title": "Sell on Amazon",
+    "url": "https://sell.amazon.in",
+    "body": "Apna business online lagao — crores Amazon customers tak pahuncho. FREE registration, Amazon hi deliver karega (FBA)."
+  }
+]

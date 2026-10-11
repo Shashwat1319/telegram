@@ -36,7 +36,8 @@
     "group_window_ist": [9, 22],
     "group_repost_days": 7,
     "group_min_gap_hours": 7,
-    "group_max_per_run": 25
+    "group_max_per_run": 25,
+    "bounty_posts_per_day": 1
   },
   "tasks": {
     "product_feed": { "enabled": true, "interval_hours": 12 },
