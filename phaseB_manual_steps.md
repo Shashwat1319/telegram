@@ -13,10 +13,19 @@ Submit `https://t.me/smartgahr` (kitchen channel) + `https://t.me/budgetdeals_in
 | 5 | TelegrmGroupLink.com | https://telegrmgrouplink.com/add-your-telegram-group-channel-link-to-this-website-submit/ | Free form, no login |
 | 6 | Lovitro | https://www.lovitro.com/telegram-groups/deals | Deals category listing |
 | 7 | tdirectory.me | https://tdirectory.me/ (add) | Free listing |
+| 8 | BestTelegramChannels | https://besttelegramchannels.com/add-telegram-channels-groups | 50k+ monthly visitors, Google-indexed |
+| 9 | Telegramian | https://telegramian.com/add-channels-and-groups/ | Free form |
+| 10 | TelegramHub | https://www.telegramhub.app/ | Follow their channel first, then submit free |
+| 11 | tlgbot.ru | https://tlgbot.ru/add | Russian directory, indexes globally |
+| 12 | tlgrm.ru | https://tlgrm.ru/channels → post in "Инкубатор" group | Post t.me link, min 12h gap |
 
-**Copy-paste description for all:**
+**Copy-paste description (smartgahr):**
 
 > SmartGahr — Daily Amazon India deals, verified 40-80% off, all products under ₹999. Home & Kitchen focus. Auto-updated loot deals with price history. Free to join.
+
+**Copy-paste description (budgetdeals_india):**
+
+> Budget Deals India — Amazon deals for EVERY category: electronics, fashion, home, kitchen. Lightning deals + loot, updated all day. Free to join.
 
 **Tip:** submit both channels AND bot where the form allows multiple links.
 

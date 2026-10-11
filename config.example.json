@@ -12,8 +12,8 @@
     "premium_unlock_referrals": 2
   },
   "channels": [
-    { "id": "@smartgahr", "content_file": "content_home.json" },
-    { "id": "@budgetdeals_india", "content_file": "content_bdia.json", "window_ist": [[9, 22]], "max_posts_per_day": 10 }
+    { "id": "@smartgahr", "content_file": "content_home.json", "promo_channel": "@budgetdeals_india" },
+    { "id": "@budgetdeals_india", "content_file": "content_bdia.json", "window_ist": [[9, 22]], "max_posts_per_day": 10, "promo_channel": "@smartgahr" }
   ],
   "content": {
     "source_file": "content_home.json",
@@ -37,6 +37,7 @@
     "group_repost_days": 7,
     "group_min_gap_hours": 7,
     "group_max_per_run": 25,
+    "group_promo_channels": ["@smartgahr", "@budgetdeals_india"],
     "bounty_posts_per_day": 1
   },
   "tasks": {

@@ -65,6 +65,7 @@ def _channels():
             "clean": cid[1:] if cid.startswith("@") else cid,
             "window_ist": c.get("window_ist") or PRIME_WINDOWS,
             "max_posts_per_day": int(c.get("max_posts_per_day") or MAX_POSTS_PER_DAY),
+            "promo_channel": str(c.get("promo_channel") or "").strip(),
         })
     if not out:
         base = CHANNEL_ID if (CHANNEL_ID.startswith("@") or CHANNEL_ID.lstrip("-").isdigit()) else "@" + CHANNEL_ID
@@ -154,7 +155,10 @@ async def _post_bounty(bot, ch):
     )
     kb = InlineKeyboardMarkup([
         [InlineKeyboardButton(f"🎁 {b.get('title', 'OPEN')} →", url=link)],
-        [InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{clean_id}")],
+        [InlineKeyboardButton(
+            f"📢 Deals: @{((ch.get('promo_channel') or '').lstrip('@')) or clean_id}",
+            url=f"https://t.me/{((ch.get('promo_channel') or '').lstrip('@')) or clean_id}",
+        )],
     ])
     await bot.send_message(chat_id=ch["id"], text=msg, parse_mode="HTML", reply_markup=kb)
     e.update({
@@ -372,9 +376,10 @@ async def _post_to_channel(bot, ch):
         buttons.append([
             InlineKeyboardButton("🚀 Share Deal", url=f"https://t.me/share/url?url={quote(link or 'https://t.me/' + clean_id)}&text={quote(title[:60])}"),
         ])
+        promo = (ch.get("promo_channel") or "").lstrip("@") or clean_id
         buttons.append([
-            InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{clean_id}"),
-            InlineKeyboardButton("🔥 More Deals", url=f"https://t.me/{clean_id}"),
+            InlineKeyboardButton(f"📢 @{promo}" if promo != clean_id else "📢 Join Channel", url=f"https://t.me/{promo}"),
+            InlineKeyboardButton(f"🔥 More @{promo}" if promo != clean_id else "🔥 More Deals", url=f"https://t.me/{promo}"),
         ])
         
         kb = InlineKeyboardMarkup(buttons)

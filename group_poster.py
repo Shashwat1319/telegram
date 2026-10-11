@@ -55,6 +55,11 @@ def _group_max_per_run():
     except (TypeError, ValueError):
         return 25
 
+def _promo_handle():
+    chans = _content_cfg().get("group_promo_channels") or [f"@{CLEAN_ID}"]
+    chans = [str(c).strip() for c in chans if str(c).strip()]
+    return random.choice(chans) if chans else f"@{CLEAN_ID}"
+
 def _in_group_window(dt=None):
     dt = dt or datetime.now(IST)
     hour = dt.hour + dt.minute / 60
@@ -209,6 +214,7 @@ def build_message(product, src=None):
     drop = calc_discount(product.get("price", "0"), product.get("mrp", "0"))
     link = tracked_link(product.get("link", f"https://t.me/{CLEAN_ID}"), product=product, src=src)
     fix = product.get("fix", "Amazing value!")
+    promo = _promo_handle()
 
     urgency_lines = [
         "⏰ Ends tonight at 11:59 PM",
@@ -219,10 +225,10 @@ def build_message(product, src=None):
     ]
 
     templates = [
-        f"🔥 {name}\n💸 {mrp} → {price} ({drop}% OFF)\n✅ {fix}\n{random.choice(urgency_lines)}\n🛒 {link}\n\n📢 Join @{CLEAN_ID} for daily deals!",
-        f"💥 PRICE DROP: {drop}% OFF\n📦 {name[:50]}\n💸 Price: {price}\n{fix}\n{random.choice(urgency_lines)}\n👉 {link}\n\n📲 @{CLEAN_ID}",
-        f"⚡ DEAL ALERT!\n{name[:50]}\n💸 Just {price}\n✅ {fix}\n{random.choice(urgency_lines)}\n🛒 {link}\n\n💰 @{CLEAN_ID}",
-        f"🚨 LOOT DEAL: {drop}% OFF!\n{name[:50]}\n{mrp} → {price}\n{random.choice(urgency_lines)}\n🔗 {link}\n\n📢 @{CLEAN_ID}",
+        f"🔥 {name}\n💸 {mrp} → {price} ({drop}% OFF)\n✅ {fix}\n{random.choice(urgency_lines)}\n🛒 {link}\n\n📢 Join {promo} for daily deals!",
+        f"💥 PRICE DROP: {drop}% OFF\n📦 {name[:50]}\n💸 Price: {price}\n{fix}\n{random.choice(urgency_lines)}\n👉 {link}\n\n📲 {promo}",
+        f"⚡ DEAL ALERT!\n{name[:50]}\n💸 Just {price}\n✅ {fix}\n{random.choice(urgency_lines)}\n🛒 {link}\n\n💰 {promo}",
+        f"🚨 LOOT DEAL: {drop}% OFF!\n{name[:50]}\n{mrp} → {price}\n{random.choice(urgency_lines)}\n🔗 {link}\n\n📢 Join {promo} for daily deals!",
     ]
     return random.choice(templates)
 
