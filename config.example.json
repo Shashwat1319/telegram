@@ -13,7 +13,7 @@
   },
   "channels": [
     { "id": "@smartgahr", "content_file": "content_home.json" },
-    { "id": "@budgetdeals_india", "content_file": "content_bdia.json" }
+    { "id": "@budgetdeals_india", "content_file": "content_bdia.json", "window_ist": [[9, 22]], "max_posts_per_day": 10 }
   ],
   "content": {
     "source_file": "content_home.json",
@@ -34,7 +34,9 @@
     "prime_windows_ist": [[11, 14], [19, 22]],
     "max_posts_per_day": 8,
     "group_window_ist": [9, 22],
-    "group_repost_days": 7
+    "group_repost_days": 7,
+    "group_min_gap_hours": 7,
+    "group_max_per_run": 25
   },
   "tasks": {
     "product_feed": { "enabled": true, "interval_hours": 12 },

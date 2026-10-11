@@ -1,11 +1,13 @@
 """Auto-join promo groups so the user account can post deals in them.
 
-Reads @usernames from verified_promo_groups.txt, joins each public group/channel
-with a random pace (anti-flood), records status per entry, and optionally probes
-whether we have send rights (so group_poster only targets writable chats).
+Reads @usernames AND t.me/+ invite links from verified_promo_groups.txt and
+discovered_groups.txt, joins each public group/channel with a random pace
+(anti-flood), records status per entry, and optionally probes whether we have
+send rights (so group_poster only targets writable chats). Entries marked
+send=blocked (kicked earlier) are re-attempted.
 
 Usage:
-    py join_promo_groups.py            # join everything not yet joined
+    py join_promo_groups.py            # join everything not yet joined + re-kicked
     py join_promo_groups.py --probe    # also probe send rights after joining
     py join_promo_groups.py --limit 10 # join at most 10 new entries
 """
@@ -16,6 +18,7 @@ import json
 import logging
 import os
 import random
+import re
 import sys
 from datetime import datetime, timezone
 
@@ -39,23 +42,36 @@ API_HASH = os.getenv("API_HASH")
 SESSION_STR = os.getenv("TELEGRAM_SESSION_1")
 
 GROUPS_FILE = "verified_promo_groups.txt"
+DISCOVERED_FILE = "discovered_groups.txt"
 STATE_FILE = "joined_groups_state.json"
 
 JOIN_DELAY_MIN = 25
 JOIN_DELAY_MAX = 60
 
+INVITE_RE = re.compile(r"(?:https?://)?t\.me/(?:\+|joinchat/)([A-Za-z0-9_-]+)")
+
 
 def load_groups():
-    if not os.path.exists(GROUPS_FILE):
-        log.error("%s not found", GROUPS_FILE)
-        return []
     out = []
-    with open(GROUPS_FILE, encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if line and not line.startswith("#"):
-                out.append(line)
-    return out
+    found = False
+    for path in (GROUPS_FILE, DISCOVERED_FILE):
+        if not os.path.exists(path):
+            continue
+        found = True
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#"):
+                    out.append(line)
+    if not found:
+        log.error("%s not found", GROUPS_FILE)
+    seen = set()
+    deduped = []
+    for g in out:
+        if g not in seen:
+            seen.add(g)
+            deduped.append(g)
+    return deduped
 
 
 def load_state():
@@ -76,7 +92,18 @@ def save_state(state):
 
 
 async def join_one(client, username):
-    """Join a public chat by username. Returns (status, detail)."""
+    """Join a public chat by username or invite link. Returns (status, detail)."""
+    m = INVITE_RE.search(username)
+    if m:
+        try:
+            await asyncio.wait_for(client(ImportChatInviteRequest(m.group(1))), timeout=30)
+        except UserAlreadyParticipantError:
+            return "already", "member"
+        except FloodWaitError as e:
+            return "floodwait", str(e.seconds)
+        except Exception as e:
+            return "error", f"{type(e).__name__}: {e}"
+        return "joined", "invite link"
     try:
         entity = await asyncio.wait_for(client.get_entity(username), timeout=30)
         try:
@@ -118,6 +145,22 @@ async def probe_send(client, username):
 
 
 from telethon.tl.functions.channels import JoinChannelRequest  # noqa: E402
+from telethon.tl.functions.messages import ImportChatInviteRequest  # noqa: E402
+
+
+def _due_join(entry):
+    """Retry failed joins only after 7 days; floodwait always retries; kicked (send=blocked) retried via caller."""
+    if not entry:
+        return True
+    if entry.get("status") == "floodwait":
+        return True
+    if entry.get("status") in ("joined", "already"):
+        return False
+    try:
+        age = datetime.now(timezone.utc) - datetime.fromisoformat(entry.get("at"))
+        return age.days >= 7
+    except Exception:
+        return True
 
 
 async def main():
@@ -134,10 +177,13 @@ async def main():
     state = load_state()
     log.info("Loaded %d groups, %d already in state", len(groups), len(state))
 
-    todo = [g for g in groups if state.get(g, {}).get("status") not in ("joined", "already")]
+    todo = [
+        g for g in groups
+        if _due_join(state.get(g) or {}) or state.get(g, {}).get("send") == "blocked"
+    ]
     if args.limit:
         todo = todo[: args.limit]
-    log.info("%d entries to join", len(todo))
+    log.info("%d entries to join/re-join", len(todo))
 
     if not todo:
         log.info("Nothing to join")
@@ -154,15 +200,22 @@ async def main():
 
         for i, group in enumerate(todo):
             status, detail = await join_one(client, group)
+            old = state.get(group) or {}
             entry = {
                 "status": status,
                 "detail": detail[:120],
                 "at": datetime.now(timezone.utc).isoformat(),
             }
-            if args.probe and status in ("joined", "already"):
+            if old.get("members") is not None:
+                entry["members"] = old["members"]
+                entry["members_at"] = old.get("members_at")
+            is_invite = bool(INVITE_RE.search(group))
+            if args.probe and status in ("joined", "already") and not is_invite:
                 p_status, p_detail = await probe_send(client, group)
                 entry["send"] = p_status
                 entry["send_detail"] = p_detail[:120]
+            elif status in ("joined", "already"):
+                entry.pop("send", None)
             state[group] = entry
             save_state(state)
             log.info("[%d/%d] %s -> %s (%s)", i + 1, len(todo), group, status, detail[:60])

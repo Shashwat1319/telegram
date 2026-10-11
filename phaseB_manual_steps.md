@@ -2,7 +2,7 @@
 
 ## B4: Directory Submissions (~10 min)
 
-Submit `https://t.me/smartgahr` (channel) + `https://t.me/Ffzon_bot` (bot) to these free directories. Most take 1-2 min each.
+Submit `https://t.me/smartgahr` (kitchen channel) + `https://t.me/budgetdeals_india` (all-categories channel) + `https://t.me/Ffzon_bot` (bot) to these free directories. Most take 1-2 min each.
 
 | # | Directory | Submit URL | Notes |
 |---|-----------|-----------|-------|
@@ -18,7 +18,7 @@ Submit `https://t.me/smartgahr` (channel) + `https://t.me/Ffzon_bot` (bot) to th
 
 > SmartGahr — Daily Amazon India deals, verified 40-80% off, all products under ₹999. Home & Kitchen focus. Auto-updated loot deals with price history. Free to join.
 
-**Tip:** submit channel AND bot where the form allows both.
+**Tip:** submit both channels AND bot where the form allows multiple links.
 
 ---
 

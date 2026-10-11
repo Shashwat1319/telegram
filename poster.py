@@ -61,6 +61,8 @@ def _channels():
             "id": cid,
             "content_file": c.get("content_file") or SOURCE_FILE,
             "clean": cid[1:] if cid.startswith("@") else cid,
+            "window_ist": c.get("window_ist") or PRIME_WINDOWS,
+            "max_posts_per_day": int(c.get("max_posts_per_day") or MAX_POSTS_PER_DAY),
         })
     if not out:
         base = CHANNEL_ID if (CHANNEL_ID.startswith("@") or CHANNEL_ID.lstrip("-").isdigit()) else "@" + CHANNEL_ID
@@ -75,10 +77,11 @@ def _now_ist():
     return datetime.now(IST)
 
 
-def _in_prime_window(dt=None):
+def _in_prime_window(dt=None, windows=None):
     dt = dt or _now_ist()
     hour = dt.hour + dt.minute / 60
-    return any(start <= hour < end for start, end in PRIME_WINDOWS)
+    wins = windows if windows is not None else PRIME_WINDOWS
+    return any(start <= hour < end for start, end in wins)
 
 
 def _posts_today(posted):
@@ -241,12 +244,6 @@ def generate_high_converting_message(item, post_count=0, clean_id=None):
 
 
 async def post_content():
-    if not _in_prime_window():
-        log.info(
-            "Outside prime window %s IST — skipping this cycle (now %s)",
-            PRIME_WINDOWS, _now_ist().strftime("%H:%M"),
-        )
-        return
     try:
         async with Bot(token=BOT_TOKEN) as bot:
             for ch in CHANNELS:
@@ -260,6 +257,14 @@ async def post_content():
 
 async def _post_to_channel(bot, ch):
     chat_id = ch["id"]
+    windows = ch.get("window_ist") or PRIME_WINDOWS
+    if not _in_prime_window(windows=windows):
+        log.info(
+            "%s outside window %s IST — skipping (now %s)",
+            chat_id, windows, _now_ist().strftime("%H:%M"),
+        )
+        return
+    max_day = ch.get("max_posts_per_day") or MAX_POSTS_PER_DAY
     source_file = ch["content_file"]
     clean_id = ch["clean"]
     items = load_content_items(source_file)
@@ -269,15 +274,15 @@ async def _post_to_channel(bot, ch):
 
     posted = _load_posted(source_file)
     already_today = _posts_today(posted)
-    if already_today >= MAX_POSTS_PER_DAY:
-        log.info("%s daily cap reached (%d/%d) — skipping cycle.", chat_id, already_today, MAX_POSTS_PER_DAY)
+    if already_today >= max_day:
+        log.info("%s daily cap reached (%d/%d) — skipping cycle.", chat_id, already_today, max_day)
         return
     eligible = _pick_eligible(items, posted)
     if not eligible:
         log.info("%s: all items posted recently. Skipping cycle.", chat_id)
         return
 
-    num = min(POSTS_PER_BATCH, len(eligible), MAX_POSTS_PER_DAY - already_today)
+    num = min(POSTS_PER_BATCH, len(eligible), max_day - already_today)
     to_post = eligible[:num]
 
     current_count = _increment_post_count()

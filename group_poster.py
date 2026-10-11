@@ -23,6 +23,7 @@ if not API_ID or not API_HASH:
     sys.exit(1)
 
 GROUPS_FILE = "verified_promo_groups.txt"
+DISCOVERED_GROUPS_FILE = "discovered_groups.txt"
 POSTED_FILE = "posted_products.json"
 STATE_FILE = "joined_groups_state.json"
 
@@ -41,6 +42,18 @@ def _group_window():
 
 def _repost_hours():
     return _content_cfg().get("group_repost_days", 7) * 24
+
+def _group_min_gap_hours():
+    try:
+        return float(_content_cfg().get("group_min_gap_hours", 7))
+    except (TypeError, ValueError):
+        return 7.0
+
+def _group_max_per_run():
+    try:
+        return max(1, int(_content_cfg().get("group_max_per_run", 25)))
+    except (TypeError, ValueError):
+        return 25
 
 def _in_group_window(dt=None):
     dt = dt or datetime.now(IST)
@@ -84,15 +97,21 @@ def tracked_link(url, product=None, src=None):
 
 
 def load_groups():
-    if not os.path.exists(GROUPS_FILE):
+    groups = []
+    found = False
+    for path in (GROUPS_FILE, DISCOVERED_GROUPS_FILE):
+        if not os.path.exists(path):
+            continue
+        found = True
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#"):
+                    groups.append(line)
+    if not found:
         log.error("%s not found", GROUPS_FILE)
         return []
-    groups = []
-    with open(GROUPS_FILE, encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if line and not line.startswith("#"):
-                groups.append(line)
+    groups = list(dict.fromkeys(groups))
     # Skip chats we probed as non-writable (channels, banned, read-only)
     state_path = "joined_groups_state.json"
     if os.path.exists(state_path):
@@ -103,6 +122,7 @@ def load_groups():
             groups = [
                 g for g in groups
                 if state.get(g, {}).get("send") in (None, "writable", "unknown")
+                and state.get(g, {}).get("status") not in ("error", "not_found", "private")
             ]
             skipped = before - len(groups)
             if skipped:
@@ -244,13 +264,15 @@ def _save_state(state):
 
 
 def _group_posted_today(state, group):
+    """True if the group got a post within the min-gap window (allows 2-3 rounds/day)."""
     e = state.get(group) or {}
     if e.get("send") != "writable":
         return False
     dt = _parse_when(e.get("send_at"))
     if dt is None:
         return False
-    return dt.astimezone(IST).date() == datetime.now(IST).date()
+    age = (datetime.now(timezone.utc) - dt).total_seconds()
+    return age < _group_min_gap_hours() * 3600
 
 
 def _members_fresh(e):
@@ -340,9 +362,9 @@ async def main():
     due = [g for g in groups if not _group_posted_today(state, g)]
     skipped_today = len(groups) - len(due)
     if skipped_today:
-        log.info("Skipped %d groups already posted today", skipped_today)
+        log.info("Skipped %d groups within the %gh min-gap", skipped_today, _group_min_gap_hours())
     if not due:
-        log.info("All %d writable groups already posted today", len(groups))
+        log.info("All %d writable groups posted within the last %gh", len(groups), _group_min_gap_hours())
         return
     log.info("%d/%d groups due this run", len(due), len(groups))
 
@@ -359,6 +381,11 @@ async def main():
         log.info("Logged in as %s", me.first_name or me.phone)
 
         due = await _sort_by_members(client, due, state)
+
+        cap = _group_max_per_run()
+        if len(due) > cap:
+            log.info("Capping run: posting to %d of %d due groups (group_max_per_run=%d)", cap, len(due), cap)
+            due = due[:cap]
 
         posted_count = 0
 
