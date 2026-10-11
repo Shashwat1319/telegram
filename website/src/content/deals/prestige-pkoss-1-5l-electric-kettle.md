@@ -1,7 +1,7 @@
 ---
 title: "Prestige PKOSS 1.5L Electric Kettle @ Just ₹549 - Save 61%!"
 description: "Get Prestige PKOSS 1.5L Electric Kettle at just ₹549 - Save 61%! Verified Amazon deal."
-pubDate: "2026-10-10"
+pubDate: "2026-10-11"
 price: "₹549"
 mrp: "₹1395"
 discount: "61%"
