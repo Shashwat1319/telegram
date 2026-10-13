@@ -289,6 +289,7 @@ def generate_high_converting_message(item, post_count=0, clean_id=None):
         body_html = re.sub(r"~~(.+?)~~", r"<s>\1</s>", body_html)
         body_html = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", body_html)
         body_html = re.sub(r"__(.+?)__", r"<i>\1</i>", body_html)
+        body_html = re.sub(r"(\*{1,2}|~~|__)+$", "", body_html)  # markers split by truncation
         msg = f"{badge}\n\n📦 <b>{html.escape(title)}</b>\n\n{body_html}\n\n{random.choice(urgency_options)}"
     else:
         hook = item.get("hook", "Grab this deal before price goes up!")
@@ -422,10 +423,15 @@ async def _post_to_channel(bot, ch):
         _save_posted(posted, source_file)
 
     if POST_TO_PREMIUM and posted_now and clean_id == CLEAN_ID:
-        premium_item = to_post[0]
+        premium_item = posted_now[0]
         try:
             p_title = html.escape(str(premium_item.get('title', 'Deal')))
-            p_body = html.escape(str(premium_item.get('body', '')))[:300]
+            p_body_raw = str(premium_item.get('body', ''))[:300]  # truncate RAW first — truncating after escape can cut an entity mid-entity
+            p_body = html.escape(p_body_raw, quote=False)
+            p_body = re.sub(r"~~(.+?)~~", r"<s>\1</s>", p_body)
+            p_body = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", p_body)
+            p_body = re.sub(r"__(.+?)__", r"<i>\1</i>", p_body)
+            p_body = re.sub(r"(\*{1,2}|~~|__)+$", "", p_body)  # markers split by truncation
             p_link = premium_item.get('link', '')
             p_tracked = tracked_url(p_link, premium_item.get("product_id"), title=premium_item.get("title"), price=premium_item.get("price"), discount=premium_item.get("discount"), image=premium_item.get("image"), src=CHANNEL_SRC) if p_link and LINK_TRACKING else p_link
             if not p_tracked:

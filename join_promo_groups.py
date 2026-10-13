@@ -149,12 +149,16 @@ from telethon.tl.functions.messages import ImportChatInviteRequest  # noqa: E402
 
 
 def _due_join(entry):
-    """Retry failed joins only after 7 days; floodwait always retries; kicked (send=blocked) retried via caller."""
+    """Retry failed joins only after 7 days; floodwait always retries.
+    Entries we deliberately LEFT (cleanup) are NEVER re-joined — mass-rejoining
+    100+ junk groups would undo the cleanup and risk an account ban."""
     if not entry:
         return True
     if entry.get("status") == "floodwait":
         return True
-    if entry.get("status") in ("joined", "already"):
+    if entry.get("status") in ("joined", "already", "left"):
+        return False
+    if entry.get("send") == "left":
         return False
     try:
         age = datetime.now(timezone.utc) - datetime.fromisoformat(entry.get("at"))

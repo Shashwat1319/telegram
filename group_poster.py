@@ -87,8 +87,11 @@ def tracked_link(url, product=None, src=None):
     tag = os.getenv("AFFILIATE_ID_IN", "shashwat022-21")
     if not url:
         return f"https://t.me/{CLEAN_ID}"
-    sep = "&" if "?" in url else "?"
-    direct = f"{url}{sep}tag={tag}"
+    if "tag=" in url:
+        direct = url  # already attributed — never append a second tag=
+    else:
+        sep = "&" if "?" in url else "?"
+        direct = f"{url}{sep}tag={tag}"
     if not TRACKER:
         return direct
     out = f"{TRACKER}/go?url={quote(direct)}"
@@ -193,18 +196,15 @@ def _is_due(posted, key):
     return age_h >= _repost_hours()
 
 
-def pick_due_product(group, posted):
-    products = load_products()
+def pick_due_product(group, posted, products=None):
+    if products is None:
+        products = load_products()
+    products = list(products)
     random.shuffle(products)
     for p in products:
         if _is_due(posted, f"{group}:{p.get('name', '')}"):
             return p
     return None
-
-
-def load_latest_product():
-    products = load_products()
-    return random.choice(products) if products else None
 
 
 def build_message(product, src=None):
@@ -375,6 +375,10 @@ async def main():
     log.info("%d/%d groups due this run", len(due), len(groups))
 
     posted = load_posted()
+    products = load_products()
+    if not products:
+        log.error("No products loaded — nothing to post")
+        return
 
     client = TelegramClient(StringSession(SESSION_STR), int(API_ID), API_HASH, timeout=30)
     await asyncio.wait_for(client.connect(), timeout=45)
@@ -396,7 +400,7 @@ async def main():
         posted_count = 0
 
         for i, group in enumerate(due):
-            product = pick_due_product(group, posted)
+            product = pick_due_product(group, posted, products)
             if not product:
                 log.info("Every product still in repost window for %s — skipping", group)
                 continue

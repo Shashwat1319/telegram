@@ -2,6 +2,10 @@
 .env
 config.json
 
+# Private plan file — NEVER push
+MASTER_PLAN.md
+EXPENSE_TRACKER.md
+
 # Python
 __pycache__/
 *.pyc
@@ -61,12 +65,18 @@ youtube_details.txt
 orchestrator.pid
 orchestrator_state.json
 
-# Website build
-website/node_modules/
-website/dist/
-website/.astro/
-
 # IDE
 .idea/
 .vscode/
 .zip  
+
+# Local Netlify folder
+.netlify
+
+# Local-only state / helpers — NEVER push
+netlify-redirector/site_settings.json
+reminder_state.json
+swap_dm_state.json
+B4B5_progress.md
+tmp_*
+tmp_group_admins.json

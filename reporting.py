@@ -124,28 +124,30 @@ def _creators_probe_line():
         return None
     status = r.get("status", "error")
     if status == "eligible":
-        return "🔑 **Creators API**: ✅ LIVE — API unlocked!"
+        return "🔑 *Creators API*: ✅ LIVE — API unlocked!"
     if status == "not_eligible":
-        return "🔑 **Creators API**: ⏳ waiting on sales (10 qualified sales / 30 days)"
-    return f"🔑 **Creators API**: ❌ {_md_escape(str(r.get('detail', 'error'))[:80])}"
+        return "🔑 *Creators API*: ⏳ waiting on sales (10 qualified sales / 30 days)"
+    return f"🔑 *Creators API*: ❌ {_md_escape(str(r.get('detail', 'error'))[:80])}"
 
 
 def _clicks_section():
     stats = _fetch_tracker_stats()
     if not stats:
-        return "🖱 **Clicks**: (tracker unavailable)\n"
+        return "🖱 *Clicks*: (tracker unavailable)\n"
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     hist = stats.get("history", {}) or {}
     srcs = stats.get("sources", {}) or {}
     totals = srcs.get("totals", {}) or {}
+    last7_keys = [(datetime.now(timezone.utc) - timedelta(days=i)).strftime("%Y-%m-%d") for i in range(7)]
+    last7 = sum(int(hist.get(k, 0) or 0) for k in last7_keys)
     line = (
-        f"🖱 **Clicks**: today {hist.get(today, 0)} · "
-        f"7d {sum(hist.values())} · total {stats.get('total_clicks', 0)}\n"
+        f"🖱 *Clicks*: today {int(hist.get(today, 0) or 0)} · "
+        f"7d {last7} · total {stats.get('total_clicks', 0)}\n"
     )
     top = sorted(totals.items(), key=lambda kv: kv[1], reverse=True)[:5]
     if top:
         parts = ", ".join(f"{_md_escape(s)}: {n}" for s, n in top)
-        line += f"📡 **Top sources** (lifetime): {parts}\n"
+        line += f"📡 *Top sources* (lifetime): {parts}\n"
     return line
 
 
@@ -225,18 +227,18 @@ async def daily_report():
     probe_block = f"{probe_line}\n" if probe_line else ""
 
     report = (
-        f"📊 **DAILY REPORT** ({today})\n\n"
-        f"👥 **Members**: {members_str}{delta_str} 🎯\n"
-        f"📊 **Roadmap**: `{bar}` {m}/{next_m}\n"
+        f"📊 *DAILY REPORT* ({today})\n\n"
+        f"👥 *Members*: {members_str}{delta_str} 🎯\n"
+        f"📊 *Roadmap*: `{bar}` {m}/{next_m}\n"
         f"   (100 → 250 → 500 → 1000 → 2500 → 5000)\n"
-        f"📦 **Content Items**: {' · '.join(count_parts)}\n"
-        f"📢 **Channels:**\n{channels_block}\n\n"
+        f"📦 *Content Items*: {' · '.join(count_parts)}\n"
+        f"📢 *Channels:*\n{channels_block}\n\n"
         f"{clicks_section}"
         f"{probe_block}\n"
-        f"🔗 **Referral Stats:**\n"
+        f"🔗 *Referral Stats:*\n"
         f"  • Links created: {ref_count}\n"
         f"  • Total joins: {join_count}\n\n"
-        f"🏆 **Top Referrers:**\n{top_str}\n\n"
+        f"🏆 *Top Referrers:*\n{top_str}\n\n"
         f"---\n*{remaining} days left in {datetime.now().strftime('%B')} — keep growing! 🚀*"
     )
     await send_telegram(report)

@@ -1,11 +1,12 @@
 import os, random, logging, asyncio, argparse, time
+from datetime import datetime, timezone
 from dotenv import load_dotenv
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, Bot
-from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
+from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ChatJoinRequestHandler, ContextTypes
 from telegram.error import BadRequest
 from config_loader import load_config
-from utils import esc_md, tracked_url, load_content_items
-from data import load_json
+from utils import esc_md, render_md, tracked_url, load_content_items
+from data import load_json, save_json
 
 load_dotenv()
 log = logging.getLogger(__name__)
@@ -52,7 +53,7 @@ async def start(update, context):
             await update.message.reply_text(msg, parse_mode="Markdown", reply_markup=kb)
             return
     msg = (
-        f"👋 *Welcome {user.first_name}!*\n\n{esc_md(WELCOME_MSG)}\n\n"
+        f"👋 *Welcome {esc_md(user.first_name)}!*\n\n{esc_md(WELCOME_MSG)}\n\n"
         f"📌 *Commands:*\n"
         f"• /{CONTENT_CMD} — {CONTENT_CMD_LABEL}\n"
         f"• /referral — Invite friends & unlock premium\n"
@@ -76,8 +77,8 @@ async def random_item(update, context):
     if not item or not isinstance(item, dict):
         await update.message.reply_text("No content available right now. Check back soon!")
         return
-    title = str(item.get("title", "Item"))[:60]
-    body = str(item.get("body", ""))[:200]
+    title = esc_md(str(item.get("title", "Item"))[:60])
+    body = render_md(str(item.get("body", ""))[:200])
     link = item.get("link", "")
     image = item.get("image", "")
     tracked = tracked_url(link, title=item.get("title"), price=item.get("price"), discount=item.get("discount"), image=item.get("image")) if link else ""
@@ -105,13 +106,19 @@ async def referral(update, context):
     if not user or not update.message:
         return
     now = time.monotonic()
+    wait = 0
     async with _referral_cooldown_lock:
+        stale = [uid for uid, t in _referral_cooldowns.items() if now - t >= 30]
+        for uid in stale:
+            del _referral_cooldowns[uid]
         last = _referral_cooldowns.get(user.id, 0)
         if now - last < 30:
-            remaining = int(30 - (now - last))
-            await update.message.reply_text(f"⏳ Please wait {remaining}s before using /referral again.")
-            return
-        _referral_cooldowns[user.id] = now
+            wait = int(30 - (now - last))
+        else:
+            _referral_cooldowns[user.id] = now
+    if wait:
+        await update.message.reply_text(f"⏳ Please wait {wait}s before using /referral again.")
+        return
     try:
         from referral import generate_referral_link, get_user_stats, get_premium_status, ensure_premium_expiry, PREMIUM_REFERRALS_NEEDED, PREMIUM_DURATION_DAYS
         link = await generate_referral_link(user.id)
@@ -157,7 +164,6 @@ async def referral(update, context):
             f"3. {PREMIUM_UNLOCK} joins = {PREMIUM_DURATION_DAYS} din FREE premium access"
         )
     kb = InlineKeyboardMarkup([
-        [InlineKeyboardButton("📤 Share Link", url=f"https://t.me/share/url?url={link}&text=Join%20SmartGahr%20for%20daily%20verified%20Amazon%20deals%20under%20%E2%82%B9999%20%E2%80%94%2040%25%2B%20discounts%20only!%20%F0%9F%94%A5")],
         [InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{CHANNEL_HANDLE}")],
     ])
     if count >= PREMIUM_UNLOCK:
@@ -228,7 +234,9 @@ async def search(update, context):
         return
     keyword = " ".join(context.args).lower()
     items = load_content_items(CONTENT_SOURCE)
-    matches = [i for i in items if keyword in i.get("title", "").lower() or keyword in i.get("category", "").lower()]
+    matches = [i for i in items
+               if keyword in str(i.get("title") or "").lower()
+               or keyword in str(i.get("category") or "").lower()]
     if not matches:
         await update.message.reply_text(f"❌ No deals found for '{keyword}'. Try a different keyword.")
         return
@@ -243,7 +251,7 @@ async def search(update, context):
             result.append(f"• {title} — {disc}")
             if len(result) >= 5:
                 break
-    msg = f"🔍 *Search Results for '{keyword}'*\n\n" + "\n".join(result)
+    msg = f"🔍 *Search Results for '{esc_md(keyword)}'*\n\n" + "\n".join(result)
     msg += f"\n\n📢 Join @{esc_md(CHANNEL_HANDLE)} for more!"
     if len(msg) > 4000:
         msg = msg[:4000] + "\n\n⚠️ Results truncated. Try a more specific search."
@@ -277,11 +285,11 @@ async def button_callback(update, context):
             if not item:
                 await query.edit_message_text("No content available right now. Check back soon!")
                 return
-            title = item.get("title", "Item")
-            body = item.get("body", "")
+            title = esc_md(str(item.get("title", "Item"))[:60])
+            body = render_md(str(item.get("body", ""))[:200])
             link = item.get("link", "")
             tracked = tracked_url(link, title=item.get("title"), price=item.get("price"), discount=item.get("discount"), image=item.get("image")) if link else ""
-            msg = f"*{title[:60]}*\n\n{body[:200]}"
+            msg = f"*{title}*\n\n{body}"
             if tracked:
                 msg += f"\n\n👉 [Learn More]({tracked})"
             msg += f"\n\n📢 Join @{esc_md(CHANNEL_HANDLE)} for more!"
@@ -289,7 +297,10 @@ async def button_callback(update, context):
                 [InlineKeyboardButton("🔗 Open", url=tracked or link)],
                 [InlineKeyboardButton("📢 Join Channel", url=f"https://t.me/{CHANNEL_HANDLE}")]
             ])
-            await query.edit_message_text(msg, parse_mode="Markdown", reply_markup=kb)
+            if query.message and getattr(query.message, "photo", None):
+                await query.edit_message_caption(caption=msg, parse_mode="Markdown", reply_markup=kb)
+            else:
+                await query.edit_message_text(msg, parse_mode="Markdown", reply_markup=kb)
     except BadRequest as e:
         log.warning("Button callback failed (message may be unchanged): %s", e)
     except Exception as e:
@@ -389,13 +400,49 @@ async def send_channel_welcome(bot: Bot):
     except Exception as e:
         log.error("Failed to send channel welcome: %s", e)
 
+REMINDER_STATE_FILE = "reminder_state.json"
+
 async def _reminder_job(context: ContextTypes.DEFAULT_TYPE):
+    # State-gate: orchestrator restarts used to re-fire this immediately (first=10s),
+    # flooding the channel with duplicate reminders. Only post if last one was 20h+ ago.
+    st = load_json(REMINDER_STATE_FILE, {})
+    last = st.get("last_sent")
+    if last:
+        try:
+            dt = datetime.fromisoformat(last)
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            if (datetime.now(timezone.utc) - dt).total_seconds() < 20 * 3600:
+                return
+        except Exception:
+            pass
     await post_referral_reminder(context.bot)
+    st["last_sent"] = datetime.now(timezone.utc).isoformat()
+    save_json(REMINDER_STATE_FILE, st)
+
+async def on_join_request(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Approve join-request invites (referral attribution) and record the referral."""
+    jr = update.chat_join_request
+    if not jr or not jr.from_user:
+        return
+    uid = jr.from_user.id
+    link = (jr.invite_link.link if jr.invite_link else "") or ""
+    try:
+        await context.bot.approve_chat_join_request(chat_id=jr.chat.id, user_id=uid)
+    except Exception as e:
+        log.warning("Join-request approve failed for %d: %s", uid, e)
+    try:
+        from referral import record_join, send_welcome
+        if await record_join(link, uid, jr.from_user.username):
+            await send_welcome(uid, jr.from_user.username)
+    except Exception as e:
+        log.warning("Join-request record failed for %d: %s", uid, e)
 
 def run_bot():
     app = Application.builder().token(BOT_TOKEN).build()
-    reminder_interval = load_config().get("tasks", {}).get("daily_report", {}).get("interval_hours", 4) * 3600
-    app.job_queue.run_repeating(_reminder_job, interval=reminder_interval, first=10)
+    rem_cfg = load_config().get("tasks", {}).get("referral_reminder", {})
+    reminder_interval = int(rem_cfg.get("interval_hours", 24)) * 3600
+    app.job_queue.run_repeating(_reminder_job, interval=reminder_interval, first=300)
 
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("premium", premium_cmd))
@@ -406,9 +453,10 @@ def run_bot():
     app.add_handler(CommandHandler("about", about))
     app.add_handler(CommandHandler("contact", contact))
     app.add_handler(CallbackQueryHandler(button_callback))
+    app.add_handler(ChatJoinRequestHandler(on_join_request))
     app.add_error_handler(error_handler)
 
-    log.info("Bot started at @%s. Commands: /start /%s /topdeal /search <query> /referral /about /contact | Reminder every 4h", CHANNEL_ID.replace("@",""), CONTENT_CMD)
+    log.info("Bot started at @%s. Commands: /start /%s /topdeal /search <query> /referral /about /contact | Reminder every %dh", CHANNEL_ID.replace("@",""), CONTENT_CMD, reminder_interval // 3600)
     app.run_polling(allowed_updates=Update.ALL_TYPES)
 
 async def main():

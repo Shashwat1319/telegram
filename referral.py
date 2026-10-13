@@ -74,9 +74,13 @@ def save_referrals(data):
 async def generate_referral_link(user_id: int) -> str:
     async with _LOCK:
         referrals = load_referrals()
+        old_link, old_info = None, None
         for link, info in referrals.items():
             if info.get("creator") == user_id:
-                return link
+                if info.get("jr"):
+                    return link  # already a join-request link (attributable)
+                old_link, old_info = link, info
+                break  # migrate legacy link below
 
         from telegram import Bot
         from telegram.error import TelegramError
@@ -84,19 +88,39 @@ async def generate_referral_link(user_id: int) -> str:
             try:
                 async with Bot(token=BOT_TOKEN) as bot:
                     await bot.initialize()
+                    # creates_join_request=True is REQUIRED for attribution:
+                    # Telegram no longer exposes the invite hash in join updates,
+                    # but join-request updates carry the exact invite link + user.
                     inv = await bot.create_chat_invite_link(
                         chat_id=CHANNEL_ID,
                         name=f"ref_{user_id}_{int(datetime.now(timezone.utc).timestamp() * 1000)}",
-                        creates_join_request=False, expire_date=None, member_limit=0)
+                        creates_join_request=True, expire_date=None, member_limit=0)
+                    new_link = inv.invite_link
+                    if old_link:
+                        try:
+                            await bot.revoke_chat_invite_link(chat_id=CHANNEL_ID, invite_link=old_link)
+                        except Exception as e:
+                            log.debug("Old link revoke skipped: %s", e)
                     await bot.shutdown()
-                    link = inv.invite_link
-                referrals[link] = {"creator": user_id, "created_at": datetime.now(timezone.utc).isoformat(), "joined": []}
+                if old_link:
+                    referrals.pop(old_link, None)
+                merged = dict(old_info or {})
+                merged.update({
+                    "creator": user_id,
+                    "created_at": datetime.now(timezone.utc).isoformat(),
+                    "jr": True,
+                })
+                merged.setdefault("joined", [])
+                referrals[new_link] = merged
                 save_referrals(referrals)
-                log.info("Created referral link for user %d", user_id)
-                return link
+                log.info("Created join-request referral link for user %d (migrated=%s)", user_id, bool(old_link))
+                return new_link
             except TelegramError as e:
                 log.warning("Attempt %d failed: %s", attempt + 1, e)
                 if attempt == 2:
+                    if old_link:
+                        log.warning("Falling back to existing (unattributed) link for user %d", user_id)
+                        return old_link
                     raise
                 await asyncio.sleep(2 ** attempt)
             except Exception as e:
@@ -218,22 +242,52 @@ async def event_listener():
         @client.on(events.ChatAction)
         async def handler(event):
             try:
-                if event.user_joined or event.user_added:
-                    user = await event.get_user()
-                    if user and not user.bot and not user.deleted:
-                        invite_link = getattr(getattr(event.action, "invite", None), "link", None)
-                        if await record_join(invite_link or "", user.id, user.username):
-                            await send_welcome(user.id, user.username)
+                if not (event.user_joined or event.user_added):
+                    return
+                user = await event.get_user()
+                if not user or user.bot or user.deleted:
+                    return
+                # Telethon 1.42: ChatAction has .action_message (a Message), not .action.
+                # Legacy layers carried the invite hash on the action; modern TL dropped it.
+                action = getattr(getattr(event, "action_message", None), "action", None)
+                link = None
+                if action is not None:
+                    link = getattr(action, "link", None) or getattr(getattr(action, "invite", None), "link", None)
+                if await record_join(link or "", user.id, user.username):
+                    await send_welcome(user.id, user.username)
             except Exception as e:
                 log.warning("Join handler error: %s", e)
 
+        from telethon.tl.types import UpdateBotChatInviteRequester
+
         @client.on(events.Raw)
         async def raw_handler(update):
+            # Join-request updates (created links use creates_join_request=True)
+            # are the ONLY place Telegram still tells us WHICH invite link was used.
             try:
-                if hasattr(update, "user_id") and hasattr(update, "invite"):
-                    invite_link = getattr(update.invite, "link", None)
-                    if await record_join(invite_link or "", update.user_id):
-                        await send_welcome(update.user_id)
+                if not isinstance(update, UpdateBotChatInviteRequester):
+                    return
+                link = getattr(getattr(update, "invite", None), "link", None) or ""
+                uid = update.user_id
+                username = None
+                try:
+                    u = await client.get_entity(uid)
+                    username = getattr(u, "username", None)
+                except Exception:
+                    pass
+                if await record_join(link, uid, username):
+                    try:
+                        from telegram import Bot as _Bot
+                        async with _Bot(token=BOT_TOKEN) as b:
+                            await b.initialize()
+                            try:
+                                await b.approve_chat_join_request(chat_id=CHANNEL_ID, user_id=uid)
+                            except Exception:
+                                pass  # already approved by the bot-side handler
+                            await b.shutdown()
+                    except Exception as e:
+                        log.debug("approve via raw skipped: %s", e)
+                    await send_welcome(uid, username)
             except Exception as e:
                 log.debug("raw_handler skip: %s", e)
 

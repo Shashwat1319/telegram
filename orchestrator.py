@@ -37,20 +37,48 @@ STATE = {
 }
 
 
+def _pid_alive(pid):
+    """True if another process with this PID is running.
+    On Windows os.kill(pid, 0) TERMINATES the target — must use OpenProcess."""
+    if pid <= 0:
+        return False
+    if sys.platform != "win32":
+        try:
+            os.kill(pid, 0)
+            return True
+        except (ProcessLookupError, SystemError):
+            return False
+        except OSError:
+            return True  # exists but not ours — assume alive (safe)
+    try:
+        import ctypes
+        PROCESS_QUERY_LIMITED_INFORMATION = 0x1000
+        STILL_ACTIVE = 259
+        kernel32 = ctypes.windll.kernel32
+        handle = kernel32.OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, False, pid)
+        if not handle:
+            return False
+        try:
+            code = ctypes.c_ulong()
+            if not kernel32.GetExitCodeProcess(handle, ctypes.byref(code)):
+                return True
+            return code.value == STILL_ACTIVE
+        finally:
+            kernel32.CloseHandle(handle)
+    except Exception:
+        return False
+
+
 def acquire_pid_lock():
     if os.path.exists(PID_FILE):
         try:
             with open(PID_FILE, "r") as f:
                 old_pid = int(f.read().strip())
-            if sys.platform != "win32":
-                try:
-                    os.kill(old_pid, 0)
-                    log.error("Another orchestrator instance is running (PID: %d). Exiting.", old_pid)
-                    return False
-                except (ProcessLookupError, SystemError):
-                    log.warning("Stale PID file found (PID %d is dead). Overwriting.", old_pid)
-                except OSError:
-                    pass
+            if old_pid != os.getpid() and _pid_alive(old_pid):
+                log.error("Another orchestrator instance is running (PID: %d). Exiting.", old_pid)
+                return False
+            if old_pid != os.getpid():
+                log.warning("Stale PID file found (PID %d is dead). Overwriting.", old_pid)
         except (ValueError, OSError):
             pass
     with open(PID_FILE, "w") as f:
@@ -90,7 +118,7 @@ def should_run(task_name, interval_hours):
         elapsed = (datetime.now(timezone.utc) - dt).total_seconds()
         return elapsed >= interval_hours * 3600
     except Exception:
-        return False
+        return True  # corrupt timestamp — run instead of starving the task forever
 
 
 def mark_run(task_name):
@@ -159,6 +187,10 @@ def run_task_safely(func, task_name):
         log.info("[TASK] Executing %s...", task_name)
         func()
         log.info("[TASK] %s completed successfully.", task_name)
+    except SystemExit as e:
+        log.error("[TASK] %s aborted (SystemExit=%s) — module hard-exited (missing env/deps?)", task_name, e.code)
+    except TimeoutError:
+        log.error("[TASK] %s hit its hard timeout — will retry next interval", task_name)
     except Exception as e:
         log.error("[TASK] %s failed: %s", task_name, e)
     finally:
@@ -182,13 +214,20 @@ def task_channel_post():
 def task_group_post():
     from group_poster import main as group_post_main
     async def _run():
-        await asyncio.wait_for(group_post_main(), timeout=5400)  # 90 min hard cap (12 groups x 5-10min delays)
+        # 2.5h hard cap: worst case is 12 groups x (600s max delay + ~30s send) = ~126 min;
+        # the old 90-min cap killed runs mid-cycle (e.g. 2026-10-12 18:39 run).
+        await asyncio.wait_for(group_post_main(), timeout=9000)
     asyncio.run(_run())
 
 
 def task_daily_report():
     from reporting import daily_report
     asyncio.run(daily_report())
+
+
+def task_goal_check():
+    from reporting import check_goal
+    asyncio.run(check_goal())
 
 
 def main():
@@ -208,12 +247,16 @@ def main():
         pass  # SIGTERM not available on Windows
 
     # Start background bot & referral threads
+    tasks0 = load_config().get("tasks", {})
+    referral_on = tasks0.get("referral_tracker", {}).get("enabled", True)
     bot_thread = threading.Thread(target=run_bot_thread, daemon=True)
-    ref_thread = threading.Thread(target=run_referral_thread, daemon=True)
-    poller_thread = threading.Thread(target=run_member_poller_thread, daemon=True)
+    ref_thread = threading.Thread(target=run_referral_thread, daemon=True) if referral_on else None
+    poller_thread = threading.Thread(target=run_member_poller_thread, daemon=True) if referral_on else None
     bot_thread.start()
-    ref_thread.start()
-    poller_thread.start()
+    if ref_thread:
+        ref_thread.start()
+    if poller_thread:
+        poller_thread.start()
 
     log.info("Orchestrator running. Press Ctrl+C to stop.")
 
@@ -223,11 +266,11 @@ def main():
                 log.warning("Bot thread died — restarting...")
                 bot_thread = threading.Thread(target=run_bot_thread, daemon=True)
                 bot_thread.start()
-            if not ref_thread.is_alive():
+            if ref_thread is not None and not ref_thread.is_alive():
                 log.warning("Referral thread died — restarting...")
                 ref_thread = threading.Thread(target=run_referral_thread, daemon=True)
                 ref_thread.start()
-            if not poller_thread.is_alive():
+            if poller_thread is not None and not poller_thread.is_alive():
                 log.warning("Member poller thread died — restarting...")
                 poller_thread = threading.Thread(target=run_member_poller_thread, daemon=True)
                 poller_thread.start()
@@ -254,6 +297,11 @@ def main():
                 hours = tasks_cfg.get("daily_report", {}).get("interval_hours", 24)
                 if should_run("daily_report", hours):
                     run_task_safely(task_daily_report, "daily_report")
+
+            if tasks_cfg.get("goal_tracker", {}).get("enabled", True):
+                hours = tasks_cfg.get("goal_tracker", {}).get("interval_hours", 6)
+                if should_run("goal_check", hours):
+                    run_task_safely(task_goal_check, "goal_check")
 
             _shutdown.wait(timeout=60)
 

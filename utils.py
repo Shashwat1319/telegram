@@ -20,6 +20,21 @@ def esc_md(text):
         s = s.replace(c, "\\" + c)
     return s
 
+
+def render_md(text):
+    """Convert MarkdownV2-ish **bold**/~~strike~~/__italic__ in feeder bodies to
+    legacy-Markdown-safe text (parse_mode='Markdown'). Balances stray markers so
+    Telegram never rejects the message with 'Can't parse entities'."""
+    s = str(text)
+    s = re.sub(r"\*\*(.+?)\*\*", r"*\1*", s, flags=re.DOTALL)
+    s = re.sub(r"__(.+?)__", r"_\1_", s, flags=re.DOTALL)
+    s = re.sub(r"~~(.+?)~~", r"\1", s, flags=re.DOTALL)
+    s = s.replace("~~", "").replace("**", "")  # leftovers from truncated bodies
+    n_stars = len(re.findall(r"(?<!\\)\*", s))
+    if n_stars % 2 == 1:
+        s += "*"
+    return s
+
 def load_content_items(source_file=None):
     if source_file is None:
         source_file = load_config().get("content", {}).get("source_file", "content.json")

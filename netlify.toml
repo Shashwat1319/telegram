@@ -1,0 +1,27 @@
+# Root Netlify config — routes builds to netlify-redirector/
+# (Netlify reads this when site base is empty)
+
+[build]
+  base = "netlify-redirector"
+  publish = "."
+  functions = "functions"
+
+[[redirects]]
+  from = "/s/:id"
+  to = "/.netlify/functions/go?id=:id"
+  status = 200
+
+[[redirects]]
+  from = "/go"
+  to = "/.netlify/functions/go"
+  status = 200
+
+[[redirects]]
+  from = "/stats"
+  to = "/.netlify/functions/stats"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/go"
+  status = 200

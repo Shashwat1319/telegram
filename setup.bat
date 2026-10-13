@@ -24,7 +24,7 @@ if not exist .env (
 
 :: Step 3: Install dependencies
 echo [3/4] Installing Python dependencies...
-pip install -r requirements.txt >nul 2>&1
+py -m pip install -r requirements.txt >nul 2>&1
 if %errorlevel% equ 0 (
     echo [3/4] Dependencies installed
 ) else (
@@ -34,12 +34,12 @@ if %errorlevel% equ 0 (
 :: Step 4: Run demo
 echo [4/4] Running demo...
 echo.
-python demo.py
+py demo.py
 
 echo.
 echo ============================================
 echo   Setup complete!
-echo   Next: python poster.py  (post a deal)
-echo         python orchestrator.py  (run bot)
+echo   Next: py poster.py  (post a deal)
+echo         py orchestrator.py  (run bot)
 echo ============================================
 pause

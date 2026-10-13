@@ -106,7 +106,6 @@ def _body_pain_fix(prod):
     return "\n\n".join(parts)
 
 def _body_deal_alert(prod):
-    name = prod.get("name", "Product")
     price = str(prod.get("price", "")).strip()
     mrp = str(prod.get("mrp", "")).strip()
     disc = prod.get("discount_percent", "")
