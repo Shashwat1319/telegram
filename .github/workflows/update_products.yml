@@ -34,12 +34,6 @@ jobs:
       - name: Generate content for budgetdeals_india
         run: python feeder.py --source product.json --output content_bdia.json --no-filter
 
-      # ── Website deals ──
-      - name: Generate website deal pages
-        env:
-          CLICK_TRACKER_URL: https://budgetdeals-tracker-737523f4.netlify.app
-        run: python website_gen.py --source product_home.json --out website/src/content/deals
-
       # ── Validate links ──
       - name: Validate all links
         run: python validate_links.py
@@ -88,35 +82,12 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 5
 
-      - name: Build website
-        if: ${{ env.WEBSITE_ID != '' }}
-        env:
-          WEBSITE_ID: ${{ secrets.WEBSITE_NETLIFY_SITE_ID }}
-        run: |
-          cd website
-          npm ci
-          npm run build
-
-      - name: Deploy Netlify website
-        if: ${{ env.WEBSITE_ID != '' }}
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.WEBSITE_NETLIFY_SITE_ID }}
-          WEBSITE_ID: ${{ secrets.WEBSITE_NETLIFY_SITE_ID }}
-        uses: nwtgck/actions-netlify@v2.1
-        with:
-          publish-dir: './website/dist'
-          production-branch: main
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Auto ${{ github.sha }}"
-        timeout-minutes: 10
-
       # ── Commit state ──
       - name: Commit updated state
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          for f in content_home.json content_home_posted.json content_bdia.json content_bdia_posted.json website/src/content/deals/*.md; do
+          for f in content_home.json content_home_posted.json content_bdia.json content_bdia_posted.json; do
             [ -f "$f" ] && git add "$f" || true
           done
           git diff --staged --quiet || (git commit -m "Auto: CI cycle [skip ci]" && git push)

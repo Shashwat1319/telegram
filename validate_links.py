@@ -1,34 +1,19 @@
-"""Validate that every content item and website deal page has a working tracked link.
+"""Validate that every content item has a working tracked link.
 Usage: python validate_links.py
 Exits non-zero if any link is missing its target URL.
 """
-import glob
 import os
-import re
 import sys
 import logging
-from urllib.parse import unquote
 
 log = logging.getLogger("validate_links")
 
 CONTENT_FILES = ["content_home.json", "content_bdia.json", "content.json"]
-DEALS_DIR = "website/src/content/deals"
-BLOG_DIR = "website/src/content/blog"
 MIN_ITEMS = 1
 
 
 def _has_http_target(link):
     return bool(link and link.strip().startswith("http"))
-
-
-def _has_tracked_target(link):
-    if not link:
-        return False
-    m = re.search(r"[?&]url=([^&\"]*)", link)
-    if not m:
-        return False
-    target = unquote(m.group(1))
-    return bool(target and target.startswith("http"))
 
 
 def validate_content():
@@ -48,22 +33,9 @@ def validate_content():
     return total, broken
 
 
-def validate_website():
-    broken = []
-    for pattern, label in [(os.path.join(DEALS_DIR, "*.md"), "deal"), (os.path.join(BLOG_DIR, "*.md"), "blog")]:
-        for f in glob.glob(pattern):
-            content = open(f, encoding="utf-8").read()
-            m = re.search(r'buyLink:\s*"([^"]*)"', content)
-            link = m.group(1) if m else ""
-            if not _has_tracked_target(link):
-                broken.append(f"{label}:{os.path.basename(f)}")
-    return broken
-
-
 def main():
     total, broken_content = validate_content()
-    broken_web = validate_website()
-    problems = broken_content + broken_web
+    problems = broken_content
     print(f"Content items: {total} | Broken links: {len(problems)}")
     for p in problems:
         print(f"  BROKEN: {p}")

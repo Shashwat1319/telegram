@@ -9,7 +9,7 @@ A fully automated system that:
 - Tracks affiliate clicks via Netlify serverless redirector
 - Detects new members and sends welcome DMs with referral rewards (5 referrals = 30 days premium)
 - Sends daily admin reports with member count and referral stats
-- Generates daily promo posts (promo_daily.py) and SEO deal pages (website_gen.py)
+- Generates daily promo posts (promo_daily.py)
 - Zero manual work after setup
 
 ---
@@ -58,7 +58,6 @@ git push -u origin main
 | `TELEGRAM_SESSION_1` | Session string (see 1c below) |
 | `NETLIFY_AUTH_TOKEN` | From Netlify user settings → Personal access tokens |
 | `NETLIFY_SITE_ID` | Your Netlify site API ID (redirector) |
-| `WEBSITE_NETLIFY_SITE_ID` | Optional — Netlify site API ID for the SEO website (skip if unused) |
 | `CHANNEL_HANDLE` | Your channel handle without @ (used in error pages) |
 | `AMAZON_AFFILIATE_TAG` | Your Amazon Associates tag (default: shashwat022-21) |
 
@@ -150,13 +149,6 @@ In your GitHub secrets, set `CLICK_TRACKER_URL` to your Netlify site URL.
 Visit `https://your-site.netlify.app/go?url=https://amazon.in`
 It should redirect you to Amazon with your affiliate tag.
 
-### 4d. Optional: Deploy the SEO Website
-
-If you want the deal website (SEO pages from `website_gen.py`):
-1. Create a second Netlify site (Add new site → Import from Git → your repo → build command `npm run build`, publish directory `dist`, base directory `website`)
-2. Or let CI deploy it: add `WEBSITE_NETLIFY_SITE_ID` to GitHub secrets
-3. The website publishes fresh deal pages automatically every 4h via CI
-
 ---
 
 ## Step 5: Run Locally (Optional)
@@ -169,10 +161,7 @@ pip install -r requirements.txt
 # Generate content from products
 python feeder.py --source product_home.json --output content_home.json
 
-# Generate website deal pages (optional, requires website/ deps installed)
-python website_gen.py --source product_home.json --out website/src/content/deals
-
-# QA: validate every link (content + website)
+# QA: validate every link
 python validate_links.py
 
 # Post a deal to your channel
@@ -192,11 +181,11 @@ python orchestrator.py
 Your pipeline is already configured to:
 - Run every 4 hours
 - Generate fresh content
-- Generate website deal pages + validate all links
+- Validate all links
 - Post 1 deal to your channel
 - Log referral stats
 - Send admin report
-- Deploy Netlify redirector (+ website if `WEBSITE_NETLIFY_SITE_ID` set)
+- Deploy Netlify redirector
 - Commit updated state to repo
 
 Monitor runs: GitHub → Your repo → Actions tab
@@ -254,7 +243,6 @@ python feeder.py --source product_home.json --output content_home.json
 ├── referral.py             # Referral links + join detection + premium unlock
 ├── reporting.py            # Daily reports + milestone goals
 ├── promo_daily.py          # Daily promo post generator
-├── website_gen.py          # SEO deal pages with tracked links
 ├── validate_links.py       # Link QA for CI
 ├── orchestrator.py         # Main loop (bot + referral tracker)
 ├── group_poster.py         # Cross-post deals to Telegram groups
@@ -268,9 +256,6 @@ python feeder.py --source product_home.json --output content_home.json
 ├── product_home.json       # Your products (sample included)
 ├── content_home.json       # Generated content (126 items included)
 ├── SETUP.md                # This file
-├── website/                # SEO deal website (Astro)
-│   ├── netlify.toml        # Netlify build config
-│   └── src/content/deals/  # Generated deal pages (CI writes here)
 ├── netlify-redirector/
 │   ├── functions/
 │   │   ├── go.js           # Click tracker + affiliate redirect

@@ -4,7 +4,7 @@ import zipfile, os, sys
 FILES = [
     'bot.py','feeder.py','poster.py','referral.py','reporting.py',
     'orchestrator.py','group_poster.py','utils.py','data.py','config_loader.py',
-    'demo.py','promo_daily.py','website_gen.py','validate_links.py',
+    'demo.py','promo_daily.py','validate_links.py',
     'setup.bat','setup.sh',
     'product_home.json','content_home.json',
     'product_coaching.json','content_coaching.json',
