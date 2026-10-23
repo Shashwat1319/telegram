@@ -38,9 +38,9 @@ WEEK_TEMPLATES = {
         "🗣️ *Review Post:*\nMaine {title} order kiya tha ({price}).\n1 hafte use kar raha hoon — quality {rating}/5.\nIs price pe best hai, expensive wala utna hi deta hai.\nRoz honest reviews: {link}",
     ],
     "W3": [
-        "🔒 *Premium Teaser:*\nKya hai @{premium}?\n• Roz 2x deals (main channel se zyada)\n• Price-drop ALERTS\n• Exclusive 'mat lo ye' analysis\nUnlock: @{bot} → /referral → 2 friends!\nMain channel: {link}",
-        "🎁 *Referral CTA:*\nFREE PREMIUM — 2 friends ka!\nSecret deals channel + price alerts.\nKaise: @{bot} → /referral → link share karo → 2 friends join → PREMIUM!\n30 din ka access, share karte raho: {link}",
-        "🤝 *Share Post:*\nBhai, maine ek channel join kiya jahan roz sachchi deals aati hain.\nBest part: 2 friends invite karo toh SECRET premium channel unlock!\nJoin karo: {link}",
+        "🔒 *Premium Teaser:*\nKya hai @{premium}?\n• Roz 2x deals (main channel se zyada)\n• Price-drop ALERTS\n• Exclusive 'mat lo ye' analysis\nUnlock: @{bot} → /referral → 1 friend!\nMain channel: {link}",
+        "🎁 *Referral CTA:*\nFREE PREMIUM — sirf 1 friend ka!\nSecret deals channel + price alerts.\nKaise: @{bot} → /referral → link share karo → 1 friend join → PREMIUM!\n30 din ka access, share karte raho: {link}",
+        "🤝 *Share Post:*\nBhai, maine ek channel join kiya jahan roz sachchi deals aati hain.\nBest part: 1 friend invite karo toh SECRET premium channel unlock!\nJoin karo: {link}",
         "🏆 *Growth Post:*\nSmartGahr daily grow ho raha hai!\nJoin karo early — free premium offers tab tak valid hain jab tak channel chhota hai.\nJaldi aao: {link}",
     ],
 }

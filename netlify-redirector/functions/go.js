@@ -151,8 +151,13 @@ export default async (request, context) => {
     } catch (err) {}
   }
 
-  // Direct redirect for already‑clean Amazon URLs (including affiliate tag)
+  // Direct redirect for already‑clean Amazon URLs — append tag if missing
+  // (Bounty pages like /tryprime, /audible, /b2b used to redirect UNTAGGED here → ₹0 bounties)
   if (finalUrl.startsWith('https://www.amazon.')) {
+    if (!finalUrl.includes('tag=')) {
+      const sep = finalUrl.includes('?') ? '&' : '?';
+      finalUrl = `${finalUrl}${sep}tag=${TAG}`;
+    }
     return new Response(null, {
       status: 302,
       headers: { "Location": finalUrl }

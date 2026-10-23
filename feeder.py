@@ -334,12 +334,27 @@ def prune_posted_history(valid_ids, output_path=None):
     return before - len(pruned)
 
 
-def feed(limit=100, source=None, output=None, no_filter=False):
+def feed(limit=100, source=None, output=None, no_filter=False, ht=False):
     products = clean_product_file(source=source)
     if not products:
         log.warning("No valid products found")
         return
-    if not no_filter:
+    if ht:
+        from config_loader import load_config
+        ht_cfg = load_config().get("content", {}).get("high_ticket", {})
+        min_price = float(ht_cfg.get("min_price", 1499))
+        min_disc = float(ht_cfg.get("min_disc", 30))
+
+        def _pr(p):
+            try:
+                return float(re.sub(r"[^\d.]", "", str(p.get("price", ""))) or 0)
+            except Exception:
+                return 0.0
+
+        products = [p for p in products
+                    if _pr(p) >= min_price and calc_discount(p.get("price", ""), p.get("mrp", "")) >= min_disc]
+        log.info("HT filter: kept %d products (min_price=%s, min_disc=%s)", len(products), min_price, min_disc)
+    elif not no_filter:
         products = apply_niche_filter(products)
 
     all_items = []
@@ -365,5 +380,6 @@ if __name__ == "__main__":
     parser.add_argument("--output", default=CONTENT_FILE, help="Output content JSON file (default: content.json)")
     parser.add_argument("--limit", type=int, default=100, help="Max products to process")
     parser.add_argument("--no-filter", action="store_true", help="Skip niche filter (keep all categories/prices)")
+    parser.add_argument("--ht", action="store_true", help="High-ticket track: keep only content.high_ticket min_price/min_disc products")
     args = parser.parse_args()
-    feed(limit=args.limit, source=args.source, output=args.output, no_filter=args.no_filter)
+    feed(limit=args.limit, source=args.source, output=args.output, no_filter=args.no_filter, ht=args.ht)

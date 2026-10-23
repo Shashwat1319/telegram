@@ -66,6 +66,8 @@ def _channels():
             "window_ist": c.get("window_ist") or PRIME_WINDOWS,
             "max_posts_per_day": int(c.get("max_posts_per_day") or MAX_POSTS_PER_DAY),
             "promo_channel": str(c.get("promo_channel") or "").strip(),
+            "ht_file": str(c.get("ht_file") or "").strip(),
+            "ht_posts_per_day": int(c.get("ht_posts_per_day") or 0),
         })
     if not out:
         base = CHANNEL_ID if (CHANNEL_ID.startswith("@") or CHANNEL_ID.lstrip("-").isdigit()) else "@" + CHANNEL_ID
@@ -312,6 +314,96 @@ def generate_high_converting_message(item, post_count=0, clean_id=None):
     return msg
 
 
+async def _send_deal_item(bot, chat_id, item, clean_id, ch, current_count):
+    """Build + send one deal post (buttons, retry, pin). Returns True on success."""
+    title = item.get("title", "Deal")
+    raw_link = item.get("link", "") if HAS_LINKS else ""
+    product_id = item.get("product_id", "")
+    link = tracked_url(raw_link, product_id, title=item.get("title"), price=item.get("price"), discount=item.get("discount"), image=item.get("image"), src=CHANNEL_SRC) if raw_link and LINK_TRACKING else raw_link
+    msg = generate_high_converting_message(item, current_count, clean_id)
+    if link:
+        msg = f'<a href="{html.escape(link, quote=True)}">&#8203;</a>{msg}'
+
+    buttons = []
+    if link:
+        btn_label = f"🛒 BUY ON AMAZON ({item.get('discount', 'DEAL')})" if item.get('discount') else "🛒 BUY NOW ON AMAZON ⚡"
+        buttons.append([InlineKeyboardButton(btn_label, url=link)])
+
+    buttons.append([
+        InlineKeyboardButton("🚀 Share Deal", url=f"https://t.me/share/url?url={quote(link or 'https://t.me/' + clean_id)}&text={quote(title[:60])}"),
+    ])
+    promo = (ch.get("promo_channel") or "").lstrip("@") or clean_id
+    buttons.append([
+        InlineKeyboardButton(f"📢 @{promo}" if promo != clean_id else "📢 Join Channel", url=f"https://t.me/{promo}"),
+        InlineKeyboardButton(f"🔥 More @{promo}" if promo != clean_id else "🔥 More Deals", url=f"https://t.me/{promo}"),
+    ])
+
+    kb = InlineKeyboardMarkup(buttons)
+    for attempt in range(3):
+        try:
+            text = msg
+            if len(text) > 4000:
+                text = _safe_truncate(text, 3950) + "\n\n⚠️ Truncated. Join channel for full details."
+            sent = await bot.send_message(chat_id=chat_id, text=text, parse_mode="HTML", reply_markup=kb)
+            log.info("Posted deal to %s: %s", chat_id, title[:40])
+            if PIN_POSTS:
+                try:
+                    await bot.pin_chat_message(chat_id=chat_id, message_id=sent.message_id)
+                except TelegramError:
+                    pass
+            return True
+        except TelegramError as e:
+            if attempt < 2:
+                wait = (attempt + 1) * 5
+                log.warning("Telegram error for %s (attempt %d/3): %s — retrying in %ds", title[:30], attempt + 1, e, wait)
+                await asyncio.sleep(wait)
+            else:
+                log.error("Failed to post %s after 3 attempts: %s", title[:30], e)
+        except Exception as e:
+            log.error("Failed to post %s: %s", title[:30], e)
+            return False
+    return False
+
+
+async def _post_ht(bot, ch):
+    """High-ticket track: separate file + daily quota, same window discipline."""
+    ht_file = ch.get("ht_file")
+    if not ht_file:
+        return
+    chat_id = ch["id"]
+    clean_id = ch["clean"]
+    max_ht = int(ch.get("ht_posts_per_day", 2) or 0)
+    if max_ht <= 0:
+        return
+    items = load_content_items(ht_file)
+    if not items:
+        log.info("HT: no items in %s for %s", ht_file, chat_id)
+        return
+    posted = _load_posted(ht_file)
+    already = _posts_today(posted)
+    if already >= max_ht:
+        return
+    eligible = _pick_eligible(items, posted)
+    if not eligible:
+        return
+    num = min(POSTS_PER_BATCH, len(eligible), max_ht - already)
+    current_count = _increment_post_count()
+    posted_now = []
+    post_delay = content_cfg.get("post_delay_seconds", 3)
+    for item in eligible[:num]:
+        if await _send_deal_item(bot, chat_id, item, clean_id, ch, current_count):
+            item_id = item.get("id") or item.get("title", "")
+            posted[item_id] = {
+                "last": datetime.now().isoformat(),
+                "count": posted.get(item_id, {}).get("count", 0) + 1 if item_id in posted else 1
+            }
+            posted_now.append(item)
+            await asyncio.sleep(post_delay)
+    if posted_now:
+        _save_posted(posted, ht_file)
+        log.info("HT track: posted %d high-ticket item(s) to %s", len(posted_now), chat_id)
+
+
 async def post_content():
     try:
         async with Bot(token=BOT_TOKEN) as bot:
@@ -337,6 +429,10 @@ async def _post_to_channel(bot, ch):
         await _post_bounty(bot, ch)
     except Exception as e:
         log.warning("%s bounty post failed: %s", chat_id, e)
+    try:
+        await _post_ht(bot, ch)
+    except Exception as e:
+        log.warning("%s HT post failed: %s", chat_id, e)
     max_day = ch.get("max_posts_per_day") or MAX_POSTS_PER_DAY
     source_file = ch["content_file"]
     clean_id = ch["clean"]
@@ -360,63 +456,15 @@ async def _post_to_channel(bot, ch):
 
     current_count = _increment_post_count()
     posted_now = []
+    post_delay = content_cfg.get("post_delay_seconds", 3)
     for item in to_post:
-        title = item.get("title", "Deal")
-        raw_link = item.get("link", "") if HAS_LINKS else ""
-        product_id = item.get("product_id", "")
-        link = tracked_url(raw_link, product_id, title=item.get("title"), price=item.get("price"), discount=item.get("discount"), image=item.get("image"), src=CHANNEL_SRC) if raw_link and LINK_TRACKING else raw_link
-        msg = generate_high_converting_message(item, current_count, clean_id)
-        if link:
-            msg = f'<a href="{html.escape(link, quote=True)}">&#8203;</a>{msg}'
-
-        buttons = []
-        if link:
-            btn_label = f"🛒 BUY ON AMAZON ({item.get('discount', 'DEAL')})" if item.get('discount') else "🛒 BUY NOW ON AMAZON ⚡"
-            buttons.append([InlineKeyboardButton(btn_label, url=link)])
-        
-        buttons.append([
-            InlineKeyboardButton("🚀 Share Deal", url=f"https://t.me/share/url?url={quote(link or 'https://t.me/' + clean_id)}&text={quote(title[:60])}"),
-        ])
-        promo = (ch.get("promo_channel") or "").lstrip("@") or clean_id
-        buttons.append([
-            InlineKeyboardButton(f"📢 @{promo}" if promo != clean_id else "📢 Join Channel", url=f"https://t.me/{promo}"),
-            InlineKeyboardButton(f"🔥 More @{promo}" if promo != clean_id else "🔥 More Deals", url=f"https://t.me/{promo}"),
-        ])
-        
-        kb = InlineKeyboardMarkup(buttons)
-        success = False
-        for attempt in range(3):
-            try:
-                if len(msg) > 4000:
-                    msg = _safe_truncate(msg, 3950) + "\n\n⚠️ Truncated. Join channel for full details."
-                sent = await bot.send_message(chat_id=chat_id, text=msg, parse_mode="HTML", reply_markup=kb)
-                log.info("Posted deal to %s: %s", chat_id, title[:40])
-                if PIN_POSTS:
-                    try:
-                        await bot.pin_chat_message(chat_id=chat_id, message_id=sent.message_id)
-                    except TelegramError:
-                        pass
-                success = True
-                break
-            except TelegramError as e:
-                if attempt < 2:
-                    wait = (attempt + 1) * 5
-                    log.warning("Telegram error for %s (attempt %d/3): %s — retrying in %ds", title[:30], attempt + 1, e, wait)
-                    await asyncio.sleep(wait)
-                else:
-                    log.error("Failed to post %s after 3 attempts: %s", title[:30], e)
-            except Exception as e:
-                log.error("Failed to post %s: %s", title[:30], e)
-                break
-
-        if success:
+        if await _send_deal_item(bot, chat_id, item, clean_id, ch, current_count):
             item_id = item.get("id") or item.get("title", "")
             posted[item_id] = {
                 "last": datetime.now().isoformat(),
                 "count": posted.get(item_id, {}).get("count", 0) + 1 if item_id in posted else 1
             }
             posted_now.append(item)
-            post_delay = content_cfg.get("post_delay_seconds", 3)
             await asyncio.sleep(post_delay)
 
     if posted_now:

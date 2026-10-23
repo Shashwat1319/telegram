@@ -202,6 +202,15 @@ def task_product_feed():
     try:
         from feeder import feed
         feed(limit=50)
+        try:
+            from config_loader import load_config
+            ht_cfg = load_config().get("content", {}).get("high_ticket", {})
+            if ht_cfg.get("enabled", False):
+                feed(limit=50, ht=True,
+                     source=ht_cfg.get("source_file", "product.json"),
+                     output=ht_cfg.get("file", "content_ht.json"))
+        except Exception as e:
+            log.error("[FEED] HT feed failed: %s", e)
     except ImportError as e:
         log.error("[FEED] feeder module missing or broken: %s", e)
 
@@ -228,6 +237,115 @@ def task_daily_report():
 def task_goal_check():
     from reporting import check_goal
     asyncio.run(check_goal())
+
+
+def task_promo_post():
+    """Daily share-bait/value post (promo_daily templates) — views engine.
+    Idempotent via promo_state last_date; hour gate pins to IST daytime."""
+    try:
+        from zoneinfo import ZoneInfo
+        hour = datetime.now(ZoneInfo("Asia/Kolkata")).hour
+        if not (11 <= hour <= 21):
+            return
+        from promo_daily import generate_post
+        post = generate_post()
+        if not post:
+            return
+        asyncio.run(_send_promo_to_channel(post))
+    except ImportError as e:
+        log.error("[PROMO] module missing or broken: %s", e)
+
+
+async def _send_promo_to_channel(text):
+    from telegram import Bot
+    from telegram.error import TelegramError
+    token = os.getenv("BOT_TOKEN")
+    chat = load_config().get("bot", {}).get("channel_id") or load_config().get("bot", {}).get("channel_handle")
+    if not token or not chat:
+        log.error("[PROMO] BOT_TOKEN/channel missing in env/config")
+        return
+    async with Bot(token=token) as bot:
+        try:
+            await bot.send_message(chat_id=chat, text=text, parse_mode="Markdown",
+                                   disable_web_page_preview=True)
+        except TelegramError as e:
+            log.warning("[PROMO] Markdown send failed (%s) — retrying plain", e)
+            try:
+                await bot.send_message(chat_id=chat, text=text, disable_web_page_preview=True)
+            except Exception as e2:
+                log.error("[PROMO] send failed: %s", e2)
+                return
+    log.info("[PROMO] posted to %s", chat)
+
+
+def _run_script(script, args=None, timeout=1800):
+    """Run a sibling script in a subprocess (console-less safe: pipes only).
+    Safety limits (4/day combined budget, FloodWait abort, DM pacing) live
+    inside member_dm/swap_dm themselves — subprocess just triggers them."""
+    import subprocess
+    cmd = [sys.executable, script] + list(args or [])
+    r = subprocess.run(cmd, capture_output=True, text=True,
+                       encoding="utf-8", errors="replace", timeout=timeout)
+    tail = ((r.stdout or "") + (r.stderr or "")).strip().splitlines()[-4:]
+    for line in tail:
+        log.info("[SCRIPT] %s: %s", script, line)
+    if r.returncode != 0:
+        log.error("[SCRIPT] %s exited with code %s", script, r.returncode)
+
+
+def _ist_now():
+    from zoneinfo import ZoneInfo
+    return datetime.now(ZoneInfo("Asia/Kolkata"))
+
+
+def task_swap_dm():
+    """Daily swap-pitch DMs, 19-21 IST. Idempotent: skips if any swap sent
+    today (respects the 4/day combined DM budget with member_dm)."""
+    if not (19 <= _ist_now().hour <= 21):
+        return
+    today = _ist_now().date().isoformat()
+    state = load_json("swap_dm_state.json", {}) or {}
+    sent_today = any(
+        isinstance(v, dict) and v.get("status") == "sent"
+        and str(v.get("at", ""))[:10] == today
+        for v in state.values()
+    )
+    if sent_today:
+        return
+    _run_script("swap_dm.py", ["--limit", "2"])
+
+
+def task_member_dm():
+    """Daily member DMs, 20-21 IST (after swap). member_dm self-clamps to the
+    remaining combined 4/day budget, so double-runs are safe."""
+    if not (20 <= _ist_now().hour <= 21):
+        return
+    _run_script("member_dm.py", [])
+
+
+def task_member_scrape():
+    """Weekly pool refresh (member_scrape self-throttles: skips groups
+    rescraped within 7 days). Gate keeps the daily tick cheap."""
+    if not (5 <= _ist_now().hour <= 7):
+        return
+    _run_script("member_scrape.py", [])
+
+
+def keep_awake():
+    """Prevent OS sleep while the orchestrator runs.
+    2026-10-13: machine slept 09:06-15:40 IST (zero log lines, all tasks fired
+    overdue at 16:42) — cost the entire 11:00-14:00 prime window."""
+    try:
+        import ctypes
+        ES_CONTINUOUS = 0x80000000
+        ES_SYSTEM_REQUIRED = 0x00000001
+        r = ctypes.windll.kernel32.SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED)
+        if r:
+            log.info("[AWAKE] OS sleep disabled while orchestrator runs")
+        else:
+            log.warning("[AWAKE] SetThreadExecutionState returned 0 (no effect)")
+    except Exception as e:
+        log.warning("[AWAKE] could not set execution state: %s", e)
 
 
 def main():
@@ -259,7 +377,9 @@ def main():
         poller_thread.start()
 
     log.info("Orchestrator running. Press Ctrl+C to stop.")
+    keep_awake()
 
+    last_hb = time.time()
     try:
         while not _shutdown.is_set():
             if not bot_thread.is_alive():
@@ -278,15 +398,15 @@ def main():
             config = load_config()
             tasks_cfg = config.get("tasks", {})
 
-            if tasks_cfg.get("product_feed", {}).get("enabled", True):
-                hours = tasks_cfg.get("product_feed", {}).get("interval_hours", 12)
-                if should_run("product_feed", hours):
-                    run_task_safely(task_product_feed, "product_feed")
-
             if tasks_cfg.get("channel_posting", {}).get("enabled", True):
                 hours = tasks_cfg.get("channel_posting", {}).get("interval_hours", 0.5)
                 if should_run("channel_post", hours):
                     run_task_safely(task_channel_post, "channel_post")
+
+            if tasks_cfg.get("product_feed", {}).get("enabled", True):
+                hours = tasks_cfg.get("product_feed", {}).get("interval_hours", 12)
+                if should_run("product_feed", hours):
+                    run_task_safely(task_product_feed, "product_feed")
 
             if tasks_cfg.get("group_posting", {}).get("enabled", False):
                 hours = tasks_cfg.get("group_posting", {}).get("interval_hours", 2)
@@ -302,6 +422,30 @@ def main():
                 hours = tasks_cfg.get("goal_tracker", {}).get("interval_hours", 6)
                 if should_run("goal_check", hours):
                     run_task_safely(task_goal_check, "goal_check")
+
+            if tasks_cfg.get("promo_post", {}).get("enabled", True):
+                hours = tasks_cfg.get("promo_post", {}).get("interval_hours", 1)
+                if should_run("promo_post", hours):
+                    run_task_safely(task_promo_post, "promo_post")
+
+            if tasks_cfg.get("member_scrape", {}).get("enabled", True):
+                hours = tasks_cfg.get("member_scrape", {}).get("interval_hours", 24)
+                if should_run("member_scrape", hours):
+                    run_task_safely(task_member_scrape, "member_scrape")
+
+            if tasks_cfg.get("swap_dm", {}).get("enabled", True):
+                hours = tasks_cfg.get("swap_dm", {}).get("interval_hours", 1)
+                if should_run("swap_dm", hours):
+                    run_task_safely(task_swap_dm, "swap_dm")
+
+            if tasks_cfg.get("member_dm", {}).get("enabled", True):
+                hours = tasks_cfg.get("member_dm", {}).get("interval_hours", 1)
+                if should_run("member_dm", hours):
+                    run_task_safely(task_member_dm, "member_dm")
+
+            if time.time() - last_hb >= 1800:
+                log.info("[HB] main loop alive (30 min heartbeat)")
+                last_hb = time.time()
 
             _shutdown.wait(timeout=60)
 

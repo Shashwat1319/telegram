@@ -216,19 +216,13 @@ def build_message(product, src=None):
     fix = product.get("fix", "Amazing value!")
     promo = _promo_handle()
 
-    urgency_lines = [
-        "⏰ Ends tonight at 11:59 PM",
-        "🔥 Only few left at this price",
-        "⚡ Flash deal - expires in hours",
-        "📉 Lowest price in 30 days",
-        "🎯 Limited stock - grab now",
-    ]
-
+    # 2026-10-23: fake urgency ("Ends tonight 11:59 PM" roz) = trust leak, removed.
+    # CTA now gives a unique reason to join instead of commodity "daily deals".
     templates = [
-        f"🔥 {name}\n💸 {mrp} → {price} ({drop}% OFF)\n✅ {fix}\n{random.choice(urgency_lines)}\n🛒 {link}\n\n📢 Join {promo} for daily deals!",
-        f"💥 PRICE DROP: {drop}% OFF\n📦 {name[:50]}\n💸 Price: {price}\n{fix}\n{random.choice(urgency_lines)}\n👉 {link}\n\n📲 {promo}",
-        f"⚡ DEAL ALERT!\n{name[:50]}\n💸 Just {price}\n✅ {fix}\n{random.choice(urgency_lines)}\n🛒 {link}\n\n💰 {promo}",
-        f"🚨 LOOT DEAL: {drop}% OFF!\n{name[:50]}\n{mrp} → {price}\n{random.choice(urgency_lines)}\n🔗 {link}\n\n📢 Join {promo} for daily deals!",
+        f"🔥 {name}\n💸 {mrp} → {price} ({drop}% OFF)\n✅ {fix}\n🛒 {link}\n\n📢 Join {promo} — daily PRICE-DROP alerts + \"mat lo ye\" fake-deal warnings",
+        f"💥 PRICE DROP: {drop}% OFF\n📦 {name[:50]}\n💸 Price: {price}\n{fix}\n👉 {link}\n\n📲 {promo} — roz alert milega, fake deal bhi pakda jata hai",
+        f"⚡ DEAL ALERT!\n{name[:50]}\n💸 Just {price}\n✅ {fix}\n🛒 {link}\n\n💰 {promo} — verified deals + price-drop alerts, free",
+        f"🚨 {drop}% OFF: {name[:50]}\n{mrp} → {price}\n✅ {fix}\n🔗 {link}\n\n📢 Join {promo} — \"ye mat lo\" warnings + daily price alerts",
     ]
     return random.choice(templates)
 

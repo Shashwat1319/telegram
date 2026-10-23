@@ -90,23 +90,31 @@ def _parse_count(text):
     return int(val)
 
 
-def _recent_channel_views(limit=5, handle=None):
-    """Parse view counts from the public t.me/s preview (no API session needed)."""
+async def _recent_channel_views(limit=5, handle=None):
+    """Fetch recent post views via Telethon (2026-10-14: urllib to t.me/s is
+    blocked by the network — MTProto works). Returns oldest→newest views."""
     handle = (handle or CHANNEL_HANDLE).lstrip("@")
     try:
-        req = urllib.request.Request(
-            f"https://t.me/s/{handle}",
-            headers={
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
-                "Accept": "text/html,application/xhtml+xml",
-                "Accept-Language": "en-US,en;q=0.9",
-            },
-        )
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            html = resp.read().decode("utf-8", errors="replace")
-        raw = re.findall(r'class="tgme_widget_message_views"[^>]*>([^<]+)<', html)
-        vals = [v for v in (_parse_count(x) for x in raw) if v is not None]
-        return vals[-limit:]
+        from dotenv import load_dotenv
+        from telethon import TelegramClient
+        from telethon.sessions import StringSession
+        load_dotenv()
+        api_id = os.getenv("API_ID")
+        api_hash = os.getenv("API_HASH")
+        session = os.getenv("TELEGRAM_SESSION_1")
+        if not (api_id and api_hash and session):
+            return []
+        client = TelegramClient(StringSession(session), int(api_id), api_hash, timeout=30)
+        await client.connect()
+        try:
+            if not await client.is_user_authorized():
+                return []
+            msgs = await client.get_messages(handle, limit=limit)
+            vals = [m.views for m in msgs if m and m.views is not None]
+            vals.reverse()
+            return vals
+        finally:
+            await client.disconnect()
     except Exception as e:
         log.warning("Channel views fetch failed: %s", e)
         return []
@@ -216,7 +224,7 @@ async def daily_report():
     for ch in CHANNELS:
         mv = members_by.get(ch["handle"])
         mv_str = str(mv) if isinstance(mv, int) else "N/A"
-        views = _recent_channel_views(5, handle=ch["handle"])
+        views = await _recent_channel_views(5, handle=ch["handle"])
         v_str = ""
         if views:
             avg = sum(views) // len(views)
@@ -264,6 +272,47 @@ async def check_goal():
                     await bot.send_message(chat_id=ADMIN_CHAT_ID, text=msg, parse_mode="Markdown")
                     state[key] = True
                     log.info("Goal %d notified!", milestone)
+            # --- KPI goals: clicks/day + PA-API unlock flip ---
+            try:
+                cfg_goals = {}
+                try:
+                    from config_loader import load_config
+                    cfg_goals = load_config().get("tasks", {}).get("goal_tracker", {})
+                except Exception:
+                    pass
+                click_goals = cfg_goals.get("click_goals", [25, 50, 100])
+                stats = _fetch_tracker_stats()
+                if stats:
+                    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+                    today_clicks = int((stats.get("history") or {}).get(today, 0) or 0)
+                    for i, g in enumerate(click_goals):
+                        key = f"goal_clicks_{g}_{today}"
+                        if today_clicks >= int(g) and not state.get(key):
+                            nxt = str(click_goals[i + 1]) if i + 1 < len(click_goals) else None
+                            msg = (f"🖱 *{g} CLICKS TODAY!*\n\n"
+                                   f"Current: *{today_clicks}* · lifetime *{stats.get('total_clicks', 0)}*"
+                                   + (f"\nNext goal: *{nxt}*" if nxt else " — daily goal smashed! 🚀"))
+                            await bot.send_message(chat_id=ADMIN_CHAT_ID, text=msg, parse_mode="Markdown")
+                            state[key] = True
+                            log.info("Goal %s clicks reached!", g)
+                    state = {k: v for k, v in state.items()
+                             if not (str(k).startswith("goal_clicks_") and not str(k).endswith(today))}
+                creds = os.getenv("CREATORS_CREDENTIALS_CSV", r"D:\Smartgahr-credentials.csv")
+                if os.path.exists(creds) and not state.get("paaapi_live"):
+                    try:
+                        from creators_api_check import check as creators_check
+                        if creators_check().get("status") == "eligible":
+                            await bot.send_message(
+                                chat_id=ADMIN_CHAT_ID,
+                                text="🔑 *PA-API UNLOCKED!* 🎉\n\n10 qualified sales hit — Creators API is LIVE!",
+                                parse_mode="Markdown")
+                            state["paaapi_live"] = True
+                            log.info("PA-API eligibility reached!")
+                    except Exception as e:
+                        log.warning("PA-API goal probe failed: %s", e)
+            except Exception as e:
+                log.warning("KPI goals check failed: %s", e)
+
             state["last_checked_count"] = count
             save_goal_state(state)
     except Exception as e:

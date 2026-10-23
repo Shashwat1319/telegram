@@ -9,11 +9,28 @@
     "content_command": "random",
     "content_command_label": "Get Content",
     "premium_channel_handle": "smartgahrpremium",
-    "premium_unlock_referrals": 2
+    "premium_unlock_referrals": 1
   },
   "channels": [
-    { "id": "@smartgahr", "content_file": "content_home.json", "promo_channel": "@budgetdeals_india" },
-    { "id": "@budgetdeals_india", "content_file": "content_bdia.json", "window_ist": [[9, 22]], "max_posts_per_day": 10, "promo_channel": "@smartgahr" }
+    {
+      "id": "@smartgahr",
+      "content_file": "content_home.json",
+      "promo_channel": "@budgetdeals_india",
+      "ht_file": "content_ht.json",
+      "ht_posts_per_day": 2
+    },
+    {
+      "id": "@budgetdeals_india",
+      "content_file": "content_bdia.json",
+      "window_ist": [
+        [
+          9,
+          22
+        ]
+      ],
+      "max_posts_per_day": 10,
+      "promo_channel": "@smartgahr"
+    }
   ],
   "content": {
     "source_file": "content_home.json",
@@ -26,27 +43,95 @@
     "daily_poll": true,
     "post_to_premium": false,
     "premium_channel_id": "@smartgahrpremium",
-    "hashtags": ["#AmazonDeals", "#LootOffer", "#PriceDrop"],
+    "hashtags": [
+      "#AmazonDeals",
+      "#LootOffer",
+      "#PriceDrop"
+    ],
     "max_price": 999,
     "min_discount": 40,
     "include_categories": [],
     "post_delay_seconds": 3,
-    "prime_windows_ist": [[11, 14], [19, 22]],
+    "prime_windows_ist": [
+      [
+        11,
+        14
+      ],
+      [
+        19,
+        22
+      ]
+    ],
     "max_posts_per_day": 8,
-    "group_window_ist": [9, 22],
+    "group_window_ist": [
+      9,
+      22
+    ],
     "group_repost_days": 7,
     "group_min_gap_hours": 7,
     "group_max_per_run": 25,
-    "group_promo_channels": ["@smartgahr", "@budgetdeals_india"],
-    "bounty_posts_per_day": 1
+    "group_promo_channels": [
+      "@smartgahr",
+      "@budgetdeals_india"
+    ],
+    "bounty_posts_per_day": 1,
+    "high_ticket": {
+      "enabled": true,
+      "min_price": 1499,
+      "min_disc": 30,
+      "file": "content_ht.json",
+      "source_file": "product.json"
+    }
   },
   "tasks": {
-    "product_feed": { "enabled": true, "interval_hours": 12 },
-    "channel_posting": { "enabled": true, "interval_hours": 1 },
-    "group_posting": { "enabled": true, "interval_hours": 2 },
-    "referral_tracker": { "enabled": true },
-    "daily_report": { "enabled": true, "interval_hours": 24 },
-    "goal_tracker": { "enabled": true, "interval_hours": 6 }
+    "product_feed": {
+      "enabled": true,
+      "interval_hours": 12
+    },
+    "channel_posting": {
+      "enabled": true,
+      "interval_hours": 1
+    },
+    "group_posting": {
+      "enabled": true,
+      "interval_hours": 2
+    },
+    "referral_tracker": {
+      "enabled": true
+    },
+    "referral_reminder": {
+      "enabled": true,
+      "interval_hours": 24
+    },
+    "daily_report": {
+      "enabled": true,
+      "interval_hours": 24
+    },
+    "goal_tracker": {
+      "enabled": true,
+      "interval_hours": 6,
+      "click_goals": [
+        25,
+        50,
+        100
+      ]
+    },
+    "member_scrape": {
+      "enabled": true,
+      "interval_hours": 24
+    },
+    "swap_dm": {
+      "enabled": true,
+      "interval_hours": 1
+    },
+    "member_dm": {
+      "enabled": true,
+      "interval_hours": 1
+    },
+    "promo_post": {
+      "enabled": true,
+      "interval_hours": 1
+    }
   },
   "paths": {
     "log_file": "orchestrator.log",
