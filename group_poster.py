@@ -300,6 +300,18 @@ def _members_fresh(e):
     return dt is not None and (datetime.now(timezone.utc) - dt).total_seconds() < 14 * 86400
 
 
+def _sort_key_cached(state, g):
+    """buyer groups first, then un-scored, then neutral; within a bucket
+    oldest-send first (rotates fairly), then biggest audience. Cached only."""
+    e = state.get(g) or {}
+    quality = e.get("quality")
+    bucket = 0 if quality == "buyer" else (2 if quality == "neutral" else 1)
+    last_send = _parse_when(e.get("send_at"))
+    last_ts = last_send.timestamp() if last_send else 0.0
+    m = e.get("members")
+    return (bucket, last_ts, -(m if isinstance(m, int) else 0))
+
+
 async def _sort_by_members(client, groups, state):
     """Sort groups biggest-first; cache member counts for 14 days."""
     for g in groups:
@@ -332,18 +344,7 @@ async def _sort_by_members(client, groups, state):
             log.warning("Member count unavailable for %s: %s", g, ex)
     _save_state(state)
 
-    def sort_key(g):
-        # buyer groups first, then un-scored, then neutral; within a bucket
-        # oldest-send first (rotates fairly), then biggest audience.
-        e = state.get(g) or {}
-        quality = e.get("quality")
-        bucket = 0 if quality == "buyer" else (2 if quality == "neutral" else 1)
-        last_send = _parse_when(e.get("send_at"))
-        last_ts = last_send.timestamp() if last_send else 0.0
-        m = e.get("members")
-        return (bucket, last_ts, -(m if isinstance(m, int) else 0))
-
-    ordered = sorted(groups, key=sort_key)
+    ordered = sorted(groups, key=lambda g: _sort_key_cached(state, g))
     known = sum(1 for g in ordered if isinstance((state.get(g) or {}).get("members"), int))
     log.info("Posting order: %d groups (quality/rotation/sized)", len(ordered))
     return ordered
@@ -411,12 +412,17 @@ async def main():
         me = await client.get_me()
         log.info("Logged in as %s", me.first_name or me.phone)
 
-        due = await _sort_by_members(client, due, state)
-
+        # Pre-cap with CACHED signals BEFORE the member-fetch pass — fetching
+        # entities for 145 groups blew the 30-min hard timeout (Oct 24 22:45).
+        # Cap first => member fetch touches at most group_max_per_run groups.
         cap = _group_max_per_run()
         if len(due) > cap:
-            log.info("Capping run: posting to %d of %d due groups (group_max_per_run=%d)", cap, len(due), cap)
-            due = due[:cap]
+            total_due = len(due)
+            due = sorted(due, key=lambda g: _sort_key_cached(state, g))[:cap]
+            log.info("Capped run to %d of %d due groups BEFORE member fetch (max_per_run=%d)",
+                     cap, total_due, cap)
+
+        due = await _sort_by_members(client, due, state)
 
         posted_count = 0
 
