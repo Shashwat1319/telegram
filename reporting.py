@@ -159,6 +159,60 @@ def _clicks_section():
     return line
 
 
+def _group_roi_section():
+    """Group funnel health: post/click ROI + pause status (2026-10-24)."""
+    try:
+        from group_roi import group_clicks
+        stats = _fetch_tracker_stats()
+        src_totals = (stats.get("sources", {}) or {}).get("totals", {}) if stats else {}
+        rows, _leftovers = group_clicks(src_totals or {})
+        if not rows:
+            return None
+        posted = [r for r in rows.values() if r["posts"] > 0]
+        paused = sum(1 for r in rows.values() if r["paused"])
+        total_posts = sum(r["posts"] for r in rows.values())
+        total_clicks = sum(r["clicks"] for r in rows.values())
+        top = sorted(
+            ((g, r) for g, r in rows.items() if r["clicks"] > 0),
+            key=lambda kv: -kv[1]["clicks"],
+        )[:5]
+        lines = [f"🏘 *Groups*: {len(posted)} posted-to · {paused} paused · "
+                 f"{total_posts} posts → {total_clicks} clicks"]
+        for g, r in top:
+            name = g if g.startswith("@") else g[:30]
+            lines.append(f"  • {_md_escape(name)}: {r['clicks']} clicks / {r['posts']} posts")
+        return "\n".join(lines) + "\n"
+    except Exception as e:
+        log.debug("Group ROI section skipped: %s", e)
+        return None
+
+
+def _ht_section():
+    """High-ticket track: today's posts vs quota per channel (2026-10-24)."""
+    try:
+        today = datetime.now().strftime("%Y-%m-%d")
+        parts = []
+        for ch in config.get("channels") or []:
+            ht_file = ch.get("ht_file")
+            if not ht_file:
+                continue
+            posted_path = ht_file.replace(".json", "_posted.json")
+            posted = load_json(posted_path, default={}) if os.path.exists(posted_path) else {}
+            n_today = sum(
+                1 for v in posted.values()
+                if isinstance(v, dict) and str(v.get("last", ""))[:10] == today
+            )
+            quota = int(ch.get("ht_posts_per_day", 2) or 0)
+            handle = str(ch.get("id", "?")).lstrip("@")
+            parts.append(f"@{handle} {n_today}/{quota}")
+        if not parts:
+            return None
+        return f"💎 *HT track today*: {' · '.join(parts)}\n"
+    except Exception as e:
+        log.debug("HT section skipped: %s", e)
+        return None
+
+
 async def daily_report():
     today = datetime.now().strftime("%Y-%m-%d")
     members_by = {}
@@ -220,6 +274,12 @@ async def daily_report():
     bar = "▓" * filled + "░" * (bar_len - filled)
 
     clicks_section = _clicks_section()
+    group_section = _group_roi_section()
+    if group_section:
+        clicks_section += group_section
+    ht_line = _ht_section()
+    if ht_line:
+        clicks_section += ht_line
     ch_lines = []
     for ch in CHANNELS:
         mv = members_by.get(ch["handle"])

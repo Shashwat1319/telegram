@@ -6,10 +6,20 @@ discovered_groups.txt, joins each public group/channel with a random pace
 send rights (so group_poster only targets writable chats). Entries marked
 send=blocked (kicked earlier) are re-attempted.
 
+Quality scoring (2026-10-24): after every join the group's title + description
+are scored for buyer signals (deal/loot/offer/...) vs junk signals
+(earn/MLM/promotion/...). Result stored as entry.quality = buyer|neutral|junk
++ entry.score (0-10) + entry.title/entry.members. group_poster skips junk and
+rotates buyer groups first.
+
+Daily cap: at most content.group_joins_per_day attempts per UTC day (default
+12) so the session never mass-joins in one burst.
+
 Usage:
-    py join_promo_groups.py            # join everything not yet joined + re-kicked
+    py join_promo_groups.py            # join due entries (capped by daily limit)
     py join_promo_groups.py --probe    # also probe send rights after joining
     py join_promo_groups.py --limit 10 # join at most 10 new entries
+    py join_promo_groups.py --max-joins 5   # override daily cap for this run
 """
 
 import argparse
@@ -47,8 +57,62 @@ STATE_FILE = "joined_groups_state.json"
 
 JOIN_DELAY_MIN = 25
 JOIN_DELAY_MAX = 60
+DEFAULT_JOINS_PER_DAY = 12
 
 INVITE_RE = re.compile(r"(?:https?://)?t\.me/(?:\+|joinchat/)([A-Za-z0-9_-]+)")
+
+# Quality-scoring keyword sets (word-boundary, case-insensitive).
+BUYER_RE = re.compile(
+    r"\b(?:deals?|loot|offers?|discounts?|sale|shopping|shop|amazon|flipkart|"
+    r"prices?|coupons?|cashback|budget|savings?|save|reviews?|clearance|"
+    r"bargain|freebies?)\b",
+    re.IGNORECASE,
+)
+JUNK_RE = re.compile(
+    r"\b(?:earn|earning|income|investment|invest|trading|trader|betting|"
+    r"gambling|casino|mlm|network marketing|digital marketing|promote|"
+    r"promotion|advertising|sub4sub|followers|crypto|forex|porn|sex|18\+|"
+    r"hiring|jobs?|part time|work from home|wfh|spam)\b",
+    re.IGNORECASE,
+)
+
+
+def score_group(title, desc=""):
+    """Heuristic buyer/junk score from group title + description.
+
+    Returns (score 0-10, quality in buyer|neutral|junk).
+    junk requires >=2 junk hits that are >= buyer hits (single keyword like
+    "promotion" in an otherwise legit title must not nuke the group)."""
+    text = f"{title or ''} {desc or ''}"
+    buyer = len({m.group(0).lower() for m in BUYER_RE.finditer(text)})
+    junk = len({m.group(0).lower() for m in JUNK_RE.finditer(text)})
+    score = 5 + 2 * min(buyer, 3) - 4 * min(junk, 3)
+    score = max(0, min(10, score))
+    if junk >= 2 and junk >= buyer:
+        quality = "junk"
+    elif buyer >= 2 and buyer > junk:
+        quality = "buyer"
+    else:
+        quality = "neutral"
+    return score, quality
+
+
+def _joins_today_cap():
+    try:
+        from config_loader import load_config
+        return max(1, int(load_config().get("content", {}).get("group_joins_per_day", DEFAULT_JOINS_PER_DAY)))
+    except Exception:
+        return DEFAULT_JOINS_PER_DAY
+
+
+def _attempts_today(state):
+    today = datetime.now(timezone.utc).date().isoformat()
+    n = 0
+    for e in state.values():
+        if isinstance(e, dict) and str(e.get("at") or "")[:10] == today:
+            n += 1
+    return n
+
 
 
 def load_groups():
@@ -92,35 +156,71 @@ def save_state(state):
 
 
 async def join_one(client, username):
-    """Join a public chat by username or invite link. Returns (status, detail)."""
+    """Join a public chat by username or invite link. Returns (status, detail, entity|None)."""
     m = INVITE_RE.search(username)
     if m:
+        entity = None
         try:
-            await asyncio.wait_for(client(ImportChatInviteRequest(m.group(1))), timeout=30)
+            updates = await asyncio.wait_for(client(ImportChatInviteRequest(m.group(1))), timeout=30)
         except UserAlreadyParticipantError:
-            return "already", "member"
+            return "already", "member", None
         except FloodWaitError as e:
-            return "floodwait", str(e.seconds)
+            return "floodwait", str(e.seconds), None
         except Exception as e:
-            return "error", f"{type(e).__name__}: {e}"
-        return "joined", "invite link"
+            return "error", f"{type(e).__name__}: {e}", None
+        try:
+            chats = getattr(updates, "chats", None) or []
+            entity = chats[0] if chats else None
+        except Exception:
+            entity = None
+        return "joined", "invite link", entity
     try:
         entity = await asyncio.wait_for(client.get_entity(username), timeout=30)
         try:
             await asyncio.wait_for(client(JoinChannelRequest(entity)), timeout=30)
         except UserAlreadyParticipantError:
-            return "already", "member"
+            return "already", "member", entity
         except FloodWaitError as e:
-            return "floodwait", str(e.seconds)
-        return "joined", getattr(entity, "title", username)
+            return "floodwait", str(e.seconds), entity
+        return "joined", getattr(entity, "title", username), entity
     except UsernameNotOccupiedError:
-        return "not_found", "username does not exist"
+        return "not_found", "username does not exist", None
     except ChannelPrivateError:
-        return "private", "invite only"
+        return "private", "invite only", None
     except FloodWaitError as e:
-        return "floodwait", str(e.seconds)
+        return "floodwait", str(e.seconds), None
     except Exception as e:
-        return "error", f"{type(e).__name__}: {e}"
+        return "error", f"{type(e).__name__}: {e}", None
+
+
+async def describe(client, group, entity=None):
+    """Best-effort (title, about, members) for quality scoring.
+
+    Light entities often lack `about`/participant counts — fall back to the
+    full-chat fetch exactly like group_poster._sort_by_members does."""
+    try:
+        if entity is None:
+            entity = await asyncio.wait_for(client.get_entity(group), timeout=30)
+        title = getattr(entity, "title", None) or ""
+        about = getattr(entity, "about", None) or ""
+        members = getattr(entity, "participants_count", None)
+        if not about or not isinstance(members, int):
+            cls = entity.__class__.__name__
+            try:
+                if cls == "Chat":
+                    from telethon.tl.functions.messages import GetFullChatRequest
+                    full = await asyncio.wait_for(client(GetFullChatRequest(entity.id)), timeout=30)
+                else:
+                    from telethon.tl.functions.channels import GetFullChannelRequest
+                    full = await asyncio.wait_for(client(GetFullChannelRequest(entity)), timeout=30)
+                about = about or getattr(full.full_chat, "about", "") or ""
+                if not isinstance(members, int):
+                    members = getattr(full.full_chat, "participants_count", None)
+            except Exception:
+                pass
+        return title, about, members
+    except Exception:
+        return "", "", None
 
 
 async def probe_send(client, username):
@@ -175,6 +275,8 @@ async def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--probe", action="store_true", help="probe send rights after join")
     ap.add_argument("--limit", type=int, default=0, help="max new joins this run")
+    ap.add_argument("--max-joins", type=int, default=0, help="override daily join cap for this run")
+    ap.add_argument("--no-cap", action="store_true", help="ignore the daily join cap (use with care)")
     args = ap.parse_args()
 
     groups = load_groups()
@@ -187,6 +289,21 @@ async def main():
     ]
     if args.limit:
         todo = todo[: args.limit]
+
+    # Daily anti-flood cap: bound join attempts per UTC day regardless of queue size.
+    if args.no_cap:
+        log.warning("Daily join cap DISABLED for this run (--no-cap)")
+    else:
+        cap = args.max_joins if args.max_joins > 0 else _joins_today_cap()
+        used = _attempts_today(state)
+        if used >= cap:
+            log.info("Daily join cap reached (%d/%d attempts today) — nothing to do", used, cap)
+            return 0
+        budget = cap - used
+        if len(todo) > budget:
+            log.info("Capping todo: %d entries fit in today's budget (%d/%d used)", budget, used, cap)
+            todo = todo[:budget]
+
     log.info("%d entries to join/re-join", len(todo))
 
     if not todo:
@@ -203,13 +320,14 @@ async def main():
         log.info("Logged in as %s", me.first_name or me.phone)
 
         for i, group in enumerate(todo):
-            status, detail = await join_one(client, group)
+            status, detail, entity = await join_one(client, group)
             old = state.get(group) or {}
-            entry = {
+            entry = dict(old)  # preserve send/paused/quality/members across retries
+            entry.update({
                 "status": status,
                 "detail": detail[:120],
                 "at": datetime.now(timezone.utc).isoformat(),
-            }
+            })
             if old.get("members") is not None:
                 entry["members"] = old["members"]
                 entry["members_at"] = old.get("members_at")
@@ -220,6 +338,21 @@ async def main():
                 entry["send_detail"] = p_detail[:120]
             elif status in ("joined", "already"):
                 entry.pop("send", None)
+            if status in ("joined", "already"):
+                # Quality scoring — fresh entity metadata on every successful join.
+                title, about, members = await describe(client, group, entity)
+                if title or about:
+                    score, quality = score_group(title, about)
+                    entry["title"] = title[:100]
+                    if about:
+                        entry["desc"] = about[:200]
+                    entry["score"] = score
+                    entry["quality"] = quality
+                    entry["quality_at"] = datetime.now(timezone.utc).isoformat()
+                    if isinstance(members, int) and members > 0:
+                        entry["members"] = members
+                        entry["members_at"] = datetime.now(timezone.utc).isoformat()
+                    log.info("Scored %s: %s (%d/10) title=%s", group[:40], quality, score, (title or "?")[:40])
             state[group] = entry
             save_state(state)
             log.info("[%d/%d] %s -> %s (%s)", i + 1, len(todo), group, status, detail[:60])
@@ -236,7 +369,11 @@ async def main():
                 await asyncio.sleep(delay)
 
         joined = sum(1 for v in state.values() if v.get("status") in ("joined", "already"))
-        log.info("Done. State: %d joined/already of %d tracked", joined, len(state))
+        q = {}
+        for v in state.values():
+            if isinstance(v, dict) and v.get("quality"):
+                q[v["quality"]] = q.get(v["quality"], 0) + 1
+        log.info("Done. State: %d joined/already of %d tracked; quality=%s", joined, len(state), q)
         return 0
     finally:
         await client.disconnect()

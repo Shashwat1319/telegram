@@ -1,18 +1,25 @@
-name: SmartGahr — Full Auto
+# SINGLE-WRITER ARCHITECTURE (2026-10-24)
+# ---------------------------------------------------------------
+# The local orchestrator.py owns ALL posting + content generation:
+#   feeder.py, poster.py, group_poster.py, referral listener,
+#   reporting.py, promo_daily.py, member_* tasks.
+# This workflow ONLY validates and deploys. It must NEVER post or
+# regenerate content — dual writers fought over committed state files
+# (content_*_posted.json), causing double-posts and merge conflicts.
+# Uptime alarm = "no daily report on phone by ~09:30 IST" => check PC.
+name: SmartGahr — Validate & Deploy
 
 on:
   push:
     branches: [main]
-  schedule:
-    - cron: '30 3,6,9,12,15,18 * * *'  # 6 posts/day: 9AM, 12PM, 3PM, 6PM, 9PM, 12AM IST
   workflow_dispatch:
 
 jobs:
-  full-cycle:
+  validate-and-deploy:
     runs-on: ubuntu-latest
     environment: telegram
     permissions:
-      contents: write
+      contents: read
     steps:
       - uses: actions/checkout@v4
 
@@ -23,53 +30,13 @@ jobs:
       - name: Install deps
         run: pip install -r requirements.txt
 
+      - name: Validate all links
+        run: python validate_links.py
+
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
 
-      # ── Content ──
-      - name: Generate fresh content from products
-        run: python feeder.py --source product_home.json --output content_home.json
-
-      - name: Generate content for budgetdeals_india
-        run: python feeder.py --source product.json --output content_bdia.json --no-filter
-
-      # ── Validate links ──
-      - name: Validate all links
-        run: python validate_links.py
-
-      # ── Posting ──
-      - name: Post deals to channels
-        env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          CLICK_TRACKER_URL: https://budgetdeals-tracker-737523f4.netlify.app
-        run: python poster.py || true
-
-      # ── Group Posting ──
-      - name: Post deals to promo groups
-        env:
-          API_ID: ${{ secrets.API_ID }}
-          API_HASH: ${{ secrets.API_HASH }}
-          TELEGRAM_SESSION_1: ${{ secrets.TELEGRAM_SESSION_1 }}
-          CHANNEL_ID: "@smartgahr"
-        run: python group_poster.py || true
-
-      # ── Referrals (one-shot stats) ──
-      - name: Referral summary
-        env:
-          API_ID: ${{ secrets.API_ID }}
-          API_HASH: ${{ secrets.API_HASH }}
-          TELEGRAM_SESSION_1: ${{ secrets.TELEGRAM_SESSION_1 }}
-        run: python referral.py --oneshot || true
-
-      # ── Report ──
-      - name: Admin report
-        env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
-        run: python reporting.py --daily || true
-
-      # ── Deploy ──
       - name: Deploy Netlify redirector
         uses: nwtgck/actions-netlify@v2.1
         with:
@@ -81,13 +48,3 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 5
-
-      # ── Commit state ──
-      - name: Commit updated state
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          for f in content_home.json content_home_posted.json content_bdia.json content_bdia_posted.json; do
-            [ -f "$f" ] && git add "$f" || true
-          done
-          git diff --staged --quiet || (git commit -m "Auto: CI cycle [skip ci]" && git push)

@@ -123,15 +123,11 @@ python poster.py
 
 ## CI/CD Pipeline
 
-Triggered every 4 hours + on push + manually:
+Triggered on push to `main` + manual dispatch (validate & deploy only —
+all posting/content generation runs locally via `orchestrator.py`):
 
-1. `feeder.py` → generate content from products
-2. `validate_links.py` → QA (0 broken links required)
-3. `poster.py` → post 1 deal to channel
-4. `referral.py --oneshot` → log referral stats
-5. `reporting.py --daily` → admin report
-6. Netlify deploy → click tracker
-7. Commit updated state back to repo
+1. `validate_links.py` → QA (0 broken links required)
+2. Netlify deploy → click tracker (`/go`, `/stats`)
 
 ---
 
@@ -163,6 +159,8 @@ Run `python feeder.py` to regenerate 6 promotional formats per product.
 
 - **`promo_daily.py`** — generates one ready-to-paste promo post per day (from the W1/W2/W3 playbook in `promo_pack.md`), saves to `promo_queue.md`. Run it daily (local or scheduled).
 - **`validate_links.py`** — `python validate_links.py` checks every content item has a valid link; CI fails the build on any broken link.
+- **`group_roi.py`** — `python group_roi.py` shows per-group post/click ROI from tracker stats; `--apply` pauses zero-click groups (≥6 posts) and unpauses clickers.
+- **`seo_weekly.py`** — `python seo_weekly.py` drafts a Dev.to/Medium article from the week's top deals (tracked links, `src=seo`) into `seo_drafts/`.
 
 ---
 

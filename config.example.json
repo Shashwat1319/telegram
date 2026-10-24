@@ -4,8 +4,8 @@
     "description": "Verified Amazon deals under ₹999 — 40%+ discounts only. No spam, only genuine loot.",
     "channel_id": "@smartgahr",
     "channel_handle": "smartgahr",
-    "welcome_message": "Welcome to SmartGahr! 🎯\n\nWe find the best Amazon deals under ₹999 — every deal verified, every discount above 40%.\n\n🔥 Use /deal for today's top loot\n📊 Use /topdeal for highest discount\n🔍 Use /search <keyword> to find anything\n\nJoin 1,000+ smart shoppers who save money daily!",
-    "referral_reminder_message": "Invite 2 friends → unlock 30 days FREE premium deals! Use /referral to get your link.",
+    "welcome_message": "Welcome to SmartGahr! 🎯\n\nWe find the best Amazon deals under ₹999 — every deal verified, every discount above 40%.\n\n🔥 Use /random for today's top loot\n📊 Use /topdeal for highest discount\n🔍 Use /search <keyword> to find anything\n\nJoin 1,000+ smart shoppers who save money daily!",
+    "referral_reminder_message": "Invite 1 friend → unlock 30 days FREE premium deals! Use /referral to get your link.",
     "content_command": "random",
     "content_command_label": "Get Content",
     "premium_channel_handle": "smartgahrpremium",
@@ -70,6 +70,8 @@
     "group_repost_days": 7,
     "group_min_gap_hours": 7,
     "group_max_per_run": 25,
+    "group_joins_per_day": 12,
+    "group_pause_posts": 6,
     "group_promo_channels": [
       "@smartgahr",
       "@budgetdeals_india"

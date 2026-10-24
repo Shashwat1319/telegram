@@ -264,7 +264,7 @@ python feeder.py --source product_home.json --output content_home.json
 │   ├── error_page.html     # Friendly error page
 │   └── netlify.toml
 └── .github/workflows/
-    └── update_products.yml # CI/CD pipeline (every 4h)
+    └── update_products.yml # CI: validate links + deploy tracker (push/dispatch)
 ```
 
 ---
@@ -282,7 +282,7 @@ python feeder.py --source product_home.json --output content_home.json
 **No deals appearing in channel**
 - Check `channel_posting` is `enabled: true` in `config.json`
 - Verify bot is admin in your channel
-- Check CI run logs for poster.py errors
+- Check orchestrator.log for poster.py errors (posting runs locally, not in CI)
 
 **Referral links not working**
 - Bot must have "Manage invites" permission in the channel

@@ -57,6 +57,8 @@ post_count.txt
 forwarder_log.txt
 last_forwarded_id.txt
 discovered_groups.txt
+discovered_groups_meta.json
+seo_drafts/
 scraped_*.txt
 verified_promo_groups.txt
 promo_groups_list.txt

@@ -104,6 +104,12 @@ def tracked_link(url, product=None, src=None):
     return out
 
 
+def _pause_posts():
+    try:
+        return max(0, int(_content_cfg().get("group_pause_posts", 6)))
+    except (TypeError, ValueError):
+        return 6
+
 def load_groups():
     groups = []
     found = False
@@ -135,6 +141,20 @@ def load_groups():
             skipped = before - len(groups)
             if skipped:
                 log.info("Skipped %d non-writable chats (probe state)", skipped)
+            # 2026-10-24: skip groups paused by group_roi (zero-click after N posts)
+            # and junk-quality groups; keep junk only if the writable pool is thin.
+            paused = [g for g in groups if (state.get(g) or {}).get("paused")]
+            if paused:
+                groups = [g for g in groups if g not in paused]
+                log.info("Skipped %d paused groups (group_roi)", len(paused))
+            junk = [g for g in groups if (state.get(g) or {}).get("quality") == "junk"]
+            if junk:
+                unjunked = [g for g in groups if g not in junk]
+                if len(unjunked) >= 6:
+                    groups = unjunked
+                    log.info("Skipped %d junk-quality groups (pool=%d)", len(junk), len(groups))
+                else:
+                    log.info("Keeping %d junk groups — writable pool too thin (%d)", len(junk), len(unjunked))
         except Exception as e:
             log.warning("Could not read probe state: %s", e)
     return groups
@@ -313,12 +333,19 @@ async def _sort_by_members(client, groups, state):
     _save_state(state)
 
     def sort_key(g):
-        m = (state.get(g) or {}).get("members")
-        return (0, -m) if isinstance(m, int) else (1, 0)
+        # buyer groups first, then un-scored, then neutral; within a bucket
+        # oldest-send first (rotates fairly), then biggest audience.
+        e = state.get(g) or {}
+        quality = e.get("quality")
+        bucket = 0 if quality == "buyer" else (2 if quality == "neutral" else 1)
+        last_send = _parse_when(e.get("send_at"))
+        last_ts = last_send.timestamp() if last_send else 0.0
+        m = e.get("members")
+        return (bucket, last_ts, -(m if isinstance(m, int) else 0))
 
     ordered = sorted(groups, key=sort_key)
     known = sum(1 for g in ordered if isinstance((state.get(g) or {}).get("members"), int))
-    log.info("Posting order: %d groups (%d sized, biggest first)", len(ordered), known)
+    log.info("Posting order: %d groups (quality/rotation/sized)", len(ordered))
     return ordered
 
 
