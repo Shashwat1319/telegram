@@ -107,7 +107,7 @@ export default async (request, context) => {
 
   // If no affiliate tag configured, warn and still redirect (to not break user experience)
   if (!TAG) {
-    console.warn("AMAZON_TAG not set - clicks will not earn commission");
+    console.warn("Affiliate tag not set - clicks will not earn commission");
   }
 
   // --- C4: Validate URL is Amazon only (prevent open redirect) ---
