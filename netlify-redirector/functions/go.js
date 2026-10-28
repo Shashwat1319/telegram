@@ -1,8 +1,6 @@
 import { getStore } from "@netlify/blobs";
 
-const TAG = process.env.AMAZON_AFFILIATE_TAG || "shashwat022-21";
-// NOTE: Buyers — set AMAZON_AFFILIATE_TAG in Netlify env vars to use your own tag
-// Leave unset to keep the default (shashwat022-21) while testing
+const TAG = process.env.AMAZON_TAG || "";
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 
@@ -105,6 +103,11 @@ export default async (request, context) => {
       status: 200,
       headers: { "Content-Type": "text/html" }
     });
+  }
+
+  // If no affiliate tag configured, warn and still redirect (to not break user experience)
+  if (!TAG) {
+    console.warn("AMAZON_TAG not set - clicks will not earn commission");
   }
 
   // --- C4: Validate URL is Amazon only (prevent open redirect) ---
