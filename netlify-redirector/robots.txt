@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /go
+Disallow: /stats
+Disallow: /subscribe
+Disallow: /api/
+
+Sitemap: https://smartgahr.netlify.app/sitemap.xml
