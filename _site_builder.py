@@ -93,6 +93,7 @@ def head(title, desc, canonical, rel=""):
   <meta property="og:type" content="website">
   <meta property="og:url" content="{esc(canonical)}">
   <meta property="og:image" content="{BASE_URL}/og-image.jpg">
+  <meta name="google-site-verification" content="kDpUhMVkIw8yo4plaH4RPhK0HuJbo_boNpSStxonc34" />
   <link rel="stylesheet" href="{rel}style.css">
 </head>"""
 
