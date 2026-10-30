@@ -53,8 +53,12 @@ jobs:
         if: success()
         run: |
           KEY="b7c3e9f1a2d4658c9e0f1a2b3c4d5e6f"
+          # Build the URL list from sitemap.xml so new pages are covered automatically.
+          URLS=$(grep -o '<loc>[^<]*</loc>' netlify-redirector/sitemap.xml \
+            | sed -e 's#<loc>##' -e 's#</loc>##' -e 's#^#"#' -e 's#$#"#' \
+            | paste -sd, -)
           curl -s -X POST "https://api.indexnow.org/indexnow" \
             -H "Content-Type: application/json" \
-            -d "{\"host\":\"smartgahr.netlify.app\",\"key\":\"$KEY\",\"keyLocation\":\"https://smartgahr.netlify.app/$KEY.txt\",\"urlList\":[\"https://smartgahr.netlify.app/\",\"https://smartgahr.netlify.app/deals/\",\"https://smartgahr.netlify.app/kitchenfinds/\",\"https://smartgahr.netlify.app/about.html\",\"https://smartgahr.netlify.app/contact.html\",\"https://smartgahr.netlify.app/privacy.html\",\"https://smartgahr.netlify.app/disclaimer.html\",\"https://smartgahr.netlify.app/kitchenfinds/privacy.html\"]}" || true
+            -d "{\"host\":\"smartgahr.netlify.app\",\"key\":\"$KEY\",\"keyLocation\":\"https://smartgahr.netlify.app/$KEY.txt\",\"urlList\":[$URLS]}" || true
           echo "IndexNow submission sent"
 
