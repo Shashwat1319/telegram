@@ -499,7 +499,7 @@ def build_deals_page(products):
     page_cats = categories_with_pages(products)
     sections = []
     jump_chips = []
-    for cat in sorted(by_cat.keys()):
+    for cat in sorted(by_cat, key=lambda c: (-len(by_cat[c]), c)):
         slug = category_meta(cat)["slug"]
         items = sorted(by_cat[cat], key=discount_num, reverse=True)
         cards = "\n".join(
