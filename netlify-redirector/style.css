@@ -2,6 +2,7 @@
   --brand: #e50914;
   --brand-dark: #b20710;
   --accent: #ff9900;
+  --rating: #b45309; /* amber-700: 4.8:1 on white (accent #ff9900 was 2.1:1) */
   --green: #067d3d;
   --ink: #1a1a1a;
   --muted: #666;
@@ -131,7 +132,7 @@ img { max-width: 100%; display: block; }
 .deal-price-row { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
 .deal-price { font-size: 1.25rem; font-weight: 800; color: var(--green); }
 .deal-mrp { font-size: 0.92rem; color: var(--muted); text-decoration: line-through; }
-.deal-rating { font-size: 0.85rem; color: var(--accent); font-weight: 700; }
+.deal-rating { font-size: 0.85rem; color: var(--rating); font-weight: 700; }
 .deal-cta { margin-top: 6px; }
 
 /* ---- Info pages ---- */
@@ -239,4 +240,85 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 600px) {
   .deal-media { height: 150px; }
+}
+
+/* ================= UI/UX pass: a11y + small-screen polish ================= */
+
+/* 1. Keyboard focus — visible on white cards, red header and blue bands */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #111827;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.site-header a:focus-visible,
+.channel-band a:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.45);
+}
+
+/* 2. Chips: bigger tap target (was 37px tall) */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+}
+
+/* 3. Chips inside the red hero (deals page jump nav) */
+.hero-chips {
+  justify-content: center;
+  margin: 16px 0 0;
+}
+
+.hero-chips .chip {
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: none;
+}
+
+/* 4. Breadcrumb (category pages, visible + matches schema) */
+.breadcrumb {
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  opacity: 0.92;
+}
+
+.breadcrumb a { text-decoration: underline; text-underline-offset: 2px; }
+.breadcrumb span[aria-hidden] { opacity: 0.7; margin: 0 2px; }
+
+/* 5. Back to top */
+.to-top {
+  text-align: center;
+  padding: 8px 0 4px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.to-top a { color: var(--muted); }
+.to-top a:hover { color: var(--brand); }
+
+/* 6. Two columns guaranteed on small phones (360px viewport) */
+@media (max-width: 600px) {
+  .deal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .deal-media { height: 132px; }
+  .deal-body { padding: 12px; gap: 6px; }
+  .deal-title { font-size: 0.9rem; }
+  .deal-price { font-size: 1.1rem; }
+  .btn { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+}
+
+/* 7. Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .deal-card:hover { transform: none; }
 }
