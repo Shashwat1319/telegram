@@ -118,8 +118,8 @@ FOOTER = """<footer class="site-footer">
         <a href="{deals}">Deals</a>
         <a href="{about}">About</a>
         <a href="{contact}">Contact</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="disclaimer.html">Disclaimer</a>
+        <a href="{privacy}">Privacy</a>
+        <a href="{disclaimer}">Disclaimer</a>
       </div>
     </div>
     <div class="footer-note">As an Amazon Associate we earn from qualifying purchases. Prices change fast — always confirm on Amazon.</div>
@@ -140,6 +140,8 @@ def build_footer(rel):
         deals=rel + "deals/index.html",
         about=rel + "about.html",
         contact=rel + "contact.html",
+        privacy=rel + "privacy.html",
+        disclaimer=rel + "disclaimer.html",
     )
 
 def build_index(products):

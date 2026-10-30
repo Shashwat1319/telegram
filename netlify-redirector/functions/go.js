@@ -99,9 +99,10 @@ export default async (request, context) => {
 
   if (!finalUrl) {
     const channelHandle = process.env.CHANNEL_HANDLE || "smartgahr";
+    // Real 404 (not 200) so crawlers don't index error pages as soft-404s.
     return new Response(ERROR_PAGE(channelHandle), {
-      status: 200,
-      headers: { "Content-Type": "text/html" }
+      status: 404,
+      headers: { "Content-Type": "text/html; charset=utf-8" }
     });
   }
 

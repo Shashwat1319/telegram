@@ -21,6 +21,38 @@
   to = "/.netlify/functions/stats"
   status = 200
 
+# --- SEO: consolidate pretty-URL duplicates (/about -> /about.html) ---
+# force = true because Netlify's shadowing would otherwise serve the file.
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/disclaimer"
+  to = "/disclaimer.html"
+  status = 301
+  force = true
+
+# --- SEO: www -> apex (www.*.netlify.app is not provisioned; returns 404) ---
+[[redirects]]
+  from = "https://www.smartgahr.netlify.app/*"
+  to = "https://smartgahr.netlify.app/:splat"
+  status = 301
+
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/go"
