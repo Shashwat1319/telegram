@@ -647,39 +647,8 @@ def build_category_pages(products):
     return built
 
 
-def build_image_sitemap(products):
-    """List local product images so Google Images can find them."""
-    images = load_images()
-    entries = []
-    for p in products:
-        file_rel = images.get((p.get("link") or "").strip())
-        if not file_rel:
-            continue
-        name = esc(p.get("name") or "Amazon deal")
-        entries.append(
-            f"    <image:image>\n"
-            f"      <image:loc>{BASE_URL}/{file_rel}</image:loc>\n"
-            f"      <image:title>{name}</image:title>\n"
-            f"      <image:caption>{name} — verified Amazon India deal</image:caption>\n"
-            f"    </image:image>"
-        )
-    if not entries:
-        return 0
-    doc = f"""<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <url>
-    <loc>{BASE_URL}/deals/</loc>
-    <lastmod>{BUILT_DATE}</lastmod>
-{chr(10).join(entries)}
-  </url>
-</urlset>
-"""
-    (SITE_DIR / "sitemap-images.xml").write_text(doc, encoding="utf-8")
-    return len(entries)
-
-
-def build_sitemap(extra_urls=()):
+def build_sitemap(extra_urls=(), products=()):
+    """Single sitemap: all pages + product images (Google reads one file, fewer failures)."""
     urls = [
         ("/", "1.0"),
         ("/deals/", "0.9"),
@@ -691,16 +660,37 @@ def build_sitemap(extra_urls=()):
         ("/disclaimer.html", "0.2"),
         ("/kitchenfinds/privacy.html", "0.2"),
     ]
+
+    images = load_images()
+    image_entries = []
+    for p in products:
+        file_rel = images.get((p.get("link") or "").strip())
+        if not file_rel:
+            continue
+        name = esc(p.get("name") or "Amazon deal")
+        image_entries.append(
+            f"    <image:image>\n"
+            f"      <image:loc>{BASE_URL}/{file_rel}</image:loc>\n"
+            f"      <image:title>{name}</image:title>\n"
+            f"      <image:caption>{name} — verified Amazon India deal</image:caption>\n"
+            f"    </image:image>"
+        )
+
     entries = "\n".join(
-        f"  <url>\n    <loc>{BASE_URL}{u}</loc>\n    <lastmod>{BUILT_DATE}</lastmod>\n    <priority>{pr}</priority>\n  </url>"
+        f"  <url>\n    <loc>{BASE_URL}{u}</loc>\n    <lastmod>{BUILT_DATE}</lastmod>\n"
+        f"    <priority>{pr}</priority>\n"
+        + (chr(10).join(image_entries) + "\n" if u == "/deals/" and image_entries else "")
+        + "  </url>"
         for u, pr in urls
     )
     doc = f"""<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 {entries}
 </urlset>
 """
     (SITE_DIR / "sitemap.xml").write_text(doc, encoding="utf-8")
+    return len(image_entries)
 
 def main():
     products = load_products()
@@ -710,11 +700,10 @@ def main():
     build_index(products)
     build_deals_page(products)
     cats = build_category_pages(products)
-    build_sitemap(cats)
-    n_images = build_image_sitemap(products)
+    n_images = build_sitemap(cats, products)
     print(
         f"Site built: {len(products)} deals -> index.html, deals/index.html, "
-        f"{len(cats)} category page(s), sitemap.xml, sitemap-images.xml ({n_images} images)"
+        f"{len(cats)} category page(s), sitemap.xml ({n_images} images)"
     )
 
 if __name__ == "__main__":

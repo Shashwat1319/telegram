@@ -6,4 +6,3 @@ Disallow: /subscribe
 Disallow: /api/
 
 Sitemap: https://smartgahr.netlify.app/sitemap.xml
-Sitemap: https://smartgahr.netlify.app/sitemap-images.xml
