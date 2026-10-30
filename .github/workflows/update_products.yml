@@ -7,7 +7,7 @@
 # regenerate content — dual writers fought over committed state files
 # (content_*_posted.json), causing double-posts and merge conflicts.
 # Uptime alarm = "no daily report on phone by ~09:30 IST" => check PC.
-name: SmartGahr — Validate & Deploy
+name: smartgahr — Validate & Deploy
 
 on:
   push:
@@ -48,3 +48,13 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 5
+
+      - name: Submit to IndexNow (Bing / AI engines)
+        if: success()
+        run: |
+          KEY="b7c3e9f1a2d4658c9e0f1a2b3c4d5e6f"
+          curl -s -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json" \
+            -d "{\"host\":\"smartgahr.netlify.app\",\"key\":\"$KEY\",\"keyLocation\":\"https://smartgahr.netlify.app/$KEY.txt\",\"urlList\":[\"https://smartgahr.netlify.app/\",\"https://smartgahr.netlify.app/deals/\",\"https://smartgahr.netlify.app/kitchenfinds/\",\"https://smartgahr.netlify.app/about.html\",\"https://smartgahr.netlify.app/contact.html\",\"https://smartgahr.netlify.app/privacy.html\",\"https://smartgahr.netlify.app/disclaimer.html\",\"https://smartgahr.netlify.app/kitchenfinds/privacy.html\"]}" || true
+          echo "IndexNow submission sent"
+
