@@ -127,6 +127,19 @@ def discount_num(p):
         return 0
 
 
+def price_num(p):
+    try:
+        return float(re.sub(r"[^\d.]", "", str(p.get("price", ""))) or 0)
+    except ValueError:
+        return 0.0
+
+
+def commission_score(p):
+    """Expected-commission proxy: higher price = bigger payout per sale;
+    discount adds buying intent. Pin highest-score deals first."""
+    return price_num(p) * (1 + discount_num(p) / 100.0)
+
+
 def card(p):
     """Vertical 1000x1500 Pinterest card (2:3 — Pinterest's preferred ratio)."""
     W, H = 1000, 1500
@@ -347,17 +360,20 @@ def main():
     n = int(nums[0]) if nums else (999 if (upload_all or daily) else 5)
 
     if upload_all or daily is not None:
-        # Full catalogue so unpinned deals anywhere in the list get picked
+        # High-ticket first: pin highest expected-commission deals before cheap
+        # filler; skip already-pinned so we only render what's actually needed.
         OUT.mkdir(exist_ok=True)
+        pinned = load_pinned()
         items = []
-        prods = load_products()
+        prods = [p for p in load_products() if str(p.get("link", "")) not in pinned]
+        prods.sort(key=commission_score, reverse=True)
         for i, p in enumerate(prods, 1):
             path = OUT / slug(p, i)
             if not path.exists():
                 path.parent.mkdir(exist_ok=True)
                 card(p).save(path, "PNG")
             items.append((path, p))
-        print(f"{len(items)} cards ready in pins/")
+        print(f"{len(items)} unpinned cards ready in pins/ (high-ticket first)")
     else:
         items = generate(n)
 
