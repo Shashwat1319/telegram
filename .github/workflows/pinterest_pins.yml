@@ -1,0 +1,42 @@
+# Pinterest drip upload — runs in GitHub's cloud (laptop gets ZERO load).
+# Uploads 2 deal pins/day (staggered) using pin_post.py; duplicate-safe via
+# pins_pinned.json which is committed back after each run.
+# Requires repo secret: PINTEREST_ACCESS_TOKEN
+name: pinterest — daily pins
+
+on:
+  schedule:
+    - cron: '30 6 * * *'   # 12:00 IST
+    - cron: '30 12 * * *'  # 18:00 IST
+  workflow_dispatch:       # manual trigger for testing
+
+permissions:
+  contents: write          # commit pins_pinned.json state back
+
+jobs:
+  pin:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: pip install pillow requests
+
+      - name: Upload 2 pins
+        env:
+          PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
+        run: python pin_post.py --daily 2
+
+      - name: Commit pin state (dedupe for next run)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pins_pinned.json
+          git diff --cached --quiet && echo "no state change" && exit 0
+          git commit -m "chore(pinterest): pin state update [skip ci]"
+          git push
