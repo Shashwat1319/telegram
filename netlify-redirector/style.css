@@ -213,3 +213,30 @@ img { max-width: 100%; display: block; }
   color: var(--muted);
   line-height: 1.65;
 }
+
+/* --- product image tile inside deal cards --- */
+.deal-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 190px;
+  padding: 10px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+
+.deal-media img {
+  max-height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.deal-media.ph {
+  background: linear-gradient(135deg, #fff7ed, #ffe8cc);
+  font-size: 2.2rem;
+}
+
+@media (max-width: 600px) {
+  .deal-media { height: 150px; }
+}

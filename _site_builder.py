@@ -17,6 +17,7 @@ from datetime import date
 
 ROOT = Path(__file__).resolve().parent
 PRODUCTS_FILE = ROOT / "product.json"
+IMAGES_FILE = ROOT / "product_images.json"
 SITE_DIR = ROOT / "netlify-redirector"
 DEALS_DIR = SITE_DIR / "deals"
 BASE_URL = "https://smartgahr.netlify.app"
@@ -165,6 +166,22 @@ def load_products():
         out.append(p)
     return out
 
+
+def load_images():
+    """link -> site-relative image path (product_images.json is written by fetch_images.py)."""
+    if not IMAGES_FILE.exists():
+        return {}
+    try:
+        data = json.loads(IMAGES_FILE.read_text(encoding="utf-8-sig"))
+    except Exception:
+        return {}
+    out = {}
+    for link, entry in (data or {}).items():
+        file_rel = entry.get("file") if isinstance(entry, dict) else entry
+        if file_rel and (SITE_DIR / file_rel).exists():
+            out[link] = file_rel
+    return out
+
 def deal_href(link):
     return "go?url=" + quote(link, safe="")
 
@@ -172,6 +189,17 @@ def deal_href(link):
 def slugify(text):
     out = re.sub(r"[^a-z0-9]+", "-", str(text or "").lower()).strip("-")
     return out or "deal"
+
+
+_IMAGES = None
+
+
+def product_image(link):
+    """Cached lookup of the local product image path for an affiliate link."""
+    global _IMAGES
+    if _IMAGES is None:
+        _IMAGES = load_images()
+    return _IMAGES.get(link)
 
 
 def jsonld(data):
@@ -242,7 +270,19 @@ def deal_card(p, rel, pid=""):
     rating_html = f'<span class="deal-rating">⭐ {esc(rating)}/5</span>' if rating else ""
     href = rel + deal_href(p.get("link") or "")
     id_attr = f' id="{esc(pid)}"' if pid else ""
+    name = esc(p.get("name"))
+    img_file = product_image((p.get("link") or "").strip())
+    if img_file:
+        media = (
+            f'<a class="deal-media" href="{href}" rel="nofollow sponsored noopener" '
+            f'target="_blank" tabindex="-1" aria-hidden="true">'
+            f'<img src="{rel}{img_file}" alt="{name} — Amazon India deal" '
+            f'width="300" height="300" loading="lazy" decoding="async"></a>'
+        )
+    else:
+        media = f'<div class="deal-media ph" aria-hidden="true"><span>{icon}</span></div>'
     return f"""      <article class="deal-card"{id_attr}>
+        {media}
         {badge}
         <div class="deal-body">
           <div class="deal-cat">{icon} {cat}</div>
@@ -607,6 +647,38 @@ def build_category_pages(products):
     return built
 
 
+def build_image_sitemap(products):
+    """List local product images so Google Images can find them."""
+    images = load_images()
+    entries = []
+    for p in products:
+        file_rel = images.get((p.get("link") or "").strip())
+        if not file_rel:
+            continue
+        name = esc(p.get("name") or "Amazon deal")
+        entries.append(
+            f"    <image:image>\n"
+            f"      <image:loc>{BASE_URL}/{file_rel}</image:loc>\n"
+            f"      <image:title>{name}</image:title>\n"
+            f"      <image:caption>{name} — verified Amazon India deal</image:caption>\n"
+            f"    </image:image>"
+        )
+    if not entries:
+        return 0
+    doc = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>{BASE_URL}/deals/</loc>
+    <lastmod>{BUILT_DATE}</lastmod>
+{chr(10).join(entries)}
+  </url>
+</urlset>
+"""
+    (SITE_DIR / "sitemap-images.xml").write_text(doc, encoding="utf-8")
+    return len(entries)
+
+
 def build_sitemap(extra_urls=()):
     urls = [
         ("/", "1.0"),
@@ -639,9 +711,10 @@ def main():
     build_deals_page(products)
     cats = build_category_pages(products)
     build_sitemap(cats)
+    n_images = build_image_sitemap(products)
     print(
         f"Site built: {len(products)} deals -> index.html, deals/index.html, "
-        f"{len(cats)} category page(s), sitemap.xml"
+        f"{len(cats)} category page(s), sitemap.xml, sitemap-images.xml ({n_images} images)"
     )
 
 if __name__ == "__main__":
