@@ -1,7 +1,8 @@
 # Pinterest drip upload — runs in GitHub's cloud (laptop gets ZERO load).
 # Uploads 2 deal pins/day (staggered) using pin_post.py; duplicate-safe via
 # pins_pinned.json which is committed back after each run.
-# Requires repo secret: PINTEREST_ACCESS_TOKEN
+# Requires secret: PINTEREST_ACCESS_TOKEN in the "telegram" environment
+# (environment must be declared below, otherwise the job receives it empty).
 name: pinterest — daily pins
 
 on:
@@ -17,6 +18,10 @@ jobs:
   pin:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    # PINTEREST_ACCESS_TOKEN lives under the "telegram" environment secret.
+    # Without this line GitHub hands the job an empty string, the script
+    # silently exits 0, and the drip stalls while runs stay green.
+    environment: telegram
     steps:
       - uses: actions/checkout@v4
 
