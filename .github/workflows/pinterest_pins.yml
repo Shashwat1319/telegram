@@ -28,15 +28,31 @@ jobs:
         run: pip install pillow requests
 
       - name: Upload 2 pins
+        id: upload
+        continue-on-error: true
         env:
           PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
         run: python pin_post.py --daily 2
 
+      # Always commit the run report (pinterest_status.json) so failures are
+      # diagnosable from the repo without opening Actions logs.
       - name: Commit pin state (dedupe for next run)
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add pins_pinned.json
+          [ -f pinterest_status.json ] && git add pinterest_status.json || true
           git diff --cached --quiet && echo "no state change" && exit 0
           git commit -m "chore(pinterest): pin state update [skip ci]"
-          git push
+          git push || (git pull --rebase --autostash && git push)
+
+      - name: Print run report
+        if: always()
+        run: cat pinterest_status.json || echo "no status file written"
+
+      - name: Fail if nothing was pinned
+        if: steps.upload.outcome == 'failure'
+        run: |
+          echo "::error::Pinterest upload failed — see pinterest_status.json / logs"
+          exit 1

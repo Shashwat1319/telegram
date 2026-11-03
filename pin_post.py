@@ -32,6 +32,7 @@ ROOT = Path(__file__).resolve().parent
 PRODUCTS = ROOT / "product.json"
 OUT = ROOT / "pins"
 STATE = ROOT / "pins_pinned.json"  # tracks uploaded pins to avoid dupes
+STATUS = ROOT / "pinterest_status.json"  # last run report (committed by CI)
 FONT = "C:/Windows/Fonts/segoeui.ttf"
 FONT_B = "C:/Windows/Fonts/arialbd.ttf"
 FONT_HEAVY = "C:/Windows/Fonts/seguibl.ttf"
@@ -279,16 +280,54 @@ def get_boards(h):
     return {b["name"]: b["id"] for b in r.json().get("items", [])}
 
 
+def write_status(res, limit):
+    """Persist a run report so CI failures are diagnosable without log access."""
+    from datetime import datetime, timezone
+
+    res = dict(res)
+    res["finished_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    res["limit"] = limit
+    try:
+        res["pinned_total"] = len(load_pinned())
+    except Exception:
+        res["pinned_total"] = None
+    STATUS.write_text(json.dumps(res, indent=2), encoding="utf-8")
+
+
 def upload(items, limit=None):
+    """Upload pins; always returns a report dict (never a bare None)."""
     import requests
+    res = {
+        "token_present": False,
+        "boards_found": 0,
+        "uploaded": 0,
+        "failed": 0,
+        "skipped": 0,
+        "errors": [],
+    }
+
+    def fail(msg):
+        res["failed"] += 1
+        if len(res["errors"]) < 5:
+            res["errors"].append(msg[:240])
+        print(f"FAIL: {msg[:240]}")
+
     token = os.environ.get("PINTEREST_ACCESS_TOKEN", "")
     if not token:
-        print("PINTEREST_ACCESS_TOKEN missing — pehle py pinterest_boards.py chala.")
-        return
+        print("PINTEREST_ACCESS_TOKEN missing — GitHub repo secret set karo.")
+        res["errors"].append("PINTEREST_ACCESS_TOKEN missing in environment")
+        return res
+    res["token_present"] = True
+
     h = {"Authorization": f"Bearer {token}"}
     boards = get_boards(h)
+    res["boards_found"] = len(boards)
     if not boards:
-        return
+        res["errors"].append(
+            "get_boards returned no boards — token invalid/expired or missing scopes"
+        )
+        return res
+
     pinned = load_pinned()
     done = 0
 
@@ -299,12 +338,13 @@ def upload(items, limit=None):
         key = str(p.get("link", ""))
         if key in pinned:
             print(f"skip (already pinned): {path.name}")
+            res["skipped"] += 1
             continue
         cat = p.get("category") or ""
         board_name = BOARD_MAP.get(cat, FALLBACK_BOARD)
         board_id = boards.get(board_name) or boards.get(FALLBACK_BOARD)
         if not board_id:
-            print(f"FAIL: no board found for '{board_name}'")
+            fail(f"no board found for {board_name!r}")
             continue
 
         title = f"{p.get('name','Amazon Deal')} — {p.get('price','')} ({p.get('discount_percent','')} off)"
@@ -339,10 +379,12 @@ def upload(items, limit=None):
             pinned[key] = pid
             save_pinned(pinned)
             done += 1
+            res["uploaded"] += 1
             print(f"PINNED -> {board_name}: {title[:60]} ({pid})")
         else:
-            print(f"FAIL: {path.name} — HTTP {r.status_code} {r.text[:250]}")
+            fail(f"{path.name} — HTTP {r.status_code} {r.text[:250]}")
     print(f"uploaded {done} pin(s) this run")
+    return res
 
 
 def main():
@@ -367,6 +409,9 @@ def main():
         items = []
         prods = [p for p in load_products() if str(p.get("link", "")) not in pinned]
         prods.sort(key=commission_score, reverse=True)
+        # CI only needs a few cards per run — rendering all 47 wasted ~1 min
+        if not upload_all and daily:
+            prods = prods[: daily + 4]
         for i, p in enumerate(prods, 1):
             path = OUT / slug(p, i)
             if not path.exists():
@@ -379,8 +424,19 @@ def main():
 
     if do_upload:
         print("\n--- Uploading to Pinterest ---")
-        upload(items, limit=daily)
+        res = upload(items, limit=daily)
+        write_status(res, daily)
+
+        # Exit non-zero so a broken token shows up as a red CI run instead of
+        # a green no-op (that silently stalled the drip for days).
+        if not res.get("token_present"):
+            return 1
+        if res.get("boards_found", 0) == 0:
+            return 1
+        if res.get("uploaded", 0) == 0 and res.get("failed", 0) > 0:
+            return 1
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
