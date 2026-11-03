@@ -165,7 +165,7 @@ def _body_trust_check(prod):
             f"Agar aaj hi mil raha hai is price pe, ye genuinely achhi deal hai.\n\n"
             f"👉 Bas note karo: price jaldi change hota hai. Aaj ka price, kal ka nahi."
         )
-    parts = [f"🧐 **SmartGahr Deal Check**\n\n{verdict}"]
+    parts = [f"🧐 **smartgahr Deal Check**\n\n{verdict}"]
     if rating:
         parts.append(f"⭐ Rating: {rating}/5")
     parts.append(random.choice(_get_hinglish_hooks()))
@@ -183,7 +183,7 @@ def _body_price_history(prod):
         f"📈 **Price History Check: {name}**\n\n"
         f"MRP: ~~{mrp}~~\nAaj ka price: **{price}** ({disc} OFF)\n\n"
         f"🤔 Kya ye sach me low price hai?\n\n"
-        f"SmartGahr ka rule: sirf wahi deal dikhate hain jo 40%+ discount pe ho. "
+        f"smartgahr ka rule: sirf wahi deal dikhate hain jo 40%+ discount pe ho. "
         f"Ye {disc} pe hai — hamare filter me ye **pass** hua. 🟢",
         f"📊 **Is Price Ko Ruko Ya Lo?**\n\n"
         f"{name}\nMRP ~~{mrp}~~ → **{price}**\n\n"
@@ -222,10 +222,10 @@ def _body_amazon_verified(prod):
         f"⭐ {rating}/5 on Amazon — buyers ne approve kiya hai.\n"
         f"{'✅ ' + fix if fix else '✅ Value for money — price ke hisaab se achha product.'}\n\n"
         f"👉 Deal verify kar ke dekh lo — link niche hai.",
-        f"🔍 **SmartGahr Deal Check**\n\n"
+        f"🔍 **smartgahr Deal Check**\n\n"
         f"{name} at {price} — {disc} off from {mrp}.\n\n"
         f"Amazon rating: {rating}/5.\n"
-        f"{'SmartGahr verdict: ye deal genuine hai — 40%+ discount verified. 🟢' if disc and calc_discount(price, mrp) >= 40 else 'SmartGahr verdict: discount thoda kam hai, but still worth it at this price. 🟡'}\n\n"
+        f"{'smartgahr verdict: ye deal genuine hai — 40%+ discount verified. 🟢' if disc and calc_discount(price, mrp) >= 40 else 'smartgahr verdict: discount thoda kam hai, but still worth it at this price. 🟡'}\n\n"
         f"👉 Price drop hai toh jaldi lo — stock limited rehta hai.",
     ]
     parts = [random.choice(templates)]
@@ -241,6 +241,27 @@ _FORMATTERS = {
     "amazon_verified": _body_amazon_verified,
 }
 
+SITE_BASE = "https://smartgahr.netlify.app"
+IMAGES_FILE = "product_images.json"
+
+
+def _site_image_url(link):
+    """Resolve an affiliate link to its hosted product image URL on the site."""
+    if not link:
+        return ""
+    try:
+        data = load_json(IMAGES_FILE, default={})
+    except Exception:
+        return ""
+    entry = data.get(link)
+    if not isinstance(entry, dict):
+        return ""
+    file_rel = entry.get("file")
+    if not file_rel:
+        return ""
+    return f"{SITE_BASE}/{file_rel}"
+
+
 def to_content_items(prod):
     name = prod.get("name", "Product")
     price = str(prod.get("price", "")).strip()
@@ -253,7 +274,7 @@ def to_content_items(prod):
     elif isinstance(disc, (int, float)):
         disc = f"{int(disc)}%" if disc else ""
     link = prod.get("link", "")
-    img = prod.get("image", "")
+    img = prod.get("image", "") or _site_image_url(link)
     cat = prod.get("category", "Deals")
     rating = prod.get("rating", "")
     disc_val = calc_discount(price, mrp)
@@ -383,3 +404,4 @@ if __name__ == "__main__":
     parser.add_argument("--ht", action="store_true", help="High-ticket track: keep only content.high_ticket min_price/min_disc products")
     args = parser.parse_args()
     feed(limit=args.limit, source=args.source, output=args.output, no_filter=args.no_filter, ht=args.ht)
+
