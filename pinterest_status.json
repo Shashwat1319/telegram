@@ -1,0 +1,13 @@
+{
+  "token_present": true,
+  "boards_found": 0,
+  "uploaded": 0,
+  "failed": 0,
+  "skipped": 0,
+  "errors": [
+    "get_boards returned no boards \u2014 token invalid/expired or missing scopes"
+  ],
+  "finished_at": "2026-11-03T05:09:39Z",
+  "limit": 2,
+  "pinned_total": 5
+}
