@@ -409,6 +409,21 @@ def main():
         items = []
         prods = [p for p in load_products() if str(p.get("link", "")) not in pinned]
         prods.sort(key=commission_score, reverse=True)
+        # Round-robin across categories: pure commission order sent every pin to
+        # Electronics and left the other 3 boards dead. This keeps each board
+        # active while still starting with the highest-payout deal.
+        buckets = {}
+        for p in prods:
+            buckets.setdefault(p.get("category") or "Deals", []).append(p)
+        # Categories ranked by their best payout, then strict round-robin so no
+        # board is starved (2 pins/day, 4 boards = every board gets pins).
+        cats = sorted(buckets, key=lambda c: commission_score(buckets[c][0]), reverse=True)
+        mixed = []
+        while any(buckets[c] for c in cats):
+            for c in cats:
+                if buckets[c]:
+                    mixed.append(buckets[c].pop(0))
+        prods = mixed
         # CI only needs a few cards per run — rendering all 47 wasted ~1 min
         if not upload_all and daily:
             prods = prods[: daily + 4]
