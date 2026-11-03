@@ -1,0 +1,55 @@
+# Cloud affiliate runner — zero laptop dependency.
+# Runs channel posting, group posting, site rebuild, and daily report on
+# GitHub's free tier (2,000 min/month).  State is persisted via git commits.
+name: cloud — affiliate run
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'   # every 2 hours (UTC) = 12 runs/day
+  workflow_dispatch:          # manual trigger for testing
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: pip install -q python-telegram-bot==20.3 python-dotenv==1.1.0 telethon==1.42.0 requests beautifulsoup4 aiohttp aiofiles pillow
+
+      - name: Pull latest state
+        run: |
+          git pull --rebase --autostash || true
+
+      - name: Run cloud tasks
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
+          API_ID: ${{ secrets.API_ID }}
+          API_HASH: ${{ secrets.API_HASH }}
+          TELEGRAM_SESSION_1: ${{ secrets.TELEGRAM_SESSION_1 }}
+          CLICK_TRACKER_URL: ${{ secrets.CLICK_TRACKER_URL }}
+          ADMIN_CHAT_ID: ${{ secrets.ADMIN_CHAT_ID }}
+          AFFILIATE_ID_IN: ${{ secrets.AFFILIATE_ID_IN }}
+        run: python cloud_run.py --task all
+
+      - name: Commit state (dedupe for next run)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cloud_state.json
+          # Also add regenerated content files if they changed
+          git add content_home.json content_bdia.json 2>/dev/null || true
+          # Add site files if rebuilt
+          git add netlify-redirector/index.html netlify-redirector/deals/index.html netlify-redirector/sitemap.xml 2>/dev/null || true
+          git diff --cached --quiet && echo "no state change" && exit 0
+          git commit -m "chore(cloud): run state update [skip ci]"
+          git push || (git pull --rebase --autostash && git push)
