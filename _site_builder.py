@@ -45,27 +45,27 @@ CATEGORY_PAGES = {
     "Electronics": {
         "slug": "electronics",
         "h1": "Amazon Electronics Deals — Verified Prices, Updated Daily",
-        "title": "Amazon Electronics Deals — Verified, 40%+ Off | SmartGahr",
-        "desc": "Verified Amazon India electronics deals: earbuds, smartwatches, speakers and TVs at 40%+ off with 4★+ ratings. Prices checked daily.",
+        "title": "Amazon Electronics Deals — Verified Prices | SmartGahr",
+        "desc": "Verified Amazon India electronics deals: earbuds, smartwatches, speakers and TVs with 4★+ ratings and real price drops. Prices checked daily.",
         "intro": [
             "Electronics pe discount sabse zyada dikhta hai — aur fake MRP games bhi sabse zyada yahin hoti hain. "
-            "Is page pe sirf woh deals hain jinka price humne khud Amazon pe check kiya hai: 40%+ off, 4★ se upar "
-            "rating, aur ek genuine seller. Koi \"90% off\" wala clickbait nahi.",
+            "Is page pe sirf woh deals hain jinka price humne khud Amazon pe check kiya hai: real discount, 4★ se upar "
+            "rating, aur ek genuine seller. ₹999 se kam wale har deal pe 40%+ off. Koi \"90% off\" wala clickbait nahi.",
             "Yahan earbuds, TWS, smartwatches, speakers aur TVs sab aate hain — sabse sasta ₹149 se lekar premium "
             "₹29,999 tak. Dhyan rakho: electronics deals sabse tezi se khatam hote hain, kyunki ek hi unit par "
             "discount chalta hai. Deal pasand aaye toh price dobara check karke turant order karo.",
         ],
         "faq": [
-            ("Are these electronics prices real?", "Haan. Har deal ka price aur MRP Amazon ke live product page se aata hai, aur hum 40% se kam discount wale deals publish hi nahi karte. Phir bhi Amazon ke prices har kuch ghanton mein badalte hain, isliye final price Amazon pe hi confirm karo."),
+            ("Are these electronics prices real?", "Haan. Har deal ka price aur MRP Amazon ke live product page se aata hai. Budget picks (₹999 se kam) mein hum 40% se kam discount wale deals publish nahi karte; premium products sirf tab list hote hain jab unka price genuinely neeche ho. Phir bhi Amazon ke prices har kuch ghanton mein badalte hain, isliye final price Amazon pe hi confirm karo."),
             ("Why do some deals disappear after a day?", "Kyunki deal stock khatam ho jata hai. Jab seller ka discounted stock bik jata hai, price wapas badh jata hai — hum us deal ko list se hata dete hain taaki tu purane price pe click karke disappoint na ho."),
             ("Do I pay more by buying through SmartGahr?", "Nahi. Price bilkul wahi rehta hai jo Amazon pe dikhta hai. Hum Amazon Associates ka affiliate commission kamate hain, tere se extra ek rupaya nahi lete."),
         ],
     },
     "Home & Kitchen": {
         "slug": "home-kitchen",
-        "h1": "Home & Kitchen Deals — Amazon India Offers, 40%+ Off",
-        "title": "Amazon Home & Kitchen Deals — 40%+ Off | SmartGahr",
-        "desc": "Amazon India home and kitchen deals: cookware, storage, cleaning and small appliances at 40%+ off with 4★+ ratings. Verified daily.",
+        "h1": "Home & Kitchen Deals — Amazon India Offers",
+        "title": "Amazon Home & Kitchen Deals — Verified | SmartGahr",
+        "desc": "Amazon India home and kitchen deals: cookware, storage, cleaning and small appliances with 4★+ ratings and real price drops. Verified daily.",
         "intro": [
             "Ghar ka saman woh kharid hai jo har mahine padti hai — aur yahin sabse zyada paisa waste hota hai, "
             "kyunki MRP aur actual selling price mein zameen-aasman ka farak hota hai. Hum roz woh kitchen aur home "
@@ -85,7 +85,7 @@ CATEGORY_PAGES = {
         "slug": "home-improvement",
         "h1": "Home Improvement Deals — Tools & Hardware Offers on Amazon",
         "title": "Amazon Home Improvement Deals — SmartGahr",
-        "desc": "Verified Amazon India home improvement deals: hand tools, drill bits, fittings, LED lights and hardware at 40%+ off with 4★+ ratings.",
+        "desc": "Verified Amazon India home improvement deals: hand tools, drill bits, fittings, LED lights and hardware with 4★+ ratings and real price drops.",
         "intro": [
             "Chhote repair — loose hinge, kharab switch, naya curtain rod — ke liye har baar mistri bulana mehnga "
             "padta hai. Is page pe woh tools aur hardware hain jinse kaam khud ho jata hai: screwdriver sets, "
@@ -159,13 +159,13 @@ def category_meta(cat):
         "slug": slug,
         "h1": f"{cat} Deals on Amazon India",
         "title": f"{cat} Deals on Amazon India — Verified Offers | SmartGahr",
-        "desc": f"Verified Amazon India {cat.lower()} deals at 40%+ off with 4★+ ratings. Prices checked daily.",
+        "desc": f"Verified Amazon India {cat.lower()} deals with 4★+ ratings and real price drops. Prices checked daily.",
         "intro": [
             f"Hand-picked {cat.lower()} deals from Amazon India — sirf woh offers jinke price humne khud verify kiye: "
-            "40%+ off aur 4★+ rating. Prices roz check hote hain aur expired deals hata diye jaate hain.",
+            "real discount aur 4★+ rating. Prices roz check hote hain aur expired deals hata diye jaate hain.",
         ],
         "faq": [
-            ("How are these deals verified?", "Har deal ka price, rating aur discount Amazon ke live product page se liya jata hai. 40% se kam discount wale products list nahi hote."),
+            ("How are these deals verified?", "Har deal ka price, rating aur discount Amazon ke live product page se liya jata hai. ₹999 se kam wale budget picks 40%+ off hote hain; premium products sirf genuine price drops par list hote hain."),
             ("Do I pay extra for buying through these links?", "Nahi — price wahi rehta hai. Hum Amazon Associates affiliate commission kamate hain, buyer se extra charge nahi."),
         ],
     }
@@ -422,7 +422,7 @@ JSONLD_HOME = """<script type="application/ld+json">
     "@type": "WebSite",
     "name": "SmartGahr",
     "url": "https://smartgahr.netlify.app/",
-    "description": "Hand-checked Amazon India deals with 40%+ off and 4★+ ratings, from under \u20b9999 budget picks to premium gear. Prices verified daily.",
+    "description": "Hand-checked Amazon India deals with real price drops and 4★+ ratings \u2014 every under \u20b9999 pick is 40%+ off. Prices verified daily.",
     "publisher": {
       "@type": "Organization",
       "name": "SmartGahr",
@@ -442,9 +442,9 @@ HOME_FAQ = [
     ),
     (
         "Yeh Amazon deals sach mein verified hain?",
-        "Haan. Har deal ka price, MRP, rating aur discount Amazon ke live product page se aata hai. Hum sirf 40% se "
-        "zyada discount aur 4★ se upar rating wale products list karte hain — isliye list chhoti lagti hai, par "
-        "jhoothe \"90% off\" offers nahi milenge.",
+        "Haan. Har deal ka price, MRP, rating aur discount Amazon ke live product page se aata hai. ₹999 se kam "
+        "wale budget picks pe 40%+ off hona zaroori hai; premium products sirf tab list karte hain jab price "
+        "genuinely giro — inflated MRP wale jhoothe \"90% off\" offers hum publish nahi karte.",
     ),
     (
         "Deal link pe click karne se price badh jata hai?",
@@ -488,15 +488,15 @@ def build_index(products):
             jsonld(faq_schema(HOME_FAQ)),
         ]
     )
-    doc = f"""{head('SmartGahr — Verified Amazon Deals, 40%+ Off, 4★+ Rated', 'Hand-checked Amazon India deals at 40%+ off with 4★+ ratings — from under-₹999 budget finds to premium gear. Prices verified daily, expired deals removed.', BASE_URL + '/', head_extra=schema)}
+    doc = f"""{head('SmartGahr — Verified Amazon Deals, 4★+ Rated', 'Hand-checked Amazon India deals with real price drops and 4★+ ratings — every under-₹999 pick is 40%+ off. Prices verified daily, expired deals removed.', BASE_URL + '/', head_extra=schema)}
 <body>
 <!-- generated by _site_builder.py — do not edit by hand -->
 {build_header('')}
 <main>
   <section class="hero">
     <div class="container">
-      <h1>🔥 Today's Best Amazon Deals — Verified, 40%+ Off</h1>
-      <p>₹149 se ₹29,999 tak — har deal 40%+ off, 4★+ rating, real prices only. Budget picks under ₹999 bhi, premium drops bhi. New deals daily.</p>
+      <h1>🔥 Today's Best Amazon Deals — Verified, 4★+ Rated</h1>
+      <p>₹149 se ₹29,999 tak. ₹999 se kam har deal 40%+ off; premium gear sirf jab price sach mein giro. 4★+ rating, no fake MRP.</p>
       <p class="updated">Last updated: {BUILT_DATE_HUMAN} · {len(products)} live deals</p>
       <div class="cta-row">
         <a class="btn btn-telegram" href="{CHANNEL_URL}" rel="noopener">Join Telegram Channel</a>
@@ -567,7 +567,7 @@ def build_deals_page(products):
     body = "\n\n".join(sections)
     schema = jsonld(item_list_schema(products, BASE_URL + "/deals/", "deals"))
     cheap = sum(1 for p in products if 0 < price_num(p) <= 999)
-    doc = f"""{head('All Verified Amazon Deals — 40%+ Off, 4★+ | SmartGahr', f'All {len(products)} verified Amazon India deals in one place — 40%+ off, 4★+ ratings, from under-₹999 budget picks to premium gear. Prices checked daily.', BASE_URL + '/deals/', rel='../', head_extra=schema)}
+    doc = f"""{head('All Verified Amazon Deals — 4★+ Rated | SmartGahr', f'All {len(products)} verified Amazon India deals in one place — 4★+ ratings, real price drops, every under-₹999 pick 40%+ off. Filter by budget or category.', BASE_URL + '/deals/', rel='../', head_extra=schema)}
 <body id="top">
 <!-- generated by _site_builder.py — do not edit by hand -->
 {build_header('../')}
@@ -575,7 +575,7 @@ def build_deals_page(products):
   <section class="hero">
     <div class="container">
       <h1>🛒 All Verified Deals</h1>
-      <p>{len(products)} live deals — sab 40%+ off aur 4★+ rated. ₹149 se ₹29,999 tak, koi hidden price nahi. Category pe jump karo ya budget filter chalao.</p>
+      <p>{len(products)} live deals — sab 4★+ rated, real price drops. ₹149 se ₹29,999 tak; ₹999 se kam wale sab 40%+ off. Category pe jump karo ya budget filter chalao.</p>
       <p class="updated">Last updated: {BUILT_DATE_HUMAN}</p>
       <div class="chips hero-chips budget-chips" role="group" aria-label="Price filter">
         <button class="chip is-active" type="button" data-price-filter="">Sab deals ({len(products)})</button>
