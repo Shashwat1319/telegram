@@ -19,6 +19,12 @@ import os
 import sys
 from datetime import datetime, timezone
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 # ── logging ──────────────────────────────────────────────────────────────────
 import logging
 logging.basicConfig(

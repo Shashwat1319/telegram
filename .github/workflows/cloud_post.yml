@@ -15,6 +15,7 @@ jobs:
   run:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    environment: telegram
     steps:
       - uses: actions/checkout@v4
 
