@@ -364,6 +364,8 @@ def head(title, desc, canonical, rel="", head_extra=""):
   <meta name="google-site-verification" content="kDpUhMVkIw8yo4plaH4RPhK0HuJbo_boNpSStxonc34" />
   <meta name="p:domain_verify" content="cf62f1ed7feba30bde14957942317589" />
   <link rel="stylesheet" href="{rel}style.css">
+  <link rel="icon" type="image/svg+xml" href="{rel}favicon.svg">
+  <link rel="apple-touch-icon" href="{rel}favicon.svg">
   {head_extra}
 </head>"""
 
