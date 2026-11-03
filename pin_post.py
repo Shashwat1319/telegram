@@ -349,10 +349,14 @@ def upload(items, limit=None):
 
         title = f"{p.get('name','Amazon Deal')} — {p.get('price','')} ({p.get('discount_percent','')} off)"
         title = title[:95]  # Pinterest title cap ~100
+        # Never claim "under ₹999" for a ₹25,000 TV — that reads as bait and
+        # kills trust on a brand-new account.
+        px = price_num(p)
+        budget = "Verified Amazon India deal under ₹999" if 0 < px <= 999 else "Hand-checked Amazon India deal"
         desc = (f"{p.get('fix') or p.get('hook','')} "
                 f"MRP {p.get('mrp','')} → {p.get('price','')} "
                 f"({p.get('discount_percent','')} off, ⭐{p.get('rating','')}/5). "
-                f"Verified Amazon India deal under ₹999. More daily deals: "
+                f"{budget}. More daily deals: "
                 f"smartgahr.netlify.app")[:480]
 
         # Pinterest API needs a public image URL — use image_url upload
