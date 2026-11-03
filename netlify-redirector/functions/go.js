@@ -155,31 +155,9 @@ export default async (request, context) => {
     } catch (err) {}
   }
 
-  // --- 3b. Geo routing: a US visitor cannot buy from amazon.in, so send them
-  // to amazon.com with the US associate tag. Exact product page when we know
-  // the ASIN, otherwise a search for the same title (never a dead page).
-  // Inactive until AMAZON_TAG_US is set in Netlify env — safe to ship.
-  const TAG_US = process.env.AMAZON_TAG_US || "";
-  const country = ((context.geo && context.geo.country && context.geo.country.code) || "").toUpperCase();
-  let usUrl = null;
-  if (TAG_US && country === "US") {
-    const asinParam = (url.searchParams.get("asin") || "").trim().toUpperCase();
-    const titleParam = (url.searchParams.get("t") || "").trim();
-    if (/^[A-Z0-9]{10}$/.test(asinParam)) {
-      usUrl = `https://www.amazon.com/dp/${asinParam}?tag=${TAG_US}`;
-    } else if (titleParam) {
-      usUrl = `https://www.amazon.com/s?k=${encodeURIComponent(titleParam)}&tag=${TAG_US}`;
-    } else {
-      usUrl = `https://www.amazon.com/deals?tag=${TAG_US}`;
-    }
-  }
-
   // Direct redirect for already‑clean Amazon URLs — append tag if missing
   // (Bounty pages like /tryprime, /audible, /b2b used to redirect UNTAGGED here → ₹0 bounties)
   if (finalUrl.startsWith('https://www.amazon.')) {
-    if (usUrl) {
-      return new Response(null, { status: 302, headers: { "Location": usUrl, "Cache-Control": "no-cache, no-store, must-revalidate" } });
-    }
     if (!finalUrl.includes('tag=')) {
       const sep = finalUrl.includes('?') ? '&' : '?';
       finalUrl = `${finalUrl}${sep}tag=${TAG}`;
@@ -206,11 +184,8 @@ export default async (request, context) => {
     finalAmazonUrl = `https://www.${domain}/deals?tag=${TAG}`;
   }
 
-  // US visitors: override whatever India-store URL we built above.
-  if (usUrl) finalAmazonUrl = usUrl;
-
   // Note: Server-side fetching from Netlify to check for 404s is removed.
-  // Amazon's WAF often returns 404/503 for datacenter IPs, which incorrectly
+  // Amazon's WAF often returns 404/503 for datacenter IPs, which incorrectly 
   // triggered the fallback redirect and sent users to a broken page.
 
   // --- 5. Preview bots → serve OG-rich HTML page that redirects ---

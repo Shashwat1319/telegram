@@ -219,18 +219,8 @@ def load_images():
             out[link] = file_rel
     return out
 
-def deal_href(link, p=None):
-    """Tracked link. Carries ASIN + title so /go can route non-India visitors
-    to the right Amazon storefront instead of a site they can't buy from."""
-    parts = ["url=" + quote(link, safe="")]
-    if p:
-        asin = product_asin(link)
-        if asin:
-            parts.append("asin=" + quote(asin, safe=""))
-        name = (p.get("name") or "").strip()
-        if name:
-            parts.append("t=" + quote(name[:90], safe=""))
-    return "go?" + "&".join(parts)
+def deal_href(link):
+    return "go?url=" + quote(link, safe="")
 
 
 def slugify(text):
@@ -239,23 +229,6 @@ def slugify(text):
 
 
 _IMAGES = None
-_ASINS = None
-
-
-def product_asin(link):
-    """link -> Amazon ASIN (from product_images.json, written by fetch_images.py)."""
-    global _ASINS
-    if _ASINS is None:
-        _ASINS = {}
-        if IMAGES_FILE.exists():
-            try:
-                data = json.loads(IMAGES_FILE.read_text(encoding="utf-8-sig")) or {}
-            except Exception:
-                data = {}
-            for k, v in data.items():
-                if isinstance(v, dict) and v.get("asin"):
-                    _ASINS[k] = v["asin"]
-    return _ASINS.get(link)
 
 
 def product_image(link):
@@ -332,7 +305,7 @@ def deal_card(p, rel, pid=""):
     disc = discount_num(p)
     badge = f'<span class="badge">{disc}% OFF</span>' if disc else ""
     rating_html = f'<span class="deal-rating">⭐ {esc(rating)}/5</span>' if rating else ""
-    href = rel + deal_href(p.get("link") or "", p)
+    href = rel + deal_href(p.get("link") or "")
     id_attr = f' id="{esc(pid)}"' if pid else ""
     px = int(price_num(p) or 0)
     name = esc(p.get("name"))
