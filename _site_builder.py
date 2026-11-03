@@ -388,7 +388,6 @@ FOOTER = """<footer class="site-footer">
       <div class="footer-links">
         <a href="{home}">Home</a>
         <a href="{deals}">Deals</a>
-        <a href="{kitchen}">Kitchen Finds</a>
         <a href="{about}">About</a>
         <a href="{contact}">Contact</a>
         <a href="{privacy}">Privacy</a>
@@ -411,7 +410,6 @@ def build_footer(rel):
     return FOOTER.format(
         home=rel + "index.html",
         deals=rel + "deals/index.html",
-        kitchen=rel + "kitchenfinds/index.html",
         about=rel + "about.html",
         contact=rel + "contact.html",
         privacy=rel + "privacy.html",
@@ -592,6 +590,26 @@ def build_deals_page(products):
 {body}
   <section class="section">
     <div class="container">
+      <div class="section-head"><h2>🛒 How to Choose the Right Deal</h2></div>
+      <div class="deal-grid" style="grid-template-columns:1fr;">
+        <div class="deal-card" style="padding:20px;">
+          <div class="deal-body">
+            <h3 class="deal-title">Budget vs Premium — Kya Kharidein?</h3>
+            <p style="font-size:0.95rem;color:var(--muted);line-height:1.6;">
+              <b>Under ₹999:</b> Earbuds, smartwatches, power banks, kitchen tools — daily use items jahan 40%+ discount mile. 
+              <b>Premium (₹5K-30K):</b> Sony headphones, Redmi TV, Atomberg fan — long-term investment items jahan even 10-35% discount substantial savings dete hain.
+            </p>
+            <p style="font-size:0.95rem;color:var(--muted);line-height:1.6;">
+              <b>Rule:</b> Budget pick (₹999 se kam) mein 40%+ off zaroori hai. Premium mein price history check karo — 
+              Amazon ke prices har ghante badalte hain, isliye "lowest price" pe hi order karo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
       <div class="channel-band">
         <h2>📲 Roj naye deals Telegram par</h2>
         <p>Sabse tez deals paane ke liye channel join karo.</p>
@@ -724,12 +742,10 @@ def build_sitemap(extra_urls=(), products=()):
         ("/", "1.0"),
         ("/deals/", "0.9"),
         *[(u, "0.8") for u in extra_urls],
-        ("/kitchenfinds/", "0.7"),
         ("/about.html", "0.3"),
         ("/contact.html", "0.3"),
         ("/privacy.html", "0.2"),
         ("/disclaimer.html", "0.2"),
-        ("/kitchenfinds/privacy.html", "0.2"),
     ]
 
     images = load_images()
