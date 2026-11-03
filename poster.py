@@ -49,6 +49,7 @@ COUNTER_FILE = "post_count.txt"
 PRIME_WINDOWS = content_cfg.get("prime_windows_ist", [[11, 14], [19, 22]])
 MAX_POSTS_PER_DAY = content_cfg.get("max_posts_per_day", 8)
 CHANNEL_SRC = "channel"
+SITE_URL = os.getenv("CLICK_TRACKER_URL", "https://smartgahr.netlify.app").strip().rstrip("/") or "https://smartgahr.netlify.app"
 
 
 def _channels():
@@ -271,18 +272,18 @@ def generate_high_converting_message(item, post_count=0, clean_id=None):
     title = str(item.get("title", "Amazon Deal"))[:60]
     price = str(item.get("price", ""))
     mrp = str(item.get("mrp", ""))
-    disc = str(item.get("discount", ""))
+    disc = str(item.get("discount", "")).replace("%", "").strip()
     rating = str(item.get("rating", "4.5★"))
     is_loot = item.get("is_loot", False)
-    body = str(item.get("body", ""))[:400]
+    body = str(item.get("body", ""))[:150]
 
-    badge = "🚨 <b>BIGGEST PRICE DROP LOOT</b>" if is_loot else "⚡ <b>VERIFIED AMAZON DEAL</b>"
+    badge = "✅ <b>VERIFIED DEAL — {disc}% OFF</b>" if is_loot else "✅ <b>VERIFIED AMAZON DEAL</b>"
     
     urgency_options = [
-        "⏰ <i>Offer active while Amazon stocks last!</i>",
-        "🔥 <i>Lightning Deal — Price may rise anytime!</i>",
-        "📉 <i>Lowest price recorded recently. Don't wait!</i>",
-        "🎯 <i>High demand item — Grab before sold out!</i>",
+        "⏰ Stock limited — grab before sold out!",
+        "📉 Lowest price this month — don't wait!",
+        "🔥 High demand — price may rise anytime!",
+        "✅ Verified price — no fake MRP",
     ]
 
     if body:
@@ -297,19 +298,22 @@ def generate_high_converting_message(item, post_count=0, clean_id=None):
         hook = item.get("hook", "Grab this deal before price goes up!")
         price_line = ""
         if price and mrp:
-            price_line = f"💰 <b>Price</b>: <s>{html.escape(mrp)}</s> → <b>{html.escape(price)}</b> ({html.escape(disc)} OFF)"
+            price_line = f"💰 <b>Price</b>: <s>{html.escape(mrp)}</s> → <b>{html.escape(price)}</b> ({html.escape(disc)}% OFF)"
         elif price:
             price_line = f"💰 <b>Deal Price</b>: <b>{html.escape(price)}</b>"
         templates = [
-            f"{badge}\n\n📦 <b>{html.escape(title)}</b>\n\n{price_line}\n⭐ <b>Rating</b>: {html.escape(rating)}\n\n🔥 <i>{html.escape(hook)}</i>\n\n{random.choice(urgency_options)}",
+            f"✅ <b>VERIFIED DEAL — {html.escape(disc)}% OFF</b>\n\n📦 <b>{html.escape(title)}</b>\n\n{price_line}\n⭐ <b>{html.escape(rating)}/5</b>\n\n{random.choice(urgency_options)}",
             f"🔥 <b>LOOT ALERT ({html.escape(disc)} OFF)</b>\n\n📦 <b>{html.escape(title)}</b>\n\n{price_line}\n\n✅ Verified Amazon India Deal\n{random.choice(urgency_options)}",
-            f"⚡ <b>FLASH SALE ITEM</b>\n\n📦 <b>{html.escape(title)}</b>\n\n{price_line}\n⭐ <b>User Rating</b>: {html.escape(rating)}\n\n{random.choice(urgency_options)}",
+            f"⚡ <b>FLASH DEAL — {html.escape(disc)}% OFF</b>\n\n📦 <b>{html.escape(title)}</b>\n\n{price_line}\n⭐ <b>{html.escape(rating)}/5</b>\n\n{random.choice(urgency_options)}",
         ]
         msg = templates[post_count % len(templates)]
 
+    # SEO hashtags for Telegram search discoverability
+    HASHTAGS = "#amazon_deals #loot_deals #price_drop #under_999 #amazon_india #deal_alert #verified_deals #amazon_discount #deal_hunter #smart_shopping"
+    msg += f"\n\n{HASHTAGS}"
+
+    msg += f"\n\n🌐 More deals: {SITE_URL.replace('https://', '')}"
     msg += f"\n\n📢 <b>Join</b> @{html.escape(clean_id)} for daily loots!"
-    if HASHTAGS:
-        msg += f"\n{HASHTAGS}"
     msg += f"\n\n{random.choice(CTA_OPTIONS)}"
     return msg
 
@@ -555,3 +559,4 @@ def post_next_deal():
 
 if __name__ == "__main__":
     post_next_deal()
+
