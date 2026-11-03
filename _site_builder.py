@@ -45,7 +45,7 @@ CATEGORY_PAGES = {
     "Electronics": {
         "slug": "electronics",
         "h1": "Amazon Electronics Deals — Verified Prices, Updated Daily",
-        "title": "Amazon Electronics Deals Under ₹999 — SmartGahr",
+        "title": "Amazon Electronics Deals — Verified, 40%+ Off | SmartGahr",
         "desc": "Verified Amazon India electronics deals: earbuds, smartwatches, speakers and TVs at 40%+ off with 4★+ ratings. Prices checked daily.",
         "intro": [
             "Electronics pe discount sabse zyada dikhta hai — aur fake MRP games bhi sabse zyada yahin hoti hain. "
@@ -63,8 +63,8 @@ CATEGORY_PAGES = {
     },
     "Home & Kitchen": {
         "slug": "home-kitchen",
-        "h1": "Home & Kitchen Deals — Amazon India Offers Under ₹999",
-        "title": "Amazon Home & Kitchen Deals Under ₹999 — SmartGahr",
+        "h1": "Home & Kitchen Deals — Amazon India Offers, 40%+ Off",
+        "title": "Amazon Home & Kitchen Deals — 40%+ Off | SmartGahr",
         "desc": "Amazon India home and kitchen deals: cookware, storage, cleaning and small appliances at 40%+ off with 4★+ ratings. Verified daily.",
         "intro": [
             "Ghar ka saman woh kharid hai jo har mahine padti hai — aur yahin sabse zyada paisa waste hota hai, "
@@ -104,6 +104,43 @@ CATEGORY_PAGES = {
 }
 
 CATEGORY_LINK_TEXT = "Browse all {n} {cat} deals →"
+
+# Client-side price filter for the deals page (no duplicate URLs, no reload).
+FILTER_JS = """<script>
+(function () {
+  var btns = Array.prototype.slice.call(document.querySelectorAll("[data-price-filter]"));
+  var cards = Array.prototype.slice.call(document.querySelectorAll(".deal-card"));
+  var note = document.querySelector(".filter-note");
+  if (!btns.length || !cards.length) return;
+
+  function apply(limit) {
+    var shown = 0;
+    cards.forEach(function (card) {
+      var px = parseFloat(card.getAttribute("data-price") || "0");
+      var hide = limit && px > limit;
+      card.classList.toggle("is-hidden", !!hide);
+      if (!hide) shown++;
+    });
+    Array.prototype.forEach.call(document.querySelectorAll(".section[id]"), function (sec) {
+      var any = sec.querySelector(".deal-card:not(.is-hidden)");
+      sec.classList.toggle("is-hidden", !any);
+    });
+    if (note) {
+      note.textContent = limit
+        ? shown + " deals ₹" + limit + " se kam dikha rahe hain."
+        : "";
+    }
+  }
+
+  btns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      btns.forEach(function (b) { b.classList.toggle("is-active", b === btn); });
+      var raw = btn.getAttribute("data-price-filter");
+      apply(raw ? parseFloat(raw) : 0);
+    });
+  });
+})();
+</script>"""
 
 
 def category_meta(cat):
@@ -270,6 +307,7 @@ def deal_card(p, rel, pid=""):
     rating_html = f'<span class="deal-rating">⭐ {esc(rating)}/5</span>' if rating else ""
     href = rel + deal_href(p.get("link") or "")
     id_attr = f' id="{esc(pid)}"' if pid else ""
+    px = int(price_num(p) or 0)
     name = esc(p.get("name"))
     img_file = product_image((p.get("link") or "").strip())
     if img_file:
@@ -281,7 +319,7 @@ def deal_card(p, rel, pid=""):
         )
     else:
         media = f'<div class="deal-media ph" aria-hidden="true"><span>{icon}</span></div>'
-    return f"""      <article class="deal-card"{id_attr}>
+    return f"""      <article class="deal-card"{id_attr} data-price="{px}">
         {media}
         {badge}
         <div class="deal-body">
@@ -384,7 +422,7 @@ JSONLD_HOME = """<script type="application/ld+json">
     "@type": "WebSite",
     "name": "SmartGahr",
     "url": "https://smartgahr.netlify.app/",
-    "description": "Daily verified Amazon India deals under \u20b9999 with 40%+ off.",
+    "description": "Hand-checked Amazon India deals with 40%+ off and 4★+ ratings, from under \u20b9999 budget picks to premium gear. Prices verified daily.",
     "publisher": {
       "@type": "Organization",
       "name": "SmartGahr",
@@ -396,6 +434,12 @@ JSONLD_HOME = """<script type="application/ld+json">
 
 
 HOME_FAQ = [
+    (
+        "Kya yahan sirf ₹999 se saste deals hain?",
+        "Nahi. Site pe sabhi verified deals hain — ₹149 ke budget picks se lekar ₹29,999 tak ke premium "
+        "products. Deals page pe \"₹999 se kam\" filter se sirf budget wale dekh sakte ho. Hum price range "
+        "chhupate nahi, taaki click karke disappointment na ho.",
+    ),
     (
         "Yeh Amazon deals sach mein verified hain?",
         "Haan. Har deal ka price, MRP, rating aur discount Amazon ke live product page se aata hai. Hum sirf 40% se "
@@ -444,15 +488,15 @@ def build_index(products):
             jsonld(faq_schema(HOME_FAQ)),
         ]
     )
-    doc = f"""{head('SmartGahr — Verified Amazon Deals Under ₹999', 'Daily verified Amazon India deals under ₹999 with 40%+ off and 4★ ratings. Fresh loot offers every day on gadgets, home and kitchen essentials.', BASE_URL + '/', head_extra=schema)}
+    doc = f"""{head('SmartGahr — Verified Amazon Deals, 40%+ Off, 4★+ Rated', 'Hand-checked Amazon India deals at 40%+ off with 4★+ ratings — from under-₹999 budget finds to premium gear. Prices verified daily, expired deals removed.', BASE_URL + '/', head_extra=schema)}
 <body>
 <!-- generated by _site_builder.py — do not edit by hand -->
 {build_header('')}
 <main>
   <section class="hero">
     <div class="container">
-      <h1>🔥 Today's Best Amazon Deals Under ₹999</h1>
-      <p>Every deal verified — 40%+ off, 4★+ ratings, real prices only. New loot deals daily.</p>
+      <h1>🔥 Today's Best Amazon Deals — Verified, 40%+ Off</h1>
+      <p>₹149 se ₹29,999 tak — har deal 40%+ off, 4★+ rating, real prices only. Budget picks under ₹999 bhi, premium drops bhi. New deals daily.</p>
       <p class="updated">Last updated: {BUILT_DATE_HUMAN} · {len(products)} live deals</p>
       <div class="cta-row">
         <a class="btn btn-telegram" href="{CHANNEL_URL}" rel="noopener">Join Telegram Channel</a>
@@ -522,7 +566,8 @@ def build_deals_page(products):
   </section>""")
     body = "\n\n".join(sections)
     schema = jsonld(item_list_schema(products, BASE_URL + "/deals/", "deals"))
-    doc = f"""{head('All Amazon Deals Under ₹999 — Verified Daily | SmartGahr', f'All {len(products)} verified Amazon India deals under ₹999 with 40%+ off and 4★+ ratings, updated daily. Browse live deals by category and grab the best price drops.', BASE_URL + '/deals/', rel='../', head_extra=schema)}
+    cheap = sum(1 for p in products if 0 < price_num(p) <= 999)
+    doc = f"""{head('All Verified Amazon Deals — 40%+ Off, 4★+ | SmartGahr', f'All {len(products)} verified Amazon India deals in one place — 40%+ off, 4★+ ratings, from under-₹999 budget picks to premium gear. Prices checked daily.', BASE_URL + '/deals/', rel='../', head_extra=schema)}
 <body id="top">
 <!-- generated by _site_builder.py — do not edit by hand -->
 {build_header('../')}
@@ -530,11 +575,16 @@ def build_deals_page(products):
   <section class="hero">
     <div class="container">
       <h1>🛒 All Verified Deals</h1>
-      <p>{len(products)} live deals — all under ₹999, all 40%+ off. Block ke heading pe click karke sirf woh category dekho jo chahiye.</p>
+      <p>{len(products)} live deals — sab 40%+ off aur 4★+ rated. ₹149 se ₹29,999 tak, koi hidden price nahi. Category pe jump karo ya budget filter chalao.</p>
       <p class="updated">Last updated: {BUILT_DATE_HUMAN}</p>
+      <div class="chips hero-chips budget-chips" role="group" aria-label="Price filter">
+        <button class="chip is-active" type="button" data-price-filter="">Sab deals ({len(products)})</button>
+        <button class="chip" type="button" data-price-filter="999">₹999 se kam ({cheap})</button>
+      </div>
       <div class="chips hero-chips">
         {"".join(jump_chips)}
       </div>
+      <p class="filter-note" aria-live="polite"></p>
     </div>
   </section>
 {body}
@@ -549,6 +599,7 @@ def build_deals_page(products):
   </section>
 </main>
   <p class="to-top"><a href="#top">↑ Back to top</a></p>
+{FILTER_JS}
 {build_footer('../')}
 </body>
 </html>

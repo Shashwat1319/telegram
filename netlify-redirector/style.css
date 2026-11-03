@@ -322,3 +322,27 @@ summary:focus-visible {
   }
   .deal-card:hover { transform: none; }
 }
+
+/* 8. Price filter on /deals/ (client-side, no extra URLs) */
+button.chip {
+  font: inherit;
+  cursor: pointer;
+  color: #1a1a1a;
+}
+
+.chip.is-active {
+  background: #111827;
+  border-color: #111827;
+  color: #fff;
+}
+
+.budget-chips { margin-bottom: 8px; }
+
+.filter-note {
+  min-height: 1.2em;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.is-hidden { display: none !important; }
