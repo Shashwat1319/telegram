@@ -1,0 +1,55 @@
+# DIWALI LINKS — har line pe product ka naam hai, pipe (|) ke baad apna
+# Amazon affiliate link paste karo. Baaki sab khali chhod do.
+# Format:  Naam | https://amzn.to/xxxx   (ya pura amazon.in/dp/... link)
+# Save karke chalao:  py set_links.py
+# -------------------------------------------------------------------
+boAt Airdopes 219 TWS Earbuds 42hrs Playback |
+Noise Pulse 3 Smartwatch 1.85 inch Display |
+boAt Rockerz 450 Bluetooth Headphones 15hrs |
+JBL Go 4 Portable Bluetooth Speaker |
+Fire TV Stick HD with Alexa Voice Remote |
+Amazon Echo Pop Smart Speaker with Alexa |
+Xiaomi Mi Power Bank 3i 10000mAh 18W Fast Charging |
+Realme Buds Air 5 ANC Earbuds 50dB Noise Cancel |
+Boult Bassbuds Z40 TWS Earbuds 60hrs Playback |
+boAt Wave Call 3 Bluetooth Calling Smartwatch |
+JBL Tune 510BT Wireless Over-Ear Headphones |
+Samsung Galaxy Buds FE Wireless Earbuds |
+TP-Link Archer C6 Gigabit WiFi Router |
+Prestige Omega Deluxe Granite Non-stick Kadai 24cm |
+Butterfly Smart Plus Induction Base Pressure Cooker 3L |
+Prestige Iris 750W Mixer Grinder 3 Jars |
+Havells 1.7L Electric Kettle 1500W |
+Bajaj Majesty Induction Cooktop 1900W |
+Prestige OGR Sandwich Maker 750W |
+Borosil Microwave Safe Glass Bowl Set of 6 |
+Signoraware Steel Storage Container Set 5 pc |
+Treo by Milton Glass Storage Jar Set of 6 |
+Nirlon Non-stick Cookware Gift Set 3 pc |
+Cello Checkers Plastic Container Set 12 pc |
+Diva Liva Melamine Dinner Set 20 pc |
+Prestige Omega Granite Non-stick Fry Pan 24cm |
+Wonderchef Nutri-Blend Flip Lid Juicer Mixer |
+LED String Fairy Lights 10m Warm White 200 LEDs |
+LED Curtain Fairy Lights 3m x 3m Multi-color |
+Copper Wire LED String Lights 100 LEDs Battery |
+Flameless LED Diyas Set of 10 Battery Operated |
+Self-Adhesive Rangoli Sticker Set Pack of 4 |
+Marigold Toran Door Hanging for Diwali |
+Artificial Marigold Flower Garland Set of 6 |
+BuildCraft Spin Mop with Bucket Wringer |
+Lizol Disinfectant Floor Cleaner 1L + 500ml Combo |
+Havells 4-Socket Extension Board 2m |
+Havells 9W LED Bulb Cool White Pack of 9 |
+Anti-Skid Door Mat Set of 2 |
+Microfiber Cleaning Cloth Set of 10 |
+Nivea Body Lotion 400ml Pack of 2 |
+Wild Stone Ultra Sensual Perfume Gift Set for Men |
+Mamaearth Onion Hair Growth Oil 150ml |
+Philips BT3231 Trimmer for Men 20 Length Settings |
+The Man Company Beard Growth Oil Combo |
+Men's Cotton Straight Kurta Festive Wear |
+Women's Anarkali Kurti Set with Dupatta |
+Women's Ethnic Juttis Mojaris Handmade |
+Mi 33W SonicCharge Power Adapter with Type-C Cable |
+Kids Ethnic Wear Diwali Kurta Pyjama Set |
