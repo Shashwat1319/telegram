@@ -96,10 +96,23 @@ IMAGE_VARIANTS = [
 ]
 
 
+# image_urls.json: ASIN -> direct main-image URL (extracted from product pages
+# by a browser-grade fetch when the legacy P/ pattern returns placeholder GIFs).
+URL_MAP_FILE = ROOT / "image_urls.json"
+
+
+def _url_candidates(asin):
+    m = load_json(URL_MAP_FILE, {})
+    urls = []
+    if isinstance(m, dict) and m.get(asin):
+        urls.append(m[asin])
+    urls += [v.format(a=asin) for v in IMAGE_VARIANTS]
+    return urls
+
+
 def download_image(session, asin, dest_dir):
     notes = []
-    for variant in IMAGE_VARIANTS:
-        url = variant.format(a=asin)
+    for url in _url_candidates(asin):
         try:
             r = session.get(url, headers=HEADERS, timeout=30)
         except requests.RequestException as e:

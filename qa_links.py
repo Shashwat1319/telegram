@@ -102,6 +102,22 @@ def scrape(session, asin):
             "in_stock": in_stock}
 
 
+def scrape_retry(session, asin, tries=3):
+    """Retry when Amazon serves a degraded/bot page (no price+rating)."""
+    sc = {}
+    for i in range(tries):
+        sc = scrape(session, asin)
+        degraded = (sc.get("err")
+                    or sc.get("title") in ("", "Amazon.in")
+                    or (not sc.get("price") and not sc.get("rating")))
+        if not degraded:
+            sc["_degraded"] = False
+            return sc
+        time.sleep(5 + i * 5)
+    sc["_degraded"] = True
+    return sc
+
+
 def main():
     args = sys.argv[1:]
     all_products = "--all" in args
@@ -140,8 +156,11 @@ def main():
             flags.append("NO ASIN in final URL")
             actual_title = final_url or "-"
         else:
-            sc = scrape(session, asin)
-            if sc.get("err"):
+            sc = scrape_retry(session, asin)
+            if sc.get("_degraded"):
+                flags.append("DEGRADED PAGE (Amazon bot check) — verify in browser")
+                actual_title = sc.get("title") or "-"
+            elif sc.get("err"):
                 flags.append(sc["err"])
                 actual_title = "-"
             else:
@@ -170,7 +189,7 @@ def main():
             print(f"       -> {'; '.join(flags)}")
             print(f"       actual: {actual_title[:110]}")
             issues.append((idx, card_name, flags, actual_title))
-        time.sleep(1.5)  # stay gentle with Amazon
+        time.sleep(2.5)  # stay gentle with Amazon
 
     print(f"\n=== {len(issues)} of {len(rows)} need attention ===")
     for idx, name, flags, _ in issues:
