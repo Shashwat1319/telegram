@@ -193,10 +193,6 @@ PAGE = """<!doctype html>
     <code>git add product.json netlify-redirector &amp;&amp; git commit -m "links"</code>.
   </div>
   <div id="pending"></div>
-  <div id="filledWrap" style="display:none">
-    <h2>Already linked (read-only)</h2>
-    <div id="filled"></div>
-  </div>
   <div id="log"></div>
 </main>
 <div class="status">
@@ -238,8 +234,6 @@ function render(rows) {
   document.getElementById("pending").innerHTML =
     (pend.length ? `<h2>Links pending (${pend.length})</h2>` : "<h2>✅ Sab links bhar chuke hain!</h2>") +
     pend.map(r => rowHtml(r, true)).join("");
-  document.getElementById("filledWrap").style.display = done.length ? "" : "none";
-  document.getElementById("filled").innerHTML = done.map(r => rowHtml(r, false)).join("");
   document.getElementById("stats").innerHTML =
     `linked <b>${done.length}</b> / ${rows.length} · pending <b>${pend.length}</b>`;
 }
