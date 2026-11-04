@@ -4,7 +4,7 @@ const TAG = process.env.AMAZON_TAG || "";
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 
-const ALLOWED_DOMAINS = ["amazon.", "amzn.to", "amzn.in"];
+const ALLOWED_DOMAINS = ["amazon.", "amzn.to", "amzn.in", "link.amazon"];
 
 const ERROR_PAGE = (channelHandle) => `<!DOCTYPE html>
 <html lang="en">
@@ -175,6 +175,10 @@ export default async (request, context) => {
   if (asinMatch) {
     const asin = asinMatch[1].toUpperCase();
     finalAmazonUrl = `https://www.${domain}/dp/${asin}?tag=${TAG}`;
+  } else if (finalUrl.includes("link.amazon/")) {
+    // SiteStripe short code (link.amazon/<code>) — the code is not an ASIN;
+    // Amazon resolves it server-side and embeds our tag itself. Pass through.
+    finalAmazonUrl = finalUrl;
   } else if (finalUrl.includes("amzn.in") || finalUrl.includes("amzn.to")) {
     finalAmazonUrl = finalUrl;
   } else if (finalUrl.includes("amazon.")) {
