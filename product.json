@@ -26,7 +26,8 @@
       "pain": "Har roz earbuds charge karna exhausting hai?",
       "fix": "54 hours playback with AI noise cancellation — charge once, use all week!",
       "loot_reason": "OnePlus ka premium audio itne mein rarely aata hai!",
-      "category": "Electronics"
+      "category": "Electronics",
+      "rating_count": 52862
     },
     {
       "name": "boAt Rockerz 235 Pro Bluetooth Neckband",
@@ -41,7 +42,8 @@
       "fix": "Upgrade to boAt's powerful, long-lasting wireless sound at an unbelievable price.",
       "loot_reason": "Is price pe boAt ke top-selling earphones! Don't miss this one-day deal.",
       "category": "Electronics",
-      "loot": "boAt ke best-selling neckband — is price pe rarely milta hai!"
+      "loot": "boAt ke best-selling neckband — is price pe rarely milta hai!",
+      "rating_count": 14590
     },
     {
       "name": "Noise Pulse 2 Max 1.85 inch Bluetooth Smartwatch",
@@ -55,7 +57,8 @@
       "pain": "Health track karna hai par expensive smartwatch nahi kharid sakte?",
       "fix": "Full fitness tracking, SpO2, heart rate, aur stylish design sab ek saste price mein!",
       "loot_reason": "History ka lowest price on this bestselling smartwatch!",
-      "category": "Electronics"
+      "category": "Electronics",
+      "rating_count": 77563
     },
     {
       "name": "INEFABLE Replacement Straps for Mi Smart Band 6",
@@ -70,7 +73,8 @@
       "fix": "Original soft silicone strap for Mi Band 5/6 — easy fit, all-day comfort!",
       "loot_reason": "Mi ka iconic smart band itne bade discount par, mauka haath se na jaane do!",
       "category": "Electronics",
-      "loot": "Strap purani ho gayi? ₹185 mein bilkul nayi — band jaisa fresh look!"
+      "loot": "Strap purani ho gayi? ₹185 mein bilkul nayi — band jaisa fresh look!",
+      "rating_count": 338
     },
     {
       "name": "Amazon Fire TV Stick 4K Plus with Alexa Voice Remote",
@@ -85,7 +89,8 @@
       "fix": "Netflix, Prime, Hotstar, YouTube sab ek stick mein — 4K Plus pe cinematic 4K quality!",
       "loot_reason": "Amazon ka bestseller electronics item, lowest price in months!",
       "category": "Electronics",
-      "loot": "Amazon ka bestseller streaming stick — festive price pe grab karo!"
+      "loot": "Amazon ka bestseller streaming stick — festive price pe grab karo!",
+      "rating_count": 4479
     },
     {
       "name": "pTron Bassbuds Duo True Wireless Earbuds",
@@ -142,7 +147,8 @@
       "fix": "10000mAh capacity, 22.5W fast charging, triple output — phone, earbuds sab ek saath!",
       "loot_reason": "Xiaomi power banks are legendary for reliability, lowest price ever!",
       "category": "Electronics",
-      "loot": "Xiaomi ke reliable power banks — is price pe steal deal!"
+      "loot": "Xiaomi ke reliable power banks — is price pe steal deal!",
+      "rating_count": 2048
     },
     {
       "name": "Ambrane Braided Type C Cable 3A Fast Charging 1.5m",
@@ -157,7 +163,8 @@
       "fix": "3A fast charging, braided wire joh kabhi nahi tutega, 480Mbps data sync!",
       "loot_reason": "₹149 mein branded fast charging cable? Daily use ke liye perfect!",
       "category": "Electronics",
-      "loot": "₹129 mein branded fast charging cable? Daily use ke liye perfect!"
+      "loot": "₹129 mein branded fast charging cable? Daily use ke liye perfect!",
+      "rating_count": 10185
     },
     {
       "name": "Apple AirPods Pro 2nd Gen with USB-C",
@@ -186,7 +193,8 @@
       "fix": "40hrs playtime, dual pairing, 40mm drivers — premium sound ₹754 mein!",
       "loot_reason": "Sony ka flagship audio gear, serious audiophiles ke liye must-buy!",
       "category": "Electronics",
-      "loot": "₹754 mein over-ear headphones? Diwali ka sabse bada audio loot!"
+      "loot": "₹754 mein over-ear headphones? Diwali ka sabse bada audio loot!",
+      "rating_count": 3145
     },
     {
       "name": "Amazon Echo Dot 5th Gen Smart Speaker Blue",
@@ -201,7 +209,8 @@
       "fix": "Voice control lights, AC, TV — Alexa handles everything with just your voice!",
       "loot_reason": "Amazon ka bestselling smart speaker, diwali jaisa discount abhi!",
       "category": "Electronics",
-      "loot": "Amazon ka bestselling smart speaker — Diwali gifting first pick!"
+      "loot": "Amazon ka bestselling smart speaker — Diwali gifting first pick!",
+      "rating_count": 14079
     },
     {
       "name": "Amazon Echo Show 8 Smart Display 2026",
@@ -272,7 +281,8 @@
       "fix": "Dual-band AC1200, MU-MIMO, 4 antennas — poore ghar mein strong WiFi!",
       "loot_reason": "TP-Link ka best value WiFi 6 router, upgrade ka best time!",
       "category": "Electronics",
-      "loot": "TP-Link ka best-value router — work from home ready!"
+      "loot": "TP-Link ka best-value router — work from home ready!",
+      "rating_count": 20563
     },
     {
       "name": "Pigeon by Stovekraft Induction Cooktop 1600W",
@@ -314,7 +324,8 @@
       "pain": "Subah uthke chai ke liye gas jalaana bore kar raha hai?",
       "fix": "1500W fast boiling, auto shut-off, wide mouth, cool-touch handle!",
       "loot_reason": "Milton brand, 1.8L capacity, itne price mein best deal!",
-      "category": "Home & Kitchen"
+      "category": "Home & Kitchen",
+      "rating_count": 153340
     },
     {
       "name": "Philips Steam Iron GC1905 1300W",
@@ -328,7 +339,8 @@
       "pain": "Jhurri wale kapde pehenne se sharm aati hai? Purana iron kaam nahi karta?",
       "fix": "Non-stick soleplate, powerful steam, 1300W quick heat-up, world's #1 ironing brand!",
       "loot_reason": "Philips ka world no.1 ironing brand, flawless finish guaranteed!",
-      "category": "Home & Kitchen"
+      "category": "Home & Kitchen",
+      "rating_count": 630
     },
     {
       "name": "Pigeon Amaze Plus Induction Base Pressure Cooker 3L",
@@ -370,7 +382,8 @@
       "pain": "Fried food khane ka man hai par health concern?",
       "fix": "6.2L capacity, 90% less oil, crisp fry, roast, bake everything in minutes!",
       "loot_reason": "Philips airfryer is gold standard — weight watchers ke liye must!",
-      "category": "Home & Kitchen"
+      "category": "Home & Kitchen",
+      "rating_count": 527
     },
     {
       "name": "Presto! Garbage Bags Medium 19x21 Inches",
@@ -385,7 +398,8 @@
       "fix": "Leak-proof, strong medium-size bags — ghar ka kachra pack, no mess!",
       "loot_reason": "Amazon brand, bestseller #1 in Home & Kitchen, bulk buy smart move!",
       "category": "Home & Kitchen",
-      "loot": "Amazon ka Presto brand — bulk buy smart move!"
+      "loot": "Amazon ka Presto brand — bulk buy smart move!",
+      "rating_count": 54940
     },
     {
       "name": "Go24 Pexpo Stainless Steel Water Bottle 1L",
@@ -400,7 +414,8 @@
       "fix": "ISI certified steel, leak-proof, 1L capacity, ideal for gym & office!",
       "loot_reason": "₹349 mein stainless steel bottle month's best deal!",
       "category": "Home & Kitchen",
-      "loot": "₹239 mein stainless steel bottle — month's best deal!"
+      "loot": "₹239 mein stainless steel bottle — month's best deal!",
+      "rating_count": 7534
     },
     {
       "name": "Go24 Pexpo Stainless Steel Water Bottle 750ml",
@@ -415,7 +430,8 @@
       "fix": "750ml stainless steel, steel cap, lightweight — leakproof everyday bottle!",
       "loot_reason": "Milton ka trusted brand, ₹449 mein lifetime companion!",
       "category": "Home & Kitchen",
-      "loot": "₹309 mein steel bottle — plastic se sehat safe!"
+      "loot": "₹309 mein steel bottle — plastic se sehat safe!",
+      "rating_count": 176
     },
     {
       "name": "Hawkins Contura Black Pressure Cooker",
@@ -430,7 +446,8 @@
       "fix": "Curved base for even heat, 5-year warranty, Hawkins quality!",
       "loot_reason": "Hawkins par ye discount yearly once aata hai! Best investment!",
       "category": "Home & Kitchen",
-      "loot": "Hawkins India's most trusted cooker — roz ke liye best investment!"
+      "loot": "Hawkins India's most trusted cooker — roz ke liye best investment!",
+      "rating_count": 892
     },
     {
       "name": "Prestige Non Stick Tawa 26cm Dosa Tawa",
@@ -458,7 +475,8 @@
       "pain": "Office mein garam chai nahi milti? Gym mein cold water chahiye?",
       "fix": "Double wall vacuum insulation, 1000ml, hot/cold 24hrs, leakproof!",
       "loot_reason": "Best insulator flask, Milton quality, steal price!",
-      "category": "Home & Kitchen"
+      "category": "Home & Kitchen",
+      "rating_count": 1487
     },
     {
       "name": "Lifelong 4 Slice Sandwich Toaster 850W",
@@ -501,7 +519,8 @@
       "fix": "10kg x 1g precision, LCD display, tare function — accurate grams tracking!",
       "loot_reason": "₹215 mein digital kitchen scale? It's free basically!",
       "category": "Home & Kitchen",
-      "loot": "₹189 mein digital kitchen scale? It's free basically!"
+      "loot": "₹189 mein digital kitchen scale? It's free basically!",
+      "rating_count": 29089
     },
     {
       "name": "Cello Pillo Plastic Water Bottle 1L Pack of 3",
@@ -530,7 +549,8 @@
       "fix": "Push-press system, 900ml bowl, 3 stainless blades — onion/tomato in seconds!",
       "loot_reason": "₹349 mein hand chopper — kitchen helper, sabzi cutting 10 seconds mein!",
       "category": "Home & Kitchen",
-      "loot": "₹331 mein press chopper — kitchen helper, sabzi cutting 10 seconds mein!"
+      "loot": "₹331 mein press chopper — kitchen helper, sabzi cutting 10 seconds mein!",
+      "rating_count": 1393
     },
     {
       "name": "Storio Kids Plastic Tiffin Box Set 3 Pcs",
@@ -559,7 +579,8 @@
       "fix": "Rechargeable 1200mAh, heavy-duty mesh — electric zapper, raat ko free neend!",
       "loot_reason": "Mortein brand, rechargeable, monsoon mein essential!",
       "category": "Home Improvement",
-      "loot": "Rechargeable racquet ₹349 — monsoon mein essential!"
+      "loot": "Rechargeable racquet ₹349 — monsoon mein essential!",
+      "rating_count": 2269
     },
     {
       "name": "Mortein SmartPlus Mosquito Repellent Refill 45ml x 6",
@@ -573,7 +594,8 @@
       "pain": "Har raat mosquito se jungle safari? Dengue ka dar?",
       "fix": "100% protection, 6 refills last 180 nights, fits all machines!",
       "loot_reason": "Bulk buy — dengue season mein shield, family ke liye safety!",
-      "category": "Home Improvement"
+      "category": "Home Improvement",
+      "rating_count": 40583
     },
     {
       "name": "Shadow Gecko Lizard Repellent Spray 220ml",
@@ -616,7 +638,8 @@
       "fix": "BLDC motor, BEE 5 star rated, remote control, silent operation — bill half!",
       "loot_reason": "Atomberg sabse best BLDC fan brand, 5 star rating, bill half!",
       "category": "Home Improvement",
-      "loot": "Colorbot 5-star BLDC — electric bill aadha, hawa full!"
+      "loot": "Colorbot 5-star BLDC — electric bill aadha, hawa full!",
+      "rating_count": 1921
     },
     {
       "name": "Crompton Wall Fan 400mm High Speed",
@@ -659,7 +682,8 @@
       "fix": "WiFi smart bulb, Alexa/Google compatible, dimmable — Philips WiZ quality!",
       "loot_reason": "₹599 mein smart bulb — ghar ko smart banane ka cheapest way!",
       "category": "Home Improvement",
-      "loot": "₹449 mein Philips smart bulb — ghar smart banane ka branded way!"
+      "loot": "₹449 mein Philips smart bulb — ghar smart banane ka branded way!",
+      "rating_count": 2059
     },
     {
       "name": "Orient Electric 9W High Glow LED Bulb",
@@ -674,7 +698,8 @@
       "fix": "9W LED, bright glow, up to 80% energy saving — Orient quality!",
       "loot_reason": "₹66 per bulb — cheapest LED upgrade for entire home!",
       "category": "Home Improvement",
-      "loot": "₹164 mein Orient LED — pure ghar ka lighting upgrade!"
+      "loot": "₹164 mein Orient LED — pure ghar ka lighting upgrade!",
+      "rating_count": 8523
     },
     {
       "name": "Wipro 16A Wi-Fi Smart Plug with Energy Monitoring",
@@ -689,7 +714,8 @@
       "fix": "16A Wi-Fi smart plug, energy monitoring — phone se on/off, bill tracking!",
       "loot_reason": "Havells electricals — safety ke liye best brand, renovation must-have!",
       "category": "Home Improvement",
-      "loot": "₹869 mein smart plug — ghar ke appliances instantly smart!"
+      "loot": "₹869 mein smart plug — ghar ke appliances instantly smart!",
+      "rating_count": 8012
     },
     {
       "name": "RO Metal Clothes Drying Stand Foldable with Wheels 3-Tier",
@@ -745,7 +771,8 @@
       "pain": "Smartwatch ka man hai par ₹5000+ nahi dena?",
       "fix": "1.96\" AMOLED, Bluetooth calling, AI watch faces, SpO2 + HR tracking — sab ₹2399 mein!",
       "loot_reason": "27000+ reviews wala bestseller — festive price lowest of the year!",
-      "category": "Electronics"
+      "category": "Electronics",
+      "rating_count": 27252
     },
     {
       "name": "boAt Rockerz 450 Bluetooth Headphones 15hrs",
@@ -773,7 +800,8 @@
       "pain": "Party ke liye chhota par powerful speaker chahiye?",
       "fix": "Pro Sound with punchy bass, IP67 waterproof, rugged fabric design — haath mein fit!",
       "loot_reason": "JBL ka best-selling pocket speaker — 4.5★ rated ghar-ghar mein!",
-      "category": "Electronics"
+      "category": "Electronics",
+      "rating_count": 75301
     },
     {
       "name": "Amazon Fire TV Stick 4K Plus with Alexa Voice Remote",
@@ -801,7 +829,8 @@
       "pain": "Ghar ko smart banane ka budget nahi hai?",
       "fix": "Alexa se music, lights, alarms sab — crisp speaker + temperature sensor!",
       "loot_reason": "Smart home ka entry point — 4.1★, har ghar ka favourite!",
-      "category": "Electronics"
+      "category": "Electronics",
+      "rating_count": 14079
     },
     {
       "name": "Xiaomi Power Bank 4i 20000mAh 33W Super Fast Charging",
@@ -815,7 +844,8 @@
       "pain": "Travel mein phone dead ho jaata hai?",
       "fix": "33W super fast charging, 20000mAh — phone 2x charge, dual input/output!",
       "loot_reason": "Xiaomi ka trusted power bank — festive stock limited!",
-      "category": "Electronics"
+      "category": "Electronics",
+      "rating_count": 2048
     },
     {
       "name": "realme Buds T310 ANC Earbuds 46dB Noise Cancel",
@@ -829,7 +859,8 @@
       "pain": "Bahut shor mein music clear nahi hota?",
       "fix": "46dB hybrid ANC, 360 spatial audio, 40hrs playback, Hi-Res certified!",
       "loot_reason": "ANC earbuds ₹1899 mein — Diwali gifting best pick!",
-      "category": "Electronics"
+      "category": "Electronics",
+      "rating_count": 10623
     },
     {
       "name": "GOBOULT Tenet Pro ANC TWS Earbuds 75H Playtime",
@@ -843,7 +874,8 @@
       "pain": "Har din earbuds charge karna annoying hai?",
       "fix": "32dB ANC, 75H playtime, app support, quad mic ENC — sab ₹1499 mein!",
       "loot_reason": "₹1499 mein 75 hours + ANC? Festive loot deal hai ye!",
-      "category": "Electronics"
+      "category": "Electronics",
+      "rating_count": 1711
     },
     {
       "name": "Noise Pulse 2 Max 1.85 inch Bluetooth Calling Smartwatch",
@@ -871,7 +903,8 @@
       "pain": "Wireless headphones chahiye par JBL budget se bahar tha?",
       "fix": "40mm drivers, 30H playback, Bluetooth 6.0, lightweight foldable design!",
       "loot_reason": "Philips brand under ₹1300 — festive price crash!",
-      "category": "Electronics"
+      "category": "Electronics",
+      "rating_count": 13
     },
     {
       "name": "Samsung Galaxy Buds Core ANC Wireless Earbuds",
@@ -885,7 +918,8 @@
       "pain": "Samsung ecosystem ke liye reliable earbuds chahiye?",
       "fix": "ANC, enriched bass, 6 mic setup, IP54, 35hrs battery — Galaxy AI enabled!",
       "loot_reason": "Samsung flagship-kill earbuds — aadhe pe!",
-      "category": "Electronics"
+      "category": "Electronics",
+      "rating_count": 62
     },
     {
       "name": "TP-Link Archer C6 AC1200 Gigabit WiFi Router",
@@ -899,7 +933,8 @@
       "pain": "Ghar mein ek hi kamre mein signal aata hai?",
       "fix": "AC1200 dual-band gigabit, 4 antennas, WPA3 security — ghar ka full coverage!",
       "loot_reason": "4.4★ rated router festive price pe — work-from-home ready!",
-      "category": "Electronics"
+      "category": "Electronics",
+      "rating_count": 42726
     },
     {
       "name": "Vinod Zest Marbilo Non-stick Deep Kadai 24cm with Lid",
@@ -913,7 +948,8 @@
       "pain": "Festive season mein kadai ki zaroorat hai par naya mehnga lagta hai?",
       "fix": "5-layer coating, glass lid, soft handle, induction base — sabzi sweets dono!",
       "loot_reason": "Made-in-India kadai — festive price pe!",
-      "category": "Home & Kitchen"
+      "category": "Home & Kitchen",
+      "rating_count": 3722
     },
     {
       "name": "Hawkins Contura Black Pressure Cooker",
@@ -955,7 +991,8 @@
       "pain": "Mehmaano ki chai ke liye baar baar gas jalana?",
       "fix": "1250W fast boil, 304 SS inner body, auto cut-off, cool touch body!",
       "loot_reason": "Havells quality under ₹1600 — festive kitchen essential!",
-      "category": "Home & Kitchen"
+      "category": "Home & Kitchen",
+      "rating_count": 10112
     },
     {
       "name": "Prestige PIC 15.0 Plus Induction Cooktop 1900W",
@@ -969,7 +1006,8 @@
       "pain": "Festive rush mein gas cylinder khatam ho jata hai?",
       "fix": "1900W power, 8 preset menus, push button controls, auto shut-off!",
       "loot_reason": "Prestige brand induction — 4.2★, festive price!",
-      "category": "Home & Kitchen"
+      "category": "Home & Kitchen",
+      "rating_count": 1121
     },
     {
       "name": "Milton Express 800W Grill Sandwich Maker",
@@ -983,7 +1021,8 @@
       "pain": "Subah mein nashte ka time nahi milta?",
       "fix": "800W quick heat, non-stick plates — crispy sandwich 3 min mein!",
       "loot_reason": "₹999 mein branded breakfast maker — festive steal!",
-      "category": "Home & Kitchen"
+      "category": "Home & Kitchen",
+      "rating_count": 1393
     },
     {
       "name": "Borosil Microwave Safe Glass Bowl Set of 6",
@@ -1025,7 +1064,8 @@
       "pain": "Masala, chai patti open packet mein rakhi hai?",
       "fix": "1100ml each, food-grade BPA-free, stackable transparent — kitchen organised!",
       "loot_reason": "₹83 per container branded Milton — festive stock up!",
-      "category": "Home & Kitchen"
+      "category": "Home & Kitchen",
+      "rating_count": 237
     },
     {
       "name": "Prestige Omega Granite Non-stick 3 Pc Cookware Set",
@@ -1039,7 +1079,8 @@
       "pain": "Naya couple ya rishtedar ko ghar ke liye kya dein?",
       "fix": "Omni tawa + fry pan + kadai, 5-layer granite, gas + induction!",
       "loot_reason": "Diwali gifting ka safest option — Prestige 3-piece combo!",
-      "category": "Home & Kitchen"
+      "category": "Home & Kitchen",
+      "rating_count": 1232
     },
     {
       "name": "Cello Checkers Plastic Container Set 12 pc",
@@ -1067,7 +1108,8 @@
       "pain": "Festive guests aane wale hain, dinner set purana ho gaya?",
       "fix": "Tree of Life series, 18 pieces for family of 6, chip-resistant!",
       "loot_reason": "Dinner set under ₹1400 — Diwali hosting hero!",
-      "category": "Home & Kitchen"
+      "category": "Home & Kitchen",
+      "rating_count": 381
     },
     {
       "name": "Hawkins Quik Non-stick Frying Pan Set 3 pc",
@@ -1081,7 +1123,8 @@
       "pain": "Paratha chipak jaata hai, oil zyada lagta hai?",
       "fix": "20+23+25cm, rivet-less non-stick, gas + induction compatible!",
       "loot_reason": "3 pans ₹2030 mein — Hawkins quality, Diwali cooking ready!",
-      "category": "Home & Kitchen"
+      "category": "Home & Kitchen",
+      "rating_count": 831
     },
     {
       "name": "Wonderchef Granite Non-stick Fry Pan 24cm",
@@ -1095,7 +1138,8 @@
       "pain": "Festive sweets ke baad health ka khayal rakhna hai?",
       "fix": "Granite non-stick, oil-free cooking, easy cleanup!",
       "loot_reason": "Wonderchef quality festive price pe — 4★ rated!",
-      "category": "Home & Kitchen"
+      "category": "Home & Kitchen",
+      "rating_count": 181
     },
     {
       "name": "LITVERSE G40 String Lights 25ft Outdoor Waterproof",
@@ -1109,7 +1153,8 @@
       "pain": "Diwali decoration ke liye lights chahiye par bahar wale mehnge hain?",
       "fix": "25ft, 25+1 Edison bulbs, G40 waterproof, connectable — outdoor ready!",
       "loot_reason": "Photo-ready festive vibes — 4.2★ outdoor lights!",
-      "category": "Home Improvement"
+      "category": "Home Improvement",
+      "rating_count": 84
     },
     {
       "name": "Desidiya LED Rope Light 30 Meter",
@@ -1151,7 +1196,8 @@
       "pain": "Asli diya se aag ka dar ya dhuaan pareshan karta hai?",
       "fix": "Warm white flickering flame, battery operated — Diwali, wedding, party sab pe!",
       "loot_reason": "5★ rated decor set — ₹299 mein festive vibes!",
-      "category": "Home Improvement"
+      "category": "Home Improvement",
+      "rating_count": 12
     },
     {
       "name": "Self-Adhesive Rangoli Sticker Set Pack of 4",
@@ -1179,7 +1225,8 @@
       "pain": "Guest aane se pehle entrance kuch festive lagna chahiye?",
       "fix": "10 latkan torans with bells, lotus design — main door + wall sab!",
       "loot_reason": "₹300 mein 10 pieces — 4.5★ festive decor!",
-      "category": "Home Improvement"
+      "category": "Home Improvement",
+      "rating_count": 391
     },
     {
       "name": "BENAVJI Artificial Mogra Garland 60cm with Lotus",
@@ -1221,7 +1268,8 @@
       "pain": "Festive safai mein chimney aur platform ka grease nikalna mushkil?",
       "fix": "All-surface spray, kills 99.9% germs, cuts grease — chimney tak!",
       "loot_reason": "Lizol quality sirf ₹164 — festive stock up!",
-      "category": "Home Improvement"
+      "category": "Home Improvement",
+      "rating_count": 6975
     },
     {
       "name": "Goldmedal i-Design 4-Socket Extension Board 2m",
@@ -1235,7 +1283,8 @@
       "pain": "Decor lights + charger ke liye sockets kam pad rahe hain?",
       "fix": "4 universal sockets, master switch + LED, 2m cord — safe BIS certified!",
       "loot_reason": "4.4★ branded power strip under ₹350 — festive steal!",
-      "category": "Home Improvement"
+      "category": "Home Improvement",
+      "rating_count": 13004
     },
     {
       "name": "Gesto Edison LED Bulb Pack of 8 Warm White",
@@ -1249,7 +1298,8 @@
       "pain": "Ghar ki bulbs badalni hain festive se pehle?",
       "fix": "4W filament LED, 15000hrs, warm white 2700K — pack of 8!",
       "loot_reason": "₹105 per bulb branded — festive home upgrade!",
-      "category": "Home Improvement"
+      "category": "Home Improvement",
+      "rating_count": 380
     },
     {
       "name": "VERVENIX Quick Dry Anti-Skid Bath Mat Pack of 2",
@@ -1263,7 +1313,8 @@
       "pain": "Bathroom floor pe paani reh jaata hai aur guest aa rahe hain?",
       "fix": "Quick-dry, anti-skid, rubber backing — 2 designer mats!",
       "loot_reason": "2 mats ₹249 mein — festive steal!",
-      "category": "Home Improvement"
+      "category": "Home Improvement",
+      "rating_count": 1873
     },
     {
       "name": "SOFTSPUN Microfiber Cleaning Cloth Silk Banded Edges",
@@ -1277,7 +1328,8 @@
       "pain": "Purane kapde se saaf karne pe paani reh jaata hai?",
       "fix": "Silk banded edges, lint-free, scratch-free — kitchen + glass + car!",
       "loot_reason": "4.4★ cleaning cloth — festive safai ka best helper!",
-      "category": "Home Improvement"
+      "category": "Home Improvement",
+      "rating_count": 188
     },
     {
       "name": "NIVEA Shea Smooth Body Lotion Deep Nourish",
@@ -1291,7 +1343,8 @@
       "pain": "Sardi + festive mein skin dry ho rahi hai?",
       "fix": "Hyaluronic acid + shea butter, deep nourish, non-greasy!",
       "loot_reason": "Nivea trusted — 4.4★ festive skincare!",
-      "category": "Beauty & Personal Care"
+      "category": "Beauty & Personal Care",
+      "rating_count": 67549
     },
     {
       "name": "Wild Stone Ultra Sensual Perfume Spray for Men",
@@ -1305,7 +1358,8 @@
       "pain": "Diwali pe bhaiya/papa ko kya gift dein?",
       "fix": "Long-lasting sensual fragrance, gift-ready packing!",
       "loot_reason": "Gifting ka safest pick — perfume under ₹350!",
-      "category": "Beauty & Personal Care"
+      "category": "Beauty & Personal Care",
+      "rating_count": 15421
     },
     {
       "name": "Mamaearth Onion Hair Oil 150ml for Hair Growth",
@@ -1319,7 +1373,8 @@
       "pain": "Festive season mein baal zyada toot rahe hain?",
       "fix": "Onion + bhringraj, reduces hair fall, toxin-free, derma-tested!",
       "loot_reason": "India's #1 hair oil festive price — ₹199 mein!",
-      "category": "Beauty & Personal Care"
+      "category": "Beauty & Personal Care",
+      "rating_count": 39326
     },
     {
       "name": "Philips BT3231 Trimmer for Men 20 Length Settings",
@@ -1361,7 +1416,8 @@
       "pain": "Diwali ke liye ethnic outfit chahiye par budget kam hai?",
       "fix": "Cotton, mandarin collar, ethnic motifs print — office party se puja tak!",
       "loot_reason": "₹697 mein ready-to-wear kurta — festive wardrobe steal!",
-      "category": "Fashion"
+      "category": "Fashion",
+      "rating_count": 800
     },
     {
       "name": "KLOSIA Women Printed Anarkali Kurta Pant Set with Dupatta",
@@ -1375,7 +1431,8 @@
       "pain": "Festive pe pehenne ke liye heavy-looking set chahiye?",
       "fix": "Printed kurta + pant + dupatta set — festive ready-to-wear!",
       "loot_reason": "Full 3-piece set ₹660 mein — 4.1★ festive fashion steal!",
-      "category": "Fashion"
+      "category": "Fashion",
+      "rating_count": 1285
     },
     {
       "name": "Women's Punjabi Jutti Mojari Handmade Embroidered",
@@ -1389,7 +1446,8 @@
       "pain": "Kurti toh li, par pehnne ke liye footwear nahi?",
       "fix": "Handmade embroidered, traditional ethnic slip-on — suits + kurtas dono pe!",
       "loot_reason": "4.5★ handmade juttis under ₹400 — Diwali look complete!",
-      "category": "Fashion"
+      "category": "Fashion",
+      "rating_count": 129
     },
     {
       "name": "Mi 33W SonicCharge Power Adapter with Type-C Cable",
@@ -1417,7 +1475,8 @@
       "pain": "Bachche ke liye ethnic outfit under budget mein nahi milta?",
       "fix": "Kurta + pyjama + waistcoat set, cotton blend, embroidered!",
       "loot_reason": "Photo-ready festive set — 5★ rated!",
-      "category": "Fashion"
+      "category": "Fashion",
+      "rating_count": 93
     }
   ]
 }

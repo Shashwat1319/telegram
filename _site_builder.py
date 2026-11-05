@@ -159,8 +159,8 @@ def category_meta(cat):
     return {
         "slug": slug,
         "h1": f"{cat} Deals on Amazon India",
-        "title": f"{cat} Deals on Amazon India — Verified Offers | SmartGahr",
-        "desc": f"Verified Amazon India {cat.lower()} deals with 4★+ ratings and real price drops. Prices checked daily.",
+        "title": f"{cat} Deals on Amazon India | SmartGahr",
+        "desc": f"Verified Amazon India {cat.lower()} deals: real price drops, 4★+ ratings and honest discounts only. New offers added daily.",
         "intro": [
             f"Hand-picked {cat.lower()} deals from Amazon India — sirf woh offers jinke price humne khud verify kiye: "
             "real discount aur 4★+ rating. Prices roz check hote hain aur expired deals hata diye jaate hain.",
@@ -802,10 +802,30 @@ def build_product_pages(products, page_cats):
             f"{name} — verified Amazon India deal at {price}"
             + (f" ({disc}% off MRP)." if disc else ".")
         )
-        desc = re.sub(r"\s+", " ", desc_src)[:155]
+        desc = re.sub(r"\s+", " ", desc_src)
+        if len(desc) < 110:
+            pad = f" {name} — verified Amazon India deal, real price drop and 4★+ rating."
+            desc = (desc + pad)[:155]
+        else:
+            desc = desc[:155]
 
-        title = f"{name[:60]} at {price}" + (f" — {disc}% Off" if disc else "") + " | SmartGahr"
-        rating_html = f'<span class="deal-rating">⭐ {esc(rating)}/5</span>' if rating else ""
+        # Title <= 60 chars (Google/Ahrefs truncation limit); long names drop price tail.
+        suffix_full = f" at {price}" + (f" — {disc}% Off" if disc else "") + " | SmartGahr"
+        suffix_min = " | SmartGahr"
+        if len(name) + len(suffix_full) <= 60:
+            title = name + suffix_full
+        else:
+            budget = 60 - len(suffix_min) - 1
+            cut = name[:budget]
+            sp = cut.rfind(" ")
+            if sp > 25:
+                cut = cut[:sp]
+            title = cut.rstrip(" ,—-") + "…" + suffix_min
+        rc = p.get("rating_count")
+        rating_html = (
+            f'<span class="deal-rating">⭐ {esc(rating)}/5{f" ({int(rc):,})" if rc else ""}</span>'
+            if rating else ""
+        )
         img_html = (
             f'<div class="deal-media"><img src="{rel}{img}" alt="{esc(name)}" '
             f'width="300" height="300" loading="eager" decoding="async"></div>'
@@ -830,12 +850,15 @@ def build_product_pages(products, page_cats):
             },
         }
         if rating:
-            prod_schema["aggregateRating"] = {
+            agg = {
                 "@type": "AggregateRating",
                 "ratingValue": str(rating),
                 "bestRating": "5",
                 "worstRating": "1",
             }
+            if p.get("rating_count"):
+                agg["ratingCount"] = str(p["rating_count"])
+            prod_schema["aggregateRating"] = agg
         cat_url = (BASE_URL + "/" + category_path(cat)) if cat in page_cats else BASE_URL + "/deals/"
         breadcrumb = {
             "@context": "https://schema.org",
