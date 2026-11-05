@@ -11,6 +11,7 @@ Run:  python _site_builder.py
 import json
 import html
 import re
+import shutil
 from pathlib import Path
 from urllib.parse import quote
 from datetime import date
@@ -993,6 +994,29 @@ def build_sitemap(extra_urls=(), products=(), product_pages=()):
     (SITE_DIR / "sitemap.xml").write_text(doc, encoding="utf-8")
     return len(image_entries)
 
+
+def cleanup_stale_product_pages():
+    """Delete product page dirs no longer built (dormant rows, renamed slugs).
+
+    Keeps category landing pages (deals/<cat>/index.html) and anything not a
+    product page directory with its own index.html.
+    """
+    keep = {p.rstrip("/") for p in PRODUCT_PATHS.values()}
+    removed = 0
+    if not DEALS_DIR.exists():
+        return 0
+    for cat_dir in DEALS_DIR.iterdir():
+        if not cat_dir.is_dir():
+            continue
+        for page_dir in cat_dir.iterdir():
+            if not page_dir.is_dir() or not (page_dir / "index.html").exists():
+                continue
+            rel = page_dir.relative_to(SITE_DIR).as_posix()
+            if rel not in keep:
+                shutil.rmtree(page_dir)
+                removed += 1
+    return removed
+
 def main():
     products = load_products()
     if not products:
@@ -1005,10 +1029,12 @@ def main():
     cats = build_category_pages(products)
     prod_pages = build_product_pages(products, page_cats)
     n_images = build_sitemap(cats, products, prod_pages)
+    removed = cleanup_stale_product_pages()
     print(
         f"Site built: {len(products)} deals -> index.html, deals/index.html, "
         f"{len(cats)} category page(s), {len(prod_pages)} product page(s), "
         f"sitemap.xml ({n_images} images)"
+        + (f", cleaned {removed} stale page(s)" if removed else "")
     )
 
 if __name__ == "__main__":
