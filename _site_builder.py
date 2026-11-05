@@ -228,6 +228,28 @@ def slugify(text):
     return out or "deal"
 
 
+# affiliate link -> site-relative "deals/<category>/<product-slug>/" path.
+# Filled by assign_product_paths() before any page is rendered; deal_card links
+# its title here so every card feeds internal links to the product pages.
+PRODUCT_PATHS = {}
+
+
+def assign_product_paths(products):
+    used = set()
+    for p in products:
+        link = (p.get("link") or "").strip()
+        if not link:
+            continue
+        cat = p.get("category") or "Deals"
+        base = f"deals/{category_meta(cat)['slug']}/{slugify(p.get('name'))}/"
+        path, n = base, 2
+        while path in used:
+            path = base[:-1] + f"-{n}/"
+            n += 1
+        used.add(path)
+        PRODUCT_PATHS[link] = path
+
+
 _IMAGES = None
 
 
@@ -309,6 +331,8 @@ def deal_card(p, rel, pid=""):
     id_attr = f' id="{esc(pid)}"' if pid else ""
     px = int(price_num(p) or 0)
     name = esc(p.get("name"))
+    detail_path = PRODUCT_PATHS.get((p.get("link") or "").strip())
+    title_html = f'<a href="{rel}{detail_path}">{name}</a>' if detail_path else name
     img_file = product_image((p.get("link") or "").strip())
     if img_file:
         media = (
@@ -324,7 +348,7 @@ def deal_card(p, rel, pid=""):
         {badge}
         <div class="deal-body">
           <div class="deal-cat">{icon} {cat}</div>
-          <h3 class="deal-title">{esc(p.get('name'))}</h3>
+          <h3 class="deal-title">{title_html}</h3>
           <div class="deal-price-row">
             <span class="deal-price">{price}</span>
             {f'<span class="deal-mrp">{mrp}</span>' if mrp else ''}
@@ -736,17 +760,192 @@ def build_category_pages(products):
     return built
 
 
-def build_sitemap(extra_urls=(), products=()):
+def build_product_pages(products, page_cats):
+    """One indexable page per deal: unique copy, Product + Breadcrumb schema,
+    related-deals internal links. Returns [(url_path, image_file_or_None)]."""
+    rel = "../../../"
+    built = []
+    by_cat = {}
+    for p in products:
+        by_cat.setdefault(p.get("category") or "Deals", []).append(p)
+
+    for p in products:
+        link = (p.get("link") or "").strip()
+        path = PRODUCT_PATHS.get(link)
+        if not path:
+            continue
+        cat = p.get("category") or "Deals"
+        meta = category_meta(cat)
+        icon = CATEGORY_ICONS.get(cat, "\U0001F6D2")
+        url = f"{BASE_URL}/{path}"
+        name = p.get("name") or "Amazon Deal"
+        hook = (p.get("hook") or "").strip()
+        fix = (p.get("fix") or "").strip()
+        pain = (p.get("pain") or "").strip()
+        loot = (p.get("loot_reason") or "").strip()
+        price = p.get("price") or ""
+        mrp = p.get("mrp") or ""
+        rating = p.get("rating")
+        disc = discount_num(p)
+        img = product_image(link)
+        px = price_num(p)
+
+        desc_src = (hook + " " + fix).strip() or (
+            f"{name} — verified Amazon India deal at {price}"
+            + (f" ({disc}% off MRP)." if disc else ".")
+        )
+        desc = re.sub(r"\s+", " ", desc_src)[:155]
+
+        title = f"{name[:60]} at {price}" + (f" — {disc}% Off" if disc else "") + " | SmartGahr"
+        rating_html = f'<span class="deal-rating">⭐ {esc(rating)}/5</span>' if rating else ""
+        img_html = (
+            f'<div class="deal-media"><img src="{rel}{img}" alt="{esc(name)}" '
+            f'width="300" height="300" loading="eager" decoding="async"></div>'
+            if img
+            else ""
+        )
+        go_href = rel + deal_href(link)
+
+        # Product + Breadcrumb structured data (rich-result eligible)
+        prod_schema = {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": name,
+            "description": desc,
+            "image": (BASE_URL + "/" + img) if img else BASE_URL + "/og-image.jpg",
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "INR",
+                "price": str(px),
+                "url": url,
+                "availability": "https://schema.org/InStock",
+            },
+        }
+        if rating:
+            prod_schema["aggregateRating"] = {
+                "@type": "AggregateRating",
+                "ratingValue": str(rating),
+                "bestRating": "5",
+                "worstRating": "1",
+            }
+        cat_url = (BASE_URL + "/" + category_path(cat)) if cat in page_cats else BASE_URL + "/deals/"
+        breadcrumb = {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL + "/"},
+                {"@type": "ListItem", "position": 2, "name": "All Deals", "item": BASE_URL + "/deals/"},
+                {"@type": "ListItem", "position": 3, "name": cat, "item": cat_url},
+                {"@type": "ListItem", "position": 4, "name": name, "item": url},
+            ],
+        }
+        schema = jsonld(prod_schema) + "\n  " + jsonld(breadcrumb)
+
+        cat_href = rel + (category_path(cat) if cat in page_cats else "deals/")
+        crumb = (
+            f'<nav class="breadcrumb" aria-label="Breadcrumb">'
+            f'<a href="{rel}index.html">Home</a> <span aria-hidden="true">›</span> '
+            f'<a href="{rel}deals/">All Deals</a> <span aria-hidden="true">›</span> '
+            f'<a href="{cat_href}">{esc(cat)}</a> <span aria-hidden="true">›</span> '
+            f"<span>{esc(name[:60])}</span></nav>"
+        )
+
+        others = sorted(
+            (q for q in by_cat.get(cat, []) if q is not p),
+            key=discount_num, reverse=True,
+        )[:6]
+        related = "\n".join(deal_card(q, rel) for q in others)
+        related_html = (
+            f"""  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>More {esc(cat)} deals</h2>
+        <a href="{rel}deals/">View everything →</a>
+      </div>
+      <div class="deal-grid">
+{related}
+      </div>
+    </div>
+  </section>"""
+            if related
+            else ""
+        )
+
+        body_paras = "\n".join(
+            f"      <p>{esc(t)}</p>" for t in (pain, fix, loot) if t
+        )
+        doc = f"""{head(title, desc, url, rel=rel, head_extra=schema)}
+<body id="top">
+<!-- generated by _site_builder.py — do not edit by hand -->
+{build_header(rel)}
+<main>
+  <section class="hero">
+    <div class="container">
+      {crumb}
+      <div class="product-top">
+        {img_html}
+        <div class="product-info">
+          <div class="deal-cat">{icon} {esc(cat)}</div>
+          <h1>{esc(name)}</h1>
+          <div class="deal-price-row">
+            <span class="deal-price deal-price-lg">{esc(price)}</span>
+            {f'<span class="deal-mrp">{esc(mrp)}</span>' if mrp else ''}
+            {rating_html}
+          </div>
+          <a class="btn btn-deal deal-cta" href="{go_href}" rel="nofollow sponsored noopener" target="_blank">View on Amazon →</a>
+          <p class="updated">Verified price · Updated {BUILT_DATE_HUMAN}{" · " + str(disc) + "% off MRP" if disc else ""}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>{esc(hook) if hook else esc(name)}</h2></div>
+{body_paras}
+      <div class="cta-row">
+        <a class="btn btn-deal" href="{go_href}" rel="nofollow sponsored noopener" target="_blank">Check Live Price on Amazon →</a>
+        <a class="btn btn-outline" href="{cat_href}">More {esc(cat)} deals</a>
+      </div>
+    </div>
+  </section>
+
+{related_html}
+</main>
+  <p class="to-top"><a href="#top">↑ Back to top</a></p>
+{build_footer(rel)}
+</body>
+</html>
+"""
+        out_dir = SITE_DIR / path
+        out_dir.mkdir(parents=True, exist_ok=True)
+        (out_dir / "index.html").write_text(doc, encoding="utf-8")
+        built.append(("/" + path, img))
+
+    return built
+
+
+def build_sitemap(extra_urls=(), products=(), product_pages=()):
     """Single sitemap: all pages + product images (Google reads one file, fewer failures)."""
     urls = [
         ("/", "1.0"),
         ("/deals/", "0.9"),
         *[(u, "0.8") for u in extra_urls],
+        *[(u, "0.7") for u, _ in product_pages],
         ("/about.html", "0.3"),
         ("/contact.html", "0.3"),
         ("/privacy.html", "0.2"),
         ("/disclaimer.html", "0.2"),
     ]
+
+    def img_entry(file_rel, name):
+        return (
+            f"    <image:image>\n"
+            f"      <image:loc>{BASE_URL}/{file_rel}</image:loc>\n"
+            f"      <image:title>{name}</image:title>\n"
+            f"      <image:caption>{name} — verified Amazon India deal</image:caption>\n"
+            f"    </image:image>"
+        )
 
     images = load_images()
     image_entries = []
@@ -755,18 +954,26 @@ def build_sitemap(extra_urls=(), products=()):
         if not file_rel:
             continue
         name = esc(p.get("name") or "Amazon deal")
-        image_entries.append(
-            f"    <image:image>\n"
-            f"      <image:loc>{BASE_URL}/{file_rel}</image:loc>\n"
-            f"      <image:title>{name}</image:title>\n"
-            f"      <image:caption>{name} — verified Amazon India deal</image:caption>\n"
-            f"    </image:image>"
-        )
+        image_entries.append(img_entry(file_rel, name))
+    path_names = {
+        "/" + path: esc(p.get("name") or "Amazon deal")
+        for p in products
+        for path in [PRODUCT_PATHS.get((p.get("link") or "").strip())]
+        if path
+    }
+    product_images = {
+        u: img_entry(f, path_names.get(u, "Amazon deal"))
+        for u, f in product_pages if f
+    }
 
     entries = "\n".join(
         f"  <url>\n    <loc>{BASE_URL}{u}</loc>\n    <lastmod>{BUILT_DATE}</lastmod>\n"
         f"    <priority>{pr}</priority>\n"
-        + (chr(10).join(image_entries) + "\n" if u == "/deals/" and image_entries else "")
+        + (
+            (chr(10).join(image_entries) + "\n" if u == "/deals/" and image_entries else "")
+            if u == "/deals/"
+            else (product_images.get(u, "") + "\n" if u in product_images else "")
+        )
         + "  </url>"
         for u, pr in urls
     )
@@ -784,13 +991,17 @@ def main():
     if not products:
         print("No products in product.json — skipping site build")
         return
+    assign_product_paths(products)
     build_index(products)
     build_deals_page(products)
+    page_cats = categories_with_pages(products)
     cats = build_category_pages(products)
-    n_images = build_sitemap(cats, products)
+    prod_pages = build_product_pages(products, page_cats)
+    n_images = build_sitemap(cats, products, prod_pages)
     print(
         f"Site built: {len(products)} deals -> index.html, deals/index.html, "
-        f"{len(cats)} category page(s), sitemap.xml ({n_images} images)"
+        f"{len(cats)} category page(s), {len(prod_pages)} product page(s), "
+        f"sitemap.xml ({n_images} images)"
     )
 
 if __name__ == "__main__":
