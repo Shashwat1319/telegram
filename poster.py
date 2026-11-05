@@ -277,7 +277,7 @@ def generate_high_converting_message(item, post_count=0, clean_id=None):
     is_loot = item.get("is_loot", False)
     body = str(item.get("body", ""))[:150]
 
-    badge = "✅ <b>VERIFIED DEAL — {disc}% OFF</b>" if is_loot else "✅ <b>VERIFIED AMAZON DEAL</b>"
+    badge = f"✅ <b>VERIFIED DEAL — {disc}% OFF</b>" if is_loot else "✅ <b>VERIFIED AMAZON DEAL</b>"
     
     urgency_options = [
         "⏰ Stock limited — grab before sold out!",
