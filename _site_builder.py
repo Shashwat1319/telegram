@@ -333,11 +333,18 @@ def deal_card(p, rel, pid=""):
     name = esc(p.get("name"))
     detail_path = PRODUCT_PATHS.get((p.get("link") or "").strip())
     title_html = f'<a href="{rel}{detail_path}">{name}</a>' if detail_path else name
+    # image follows the title: detail page when we have one, else straight to Amazon
+    media_href = f"{rel}{detail_path}" if detail_path else href
     img_file = product_image((p.get("link") or "").strip())
     if img_file:
+        media_target = (
+            ""
+            if detail_path
+            else ' rel="nofollow sponsored noopener" target="_blank"'
+        )
         media = (
-            f'<a class="deal-media" href="{href}" rel="nofollow sponsored noopener" '
-            f'target="_blank" tabindex="-1" aria-hidden="true">'
+            f'<a class="deal-media" href="{media_href}"{media_target} '
+            f'tabindex="-1" aria-hidden="true">'
             f'<img src="{rel}{img_file}" alt="{name} — Amazon India deal" '
             f'width="300" height="300" loading="lazy" decoding="async"></a>'
         )
