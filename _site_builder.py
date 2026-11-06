@@ -407,6 +407,7 @@ HEADER = """<header class="site-header">
     <nav class="nav">
       <a href="{home}">Home</a>
       <a href="{deals}">Deals</a>
+      <a href="{diwali}">Diwali Sale</a>
       <a href="{about}">About</a>
       <a href="{contact}">Contact</a>
     </nav>
@@ -434,6 +435,7 @@ def build_header(rel):
     return HEADER.format(
         home=rel + "index.html",
         deals=rel + "deals/index.html",
+        diwali=rel + "deals/diwali-sales/",
         about=rel + "about.html",
         contact=rel + "contact.html",
     )
@@ -539,6 +541,16 @@ def build_index(products):
 
   <section class="section">
     <div class="container">
+      <div class="channel-band">
+        <h2>🧨 Diwali Sales 2026 — Flipkart, Myntra & AJIO</h2>
+        <p>Festive sale ke verified links ek jagah — electronics se festive fashion tak.</p>
+        <a class="btn btn-deal" href="deals/diwali-sales/">Check Diwali Sales →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
       <div class="section-head">
         <h2>🏷️ Today's Top Deals</h2>
         <a href="deals/index.html">View all →</a>
@@ -617,6 +629,15 @@ def build_deals_page(products):
         {"".join(jump_chips)}
       </div>
       <p class="filter-note" aria-live="polite"></p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="channel-band">
+        <h2>🧨 Diwali Sales 2026 — Flipkart, Myntra & AJIO</h2>
+        <p>Amazon ke alawa festive sale ke verified links bhi yahin se — compare karke sasta pakdo.</p>
+        <a class="btn btn-deal" href="diwali-sales/">Check Diwali Sales →</a>
+      </div>
     </div>
   </section>
 {body}
@@ -766,6 +787,139 @@ def build_category_pages(products):
         built.append(f"/deals/{slug}/")
 
     return built
+
+
+DIWALI_LINKS = [
+    (
+        "https://fktr.in/ep5oHxG",
+        "\U0001F6CD️",
+        "Flipkart — Diwali Offers & Top Deals",
+        "Electronics, appliances aur home & kitchen ke festive deals — Flipkart ka Offer Zone, jahan roz naye discount aate hain.",
+    ),
+    (
+        "https://fktr.in/HomR51o",
+        "\U0001F6D2",
+        "Flipkart — Poora Store",
+        "Fashion, home aur daily essentials samet poora Flipkart festive catalogue ek click me.",
+    ),
+    (
+        "https://myntr.it/pI776ZO",
+        "\U0001F457",
+        "Myntra — Diwali Fashion Sale",
+        "Ethnic wear, kurta sets, festive outfits aur footwear — fashion ke sabse tez girti hui festive prices.",
+    ),
+    (
+        "https://ajiio.in/8L3K4Wi",
+        "\U0001F3F7️",
+        "AJIO — Diwali Sale",
+        "Branded fashion & lifestyle pe festive offers — Diwali outfit aur gifting ke liye sasta option.",
+    ),
+]
+
+DIWALI_FAQ = [
+    (
+        "Diwali sale kab tak chalta hai?",
+        "Festive season ka main sale Diwali (8 November 2026) ke aas-paas chalta hai — Flipkart aur Amazon ke "
+        "bade Diwali sales October se November tak aate hain, aur uske baad clearance offers bhi chalte rehte hain. "
+        "Har sale page pe live dates aur last-minute deals milti hain.",
+    ),
+    (
+        "In links se khareedne pe price alag hota hai?",
+        "Bilkul nahi. Link pe click karne se aap retailer ke normal page pe pahunchte ho — wahi price, wahi offers. "
+        "Affiliate commission humein retailer se milti hai; buyer se kuch extra nahi liya jata.",
+    ),
+    (
+        "Flipkart aur Myntra — kahan sasta milega?",
+        "Category pe depend karta hai: electronics aur appliances me aam taur pe Flipkart better rehta hai, jabki "
+        "festive fashion (ethnic wear, kurta sets, footwear) me Myntra aur AJIO ke offers tez girti hain. Do page "
+        "kholkar compare karna sabse sasta deal pakadne ka asli tareeka hai.",
+    ),
+    (
+        "Kya SmartGahr sirf Amazon deals dikhata hai?",
+        "Amazon ki verified deals hamara core hain — 59+ live deals, sab 4★+ rated, unhe All Deals page pe dekho. "
+        "Yeh page Diwali ke Flipkart, Myntra aur AJIO sales ke liye hai, taaki festive shopping sabse saste ho.",
+    ),
+]
+
+
+def build_diwali_page(products):
+    """Diwali retail-sale landing page with Flipkart/Myntra/AJIO affiliate links."""
+    page_url = BASE_URL + "/deals/diwali-sales/"
+    rel = "../../"
+    page_cats = categories_with_pages(products)
+    chips = "".join(
+        f'<a class="chip" href="../../{category_path(c)}">'
+        f'{CATEGORY_ICONS.get(c, chr(128722))} {esc(c)}</a>'
+        for c in sorted(page_cats)
+    )
+    cards = "\n".join(
+        f"""  <div class="deal-card" style="padding:20px;">
+    <div class="deal-body">
+      <h3 class="deal-title">{icon} {esc(name)}</h3>
+      <p style="font-size:0.95rem;color:var(--muted);line-height:1.6;">{esc(desc)}</p>
+      <a class="btn btn-deal deal-cta" href="{href}" rel="nofollow sponsored noopener" target="_blank">Sale pe jao →</a>
+    </div>
+  </div>"""
+        for href, icon, name, desc in DIWALI_LINKS
+    )
+    breadcrumb = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL + "/"},
+            {"@type": "ListItem", "position": 2, "name": "All Deals", "item": BASE_URL + "/deals/"},
+            {"@type": "ListItem", "position": 3, "name": "Diwali Sales", "item": page_url},
+        ],
+    }
+    schema = "\n  ".join([jsonld(breadcrumb), jsonld(faq_schema(DIWALI_FAQ))])
+    doc = f"""{head('Diwali Sales 2026 — Flipkart, Myntra & AJIO | SmartGahr', 'Diwali Sales 2026 ke verified sale links — Flipkart, Myntra aur AJIO ke festive offers ek jagah. Real discounts, no fake MRP — Diwali shopping yahan se shuru karo.', page_url, rel=rel, head_extra=schema)}
+<body id="top">
+<!-- generated by _site_builder.py — do not edit by hand -->
+{build_header(rel)}
+<main>
+  <section class="hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">Home</a> <span aria-hidden="true">›</span> <a href="../">All Deals</a> <span aria-hidden="true">›</span> <span>Diwali Sales</span></nav>
+      <h1>🧨 Diwali Sales 2026 — Flipkart, Myntra & AJIO</h1>
+      <p>Diwali (8 November 2026) ke festive sales ke verified links — electronics aur home ke liye Flipkart, festive fashion ke liye Myntra aur AJIO. Sab kuch ek jagah, bina fake MRP ke.</p>
+      <p>Prices daily change hote hain — sale page kholte hi current price check kar lena. Dono platform kholkar compare karna sabse sasta deal pakadne ka asli tareeka hai.</p>
+      <div class="cta-row">
+        <a class="btn btn-telegram" href="{CHANNEL_URL}" rel="noopener">Get Deals on Telegram</a>
+        <a class="btn btn-outline" href="../">Amazon Deals →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>🏬 Diwali Sale Links</h2>
+        <a href="../">Amazon deals →</a>
+      </div>
+      <div class="deal-grid">
+{cards}
+      </div>
+      <p class="updated" style="text-align:center;">Disclosure: is page ke retail links affiliate hain — aapke price pe koi fark nahi padta, commission humein retailer se milta hai.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>🗂️ Verified Amazon deals bhi dekh lo</h2></div>
+      <div class="chips">{chips}</div>
+    </div>
+  </section>
+
+{faq_block(DIWALI_FAQ, "Diwali sales ke baare mein sawaal")}
+</main>
+  <p class="to-top"><a href="#top">↑ Back to top</a></p>
+{build_footer(rel)}
+</body>
+</html>
+"""
+    out_dir = SITE_DIR / "deals" / "diwali-sales"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / "index.html").write_text(doc, encoding="utf-8")
 
 
 def build_product_pages(products, page_cats):
@@ -961,6 +1115,7 @@ def build_sitemap(extra_urls=(), products=(), product_pages=()):
     urls = [
         ("/", "1.0"),
         ("/deals/", "0.9"),
+        ("/deals/diwali-sales/", "0.9"),
         *[(u, "0.8") for u in extra_urls],
         *[(u, "0.7") for u, _ in product_pages],
         ("/about.html", "0.3"),
@@ -1048,6 +1203,7 @@ def main():
     assign_product_paths(products)
     build_index(products)
     build_deals_page(products)
+    build_diwali_page(products)
     page_cats = categories_with_pages(products)
     cats = build_category_pages(products)
     prod_pages = build_product_pages(products, page_cats)
@@ -1055,7 +1211,7 @@ def main():
     removed = cleanup_stale_product_pages()
     print(
         f"Site built: {len(products)} deals -> index.html, deals/index.html, "
-        f"{len(cats)} category page(s), {len(prod_pages)} product page(s), "
+        f"diwali-sales page, {len(cats)} category page(s), {len(prod_pages)} product page(s), "
         f"sitemap.xml ({n_images} images)"
         + (f", cleaned {removed} stale page(s)" if removed else "")
     )
