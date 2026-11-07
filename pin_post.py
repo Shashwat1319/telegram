@@ -68,7 +68,26 @@ CARD = (255, 255, 255)
 GREY = (110, 110, 110)
 
 SITE = "https://smartgahr.netlify.app/deals/"
+ORIGIN = "https://smartgahr.netlify.app/"
 API = "https://api.pinterest.com/v5"
+
+# affiliate link -> product page path (deep links convert far better than the
+# generic /deals/ homepage; built lazily from _site_builder so URLs always match
+# the pages the site actually generates). Any failure = fallback to SITE.
+_PATH_MAP = None
+
+
+def product_page_url(p):
+    global _PATH_MAP
+    if _PATH_MAP is None:
+        try:
+            from _site_builder import assign_product_paths, load_products as _sb_products, PRODUCT_PATHS
+            assign_product_paths(_sb_products())
+            _PATH_MAP = dict(PRODUCT_PATHS)
+        except Exception:
+            _PATH_MAP = {}
+    rel = _PATH_MAP.get((p.get("link") or "").strip())
+    return (ORIGIN + rel) if rel else SITE
 
 # Category -> board name (must match boards created by pinterest_boards.py)
 BOARD_MAP = {
@@ -370,7 +389,7 @@ def upload(items, limit=None):
                 "board_id": board_id,
                 "title": title,
                 "description": desc,
-                "link": SITE,
+                "link": product_page_url(p),
                 "media_source": {
                     "source_type": "image_base64",
                     "content_type": "image/png",
