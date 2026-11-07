@@ -262,6 +262,30 @@ def product_image(link):
     return _IMAGES.get(link)
 
 
+def schema_brand(name):
+    """Extract brand for Product schema (GSC 'no global identifier' fix).
+
+    Known multi-word brands matched first, else first word of the title.
+    """
+    multi = (
+        "TIED RIBBONS", "Pigeon by Stovekraft", "Amazon Basics", "AmazonBasics",
+        "Simple Kind", "Shadow Gecko", "GO24 Pexpo", "Presto!", "PCI Experto",
+        "RO Metal", "Colorbot", "Btag", "Storio", "Lifelong", "Butterfly",
+        "Cello", "Mortein", "Zebronics", "TP-Link", "realme", "GOBOULT",
+        "INEFABLE", "Softspun", "Litverse", "Verofive", "Vervenix", "Goldmedal",
+        "Wipro", "Orient Electric", "Crompton", "Havells", "Milton", "Prestige",
+        "AJ DEZINES", "Majestic Man", "Gesto Edison",
+        "Hawkins", "Pigeon", "Portronics", "Ambrane", "Xiaomi", "Redmi",
+        "Philips", "OnePlus", "Samsung", "Apple", "JBL", "boAt", "Noise",
+        "pTron", "Amazon",
+    )
+    upper = name.upper()
+    for b in multi:
+        if upper.startswith(b.upper()):
+            return b
+    return name.split()[0] if name.split() else "Generic"
+
+
 def jsonld(data):
     """Serialize structured data safely for inline <script>."""
     raw = json.dumps(data, ensure_ascii=False, indent=2)
@@ -995,12 +1019,49 @@ def build_product_pages(products, page_cats):
             "name": name,
             "description": desc,
             "image": (BASE_URL + "/" + img) if img else BASE_URL + "/og-image.jpg",
+            "brand": {"@type": "Brand", "name": schema_brand(name)},
             "offers": {
                 "@type": "Offer",
                 "priceCurrency": "INR",
                 "price": str(px),
                 "url": url,
                 "availability": "https://schema.org/InStock",
+                "itemCondition": "https://schema.org/NewCondition",
+                "hasMerchantReturnPolicy": {
+                    "@type": "MerchantReturnPolicy",
+                    "applicableCountry": "IN",
+                    "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                    "merchantReturnDays": 10,
+                    "returnMethod": "https://schema.org/ReturnByMail",
+                    "returnFees": "https://schema.org/FreeReturn",
+                },
+                "shippingDetails": {
+                    "@type": "OfferShippingDetails",
+                    "shippingRate": {
+                        "@type": "MonetaryAmount",
+                        "value": "0",
+                        "currency": "INR",
+                    },
+                    "shippingDestination": {
+                        "@type": "DefinedRegion",
+                        "addressCountry": "IN",
+                    },
+                    "deliveryTime": {
+                        "@type": "ShippingDeliveryTime",
+                        "handlingTime": {
+                            "@type": "QuantitativeValue",
+                            "minValue": 0,
+                            "maxValue": 1,
+                            "unitCode": "DAY",
+                        },
+                        "transitTime": {
+                            "@type": "QuantitativeValue",
+                            "minValue": 1,
+                            "maxValue": 7,
+                            "unitCode": "DAY",
+                        },
+                    },
+                },
             },
         }
         if rating:
