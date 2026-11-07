@@ -5,6 +5,7 @@ config.json
 # Private plan file — NEVER push
 MASTER_PLAN.md
 EXPENSE_TRACKER.md
+DAILY_LOG.md
 
 # Python
 __pycache__/
