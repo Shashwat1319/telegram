@@ -2,6 +2,7 @@ import os
 import sys
 import time
 import logging
+import logging.handlers
 import asyncio
 import threading
 import signal
@@ -13,15 +14,22 @@ from data import load_json, save_json
 
 load_dotenv()
 
-# Logging setup
+# Logging setup — rotating (max 5MB x 3) so the log never bloats again
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
     handlers=[
-        logging.FileHandler("orchestrator.log", encoding="utf-8"),
+        logging.handlers.RotatingFileHandler(
+            "orchestrator.log",
+            maxBytes=5 * 1024 * 1024,   # 5 MB per file
+            backupCount=3,               # keep orchestrator.log.1/.2/.3
+            encoding="utf-8",
+        ),
         logging.StreamHandler()
     ]
 )
+# httpx logs one INFO line per getUpdates poll (~8.6k lines/day) — silence it
+logging.getLogger("httpx").setLevel(logging.WARNING)
 log = logging.getLogger("orchestrator")
 
 _shutdown = threading.Event()
@@ -213,6 +221,47 @@ def task_product_feed():
             log.error("[FEED] HT feed failed: %s", e)
     except ImportError as e:
         log.error("[FEED] feeder module missing or broken: %s", e)
+    finally:
+        task_site_publish()
+
+
+def task_site_publish():
+    """Rebuild static deal pages from product.json and push to GitHub.
+    Netlify's git integration auto-deploys on push. Only the three generated
+    site files are staged — never the bot's working-tree changes."""
+    import subprocess
+    site_paths = [
+        "netlify-redirector/index.html",
+        "netlify-redirector/deals/index.html",
+        "netlify-redirector/sitemap.xml",
+    ]
+    try:
+        r = subprocess.run([sys.executable, "_site_builder.py"], capture_output=True,
+                           text=True, encoding="utf-8", errors="replace", timeout=120)
+        last = ((r.stdout or "") + (r.stderr or "")).strip().splitlines()
+        log.info("[SITE] builder: %s", last[-1] if last else "(no output)")
+        if r.returncode != 0:
+            log.error("[SITE] builder exited with code %s", r.returncode)
+            return
+        subprocess.run(["git", "add"] + site_paths, check=True,
+                       capture_output=True, timeout=60)
+        chk = subprocess.run(["git", "diff", "--cached", "--quiet"], timeout=60)
+        if chk.returncode == 0:
+            log.info("[SITE] no deal changes — skip commit")
+            return
+        stamp = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        subprocess.run(["git", "commit", "-m", "site: daily deals update %s" % stamp],
+                       check=True, capture_output=True, timeout=60)
+        p = subprocess.run(["git", "push", "origin", "main"], capture_output=True,
+                           text=True, encoding="utf-8", errors="replace", timeout=180)
+        if p.returncode != 0:
+            log.error("[SITE] push failed: %s", ((p.stderr or "").strip())[-200:])
+        else:
+            log.info("[SITE] pushed — Netlify auto-deploy triggered")
+    except subprocess.TimeoutExpired as e:
+        log.error("[SITE] publish timed out: %s", e)
+    except Exception as e:
+        log.error("[SITE] publish failed: %s", e)
 
 
 def task_channel_post():
