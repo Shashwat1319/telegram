@@ -1,0 +1,30 @@
+# SmartGahr — Verified Amazon India Deals
+
+> SmartGahr tracks and verifies Amazon India deals daily: real MRP, real discount, 4★+ ratings only. Prices are checked daily and expired deals are removed. Site owner: Shashwat Srivastava, India. No paid placements — deals are picked on price history, rating and review count.
+
+## Sections
+
+- [All Deals](https://smartgahr.netlify.app/deals/): full list of live deals with price, MRP, discount and rating
+- [Diwali Sales](https://smartgahr.netlify.app/deals/diwali-sales/): festive-season deals and gifting picks
+- [Electronics](https://smartgahr.netlify.app/deals/electronics/): earbuds, smartwatches, speakers, power banks, routers, TVs
+- [Home & Kitchen](https://smartgahr.netlify.app/deals/home-kitchen/): cookware, appliances, storage, kitchen tools
+- [Home Improvement](https://smartgahr.netlify.app/deals/home-improvement/): lighting, fans, smart plugs, electricals, cleaning
+- [Beauty & Personal Care](https://smartgahr.netlify.app/deals/beauty-and-personal-care/): hair care, skin care, grooming
+- [Fashion](https://smartgahr.netlify.app/deals/fashion/): ethnic wear, footwear, accessories
+
+## Trust signals
+
+- Every deal page shows MRP, current price, discount percentage, star rating and rating count
+- Product pages carry structured data (Product, Offer, AggregateRating, Review, Breadcrumb) validated in Google Search Console
+- Prices are re-verified daily; stale or expired deals are deleted from the site
+
+## About
+
+- [About](https://smartgahr.netlify.app/about.html): who runs SmartGahr and how deals are selected
+- [Contact](https://smartgahr.netlify.app/contact.html): contact form
+- [Privacy](https://smartgahr.netlify.app/privacy.html), [Disclaimer](https://smartgahr.netlify.app/disclaimer.html): legal pages
+
+## Optional
+
+- [Sitemap](https://smartgahr.netlify.app/sitemap.xml): 71 URLs — 6 category pages plus individual product pages
+- [Affiliate disclosure](https://smartgahr.netlify.app/disclaimer.html): SmartGahr earns Amazon Associates commission on qualifying purchases; price for the buyer is unchanged
