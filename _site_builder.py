@@ -390,7 +390,61 @@ def deal_card(p, rel, pid=""):
         </div>
       </article>"""
 
-def head(title, desc, canonical, rel="", head_extra=""):
+_IMG_DIMS_CACHE = {}
+
+
+def _img_dims(rel_path):
+    """Parse width/height from a local JPEG/PNG header -> (w, h) or (None, None)."""
+    if rel_path in _IMG_DIMS_CACHE:
+        return _IMG_DIMS_CACHE[rel_path]
+    result = (None, None)
+    try:
+        data = (SITE_DIR / rel_path).read_bytes()
+        if data[:8] == b"\x89PNG\r\n\x1a\n" and len(data) >= 24:
+            result = (
+                int.from_bytes(data[16:20], "big"),
+                int.from_bytes(data[20:24], "big"),
+            )
+        elif data[:2] == b"\xff\xd8":
+            i = 2
+            while i < len(data) - 9:
+                if data[i] != 0xFF:
+                    i += 1
+                    continue
+                marker = data[i + 1]
+                if marker in (0xC0, 0xC1, 0xC2, 0xC3):
+                    result = (
+                        int.from_bytes(data[i + 7:i + 9], "big"),
+                        int.from_bytes(data[i + 5:i + 7], "big"),
+                    )
+                    break
+                if marker in (0xD8, 0xD9) or 0xD0 <= marker <= 0xD7:
+                    i += 2
+                    continue
+                if i + 4 > len(data):
+                    break
+                i += 2 + int.from_bytes(data[i + 2:i + 4], "big")
+    except Exception:
+        result = (None, None)
+    _IMG_DIMS_CACHE[rel_path] = result
+    return result
+
+
+def head(title, desc, canonical, rel="", head_extra="", og_image=""):
+    # og:image must be the page's own image (product pages -> real product photo,
+    # so WhatsApp/Facebook/Telegram shares show the deal, not the generic logo).
+    if og_image:
+        og_img_url = BASE_URL + "/" + og_image.lstrip("/")
+        iw, ih = _img_dims(og_image)
+    else:
+        og_img_url = BASE_URL + "/og-image.jpg"
+        iw, ih = 1200, 630
+    og_dim = (
+        f'  <meta property="og:image:width" content="{iw}">\n'
+        f'  <meta property="og:image:height" content="{ih}">\n'
+        if iw and ih
+        else ""
+    )
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -411,12 +465,15 @@ def head(title, desc, canonical, rel="", head_extra=""):
   <meta property="og:description" content="{esc(desc)}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{esc(canonical)}">
-  <meta property="og:image" content="{BASE_URL}/og-image.jpg">
+  <meta property="og:image" content="{og_img_url}">
+{og_dim}  <meta property="og:image:alt" content="{esc(title)}">
   <meta property="og:site_name" content="SmartGahr">
+  <meta property="og:locale" content="en_IN">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{esc(title)}">
   <meta name="twitter:description" content="{esc(desc)}">
-  <meta name="twitter:image" content="{BASE_URL}/og-image.jpg">
+  <meta name="twitter:image" content="{og_img_url}">
+  <meta name="twitter:image:alt" content="{esc(title)}">
   <meta name="google-site-verification" content="kDpUhMVkIw8yo4plaH4RPhK0HuJbo_boNpSStxonc34" />
   <meta name="p:domain_verify" content="cf62f1ed7feba30bde14957942317589" />
   <link rel="stylesheet" href="{rel}style.css">
@@ -946,6 +1003,143 @@ def build_diwali_page(products):
     (out_dir / "index.html").write_text(doc, encoding="utf-8")
 
 
+_OG_VERSION = "2"  # bump when the card design changes (invalidates og/*.jpg cache)
+
+
+def make_og_image(name, price, mrp, disc, rating, rc, img_rel, slug):
+    """1200x630 share card (product photo + price + brand) for WhatsApp/FB/Twitter
+    previews. Raw product photos are square/portrait and get centre-cropped to
+    1.91:1 — this canvas keeps the product intact and shows the price.
+    Returns site-relative path ('og/<slug>.jpg') or None -> caller falls back."""
+    if not img_rel or not slug:
+        return None
+    try:
+        from PIL import Image, ImageDraw, ImageFont
+    except Exception:
+        return None
+
+    safe_slug = re.sub(r"[^a-z0-9-]", "-", slug.lower()).strip("-")
+    if not safe_slug:
+        return None
+    out_rel = f"og/{safe_slug}.jpg"
+    src, out = SITE_DIR / img_rel, SITE_DIR / out_rel
+    try:
+        if not src.exists():
+            return None
+        try:
+            ver = (SITE_DIR / "og" / ".version").read_text(encoding="utf-8").strip()
+        except Exception:
+            ver = ""
+        if ver == _OG_VERSION and out.exists() and out.stat().st_mtime >= src.stat().st_mtime:
+            return out_rel
+
+        def font(size, bold=True):
+            paths = (
+                [r"C:\Windows\Fonts\segoeuib.ttf", r"C:\Windows\Fonts\arialbd.ttf"]
+                if bold
+                else [r"C:\Windows\Fonts\segoeui.ttf", r"C:\Windows\Fonts\arial.ttf"]
+            )
+            for fp in paths:
+                try:
+                    return ImageFont.truetype(fp, size)
+                except Exception:
+                    continue
+            return ImageFont.load_default()
+
+        f_brand, f_name = font(44), font(46)
+        f_price, f_small, f_badge, f_foot = font(74), font(30), font(26, False), font(26, False)
+
+        def ok(fnt, ch):
+            try:
+                return fnt.getbbox(ch)[2] > fnt.getbbox("\ue123")[2] or fnt.getbbox(ch) != fnt.getbbox("\ue123")
+            except Exception:
+                return False
+
+        def clean(text):
+            text = re.sub(r"\s+", " ", str(text or "")).strip()
+            for ch, alt in (("₹", "Rs. "), ("★", "")):
+                if ch in text and not ok(f_price, ch):
+                    text = text.replace(ch, alt)
+            return text
+
+        W, H = 1200, 630
+        canvas = Image.new("RGB", (W, H), "#ffffff")
+        d = ImageDraw.Draw(canvas)
+        d.rectangle([0, 0, W, 14], fill="#4f46e5")                     # brand bar
+        d.rounded_rectangle([40, 54, 500, 586], radius=18, fill="#f6f7fb", outline="#e5e7eb", width=2)
+
+        # product photo: contain inside the left panel (never crop)
+        try:
+            ph = Image.open(src)
+            ph = ph.convert("RGB")
+            bw, bh = 412, 484
+            scale = min(bw / ph.width, bh / ph.height)
+            ph = ph.resize((max(1, int(ph.width * scale)), max(1, int(ph.height * scale))), Image.LANCZOS)
+            canvas.paste(ph, (40 + (460 - ph.width) // 2, 54 + (532 - ph.height) // 2))
+        except Exception:
+            pass
+
+        x0, x1 = 540, 1160
+        d.text((x0, 66), "SmartGahr", font=f_brand, fill="#4f46e5")
+        d.text((x1, 76), "PRICE VERIFIED · 4.0+ RATED", font=f_badge, fill="#047857", anchor="ra")
+
+        # product name (max 3 lines)
+        words, lines, cur = clean(name).split(), [], ""
+        for w in words:
+            t = (cur + " " + w).strip()
+            if d.textbbox((0, 0), t, font=f_name)[2] <= x1 - x0:
+                cur = t
+            else:
+                if cur:
+                    lines.append(cur)
+                cur = w
+        if cur:
+            lines.append(cur)
+        if len(lines) > 3:
+            lines = lines[:3]
+            lines[-1] = lines[-1].rstrip(" ,—-") + "…"
+        y = 138
+        for ln in lines:
+            d.text((x0, y), ln, font=f_name, fill="#0f172a")
+            y += 56
+        y += 26
+
+        # price + struck MRP + % off badge
+        price_t, mrp_t = clean(price), clean(mrp)
+        if price_t:
+            d.text((x0, y), price_t, font=f_price, fill="#047857")
+            pw = d.textbbox((0, 0), price_t, font=f_price)[2]
+            if mrp_t and mrp_t != price_t:
+                mx = x0 + pw + 26
+                d.text((mx, y + 40), mrp_t, font=f_small, fill="#64748b")
+                mw = d.textbbox((0, 0), mrp_t, font=f_small)[2]
+                d.line([mx, y + 56, mx + mw, y + 56], fill="#64748b", width=2)
+            if disc:
+                bx = x0 + pw + 26 + (d.textbbox((0, 0), mrp_t, font=f_small)[2] + 26 if mrp_t and mrp_t != price_t else 0)
+                bt = f"{disc}% OFF"
+                bw2 = d.textbbox((0, 0), bt, font=f_badge)[2] + 28
+                if bx + bw2 <= x1:
+                    d.rounded_rectangle([bx, y + 18, bx + bw2, y + 66], radius=10, fill="#f59e0b")
+                    d.text((bx + 14, y + 28), bt, font=f_badge, fill="#ffffff")
+            y += 104
+
+        # rating line
+        if rating:
+            rt = f"{rating}/5" + (f"  ·  {int(rc):,} ratings" if rc else "  ·  verified rating")
+            d.text((x0, y), clean(rt), font=f_small, fill="#b45309")
+            y += 50
+
+        # footer
+        d.text((x0, 556), "smartgahr.netlify.app", font=f_foot, fill="#64748b")
+        d.ellipse([x0 - 22, 563, x0 - 8, 577], fill="#f59e0b")
+
+        out.parent.mkdir(parents=True, exist_ok=True)
+        canvas.save(out, "JPEG", quality=86, optimize=True)
+        return out_rel
+    except Exception:
+        return None
+
+
 def build_product_pages(products, page_cats):
     """One indexable page per deal: unique copy, Product + Breadcrumb schema,
     related-deals internal links. Returns [(url_path, image_file_or_None)]."""
@@ -1120,7 +1314,11 @@ def build_product_pages(products, page_cats):
         body_paras = "\n".join(
             f"      <p>{esc(t)}</p>" for t in (pain, fix, loot) if t
         )
-        doc = f"""{head(title, desc, url, rel=rel, head_extra=schema)}
+        og_rel = make_og_image(
+            name, price, mrp, disc, rating, p.get("rating_count"), img,
+            (path or "").rstrip("/").split("/")[-1],
+        )
+        doc = f"""{head(title, desc, url, rel=rel, head_extra=schema, og_image=og_rel or img or "")}
 <body id="top">
 <!-- generated by _site_builder.py — do not edit by hand -->
 {build_header(rel)}
@@ -1167,6 +1365,14 @@ def build_product_pages(products, page_cats):
         out_dir.mkdir(parents=True, exist_ok=True)
         (out_dir / "index.html").write_text(doc, encoding="utf-8")
         built.append(("/" + path, img))
+
+    # every card is now this design version -> mark the og/ cache valid
+    try:
+        og_dir = SITE_DIR / "og"
+        og_dir.mkdir(parents=True, exist_ok=True)
+        (og_dir / ".version").write_text(_OG_VERSION, encoding="utf-8")
+    except Exception:
+        pass
 
     return built
 
