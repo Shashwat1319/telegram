@@ -1,5 +1,5 @@
 # Pinterest drip upload — runs in GitHub's cloud (laptop gets ZERO load).
-# Uploads 2 deal pins/day (staggered) using pin_post.py; duplicate-safe via
+# Uploads 6 deal pins/day total (3 per run x 2 runs) using pin_post.py; duplicate-safe via
 # pins_pinned.json which is committed back after each run.
 # Requires secret: PINTEREST_ACCESS_TOKEN in the "telegram" environment
 # (environment must be declared below, otherwise the job receives it empty).
@@ -32,12 +32,12 @@ jobs:
       - name: Install deps
         run: pip install pillow requests
 
-      - name: Upload 2 pins
+      - name: Upload 3 pins
         id: upload
         continue-on-error: true
         env:
           PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
-        run: python pin_post.py --daily 2
+        run: python pin_post.py --daily 3
 
       # Always commit the run report (pinterest_status.json) so failures are
       # diagnosable from the repo without opening Actions logs.
