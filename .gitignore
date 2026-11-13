@@ -80,6 +80,7 @@ orchestrator_state.json
 netlify-redirector/site_settings.json
 reminder_state.json
 swap_dm_state.json
+track_a_state.json
 member_pool.json
 member_dm_state.json
 member_scrape_state.json
