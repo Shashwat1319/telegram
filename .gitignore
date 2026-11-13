@@ -6,6 +6,7 @@ config.json
 MASTER_PLAN.md
 EXPENSE_TRACKER.md
 DAILY_LOG.md
+PROGRESS.md
 
 # Python
 __pycache__/
