@@ -23,6 +23,7 @@ SITE_DIR = ROOT / "netlify-redirector"
 DEALS_DIR = SITE_DIR / "deals"
 BASE_URL = "https://smartgahr.netlify.app"
 CHANNEL_URL = "https://t.me/smartgahr"
+WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029VbA209B17EmmO7QhYe0w"
 BUILT_DATE = date.today().strftime("%Y-%m-%d")
 BUILT_DATE_HUMAN = f"{date.today().day} {date.today().strftime('%b %Y')}"
 
@@ -505,6 +506,7 @@ FOOTER = """<footer class="site-footer">
         <a href="{deals}">Deals</a>
         <a href="{about}">About</a>
         <a href="{contact}">Contact</a>
+        <a href="{whatsapp}" rel="noopener">WhatsApp Channel</a>
         <a href="{privacy}">Privacy</a>
         <a href="{disclaimer}">Disclaimer</a>
       </div>
@@ -535,6 +537,7 @@ def build_footer(rel):
         deals=rel + "deals/index.html",
         about=rel + "about.html",
         contact=rel + "contact.html",
+        whatsapp=WHATSAPP_CHANNEL_URL,
         privacy=rel + "privacy.html",
         disclaimer=rel + "disclaimer.html",
     )
@@ -550,7 +553,7 @@ JSONLD_HOME = """<script type="application/ld+json">
       "@type": "Organization",
       "name": "SmartGahr",
       "url": "https://smartgahr.netlify.app/",
-      "sameAs": ["https://t.me/smartgahr"]
+      "sameAs": ["https://t.me/smartgahr", "https://whatsapp.com/channel/0029VbA209B17EmmO7QhYe0w"]
     }
   }
   </script>"""
