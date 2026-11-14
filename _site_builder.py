@@ -489,6 +489,7 @@ HEADER = """<header class="site-header">
       <a href="{home}">Home</a>
       <a href="{deals}">Deals</a>
       <a href="{diwali}">Diwali Sale</a>
+      <a href="{bf}">Black Friday</a>
       <a href="{about}">About</a>
       <a href="{contact}">Contact</a>
     </nav>
@@ -517,6 +518,7 @@ def build_header(rel):
         home=rel + "index.html",
         deals=rel + "deals/index.html",
         diwali=rel + "deals/diwali-sales/",
+        bf=rel + "deals/black-friday/",
         about=rel + "about.html",
         contact=rel + "contact.html",
     )
@@ -623,9 +625,9 @@ def build_index(products):
   <section class="section">
     <div class="container">
       <div class="channel-band">
-        <h2>🧨 Diwali Sales 2026 — Flipkart, Myntra & AJIO</h2>
-        <p>Festive sale ke verified links ek jagah — electronics se festive fashion tak.</p>
-        <a class="btn btn-deal" href="deals/diwali-sales/">Check Diwali Sales →</a>
+        <h2>🖤 Black Friday Sale 2026 — 27 Nov | Flipkart, Myntra & AJIO</h2>
+        <p>November ki sabse badi sale ke verified links ek jagah — electronics se winter fashion tak.</p>
+        <a class="btn btn-deal" href="deals/black-friday/">Check Black Friday Sale →</a>
       </div>
     </div>
   </section>
@@ -715,9 +717,9 @@ def build_deals_page(products):
   <section class="section">
     <div class="container">
       <div class="channel-band">
-        <h2>🧨 Diwali Sales 2026 — Flipkart, Myntra & AJIO</h2>
-        <p>Amazon ke alawa festive sale ke verified links bhi yahin se — compare karke sasta pakdo.</p>
-        <a class="btn btn-deal" href="diwali-sales/">Check Diwali Sales →</a>
+        <h2>🖤 Black Friday Sale 2026 — 27 Nov | Flipkart, Myntra & AJIO</h2>
+        <p>Amazon ke alawa November ki sabse badi sale ke verified links bhi yahin se — compare karke sasta pakdo.</p>
+        <a class="btn btn-deal" href="black-friday/">Check Black Friday Sale →</a>
       </div>
     </div>
   </section>
@@ -999,6 +1001,139 @@ def build_diwali_page(products):
 </html>
 """
     out_dir = SITE_DIR / "deals" / "diwali-sales"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / "index.html").write_text(doc, encoding="utf-8")
+
+
+BF_LINKS = [
+    (
+        "https://fktr.in/ep5oHxG",
+        "\U0001F525",
+        "Flipkart — Black Friday Deals",
+        "Electronics, appliances aur gadgets pe November ki sabse tez girti prices — Flipkart ka Black Friday hub.",
+    ),
+    (
+        "https://fktr.in/HomR51o",
+        "\U0001F6D2",
+        "Flipkart — Poora Store",
+        "Fashion, home aur daily essentials samet poora Flipkart catalogue ek click me — BF prices ke saath.",
+    ),
+    (
+        "https://myntr.it/pI776ZO",
+        "\U0001F457",
+        "Myntra — Black Friday Fashion Sale",
+        "Winter wear, jackets, ethnic aur footwear — Myntra pe Black Friday me fashion sabse tez girta hai.",
+    ),
+    (
+        "https://ajiio.in/8L3K4Wi",
+        "\U0001F3F7️",
+        "AJIO — Black Friday Sale",
+        "Branded fashion & lifestyle pe Black Friday offers — premium brands pe deep discounts.",
+    ),
+]
+
+BF_FAQ = [
+    (
+        "Black Friday 2026 kab hai?",
+        "Black Friday 2026 = 27 November 2026 (Friday), uske saath Cyber Monday 30 November. "
+        "India me Flipkart, Myntra, AJIO aur Amazon ye sale 24-30 November tak chalti hai — "
+        "aur pehli wave (24-26 November) me often best prices milte hain, kyunki stock limited hota hai.",
+    ),
+    (
+        "In links se khareedne pe price alag hota hai?",
+        "Bilkul nahi. Link pe click karne se aap retailer ke normal page pe pahunchte ho — wahi price, wahi offers. "
+        "Affiliate commission humein retailer se milti hai; buyer se kuch extra nahi liya jata.",
+    ),
+    (
+        "Flipkart aur Myntra — Black Friday pe kahan sasta milega?",
+        "Category pe depend karta hai: electronics, appliances aur gadgets me Flipkart better rehta hai, jabki "
+        "fashion (jackets, winter wear, ethnic, footwear) me Myntra aur AJIO ke offers tez girti hain. Do page "
+        "kholkar compare karna sabse sasta deal pakadne ka asli tareeka hai.",
+    ),
+    (
+        "Kya SmartGahr sirf Amazon deals dikhata hai?",
+        "Amazon ki verified deals hamara core hain — 59+ live deals, sab 4★+ rated, unhe All Deals page pe dekho. "
+        "Yeh page Black Friday ke Flipkart, Myntra aur AJIO sales ke liye hai, taaki November shopping sabse saste ho.",
+    ),
+]
+
+
+def build_blackfriday_page(products):
+    """Black Friday retail-sale landing page with Flipkart/Myntra/AJIO affiliate links."""
+    page_url = BASE_URL + "/deals/black-friday/"
+    rel = "../../"
+    page_cats = categories_with_pages(products)
+    chips = "".join(
+        f'<a class="chip" href="../../{category_path(c)}">'
+        f'{CATEGORY_ICONS.get(c, chr(128722))} {esc(c)}</a>'
+        for c in sorted(page_cats)
+    )
+    cards = "\n".join(
+        f"""  <div class="deal-card" style="padding:20px;">
+    <div class="deal-body">
+      <h3 class="deal-title">{icon} {esc(name)}</h3>
+      <p style="font-size:0.95rem;color:var(--muted);line-height:1.6;">{esc(desc)}</p>
+      <a class="btn btn-deal deal-cta" href="{href}" rel="nofollow sponsored noopener" target="_blank">Sale pe jao →</a>
+    </div>
+  </div>"""
+        for href, icon, name, desc in BF_LINKS
+    )
+    breadcrumb = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE_URL + "/"},
+            {"@type": "ListItem", "position": 2, "name": "All Deals", "item": BASE_URL + "/deals/"},
+            {"@type": "ListItem", "position": 3, "name": "Black Friday", "item": page_url},
+        ],
+    }
+    schema = "\n  ".join([jsonld(breadcrumb), jsonld(faq_schema(BF_FAQ))])
+    doc = f"""{head('Black Friday Sale 2026 India (27 Nov) — Flipkart, Myntra & AJIO | SmartGahr', 'Black Friday Sale 2026 India ke verified links — 27 November ko Flipkart, Myntra aur AJIO ke best offers ek jagah. Real discounts, no fake MRP — Black Friday shopping yahan se shuru karo.', page_url, rel=rel, head_extra=schema)}
+<body id="top">
+<!-- generated by _site_builder.py — do not edit by hand -->
+{build_header(rel)}
+<main>
+  <section class="hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../index.html">Home</a> <span aria-hidden="true">›</span> <a href="../">All Deals</a> <span aria-hidden="true">›</span> <span>Black Friday</span></nav>
+      <h1>🖤 Black Friday Sale 2026 India — 27 November</h1>
+      <p>Black Friday 2026 (27 November) ke verified sale links — electronics aur gadgets ke liye Flipkart, fashion ke liye Myntra aur AJIO. Sab kuch ek jagah, bina fake MRP ke.</p>
+      <p>Sale 24-30 November waves me chalti hai — prices daily change hote hain, page kholte hi current price check kar lena. Do platform kholkar compare karna sabse sasta deal pakadne ka asli tareeka hai.</p>
+      <div class="cta-row">
+        <a class="btn btn-telegram" href="{CHANNEL_URL}" rel="noopener">Get Deals on Telegram</a>
+        <a class="btn btn-outline" href="../">Amazon Deals →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>🏬 Black Friday Sale Links</h2>
+        <a href="../">Amazon deals →</a>
+      </div>
+      <div class="deal-grid">
+{cards}
+      </div>
+      <p class="updated" style="text-align:center;">Disclosure: is page ke retail links affiliate hain — aapke price pe koi fark nahi padta, commission humein retailer se milta hai.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>🗂️ Verified Amazon deals bhi dekh lo</h2></div>
+      <div class="chips">{chips}</div>
+    </div>
+  </section>
+
+{faq_block(BF_FAQ, "Black Friday sales ke baare mein sawaal")}
+</main>
+  <p class="to-top"><a href="#top">↑ Back to top</a></p>
+{build_footer(rel)}
+</body>
+</html>
+"""
+    out_dir = SITE_DIR / "deals" / "black-friday"
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "index.html").write_text(doc, encoding="utf-8")
 
@@ -1383,6 +1518,7 @@ def build_sitemap(extra_urls=(), products=(), product_pages=()):
         ("/", "1.0"),
         ("/deals/", "0.9"),
         ("/deals/diwali-sales/", "0.9"),
+        ("/deals/black-friday/", "0.9"),
         *[(u, "0.8") for u in extra_urls],
         *[(u, "0.7") for u, _ in product_pages],
         ("/about.html", "0.3"),
@@ -1471,6 +1607,7 @@ def main():
     build_index(products)
     build_deals_page(products)
     build_diwali_page(products)
+    build_blackfriday_page(products)
     page_cats = categories_with_pages(products)
     cats = build_category_pages(products)
     prod_pages = build_product_pages(products, page_cats)
