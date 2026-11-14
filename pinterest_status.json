@@ -1,11 +1,11 @@
 {
   "token_present": true,
   "boards_found": 8,
-  "uploaded": 3,
+  "uploaded": 5,
   "failed": 0,
   "skipped": 0,
   "errors": [],
-  "finished_at": "2026-11-13T19:55:42Z",
-  "limit": 3,
-  "pinned_total": 57
+  "finished_at": "2026-11-14T13:42:56Z",
+  "limit": 5,
+  "pinned_total": 62
 }
