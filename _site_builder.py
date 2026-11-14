@@ -523,6 +523,12 @@ def build_header(rel):
         contact=rel + "contact.html",
     )
 
+def wa_share(page_url, lead=""):
+    """WhatsApp share intent (wa.me) — opens the share picker with prefilled
+    text + link. Free, no API. Visitor ke 1 tap = uske contacts tak forwarded."""
+    return "https://wa.me/?text=" + quote((lead + " " + page_url).strip())
+
+
 def build_footer(rel):
     return FOOTER.format(
         home=rel + "index.html",
@@ -618,6 +624,7 @@ def build_index(products):
       <div class="cta-row">
         <a class="btn btn-telegram" href="{CHANNEL_URL}" rel="noopener">Join Telegram Channel</a>
         <a class="btn btn-outline" href="deals/index.html">Browse All Deals</a>
+        <a class="btn btn-wa" href="{wa_share(BASE_URL + '/', 'SmartGahr — ' + str(len(products)) + ' verified Amazon deals (4★+), roz update:')}" rel="noopener nofollow" target="_blank">Share on WhatsApp</a>
       </div>
     </div>
   </section>
@@ -749,7 +756,10 @@ def build_deals_page(products):
       <div class="channel-band">
         <h2>📲 Roj naye deals Telegram par</h2>
         <p>Sabse tez deals paane ke liye channel join karo.</p>
-        <a class="btn btn-telegram" href="{CHANNEL_URL}" rel="noopener">Join @smartgahr Free</a>
+        <div class="cta-row">
+          <a class="btn btn-telegram" href="{CHANNEL_URL}" rel="noopener">Join @smartgahr Free</a>
+          <a class="btn btn-wa" href="{wa_share(BASE_URL + '/deals/', str(len(products)) + ' verified Amazon deals ek jagah — 4★+ rated, roz update:')}" rel="noopener nofollow" target="_blank">Share on WhatsApp</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1485,6 +1495,7 @@ def build_product_pages(products, page_cats):
       <div class="cta-row">
         <a class="btn btn-deal" href="{go_href}" rel="nofollow sponsored noopener" target="_blank">Check Live Price on Amazon →</a>
         <a class="btn btn-outline" href="{cat_href}">More {esc(cat)} deals</a>
+        <a class="btn btn-wa" href="{wa_share(url, 'Deal: ' + name + ' at ' + str(price) + ' —')}" rel="noopener nofollow" target="_blank">Share on WhatsApp</a>
       </div>
     </div>
   </section>

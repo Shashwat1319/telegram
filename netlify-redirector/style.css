@@ -102,6 +102,8 @@ img { max-width: 100%; display: block; }
   z-index: 2;               /* stays clickable above the card-wide link overlay */
 }
 .btn-deal:hover { background: linear-gradient(135deg, var(--green), var(--green-dark)); }
+.btn-wa { background: #25d366; color: #fff; }
+.btn-wa:hover { background: #1ebe57; }
 
 /* ---- Section ---- */
 .section { padding: 36px 0; }
