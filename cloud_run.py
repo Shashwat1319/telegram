@@ -91,12 +91,25 @@ def _mark_run(state, task):
 # ── tasks ─────────────────────────────────────────────────────────────────────
 
 def run_channel_post():
-    """Post 1 deal to Telegram channel (from content_home.json / content_bdia.json)."""
+    """Post to Telegram channels — cloud is the SINGLE channel poster.
+
+    Local orchestrator channel_posting is disabled (config.json) so cadence is
+    enforced only here: 3 fixed slots/day IST 9:30/13:30/19:30 (hour gate in
+    main), cap 3 deals + 1 high-ticket + 1 bounty line per channel/day.
+    Overrides below beat config.example.json (the cloud config) so both
+    machines agree on the same caps — channel promises "Daily 3 deals".
+    """
     try:
-        from poster import post_next_deal
-        log.info("[CHANNEL] Running channel post...")
+        import poster
+        SLOTS = [[9, 10], [13, 14], [19, 20]]
+        for c in poster.CHANNELS:
+            c["window_ist"] = [list(w) for w in SLOTS]
+            c["max_posts_per_day"] = 3
+            c["ht_posts_per_day"] = min(int(c.get("ht_posts_per_day") or 0), 1)
+        poster.content_cfg["bounty_posts_per_day"] = 1
+        log.info("[CHANNEL] Running channel post (3-slot cadence)...")
         # post_next_deal calls asyncio.run(post_content()) internally
-        post_next_deal()
+        poster.post_next_deal()
         log.info("[CHANNEL] Done.")
     except Exception as e:
         log.error("[CHANNEL] Failed: %s", e)
