@@ -17,7 +17,7 @@ import asyncio
 import json
 import os
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 try:
     from dotenv import load_dotenv
@@ -196,7 +196,13 @@ def main():
     state = load_state()
 
     if args.task == "all" or args.task == "channel":
-        if _should_run(state, "channel_post", 2):  # every 2 hours
+        # 3 posts/day rule (growth research): slots at IST 9-10, 13-14, 19-20
+        # (workflow cron runs at UTC 04:00/08:00/14:00 = IST 09:30/13:30/19:30)
+        ist_now = datetime.now(timezone.utc) + timedelta(hours=5, minutes=30)
+        slot_ok = ist_now.hour in (9, 13, 19)
+        if not slot_ok:
+            log.info("[CHANNEL] Skipped (3/day slot rule — next slots IST 9:30/13:30/19:30)")
+        elif _should_run(state, "channel_post", 4):
             run_channel_post()
             _mark_run(state, "channel_post")
         else:

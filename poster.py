@@ -185,7 +185,7 @@ CTA_OPTIONS = [
     "❓ Is price pe khareedna chahiye ya wait karein? Comment karo",
     "🏷️ Kisi aur cheez ka deal chahiye? Comment me batao — dhundh ke layenge!",
     "🔥 Ye deal 24 ghante mein expire ho sakti hai — jaldi karo!",
-    "📦 Maine khud ye order kiya hai — quality guaranteed! 💯",
+    "✅ Live price + rating check karke hi lena — deal daily change hoti hai",
     "🎯 Budget under ₹999 me aur kya chahiye? Comment karo!",
 ]
 
