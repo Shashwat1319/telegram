@@ -94,10 +94,10 @@ def run_channel_post():
     """Post to Telegram channels — cloud is the SINGLE channel poster.
 
     Local orchestrator channel_posting is disabled (config.json) so cadence is
-    enforced only here: 3 fixed slots/day IST 9:30/13:30/19:30 (hour gate in
-    main), cap 3 deals + 1 high-ticket + 1 bounty line per channel/day.
-    Overrides below beat config.example.json (the cloud config) so both
-    machines agree on the same caps — channel promises "Daily 3 deals".
+    enforced only here: daytime window (08:00-21:59 IST — gate in main; GH cron
+    lands at random times, 2-3 runs/day) + cap 3 deals + 1 high-ticket + 1
+    bounty line per channel/day. Overrides below beat config.example.json (the
+    cloud config) so both machines agree — channel promises "Daily 3 deals".
     """
     try:
         import poster
@@ -209,13 +209,14 @@ def main():
     state = load_state()
 
     if args.task == "all" or args.task == "channel":
-        # 3 posts/day rule (growth research): slots at IST 9-10, 13-14, 19-20
-        # (workflow cron runs at UTC 04:00/08:00/14:00 = IST 09:30/13:30/19:30)
+        # GH free-tier cron lands at RANDOM times (observed: 2-3 runs/day, delays
+        # 60-90 min) — exact slots are unenforceable. Gate = daytime only;
+        # the daily cap of 3 lives in run_channel_post (both paths).
         ist_now = datetime.now(timezone.utc) + timedelta(hours=5, minutes=30)
-        slot_ok = ist_now.hour in (9, 13, 19)
-        if not slot_ok:
-            log.info("[CHANNEL] Skipped (3/day slot rule — next slots IST 9:30/13:30/19:30)")
-        elif _should_run(state, "channel_post", 4):
+        day_ok = 8 <= ist_now.hour <= 21
+        if not day_ok:
+            log.info("[CHANNEL] Skipped (daytime window 08:00-21:59 IST)")
+        elif _should_run(state, "channel_post", 2):
             run_channel_post()
             _mark_run(state, "channel_post")
         else:
