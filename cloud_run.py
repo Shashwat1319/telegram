@@ -101,13 +101,17 @@ def run_channel_post():
     """
     try:
         import poster
-        SLOTS = [[9, 10], [13, 14], [19, 20]]
+        # GH free cron lands at RANDOM times (2-3/day, any hour) — narrow slots
+        # meant most runs skipped and some days got 0 posts. Window = whole
+        # daytime (poster checks it); the anti-spam limits are the daily caps
+        # below. Outer gate in main() already restricts to 08:00-21:59 IST.
+        SLOTS = [[8, 22]]
         for c in poster.CHANNELS:
             c["window_ist"] = [list(w) for w in SLOTS]
             c["max_posts_per_day"] = 3
             c["ht_posts_per_day"] = min(int(c.get("ht_posts_per_day") or 0), 1)
         poster.content_cfg["bounty_posts_per_day"] = 1
-        log.info("[CHANNEL] Running channel post (3-slot cadence)...")
+        log.info("[CHANNEL] Running channel post (daytime window, cap 3/day)...")
         # post_next_deal calls asyncio.run(post_content()) internally
         poster.post_next_deal()
         log.info("[CHANNEL] Done.")
