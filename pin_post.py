@@ -12,8 +12,11 @@ Usage:
 Upload picks board by product category (see BOARD_MAP). Token comes from
 .env PINTEREST_ACCESS_TOKEN (saved by pinterest_boards.py).
 """
+import hashlib
 import json
+import math
 import os
+import random
 import re
 import sys
 from pathlib import Path
@@ -160,8 +163,9 @@ def commission_score(p):
     return price_num(p) * (1 + discount_num(p) / 100.0)
 
 
-def card(p):
-    """Vertical 1000x1500 Pinterest card (2:3 — Pinterest's preferred ratio)."""
+def card_v1(p):
+    """DEPRECATED (kept for reference) — flat red gradient design, 2026-10 era.
+    Pinterest got 70 pins from this; v2 ('Luxe BF') below replaces it."""
     W, H = 1000, 1500
     img = Image.new("RGB", (W, H))
     d = ImageDraw.Draw(img)
@@ -260,9 +264,168 @@ def card(p):
     return img
 
 
+def star_poly(cx, cy, r_out, r_in, points=5, rot=-90):
+    """Polygon points for a symmetric star (rot=-90 puts a point straight up)."""
+    pts = []
+    for i in range(points * 2):
+        ang = math.radians(rot + i * 180.0 / points)
+        r = r_out if i % 2 == 0 else r_in
+        pts.append((cx + r * math.cos(ang), cy + r * math.sin(ang)))
+    return pts
+
+
+def card(p):
+    """v2 'Luxe BF' Pinterest card (1000x1500, 2:3).
+
+    Dark charcoal + gold frame, white product card, red starburst discount,
+    gold CTA pill, deterministic confetti (same product = same art).
+    Designed for the Black Friday search wave: BF branding in-image AND in
+    the pin title/description (see upload()).
+    """
+    W, H = 1000, 1500
+
+    # --- background: charcoal -> warm charcoal vertical gradient ---
+    img = Image.new("RGB", (W, H))
+    d = ImageDraw.Draw(img)
+    top, bot = (15, 15, 19), (41, 34, 26)
+    for y in range(H):
+        t = y / H
+        d.line([(0, y), (W, y)], fill=tuple(
+            int(top[i] + (bot[i] - top[i]) * t) for i in range(3)))
+
+    # --- deterministic bokeh rings + confetti dots ---
+    seed = sum(ord(c) for c in str(p.get("link") or p.get("name") or "deal"))
+    rnd = random.Random(seed)
+    ov = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    od = ImageDraw.Draw(ov)
+    for i in range(7):
+        cx, cy = rnd.randint(0, W), rnd.randint(0, H)
+        r = rnd.randint(45, 150)
+        col = (212, 175, 55, 16) if i % 2 else (229, 9, 20, 14)
+        od.ellipse([cx - r, cy - r, cx + r, cy + r], outline=col, width=3)
+    for _ in range(16):
+        x, y, r = rnd.randint(40, W - 40), rnd.randint(40, H - 40), rnd.randint(3, 7)
+        od.ellipse([x - r, y - r, x + r, y + r], fill=(255, 214, 0, 42))
+    img = Image.alpha_composite(img.convert("RGBA"), ov).convert("RGB")
+    d = ImageDraw.Draw(img)
+
+    # thin gold frame
+    d.rounded_rectangle([26, 26, W - 26, H - 26], radius=52,
+                        outline=(212, 175, 55), width=4)
+
+    # --- header ---
+    f_brand = F("bold", 58)
+    d.text((64, 62), "Smart", font=f_brand, fill=WHITE)
+    w = d.textlength("Smart", font=f_brand)
+    d.text((64 + w, 62), "Gahr", font=f_brand, fill=YELLOW)
+    d.text((64, 136), "Black Friday 2026 · handpicked deals",
+           font=F("regular", 34), fill=(195, 195, 195))
+    f_pill = F("bold", 40)
+    pt = "BF 2026"
+    pw = d.textlength(pt, font=f_pill)
+    d.rounded_rectangle([W - 64 - pw - 64, 62, W - 64, 134],
+                        radius=36, fill=(229, 9, 20))
+    d.text((W - 64 - pw - 32, 74), pt, font=f_pill, fill=WHITE)
+
+    # --- product card with soft shadow ---
+    ct, cb = 300, 1170
+    sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    sd = ImageDraw.Draw(sh)
+    sd.rounded_rectangle([68, 318, 956, 1190], radius=46, fill=(0, 0, 0, 120))
+    img = Image.alpha_composite(img.convert("RGBA"), sh).convert("RGB")
+    d = ImageDraw.Draw(img)
+    d.rounded_rectangle([56, ct, W - 56, cb], radius=46, fill=CARD)
+
+    # --- discount starburst (sits on the card's top-right corner) ---
+    disc = discount_num(p)
+    if disc:
+        cx, cy = 852, 332
+        d.polygon(star_poly(cx, cy, 132, 104, points=14), fill=(229, 9, 20))
+        f_b = F("heavy", 56)
+        bt = f"-{disc}%"
+        bw = d.textlength(bt, font=f_b)
+        d.text((cx - bw / 2, cy - 34), bt, font=f_b, fill=WHITE)
+
+    # category chip
+    cat = str(p.get("category") or "Deal").strip()
+    f_chip = F("bold", 34)
+    ctw = d.textlength(cat, font=f_chip)
+    d.rounded_rectangle([100, 352, 100 + ctw + 56, 416], radius=32,
+                        fill=(26, 26, 26))
+    d.text((128, 366), cat, font=f_chip, fill=YELLOW)
+
+    # product name
+    f_name = F("bold", 58)
+    y = 456
+    for ln in wrap(d, p.get("name", "Amazon Deal"), f_name, 700)[:3]:
+        d.text((100, y), ln, font=f_name, fill=INK)
+        y += 74
+    y += 24
+
+    # price block
+    price = str(p.get("price", "")).strip() or "₹?"
+    mrp = str(p.get("mrp", "")).strip()
+    f_price = F("heavy", 128)
+    d.text((100, y), price, font=f_price, fill=GREEN)
+    pw = d.textlength(price, font=f_price)
+    if mrp and mrp != price:
+        f_mrp = F("regular", 54)
+        d.text((130 + pw, y + 72), mrp, font=f_mrp, fill=GREY)
+        mw = d.textlength(mrp, font=f_mrp)
+        d.line([(132 + pw, y + 104), (132 + pw + mw, y + 104)],
+               fill=GREY, width=5)
+    y += 196
+
+    # rating stars (vector — no glyph risk on CI's DejaVu)
+    rating = str(p.get("rating", "")).strip()
+    try:
+        rv = float(re.sub(r"[^\d.]", "", rating) or 0)
+    except ValueError:
+        rv = 0.0
+    if rv:
+        full = int(round(rv))
+        sx, sy = 124, y + 22
+        for i in range(5):
+            col = (255, 184, 0) if i < full else (216, 216, 216)
+            d.polygon(star_poly(sx + i * 58, sy, 24, 11), fill=col)
+        d.text((sx + 5 * 58 + 6, sy - 23), f"{rating} / 5",
+               font=F("regular", 38), fill=(95, 95, 95))
+        y += 76
+
+    # hook line
+    fix = str(p.get("fix") or p.get("hook") or "").strip()
+    if fix:
+        f_fix = F("regular", 38)
+        for ln in wrap(d, fix, f_fix, 760)[:3]:
+            d.text((100, y), ln, font=f_fix, fill=(85, 85, 85))
+            y += 50
+        y += 12
+
+    # trust row: green check dot + line
+    d.ellipse([100, y + 8, 126, y + 34], fill=GREEN)
+    d.line([(106, y + 22), (112, y + 28), (120, y + 15)], fill=WHITE, width=4)
+    d.text((142, y + 2), "Amazon India · easy returns",
+           font=F("regular", 36), fill=(120, 120, 120))
+
+    # --- CTA pill + domain ---
+    d.rounded_rectangle([56, 1240, W - 56, 1384], radius=72, fill=YELLOW)
+    f_cta = F("bold", 54)
+    ct2 = "GRAB THE DEAL →"
+    cw = d.textlength(ct2, font=f_cta)
+    d.text(((W - cw) / 2, 1284), ct2, font=f_cta, fill=INK)
+    f_dom = F("regular", 34)
+    dt = "smartgahr.netlify.app · new deals daily"
+    dw = d.textlength(dt, font=f_dom)
+    d.text(((W - dw) / 2, 1416), dt, font=f_dom, fill=(160, 160, 160))
+    return img
+
+
 def slug(p, i):
     name = re.sub(r"[^a-z0-9]+", "_", str(p.get("name", "")).lower()).strip("_")[:40]
-    return f"pin_{i:02d}_{name}.png"
+    # link-hash (not loop index) so CI and local renders produce identical
+    # filenames — order changes as pins get deduped, hash never does.
+    h = hashlib.md5(str(p.get("link", "")).encode("utf-8")).hexdigest()[:8]
+    return f"pin_v2_{h}_{name}.png"
 
 
 def generate(n):
@@ -313,8 +476,12 @@ def write_status(res, limit):
     STATUS.write_text(json.dumps(res, indent=2), encoding="utf-8")
 
 
-def upload(items, limit=None):
-    """Upload pins; always returns a report dict (never a bare None)."""
+def upload(items, limit=None, key_suffix=""):
+    """Upload pins; always returns a report dict (never a bare None).
+
+    key_suffix: dedup key modifier — "" for a product's first pin,
+    "|v2" for the second design pass (see main()).
+    """
     import requests
     res = {
         "token_present": False,
@@ -354,7 +521,7 @@ def upload(items, limit=None):
         if limit is not None and done >= limit:
             print(f"daily quota reached ({limit} pins)")
             break
-        key = str(p.get("link", ""))
+        key = str(p.get("link", "")) + key_suffix
         if key in pinned:
             print(f"skip (already pinned): {path.name}")
             res["skipped"] += 1
@@ -367,12 +534,18 @@ def upload(items, limit=None):
             continue
 
         title = f"{p.get('name','Amazon Deal')} — {p.get('price','')} ({p.get('discount_percent','')} off)"
+        if key_suffix:
+            # v2 pass runs during the BF wave — front-load the search terms
+            # shoppers actually type ("BF 2026 deal") instead of a generic title.
+            title = (f"BF 2026 Deal: {p.get('name','Amazon Deal')} "
+                     f"{p.get('price','')} ({p.get('discount_percent','')} off)")
         title = title[:95]  # Pinterest title cap ~100
         # Never claim "under ₹999" for a ₹25,000 TV — that reads as bait and
         # kills trust on a brand-new account.
         px = price_num(p)
         budget = "Verified Amazon India deal under ₹999" if 0 < px <= 999 else "Hand-checked Amazon India deal"
-        desc = (f"{p.get('fix') or p.get('hook','')} "
+        bf_lead = "Black Friday 2026 India deal. " if key_suffix else ""
+        desc = (f"{bf_lead}{p.get('fix') or p.get('hook','')} "
                 f"MRP {p.get('mrp','')} → {p.get('price','')} "
                 f"({p.get('discount_percent','')} off, ⭐{p.get('rating','')}/5). "
                 f"{budget}. More daily deals: "
@@ -421,6 +594,7 @@ def main():
 
     upload_all = "--upload-all" in args
     do_upload = "--upload" in args or upload_all or daily is not None
+    key_suffix = ""  # v2 second-pass dedup key (link|v2); "" = normal first pass
     nums = [a for a in args if a.isdigit() and a != (str(daily) if daily else "")]
     n = int(nums[0]) if nums else (999 if (upload_all or daily) else 5)
 
@@ -431,6 +605,14 @@ def main():
         pinned = load_pinned()
         items = []
         prods = [p for p in load_products() if str(p.get("link", "")) not in pinned]
+        if not prods:
+            # Every deal already pinned once (queue dry) → keep the drip alive
+            # with a second pass in the NEW v2 design. Pinterest sees a fresh
+            # image + BF-tuned title, so it reads as a new pin, not a dupe.
+            prods = [p for p in load_products()
+                     if str(p.get("link", "")) + "|v2" not in pinned]
+            key_suffix = "|v2"
+            print(f"v1 queue dry -> v2 design pass: {len(prods)} deal(s)")
         prods.sort(key=commission_score, reverse=True)
         # Round-robin across categories: pure commission order sent every pin to
         # Electronics and left the other 3 boards dead. This keeps each board
@@ -462,7 +644,7 @@ def main():
 
     if do_upload:
         print("\n--- Uploading to Pinterest ---")
-        res = upload(items, limit=daily)
+        res = upload(items, limit=daily, key_suffix=key_suffix)
         write_status(res, daily)
 
         # Exit non-zero so a broken token shows up as a red CI run instead of
