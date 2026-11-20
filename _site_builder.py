@@ -486,6 +486,8 @@ def head(title, desc, canonical, rel="", head_extra="", og_image=""):
 HEADER = """<header class="site-header">
   <div class="container">
     <a href="{home}" class="logo">Smart<span>Gahr</span></a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Menu toggle">
+    <label for="nav-toggle" class="nav-label" aria-hidden="true"></label>
     <nav class="nav">
       <a href="{home}">Home</a>
       <a href="{deals}">Deals</a>
